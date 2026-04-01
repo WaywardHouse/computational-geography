@@ -14,14 +14,18 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render All Clusters
+     - name: Render All Clusters
         run: |
-          # Strip Windows line endings just in case
-          sed -i 's/\r$//' ./scripts/*.sh
-          chmod +x ./scripts/*.sh
-          ./scripts/render-core-book.sh
-          ./scripts/render-topic-libraries.sh
-          ./scripts/render-laboratory.sh
+          # 1. Ensure we are in the root and scripts exist
+          ls -la ./scripts/
+
+          # 2. Force convert all scripts to Unix format
+          find ./scripts/ -name "*.sh" -exec sed -i 's/\r$//' {} +
+          
+          # 3. Execute using explicit bash call (bypasses shebang issues)
+          bash ./scripts/render-core-book.sh
+          bash ./scripts/render-topic-libraries.sh
+          bash ./scripts/render-laboratory.sh
 
       - name: Deploy Core Book
         uses: cpina/github-action-push-to-another-repository@main
