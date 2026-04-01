@@ -1,0 +1,58 @@
+---
+title: "Advanced Investigations"
+subtitle: "The laboratory for project-style chapters, specialist applications, and the harder edge of the learning project."
+page-layout: article
+---
+
+::: {.section-kicker}
+Laboratory
+:::
+
+## Advanced Investigations {#advanced-investigations .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This section is the front door to the laboratory side of the project. Use it when you want open-ended investigations, integrated applications, and more demanding modelling problems.</p>
+    <div class="cta-row">
+      <a class="cta" href="../laboratory/">Open The Laboratory</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">Laboratory</span>
+      <span class="book-pill">Projects and investigations</span>
+      <span class="book-pill">Advanced applications</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Best For</strong>
+      <span>Readers who already have traction in the core path and want harder, richer, or more specialized work.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## What Lives Here {#what-lives-here .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Projects</span>
+    <h3>Computational Geography Laboratory</h3>
+    <p>Advanced applied models across hydrology, geomorphology, urban systems, air quality, and environmental change.</p>
+    <p><a href="../laboratory/">Open Laboratory</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Method Depth</span>
+    <h3>Advanced Remote Sensing</h3>
+    <p>Sensor physics, retrieval logic, and specialist observation systems.</p>
+    <p><a href="../advanced-remote-sensing/">Open Remote Sensing</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Specialist Branches</span>
+    <h3>Cryosphere and Machine Learning</h3>
+    <p>Cold-region systems, higher-end quantitative methods, and technical branches of the wider project.</p>
+    <p><a href="../explore-more/">Browse Topic Libraries</a></p>
+  </article>
+</div>
+```

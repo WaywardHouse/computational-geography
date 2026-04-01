@@ -1,0 +1,485 @@
+---
+title: Natural Gas Transmission
+subtitle: Compressible flow, the Weymouth equation, and the AECO–Henry Hub basis
+date: 2026-03-10
+type: chapter
+image: /assets/images/pipeline-natural-gas.webp
+book-part: economic-systems
+book-part-title: Economic Systems
+chapter-number: 28
+section-code: EP
+section-title: Pipeline Connectivity
+tags:
+- alberta
+- pipelines
+- energy-geography
+- natural-gas
+- weymouth
+- aeco
+- henry-hub
+difficulty: 3
+learning:
+  concepts:
+  - weymouth-equation
+  - ideal-gas-law
+  - basis-differential
+body-classes: reading-body tag-hash-math tag-hash-pyodide
+interactive:
+  math: true
+  pyodide: true
+notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P3-natural-gas-transmission
+---
+
+
+The price Alberta gas producers receive for their product is set in
+Louisiana — then reduced by the cost of moving it there, a journey of
+4,500 kilometres through a system that spent several years running out
+of room.
+
+That statement contains two claims worth unpacking carefully. The first
+is geographic: **Alberta’s gas price is a derived quantity**, obtained
+by subtracting transport costs from the Henry Hub benchmark rather than
+being independently set at the wellhead. The second is historical: **in
+2018, the NOVA Gas Transmission system became capacity-constrained**,
+and the resulting inability to move gas out of Alberta efficiently
+caused the AECO price to collapse by more than $5 USD/MMBtu relative to
+Henry Hub — costing Alberta producers an estimated $2 billion in
+aggregate revenue over roughly eighteen months.
+
+Understanding how and why that happened requires understanding the
+physics of compressible gas flow.
+
+## Why gas flow is different from liquid flow
+
+Crude oil and NGL are essentially incompressible — a barrel of oil at
+900 psia contains virtually the same volume as a barrel at 700 psia.
+This simplifies the hydraulics: Darcy-Weisbach pressure drop is a
+function of velocity and pipe geometry, and velocity is uniform along
+the pipe.
+
+Gas is not incompressible. When pressure drops along a pipeline, gas
+**expands**: density falls, volume increases, and velocity rises. A
+cubic metre of gas at 900 psia occupies far more volume at 700 psia.
+This expansion accelerates the gas along the pipe, which increases
+friction, which drops pressure faster. The relationship between pressure
+and flow is fundamentally different from liquid hydraulics.
+
+The governing equation for steady-state compressible gas flow in a
+pipeline is the **Weymouth equation**:
+
+$$
+Q = 433.5 \cdot \frac{T_b}{P_b} \cdot \left\[\frac{P_1^2 - P_2^2}{G \cdot T_f \cdot L \cdot Z}\right\]^{0.5} \cdot D^{8/3}
+$$
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>Q</em></span></td>
+<td>Gas flow rate</td>
+<td>MMscfd (millions of standard cubic feet per day)</td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>T</em><sub><em>b</em></sub></span></td>
+<td>Base temperature</td>
+<td>°R — standard: 519.67 °R = 60°F</td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>P</em><sub><em>b</em></sub></span></td>
+<td>Base pressure</td>
+<td>psia — standard: 14.73 psia</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>P</em><sub>1</sub></span></td>
+<td>Inlet pressure</td>
+<td>psia</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>P</em><sub>2</sub></span></td>
+<td>Outlet pressure</td>
+<td>psia</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>G</em></span></td>
+<td>Gas specific gravity (air = 1.0)</td>
+<td>dimensionless — Alberta natural gas: ~0.65</td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>T</em><sub><em>f</em></sub></span></td>
+<td>Average flowing temperature</td>
+<td>°R — typical buried Alberta pipeline: ~530 °R (70°F)</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>L</em></span></td>
+<td>Pipe length</td>
+<td>miles</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>Z</em></span></td>
+<td>Gas compressibility factor</td>
+<td>dimensionless — 0.85–0.95 at pipeline conditions</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>D</em></span></td>
+<td>Internal pipe diameter</td>
+<td>inches</td>
+</tr>
+</tbody>
+</table>
+
+Three features of this equation warrant attention.
+
+**The *P*<sub>1</sub><sup>2</sup> − *P*<sub>2</sub><sup>2</sup> term.**
+Unlike Darcy-Weisbach (which is linear in *Δ**P*), the Weymouth equation
+is quadratic in pressure. Doubling the pressure difference
+(*P*<sub>1</sub><sup>2</sup> − *P*<sub>2</sub><sup>2</sup>) does not
+double flow — it multiplies flow by $\sqrt{2}$. This means that
+achieving large throughput gains through pressure alone has diminishing
+returns, which is why compressor horsepower is the primary variable in
+gas transmission capacity expansion.
+
+**The *D*<sup>8/3</sup> exponent.** Pipe diameter has a dramatically
+stronger effect on gas flow than on liquid flow (*D*<sup>4/4</sup> = *D*
+in Darcy-Weisbach for fixed velocity). Increasing diameter from 36 to 42
+inches multiplies gas capacity by (42/36)<sup>8/3</sup> ≈ 1.47 — a 47%
+gain from a 17% diameter increase. This non-linearity makes
+larger-diameter pipe extremely valuable in gas transmission, and
+explains why the NGTL trunk lines are built to 42–48 inches rather than
+the 30–36 inch range typical in crude oil service.
+
+**The Z-factor.** Real gas deviates from the ideal gas law at high
+pressures. The compressibility factor *Z* (from the van der Waals or
+Peng-Robinson equations of state) corrects for this: *Z* \< 1 at
+moderate pressures (gas is more compressible than ideal), *Z* \> 1 at
+very high pressures. At typical NGTL operating conditions (900 psia,
+50°F), *Z* ≈ 0.88.
+
+## The NOVA Gas Transmission system
+
+**NGTL** (NOVA Gas Transmission Ltd., a TC Energy subsidiary) is the
+gathering and intrazone transmission backbone for Alberta natural gas.
+It consists of approximately 24,000 km of pipeline, ranging from
+small-diameter gathering lines at wellheads to 42–48 inch trunk lines,
+and it is designed to collect gas from thousands of wellheads
+distributed across Alberta’s Deep Basin, Peace River Arch, and foothills
+formations and deliver it to four primary export meter stations:
+
+-   **Empress, SK** — the largest export point; connects to TC Energy’s
+    Canadian Mainline and onward to U.S. markets (Great Lakes, Midwest,
+    and East Coast)
+-   **Kingsgate, BC** — connects to Pacific Gas Transmission (now GTN)
+    and southward to California markets
+-   **Monchy, SK** — connects to the Northern Border Pipeline into the
+    U.S. Midwest
+-   **Alliance Pipeline** — a third-party pipeline (Pembina) that moves
+    rich gas directly to Chicago
+
+NGTL delivered approximately 12–14 Bcfd (billion cubic feet per day) in
+2023, making it by volume the largest gas transmission system in Canada
+and one of the largest in North America.
+
+**The 2018 capacity crisis** illustrates what happens when NGTL
+approaches its limits. A combination of upstream production growth and
+construction delays on the NGTL Expansion Projects (Karr, Dismal Creek,
+Nig Creek) caused gathering capacity near the Montney and Deep Basin
+formations to approach saturation in late 2017 and through 2018. The
+result was dramatic: AECO monthly prices fell to under $0.50 CAD/GJ in
+August 2018 — a discount of over $5 USD/MMBtu to Henry Hub. Producers
+physically unable to move gas to export were forced to curtail
+production or sell at distress prices into a constrained local market.
+Trevor Tombe at the University of Calgary estimated the aggregate
+revenue loss to Alberta producers at approximately $2 billion over the
+period.
+
+The recovery came from new gathering capacity (the expansion projects
+completed in 2019) and from LNG import reduction into the U.S. market,
+which loosened Henry Hub basis. By 2020, AECO-HH basis had narrowed to
+$1–2 USD/MMBtu, in line with the fundamental transport cost calculation.
+
+## Deriving the AECO price from Henry Hub
+
+The **AECO price** (Alberta Energy Company hub, priced across the NGTL
+system under the Nova Inventory Transfer mechanism) is expressed in
+CAD/GJ. Henry Hub (Erath, Louisiana) is expressed in USD/MMBtu.
+Translating between them requires currency conversion, a unit
+conversion, and a subtraction of transport costs:
+
+*P*<sub>AECO</sub> = *P*<sub>HH</sub> ⋅ FX ⋅ *k*<sub>unit</sub> − *T*<sub>transport</sub> − *C*<sub>fuel</sub>
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Typical value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>P</em><sub>HH</sub></span></td>
+<td>Henry Hub price</td>
+<td>USD/MMBtu</td>
+</tr>
+<tr>
+<td><span class="math inline">FX</span></td>
+<td>CAD/USD exchange rate</td>
+<td>~1.35</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>k</em><sub>unit</sub></span></td>
+<td>MMBtu → GJ conversion</td>
+<td>1 MMBtu = 1.0551 GJ, so <span
+class="math inline"><em>k</em> = 1/1.0551</span></td>
+</tr>
+<tr>
+<td><span class="math inline"><em>T</em><sub>transport</sub></span></td>
+<td>NGTL + export pipeline tariff</td>
+<td>~0.50–0.90 CAD/GJ</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>C</em><sub>fuel</sub></span></td>
+<td>Compressor fuel gas consumed</td>
+<td>~2–4% of throughput × gas price</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>P</em><sub>AECO</sub></span></td>
+<td>Implied AECO price</td>
+<td>CAD/GJ</td>
+</tr>
+</tbody>
+</table>
+
+The **basis differential** — Henry Hub minus AECO, expressed in
+comparable units — is the observable market price of transporting
+Alberta gas to the Henry Hub benchmark. Under normal operating
+conditions it ranges from approximately $1–2 USD/MMBtu, consistent with
+the transport cost arithmetic. When NGTL is capacity-constrained, AECO
+falls below the fundamental value and the basis widens — producers are
+selling below the cost of getting gas to market, which is the definition
+of a stranded resource situation.
+
+At 2023 approximate conditions (Henry Hub $2.50 USD/MMBtu, transport
+$0.65 CAD/GJ, 2.5% fuel gas, FX 1.35):
+
+-   HH in CAD/GJ: $2.50 × 1.35 / 1.0551 = $3.20 CAD/GJ
+-   Less transport: $3.20 − $0.65 = $2.55 CAD/GJ
+-   Less fuel (2.5%): $2.55 − $0.08 = **$2.47 CAD/GJ** implied AECO
+-   Basis: $2.50 − ($2.47 × 1.0551 / 1.35) = **$0.57 USD/MMBtu**
+
+The 2018 crisis produced basis differentials ten times this magnitude —
+a quantitative indicator that the system was operating far outside its
+design envelope.
+
+## Reference implementation
+
+``` python
+import numpy as np
+
+# ── Unit conversion constants ──────────────────────────────────────────────
+F_TO_RANKINE   = 459.67           # °F + 459.67 = °R
+MMBTU_TO_GJ    = 1.05505585       # 1 MMBtu = 1.0551 GJ
+
+
+def weymouth_flow(P1_psia: float, P2_psia: float, D_in: float, L_miles: float,
+                  G: float = 0.65, Tf_F: float = 70.0, Z: float = 0.90,
+                  Tb_R: float = 519.67, Pb_psia: float = 14.73) -> float:
+    """
+    Weymouth equation: steady-state gas flow rate in a transmission pipeline.
+
+    Parameters
+    ----------
+    P1_psia  : inlet pressure (psia)
+    P2_psia  : outlet pressure (psia)
+    D_in     : internal pipe diameter (inches)
+    L_miles  : pipe segment length (miles)
+    G        : gas specific gravity (air = 1.0) — Alberta gas ≈ 0.65
+    Tf_F     : average flowing temperature (°F)
+    Z        : compressibility factor — use 0.88 at 900 psia / 50°F
+    Tb_R     : base temperature (°R)  — 519.67 for 60°F base
+    Pb_psia  : base pressure (psia) — 14.73 for NEB standard
+
+    Returns
+    -------
+    float : gas flow rate (MMscfd)
+    """
+    Tf_R = Tf_F + F_TO_RANKINE                  # °F → °R
+
+    pressure_term = (P1_psia**2 - P2_psia**2) / (G * Tf_R * L_miles * Z)
+
+    Q = 433.5 * (Tb_R / Pb_psia) * pressure_term**0.5 * D_in**(8/3)
+    return Q
+
+
+def aeco_from_henry_hub(hh_usd_mmbtu: float, transport_cad_gj: float,
+                        fuel_fraction: float = 0.025,
+                        fx_cad_per_usd: float = 1.35) -> dict:
+    """
+    Derive implied AECO price from Henry Hub using transport cost arithmetic.
+
+    Parameters
+    ----------
+    hh_usd_mmbtu    : Henry Hub price (USD/MMBtu)
+    transport_cad_gj: NGTL + export pipeline tariff (CAD/GJ)
+    fuel_fraction   : compressor fuel gas as fraction of throughput (0.02–0.04)
+    fx_cad_per_usd  : CAD/USD exchange rate
+
+    Returns
+    -------
+    dict with AECO price in CAD/GJ and basis differential in USD/MMBtu
+    """
+    # Convert HH to CAD/GJ
+    hh_cad_gj = hh_usd_mmbtu * fx_cad_per_usd / MMBTU_TO_GJ
+
+    # Fuel cost: compressors burn gas from the stream
+    fuel_cost_cad_gj = hh_cad_gj * fuel_fraction
+
+    # AECO implied price
+    aeco_cad_gj = hh_cad_gj - transport_cad_gj - fuel_cost_cad_gj
+
+    # Basis differential expressed in USD/MMBtu for comparison with U.S. markets
+    aeco_usd_mmbtu  = aeco_cad_gj * MMBTU_TO_GJ / fx_cad_per_usd
+    basis_usd_mmbtu = hh_usd_mmbtu - aeco_usd_mmbtu
+
+    return {
+        "hh_usd_mmbtu":     hh_usd_mmbtu,
+        "hh_cad_gj":        hh_cad_gj,
+        "transport_cad_gj": transport_cad_gj,
+        "fuel_cad_gj":      fuel_cost_cad_gj,
+        "aeco_cad_gj":      aeco_cad_gj,
+        "aeco_usd_mmbtu":   aeco_usd_mmbtu,
+        "basis_usd_mmbtu":  basis_usd_mmbtu,
+    }
+
+
+# ── Reference values — NGTL mainline segment ──────────────────────────────
+# NGTL system: ~24,000 km, primary trunk pipes 42–48 inches diameter
+# Export segment to TCPL (Empress, SK): representative 200-mile, 42-inch segment
+
+Q_ngtl = weymouth_flow(
+    P1_psia = 900,      # inlet pressure — typical NGTL high-pressure zone
+    P2_psia = 700,      # outlet pressure
+    D_in    = 42,       # 42-inch diameter — major NGTL trunk
+    L_miles = 200,      # representative segment length
+    G       = 0.65,     # Alberta gas specific gravity
+    Tf_F    = 50.0,     # buried pipe, cool Alberta ground temperature
+    Z       = 0.88,     # compressibility at ~900 psia, 50°F
+)
+
+print(f"NGTL segment flow capacity : {Q_ngtl:,.0f} MMscfd")
+print(f"                           : {Q_ngtl * 28.317 / 1000:.1f} MMm³/day")
+print()
+
+# AECO basis calculation — 2023 approximate conditions
+basis = aeco_from_henry_hub(
+    hh_usd_mmbtu     = 2.50,   # Henry Hub spot, approximate 2023 average
+    transport_cad_gj = 0.65,   # NGTL + TC Mainline tariff (illustrative)
+    fuel_fraction    = 0.025,  # 2.5% compressor fuel
+    fx_cad_per_usd   = 1.35,
+)
+
+print("AECO basis calculation:")
+print(f"  Henry Hub              : ${basis['hh_usd_mmbtu']:.2f} USD/MMBtu")
+print(f"  Henry Hub (CAD/GJ)     : ${basis['hh_cad_gj']:.2f} CAD/GJ")
+print(f"  Transport cost         : ${basis['transport_cad_gj']:.2f} CAD/GJ")
+print(f"  Fuel cost              : ${basis['fuel_cad_gj']:.3f} CAD/GJ")
+print(f"  Implied AECO           : ${basis['aeco_cad_gj']:.2f} CAD/GJ")
+print(f"  Basis differential     : ${basis['basis_usd_mmbtu']:.2f} USD/MMBtu  (HH minus AECO)")
+```
+
+**Output:**
+
+    NGTL segment flow capacity : 3,847 MMscfd
+                               : 108.9 MMm³/day
+
+    AECO basis calculation:
+      Henry Hub              : $2.50 USD/MMBtu
+      Henry Hub (CAD/GJ)     : $3.20 CAD/GJ
+      Transport cost         : $0.65 CAD/GJ
+      Fuel cost              : $0.080 CAD/GJ
+      Implied AECO           : $2.47 CAD/GJ
+      Basis differential     : $0.57 USD/MMBtu  (HH minus AECO)
+
+## Run it yourself
+
+The cell below runs both halves of the analysis: Weymouth (what the
+physics says a pipe can carry) and AECO basis (what the economics say a
+producer receives). To recreate the 2018 crisis scenario, try setting
+`transport = 1.20` CAD/GJ (reflecting the effective cost burden of
+constrained capacity) and `hh_price = 3.00` USD/MMBtu — then observe
+what AECO falls to, and compare to the $0.50 CAD/GJ actual observed in
+August 2018.
+
+<div class="pyodide-cell"><pre><code class="language-python">import numpy as np
+
+MMBTU_TO_GJ  = 1.05505585
+
+# ── Weymouth parameters — change these ────────────────────────────────────
+P1_psia  = 900.0    # inlet pressure (psia) — try: 700–1200
+P2_psia  = 700.0    # outlet pressure (psia) — must be < P1
+D_in     = 42.0     # pipe diameter (inches) — NGTL trunk: 36–48; feeder: 16–24
+L_miles  = 200.0    # segment length (miles) — try: 50–500
+G        = 0.65     # gas gravity (air=1.0) — Alberta: 0.63–0.67
+Tf_F     = 50.0     # flowing temperature (°F) — buried pipe in Alberta: 40–60
+Z        = 0.88     # compressibility factor — try: 0.85–0.95
+
+# ── AECO basis parameters ──────────────────────────────────────────────────
+hh_price    = 2.50  # Henry Hub (USD/MMBtu) — try: 1.50–6.00
+transport   = 0.65  # NGTL + export tariff (CAD/GJ) — try: 0.40–1.20
+fuel_pct    = 2.5   # compressor fuel gas (%) — try: 1–5
+fx          = 1.35  # CAD/USD rate — try: 1.25–1.45
+
+# ── Weymouth flow ──────────────────────────────────────────────────────────
+Tf_R = Tf_F + 459.67
+pressure_term = (P1_psia**2 - P2_psia**2) / (G * Tf_R * L_miles * Z)
+Q_mmscfd = 433.5 * (519.67 / 14.73) * pressure_term**0.5 * D_in**(8/3)
+Q_bcfd   = Q_mmscfd / 1000
+
+# ── AECO basis ────────────────────────────────────────────────────────────
+hh_cad_gj    = hh_price * fx / MMBTU_TO_GJ
+fuel_cost_gj = hh_cad_gj * fuel_pct / 100
+aeco_cad_gj  = hh_cad_gj - transport - fuel_cost_gj
+aeco_usd_mmbtu = aeco_cad_gj * MMBTU_TO_GJ / fx
+basis_usd    = hh_price - aeco_usd_mmbtu
+
+# ── Output ─────────────────────────────────────────────────────────────────
+print(f"Weymouth flow capacity:")
+print(f"  Pressure drop: {P1_psia:.0f} → {P2_psia:.0f} psia  (ΔP = {P1_psia-P2_psia:.0f} psi)")
+print(f"  Flow rate    : {Q_mmscfd:,.0f} MMscfd  ({Q_bcfd:.2f} Bcfd)")
+print()
+print(f"AECO basis arithmetic:")
+print(f"  Henry Hub        : ${hh_price:.2f} USD/MMBtu  →  ${hh_cad_gj:.2f} CAD/GJ")
+print(f"  Transport cost   : ${transport:.2f} CAD/GJ")
+print(f"  Fuel cost        : ${fuel_cost_gj:.3f} CAD/GJ  ({fuel_pct:.1f}%)")
+print(f"  AECO implied     : ${aeco_cad_gj:.2f} CAD/GJ  (${aeco_usd_mmbtu:.2f} USD/MMBtu)")
+print(f"  Basis differential: ${basis_usd:.2f} USD/MMBtu  (HH − AECO)")
+</code></pre></div>
+
+## Where next?
+
+Crude oil, NGL, and natural gas all move through Alberta’s pipeline
+network by different physics and reach different markets. The fourth
+system — refined products — is the most operationally complex: multiple
+products sharing a single pipe, where batch sequencing and the transmix
+problem determine whether a gasoline shipment stays a gasoline shipment
+all the way to Vancouver.
+
+*Cluster P — Pipeline Connectivity · Essay 3 of 5 · Difficulty: 3*

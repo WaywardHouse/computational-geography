@@ -1,0 +1,445 @@
+---
+title: Leaf Optical Properties — the PROSPECT Model
+subtitle: Why leaves are green, why they glow in the infrared, and what chlorophyll
+  has to do with it
+date: 2026-02-28
+type: chapter
+image: /assets/images/remote-sensing.webp
+book-part: advanced-remote-sensing
+book-part-title: Advanced Remote Sensing
+chapter-number: 1
+section-code: R
+section-title: Vegetation Optics and Radiative Transfer
+tags:
+- computational-geography
+- modelling
+- remote-sensing
+- spectral-reflectance
+- vegetation
+- radiative-transfer
+difficulty: 4
+description: 'A leaf is not just a flat green surface. It is a stack of cells filled
+  with water, pigments, and air gaps that interact with light in ways that depend
+  precisely on what is inside. PROSPECT — a plate model for leaf optics — predicts
+  the full reflectance and transmittance spectrum of any leaf from five measurable
+  biochemical parameters.
+
+  '
+learning:
+  concepts:
+  - exponential-decay
+  - plate-models
+  - optical-depth
+  - integration
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Beer-Lambert law and exponential decay (Series 1, Model
+  5). Spectral reflectance and sensor response (Series 1, Model 6). The plate model
+  introduced here extends Beer-Lambert to a stack of N scattering layers; no additional
+  prerequisites.
+
+  '
+---
+
+
+Hold a leaf up to a bright light. The transmitted light is not white: it is an amber-tinged green, richer in some wavelengths than others. The leaf is not opaque, and it is not uniformly transparent. It is a selective filter — absorbing blue and red light strongly where chlorophyll operates, passing green and near-infrared light where chlorophyll does not. The pattern of what a leaf absorbs, reflects, and transmits is its **optical signature**, and it encodes everything the leaf contains.
+
+Remote sensing of vegetation rests on reading that signature from a distance. But to read it, you first need a model of how it is written — a forward model that predicts what spectrum a sensor will record given knowledge of what the leaf contains. PROSPECT (Jacquemoud & Baret, 1990)[^1] is that model. It is, at its core, an extension of the Beer-Lambert law you have already met — applied not to a column of water in a forest canopy but to a stack of plant cells, each partially absorbing, partially scattering.
+
+---
+
+## 1. The Question
+
+Why do healthy vegetation canopies have such a distinctive spectral signature — low reflectance in the blue (absorbed by chlorophyll), low in the red (also chlorophyll), a local maximum in the green (the wavelength chlorophyll absorbs least), and then a dramatic step up to high reflectance across the near-infrared?
+
+The red-edge — the steep rise in leaf reflectance between about 680 nm and 740 nm — is one of the most diagnostic features in all of optical remote sensing. Its position shifts with chlorophyll content: high-chlorophyll leaves have their red-edge shifted slightly toward longer wavelengths; stressed or senescing leaves shift it back. Satellite systems have been specifically designed around this feature (Sentinel-2's red-edge bands at 705, 740, and 783 nm). To understand it, we need to understand the physics inside the leaf.
+
+---
+
+## 2. The Conceptual Model
+
+### Leaf anatomy as an optical system
+
+A dicotyledonous leaf (the flat, broad leaf of most trees and crops) is not a single homogeneous layer. In cross-section, it consists of:
+
+- **Upper epidermis:** a transparent waxy layer (cuticle) that reflects a small fraction of incident light specularly
+- **Palisade mesophyll:** tightly packed, elongated cells full of chloroplasts — the primary site of chlorophyll absorption
+- **Spongy mesophyll:** loosely packed cells with large air gaps between them — the primary site of scattering
+- **Lower epidermis:** another transparent layer with stomatal pores
+
+The air–cell interfaces in the spongy mesophyll create refractive index mismatches that scatter light in all directions. This is the structural reason for the high near-infrared reflectance of vegetation: in the NIR, pigment absorption is negligible, and the leaf behaves as a highly efficient diffuse reflector due to its internal structure. The NIR "step" is not a pigment feature — it is an architecture feature.
+
+### The plate model
+
+PROSPECT represents this complex anatomy as a stack of $N$ identical, semi-transparent, partly absorbing plates. Each plate represents approximately one cell layer of the mesophyll. The parameter $N$ (which takes non-integer values in practice) is a measure of leaf mesophyll structure — how many effective compact layers the leaf contains. Thicker, denser leaves have higher $N$.
+
+Within each plate, light is attenuated by absorption. The absorption at wavelength $\lambda$ within a single plate traversal is determined by the concentrations of the absorbing constituents:
+
+$$k(\lambda) = \frac{C_{ab}\, k_{ab}(\lambda) + C_{ar}\, k_{ar}(\lambda) + C_w\, k_w(\lambda) + C_m\, k_m(\lambda)}{N}$$
+
+where:
+
+| Symbol | Constituent | Units | Typical range |
+|---|---|---|---|
+| $C_{ab}$ | Chlorophyll a + b | µg cm⁻² | 10–80 |
+| $C_{ar}$ | Carotenoids | µg cm⁻² | 2–20 |
+| $C_w$ | Equivalent water thickness | cm | 0.005–0.05 |
+| $C_m$ | Dry matter content | g cm⁻² | 0.003–0.015 |
+
+Each $k_x(\lambda)$ is a **specific absorption coefficient** — the absorptance per unit concentration per unit path length — measured experimentally and tabulated across the spectrum.[^2]
+
+The single-plate transmittance (the fraction of light surviving one plate passage) is:
+
+$$\tau_1(\lambda) = (1 - k)\, e^{-k} + k^2\, E_1(k)$$
+
+where $E_1(k) = \int_k^\infty t^{-1} e^{-t}\, dt$ is the exponential integral. For small $k$ (transparent wavelengths), $\tau_1 \approx 1 - k$; for large $k$ (strongly absorbing wavelengths), $\tau_1 \to 0$ exponentially.
+
+At each plate surface, a fraction $\alpha$ of light is reflected (Fresnel reflection at the air–cell interface):
+
+$$\alpha(\lambda) = \frac{(n - 1)^2}{(n + 1)^2}$$
+
+where $n \approx 1.40$ is the refractive index of the hydrated cell wall material (slightly wavelength-dependent but treated as constant in PROSPECT-5).
+
+### Compounding N plates
+
+The single-plate reflectance $\rho_1$ and transmittance $\tau_1$ are compounded through $N$ plates using the **adding method**: the reflection and transmission of a stack of $N$ layers is computed recursively from the single-layer values, accounting for all inter-layer multiple scattering. The result — leaf hemispherical reflectance $R(\lambda)$ and transmittance $T(\lambda)$ — is what the model delivers.
+
+This is the same geometric series logic as the non-linear mixing correction in Model 6, extended to $N$ layers and solved exactly rather than as a first-order correction.
+
+---
+
+## 3. Building the Mathematical Model
+
+For a stack of two identical layers with single-layer reflectance $\rho$ and transmittance $\tau$, the combined reflectance (accounting for the infinite series of inter-layer bounces) is:
+
+$$\rho_2 = \rho + \frac{\tau^2 \rho}{1 - \rho^2}$$
+
+The denominator $1 - \rho^2$ is again the sum of a geometric series of inter-layer reflections. Extending this to $N$ layers (not necessarily integer) requires the full adding-method recurrence, which PROSPECT solves analytically.
+
+The final deliverables at each wavelength are:
+- $R(\lambda)$: hemispherical–hemispherical reflectance (what an upward-looking sensor sees relative to an isotropic illumination)
+- $T(\lambda)$: hemispherical–hemispherical transmittance
+
+Both lie in $[0, 1]$, and $R + T < 1$ (some light is absorbed). The absorption fraction $A = 1 - R - T$ is what drives photosynthesis.
+
+---
+
+## 4. Worked Example by Hand
+
+**Given:** A healthy wheat leaf with $C_{ab} = 40$ µg cm⁻², $C_{ar} = 8$ µg cm⁻², $C_w = 0.013$ cm, $C_m = 0.009$ g cm⁻², $N = 1.5$.
+
+**At $\lambda = 670$ nm (red — peak chlorophyll absorption):**
+
+Specific absorption coefficients at 670 nm (from published tables):
+- $k_{ab}(670) \approx 0.0737$ cm² µg⁻¹
+- $k_{ar}(670) \approx 0.0008$ cm² µg⁻¹ (carotenoids absorb little in red)
+- $k_w(670) \approx 0.0041$ cm g⁻¹ (water transparent in visible)
+- $k_m(670) \approx 0.0065$ cm² g⁻¹
+
+$$k(670) = \frac{40 \times 0.0737 + 8 \times 0.0008 + 0.013 \times 0.0041 + 0.009 \times 0.0065}{1.5}$$
+
+$$= \frac{2.948 + 0.006 + 0.0001 + 0.0001}{1.5} \approx \frac{2.954}{1.5} \approx 1.97$$
+
+This is a large absorption coefficient — most light is absorbed in the red. The single-plate transmittance $\tau_1(670) \approx e^{-1.97} \approx 0.14$, meaning only 14% of red light survives one plate crossing.
+
+**At $\lambda = 800$ nm (NIR — no chlorophyll absorption):**
+- $k_{ab}(800) \approx 0.0004$, $k_{ar}(800) \approx 0$, $k_w(800) \approx 0.0054$, $k_m(800) \approx 0.0031$
+
+$$k(800) = \frac{40 \times 0.0004 + 0 + 0.013 \times 0.0054 + 0.009 \times 0.0031}{1.5} \approx \frac{0.016 + 0.00007 + 0.00003}{1.5} \approx 0.011$$
+
+A very small absorption coefficient — the leaf is nearly transparent to NIR. The single-plate transmittance $\tau_1(800) \approx 1 - 0.011 \approx 0.989$.
+
+The contrast between $k(670) \approx 2.0$ and $k(800) \approx 0.011$ — a factor of nearly 200 — is the fundamental physics behind the red-edge and why NIR/red ratios (NDVI, EVI) are such effective vegetation indicators.
+
+---
+
+## 5. Computational Implementation
+
+The chart below implements PROSPECT-5 across 400–900 nm at 10 nm resolution using published specific absorption coefficients.[^3] Adjust the five biochemical parameters with the sliders and observe how the leaf reflectance and transmittance spectra respond. Key things to watch:
+
+- **Chlorophyll (Cab):** controls depth of the red (670 nm) and blue (450 nm) absorption wells, and shifts the red-edge position
+- **Carotenoids (Car):** absorb in the blue (400–500 nm), partially masked by chlorophyll at high Cab
+- **Water (Cw):** absorption features at ~970 nm (just off the right edge of the plot) and strong beyond 1400 nm; visible as a slight NIR slope
+- **Dry matter (Cm):** broad low-level absorption across all wavelengths
+- **Structure (N):** increasing N spreads light over more scattering surfaces, raising NIR reflectance and reducing transmittance
+
+<div class="model-controls">
+  <label>Chlorophyll a+b C<sub>ab</sub>: <strong id="cab-val">40</strong> µg cm⁻²
+    <input type="range" id="cab" min="5" max="80" step="1" value="40"></label>
+  <label>Carotenoids C<sub>ar</sub>: <strong id="car-val">8</strong> µg cm⁻²
+    <input type="range" id="car" min="0" max="20" step="0.5" value="8"></label>
+  <label>Water C<sub>w</sub>: <strong id="cw-val">0.013</strong> cm
+    <input type="range" id="cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
+  <label>Dry matter C<sub>m</sub>: <strong id="cm-val">0.009</strong> g cm⁻²
+    <input type="range" id="cm" min="0.002" max="0.020" step="0.001" value="0.009"></label>
+  <label>Leaf structure N: <strong id="n-val">1.5</strong>
+    <input type="range" id="n-param" min="1.0" max="3.5" step="0.1" value="1.5"></label>
+  <div class="flood-info" style="margin-top:0.75rem;">
+    <p><strong>Red-edge position (approx.):</strong> <span id="red-edge">--</span> nm</p>
+    <p><strong>NDVI (800 nm / 670 nm):</strong> <span id="ndvi-val">--</span></p>
+  </div>
+</div>
+
+<div id="prospect-chart" style="height:460px;"></div>
+
+<script type="module">
+await new Promise(r => {
+  const c = () => typeof echarts !== 'undefined' ? r() : setTimeout(c, 50);
+  c();
+});
+
+(function() {
+  // Wavelengths 400-900 nm in 10 nm steps (51 values)
+  const WL = Array.from({length: 51}, (_, i) => 400 + i * 10);
+
+  // Specific absorption coefficients (cm² µg⁻¹ or cm² g⁻¹ / cm g⁻¹)
+  // Derived from Jacquemoud et al. PROSPECT-5 published coefficients,
+  // resampled to 10 nm. k_ab, k_ar: cm² µg⁻¹; k_w: cm g⁻¹; k_m: cm² g⁻¹
+  const K_AB = [
+    0.0674,0.0670,0.0430,0.0220,0.0100,0.0060,0.0040,0.0030,0.0025,0.0022,
+    0.0019,0.0018,0.0018,0.0017,0.0018,0.0019,0.0021,0.0024,0.0029,0.0038,
+    0.0058,0.0114,0.0247,0.0516,0.0737,0.0580,0.0256,0.0073,0.0018,0.0007,
+    0.0004,0.0003,0.0002,0.0002,0.0002,0.0002,0.0001,0.0001,0.0001,0.0001,
+    0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001
+  ];
+  const K_AR = [
+    0.0180,0.0230,0.0320,0.0380,0.0320,0.0180,0.0070,0.0020,0.0006,0.0003,
+    0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,
+    0.0001,0.0001,0.0001,0.0001,0.0008,0.0006,0.0003,0.0001,0.0001,0.0001,
+    0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,
+    0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001
+  ];
+  const K_W = [
+    0.0020,0.0019,0.0018,0.0018,0.0017,0.0017,0.0017,0.0017,0.0018,0.0020,
+    0.0021,0.0022,0.0024,0.0027,0.0031,0.0036,0.0041,0.0047,0.0051,0.0054,
+    0.0055,0.0055,0.0054,0.0053,0.0041,0.0032,0.0025,0.0021,0.0019,0.0018,
+    0.0018,0.0018,0.0019,0.0020,0.0023,0.0028,0.0036,0.0048,0.0063,0.0082,
+    0.0108,0.0145,0.0196,0.0260,0.0339,0.0432,0.0538,0.0655,0.0781,0.0914,0.1057
+  ];
+  const K_M = [
+    0.0082,0.0075,0.0068,0.0063,0.0059,0.0056,0.0053,0.0052,0.0051,0.0050,
+    0.0050,0.0050,0.0050,0.0051,0.0052,0.0053,0.0055,0.0057,0.0059,0.0061,
+    0.0063,0.0065,0.0067,0.0066,0.0065,0.0063,0.0060,0.0056,0.0051,0.0046,
+    0.0040,0.0035,0.0030,0.0026,0.0022,0.0019,0.0016,0.0014,0.0013,0.0012,
+    0.0011,0.0010,0.0010,0.0010,0.0009,0.0009,0.0009,0.0009,0.0008,0.0008,0.0008
+  ];
+
+  // Refractive index of leaf material (simplified, ~1.40 across VIS-NIR)
+  const N_REF = 1.40;
+  const ALPHA = Math.pow((N_REF - 1) / (N_REF + 1), 2); // Fresnel surface reflectance ~0.0278
+
+  // Exponential integral E1(x) approximation (Abramowitz & Stegun 5.1.56)
+  function E1(x) {
+    if (x <= 0) return Infinity;
+    if (x < 1) {
+      return -Math.log(x) - 0.57721566 + x * (0.99999193 + x * (-0.24991055 +
+        x * (0.05519968 + x * (-0.00976004 + x * 0.00107857))));
+    }
+    const t = x + 4.0 - 1.5 / (x + 4.0 - 1.0 / (x + 4.0));
+    return Math.exp(-x) / t;
+  }
+
+  // Single-layer transmittance (PROSPECT plate model)
+  function tau1(k) {
+    if (k <= 0) return 1.0;
+    if (k > 50)  return 0.0;
+    return (1 - k) * Math.exp(-k) + k * k * E1(k);
+  }
+
+  // Adding method: combine two identical layers with reflectance r, transmittance t
+  // Returns {r: combined reflectance, t: combined transmittance}
+  function addLayers(r, t) {
+    const denom = 1 - r * r;
+    return {
+      r: r + (t * t * r) / denom,
+      t: (t * t) / denom,
+    };
+  }
+
+  // Compound N layers (N may be non-integer — interpolate between floor and ceil)
+  function prospect(Cab, Car, Cw, Cm, N) {
+    const R = [], T = [];
+    for (let i = 0; i < WL.length; i++) {
+      const k = (Cab * K_AB[i] + Car * K_AR[i] + Cw * K_W[i] + Cm * K_M[i]) / N;
+      const t = tau1(k) * (1 - ALPHA);  // transmittance through one plate interior, past exit surface
+      const r = ALPHA + (1 - ALPHA) * ALPHA * tau1(k);  // single-plate reflectance (front surface + back-scattered)
+
+      // Compound floor(N) layers
+      let nf = Math.floor(N);
+      let layer = {r, t};
+      for (let j = 1; j < nf; j++) layer = addLayers(layer.r, layer.t);
+
+      // If N is non-integer, interpolate with one extra layer
+      if (N !== nf) {
+        const next = addLayers(layer.r, layer.t);
+        const frac = N - nf;
+        R.push(layer.r * (1 - frac) + next.r * frac);
+        T.push(layer.t * (1 - frac) + next.t * frac);
+      } else {
+        R.push(layer.r);
+        T.push(layer.t);
+      }
+    }
+    return {R, T};
+  }
+
+  const el    = document.getElementById('prospect-chart');
+  const chart = echarts.init(el, null, {renderer: 'canvas'});
+  const textC  = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()  || '#333';
+  const text2C = getComputedStyle(document.documentElement).getPropertyValue('--text-2').trim() || '#666';
+
+  function getOption(R, T) {
+    return {
+      backgroundColor: 'transparent',
+      grid: {left: 55, right: 20, top: 40, bottom: 45},
+      legend: {data: ['Reflectance', 'Transmittance', 'Absorptance'], textStyle: {color: textC}, top: 8},
+      tooltip: {
+        trigger: 'axis',
+        formatter: p => {
+          const wl = WL[p[0].dataIndex];
+          return `<b>${wl} nm</b><br/>` + p.map(s =>
+            `${s.marker}${s.seriesName}: ${(s.value * 100).toFixed(1)}%`
+          ).join('<br/>');
+        },
+      },
+      xAxis: {
+        type: 'category', data: WL.map(String),
+        name: 'Wavelength (nm)', nameLocation: 'middle', nameGap: 30,
+        axisLabel: {color: text2C, interval: 4},
+        axisLine: {lineStyle: {color: text2C}},
+        splitLine: {show: false},
+        nameTextStyle: {color: text2C},
+      },
+      yAxis: {
+        type: 'value', name: 'Fraction', nameLocation: 'middle', nameGap: 40,
+        min: 0, max: 1,
+        axisLabel: {color: text2C, formatter: v => (v * 100).toFixed(0) + '%'},
+        axisLine: {lineStyle: {color: text2C}},
+        splitLine: {lineStyle: {color: text2C, opacity: 0.15}},
+        nameTextStyle: {color: text2C},
+      },
+      series: [
+        {name: 'Reflectance',   type: 'line', data: R,
+         lineStyle: {color: '#4e8ac4', width: 2.5}, itemStyle: {color: '#4e8ac4'}, symbol: 'none',
+         areaStyle: {color: 'rgba(78,138,196,0.08)'}},
+        {name: 'Transmittance', type: 'line', data: T,
+         lineStyle: {color: '#4a7c59', width: 2.5}, itemStyle: {color: '#4a7c59'}, symbol: 'none',
+         areaStyle: {color: 'rgba(74,124,89,0.08)'}},
+        {name: 'Absorptance',   type: 'line',
+         data: R.map((r, i) => +(1 - r - T[i]).toFixed(4)),
+         lineStyle: {color: '#d47c4e', width: 2.5}, itemStyle: {color: '#d47c4e'}, symbol: 'none',
+         areaStyle: {color: 'rgba(212,124,78,0.08)'}},
+      ],
+    };
+  }
+
+  function redEdge(R) {
+    // Find wavelength of steepest rise between 670-740 nm (max dR/dλ)
+    let maxGrad = -Infinity, maxIdx = 27;
+    for (let i = 27; i <= 34; i++) {  // 670-740 nm
+      const grad = R[i+1] - R[i];
+      if (grad > maxGrad) { maxGrad = grad; maxIdx = i; }
+    }
+    return WL[maxIdx] + 5;  // centre of 10nm bin
+  }
+
+  function ndvi(R) {
+    const nir = R[40];  // 800 nm
+    const red = R[27];  // 670 nm
+    return ((nir - red) / (nir + red)).toFixed(3);
+  }
+
+  function update() {
+    const Cab = +document.getElementById('cab').value;
+    const Car = +document.getElementById('car').value;
+    const Cw  = +document.getElementById('cw').value;
+    const Cm  = +document.getElementById('cm').value;
+    const N   = +document.getElementById('n-param').value;
+    document.getElementById('cab-val').textContent = Cab;
+    document.getElementById('car-val').textContent = Car;
+    document.getElementById('cw-val').textContent  = Cw.toFixed(3);
+    document.getElementById('cm-val').textContent  = Cm.toFixed(3);
+    document.getElementById('n-val').textContent   = N.toFixed(1);
+    const {R, T} = prospect(Cab, Car, Cw, Cm, N);
+    chart.setOption(getOption(R, T));
+    document.getElementById('red-edge').textContent = redEdge(R);
+    document.getElementById('ndvi-val').textContent = ndvi(R);
+  }
+
+  ['cab','car','cw','cm','n-param'].forEach(id =>
+    document.getElementById(id).addEventListener('input', update)
+  );
+
+  update();
+
+  const ro = new ResizeObserver(() => chart.resize());
+  ro.observe(el);
+})();
+</script>
+
+---
+
+## 6. Interpretation
+
+### The red-edge as a chlorophyll meter
+
+As you reduce $C_{ab}$, the red-edge position shifts toward shorter wavelengths (a "blue-shift") and the contrast between red and NIR reflectance decreases. This is the basis of **red-edge remote sensing**: satellite bands precisely positioned on the red-edge slope (Sentinel-2 bands 5, 6, 7 at 705, 740, 783 nm) can track chlorophyll content across an agricultural or forest landscape without ground sampling.
+
+The red-edge is also the best early indicator of plant stress. A tree affected by water stress, pest damage, or nutrient deficiency will show a red-edge blue-shift before it shows any visible yellowing — because chlorophyll begins to degrade at concentrations that still look green to the eye but are detectable in the 705 nm band.
+
+### Structure versus biochemistry
+
+The NIR plateau (750–900 nm) is controlled primarily by $N$, the structural parameter, not by pigment content. Increasing $N$ raises NIR reflectance. This is why different plant species with identical chlorophyll content can have different NIR reflectances: the mesophyll architecture differs. Thick-leaved succulents have high $N$ and very high NIR reflectance; thin-leaved grasses have lower $N$.
+
+This has practical implications for vegetation index calibration: NDVI depends on NIR reflectance and therefore on $N$, not just on $C_{ab}$. Two fields with identical chlorophyll content but different leaf thickness will have different NDVI. More physically-based indices that account for leaf structure outperform NDVI in heterogeneous canopies.
+
+### Water and dry matter in the shortwave infrared
+
+The water absorption features become dominant beyond 900 nm — outside the range of this visualisation but critical for crop water stress monitoring and fire severity mapping. The equivalent water thickness $C_w$ can be retrieved from bands at 970, 1240, and 1450 nm, none of which were available on Landsat-5 but most of which are available on hyperspectral sensors and some Sentinel-2 bands.
+
+---
+
+## 7. What Could Go Wrong?
+
+**Assuming a flat refractive index.** PROSPECT uses a constant $n \approx 1.40$ across the spectrum. In reality the refractive index varies slightly with wavelength and significantly with water content. The error is small across 400–900 nm but increases in the shortwave infrared.
+
+**Treating N as a physical parameter.** The structure parameter $N$ is calibrated empirically rather than measured directly from anatomy. It captures real variation in leaf thickness and cell structure, but it is not a simple count of cell layers. Transferring a PROSPECT calibration from one species to another requires re-estimation of $N$.
+
+**Ignoring the bidirectional nature of reflectance.** PROSPECT predicts hemispherical reflectance — the integrated fraction of light scattered upward under diffuse illumination. Real sensors observe from a specific viewing angle under directional solar illumination. The ratio of directional to hemispherical reflectance (the BDRF at the leaf level) varies with surface roughness and wax structure. PROSPECT output is the correct input to canopy radiative transfer models (the next model in this series), but direct comparison with nadir satellite data requires the full canopy model.
+
+---
+
+## 8. Math Refresher
+
+### The exponential integral $E_1(x)$
+
+The exponential integral $E_1(x) = \int_x^\infty t^{-1} e^{-t}\, dt$ appears in the PROSPECT transmittance formula. It is a standard special function: for $x \ll 1$, $E_1(x) \approx -\ln x - \gamma$ (where $\gamma \approx 0.577$ is the Euler–Mascheroni constant); for $x \gg 1$, $E_1(x) \approx e^{-x}/x$. In this context it accounts for the distribution of path lengths through an absorbing medium that is not traversed perpendicularly.
+
+### The adding method
+
+For two identical layers each with reflectance $\rho$ and transmittance $\tau$, the combined reflectance is $\rho_2 = \rho + \tau^2\rho/(1-\rho^2)$. The numerator $\tau^2\rho$ is the contribution of photons that transmit through the first layer, reflect off the second, and transmit back through the first. The denominator $1-\rho^2$ sums the infinite series of inter-layer bounce contributions — the same geometric series logic as Beer-Lambert and non-linear spectral mixing.
+
+---
+
+## Where Next?
+
+PROSPECT delivers $R(\lambda)$ and $T(\lambda)$ at the leaf level. The next step — the SAIL canopy radiative transfer model — takes these as inputs and asks: what happens when millions of such leaves are arranged in a canopy with a given leaf area index, leaf angle distribution, and solar geometry? That model completes the forward chain from leaf biochemistry to satellite measurement.
+
+**In this series:**
+- → [Canopy Reflectance — the SAIL Model](#) *(next)*
+- [Hyperspectral Imaging and Spectral Unmixing](#)
+
+**Background:**
+- ← [Spectral Mixing and Sensor Response](#) *(Series 1, Model 6)*
+
+---
+
+## References
+
+[^1]: Jacquemoud, S. and Baret, F., 1990. PROSPECT: A model of leaf optical properties spectra. *Remote Sensing of Environment*, 34(2), pp.75–91. <https://doi.org/10.1016/0034-4257(90)90100-Z>
+
+[^2]: The specific absorption coefficients used here are from the PROSPECT-5 parameterisation: Feret, J.-B., François, C., Asner, G.P., Gitelson, A.A., Martin, R.E., Bidel, L.P.R., Ustin, S.L., le Maire, G. and Jacquemoud, S., 2008. PROSPECT-4 and 5: Advances in the leaf optical properties model separating photosynthetic pigments. *Remote Sensing of Environment*, 112(6), pp.3030–3043. <https://doi.org/10.1016/j.rse.2008.02.012>
+
+[^3]: The implementation uses a simplified but physically consistent form of the PROSPECT plate model. The specific absorption coefficients are resampled from published PROSPECT-5 tabulated values to 10 nm resolution over 400–900 nm. For full-spectrum (400–2500 nm) calculations including shortwave infrared water and dry matter features, and for production use in retrieval algorithms, the complete published coefficient tables should be used. The PROSPECT source code and coefficient files are available from the OPTICLEAF database maintained by INRAE. <https://opticleaf.ipgp.fr>

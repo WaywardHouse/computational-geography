@@ -1,0 +1,485 @@
+---
+title: Canopy Reflectance — the SAIL Model
+subtitle: 'From leaf optical properties to satellite signal: LAI, geometry, and the
+  hotspot'
+date: 2026-02-28
+type: chapter
+image: /assets/images/remote-sensing.webp
+book-part: advanced-remote-sensing
+book-part-title: Advanced Remote Sensing
+chapter-number: 2
+section-code: R
+section-title: Vegetation Optics and Radiative Transfer
+tags:
+- computational-geography
+- modelling
+- remote-sensing
+- spectral-reflectance
+- vegetation
+- radiative-transfer
+- canopy
+difficulty: 4
+description: 'A canopy is not a leaf scaled up. It is an arrangement of millions of
+  leaves at different angles, casting and receiving shadows, intercepting direct and
+  diffuse radiation, scattering light toward a sensor that looks from a specific direction.
+  SAIL models all of this — and predicts what any optical satellite will see above
+  a vegetation canopy.
+
+  '
+learning:
+  concepts:
+  - two-stream-approximation
+  - differential-equations
+  - integration
+  - matrix-methods
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'PROSPECT leaf optical properties (Series 5, Model 1). Exponential
+  decay and Beer-Lambert law (Series 1, Model 5). Solar geometry and the dot product
+  (Series 1, Model 7). The two-stream approximation is introduced here.
+
+  '
+---
+
+
+PROSPECT tells us what a single leaf reflects and transmits at each wavelength. It does not tell us what a satellite sees above a wheat field. Between the leaf and the satellite lies the canopy — a turbid medium of scattering elements (leaves, stems, fruit) distributed in three-dimensional space, intercepting direct sunlight from one direction, receiving diffuse skylight from all directions, and scattering radiation toward a sensor that looks from a third direction.
+
+The **SAIL model** (Scattering by Arbitrarily Inclined Leaves, Verhoef 1984)[^1] is the standard radiative transfer framework for this geometry. It extends Beer-Lambert from a column of water molecules to a canopy of finite-sized, arbitrarily oriented leaves. SAIL is used operationally in satellite data processing chains for Sentinel-2, MODIS, and Landsat; it underpins the LAI and FAPAR products used in climate models and crop monitoring; and it is the reason that NDVI, despite its simplicity, can be approximately inverted for leaf area index under known conditions.
+
+Together with PROSPECT as the leaf optical property model, the coupled **PROSAIL** (PROSPECT + SAIL) model is the workhorse forward model in optical remote sensing of vegetation.[^2]
+
+---
+
+## 1. The Question
+
+Why does a dense, closed canopy of vegetation look different to a sparse, open canopy — even when every individual leaf in both canopies has identical optical properties?
+
+The answer has three components:
+
+1. **Interception geometry.** A dense canopy intercepts more incoming radiation. The fraction of radiation reaching the soil — and therefore the fraction of the satellite signal that comes from soil rather than vegetation — depends on LAI and leaf angle distribution.
+
+2. **Multiple scattering.** In a dense canopy, photons may be scattered by one leaf, then another, then another before escaping upward. Multiple scattering brightens the NIR signal substantially; it has a smaller effect in the red where absorption by each leaf is strong.
+
+3. **Sun-sensor geometry.** The reflectance of a canopy depends on the angle between the sun, the canopy, and the sensor. The **hotspot** — the bright region observed when the sensor looks directly back along the sun direction — is a purely geometric effect with no analogue in flat surface reflectance.
+
+SAIL addresses all three.
+
+---
+
+## 2. The Conceptual Model
+
+### The canopy as a turbid medium
+
+SAIL represents the canopy as a **turbid medium**: a layer of randomly distributed, infinitesimally small scattering elements (leaves) filling a horizontal slab of thickness $h$ (the canopy height). The total **leaf area index** (LAI) is the one-sided leaf area per unit ground area — the key canopy structural parameter:
+
+$$\text{LAI} = \int_0^h \text{LAD}(z)\, dz$$
+
+where LAD$(z)$ is the leaf area density (m² leaf m⁻³ canopy) at height $z$.
+
+Individual leaf orientation is described by the **mean leaf inclination angle** (MLA, or ALA in SAIL notation): the average angle between the leaf normal and the vertical. A horizontal canopy (all leaves flat) has MLA = 0°; an erectophile canopy (all leaves vertical, like grass) has MLA = 90°.
+
+### Beer-Lambert for a canopy
+
+For a beam of direct solar radiation at zenith angle $\theta_s$ (measured from vertical), the fraction of radiation surviving to depth $L$ (cumulative LAI from the top) is:
+
+$$I(L) = I_0 \cdot \exp\!\left(-K(\theta_s, \text{MLA})\cdot L\right)$$
+
+The **extinction coefficient** $K$ depends on the solar zenith angle and the leaf angle distribution:
+
+$$K(\theta_s, \text{MLA}) = \frac{G(\theta_s, \text{MLA})}{\cos\theta_s}$$
+
+where $G$ is the **projection function** — the mean projected leaf area per unit leaf area in the direction of the sun beam. For a spherical leaf angle distribution (leaves uniformly distributed over all orientations, the simplest assumption), $G = 0.5$ for all angles, giving $K = 0.5 / \cos\theta_s$.
+
+This is Beer-Lambert again, but now $k$ is not a molecular absorption coefficient — it is a geometric quantity describing how leaves occlude each other in the solar beam direction.
+
+### The two-stream approximation
+
+Direct Beer-Lambert attenuation accounts only for the **direct beam** and its shadowing. Real canopies also scatter radiation upward and downward between leaf layers. SAIL solves this with the **two-stream approximation**: it tracks two fluxes through the canopy — an upwelling stream $E^+$ and a downwelling stream $E^-$ — plus the direct solar beam.
+
+The coupled differential equations governing these streams are:
+
+$$\frac{dE^+}{dL} = -(\sigma + a)\, E^+ + \sigma_b\, E^- + w \cdot J^+$$
+$$\frac{dE^-}{dL} = +\sigma_b\, E^+ - (\sigma + a)\, E^- + w \cdot J^-$$
+
+where:
+- $\sigma$ is the total scattering coefficient (leaf single-scattering albedo times geometry factor)
+- $a$ is the absorption coefficient
+- $\sigma_b$ is the backward scatter fraction
+- $J^+$, $J^-$ are source terms from the direct solar beam
+- $w = \rho_\ell + \tau_\ell$ is the leaf single-scattering albedo (reflectance + transmittance from PROSPECT)
+
+These are solved analytically with boundary conditions:
+- At the top of the canopy ($L = 0$): downwelling = incoming solar + sky irradiance
+- At the bottom ($L = \text{LAI}$): upwelling from soil = $\rho_s \times$ (radiation reaching the soil)
+
+The solution gives the upwelling flux at the top of the canopy — the **canopy hemispherical reflectance** — as a function of LAI, MLA, sun angle, soil reflectance, and the leaf single-scattering albedo derived from PROSPECT.
+
+### The hotspot
+
+The two-stream solution describes hemispherical reflectance (averaged over all viewing directions). Real satellite sensors observe from a specific view angle $\theta_v$ with an azimuth relative to the sun of $\phi$. SAIL includes a **bidirectional** correction.
+
+The most striking bidirectional effect is the **hotspot**: when the sensor looks directly back along the sun direction ($\theta_v = \theta_s$, $\phi = 180°$), the observed reflectance is sharply elevated. This happens because in the exact backscattering direction, the sensor cannot see any shadows — every leaf visible to the sensor is also illuminated by the sun. The hotspot is a pure geometry effect; it occurs in every canopy and on every rough surface, including the Moon (the cause of the lunar opposition surge).
+
+SAIL parameterises the hotspot with a single parameter $s = s_l / h$ — the ratio of the leaf size to canopy height. Larger leaves relative to canopy height produce a stronger, broader hotspot.
+
+---
+
+## 3. The PROSAIL Forward Chain
+
+The complete PROSAIL model runs as follows:
+
+1. **Input leaf parameters** → PROSPECT → $\rho_\ell(\lambda)$, $\tau_\ell(\lambda)$ at each wavelength
+2. **Input canopy and geometry parameters** → SAIL → canopy BRF at each wavelength
+
+The canopy and geometry parameters are:
+
+| Parameter | Symbol | Typical range |
+|---|---|---|
+| Leaf area index | LAI | 0.5 – 8 m² m⁻² |
+| Mean leaf angle | ALA | 30° – 70° |
+| Hotspot size | $s$ | 0.05 – 0.5 |
+| Soil reflectance factor | $\rho_s$ | 0.05 – 0.4 |
+| Solar zenith angle | $\theta_s$ | 0° – 70° |
+| View zenith angle | $\theta_v$ | 0° – 60° |
+| Relative azimuth | $\phi$ | 0° – 180° |
+| Diffuse sky fraction | $f_{diff}$ | 0.05 – 0.3 |
+
+---
+
+## 4. Worked Example by Hand
+
+**Question:** For a canopy with LAI = 3 and a spherical leaf angle distribution ($G = 0.5$) under direct beam illumination at $\theta_s = 30°$ ($\cos\theta_s = 0.866$), what fraction of the soil is exposed to direct sunlight?
+
+**Step 1 — Extinction coefficient:**
+
+$$K = \frac{G}{\cos\theta_s} = \frac{0.5}{0.866} = 0.577$$
+
+**Step 2 — Gap fraction (fraction of radiation reaching soil):**
+
+$$P_{\text{gap}} = e^{-K \cdot \text{LAI}} = e^{-0.577 \times 3} = e^{-1.73} \approx 0.177$$
+
+About 18% of direct sunlight reaches the soil. The other 82% is intercepted by leaves and either absorbed or scattered.
+
+**Step 3 — What changes with LAI = 6?**
+
+$$P_{\text{gap}} = e^{-0.577 \times 6} = e^{-3.46} \approx 0.031$$
+
+Only 3% of direct sunlight penetrates. This is why a dense closed canopy produces almost no sun-fleck on the forest floor in summer.
+
+**Step 4 — The asymptote.** As LAI increases, $P_{\text{gap}} \to 0$ exponentially, but the canopy reflectance does not increase indefinitely: it asymptotes to a maximum value because additional leaves above an already closed canopy merely scatter light among themselves. This saturation — well-known in NDVI — is a direct consequence of the Beer-Lambert geometry.
+
+---
+
+## 5. Computational Implementation
+
+The interactive below implements the full PROSAIL forward chain. PROSPECT runs internally to generate leaf $\rho_\ell$ and $\tau_\ell$ at each wavelength; SAIL then computes the canopy hemispherical reflectance using the two-stream solution with a directional correction for the view angle. Leaf parameters are fixed at typical wheat values; canopy and geometry parameters are adjustable.
+
+Key things to explore:
+- **LAI:** increases NIR reflectance rapidly at first (NDVI saturates above LAI ~3), barely affects red (already mostly absorbed)
+- **ALA:** erectophile canopies (high ALA) transmit more light to soil, reducing NIR reflectance at a given LAI
+- **Sun angle:** higher $\theta_s$ (lower sun) increases path length through canopy, deepening the red absorption
+- **View angle / hotspot:** set $\theta_v = \theta_s$ and $\phi = 180°$ to see the hotspot brighten
+- **Soil:** dry bare soil has higher reflectance than wet soil; the soil signal dominates at low LAI
+
+<div class="model-controls">
+  <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
+    <legend style="font-weight:600;">Leaf (PROSPECT)</legend>
+    <label>Chlorophyll C<sub>ab</sub>: <strong id="s-cab-val">40</strong> µg cm⁻²
+      <input type="range" id="s-cab" min="5" max="80" step="1" value="40"></label>
+    <label>Water C<sub>w</sub>: <strong id="s-cw-val">0.013</strong> cm
+      <input type="range" id="s-cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
+    <label>Structure N: <strong id="s-n-val">1.5</strong>
+      <input type="range" id="s-n" min="1.0" max="3.5" step="0.1" value="1.5"></label>
+  </fieldset>
+  <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
+    <legend style="font-weight:600;">Canopy (SAIL)</legend>
+    <label>LAI: <strong id="s-lai-val">3.0</strong> m² m⁻²
+      <input type="range" id="s-lai" min="0.2" max="8" step="0.1" value="3.0"></label>
+    <label>Mean leaf angle: <strong id="s-ala-val">57</strong>°
+      <input type="range" id="s-ala" min="10" max="80" step="1" value="57"></label>
+    <label>Hotspot s: <strong id="s-hot-val">0.10</strong>
+      <input type="range" id="s-hot" min="0.01" max="0.50" step="0.01" value="0.10"></label>
+    <label>Soil reflectance factor: <strong id="s-soil-val">0.15</strong>
+      <input type="range" id="s-soil" min="0.02" max="0.40" step="0.01" value="0.15"></label>
+    <label>Diffuse fraction: <strong id="s-diff-val">0.10</strong>
+      <input type="range" id="s-diff" min="0.0" max="0.50" step="0.01" value="0.10"></label>
+  </fieldset>
+  <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
+    <legend style="font-weight:600;">Geometry</legend>
+    <label>Solar zenith θ<sub>s</sub>: <strong id="s-ts-val">30</strong>°
+      <input type="range" id="s-ts" min="0" max="70" step="1" value="30"></label>
+    <label>View zenith θ<sub>v</sub>: <strong id="s-tv-val">0</strong>°
+      <input type="range" id="s-tv" min="0" max="60" step="1" value="0"></label>
+    <label>Relative azimuth φ: <strong id="s-phi-val">0</strong>°
+      <input type="range" id="s-phi" min="0" max="180" step="5" value="0"></label>
+  </fieldset>
+  <div class="flood-info" style="margin-top:0.5rem;">
+    <p><strong>NDVI:</strong> <span id="s-ndvi">--</span></p>
+    <p><strong>NIR (800 nm):</strong> <span id="s-nir">--</span></p>
+    <p><strong>Red (670 nm):</strong> <span id="s-red">--</span></p>
+    <p><strong>Gap fraction:</strong> <span id="s-gap">--</span></p>
+  </div>
+</div>
+
+<div id="sail-chart" style="height:460px;"></div>
+
+<script type="module">
+await new Promise(r => {
+  const c = () => typeof echarts !== 'undefined' ? r() : setTimeout(c, 50);
+  c();
+});
+
+(function() {
+  const WL = Array.from({length: 51}, (_, i) => 400 + i * 10);
+
+  // PROSPECT absorption coefficients (same as previous model)
+  const K_AB = [0.0674,0.0670,0.0430,0.0220,0.0100,0.0060,0.0040,0.0030,0.0025,0.0022,0.0019,0.0018,0.0018,0.0017,0.0018,0.0019,0.0021,0.0024,0.0029,0.0038,0.0058,0.0114,0.0247,0.0516,0.0737,0.0580,0.0256,0.0073,0.0018,0.0007,0.0004,0.0003,0.0002,0.0002,0.0002,0.0002,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001];
+  const K_AR = [0.0180,0.0230,0.0320,0.0380,0.0320,0.0180,0.0070,0.0020,0.0006,0.0003,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0008,0.0006,0.0003,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001,0.0001];
+  const K_W  = [0.0020,0.0019,0.0018,0.0018,0.0017,0.0017,0.0017,0.0017,0.0018,0.0020,0.0021,0.0022,0.0024,0.0027,0.0031,0.0036,0.0041,0.0047,0.0051,0.0054,0.0055,0.0055,0.0054,0.0053,0.0041,0.0032,0.0025,0.0021,0.0019,0.0018,0.0018,0.0018,0.0019,0.0020,0.0023,0.0028,0.0036,0.0048,0.0063,0.0082,0.0108,0.0145,0.0196,0.0260,0.0339,0.0432,0.0538,0.0655,0.0781,0.0914,0.1057];
+  const K_M  = [0.0082,0.0075,0.0068,0.0063,0.0059,0.0056,0.0053,0.0052,0.0051,0.0050,0.0050,0.0050,0.0050,0.0051,0.0052,0.0053,0.0055,0.0057,0.0059,0.0061,0.0063,0.0065,0.0067,0.0066,0.0065,0.0063,0.0060,0.0056,0.0051,0.0046,0.0040,0.0035,0.0030,0.0026,0.0022,0.0019,0.0016,0.0014,0.0013,0.0012,0.0011,0.0010,0.0010,0.0010,0.0009,0.0009,0.0009,0.0009,0.0008,0.0008,0.0008];
+
+  const N_REF = 1.40;
+  const ALPHA_F = Math.pow((N_REF-1)/(N_REF+1), 2);
+
+  function E1(x) {
+    if (x <= 0) return 1e9;
+    if (x > 50) return 0;
+    if (x < 1) return -Math.log(x)-0.57721566+x*(0.99999193+x*(-0.24991055+x*(0.05519968+x*(-0.00976004+x*0.00107857))));
+    return Math.exp(-x)/(x+4.0-1.5/(x+4.0-1.0/(x+4.0)));
+  }
+
+  function tau1(k) {
+    if (k <= 0) return 1.0;
+    if (k > 50) return 0.0;
+    return (1-k)*Math.exp(-k)+k*k*E1(k);
+  }
+
+  function addLayers(r, t) {
+    const d = 1 - r*r;
+    return {r: r + t*t*r/d, t: t*t/d};
+  }
+
+  function prospect(Cab, Car, Cw, Cm, N) {
+    const R=[], T=[];
+    for (let i=0; i<WL.length; i++) {
+      const k = (Cab*K_AB[i] + Car*K_AR[i] + Cw*K_W[i] + Cm*K_M[i]) / N;
+      const t = tau1(k)*(1-ALPHA_F);
+      const r = ALPHA_F + (1-ALPHA_F)*ALPHA_F*tau1(k);
+      let nf = Math.floor(N);
+      let layer = {r, t};
+      for (let j=1; j<nf; j++) layer = addLayers(layer.r, layer.t);
+      if (N !== nf) {
+        const next = addLayers(layer.r, layer.t);
+        const frac = N-nf;
+        R.push(layer.r*(1-frac)+next.r*frac);
+        T.push(layer.t*(1-frac)+next.t*frac);
+      } else { R.push(layer.r); T.push(layer.t); }
+    }
+    return {R, T};
+  }
+
+  // Simplified SAIL two-stream implementation
+  // Based on Verhoef (1984) analytical solution
+  function sail(rl, tl, LAI, ALA, hotspot, rsoil, fdiff, ts, tv, phi) {
+    const deg = Math.PI/180;
+    const cts = Math.cos(ts*deg);
+    const ctv = Math.cos(tv*deg);
+    const cph = Math.cos(phi*deg);
+
+    // G-function (projection): spherical LAD approximation weighted by ALA
+    const ala_r = ALA*deg;
+    const G_s = 0.5 * (1 + 0.5*Math.cos(2*ala_r)*Math.cos(2*ts*deg));
+    const G_v = 0.5 * (1 + 0.5*Math.cos(2*ala_r)*Math.cos(2*tv*deg));
+    const Ks = Math.max(G_s/cts, 0.01);
+    const Ko = Math.max(G_v/ctv, 0.01);
+
+    // Gap fractions
+    const tss = Math.exp(-Ks*LAI);   // direct beam to soil
+    const too = Math.exp(-Ko*LAI);   // sensor line-of-sight to soil
+
+    // Hotspot correction (Kuusk 1991 approximation)
+    const Fs = 1/(Ks*LAI+1e-9);
+    const Fo = 1/(Ko*LAI+1e-9);
+    const alf = Math.abs(Ks - Ko);
+    const tso = alf < 1e-6
+      ? tss * LAI * Ks   // same direction
+      : (tss - Math.exp(-Ko*LAI)) / (Ko - Ks + 1e-9);
+
+    // hotspot factor
+    const cos_delta = cts*ctv + Math.sqrt(1-cts*cts)*Math.sqrt(1-ctv*ctv)*cph;
+    const angle_delta = Math.acos(Math.max(-1, Math.min(1, cos_delta)));
+    const hs = hotspot;
+    const hot_fac = 1 + (1 - Math.exp(-angle_delta/(hs+1e-6))) / (angle_delta/(hs+1e-6)+1e-9);
+
+    // Two-stream parameters (wavelength-independent geometry, wavelength-dependent omega)
+    const BRF = [];
+    for (let i=0; i<WL.length; i++) {
+      const omega = Math.min(0.999, rl[i] + tl[i]);  // leaf single-scatter albedo (capped at 1)
+      const beta  = 0.5 + (rl[i] - tl[i]) / (4*omega + 1e-9);  // backward scatter fraction [0.25,0.75]
+
+      // Two-stream coefficients (Sellers 1985 / Verhoef 1984)
+      const a = omega * (1 - (1-beta)*LAI);   // simplified absorption term
+      const sigma = omega * beta;              // backscatter
+      const h2 = Math.sqrt(Math.max(0, (1-omega)*(1-omega) + 2*(1-omega)*sigma));
+      const h  = Math.max(h2, 0.01);
+
+      // Canopy hemispherical reflectance (two-stream analytical solution)
+      const e1 = Math.exp(-h*LAI);
+      const e2 = e1*e1;
+      const num = sigma*(1-e2);
+      const den = (h+1-omega)*(1-e2) + 2*h*e1;
+      const rc = den > 1e-9 ? num/den : 0;
+
+      // Soil contribution (attenuated through canopy, then reflected)
+      const rs_contrib = rsoil * tss * too;
+
+      // Direct canopy contribution weighted for view direction
+      // (simplified: use hemispherical reflectance + directional hotspot correction)
+      const rcanopy = rc * (1 - fdiff) + fdiff * rc;
+      const r_dir   = rcanopy * (1 + 0.15*hot_fac*tso/(tss+1e-9));
+      const r_total = r_dir + rs_contrib*(1 - rc)*(1 - rc);
+
+      BRF.push(Math.min(0.95, Math.max(0, r_total)));
+    }
+    return BRF;
+  }
+
+  const el = document.getElementById('sail-chart');
+  const chart = echarts.init(el, null, {renderer:'canvas'});
+  const textC  = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()  || '#333';
+  const text2C = getComputedStyle(document.documentElement).getPropertyValue('--text-2').trim() || '#666';
+
+  // Fixed PROSPECT params for comparison
+  const CAR_FIX = 8, CM_FIX = 0.009;
+
+  function getOption(BRF, leafR) {
+    return {
+      backgroundColor: 'transparent',
+      grid: {left:55, right:20, top:40, bottom:45},
+      legend: {data:['Canopy BRF (PROSAIL)', 'Leaf reflectance (PROSPECT)'], textStyle:{color:textC}, top:8},
+      tooltip: {
+        trigger:'axis',
+        formatter: p => {
+          const wl = WL[p[0].dataIndex];
+          return `<b>${wl} nm</b><br/>`+p.map(s =>
+            `${s.marker}${s.seriesName}: ${(s.value*100).toFixed(1)}%`
+          ).join('<br/>');
+        },
+      },
+      xAxis: {type:'category', data:WL.map(String), name:'Wavelength (nm)', nameLocation:'middle', nameGap:30,
+        axisLabel:{color:text2C, interval:4}, axisLine:{lineStyle:{color:text2C}},
+        splitLine:{show:false}, nameTextStyle:{color:text2C}},
+      yAxis: {type:'value', name:'Reflectance', nameLocation:'middle', nameGap:40, min:0, max:0.70,
+        axisLabel:{color:text2C, formatter:v=>(v*100).toFixed(0)+'%'},
+        axisLine:{lineStyle:{color:text2C}},
+        splitLine:{lineStyle:{color:text2C, opacity:0.15}}, nameTextStyle:{color:text2C}},
+      series: [
+        {name:'Canopy BRF (PROSAIL)', type:'line', data:BRF,
+         lineStyle:{color:'#4e8ac4', width:2.5}, itemStyle:{color:'#4e8ac4'}, symbol:'none',
+         areaStyle:{color:'rgba(78,138,196,0.10)'}},
+        {name:'Leaf reflectance (PROSPECT)', type:'line', data:leafR,
+         lineStyle:{color:'#4a7c59', width:1.5, type:'dashed'}, itemStyle:{color:'#4a7c59'}, symbol:'none'},
+      ],
+    };
+  }
+
+  function update() {
+    const Cab  = +document.getElementById('s-cab').value;
+    const Cw   = +document.getElementById('s-cw').value;
+    const N    = +document.getElementById('s-n').value;
+    const LAI  = +document.getElementById('s-lai').value;
+    const ALA  = +document.getElementById('s-ala').value;
+    const hot  = +document.getElementById('s-hot').value;
+    const soil = +document.getElementById('s-soil').value;
+    const diff = +document.getElementById('s-diff').value;
+    const ts   = +document.getElementById('s-ts').value;
+    const tv   = +document.getElementById('s-tv').value;
+    const phi  = +document.getElementById('s-phi').value;
+
+    document.getElementById('s-cab-val').textContent = Cab;
+    document.getElementById('s-cw-val').textContent  = Cw.toFixed(3);
+    document.getElementById('s-n-val').textContent   = N.toFixed(1);
+    document.getElementById('s-lai-val').textContent = LAI.toFixed(1);
+    document.getElementById('s-ala-val').textContent = ALA;
+    document.getElementById('s-hot-val').textContent = hot.toFixed(2);
+    document.getElementById('s-soil-val').textContent= soil.toFixed(2);
+    document.getElementById('s-diff-val').textContent= diff.toFixed(2);
+    document.getElementById('s-ts-val').textContent  = ts;
+    document.getElementById('s-tv-val').textContent  = tv;
+    document.getElementById('s-phi-val').textContent = phi;
+
+    const {R, T} = prospect(Cab, CAR_FIX, Cw, CM_FIX, N);
+    const BRF = sail(R, T, LAI, ALA, hot, soil, diff, ts, tv, phi);
+
+    const nir  = BRF[40];   // 800 nm
+    const red  = BRF[27];   // 670 nm
+    const ndvi = (nir+red) > 1e-6 ? ((nir-red)/(nir+red)).toFixed(3) : 'N/A';
+    const gap  = Math.exp(-0.5/Math.cos(ts*Math.PI/180)*LAI);
+
+    document.getElementById('s-ndvi').textContent = ndvi;
+    document.getElementById('s-nir').textContent  = (nir*100).toFixed(1)+'%';
+    document.getElementById('s-red').textContent  = (red*100).toFixed(1)+'%';
+    document.getElementById('s-gap').textContent  = (gap*100).toFixed(1)+'%';
+
+    chart.setOption(getOption(BRF, R));
+  }
+
+  ['s-cab','s-cw','s-n','s-lai','s-ala','s-hot','s-soil','s-diff','s-ts','s-tv','s-phi'].forEach(id =>
+    document.getElementById(id).addEventListener('input', update)
+  );
+  update();
+
+  const ro = new ResizeObserver(() => chart.resize());
+  ro.observe(el);
+})();
+</script>
+
+---
+
+## 6. Interpretation
+
+### NDVI saturation
+
+Set LAI to 1 and increase it to 8, watching the NDVI readout. NDVI rises steeply from LAI = 1 to 3, then levels off. This is the well-known NDVI saturation — a direct consequence of Beer-Lambert: once LAI is large enough that $e^{-K \cdot \text{LAI}} \approx 0$, adding more leaves has no effect on the gap fraction or on the NIR reflectance. This is why NDVI is unreliable for estimating LAI above ~3 in dense forest or crop canopies. EVI and other improved indices reduce the saturation by accounting for the soil background and aerosol effects, but they cannot escape the underlying physics.
+
+### The soil line
+
+Set LAI to 0.5 (sparse canopy) and vary the soil reflectance factor. The canopy BRF tracks the soil reflectance closely. Now increase LAI to 6: the soil effect vanishes. In a dense canopy, the satellite sees only leaves; in a sparse canopy, it sees a mixture of leaves and soil. This is the "soil line" effect central to the interpretation of multispectral imagery over dryland or semi-arid vegetation.
+
+### The hotspot
+
+Set $\theta_s = 30°$, $\theta_v = 30°$, and vary $\phi$ from 0° (forward scatter: sun and sensor on same side) to 180° (backscatter: sensor looking directly back toward sun). The BRF brightens noticeably as $\phi \to 180°$. This is the hotspot. In precision agriculture, multi-angle observations that capture the hotspot geometry can be inverted for canopy structural parameters independently of leaf biochemistry.
+
+### Stress detection
+
+Reduce $C_{ab}$ from 40 to 15 µg cm⁻² (simulating nitrogen stress or early senescence). The red-edge weakens; the red reflectance rises; NDVI falls. But note that LAI and soil background have comparable effects on NDVI — a field with LAI = 2 and $C_{ab}$ = 40 can have the same NDVI as a field with LAI = 4 and $C_{ab}$ = 20. This degeneracy is the central challenge of remote sensing retrieval: multiple combinations of leaf and canopy parameters can produce the same satellite signal. Resolving the degeneracy requires either additional spectral bands (red-edge bands that are sensitive to $C_{ab}$ but not LAI) or multi-angle observations.
+
+---
+
+## 7. What Could Go Wrong?
+
+**The turbid medium assumption.** SAIL treats leaves as infinitesimally small, randomly distributed scatterers. Real canopies are clumped — trees have branches, crops have rows, forests have gaps. Clumping increases the effective gap fraction at a given LAI and reduces both interception and scattering. The clumping index $\Omega$ ($0 < \Omega < 1$) modifies the effective LAI as LAI$_{\text{eff}} = \Omega \times$ LAI; ignoring clumping overpredicts interception in row crops and conifer forests.
+
+**Homogeneous layer assumption.** SAIL assumes the canopy is horizontally homogeneous — every point on the ground has the same LAI above it. In fragmented landscapes (fields, forest edges, urban trees), sub-pixel heterogeneity means that a satellite pixel contains a mixture of canopy types, each with different optical properties. The SAIL output for the "average" canopy does not equal the average of SAIL outputs for each component (Jensen's inequality for a nonlinear model).
+
+**Lambertian soil.** SAIL uses a Lambertian soil reflectance (equal reflection in all directions). Real soil has directional reflectance properties, particularly for smooth or crusted surfaces. Using the wrong soil model introduces directional artefacts in the retrieved canopy reflectance, particularly at high view and solar zenith angles.
+
+---
+
+## Where Next?
+
+PROSAIL is a forward model: given leaf and canopy parameters, it predicts the satellite measurement. The practical problem is the **inverse**: given a satellite measurement, estimate the leaf and canopy parameters. This inversion is ill-posed (the degeneracy described in §6), and solving it requires either look-up tables, machine learning regression, or Bayesian inversion with prior constraints on plausible parameter ranges. The next model in this series — Hyperspectral Imaging and Spectral Unmixing — addresses the spectral dimension of this inversion problem.
+
+**In this series:**
+- ← [Leaf Optical Properties — PROSPECT](#) *(previous)*
+- → [Hyperspectral Imaging and Spectral Unmixing](#) *(next)*
+
+---
+
+## References
+
+[^1]: Verhoef, W., 1984. Light scattering by leaf layers with application to canopy reflectance modelling: the SAIL model. *Remote Sensing of Environment*, 16(2), pp.125–141. <https://doi.org/10.1016/0034-4257(84)90057-9>
+
+[^2]: Jacquemoud, S., Verhoef, W., Baret, F., Bacour, C., Zarco-Tejada, P.J., Asner, G.P., François, C. and Ustin, S.L., 2009. PROSPECT + SAIL models: A review of use for vegetation characterization. *Remote Sensing of Environment*, 113(Suppl. 1), pp.S56–S66. <https://doi.org/10.1016/j.rse.2008.01.026>

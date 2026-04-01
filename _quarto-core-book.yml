@@ -1,0 +1,77 @@
+project:
+  type: book
+  output-dir: _book-core
+  pre-render:
+    - ./scripts/prepare-book-output.sh _book-core
+  post-render:
+    - ./scripts/sync-book-assets.sh _book-core
+
+book:
+  title: "Computational Geography"
+  subtitle: "Core Book"
+  author: "Paul Hobson"
+  chapters:
+    - index.qmd
+    - getting-started/index.qmd
+    - getting-started/how-to-read-equations.qmd
+    - getting-started/units-scale-and-estimation.qmd
+    - getting-started/maps-coordinates-and-layers.qmd
+    - getting-started/uncertainty-error-and-approximation.qmd
+    - getting-started/what-makes-a-model-computational.qmd
+    - getting-started/setting-up-your-environment.qmd
+    - methods-and-tools/index.qmd
+    - foundations/index.qmd
+    - foundations/what-is-a-spatial-model.qmd
+    - foundations/linear-change-and-rate.qmd
+    - foundations/exponential-growth-and-logarithms.qmd
+    - foundations/logistic-growth-and-equilibrium.qmd
+    - foundations/digital-elevation-models-as-functions.qmd
+    - foundations/gradient-aspect-steepest-descent.qmd
+    - foundations/gravity-models-trade-migration.qmd
+    - foundations/spatial-diffusion-of-innovation.qmd
+    - environmental-systems/index.qmd
+    - environmental-systems/net-radiation-and-albedo.qmd
+    - environmental-systems/sensible-and-latent-heat-fluxes.qmd
+    - environmental-systems/soil-heat-diffusion.qmd
+    - environmental-systems/photosynthesis-light-response.qmd
+    - environmental-systems/soil-moisture-dynamics.qmd
+    - environmental-systems/wind-profiles-and-turbulence.qmd
+    - environmental-systems/temperature-moisture-gradients.qmd
+    - environmental-systems/vegetation-indices-and-remote-sensing.qmd
+    - spatial-analysis/index.qmd
+    - spatial-analysis/point-in-polygon-testing.qmd
+    - spatial-analysis/buffer-operations.qmd
+    - spatial-analysis/polygon-overlay-operations.qmd
+    - spatial-analysis/spatial-joins.qmd
+    - spatial-analysis/raster-resampling-interpolation.qmd
+    - spatial-analysis/map-algebra-focal-operations.qmd
+    - spatial-analysis/raster-classification.qmd
+    - spatial-analysis/viewshed-line-of-sight.qmd
+    - spatial-analysis/watershed-delineation.qmd
+    - atmospheric-hazards/index.qmd
+    - atmospheric-hazards/fire-weather-ignition.qmd
+    - atmospheric-hazards/fire-spread-modeling.qmd
+    - atmospheric-hazards/rainfall-intensity-duration.qmd
+    - atmospheric-hazards/flood-frequency-analysis.qmd
+    - atmospheric-hazards/urban-flood-modeling.qmd
+    - economic-systems/index.qmd
+    - economic-systems/canada-trade-gravity-model.qmd
+    - economic-systems/urban-bid-rent-model.qmd
+    - economic-systems/urban-agglomeration-economies.qmd
+    - economic-systems/markets-spatial-arbitrage.qmd
+
+format:
+  html:
+    theme: none
+    css:
+      - assets/css/quarto-wayward.css
+    html-math-method: katex
+    toc: true
+    number-sections: false
+    include-in-header:
+      - assets/includes/quarto-head.html
+    include-after-body:
+      - assets/includes/quarto-body.html
+
+execute:
+  freeze: auto

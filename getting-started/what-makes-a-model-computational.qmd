@@ -1,0 +1,84 @@
+---
+title: "What Makes a Model Computational"
+subtitle: "Why computers matter even when the real idea is still geographic"
+type: chapter
+book-part: getting-started
+book-part-title: "Getting Started"
+chapter-number: 5
+section-code: G0
+section-title: "Bridge Skills"
+description: "An introduction to what makes a model computational: repetition, simulation, data handling, and asking questions too large to do by hand."
+---
+
+Not every model needs a computer.
+
+You can sketch a food web, calculate density by hand, or reason through a simple distance problem on paper.
+
+So what makes a model computational?
+
+Usually one of four things:
+
+- too many calculations to do comfortably by hand
+- repeated operations across many locations
+- simulation over many time steps
+- large amounts of data
+
+## Repetition
+
+Suppose you want to compute slope from elevation for one cell in a grid. You could do that by hand.
+
+If you want to do it for `2 million` cells, a computer becomes the practical tool.
+
+The mathematical idea is still the same. The computer just makes repetition possible.
+
+## Simulation
+
+Some models are about change through time.
+
+Examples:
+
+- population growth
+- wildfire spread
+- flood routing
+- soil temperature through seasons
+
+A computer helps when you want to step that system forward again and again and watch the pattern emerge.
+
+## Data Handling
+
+Computational geography also matters because spatial data gets big very quickly.
+
+One satellite image can contain millions of pixels. One road network can contain thousands of links. One climate dataset can store decades of daily measurements.
+
+Computers let us:
+
+- store
+- sort
+- compare
+- transform
+- visualize
+
+all of that information.
+
+## The Idea Still Comes First
+
+This matters: the computer is not the model.
+
+The model is the idea about how quantities relate.
+
+The computer helps us:
+
+- apply the idea many times
+- test scenarios
+- work at realistic scales
+- visualize results
+
+Good computational geography still begins with clear thinking.
+
+## If This Gets Hard, Focus On
+
+- a computational model is still a model first
+- the computer matters when repetition, simulation, or scale becomes large
+- the geography question remains the center of the work
+
+That is the spirit of the whole book.

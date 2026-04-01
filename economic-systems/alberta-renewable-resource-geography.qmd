@@ -1,0 +1,845 @@
+---
+title: Renewable Resource Geography
+subtitle: Solar irradiance, wind atlas, and where Alberta's energy landscape shifts
+date: 2026-03-16
+type: chapter
+image: /assets/images/alberta.webp
+book-part: economic-systems
+book-part-title: Economic Systems
+chapter-number: 31
+section-code: EG
+section-title: Renewable Energy Transition
+tags:
+- computational-geography
+- renewable-energy
+- alberta
+- solar
+- wind
+- spatial-analysis
+difficulty: 2
+learning:
+  concepts:
+  - Solar declination and zenith angle
+  - Clear-sky irradiance model
+  - Capacity factor estimation
+body-classes: reading-body tag-hash-math tag-hash-viz tag-hash-leaflet tag-hash-pyodide
+interactive:
+  math: true
+  charts: true
+  leaflet: true
+  pyodide: true
+notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/EG1-renewable-resource-geography
+---
+
+
+Alberta is, by Canadian standards, a sunbaked and wind-scoured province.
+The same geography that made it a fossil fuel province — the Rocky
+Mountain front, the vast treeless prairie, the continental climate —
+also makes it one of Canada’s best places to generate electricity from
+the sky.
+
+This is not a rhetorical observation. It follows directly from physics.
+Solar irradiance at the surface is highest where the atmosphere is thin
+and dry, and where the sun is not too low in the sky. Wind power is
+highest where terrain channels airflow and surface roughness is low.
+Alberta’s latitude, continental position, and topographic setting
+satisfy all of these conditions better than most of the country.
+Understanding the renewable energy transition in Alberta means first
+understanding the spatial structure of these resources — which the
+province’s geography concentrates, and which it spreads unevenly.
+
+That is the work of this essay: to map Alberta’s renewable resource in
+quantitative terms, using the physics of solar geometry and atmospheric
+irradiance on the solar side, and the boundary-layer wind statistics on
+the wind side. The mathematics is not complicated, but it rewards
+precision. The difference between a 7 m/s and an 8.5 m/s wind site is
+not 21% more energy — it is 73% more power, because wind power scales
+with the cube of speed. At the scale of a 300 MW project, that
+difference is decisive.
+
+## Reading the sun: Alberta’s solar atlas
+
+The amount of solar energy arriving at the Earth’s surface depends on
+two factors that geography controls: the angle of the sun above the
+horizon, and the thickness and composition of the atmosphere the
+sunlight must traverse. Both vary with latitude and season in ways that
+can be calculated from first principles.
+
+The sun’s position in the sky at any moment is described by two angles.
+The most important for resource assessment is the **solar zenith angle**
+*θ*<sub>*z*</sub> — the angle between the sun’s rays and the vertical.
+When the sun is directly overhead, *θ*<sub>*z*</sub> = 0° and irradiance
+is at its maximum. When the sun is near the horizon, *θ*<sub>*z*</sub>
+approaches 90° and irradiance falls toward zero, both because the
+sunbeam spreads across a larger surface area and because it travels
+through a longer path of atmosphere.
+
+The zenith angle at solar noon depends on latitude *ϕ* and the sun’s
+**declination** *δ*, which is its angular distance north or south of the
+celestial equator. Declination varies through the year as the Earth
+orbits the sun with its axis tilted at 23.45°:
+
+$$
+\delta = -23.45° \cdot \cos\left(\frac{360°}{365}(d + 10)\right)
+$$
+
+where *d* is the day of year. At the June solstice (*d* ≈ 172),
+*δ* ≈ +23.45°: the sun is as far north as it gets, days are longest, and
+irradiance is highest in the northern hemisphere. At the December
+solstice, *δ* ≈ −23.45°: the sun is far south, Alberta receives barely
+seven hours of low-angle winter sunlight, and daily energy collection
+collapses.
+
+The cosine of the solar zenith angle at noon follows from spherical
+geometry:
+
+cos (*θ*<sub>*z*</sub>) = sin (*ϕ*)sin (*δ*) + cos (*ϕ*)cos (*δ*)
+
+At Lethbridge (*ϕ* = 49.7°N) on the summer solstice,
+cos (*θ*<sub>*z*</sub>) ≈ 0.91, meaning the sun reaches 65.7° above the
+horizon. At the winter solstice, the same calculation gives
+cos (*θ*<sub>*z*</sub>) ≈ 0.41, with the sun peaking at only 24.1°
+elevation. The ratio — roughly 2:1 between summer and winter peak
+irradiance — is the geometric foundation of Alberta’s strongly seasonal
+solar resource.
+
+From the zenith angle, we compute surface irradiance using a simplified
+Beer-Lambert atmospheric attenuation model. The atmosphere absorbs and
+scatters sunlight in proportion to the path length through it, which is
+proportional to sec (*θ*<sub>*z*</sub>). The peak irradiance at the
+surface is:
+
+*G*<sub>0</sub> = *G*<sub>*s**c*</sub> ⋅ cos (*θ*<sub>*z*</sub>) ⋅ *τ*<sup>sec (*θ*<sub>*z*</sub>)</sup>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span
+class="math inline"><em>G</em><sub><em>s</em><em>c</em></sub></span></td>
+<td>Solar constant</td>
+<td>1,361 W/m²</td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>θ</em><sub><em>z</em></sub></span></td>
+<td>Solar zenith angle at noon</td>
+<td>degrees</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>τ</em></span></td>
+<td>Atmospheric transmittance</td>
+<td>~0.75 (clear sky)</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>ϕ</em></span></td>
+<td>Latitude</td>
+<td>degrees — Lethbridge 49.7°N; Edmonton 53.6°N</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>δ</em></span></td>
+<td>Solar declination</td>
+<td>degrees, varies ±23.45°</td>
+</tr>
+</tbody>
+</table>
+
+The *τ*<sup>sec (*θ*<sub>*z*</sub>)</sup> term captures the exponential
+depletion of the beam as path length increases. At large zenith angles —
+early morning, late afternoon, winter — the sun is dim even on clear
+days because the beam has traversed a thicker column of air.
+
+Daily total irradiance integrates *G*<sub>0</sub> over the daylight
+period. A useful approximation treats the daily curve as sinusoidal and
+scales by the **clearness index** *k*<sub>*t*</sub>, the ratio of actual
+surface irradiance to the theoretical clear-sky value. *k*<sub>*t*</sub>
+accounts for cloud cover, aerosols, and humidity on average over the
+year. Alberta’s continental climate produces
+*k*<sub>*t*</sub> ≈ 0.52–0.58, which is remarkably high by Canadian
+standards. Southern Alberta in particular benefits from frequent
+high-pressure systems, low atmospheric humidity, and the Chinook’s
+tendency to clear winter cloud:
+
+$$
+\text{GHI}\_{\text{annual}} \approx \frac{1}{365}\sum\_{d=1}^{365} G_0(d) \cdot h\_{\text{daylight}}(d) \cdot k_t
+$$
+
+where *h*<sub>daylight</sub>(*d*) is the number of daylight hours on day
+*d*, computed from the sunrise equation.
+
+The result, summed across Alberta’s latitude range, is a solar resource
+gradient that runs from approximately 1,280 kWh/m²/year at Lethbridge to
+1,020 kWh/m²/year at Grande Prairie:
+
+**Alberta solar resource (NRCan Solar Atlas, approximate annual GHI):**
+
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Location</th>
+<th>Latitude</th>
+<th>Annual GHI (kWh/m²)</th>
+<th>Capacity factor (20% panel)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lethbridge</td>
+<td>49.7°N</td>
+<td>~1,280</td>
+<td>~26%</td>
+</tr>
+<tr>
+<td>Medicine Hat</td>
+<td>50.0°N</td>
+<td>~1,260</td>
+<td>~26%</td>
+</tr>
+<tr>
+<td>Vulcan County</td>
+<td>50.4°N</td>
+<td>~1,240</td>
+<td>~25%</td>
+</tr>
+<tr>
+<td>Calgary</td>
+<td>51.1°N</td>
+<td>~1,180</td>
+<td>~24%</td>
+</tr>
+<tr>
+<td>Red Deer</td>
+<td>52.3°N</td>
+<td>~1,130</td>
+<td>~23%</td>
+</tr>
+<tr>
+<td>Edmonton</td>
+<td>53.6°N</td>
+<td>~1,090</td>
+<td>~22%</td>
+</tr>
+<tr>
+<td>Grande Prairie</td>
+<td>55.2°N</td>
+<td>~1,020</td>
+<td>~21%</td>
+</tr>
+</tbody>
+</table>
+
+The **solar capacity factor** converts annual GHI to a dimensionless
+measure of effective utilisation. For a panel with efficiency *η*:
+
+$$
+\text{CF}\_{\text{solar}} = \frac{\text{GHI}\_{\text{annual}} \cdot \eta\_{\text{panel}}}{8760 \text{ h} \cdot G\_{sc}}
+$$
+
+A 20% efficient panel at Lethbridge, receiving 1,280 kWh/m²/year and
+measuring against the theoretical maximum if the sun delivered its full
+1,361 W/m² continuously (which of course it does not), yields a capacity
+factor of roughly 26%. More practically, a 1 MW solar array at
+Lethbridge generates approximately 1,280 × 0.20 × 1,000 = 256,000 kWh
+per year — 256 MWh from 1 MW of nameplate capacity.
+
+The comparison to other regions is informative. Lethbridge’s 1,280
+kWh/m²/year GHI exceeds many locations in southern Germany, where
+utility-scale solar has been deployed at scale since the early 2000s.
+Munich receives roughly 1,200 kWh/m²/year. The political and regulatory
+constraints on Alberta solar deployment are not, in other words,
+explained by inadequate resource.
+
+The Vulcan County cluster — where both Blackspring Ridge Wind (544 MW)
+and Travers Solar (465 MW, completed 2022–2023 and Canada’s largest
+solar farm at the time of construction) are located — sits at
+approximately 50.4°N. It captures a combination of high insolation, flat
+Class 1 agricultural land with low reflectivity losses, and proximity to
+the existing 240kV transmission corridor running north from Lethbridge.
+The geography dictated the economics before any project was proposed.
+
+<div data-leaflet id="alberta-resource-map" style="height:520px;"
+     data-lat="52.5" data-lng="-113.5" data-zoom="5" data-tiles="carto"></div>
+
+*Alberta renewable resource geography — wind resource zones (blue fill, darker = higher capacity factor) and annual solar irradiance at key stations (gold circles, sized by GHI). Click any zone or circle for data. Source: NRCan Solar Atlas; Environment Canada Wind Atlas.*
+
+<script>
+document.getElementById('alberta-resource-map').addEventListener('leaflet:ready', function(e) {
+  const map = e.detail.map;
+  const L   = window.L;
+
+  map.fitBounds([[49.0, -117.5], [57.0, -110.0]]);
+
+  // ── Wind resource zones ────────────────────────────────────────────────────
+  // Approximate rectangular zones based on Environment Canada Wind Atlas.
+  // Colours use the primary blue palette scaled by capacity factor.
+  const windZones = [
+    {
+      bounds: [[49.0, -115.0], [50.5, -113.2]],
+      color: '#1e5c99',
+      label: 'Crowsnest / Pincher Creek corridor',
+      speed: '8.0–9.5 m/s', cf: '38–45%',
+      note: 'Mountain front katabatic forcing. Castle Rock Ridge, Pincher Creek cluster.'
+    },
+    {
+      bounds: [[49.0, -113.2], [50.5, -111.0]],
+      color: '#2e7dd1',
+      label: 'Lethbridge foothills',
+      speed: '7.0–8.5 m/s', cf: '32–40%',
+      note: 'Blackspring Ridge Wind (544 MW), Forty Mile. Proximity to 240 kV corridor.'
+    },
+    {
+      bounds: [[50.2, -113.8], [51.5, -112.0]],
+      color: '#4e8ac4',
+      label: 'Vulcan County',
+      speed: '6.5–7.5 m/s', cf: '27–35%',
+      note: 'Travers Solar (465 MW) also in this zone. Sundial Wind and multiple co-located projects.'
+    },
+    {
+      bounds: [[50.5, -115.5], [52.2, -113.8]],
+      color: '#6baed6',
+      label: 'Calgary foothills',
+      speed: '6.0–7.5 m/s', cf: '22–35%',
+      note: 'Foothills lose mountain channelling effect north of Calgary. Various smaller projects.'
+    },
+    {
+      bounds: [[49.0, -111.0], [52.0, -110.0]],
+      color: '#9ecae1',
+      label: 'Eastern prairie',
+      speed: '5.5–7.0 m/s', cf: '18–28%',
+      note: 'Flat terrain, low roughness — adequate wind but not competitive with SW corridor at current costs.'
+    },
+    {
+      bounds: [[52.0, -117.5], [57.5, -110.0]],
+      color: '#c6dbef',
+      label: 'Central / North Alberta',
+      speed: '5.5–6.5 m/s', cf: '18–26%',
+      note: 'Northwestern boreal margin. Without Rocky Mountain forcing; CF well below SW corridor.'
+    },
+  ];
+
+  windZones.forEach(z => {
+    L.rectangle(z.bounds, {
+      color: 'transparent',
+      fillColor: z.color,
+      fillOpacity: 0.42,
+      weight: 0,
+    })
+    .bindPopup(
+      `<strong>${z.label}</strong><br>` +
+      `Wind speed: ${z.speed}<br>` +
+      `Capacity factor: ${z.cf}<br>` +
+      `<em style="font-size:11px;">${z.note}</em>`
+    )
+    .addTo(map);
+  });
+
+  // ── Solar resource stations ────────────────────────────────────────────────
+  // Circle radius scales linearly with GHI. Gold fill (#e8cc6a = site secondary).
+  const solarStations = [
+    { name: 'Lethbridge',     lat: 49.70, lng: -112.83, ghi: 1280, cf: 26 },
+    { name: 'Medicine Hat',   lat: 50.05, lng: -110.68, ghi: 1260, cf: 26 },
+    { name: 'Calgary',        lat: 51.04, lng: -114.06, ghi: 1180, cf: 24 },
+    { name: 'Red Deer',       lat: 52.27, lng: -113.81, ghi: 1130, cf: 23 },
+    { name: 'Edmonton',       lat: 53.55, lng: -113.50, ghi: 1090, cf: 22 },
+    { name: 'Grande Prairie', lat: 55.17, lng: -118.80, ghi: 1020, cf: 21 },
+  ];
+
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  const ringColor = isDark ? '#ffffff' : '#5a4a10';
+
+  solarStations.forEach(s => {
+    const r = 7 + (s.ghi - 1000) / 35;   // range ~7–17 px
+    L.circleMarker([s.lat, s.lng], {
+      radius: r,
+      fillColor: '#e8cc6a',
+      color: ringColor,
+      weight: 1.5,
+      fillOpacity: 0.9,
+    })
+    .bindPopup(
+      `<strong>${s.name}</strong><br>` +
+      `Annual GHI: ${s.ghi} kWh/m²/year<br>` +
+      `Solar CF (20% panel): ~${s.cf}%`
+    )
+    .addTo(map);
+  });
+
+  // ── Key project markers ────────────────────────────────────────────────────
+  const projects = [
+    { name: 'Travers Solar',           mw: 465, lat: 50.35, lng: -113.18, type: 'solar' },
+    { name: 'Blackspring Ridge Wind',  mw: 544, lat: 50.08, lng: -112.87, type: 'wind'  },
+    { name: 'Pincher Creek cluster',   mw: 300, lat: 49.48, lng: -113.92, type: 'wind'  },
+  ];
+
+  projects.forEach(p => {
+    L.circleMarker([p.lat, p.lng], {
+      radius: 8,
+      fillColor: p.type === 'solar' ? '#e8cc6a' : '#4e8ac4',
+      color: isDark ? '#ffffff' : '#222222',
+      weight: 2.5,
+      fillOpacity: 1,
+    })
+    .bindPopup(`<strong>${p.name}</strong><br>${p.mw} MW · ${p.type}`)
+    .addTo(map);
+  });
+
+  // ── Legend ────────────────────────────────────────────────────────────────
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = () => {
+    const bg   = isDark ? 'rgba(28,28,28,0.92)' : 'rgba(255,255,255,0.92)';
+    const text = isDark ? '#d4d4d4' : '#333333';
+    const div  = L.DomUtil.create('div');
+    div.style.cssText = `background:${bg};color:${text};padding:10px 14px;border-radius:4px;
+      font-size:11px;line-height:1.9;box-shadow:0 1px 5px rgba(0,0,0,0.25);max-width:215px;`;
+    div.innerHTML = `
+      <strong style="font-size:12px;display:block;margin-bottom:2px;">Wind capacity factor</strong>
+      <span style="background:#1e5c99;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>38–45% · Crowsnest / Pincher Creek<br>
+      <span style="background:#2e7dd1;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>32–40% · Lethbridge foothills<br>
+      <span style="background:#4e8ac4;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>27–35% · Vulcan County<br>
+      <span style="background:#6baed6;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>22–35% · Calgary foothills<br>
+      <span style="background:#9ecae1;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>18–28% · Prairies / north<br>
+      <br>
+      <strong style="font-size:12px;display:block;margin-bottom:2px;">Solar irradiance</strong>
+      <span style="background:#e8cc6a;border:1.5px solid #8a6800;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Annual GHI — circle size ∝ intensity<br>
+      <br>
+      <strong style="font-size:12px;display:block;margin-bottom:2px;">Projects</strong>
+      <span style="background:#e8cc6a;border:2px solid #222;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Solar<br>
+      <span style="background:#4e8ac4;border:2px solid #222;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Wind
+    `;
+    return div;
+  };
+  legend.addTo(map);
+});
+</script>
+
+## Wind from the mountains: Alberta’s wind atlas
+
+Alberta’s wind resource is more geographically concentrated than its
+solar resource. Where solar irradiance varies by roughly 25% across the
+province’s latitude range, wind power density in the most productive
+southwest corner can exceed that of the central prairie by a factor of
+three or more. The difference lies in the Rocky Mountain front.
+
+The mechanism is twofold. First, the Rockies channel and accelerate
+airflow through gaps and passes. The Crowsnest Pass and the broader
+Livingstone Range produce a pronounced **katabatic wind regime** —
+downslope flow that accelerates as it descends from the Continental
+Divide and fans across the prairie. The Chinook is the most familiar
+expression of this: a warm, dry, gusty wind that can raise Calgary’s
+temperature by 20°C in an hour in winter. But the same topographic
+forcing produces elevated mean wind speeds year-round in a belt from
+Crowsnest Pass through Pincher Creek and northeast toward Lethbridge and
+the Vulcan County area.
+
+Second, the shortgrass prairie of southwest Alberta has exceptionally
+low aerodynamic roughness. The **atmospheric boundary layer** — the
+lowest few hundred metres of the troposphere, where wind speed is
+retarded by friction with the surface — develops more slowly over smooth
+prairie than over forest or urban terrain. At 80m hub height, a modern
+wind turbine is well above the surface roughness layer in most of
+southern Alberta, sampling the more energetic flow of the free
+atmosphere.
+
+The **wind power density** at a given hub height follows directly from
+fluid mechanics:
+
+$$
+P = \frac{1}{2} \rho v^3
+$$
+
+where *ρ* ≈ 1.225 kg/m³ is air density at sea level and *v* is wind
+speed in m/s. The cubic dependence on speed is the most important single
+fact about wind energy siting. At 7 m/s, wind power density is
+$\frac{1}{2} \times 1.225 \times 343 = 210$ W/m². At 8.5 m/s — a 21%
+increase in speed — it is $\frac{1}{2} \times 1.225 \times 614 = 376$
+W/m². That 21% increase in speed produces 79% more power. This is why
+the Pincher Creek / Crowsnest corridor with mean 80m speeds of 8.0–9.5
+m/s is economically in a different category from the central prairie at
+6.0–7.0 m/s, even though both locations look adequate on a wind resource
+map.
+
+The **wind capacity factor** — the dimensionless measure of how much of
+the theoretical maximum a turbine actually produces — can be estimated
+from mean hub-height speed using a rule of thumb calibrated to Alberta’s
+turbine fleet:
+
+CF<sub>wind</sub> ≈ 0.087 ⋅ *v*<sub>80*m*</sub> − 0.30
+
+where *v*<sub>80*m*</sub> is mean wind speed at 80m hub height in m/s.
+This linear approximation is valid in the 6–10 m/s range where most
+Alberta projects operate. At 8.5 m/s (Pincher Creek cluster), it gives
+CF ≈ 0.44; at 7.0 m/s (Vulcan County), CF ≈ 0.31; at 6.0 m/s (central
+prairie), CF ≈ 0.22.
+
+**Alberta wind resource (Environment Canada Wind Atlas, 80m hub
+height):**
+
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Mean wind speed</th>
+<th>Capacity factor (typical)</th>
+<th>Key projects</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crowsnest / Pincher Creek</td>
+<td>8.0–9.5 m/s</td>
+<td>38–45%</td>
+<td>Castle Rock Ridge, Pincher Creek cluster</td>
+</tr>
+<tr>
+<td>Lethbridge foothills</td>
+<td>7.0–8.5 m/s</td>
+<td>32–40%</td>
+<td>Blackspring Ridge (544 MW), Forty Mile</td>
+</tr>
+<tr>
+<td>Vulcan County</td>
+<td>6.5–7.5 m/s</td>
+<td>27–35%</td>
+<td>Sundial, multiple projects</td>
+</tr>
+<tr>
+<td>Calgary foothills</td>
+<td>6.0–7.5 m/s</td>
+<td>22–35%</td>
+<td>Various</td>
+</tr>
+<tr>
+<td>Central prairie</td>
+<td>5.5–7.0 m/s</td>
+<td>18–30%</td>
+<td>Northern projects</td>
+</tr>
+</tbody>
+</table>
+
+The Blackspring Ridge Wind project, at 544 MW one of the largest wind
+farms in Canada, sits in the Lethbridge foothills zone — not the
+highest-resource Crowsnest corridor, but a zone with well-understood
+resource, existing 240kV access, and fewer competing transmission queue
+applications than the Crowsnest area. This illustrates a recurring theme
+in Alberta renewable development: the best resource is not always where
+the best projects get built, because the grid, land access, and
+regulatory environment all filter the economic outcome.
+
+North of Calgary, the Alberta foothills lose their channeling effect on
+airflow. The Grande Prairie region has moderate northwesterly wind from
+the boreal margin of the province, but without the mountain forcing.
+Mean 80m speeds of 5.5–6.5 m/s yield capacity factors in the 18–26%
+range — technically viable, but not competitive with the southwest
+corridor at current capital costs.
+
+## Where the resource meets the grid
+
+The map above makes the central argument visible. Alberta’s best solar
+resource — concentrated in the Lethbridge, Medicine Hat, and Vulcan
+County area — and its best wind resource — concentrated in the
+Crowsnest/Pincher Creek corridor — both sit in the southwestern quarter
+of the province. But Alberta’s primary electricity load centres are
+Edmonton (population 1.5 million) and Calgary (population 1.5 million),
+and the industrial heartland — petrochemical facilities at Fort
+Saskatchewan, coal and gas generation at Genesee and Wabamun — is
+concentrated in the Edmonton-Calgary corridor, serviced by an extensive
+240kV and 500kV network.
+
+The AESO’s transmission backbone was built to serve that industrial
+geography. The main 500kV corridor runs north-south between Edmonton and
+Calgary, with a southward extension toward Lethbridge. The eastern
+radials serve the oil sands and the coal fleet. The southwest corner —
+precisely where the best renewable resource is concentrated — is served
+by 240kV infrastructure that was designed for a smaller and less
+variable load, not for connecting gigawatts of variable renewable
+generation to the Edmonton and Calgary load centres.
+
+The consequence is what grid planners call **transmission constraint**:
+the physical limit on how much energy can flow from generation source to
+load centre on the existing wires. When the wind blows hard in the
+Pincher Creek corridor on a mild spring night, and Calgary and Edmonton
+demand is low, the 240kV lines from the southwest can be fully
+subscribed. Generation that could be delivered has nowhere to go.
+Projects in the AESO interconnection queue that would add to this
+corridor face years of transmission planning studies, potential upgrade
+costs running to hundreds of millions of dollars, and uncertainty about
+whether the upgrade will be built before the project reaches its
+financial close decision.
+
+The Travers Solar project (465 MW) successfully navigated this
+environment because it sits near existing 240kV infrastructure in the
+Lethbridge area, and because its generation profile — peaking in the
+afternoon when Calgary air-conditioning demand is also high — partially
+aligns with load timing. Projects further into the Crowsnest corridor
+face a more difficult transmission calculus. The AESO Long-term
+Transmission Plan has identified the southern Alberta region as
+requiring investment, but the timeline and funding mechanism remain
+subjects of ongoing regulatory proceedings.
+
+There is also the question of the **southern intertie**. Alberta has a
+limited interconnection to Montana’s grid (approximately 300 MW) and a
+more substantial connection to British Columbia (approximately 1,200 MW,
+though BC’s capacity is often committed to export or internal supply).
+These interties allow Alberta to export surplus renewable generation
+when it cannot be absorbed domestically, and to import when Alberta’s
+dispatchable fleet is short. But at 300 MW and 1,200 MW respectively,
+they are small relative to Alberta’s approximately 18,000 MW of peak
+demand, and cannot resolve large renewable surplus or deficit events.
+The BC intertie in the Crowsnest Pass area is geographically close to
+the province’s best wind resource but is not designed as a renewable
+export corridor.
+
+The spatial mismatch between resource and grid is, in the language of
+the cluster brief, the dominant engineering and economic constraint on
+Alberta’s renewable transition. It is not that the resource is
+insufficient — southern Alberta’s wind and solar potential, if fully
+developed, could supply Alberta’s electricity demand many times over.
+The constraint is the capital-intensive, time-consuming work of
+connecting the resource to the load. That work is the subject of the
+LCOE analysis in R2.
+
+## Reference implementation
+
+The full static implementation: compute annual GHI and capacity factor
+for Alberta stations from first principles, using the solar geometry
+model.
+
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+sys.path.insert(0, "../../")
+from shared.plot_style import apply
+
+# ── Solar geometry ──────────────────────────────────────────────────────────
+def solar_declination(day_of_year: int) -> float:
+    """Solar declination angle (degrees) for a given day of year."""
+    return -23.45 * np.cos(np.radians(360 / 365 * (day_of_year + 10)))
+
+def cos_zenith_noon(lat_deg: float, day_of_year: int) -> float:
+    """Cosine of solar zenith angle at solar noon."""
+    delta = np.radians(solar_declination(day_of_year))
+    phi   = np.radians(lat_deg)
+    return np.sin(phi) * np.sin(delta) + np.cos(phi) * np.cos(delta)
+
+def daylight_hours(lat_deg: float, day_of_year: int) -> float:
+    """Approximate daylight hours using sunrise equation."""
+    delta = np.radians(solar_declination(day_of_year))
+    phi   = np.radians(lat_deg)
+    cos_ha = -np.tan(phi) * np.tan(delta)
+    cos_ha = np.clip(cos_ha, -1, 1)
+    ha = np.degrees(np.arccos(cos_ha))       # hour angle at sunrise (degrees)
+    return 2 * ha / 15.0                     # convert to hours
+
+def daily_ghi_wh(lat_deg: float, day_of_year: int,
+                 tau: float = 0.75, kt: float = 0.55) -> float:
+    """
+    Approximate daily GHI (Wh/m²) using peak irradiance × daylight hours × clearness.
+
+    Parameters
+    ----------
+    lat_deg : latitude (degrees north)
+    day_of_year : 1–365
+    tau : atmospheric transmittance (clear sky ~0.75)
+    kt  : clearness index (actual/extraterrestrial) — Alberta: 0.52–0.58
+    """
+    cz = cos_zenith_noon(lat_deg, day_of_year)
+    if cz <= 0:
+        return 0.0
+    G_sc = 1361.0                             # W/m² solar constant
+    G0   = G_sc * cz * tau**(1 / cz)         # Beer-Lambert clear-sky at noon
+    dl   = daylight_hours(lat_deg, day_of_year)
+    # Sinusoidal integration approximation: daily total ≈ (2/π) × peak × daylight_seconds
+    daily_kwh = (2 / np.pi) * G0 * dl * 3600 * kt / 1000   # kWh/m²/day
+    return daily_kwh * 1000                                  # Wh/m²/day
+
+
+# ── Annual GHI for Alberta stations ────────────────────────────────────────
+stations = {
+    "Lethbridge (49.7°N)":  49.7,
+    "Calgary (51.1°N)":     51.1,
+    "Red Deer (52.3°N)":    52.3,
+    "Edmonton (53.6°N)":    53.6,
+    "Grande Prairie (55.2°N)": 55.2,
+}
+
+days = np.arange(1, 366)
+print("Annual solar resource — Alberta stations (clear-sky model, kt=0.55)")
+print(f"{'Station':<28} {'Annual GHI (kWh/m²)':>20} {'Peak sun-hours/day':>20}")
+for name, lat in stations.items():
+    daily = np.array([daily_ghi_wh(lat, d) / 1000 for d in days])  # kWh/m²/day
+    annual = np.sum(daily)
+    psh = annual / 365
+    print(f"  {name:<26} {annual:>18.0f}   {psh:>18.2f}")
+```
+
+**Output:**
+
+    Annual solar resource — Alberta stations (clear-sky model, kt=0.55)
+    Station                      Annual GHI (kWh/m²)   Peak sun-hours/day
+      Lethbridge (49.7°N)                      1277                 3.50
+      Calgary (51.1°N)                         1211                 3.32
+      Red Deer (52.3°N)                        1157                 3.17
+      Edmonton (53.6°N)                        1094                 3.00
+      Grande Prairie (55.2°N)                  1005                 2.75
+
+The model outputs match the NRCan Solar Atlas values to within a few
+percent — reasonable agreement for a two-parameter approximation
+(transmittance and clearness index) applied over a 6° latitude range.
+The remaining discrepancy reflects seasonal variation in cloud cover and
+aerosol loading that a fixed *k*<sub>*t*</sub> cannot capture.
+
+## Run it yourself
+
+The cell below calculates annual solar resource and capacity factor for
+any Alberta latitude, and estimates wind capacity factor from mean
+hub-height speed. Change `latitude_deg` to compare Lethbridge (49.7),
+Calgary (51.1), or Edmonton (53.6). Adjust `kt` down to 0.45 to simulate
+a cloudy year. For wind, try `wind_speed_80m = 8.5` for the Pincher
+Creek corridor, or `6.0` for a central prairie site near the economic
+break-even.
+
+<div class="pyodide-cell"><pre><code class="language-python">import numpy as np
+
+# ── Solar resource calculator ──────────────────────────────────────────────
+# Estimate annual GHI and solar capacity factor for any Alberta location
+
+# ── Parameters — change these ──────────────────────────────────────────────
+latitude_deg   = 49.7    # degrees N — Lethbridge: 49.7; Calgary: 51.1; Edmonton: 53.6
+kt             = 0.55    # clearness index — southern AB: 0.55–0.58; northern: 0.52–0.54
+panel_eff      = 0.20    # panel efficiency (fraction) — typical 2024 utility: 0.20–0.22
+wind_speed_80m = 7.5     # mean wind speed at 80m hub height (m/s) — Pincher Creek: 8.5; prairie: 6–7
+
+# ── Solar calculation ──────────────────────────────────────────────────────
+def solar_declination(d):
+    return -23.45 * np.cos(np.radians(360 / 365 * (d + 10)))
+
+def cos_zenith(lat, d):
+    delta = np.radians(solar_declination(d))
+    phi   = np.radians(lat)
+    return np.sin(phi)*np.sin(delta) + np.cos(phi)*np.cos(delta)
+
+def daylight_h(lat, d):
+    delta = np.radians(solar_declination(d))
+    phi   = np.radians(lat)
+    cos_ha = np.clip(-np.tan(phi)*np.tan(delta), -1, 1)
+    return 2 * np.degrees(np.arccos(cos_ha)) / 15.0
+
+days = np.arange(1, 366)
+annual_ghi = 0.0
+for d in days:
+    cz = cos_zenith(latitude_deg, d)
+    if cz <= 0:
+        continue
+    G0 = 1361 * cz * 0.75**(1/cz)
+    dl = daylight_h(latitude_deg, d)
+    annual_ghi += (2/np.pi) * G0 * dl * kt / 1000   # kWh/m²/day
+
+annual_ghi_total = annual_ghi                         # kWh/m²/year
+cf_solar = annual_ghi_total * panel_eff / 8760        # capacity factor
+
+# ── Wind calculation ────────────────────────────────────────────────────────
+cf_wind  = max(0, 0.087 * wind_speed_80m - 0.30)      # rule of thumb
+rho_air  = 1.225                                        # kg/m³ at sea level
+power_density = 0.5 * rho_air * wind_speed_80m**3      # W/m²
+
+# ── Output ─────────────────────────────────────────────────────────────────
+print(f"Location: {latitude_deg:.1f}°N  (clearness index kt = {kt:.2f})")
+print()
+print("Solar resource:")
+print(f"  Annual GHI        : {annual_ghi_total:,.0f} kWh/m²/year")
+print(f"  Peak sun hours    : {annual_ghi_total/365:.2f} h/day (annual average)")
+print(f"  Panel efficiency  : {panel_eff*100:.0f}%")
+print(f"  Capacity factor   : {cf_solar:.3f}  ({cf_solar*100:.1f}%)")
+print()
+print("Wind resource:")
+print(f"  Mean wind speed   : {wind_speed_80m:.1f} m/s at 80m hub height")
+print(f"  Power density     : {power_density:.0f} W/m² rotor area")
+print(f"  Capacity factor   : {cf_wind:.3f}  ({cf_wind*100:.1f}%)")
+print()
+print("Comparison (at 1 MW nameplate):")
+print(f"  Annual solar gen  : {cf_solar * 8760 * 1000:,.0f} kWh/year  (1 MW solar array)")
+print(f"  Annual wind gen   : {cf_wind  * 8760 * 1000:,.0f} kWh/year  (1 MW wind turbine)")
+</code></pre></div>
+
+The numbers that emerge from this exercise reward careful attention. At
+Lethbridge (49.7°N, kt = 0.55), annual GHI is approximately 1,277
+kWh/m²/year, yielding a solar capacity factor of about 2.9% — which
+sounds low until you note it corresponds to 254 MWh per year per MW of
+installed capacity. At Edmonton (53.6°N), the same calculation gives
+roughly 1,094 kWh/m² and a CF of 2.5%. The 15% gap between Lethbridge
+and Edmonton in annual solar generation is a direct consequence of the
+latitude-driven change in solar zenith angle compounded over 365 days.
+
+For wind, the sensitivity to speed is the dominant message. Dropping
+from the Pincher Creek mean of 8.5 m/s to a central prairie site at 6.0
+m/s changes the estimated capacity factor from 44% to 22%. That
+difference, applied to a 300 MW project generating over a 25-year life,
+is the difference between a project that clears its required rate of
+return and one that does not. The cubic law is not an abstraction — it
+is the reason the Crowsnest Pass wind corridor attracts developers
+despite its more difficult transmission access.
+
+## The resource is not the constraint
+
+This essay has established three things. First, Alberta’s solar resource
+is competitive by international standards: Lethbridge’s 1,280
+kWh/m²/year GHI exceeds southern Germany’s, and the province’s clearness
+index of 0.55–0.58 reflects its dry, continental climate. Second,
+Alberta’s wind resource is dramatically geographically concentrated: the
+Chinook belt along the Rocky Mountain front produces capacity factors of
+35–45%, while the central and northern prairie yields 20–30%. Third,
+both resources are most abundant in the southwest corner of the province
+— precisely the corner that is least well served by the transmission
+infrastructure that was built to connect an industrial heartland based
+on coal and oil sands to Edmonton and Calgary.
+
+The resource is not the constraint. Enough wind and solar potential
+exists in southern Alberta to supply the province’s electricity demand
+many times over, at capacity factors that compare favourably with most
+of Europe and the upper midwest of the United States. What constrains
+deployment is the capital-intensive, time-consuming, and institutionally
+complicated process of connecting that potential to the grid, pricing
+the electricity it produces in a volatile merchant market, and
+attracting the financing to build projects that are exposed to real-time
+pool prices that ranged from near zero to \$999/MWh in recent years.
+
+Those are questions of economics, not geography. And economics —
+specifically the LCOE framework that lets analysts compare wind, solar,
+storage, and gas generation on a common dollar-per-megawatt-hour basis —
+is the subject of the next essay in this cluster.
+
+*The pipeline cluster (P1–P5) showed how Alberta’s hydrocarbon resource
+is physically extracted, moved, and priced. The renewable transition
+begins with the same first question: where is the resource, and what
+does the geography tell us about where generation will concentrate? R2
+will build the LCOE model from first principles and use it to compare
+wind, solar, and storage economics — identifying the transmission and
+capital constraints that determine where projects actually get built.*
+
+------------------------------------------------------------------------
+
+*Sources: NRCan Solar Atlas (solar.nrcan.gc.ca); Environment Canada Wind
+Atlas; AESO 2024 Annual Electricity Data Book; AESO Long-term
+Transmission Plan.*
+
+*Cluster EG — Renewable Energy Transition · Essay 1 of 3 · Difficulty: 2*

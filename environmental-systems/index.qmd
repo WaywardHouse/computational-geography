@@ -1,0 +1,91 @@
+---
+title: "Part 2: Earth Systems and Observation"
+subtitle: "Environmental processes first, with deeper sensing and orbital material available when you want it."
+page-layout: article
+---
+
+::: {.section-kicker}
+Textbook Part
+:::
+
+## Earth Systems and Observation {#environmental-systems .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This part uses the mathematical habits from Part 1 to understand environmental systems: energy, soils, plants, water, and atmosphere. It leads with the most concrete process models and keeps the orbital and GPS geometry as extension material for a second pass.</p>
+    <div class="cta-row">
+      <a class="cta" href="./net-radiation-and-albedo.html">Start Part 2</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">8 core chapters</span>
+      <span class="book-pill">Environmental systems</span>
+      <span class="book-pill">Part 2</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Role</strong>
+      <span>Show how energy and matter move through real environmental systems, and how those systems can be observed and modelled.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Sequence</strong>
+      <span>Start with the process chapters. Return to orbits, visibility, GPS, and biogeochemical depth when you want more observational detail.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">F</span>
+    <h3>Remote Sensing Library Links</h3>
+    <ul>
+      <li><a href="./circular-orbits-and-keplers-third-law.html">Circular Orbits and Kepler's Third Law</a></li>
+      <li><a href="./ground-tracks-and-orbital-geometry.html">Ground Tracks and Orbital Geometry</a></li>
+      <li><a href="./satellite-overpasses-and-visibility.html">Satellite Overpasses and Visibility</a></li>
+      <li><a href="./how-gps-works.html">How GPS Works</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">G</span>
+    <h3>Surface Energy Balance</h3>
+    <ul>
+      <li><a href="./net-radiation-and-albedo.html">Net Radiation and Albedo</a></li>
+      <li><a href="./sensible-and-latent-heat-fluxes.html">Sensible and Latent Heat Fluxes</a></li>
+      <li><a href="./soil-heat-diffusion.html">Soil Heat Diffusion</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">H</span>
+    <h3>Ecosystem Processes</h3>
+    <ul>
+      <li><a href="./photosynthesis-light-response.html">Photosynthesis and Light Response</a></li>
+      <li><a href="./soil-moisture-dynamics.html">Soil Moisture Dynamics</a></li>
+      <li><a href="./carbon-allocation-and-npp.html">Carbon Allocation and Net Primary Productivity</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">I</span>
+    <h3>Atmospheric Interactions</h3>
+    <ul>
+      <li><a href="./wind-profiles-and-turbulence.html">Wind Profiles and Atmospheric Turbulence</a></li>
+      <li><a href="./temperature-moisture-gradients.html">Temperature and Moisture Gradients</a></li>
+      <li><a href="./vegetation-indices-and-remote-sensing.html">Vegetation Indices and Remote Sensing</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">J</span>
+    <h3>More System Depth</h3>
+    <ul>
+      <li><a href="./carbon-allocation-and-npp.html">Carbon Allocation and Net Primary Productivity</a></li>
+      <li><a href="./decomposition-and-soil-carbon.html">Decomposition and Soil Carbon Turnover</a></li>
+      <li><a href="./nitrogen-cycling.html">Nitrogen Cycling and Limitation</a></li>
+      <li><a href="./phenology-and-growing-season.html">Phenology and Growing Season Dynamics</a></li>
+    </ul>
+  </article>
+</div>
+```

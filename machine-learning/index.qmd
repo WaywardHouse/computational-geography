@@ -1,0 +1,53 @@
+---
+title: "Machine Learning for Geographic Data"
+subtitle: "Optional statistical learning chapters for readers ready to go further."
+page-layout: article
+---
+
+::: {.section-kicker}
+Topic Library
+:::
+
+## Machine Learning for Geographic Data {#machine-learning .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This branch introduces statistical learning methods for geographic data. It is best treated as later-stage material after the modelling and GIS foundations already feel comfortable.</p>
+    <div class="cta-row">
+      <a class="cta" href="./regression-continuous-variables.html">Open the Library</a>
+      <a class="cta cta-ghost" href="../methods-and-tools/">Methods and Tools</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">2 chapters</span>
+      <span class="book-pill">Extension material</span>
+      <span class="book-pill">Machine learning</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Role</strong>
+      <span>Offer a gentle late-stage entry into regression and dimensionality reduction for geographic data.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Sequence</strong>
+      <span>Best opened after the core path and after some time in GIS or environmental modelling.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Z</span>
+    <h3>Foundations of Geographic ML</h3>
+    <ul>
+      <li><a href="./regression-continuous-variables.html">Regression for Continuous Variables</a></li>
+      <li><a href="./dimensionality-reduction-pca-tsne-umap.html">Dimensionality Reduction: PCA, t-SNE, and UMAP</a></li>
+    </ul>
+  </article>
+</div>
+```

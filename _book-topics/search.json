@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "advanced-remote-sensing/prospect-leaf-optical-properties.html#footnotes",
+    "href": "advanced-remote-sensing/prospect-leaf-optical-properties.html#footnotes",
+    "title": "Leaf Optical Properties — the PROSPECT Model",
+    "section": "",
+    "text": "Jacquemoud, S. and Baret, F., 1990. PROSPECT: A model of leaf optical properties spectra. Remote Sensing of Environment, 34(2), pp.75–91. https://doi.org/10.1016/0034-4257(90)90100-Z↩︎\nThe specific absorption coefficients used here are from the PROSPECT-5 parameterisation: Feret, J.-B., François, C., Asner, G.P., Gitelson, A.A., Martin, R.E., Bidel, L.P.R., Ustin, S.L., le Maire, G. and Jacquemoud, S., 2008. PROSPECT-4 and 5: Advances in the leaf optical properties model separating photosynthetic pigments. Remote Sensing of Environment, 112(6), pp.3030–3043. https://doi.org/10.1016/j.rse.2008.02.012↩︎\nThe implementation uses a simplified but physically consistent form of the PROSPECT plate model. The specific absorption coefficients are resampled from published PROSPECT-5 tabulated values to 10 nm resolution over 400–900 nm. For full-spectrum (400–2500 nm) calculations including shortwave infrared water and dry matter features, and for production use in retrieval algorithms, the complete published coefficient tables should be used. The PROSPECT source code and coefficient files are available from the OPTICLEAF database maintained by INRAE. https://opticleaf.ipgp.fr↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Leaf Optical Properties — the PROSPECT Model</span>"
+    ]
+  },
+  {
+    "objectID": "advanced-remote-sensing/sail-canopy-reflectance.html#footnotes",
+    "href": "advanced-remote-sensing/sail-canopy-reflectance.html#footnotes",
+    "title": "Canopy Reflectance — the SAIL Model",
+    "section": "",
+    "text": "Verhoef, W., 1984. Light scattering by leaf layers with application to canopy reflectance modelling: the SAIL model. Remote Sensing of Environment, 16(2), pp.125–141. https://doi.org/10.1016/0034-4257(84)90057-9↩︎\nJacquemoud, S., Verhoef, W., Baret, F., Bacour, C., Zarco-Tejada, P.J., Asner, G.P., François, C. and Ustin, S.L., 2009. PROSPECT + SAIL models: A review of use for vegetation characterization. Remote Sensing of Environment, 113(Suppl. 1), pp.S56–S66. https://doi.org/10.1016/j.rse.2008.01.026↩︎",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Canopy Reflectance — the SAIL Model</span>"
+    ]
+  }
+]

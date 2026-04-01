@@ -1,0 +1,90 @@
+---
+title: "Computational Geography Core Book"
+subtitle: "The flagship modelling text: a calm on-ramp, a clear staircase, and one coherent main journey."
+page-layout: article
+body-classes: split-home split-home-core
+---
+
+::: {.section-kicker}
+Main Reading Path
+:::
+
+## Computational Geography Core Book {#core-book-home .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This is the flagship book of the project: the clearest guided climb through modelling, Earth systems, GIS, hazards, and gateway human geography.</p>
+    <p>If the wider library ever feels sprawling, begin here. This is the quiet, steady route designed to behave like one serious, readable book.</p>
+    <div class="cta-row">
+      <a class="cta" href="../getting-started/">Start Here</a>
+      <a class="cta cta-ghost" href="../foundations/">Open Part 1</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">Flagship book</span>
+      <span class="book-pill">Beginner-safe path</span>
+      <span class="book-pill">Read in order</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Best For</strong>
+      <span>Readers who want one coherent beginner-to-intermediate path rather than a shelf of side doors.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Includes</strong>
+      <span>Getting Started, Methods and Tools, Foundations, Environmental Systems, Spatial Analysis, Hazards, and gateway Economic Geography.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Reading Style</strong>
+      <span>Sequential, cumulative, and deliberately paced to keep the first serious pass through the subject feeling possible.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## What This Book Covers {#core-book-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Begin Gently</span>
+    <h3>Start Here and Methods</h3>
+    <p>Learn how to read equations, reason with units, think about maps as data, and use the project’s shared tool bench.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Build Confidence</span>
+    <h3>Maths for Modelling Space</h3>
+    <p>Variables, rates, growth, terrain, and spatial interaction establish the modelling language of the book.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Move Outward</span>
+    <h3>Earth Systems, GIS, and Hazards</h3>
+    <p>Environmental process models, spatial analysis tools, and motivating risk problems build the strongest central spine.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Finish Broadly</span>
+    <h3>Gateway Human Geography</h3>
+    <p>Trade, cities, and pricing appear here as spatial systems without overwhelming the environmental-modelling core.</p>
+  </article>
+</div>
+```
+
+## Also In This Series {#core-book-siblings .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Branch Later</span>
+    <h3>Topic Libraries</h3>
+    <p>Browse remote sensing, cryosphere, machine learning, and deeper system branches by subject.</p>
+    <p><a href="../topic-libraries-home/">Open Topic Libraries</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Practice Later</span>
+    <h3>Laboratory</h3>
+    <p>Move into investigations, advanced applications, and practicum-style modelling work.</p>
+    <p><a href="../laboratory-home/">Open Laboratory</a></p>
+  </article>
+</div>
+```

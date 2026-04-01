@@ -1,0 +1,73 @@
+---
+title: "Part 4: Hazards, Change, and Prediction"
+subtitle: "A reader-friendly route into fire, rainfall, floods, and the logic of risk."
+page-layout: article
+---
+
+::: {.section-kicker}
+Textbook Part
+:::
+
+## Hazards, Change, and Prediction {#atmospheric-hazards .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This part uses modelling to think about danger, uncertainty, and real-world consequences. It leads with the clearest and most teachable hazard chapters, while keeping the more meteorology-heavy chapters available for deeper study.</p>
+    <div class="cta-row">
+      <a class="cta" href="./fire-weather-ignition.html">Start Part 4</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">5 core chapters</span>
+      <span class="book-pill">Risk and forecasting</span>
+      <span class="book-pill">Part 4</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Role</strong>
+      <span>Show how models help us think about wildfire, rainfall, flooding, and the limits of prediction.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Sequence</strong>
+      <span>Start with the fire and flood chapters. Return later for severe-storm and wind-depth chapters.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">V</span>
+    <h3>Core Path</h3>
+    <ul>
+      <li><a href="./fire-weather-ignition.html">Fire Weather and Ignition Potential</a></li>
+      <li><a href="./fire-spread-modeling.html">Fire Spread modelling</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Y</span>
+    <h3>Core Path</h3>
+    <ul>
+      <li><a href="./rainfall-intensity-duration.html">Rainfall Intensity-Duration-Frequency</a></li>
+      <li><a href="./flood-frequency-analysis.html">Flood Frequency Analysis</a></li>
+      <li><a href="./urban-flood-modeling.html">Urban Flood modelling and Green Infrastructure</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Topic Library Links</span>
+    <h3>Atmospheric Depth</h3>
+    <ul>
+      <li><a href="./fire-emissions-smoke.html">Fire Emissions and Smoke Dispersion</a></li>
+      <li><a href="./thunderstorm-dynamics.html">Thunderstorm Dynamics and Severe Weather</a></li>
+      <li><a href="./tornado-formation-intensity.html">Tornado Formation and Intensity</a></li>
+      <li><a href="./hail-formation-forecasting.html">Hail Formation and Forecasting</a></li>
+      <li><a href="./boundary-layer-turbulence.html">Boundary Layer Turbulence and Wind Profiles</a></li>
+      <li><a href="./extreme-wind-events.html">Extreme Wind Events and Downbursts</a></li>
+    </ul>
+  </article>
+</div>
+```

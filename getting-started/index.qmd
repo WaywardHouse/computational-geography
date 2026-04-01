@@ -1,0 +1,165 @@
+---
+title: "Part 0: Getting Started"
+subtitle: "A calm on-ramp into models, maps, equations, and the way this book works."
+page-layout: article
+---
+
+::: {.section-kicker}
+Start Here
+:::
+
+## Getting Started {#getting-started .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This part is for readers who are curious but not yet fully confident. If equations make you tense, if you have never thought of a map as a data structure, or if you are wondering where to begin, start here.</p>
+    <p>The goal is not to teach everything at once. It is to make the rest of the book feel possible.</p>
+    <div class="cta-row">
+      <a class="cta" href="../foundations/what-is-a-spatial-model.html">Begin Chapter 1</a>
+      <a class="cta cta-ghost" href="../foundations/">See Part 1</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">No panic required</span>
+      <span class="book-pill">Built for first-time readers</span>
+      <span class="book-pill">Bridge into the core path</span>
+      <span class="book-pill">6 bridge chapters</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Audience</strong>
+      <span>Smart Grade 10 readers and up, plus anyone returning to maths or science after time away.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Goal</strong>
+      <span>Make the first core chapters feel approachable, not intimidating.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## How To Use This Book {#how-to-use-this-book .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">1</span>
+    <h3>Use The Core Path First</h3>
+    <p>The book has a main staircase. Start with the core path and treat extension material as optional until you feel ready.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">2</span>
+    <h3>Read For Meaning First</h3>
+    <p>You do not need to understand every symbol immediately. First ask what the chapter is trying to explain about the world.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">3</span>
+    <h3>Return To Hard Parts</h3>
+    <p>If a section feels too dense, keep the big idea and move on. This book is built for revisiting.</p>
+  </article>
+</div>
+```
+
+## Bridge Chapters {#bridge-chapters .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Chapter 1</span>
+    <h3><a href="./how-to-read-equations.html">How to Read Equations</a></h3>
+    <p>Learn to treat equations as claims about quantities and relationships rather than instant tests.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Chapter 2</span>
+    <h3><a href="./units-scale-and-estimation.html">Units, Scale, and Estimation</a></h3>
+    <p>Build the habit of checking plausibility before trusting exact-looking answers.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Chapter 3</span>
+    <h3><a href="./maps-coordinates-and-layers.html">Maps, Coordinates, and Layers</a></h3>
+    <p>See how maps become structured data and why that matters for spatial analysis.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Chapter 4</span>
+    <h3><a href="./uncertainty-error-and-approximation.html">Uncertainty, Error, and Approximation</a></h3>
+    <p>Understand why models can be useful even when they are simplified and imperfect.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Chapter 5</span>
+    <h3><a href="./what-makes-a-model-computational.html">What Makes a Model Computational</a></h3>
+    <p>Connect modelling ideas to repetition, simulation, data, and scale.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Chapter 6</span>
+    <h3><a href="./setting-up-your-environment.html">Setting Up Your Environment</a></h3>
+    <p>Get a practical setup for Windows, macOS, Linux, and Raspberry Pi so external labs are easier to run.</p>
+  </article>
+</div>
+```
+
+## What You Need To Be Comfortable With {#what-you-need .section-title}
+
+You do not need advanced calculus or university physics to begin the core path.
+
+Helpful starting skills:
+
+- basic algebra
+- reading graphs
+- simple fractions and percentages
+- curiosity about maps, environments, cities, or data
+
+If you are shaky on a topic, that does not mean the book is not for you. It means you may want to move slowly and revisit examples.
+
+## Reading Equations Without Panic {#reading-equations .section-title}
+
+Treat equations as compressed sentences.
+
+When you meet one, ask:
+
+1. What quantity is being described?
+2. Which quantities affect it?
+3. Does the relationship say "more leads to more," "more leads to less," or "there is a balance"?
+4. What are the units?
+
+You do not need to solve every equation immediately. First learn to read what it is claiming.
+
+## Core Path Preview {#core-path-preview .section-title}
+
+```{=html}
+<div class="book-part-grid">
+  <article class="book-part-card">
+    <span class="part-eyebrow">Part 1</span>
+    <h3>Maths for Modelling Space</h3>
+    <p>Start with variables, rates, growth, terrain, and simple spatial systems.</p>
+    <div class="cta-row">
+      <a class="cta" href="../foundations/">Open Part 1</a>
+    </div>
+  </article>
+  <article class="book-part-card">
+    <span class="part-eyebrow">Part 2</span>
+    <h3>Earth Systems and Observation</h3>
+    <p>Use models to understand environmental processes and what data can tell us about them.</p>
+    <div class="cta-row">
+      <a class="cta" href="../environmental-systems/">Open Part 2</a>
+    </div>
+  </article>
+  <article class="book-part-card">
+    <span class="part-eyebrow">Part 3</span>
+    <h3>GIS and Spatial Analysis</h3>
+    <p>Learn the practical toolkit of spatial reasoning, overlays, rasters, and watershed logic.</p>
+    <div class="cta-row">
+      <a class="cta" href="../spatial-analysis/">Open Part 3</a>
+    </div>
+  </article>
+</div>
+```
+
+## Still To Add Later {#bridge-topics .section-title}
+
+The next bridge topics that would strengthen this on-ramp even more are:
+
+- graphs, curves, and what they mean
+- a gentle introduction to probability
+- simple simulation and step-by-step updating
+- reading charts, maps, and legends together

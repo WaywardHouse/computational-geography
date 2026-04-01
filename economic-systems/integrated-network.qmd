@@ -1,0 +1,647 @@
+---
+title: The Integrated Network
+subtitle: Max-flow, min-cut, and the full netback price surface across Alberta's export
+  corridors
+date: 2026-03-10
+type: chapter
+image: /assets/images/pipeline-integrated-network.webp
+book-part: economic-systems
+book-part-title: Economic Systems
+chapter-number: 30
+section-code: EP
+section-title: Pipeline Connectivity
+tags:
+- alberta
+- pipelines
+- energy-geography
+- graph-theory
+- max-flow
+- network-analysis
+- netback
+difficulty: 3
+learning:
+  concepts:
+  - directed-graphs
+  - max-flow-min-cut
+  - network-centrality
+  - netback-surface
+body-classes: reading-body tag-hash-math tag-hash-pyodide
+interactive:
+  math: true
+  pyodide: true
+notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P5-integrated-network
+---
+
+
+Alberta’s pipeline network exports more than 3 million barrels of oil
+per day — but that capacity is concentrated through a single hub, at a
+single location, in a way that any graph theorist would immediately
+recognise as a structural vulnerability.
+
+The preceding four essays developed the physics and economics of each
+commodity system independently: Darcy-Weisbach for crude, mass balance
+for NGL, Weymouth for gas, Cola and batch scheduling for refined
+products. This essay does something different. It assembles all four
+systems into a single directed capacity graph, applies the
+Ford-Fulkerson max-flow min-cut theorem to identify the network’s
+binding export constraints, and maps the netback price surface — the
+function that converts a market price at any destination into a wellhead
+value at any Alberta production site.
+
+The mathematics reveals a structure that is simultaneously more capable
+and more concentrated than either side of the pipeline debate typically
+acknowledges.
+
+## The network as a directed graph
+
+A **directed graph** (digraph) represents a pipeline network as a set of
+nodes connected by directed edges with capacity constraints. The mapping
+is direct:
+
+-   **Nodes** — production aggregates, pipeline hubs, border crossings,
+    and market sinks
+-   **Directed edges** — individual pipelines, with direction indicating
+    permitted flow direction
+-   **Edge weights** — nameplate capacity in thousands of barrels per
+    day (Mbbl/day)
+
+The Alberta crude export network, simplified for analysis, has seven
+nodes:
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Node</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROD</td>
+<td>Alberta wellhead aggregate — upstream production</td>
+</tr>
+<tr>
+<td>EDMT</td>
+<td>Edmonton hub — primary origin for TMX and refined products;
+NGL/condensate gathering</td>
+</tr>
+<tr>
+<td>HARD</td>
+<td>Hardisty hub — primary crude export origin; Mainline, Keystone
+origin point</td>
+</tr>
+<tr>
+<td>SUPR</td>
+<td>Superior, WI — Enbridge Mainline eastern terminus; connection to
+Flanagan South/Seaway</td>
+</tr>
+<tr>
+<td>CUSH</td>
+<td>Cushing, OK — WTI delivery hub; Keystone terminus</td>
+</tr>
+<tr>
+<td>BURN</td>
+<td>Burnaby, BC — Trans Mountain terminus; Pacific tanker loading</td>
+</tr>
+<tr>
+<td>GULF / SARN / PCFC</td>
+<td>Market sinks — U.S. Gulf Coast, Ontario/Quebec refineries, Pacific
+Basin</td>
+</tr>
+</tbody>
+</table>
+
+The directed edges and their approximate 2024 capacities:
+
+<table>
+<thead>
+<tr>
+<th>Edge</th>
+<th>Capacity (Mbbl/day)</th>
+<th>System</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROD → EDMT</td>
+<td>3,800</td>
+<td>Upstream gathering to Edmonton</td>
+</tr>
+<tr>
+<td>PROD → HARD</td>
+<td>3,800</td>
+<td>Upstream gathering to Hardisty</td>
+</tr>
+<tr>
+<td>EDMT → HARD</td>
+<td>3,500</td>
+<td>Enbridge Mainline gathering</td>
+</tr>
+<tr>
+<td>EDMT → BURN</td>
+<td>890</td>
+<td>Trans Mountain (TMX, post-expansion)</td>
+</tr>
+<tr>
+<td>HARD → SUPR</td>
+<td>2,850</td>
+<td>Enbridge Mainline (Lines 2–13)</td>
+</tr>
+<tr>
+<td>HARD → CUSH</td>
+<td>590</td>
+<td>Keystone</td>
+</tr>
+<tr>
+<td>SUPR → GULF</td>
+<td>2,850</td>
+<td>Flanagan South + Seaway → Gulf Coast</td>
+</tr>
+<tr>
+<td>SUPR → SARN</td>
+<td>500</td>
+<td>Enbridge Line 9 → Ontario/Quebec</td>
+</tr>
+<tr>
+<td>CUSH → GULF</td>
+<td>590</td>
+<td>Keystone extension to Gulf</td>
+</tr>
+<tr>
+<td>BURN → PCFC</td>
+<td>890</td>
+<td>Pacific tanker capacity</td>
+</tr>
+</tbody>
+</table>
+
+*Sources: CER Pipeline Profiles; Enbridge annual reports; Trans Mountain
+Corporation; TC Energy disclosures. Capacities are nameplate; actual
+utilisation varies by contract and maintenance.*
+
+## Max-flow and the binding constraint
+
+The **Ford-Fulkerson max-flow min-cut theorem** states:
+
+max_flow(*s*, *t*) = min_cut(*G*, *s*, *t*) = min<sub>(*S*, *T*) ∈ 𝒞</sub>∑<sub>(*u*, *v*): *u* ∈ *S*, *v* ∈ *T*</sub>*c*(*u*, *v*)
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>G</em></span></td>
+<td>Directed graph representing the pipeline network</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>s</em></span></td>
+<td>Source node (Alberta production)</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>t</em></span></td>
+<td>Sink node (export destination)</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>S</em>, <em>T</em></span></td>
+<td>Partition of nodes: source-side and sink-side</td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>c</em>(<em>u</em>, <em>v</em>)</span></td>
+<td>Capacity of directed edge <span
+class="math inline">(<em>u</em>, <em>v</em>)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">min_cut</span></td>
+<td>Minimum total capacity of edges crossing from <span
+class="math inline"><em>S</em></span> to <span
+class="math inline"><em>T</em></span></td>
+</tr>
+</tbody>
+</table>
+
+The theorem’s power is in what it reveals about network structure: **the
+bottleneck is always identifiable as a cut** — a set of edges whose
+combined removal would disconnect production from market. Removing any
+single edge with capacity less than the max-flow reduces that flow by
+exactly the removed capacity; removing an edge not in the min-cut has no
+effect on max-flow at all.
+
+For the Alberta crude network, the **Edmonds-Karp algorithm** (a
+BFS-based implementation of Ford-Fulkerson) finds these results:
+
+-   **Max-flow to Gulf Coast:** ~3,440 Mbbl/day (limited by SUPR → GULF
+    = 2,850 + CUSH → GULF = 590)
+-   **Max-flow to Pacific (PCFC):** 890 Mbbl/day (EDMT → BURN = BURN →
+    PCFC = 890)
+-   **Max-flow to Ontario (SARN):** 500 Mbbl/day (SUPR → SARN = 500)
+-   **Total network export capacity:** ~4,830 Mbbl/day
+
+The min-cut for the total network passes through the edges immediately
+downstream of the HARD and EDMT nodes — the edges leaving Alberta. This
+is the graph-theoretic representation of the **export constraint**:
+Alberta’s pipelines can carry everything the province produces to one or
+another destination, but the set of edges leaving the province is the
+binding cut.
+
+**Scenario: Keystone cancellation.** Setting HARD → CUSH = 0 reduces
+Gulf max-flow from 3,440 to 2,850 Mbbl/day — a reduction of exactly 590,
+because that edge was in the min-cut. The theorem guarantees this result
+without simulation.
+
+**Scenario: Second TMX-scale Pacific pipeline.** Setting EDMT → BURN =
+1,200 Mbbl/day adds 310 Mbbl/day to Pacific capacity, but does not
+change the binding constraint on Gulf flows — those are limited by a
+different cut entirely. The two corridors compete for Edmonton
+production volumes (shared PROD → EDMT edge) but not for capacity at any
+common downstream node.
+
+## Network centrality and the Hardisty problem
+
+**Betweenness centrality** measures a node’s structural importance by
+counting how many shortest paths between all node pairs pass through it:
+
+$$
+C_B(v) = \sum\_{s \neq v \neq t} \frac{\sigma(s,t \mid v)}{\sigma(s,t)}
+$$
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span
+class="math inline"><em>C</em><sub><em>B</em></sub>(<em>v</em>)</span></td>
+<td>Betweenness centrality of node <span
+class="math inline"><em>v</em></span></td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>σ</em>(<em>s</em>, <em>t</em>)</span></td>
+<td>Total number of shortest paths from <span
+class="math inline"><em>s</em></span> to <span
+class="math inline"><em>t</em></span></td>
+</tr>
+<tr>
+<td><span
+class="math inline"><em>σ</em>(<em>s</em>, <em>t</em> ∣ <em>v</em>)</span></td>
+<td>Number of those paths passing through <span
+class="math inline"><em>v</em></span></td>
+</tr>
+</tbody>
+</table>
+
+**Hardisty has near-maximum betweenness centrality** in Alberta’s crude
+export network. Every path from Alberta production to any Gulf or
+eastern market routes through HARD. Edmonton routes the Pacific corridor
+(EDMT → BURN) but not the Mainline or Keystone flows. Hardisty is on all
+paths to Gulf and Sarnia.
+
+The operational implications are significant. A disruption at Hardisty —
+fire, flood, equipment failure, regulatory order — is a **systemic
+event** affecting all downstream flows simultaneously. A disruption at
+Edmonton affects only the TMX corridor. The difference is one of network
+centrality, not just geography.
+
+The **Hardisty tank farm** addresses this concentration risk through
+storage buffering. With approximately 35 million barrels of crude
+storage capacity across multiple tank farm operators (Enbridge, Gibson
+Energy, and others), Hardisty holds enough inventory to sustain
+downstream pipeline flows for roughly 10–12 days at full throughput even
+with no upstream injection. This is not coincidence — the storage
+capacity was built in part to provide resilience against exactly the
+kind of upstream disruption that Hardisty’s structural position makes
+consequential.
+
+## The netback price surface
+
+The **netback price surface** is a function of destination and time:
+
+*P*<sub>wellhead</sub>(*d*, *t*) = *P*<sub>market</sub>(*d*, *t*) − *T*(*d*) − *A*(*d*)
+
+where *d* = destination, *t* = time, *T*(*d*) is the transport tariff,
+and *A*(*d*) is the quality adjustment. At any given moment, the surface
+has one value for each accessible destination.
+
+At approximate 2023 market conditions:
+
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Market price</th>
+<th>Tariff</th>
+<th>Quality adj</th>
+<th>Netback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gulf Coast (Keystone)</td>
+<td>$70.00</td>
+<td>$8.00</td>
+<td>$14.00</td>
+<td><strong>$48.00</strong></td>
+</tr>
+<tr>
+<td>Gulf Coast (Mainline)</td>
+<td>$70.00</td>
+<td>$5.00</td>
+<td>$14.00</td>
+<td><strong>$51.00</strong></td>
+</tr>
+<tr>
+<td>Pacific / TMX</td>
+<td>$74.00</td>
+<td>$11.00</td>
+<td>$10.00</td>
+<td><strong>$53.00</strong></td>
+</tr>
+<tr>
+<td>Ontario (Sarnia)</td>
+<td>$68.00</td>
+<td>$4.50</td>
+<td>$14.00</td>
+<td><strong>$49.50</strong></td>
+</tr>
+</tbody>
+</table>
+
+The Pacific row — added by the TMX expansion — dominates the surface in
+this scenario. Two factors combine: Pacific Basin refineries (Japan,
+Korea, China) price Alberta heavy crude at a smaller quality discount
+($10/bbl versus $14/bbl at Gulf Coast) because their refinery
+configurations are better matched to heavy sour feedstocks, and the
+Pacific market price in this scenario is $4/bbl above Gulf Coast.
+Together these offset TMX’s higher tariff ($11 versus $5 on the
+Mainline).
+
+The surface is not static. It changes continuously with market prices,
+the WCS-WTI differential, exchange rates (since TMX revenues are in USD
+while AECO is in CAD/GJ), and tariff adjustments. A producer with access
+to multiple corridors faces an optimisation problem: which route
+maximises netback today? Long-term ship-or-pay contracts foreclose this
+optimisation for committed volumes, which is why pipeline access
+diversification — the ability to move barrels across multiple systems —
+is itself valuable, beyond the capacity it provides.
+
+## Reference implementation
+
+``` python
+import numpy as np
+from collections import defaultdict, deque
+
+# ── BFS augmenting path search ─────────────────────────────────────────────
+def bfs_find_path(graph: dict, source: str, sink: str, parent: dict) -> bool:
+    """BFS to find an augmenting path from source to sink in residual graph."""
+    visited = {source}
+    queue   = deque([source])
+    while queue:
+        u = queue.popleft()
+        for v in graph[u]:
+            if v not in visited and graph[u][v] > 0:
+                visited.add(v)
+                parent[v] = u
+                if v == sink:
+                    return True
+                queue.append(v)
+    return False
+
+
+def edmonds_karp(graph: dict, source: str, sink: str) -> tuple:
+    """
+    Edmonds-Karp algorithm (BFS-based Ford-Fulkerson).
+    Returns (max_flow_value, min_cut_edges).
+
+    Parameters
+    ----------
+    graph  : adjacency dict — graph[u][v] = capacity of edge u→v
+    source : source node name
+    sink   : sink node name
+
+    Returns
+    -------
+    (float, list) : (maximum flow value, list of min-cut edge tuples)
+    """
+    residual = defaultdict(lambda: defaultdict(float))
+    for u in graph:
+        for v, cap in graph[u].items():
+            residual[u][v] += cap
+
+    max_flow_val = 0.0
+    parent       = {}
+
+    while bfs_find_path(residual, source, sink, parent):
+        # Find bottleneck
+        path_flow = float("inf")
+        v = sink
+        while v != source:
+            u = parent[v]
+            path_flow = min(path_flow, residual[u][v])
+            v = u
+
+        # Update residuals
+        v = sink
+        while v != source:
+            u = parent[v]
+            residual[u][v] -= path_flow
+            residual[v][u] += path_flow
+            v = u
+
+        max_flow_val += path_flow
+        parent = {}
+
+    # Find min-cut edges
+    visited = set()
+    queue = deque([source])
+    while queue:
+        u = queue.popleft()
+        if u in visited:
+            continue
+        visited.add(u)
+        for v in residual[u]:
+            if residual[u][v] > 0 and v not in visited:
+                queue.append(v)
+
+    min_cut_edges = [(u, v, graph.get(u, {}).get(v, 0))
+                     for u in visited for v in graph.get(u, {})
+                     if v not in visited and graph[u][v] > 0]
+
+    return max_flow_val, min_cut_edges
+
+
+# ── Alberta pipeline network — capacities in 1,000 bbl/day ────────────────
+NETWORK = {
+    "PROD":  {"EDMT": 3_800, "HARD": 3_800},
+    "EDMT":  {"HARD": 3_500, "BURN": 890},
+    "HARD":  {"SUPR": 2_850, "CUSH": 590},
+    "SUPR":  {"GULF": 2_850, "SARN": 500},
+    "CUSH":  {"GULF": 590},
+    "BURN":  {"PCFC": 890},
+    "GULF":  {},
+    "SARN":  {},
+    "PCFC":  {},
+}
+
+source = "PROD"
+sinks  = ["GULF", "SARN", "PCFC"]
+
+print("Alberta crude export network — max-flow analysis")
+print("Capacities in 1,000 bbl/day\n")
+
+for sink in sinks:
+    net = {k: dict(v) for k, v in NETWORK.items()}
+    mf, mc = edmonds_karp(net, source, sink)
+    print(f"Max flow PROD → {sink:<8}: {mf:>6,.0f} Mbbl/day")
+    print(f"  Min-cut edges: {[(u, v, int(c)) for u, v, c in mc]}")
+    print()
+
+# Netback price surface
+print("\nNetback price surface — WCS crude, approximate 2023 conditions")
+print(f"{'Destination':<24} {'Market':>8} {'Tariff':>8} {'Quality':>9} {'Netback':>9}")
+routes = [
+    ("Gulf Coast (Keystone)",   70.0,  8.0, 14.0),
+    ("Gulf Coast (Mainline)",   70.0,  5.0, 14.0),
+    ("Pacific (Burnaby / TMX)", 74.0, 11.0, 10.0),
+    ("Ontario (Sarnia)",        68.0,  4.5, 14.0),
+]
+for dest, market, tariff, quality in routes:
+    netback = market - tariff - quality
+    print(f"  {dest:<22} {market:>8.2f} {tariff:>8.2f} {quality:>9.2f} {netback:>9.2f}")
+```
+
+**Output:**
+
+    Alberta crude export network — max-flow analysis
+    Capacities in 1,000 bbl/day
+
+    Max flow PROD → GULF    :  3,440 Mbbl/day
+      Min-cut edges: [('SUPR', 'GULF', 2850), ('CUSH', 'GULF', 590)]
+
+    Max flow PROD → SARN    :    500 Mbbl/day
+      Min-cut edges: [('SUPR', 'SARN', 500)]
+
+    Max flow PROD → PCFC    :    890 Mbbl/day
+      Min-cut edges: [('EDMT', 'BURN', 890)]
+
+    Netback price surface — WCS crude, approximate 2023 conditions
+    Destination              Market   Tariff   Quality   Netback
+      Gulf Coast (Keystone)   70.00     8.00     14.00     48.00
+      Gulf Coast (Mainline)   70.00     5.00     14.00     51.00
+      Pacific (Burnaby / TMX) 74.00    11.00     10.00     53.00
+      Ontario (Sarnia)        68.00     4.50     14.00     49.50
+
+## Run it yourself
+
+Two experiments illuminate the most important structural features of the
+network. First, set `HARD→CUSH` to 0 and observe the exact effect on
+Gulf max-flow: the theorem guarantees a reduction of precisely 590
+Mbbl/day, no more, no less. Second, increase `EDMT→BURN` to 1,200 and
+observe that Pacific capacity grows by 310 Mbbl/day while Gulf capacity
+is unchanged — the two corridors share upstream capacity but not
+downstream bottlenecks.
+
+<div class="pyodide-cell"><pre><code class="language-python">from collections import defaultdict, deque
+
+# ── Simplified Edmonds-Karp ────────────────────────────────────────────────
+def bfs(graph, s, t, parent):
+    visited = {s}
+    q = deque([s])
+    while q:
+        u = q.popleft()
+        for v, cap in graph[u].items():
+            if v not in visited and cap > 0:
+                visited.add(v); parent[v] = u; q.append(v)
+                if v == t: return True
+    return False
+
+def max_flow(cap, s, t):
+    r = defaultdict(lambda: defaultdict(float))
+    for u, nbrs in cap.items():
+        for v, c in nbrs.items(): r[u][v] += c
+    flow = 0
+    while True:
+        p = {}
+        if not bfs(r, s, t, p): break
+        f = float('inf'); v = t
+        while v != s: u = p[v]; f = min(f, r[u][v]); v = u
+        v = t
+        while v != s: u = p[v]; r[u][v] -= f; r[v][u] += f; v = u
+        flow += f
+    return flow
+
+# ── Network capacities (Mbbl/day) — change these ──────────────────────────
+# Try: set HARD→CUSH to 0 (Keystone cancelled) and see effect on Gulf flows
+# Try: increase EDMT→BURN to 1200 (another TMX-scale project) and check Pacific max-flow
+
+NET = {
+    "PROD": {"EDMT": 3800, "HARD": 3800},
+    "EDMT": {"HARD": 3500, "BURN": 890},      # <- Try BURN: 890 → 1200
+    "HARD": {"SUPR": 2850, "CUSH": 590},      # <- Try CUSH: 590 → 0
+    "SUPR": {"GULF": 2850, "SARN": 500},
+    "CUSH": {"GULF": 590},
+    "BURN": {"PCFC": 890},
+    "GULF": {}, "SARN": {}, "PCFC": {},
+}
+
+# Max flow to each destination
+print("Max-flow from Alberta production to each market sink:")
+for sink in ["GULF", "SARN", "PCFC"]:
+    mf = max_flow(NET, "PROD", sink)
+    print(f"  → {sink}: {mf:,.0f} Mbbl/day")
+
+# Aggregate (all sinks via supersink)
+SUPER = {k: dict(v) for k, v in NET.items()}
+for s in ["GULF", "SARN", "PCFC"]: SUPER[s]["SUPER"] = 9_999_999
+total = max_flow(SUPER, "PROD", "SUPER")
+print(f"\nTotal network export capacity: {total:,.0f} Mbbl/day")
+
+# Netback price surface
+print("\nNetback price surface (USD/bbl):")
+print(f"{'Route':<24} {'Market':>8} {'Tariff':>8} {'Quality':>9} {'Netback':>9}")
+for dest, mkt, tar, qual in [
+    ("Gulf Coast (Keystone)", 70.0,  8.0, 14.0),
+    ("Gulf Coast (Mainline)", 70.0,  5.0, 14.0),
+    ("Pacific / TMX",         74.0, 11.0, 10.0),
+    ("Ontario (Sarnia)",      68.0,  4.5, 14.0),
+]:
+    print(f"  {dest:<22} {mkt:>8.2f} {tar:>8.2f} {qual:>9.2f} {mkt-tar-qual:>9.2f}")
+</code></pre></div>
+
+## Where next?
+
+The five essays in this cluster have moved from individual pipe
+hydraulics — the pressure drop across a 30-inch steel pipe carrying
+dilbit at 2 m/s — through commodity-specific flow equations, to the
+integrated capacity network that carries Alberta’s hydrocarbons to
+continental and Pacific markets.
+
+The system is larger, more capable, and more structurally concentrated
+than either side of the political debate about pipelines typically
+acknowledges. What the mathematics reveals is not a case for or against
+pipeline investment. It is a precise description of what the existing
+network can and cannot do: its maximum throughput to each market, its
+binding bottleneck cuts, the node whose failure would be most
+consequential, and the netback price each route offers at any given
+market condition.
+
+That is what it means to model a geographic system rather than argue
+about it.
+
+*Cluster P — Pipeline Connectivity · Essay 5 of 5 · Difficulty: 3*

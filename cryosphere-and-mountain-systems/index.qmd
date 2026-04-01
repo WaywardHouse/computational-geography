@@ -1,0 +1,72 @@
+---
+title: "Cryosphere and Mountain Systems"
+subtitle: "Snow physics, glaciers, permafrost, and high-elevation hazards."
+page-layout: article
+---
+
+::: {.section-kicker}
+Topic Library
+:::
+
+## Cryosphere and Mountain Systems {#cryosphere-and-mountain-systems .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>Follow snow, ice, frozen ground, and mountain hazards from energy balance through glacier response and thaw-driven instability.</p>
+    <div class="cta-row">
+      <a class="cta" href="./snowpack-energy-balance.html">Open the Library</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">10 chapters</span>
+      <span class="book-pill">Cryosphere processes</span>
+      <span class="book-pill">Topic library</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Role</strong>
+      <span>Follow snow, ice, frozen ground, and mountain hazards from energy balance through glacier response and thaw-driven instability.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Sequence</strong>
+      <span>Work through the chapter order or jump into a section that matches your current question.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">P</span>
+    <h3>Snow Physics & modelling</h3>
+    <ul>
+      <li><a href="./snowpack-energy-balance.html">Snowpack Energy Balance</a></li>
+      <li><a href="./snow-accumulation-melt-modeling.html">Snow Accumulation and Melt modelling</a></li>
+      <li><a href="./swe-estimation-methods.html">Snow Water Equivalent Estimation</a></li>
+      <li><a href="./avalanche-terrain-analysis.html">Avalanche Terrain Analysis</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Q</span>
+    <h3>Glacial Systems</h3>
+    <ul>
+      <li><a href="./glacier-mass-balance.html">Glacier Mass Balance</a></li>
+      <li><a href="./glacial-meltwater-chemistry.html">Glacial Meltwater Chemistry</a></li>
+      <li><a href="./glacial-lake-outburst-floods.html">Glacial Lake Outburst Floods (GLOFs)</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">R</span>
+    <h3>Mountain Hazards</h3>
+    <ul>
+      <li><a href="./slope-stability-analysis.html">Slope Stability Analysis</a></li>
+      <li><a href="./debris-flow-modeling.html">Debris Flow modelling</a></li>
+      <li><a href="./permafrost-thaw-geohazards.html">Permafrost Thaw and Geohazards</a></li>
+    </ul>
+  </article>
+</div>
+```

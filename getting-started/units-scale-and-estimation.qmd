@@ -1,0 +1,105 @@
+---
+title: "Units, Scale, and Estimation"
+subtitle: "The habits that keep models realistic before any heavy calculation begins"
+type: chapter
+book-part: getting-started
+book-part-title: "Getting Started"
+chapter-number: 2
+section-code: G0
+section-title: "Bridge Skills"
+description: "An introduction to units, order of magnitude, and rough estimation as everyday tools for checking whether a model makes sense."
+---
+
+One of the fastest ways to tell whether a model is sensible is to check its units.
+
+If someone tells you a river velocity is `300 km/h`, you do not need a calculator to feel suspicious. If someone says a neighbourhood park is `0.002 m²`, that is clearly wrong too. Before exactness comes plausibility.
+
+That is why units and estimation matter so much in computational geography.
+
+## Units Carry Meaning
+
+The number `20` means almost nothing by itself.
+
+It becomes meaningful only with units:
+
+- `20 m`
+- `20 km`
+- `20 people/km²`
+- `20 °C`
+
+Units tell you what kind of quantity you are looking at. They are not decorations added at the end.
+
+## Scale Changes Interpretation
+
+A value that sounds large at one scale can be tiny at another.
+
+Examples:
+
+- `5 mm` of rain in an hour is modest
+- `5 mm` of vertical land movement can be a major geophysical signal
+- `5 km` is a short drive but a long walk
+
+Modelling always happens at some scale:
+
+- a leaf
+- a hillslope
+- a city
+- a watershed
+- a country
+
+Part of becoming a stronger reader is learning to ask, "At what scale is this statement true?"
+
+## Estimation Is a Safety Rail
+
+Exact calculation is useful. Rough estimation is what keeps exact calculation honest.
+
+Suppose a chapter claims that a walking trip of `2 km` takes `3 minutes`.
+
+You can estimate:
+
+- ordinary walking speed is roughly `5 km/h`
+- `2 km` should take something like `20-30 minutes`
+
+The claim is wrong by a large margin. You found that without doing careful algebra.
+
+## Order of Magnitude
+
+Sometimes the question is not "What is the exact number?"
+
+It is:
+
+- Is this about `10`?
+- `100`?
+- `1,000,000`?
+
+That is called order-of-magnitude thinking. It is one of the most useful habits in science and modelling.
+
+If a glacier loses a few centimetres of meltwater equivalent, that is one kind of story. If it loses several metres, that is another.
+
+## A Geography Example
+
+Population density can be written as:
+
+$$\rho = \frac{N}{A}$$
+
+If a city has:
+
+- `500,000` people
+- `250 km²` of area
+
+then a quick estimate gives:
+
+$$\rho \approx \frac{500{,}000}{250} = 2{,}000 \text{ people/km}^2$$
+
+Even without detailed comparison, you now know the city is neither empty countryside nor hyper-dense megacity core.
+
+That is useful knowledge already.
+
+## If This Gets Hard, Focus On
+
+- attach units to every quantity
+- ask what scale you are working at
+- estimate before calculating exactly
+- use rough plausibility checks early and often
+
+These habits make every later chapter easier.

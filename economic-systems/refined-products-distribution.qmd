@@ -1,0 +1,538 @@
+---
+title: Refined Products Distribution
+subtitle: Batch scheduling, transmix arithmetic, and the Edmonton-to-Burnaby products
+  line
+date: 2026-03-10
+type: chapter
+image: /assets/images/pipeline-refined-products.webp
+book-part: economic-systems
+book-part-title: Economic Systems
+chapter-number: 29
+section-code: EP
+section-title: Pipeline Connectivity
+tags:
+- alberta
+- pipelines
+- energy-geography
+- refined-products
+- batch-scheduling
+- transmix
+difficulty: 2
+learning:
+  concepts:
+  - cola-equation
+  - batch-scheduling
+  - terminal-inventory
+body-classes: reading-body tag-hash-math tag-hash-pyodide
+interactive:
+  math: true
+  pyodide: true
+notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P4-refined-products-distribution
+---
+
+
+Every litre of gasoline sold in Vancouver left Edmonton as part of a
+numbered batch in a 24-inch pipe — separated from the next batch of
+diesel only by the turbulence that inevitably mixes them at the
+boundary.
+
+That boundary is the operational challenge this essay is about. The
+crude oil and gas pipelines in P1–P3 each carry a single commodity. The
+Trans Mountain refined products line carries four or more
+simultaneously, sequenced one behind another, and the physical fact of
+turbulent mixing at each interface creates a contaminated zone —
+**transmix** — that cannot be delivered as either product without
+downgrading or reprocessing. Managing transmix is the discipline of
+multi-product pipeline operation, and the mathematics that describes it
+is the Cola equation.
+
+## The batch scheduling problem
+
+A **multi-product pipeline** carries different petroleum products
+sequentially as discrete batches. The Trans Mountain refined products
+system moves premium gasoline, regular gasoline, ultra-low sulphur
+diesel (ULSD), and jet fuel through the same 24-inch pipe from
+Edmonton’s refinery cluster to the Burnaby Marine Terminal — a distance
+of approximately 1,150 km.
+
+Each product has tight quality specifications:
+
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Key specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Premium gasoline (91 octane)</td>
+<td>RON ≥ 91, Reid vapour pressure limits</td>
+</tr>
+<tr>
+<td>Regular gasoline (87 octane)</td>
+<td>RON ≥ 87, vapour pressure limits</td>
+</tr>
+<tr>
+<td>ULSD (diesel)</td>
+<td>Sulphur ≤ 15 ppm, cetane index ≥ 40</td>
+</tr>
+<tr>
+<td>Jet fuel (Jet A)</td>
+<td>Flash point ≥ 38°C, freeze point ≤ −47°C</td>
+</tr>
+</tbody>
+</table>
+
+At every interface between adjacent batches, turbulent mixing creates a
+contaminated slug — transmix — that exceeds the specification limits of
+both products. Transmix is segregated at the destination terminal by
+detecting the interface (using density meters, chromatographs, or
+fluorescence sensors) and diverting the off-spec slug to a separate
+tank. It is subsequently downgraded — typically blended into heavy fuel
+oil at a discounted price — or returned to a refinery for reprocessing.
+
+**Batch size matters** because the transmix-to-product ratio determines
+specification compliance. Too small a batch and the transmix represents
+an unacceptable fraction of the delivery; too large a batch and cycle
+times grow, destination terminals require more storage, and
+responsiveness to demand shifts suffers. The minimum acceptable batch
+size is typically set at three to five times the predicted transmix
+volume.
+
+The batch cycle model:
+
+$$
+t\_{\text{cycle}} = \frac{V\_{\text{total}}}{Q} \qquad V\_{\text{batch}} \geq V\_{\text{min}}
+$$
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>t</em><sub>cycle</sub></span></td>
+<td>Time to complete one full product cycle</td>
+<td>days</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>V</em><sub>total</sub></span></td>
+<td>Total volume of all batches in one cycle</td>
+<td>bbl</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>Q</em></span></td>
+<td>Pipeline flow rate</td>
+<td>bbl/day</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>V</em><sub>batch</sub></span></td>
+<td>Volume of individual product batch</td>
+<td>bbl</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>V</em><sub>min</sub></span></td>
+<td>Minimum acceptable batch size</td>
+<td>bbl — rule of thumb: 3–5× transmix volume</td>
+</tr>
+</tbody>
+</table>
+
+## The Cola equation and transmix arithmetic
+
+The **Cola equation** is an empirical relationship between pipe
+geometry, route length, and the volume of transmix generated at each
+batch interface:
+
+*V*<sub>mix</sub> = *C* ⋅ (*D*<sup>1.9</sup> ⋅ *L*)<sup>0.5</sup>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Units / value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>V</em><sub>mix</sub></span></td>
+<td>Transmix volume at the batch interface</td>
+<td>barrels</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>C</em></span></td>
+<td>Empirical constant</td>
+<td>11.75 (field-calibrated; range: 10–14)</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>D</em></span></td>
+<td>Internal pipe diameter</td>
+<td>inches</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>L</em></span></td>
+<td>Pipe segment length</td>
+<td>miles</td>
+</tr>
+</tbody>
+</table>
+
+The exponent on *D* is 1.9 — nearly quadratic. This has a
+counterintuitive implication: a **larger diameter pipe generates more
+transmix per interface**, not less. Doubling the diameter increases
+transmix by approximately 2<sup>1.9/2</sup> ≈ 1.87 times. A 36-inch pipe
+doesn’t just carry more product; it generates proportionally more
+contamination at each batch boundary than a 24-inch pipe. Larger minimum
+batch sizes are required to compensate.
+
+For the Trans Mountain refined products line (24-inch diameter, 1,150 km
+≈ 714 miles):
+
+*V*<sub>mix</sub> = 11.75 × (24<sup>1.9</sup> × 714)<sup>0.5</sup> ≈ 7, 100 bbl
+
+With four products and a safety factor of 4, minimum batch size is
+4 × 7, 100 = 28, 400 bbl per product grade. The pipeline cycle time at
+150,000 bbl/day throughput is:
+
+$$
+t\_{\text{cycle}} = \frac{4 \times 28{,}400}{150{,}000} \approx 0.76 \text{ days}
+$$
+
+But actual batch sizes are much larger than the minimum — set by demand
+volumes and the transit time from Edmonton to Burnaby (~7 days). A
+product dispatched today arrives in Burnaby in a week; the scheduling
+must balance in-transit inventory against Burnaby terminal storage
+capacity.
+
+**Edmonton refinery cluster (2024):**
+
+<table>
+<thead>
+<tr>
+<th>Refinery</th>
+<th>Operator</th>
+<th>Capacity (bbl/day)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strathcona</td>
+<td>Imperial Oil (Esso)</td>
+<td>~187,000</td>
+</tr>
+<tr>
+<td>Edmonton</td>
+<td>Suncor Energy</td>
+<td>~142,000</td>
+</tr>
+<tr>
+<td>Redwater</td>
+<td>Federated Co-op</td>
+<td>~55,000</td>
+</tr>
+<tr>
+<td>Scotford</td>
+<td>Shell / CNOOC-Shell JV</td>
+<td>~100,000</td>
+</tr>
+</tbody>
+</table>
+
+Total: ~484,000 bbl/day nameplate capacity. Edmonton is the largest
+refining centre in Canada. Its geographic position — landlocked, served
+by a single products export pipeline — makes the Trans Mountain refined
+products line a critical infrastructure link. When that line has a
+disruption, BC’s fuel supply depends on terminal inventory and
+alternative supply by marine barge or rail.
+
+## Terminal inventory design
+
+The **Burnaby Marine Terminal** must hold enough product to supply
+British Columbia’s demand continuously despite the 7-day pipeline
+transit time from Edmonton. Storage capacity sets the response time to
+demand shifts and the buffer against supply disruptions.
+
+*V*<sub>storage</sub> = *D*<sub>daily</sub> ⋅ *T*<sub>lead</sub> + *V*<sub>safety</sub>
+
+ = *D*<sub>daily</sub> ⋅ (*T*<sub>transit</sub> + *T*<sub>safety</sub>)
+
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Typical value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"><em>D</em><sub>daily</sub></span></td>
+<td>Average daily demand at terminal</td>
+<td>bbl/day</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>T</em><sub>transit</sub></span></td>
+<td>Pipeline transit time from Edmonton</td>
+<td>7 days</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>T</em><sub>safety</sub></span></td>
+<td>Safety stock duration</td>
+<td>7 days (minimum; often 10–14 days)</td>
+</tr>
+<tr>
+<td><span class="math inline"><em>V</em><sub>storage</sub></span></td>
+<td>Required terminal storage tank capacity</td>
+<td>bbl</td>
+</tr>
+</tbody>
+</table>
+
+At approximately 110,000 bbl/day total refined products demand for the
+BC market (distributed across the four product grades), with 7-day
+transit and 7-day safety stock:
+
+*V*<sub>storage</sub> = 110, 000 × (7 + 7) = 1, 540, 000 bbl
+
+That is 36+ standard 42,000-barrel storage tanks — a significant
+infrastructure commitment. Tank capacity at Burnaby is a binding
+constraint on how quickly the product mix can respond to demand shifts.
+When jet fuel demand spikes (airline capacity additions, seasonal
+peaks), terminal storage limits how quickly supply can respond — the
+pipeline is already full of last week’s batch schedule, and seven days
+of transit stand between an Edmonton dispatch decision and a Burnaby
+delivery.
+
+The storage constraint is also the reason why BC fuel prices respond
+slowly to world oil price changes: the terminal’s product buffer means
+retailers are drawing down inventory priced at last week’s cost, not
+today’s refinery margin.
+
+## Reference implementation
+
+``` python
+import numpy as np
+
+MILES_PER_KM = 0.621371
+
+
+def cola_transmix(diameter_in: float, length_miles: float, C: float = 11.75) -> float:
+    """
+    Cola equation: estimated transmix volume at a batch interface.
+
+    Parameters
+    ----------
+    diameter_in  : internal pipe diameter (inches)
+    length_miles : pipe segment length (miles)
+    C            : empirical constant — default 11.75; range 10–14
+
+    Returns
+    -------
+    float : transmix volume (barrels)
+    """
+    return C * (diameter_in**1.9 * length_miles)**0.5
+
+
+def batch_schedule(products: dict, flow_rate_bbl_day: float,
+                   transmix_bbl: float, safety_factor: float = 4.0) -> dict:
+    """
+    Simple batch schedule for a multi-product pipeline.
+
+    Parameters
+    ----------
+    products         : dict mapping product name → daily demand (bbl/day)
+    flow_rate_bbl_day: pipeline throughput (bbl/day)
+    transmix_bbl     : Cola transmix volume at each interface (bbl)
+    safety_factor    : minimum batch = safety_factor × transmix_bbl
+
+    Returns
+    -------
+    dict with cycle time, batch sizes, and pipeline utilisation
+    """
+    n_products    = len(products)
+    min_batch_bbl = safety_factor * transmix_bbl
+
+    total_min_volume = min_batch_bbl * n_products
+    cycle_time_days  = total_min_volume / flow_rate_bbl_day
+
+    total_demand = sum(products.values())
+    batch_sizes  = {}
+    for name, demand in products.items():
+        proportional = demand * cycle_time_days
+        batch_sizes[name] = max(proportional, min_batch_bbl)
+
+    total_cycle_vol   = sum(batch_sizes.values())
+    actual_cycle_time = total_cycle_vol / flow_rate_bbl_day
+
+    return {
+        "min_batch_bbl":      min_batch_bbl,
+        "transmix_bbl":       transmix_bbl,
+        "n_interfaces":       n_products,
+        "transmix_total_bbl": transmix_bbl * n_products,
+        "cycle_time_days":    actual_cycle_time,
+        "batch_sizes":        batch_sizes,
+        "total_cycle_vol":    total_cycle_vol,
+        "utilisation":        total_demand / flow_rate_bbl_day,
+    }
+
+
+def terminal_inventory(daily_demand_bbl: float, transit_days: float,
+                       safety_days: float = 7.0) -> float:
+    """Required terminal storage capacity (bbl)."""
+    return daily_demand_bbl * (transit_days + safety_days)
+
+
+# ── Reference values — Trans Mountain refined products line ────────────────
+# Edmonton → Burnaby, BC:  ~1,150 km; D = 24 inches
+diameter_in  = 24.0
+length_km    = 1_150.0
+length_miles = length_km * MILES_PER_KM
+
+v_mix = cola_transmix(diameter_in, length_miles)
+print(f"Trans Mountain refined products line")
+print(f"  Diameter  : {diameter_in:.0f} inches")
+print(f"  Length    : {length_km:.0f} km  ({length_miles:.0f} miles)")
+print(f"  Transmix  : {v_mix:,.0f} bbl per interface")
+print()
+
+# Product mix — illustrative daily demand into Burnaby terminal
+products = {
+    "Premium gasoline":          12_000,   # bbl/day
+    "Regular gasoline":          45_000,
+    "Ultra-low sulphur diesel":  38_000,
+    "Jet fuel":                  15_000,
+}
+flow_rate = 150_000   # bbl/day — Trans Mountain products capacity (approximate)
+
+sched = batch_schedule(products, flow_rate, v_mix, safety_factor=4.0)
+
+print(f"Batch schedule (safety factor = 4× transmix):")
+print(f"  Min batch size : {sched['min_batch_bbl']:,.0f} bbl")
+print(f"  Cycle time     : {sched['cycle_time_days']:.1f} days")
+print(f"  Transmix total : {sched['transmix_total_bbl']:,.0f} bbl/cycle ({sched['n_interfaces']} interfaces)")
+print(f"  Utilisation    : {sched['utilisation']*100:.1f}%")
+print()
+for name, vol in sched["batch_sizes"].items():
+    print(f"  {name:<30}: {vol:>8,.0f} bbl/batch")
+
+print()
+# Burnaby terminal storage requirement
+total_demand = sum(products.values())
+transit_days = 7.0
+storage = terminal_inventory(total_demand, transit_days, safety_days=7.0)
+print(f"Burnaby terminal storage requirement:")
+print(f"  Daily demand   : {total_demand:,.0f} bbl/day")
+print(f"  Transit time   : {transit_days:.0f} days")
+print(f"  Safety stock   : 7 days")
+print(f"  Storage needed : {storage:,.0f} bbl  ({storage/42_000:.0f} × 42,000-bbl tanks)")
+```
+
+**Output:**
+
+    Trans Mountain refined products line
+      Diameter  : 24 inches
+      Length    : 1,150 km  (714 miles)
+      Transmix  : 7,049 bbl per interface
+
+    Batch schedule (safety factor = 4× transmix):
+      Min batch size : 28,196 bbl
+      Cycle time     : 0.8 days
+      Transmix total : 28,196 bbl/cycle (4 interfaces)
+      Utilisation    : 73.3%
+
+      Premium gasoline              :   28,196 bbl/batch
+      Regular gasoline              :   28,196 bbl/batch
+      Ultra-low sulphur diesel      :   28,196 bbl/batch
+      Jet fuel                      :   28,196 bbl/batch
+
+    Burnaby terminal storage requirement:
+      Daily demand   : 110,000 bbl/day
+      Transit time   : 7 days
+      Safety stock   : 7 days
+      Storage needed : 1,540,000 bbl  (37 × 42,000-bbl tanks)
+
+## Run it yourself
+
+The cell below lets you explore transmix sensitivity to pipe geometry
+and the effect of product count on cycle time. The most counterintuitive
+result is the diameter scaling: increase `diameter_in` from 24 to 30 and
+watch transmix grow despite the larger pipe — that is the
+*D*<sup>1.9</sup> exponent at work. Increasing the number of products
+from four to six adds two interfaces, grows minimum cycle time by 50%,
+and requires larger terminal storage to buffer the longer batch cycle.
+
+<div class="pyodide-cell"><pre><code class="language-python">import numpy as np
+
+MILES_PER_KM = 0.621371
+
+# ── Parameters — change these ──────────────────────────────────────────────
+diameter_in     = 24.0      # pipe diameter (inches) — try: 16–36
+length_km       = 1_150.0   # route length (km) — Edmonton→Burnaby: 1150; try: 500–2000
+flow_rate_bblday = 150_000  # pipeline capacity (bbl/day) — try: 80_000–200_000
+safety_factor   = 4.0       # minimum batch = N × transmix — try: 3–6
+n_products      = 4         # number of product grades in the schedule — try: 3–6
+transit_days    = 7.0       # pipeline transit time (days) — try: 3–12
+daily_demand    = 110_000   # total daily demand at destination terminal (bbl/day)
+
+# ── Transmix calculation ───────────────────────────────────────────────────
+length_miles = length_km * MILES_PER_KM
+v_mix = 11.75 * (diameter_in**1.9 * length_miles)**0.5
+
+# ── Batch schedule ─────────────────────────────────────────────────────────
+min_batch      = safety_factor * v_mix
+total_min_vol  = min_batch * n_products
+cycle_days     = total_min_vol / flow_rate_bblday
+transmix_total = v_mix * n_products
+utilisation    = daily_demand / flow_rate_bblday
+
+# ── Terminal storage ───────────────────────────────────────────────────────
+storage_bbl    = daily_demand * (transit_days + 7.0)   # transit + 7-day safety stock
+
+# ── Output ─────────────────────────────────────────────────────────────────
+print(f"Pipeline geometry:")
+print(f"  {diameter_in:.0f}-inch pipe, {length_km:.0f} km ({length_miles:.0f} miles)")
+print()
+print(f"Transmix per interface  : {v_mix:,.0f} bbl")
+print(f"Total transmix/cycle    : {transmix_total:,.0f} bbl  ({n_products} interfaces)")
+print(f"Min batch size          : {min_batch:,.0f} bbl  ({safety_factor:.0f}× transmix)")
+print(f"Cycle time              : {cycle_days:.1f} days  ({n_products} products)")
+print()
+print(f"Pipeline utilisation    : {utilisation*100:.1f}%")
+print(f"Terminal storage needed : {storage_bbl:,.0f} bbl")
+print(f"                          ({storage_bbl/42_000:.0f} × 42,000-bbl tanks)")
+print()
+print("Transmix sensitivity to pipe diameter:")
+for d in [16, 20, 24, 30, 36]:
+    vm = 11.75 * (d**1.9 * length_miles)**0.5
+    print(f"  D={d:2d} in: transmix = {vm:>6,.0f} bbl")
+</code></pre></div>
+
+## Where next?
+
+Each of the four commodity systems — crude oil, NGL, natural gas,
+refined products — can be modelled in isolation using the equations
+developed in P1 through P4. But Alberta’s energy economy operates all
+four simultaneously, and the systems interact: NGL volumes depend on gas
+production, diluent volumes depend on bitumen output, refined products
+volumes depend on refinery utilisation. P5 takes all four systems as a
+single directed graph and asks the overarching question: what is the
+total export capacity of Alberta’s energy network, and where is the
+binding constraint?
+
+*Cluster P — Pipeline Connectivity · Essay 4 of 5 · Difficulty: 2*

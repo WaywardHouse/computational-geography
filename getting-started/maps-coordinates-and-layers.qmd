@@ -1,0 +1,112 @@
+---
+title: "Maps, Coordinates, and Layers"
+subtitle: "A first look at spatial thinking as data rather than just pictures"
+type: chapter
+book-part: getting-started
+book-part-title: "Getting Started"
+chapter-number: 3
+section-code: G0
+section-title: "Bridge Skills"
+description: "A beginner-friendly introduction to coordinates, layers, and the idea that maps are structured data as well as visual representations."
+---
+
+Most people meet maps as images. In computational geography, a map is more than an image. It is also a structured way of storing information about where things are.
+
+That shift matters.
+
+Once a map becomes data, we can ask questions like:
+
+- Which homes lie within `500 m` of a river?
+- Which slopes face south?
+- Which neighbourhoods gained tree cover?
+- Which road route is cheapest or fastest?
+
+Those are computational questions, not just visual ones.
+
+## Coordinates
+
+Coordinates are simply a way of naming location.
+
+On a flat grid we might use:
+
+- $(x, y)$
+
+On the Earth we often use:
+
+- latitude
+- longitude
+
+Coordinates let us turn "somewhere near the river bend" into a location a model can actually use.
+
+## Layers
+
+A modern map is often built from layers.
+
+Examples:
+
+- roads
+- rivers
+- buildings
+- land cover
+- elevation
+
+You can think of layers like transparent sheets stacked on top of each other. Each layer carries one kind of information.
+
+This is one of the key ideas behind GIS.
+
+## Raster and Vector
+
+There are two very common ways to represent spatial data.
+
+### Vector
+
+Vector data stores shapes:
+
+- points
+- lines
+- polygons
+
+Examples:
+
+- a weather station as a point
+- a road as a line
+- a city boundary as a polygon
+
+### Raster
+
+Raster data stores space as a grid of cells.
+
+Each cell holds a value.
+
+Examples:
+
+- elevation
+- temperature
+- rainfall
+- land-cover class
+
+You do not need to master this immediately. You just need to know that spatial data can be stored in more than one way, and the storage choice affects what questions are easy to ask.
+
+## Why Layers Matter
+
+Suppose you want to know which schools are flood-prone.
+
+You might combine:
+
+- a school locations layer
+- a floodplain layer
+- an elevation layer
+
+The power is not in any one layer alone. It is in asking questions across layers.
+
+That is why spatial analysis is so useful.
+
+## If This Gets Hard, Focus On
+
+- coordinates name location
+- layers separate kinds of information
+- vector stores shapes
+- raster stores grids
+- maps can be data, not just pictures
+
+That is enough to support the next parts of the book.

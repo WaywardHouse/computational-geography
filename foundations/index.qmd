@@ -1,0 +1,86 @@
+---
+title: "Part 1: Maths for Modelling Space"
+subtitle: "A beginner-friendly path through variables, change, terrain, and spatial systems."
+page-layout: article
+---
+
+::: {.section-kicker}
+Textbook Part
+:::
+
+## Maths for Modelling Space {#foundations .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This part builds the mathematical language of the book in a way that stays close to geographic questions. The goal is not abstract school maths for its own sake. The goal is to understand change, surfaces, gradients, distance, and interaction across space.</p>
+    <div class="cta-row">
+      <a class="cta" href="./what-is-a-spatial-model.html">Start Part 1</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">8 core chapters</span>
+      <span class="book-pill">Best first part</span>
+      <span class="book-pill">Part 1</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Role</strong>
+      <span>Build confidence with variables, rates, growth, terrain, and spatial reasoning before the book branches into more demanding systems.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Sequence</strong>
+      <span>For first-time readers, stay with the core sequence first and return to the extension chapters later.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">A</span>
+    <h3>Modelling Change</h3>
+    <ul>
+      <li><a href="./what-is-a-spatial-model.html">What Is a Spatial Model?</a></li>
+      <li><a href="./linear-change-and-rate.html">Linear Change and Rate</a></li>
+      <li><a href="./exponential-growth-and-logarithms.html">Exponential Growth and Logarithms</a></li>
+      <li><a href="./logistic-growth-and-equilibrium.html">Logistic Growth and Equilibrium</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">B</span>
+    <h3>Topic Library Links</h3>
+    <ul>
+      <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
+      <li><a href="./spectral-mixing-and-sensor-response.html">Spectral Mixing and Sensor Response</a></li>
+      <li><a href="./solar-geometry-and-projection.html">Solar Geometry and Projection</a></li>
+      <li><a href="./hydrological-flow-as-optimization.html">Hydrological Flow as Optimization</a></li>
+      <li><a href="./earth-as-rotating-sphere.html">Earth as a Rotating Sphere</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">C</span>
+    <h3>Terrain and Spatial Derivatives</h3>
+    <ul>
+      <li><a href="./digital-elevation-models-as-functions.html">Digital Elevation Models as Functions</a></li>
+      <li><a href="./gradient-aspect-steepest-descent.html">Gradient, Aspect, and Direction of Steepest Descent</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">D</span>
+    <h3>Human Systems as Mathematical Systems</h3>
+    <ul>
+      <li><a href="./gravity-models-trade-migration.html">Gravity Models of Trade and Migration</a></li>
+      <li><a href="./spatial-diffusion-of-innovation.html">Spatial Diffusion of Innovation</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">E</span>
+    <h3>Why This Part Matters</h3>
+    <p>These chapters build the habits the rest of the project depends on: defining quantities carefully, noticing how they change, and turning geographic questions into models that can be tested.</p>
+  </article>
+</div>
+```

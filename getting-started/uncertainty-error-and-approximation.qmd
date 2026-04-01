@@ -1,0 +1,85 @@
+---
+title: "Uncertainty, Error, and Approximation"
+subtitle: "Why useful models do not need to be perfect"
+type: chapter
+book-part: getting-started
+book-part-title: "Getting Started"
+chapter-number: 4
+section-code: G0
+section-title: "Bridge Skills"
+description: "A short guide to the difference between uncertainty, error, and approximation, and why modelling is still valuable even when results are imperfect."
+---
+
+One reason people mistrust models is that models are never perfect.
+
+That sounds like a weakness, but it is actually normal. A model is useful not because it captures everything, but because it captures enough of the right structure to help us think, compare, or predict.
+
+## Error Is Not Always Failure
+
+If a weather model predicts `18 °C` and the day reaches `19 °C`, the model is not useless. It is close.
+
+If a flood model predicts the wrong neighbourhood entirely, that is more serious.
+
+So the right question is not:
+
+- "Was the model perfect?"
+
+It is:
+
+- "How wrong was it?"
+- "Was it wrong in a useful way or a dangerous way?"
+
+## Uncertainty
+
+Uncertainty means we do not know something exactly.
+
+That can happen because:
+
+- measurements are limited
+- future conditions are unknown
+- the world is noisy
+- the model is simplified
+
+Uncertainty is not the same as ignorance. Often it can be described, bounded, or estimated.
+
+## Approximation
+
+Approximation means we deliberately replace something complicated with something simpler.
+
+Examples:
+
+- treating the Earth as a sphere
+- treating a slope as uniform
+- treating a city as one center instead of many
+
+These are not mistakes by themselves. They are choices. The key question is whether the simplification still serves the problem well.
+
+## Why This Matters
+
+If readers expect exact certainty from every model, they will either become frustrated or stop trusting the whole project.
+
+It is better to learn early that models are:
+
+- structured simplifications
+- useful despite limits
+- strongest when their assumptions are visible
+
+## A Practical Habit
+
+When you meet a model, ask:
+
+1. What is being simplified?
+2. What is being ignored?
+3. What kind of error might that create?
+4. Is that acceptable for the question at hand?
+
+That habit will make you a better reader than simply memorizing formulas.
+
+## If This Gets Hard, Focus On
+
+- all models simplify
+- approximation is normal
+- uncertainty can still be informative
+- the real question is whether the model is useful for the job
+
+That is a mature way to read quantitative work.

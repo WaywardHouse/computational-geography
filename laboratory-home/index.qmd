@@ -1,0 +1,90 @@
+---
+title: "Computational Geography Laboratory"
+subtitle: "Project-style investigations, applied studies, and the harder working edge of the series."
+page-layout: article
+body-classes: split-home split-home-lab
+---
+
+::: {.section-kicker}
+Applied Investigations
+:::
+
+## Computational Geography Laboratory {#laboratory-home .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This is the advanced project bench of the wider series: investigations, applied modelling studies, and practicum-style chapters.</p>
+    <p>It is the place for readers who want to test ideas against richer problems, combine techniques, and spend more time inside real applications instead of only reading concept chapters.</p>
+    <div class="cta-row">
+      <a class="cta" href="../advanced-investigations/">Open Advanced Investigations</a>
+      <a class="cta cta-ghost" href="../laboratory/">Open Laboratory Chapters</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">Advanced practice</span>
+      <span class="book-pill">Hands-on investigations</span>
+      <span class="book-pill">Applied modelling</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Best For</strong>
+      <span>Readers who want harder problems, projects, and open-ended modelling work rather than a calmer linear path.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Includes</strong>
+      <span>The laboratory collection, applied environmental modelling, statistical inference, and integrated investigations.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Reading Style</strong>
+      <span>Project-based, selective, and better entered by question, dataset, or application area than by strict front-to-back sequence.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## What Lives In The Lab {#laboratory-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Work A System</span>
+    <h3>Hydrology, Geomorphology, and Water Quality</h3>
+    <p>Rivers, reservoirs, erosion, coastal processes, and contaminant transport turn methods into integrated environmental problems.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Test A Sensor</span>
+    <h3>Radar and Geophysical Investigations</h3>
+    <p>SAR, InSAR, GRACE, and passive microwave chapters connect advanced sensing to specific modelling questions.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Model A City</span>
+    <h3>Urban and Transportation Studies</h3>
+    <p>Urban climate, accessibility, demographic change, and network analysis show how the lab extends into cities and infrastructure.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Push The Methods</span>
+    <h3>Inference and Data Assimilation</h3>
+    <p>Bayesian methods, ensembles, Kalman filtering, and satellite assimilation push into the more technical side of model practice.</p>
+  </article>
+</div>
+```
+
+## Also In This Series {#laboratory-siblings .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Need The Sequence?</span>
+    <h3>Core Book</h3>
+    <p>Return to the flagship beginner-safe path when you want the main teaching sequence of the wider project.</p>
+    <p><a href="../core-book/">Open Core Book</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Need A Branch?</span>
+    <h3>Topic Libraries</h3>
+    <p>Browse specialist branches by subject when you want depth without committing to the main staircase.</p>
+    <p><a href="../topic-libraries-home/">Open Topic Libraries</a></p>
+  </article>
+</div>
+```

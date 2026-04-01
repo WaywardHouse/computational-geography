@@ -1,0 +1,135 @@
+---
+title: "Learn"
+subtitle: "A clustered learning library in computational geography, with one core book, topic libraries, and advanced investigations."
+page-layout: article
+---
+
+```{=html}
+<section class="mock-book-hero">
+  <div class="mock-book-hero__copy">
+    <div class="mock-kicker">Library / Computational Geography</div>
+    <h2>One core book, plus topic libraries and a laboratory.</h2>
+    <p>Learn is the home of the Wayward House computational geography program. Start with the core ENVMOD209-inspired book, branch into topic libraries when a subject grabs you, and use the laboratory for harder applied investigations.</p>
+    <div class="mock-action-row">
+      <a class="cta" href="./getting-started/">Start Here</a>
+      <a class="cta cta-ghost" href="./foundations/">Open the Core Book</a>
+      <a class="cta cta-ghost" href="./methods-and-tools/">Methods and Tools</a>
+    </div>
+    <div class="mock-pill-row">
+      <span class="book-pill">Start Here</span>
+      <span class="book-pill">Core Book</span>
+      <span class="book-pill">Topic Libraries</span>
+      <span class="book-pill">Laboratory</span>
+      <span class="book-pill">Methods and Tools</span>
+    </div>
+  </div>
+  <aside class="mock-book-hero__meta">
+    <div class="book-meta-card">
+      <strong>Best Entry</strong>
+      <span>Start with Getting Started, then move into Maths for Modelling Space.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Audience</strong>
+      <span>Smart Grade 10 readers and up, plus self-directed learners who want a serious but readable path.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>How It Works</strong>
+      <span>Start Here first. Read the Core Book as the main staircase. Open Topic Libraries by subject. Use the Laboratory for projects and harder integrated problems.</span>
+    </div>
+  </aside>
+</section>
+
+<section class="mock-pathway">
+  <div class="mock-section-head">
+    <div>
+      <div class="section-kicker">Pathway</div>
+      <h3>The structure should feel obvious in seconds</h3>
+    </div>
+    <p>A good learning library reduces anxiety immediately: where to start, what the main book is, and where specialist branches live.</p>
+  </div>
+
+  <div class="mock-path-grid">
+    <article class="mock-path-card">
+      <span class="part-eyebrow">Start Here</span>
+      <h4>Getting Started</h4>
+      <p>Begin here if you are new to modelling, new to reading equations, or not yet confident about how to approach the book.</p>
+    </article>
+    <article class="mock-path-card">
+      <span class="part-eyebrow">Core Book</span>
+      <h4>Maths, Earth Systems, GIS, Hazards, Human Geography</h4>
+      <p>The main staircase through the subject, designed to be readable in sequence by a motivated beginner.</p>
+    </article>
+    <article class="mock-path-card">
+      <span class="part-eyebrow">Topic Libraries</span>
+      <h4>Browse By Subject</h4>
+      <p>Remote sensing, cryosphere, economic systems, and machine learning open as coherent branches when you want subject-focused depth.</p>
+    </article>
+    <article class="mock-path-card">
+      <span class="part-eyebrow">Methods and Tools</span>
+      <h4>Cross-Cutting Resources</h4>
+      <p>Setup help, GIS logic, quantitative methods, and practical workflows support the whole project instead of living inside just one branch.</p>
+    </article>
+  </div>
+</section>
+
+<section class="mock-dark-band">
+  <div class="mock-section-head mock-section-head--light">
+    <div>
+      <div class="section-kicker">Core Path</div>
+      <h3>The beginner-safe core book</h3>
+    </div>
+    <p>This is the route we want most readers to see first.</p>
+  </div>
+
+  <div class="mock-shelf-grid">
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Part 1</span>
+      <h4>Maths for Modelling Space</h4>
+      <p>Rates, growth, terrain, and the mathematical language behind spatial models.</p>
+      <a href="./foundations/">Open Part 1 →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Part 2</span>
+      <h4>Earth Systems and Observation</h4>
+      <p>Energy, soils, atmosphere, vegetation, and what environmental data can reveal.</p>
+      <a href="./environmental-systems/">Open Part 2 →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Part 3</span>
+      <h4>GIS and Spatial Analysis</h4>
+      <p>Predicates, overlays, rasters, visibility, and watershed logic as practical computation.</p>
+      <a href="./spatial-analysis/">Open Part 3 →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Part 4</span>
+      <h4>Hazards, Change, and Prediction</h4>
+      <p>Fire, rainfall, flood risk, and why environmental prediction matters in live systems.</p>
+      <a href="./atmospheric-hazards/">Open Part 4 →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Part 5</span>
+      <h4>Cities, Networks, and Economic Geography</h4>
+      <p>Trade, transport, pricing, cities, and the geography of human systems.</p>
+      <a href="./economic-systems/">Open Part 5 →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Methods and Tools</span>
+      <h4>Shared Tool Bench</h4>
+      <p>Use cross-cutting setup help, GIS resources, quantitative methods, and workflow guides to support every part of the project.</p>
+      <a href="./methods-and-tools/">Open Methods and Tools →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Topic Libraries</span>
+      <h4>Subject Branches and Specialist Libraries</h4>
+      <p>Browse remote sensing, cryosphere, machine learning, and deeper economic systems by topic instead of forcing them into the main staircase.</p>
+      <a href="./explore-more/">Browse Topic Libraries →</a>
+    </article>
+    <article class="mock-shelf-card">
+      <span class="section-eyebrow">Laboratory</span>
+      <h4>Advanced Investigations</h4>
+      <p>Integrated projects, applications, and harder open-ended modelling problems.</p>
+      <a href="./advanced-investigations/">Open the Laboratory →</a>
+    </article>
+  </div>
+</section>
+```

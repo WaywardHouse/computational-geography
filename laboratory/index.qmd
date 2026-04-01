@@ -1,0 +1,179 @@
+---
+title: "Computational Geography Laboratory"
+subtitle: "Advanced applied models, investigations, and project-style chapters."
+page-layout: article
+---
+
+::: {.section-kicker}
+Textbook Part
+:::
+
+## Computational Geography Laboratory {#laboratory .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This section is the project bench of the book. Use it when you want open-ended investigations, specialist applications, or harder integrated modelling work.</p>
+    <div class="cta-row">
+      <a class="cta" href="./sar-fundamentals-and-applications.html">Start Part 8</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">39 investigations</span>
+      <span class="book-pill">Advanced applications</span>
+      <span class="book-pill">Laboratory</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>Role</strong>
+      <span>Collect advanced investigations across environmental, urban, and geographic systems once the core path feels solid.</span>
+    </div>
+    <div class="book-meta-card">
+      <strong>Sequence</strong>
+      <span>This is not required first-pass reading. Enter by topic, question, or project interest.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">T</span>
+    <h3>Radar Remote Sensing</h3>
+    <ul>
+      <li><a href="./sar-fundamentals-and-applications.html">SAR Fundamentals and Applications</a></li>
+      <li><a href="./insar-deformation-monitoring.html">InSAR Deformation Monitoring</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">U</span>
+    <h3>Geophysical Remote Sensing</h3>
+    <ul>
+      <li><a href="./gravity-remote-sensing-grace.html">Gravity Remote Sensing (GRACE)</a></li>
+      <li><a href="./passive-microwave-radiometry.html">Passive Microwave Radiometry</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AA</span>
+    <h3>Weathering and Hillslope Processes</h3>
+    <ul>
+      <li><a href="./rock-weathering-and-soil-formation.html">Rock Weathering and Soil Formation</a></li>
+      <li><a href="./soil-erosion-and-the-rusle.html">Soil Erosion and the RUSLE</a></li>
+      <li><a href="./shallow-landslides-and-slope-stability.html">Shallow Landslides and Slope Stability</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AB</span>
+    <h3>Fluvial Geomorphology</h3>
+    <ul>
+      <li><a href="./sediment-transport-in-rivers.html">Sediment Transport in Rivers</a></li>
+      <li><a href="./channel-morphology-and-hydraulic-geometry.html">Channel Morphology and Hydraulic Geometry</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AC</span>
+    <h3>Coastal Processes</h3>
+    <ul>
+      <li><a href="./wave-dynamics-and-nearshore-transformation.html">Wave Dynamics and Nearshore Transformation</a></li>
+      <li><a href="./longshore-sediment-transport-and-coastal-budgets.html">Longshore Sediment Transport and Coastal Budgets</a></li>
+      <li><a href="./sea-level-storm-surge-and-coastal-morphodynamics.html">Sea Level, Storm Surge, and Coastal Morphodynamics</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AJ</span>
+    <h3>Urban Climate and Air Quality</h3>
+    <ul>
+      <li><a href="./urban-heat-island-dynamics.html">Urban Heat Island Dynamics</a></li>
+      <li><a href="./urban-ventilation-and-pollutant-dispersion.html">Urban Ventilation and Pollutant Dispersion</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AK</span>
+    <h3>Transportation and Accessibility</h3>
+    <ul>
+      <li><a href="./transportation-network-analysis.html">Transportation Network Analysis</a></li>
+      <li><a href="./accessibility-and-travel-demand-modeling.html">Accessibility and Travel Demand modelling</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AL</span>
+    <h3>Land Use and Demographic Dynamics</h3>
+    <ul>
+      <li><a href="./land-use-change-modeling.html">Land Use Change modelling</a></li>
+      <li><a href="./urban-scaling-laws-and-city-structure.html">Urban Scaling Laws and City Structure</a></li>
+      <li><a href="./demographic-spatial-dynamics.html">Demographic Spatial Dynamics</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AR</span>
+    <h3>Reservoir Operations and Water Supply</h3>
+    <ul>
+      <li><a href="./reservoir-operations-and-mass-balance.html">Reservoir Operations and Mass Balance</a></li>
+      <li><a href="./stochastic-streamflow-and-drought-risk.html">Stochastic Streamflow and Drought Risk</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AS</span>
+    <h3>Water Quality and Eutrophication</h3>
+    <ul>
+      <li><a href="./dissolved-oxygen-dynamics-and-the-streeter-phelps-model.html">Dissolved Oxygen Dynamics and the Streeter-Phelps Model</a></li>
+      <li><a href="./nutrient-dynamics-and-lake-eutrophication.html">Nutrient Dynamics and Lake Eutrophication</a></li>
+      <li><a href="./sediment-and-contaminant-transport-in-rivers.html">Sediment and Contaminant Transport in Rivers</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AT</span>
+    <h3>Groundwater Contamination and Remediation</h3>
+    <ul>
+      <li><a href="./groundwater-contaminant-plumes.html">Groundwater Contaminant Plumes</a></li>
+      <li><a href="./pump-and-treat-and-in-situ-remediation.html">Pump-and-Treat and In-Situ Remediation</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Z</span>
+    <h3>Foundations of Geographic Machine Learning</h3>
+    <ul>
+      <li><a href="./bayesian-inference-for-environmental-models.html">Bayesian Inference for Environmental Models</a></li>
+      <li><a href="./regression-for-continuous-spatial-variables.html">Regression for Continuous Spatial Variables</a></li>
+      <li><a href="./dimensionality-reduction-for-high-dimensional-geographic-data.html">Dimensionality Reduction for High-Dimensional Geographic Data</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AU</span>
+    <h3>Ensemble Methods and Data Assimilation</h3>
+    <ul>
+      <li><a href="./ensemble-forecasting-and-uncertainty-quantification.html">Ensemble Forecasting and Uncertainty Quantification</a></li>
+      <li><a href="./the-kalman-filter-and-sequential-data-assimilation.html">The Kalman Filter and Sequential Data Assimilation</a></li>
+      <li><a href="./satellite-data-assimilation-in-environmental-models.html">Satellite Data Assimilation in Environmental Models</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AM</span>
+    <h3>Carbon Sources</h3>
+    <ul>
+      <li><a href="./Fossil-Fuel-Combustion-Chemistry.html">Fossil Fuel Combustion Chemistry</a></li>
+      <li><a href="./Biomass-Burning-and-Pyrogenic-Carbon.html">Biomass Burning and Pyrogenic Carbon</a></li>
+      <li><a href="./Land-Use-Change-and-Deforestation.html">Land Use Change and Deforestation</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AN</span>
+    <h3>Carbon Sinks</h3>
+    <ul>
+      <li><a href="./Photosynthesis-and-Gross-Primary-Production.html">Photosynthesis and Gross Primary Production</a></li>
+      <li><a href="./Ocean-Carbon-Uptake-and-Air-Sea-Exchange.html">Ocean Carbon Uptake and Air-Sea Exchange</a></li>
+      <li><a href="./Soil-Carbon-Storage-and-Decomposition.html">Soil Carbon Storage and Decomposition</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">AO</span>
+    <h3>Methane Processes</h3>
+    <ul>
+      <li><a href="./Methanogenesis-in-Anaerobic-Environments.html">Methanogenesis in Anaerobic Environments</a></li>
+    </ul>
+  </article>
+</div>
+```

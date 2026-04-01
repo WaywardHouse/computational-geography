@@ -1,0 +1,71 @@
+---
+title: "Topic Libraries"
+subtitle: "Browse specialist branches by subject: remote sensing, cryosphere, economic systems, and advanced methods."
+page-layout: article
+---
+
+::: {.section-kicker}
+Browse By Topic
+:::
+
+## Topic Libraries {#explore-more-page .section-title}
+
+```{=html}
+<section class="book-hero">
+  <div class="book-hero-copy">
+    <p>This section collects the subject branches that are best browsed as coherent libraries rather than forced into the main staircase of the core book. They are not minor side material. They are substantial branches of the wider project.</p>
+    <div class="cta-row">
+      <a class="cta" href="../cryosphere-and-mountain-systems/">Open Cryosphere</a>
+      <a class="cta cta-ghost" href="../advanced-remote-sensing/">Open Remote Sensing</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">Subject branches</span>
+      <span class="book-pill">Specialist topics</span>
+      <span class="book-pill">Companion-ready</span>
+    </div>
+  </div>
+  <aside class="book-meta-panel">
+    <div class="book-meta-card">
+      <strong>When To Use It</strong>
+      <span>After you have momentum in the core book, or whenever a specific topic becomes the thing you most want to study.</span>
+    </div>
+  </aside>
+</section>
+```
+
+## Library Clusters {#extension-areas .section-title}
+
+```{=html}
+<div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Observation</span>
+    <h3>Remote Sensing Library</h3>
+    <p>Orbits, GPS, sensing geometry, radar, LiDAR, thermal methods, gravity, and retrieval logic form a coherent observation branch.</p>
+    <p><a href="../advanced-remote-sensing/">Advanced Remote Sensing</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Cold Systems</span>
+    <h3>Cryosphere and Mountain Systems</h3>
+    <p>Snow, glaciers, permafrost, alpine hydrology, and mountain hazards form a distinct field-focused branch of the project.</p>
+    <p><a href="../cryosphere-and-mountain-systems/">Cryosphere and Mountain Systems</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Human Systems</span>
+    <h3>Economic Geography and Infrastructure</h3>
+    <p>Trade, transport, pipelines, pricing, and energy systems belong together as a strong human-systems branch beyond the gateway chapters in the core book.</p>
+    <p><a href="../economic-systems/">Economic Systems</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Methods</span>
+    <h3>Machine Learning and Inference</h3>
+    <p>Open these later, once the logic of modelling, uncertainty, and spatial analysis already feels familiar.</p>
+    <p><a href="../machine-learning/">Machine Learning</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Observation Support</span>
+    <h3>Orbits, GPS, and Sensing Geometry</h3>
+    <p>Some Earth observation foundations still live inside Environmental Systems for now, but they function as part of the wider remote sensing library.</p>
+    <p><a href="../environmental-systems/">Environmental Systems</a></p>
+  </article>
+</div>
+```
