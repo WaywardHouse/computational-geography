@@ -2,7 +2,7 @@ name: Publish Computational Geography Clusters
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # Allows you to run this manually if needed
+  workflow_dispatch: 
 
 jobs:
   build-and-deploy:
@@ -16,12 +16,19 @@ jobs:
 
       - name: Render All Clusters
         run: |
-          # Strip Windows line endings just in case
-          sed -i 's/\r$//' ./scripts/*.sh
+          # 1. Clean ALL files in the repository of Windows line endings
+          # This ensures Quarto's pre-render scripts are readable by Linux
+          find . -type f -not -path '*/.*' -exec sed -i 's/\r$//' {} +
+
+          # 2. Ensure the scripts folder is executable
           chmod +x ./scripts/*.sh
-          ./scripts/render-core-book.sh
-          ./scripts/render-topic-libraries.sh
-          ./scripts/render-laboratory.sh
+
+          # 3. Run your custom render scripts
+          # Note: These scripts trigger 'quarto render', which in turn 
+          # triggers the pre-render scripts now that they are cleaned.
+          bash ./scripts/render-core-book.sh
+          bash ./scripts/render-topic-libraries.sh
+          bash ./scripts/render-laboratory.sh
 
       - name: Deploy Core Book
         uses: cpina/github-action-push-to-another-repository@main
