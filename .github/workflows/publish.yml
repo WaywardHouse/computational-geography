@@ -2,7 +2,7 @@ name: Publish Computational Geography Clusters
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # Allows you to run this manually if needed
+  workflow_dispatch: 
 
 jobs:
   build-and-deploy:
@@ -14,15 +14,18 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-     - name: Render All Clusters
+      - name: Render All Clusters
         run: |
-          # 1. Ensure we are in the root and scripts exist
+          # 1. Debug: Confirm files exist and show permissions
           ls -la ./scripts/
 
-          # 2. Force convert all scripts to Unix format
+          # 2. Force convert all scripts to Unix format (removes \r)
           find ./scripts/ -name "*.sh" -exec sed -i 's/\r$//' {} +
           
-          # 3. Execute using explicit bash call (bypasses shebang issues)
+          # 3. Grant execute permissions (standard practice)
+          chmod +x ./scripts/*.sh
+
+          # 4. Execute using explicit bash call (bypasses shebang/interpreter issues)
           bash ./scripts/render-core-book.sh
           bash ./scripts/render-topic-libraries.sh
           bash ./scripts/render-laboratory.sh
