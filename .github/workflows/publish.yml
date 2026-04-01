@@ -16,16 +16,16 @@ jobs:
 
       - name: Render All Clusters
         run: |
-          # 1. Debug: Confirm files exist and show permissions
-          ls -la ./scripts/
+          # 1. Clean ALL files in the repository of Windows line endings
+          # This ensures Quarto's pre-render scripts are readable by Linux
+          find . -type f -not -path '*/.*' -exec sed -i 's/\r$//' {} +
 
-          # 2. Force convert all scripts to Unix format (removes \r)
-          find ./scripts/ -name "*.sh" -exec sed -i 's/\r$//' {} +
-          
-          # 3. Grant execute permissions (standard practice)
+          # 2. Ensure the scripts folder is executable
           chmod +x ./scripts/*.sh
 
-          # 4. Execute using explicit bash call (bypasses shebang/interpreter issues)
+          # 3. Run your custom render scripts
+          # Note: These scripts trigger 'quarto render', which in turn 
+          # triggers the pre-render scripts now that they are cleaned.
           bash ./scripts/render-core-book.sh
           bash ./scripts/render-topic-libraries.sh
           bash ./scripts/render-laboratory.sh
