@@ -13,6 +13,13 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      
+      - name: Install Python Dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install jupyter nbformat nbclient
+          # Add your specific science libraries here if the render fails on imports:
+          # python3 -m pip install numpy pandas matplotlib
 
       - name: Render All Clusters
         run: |
