@@ -16,6 +16,8 @@ jobs:
 
       - name: Render All Clusters
         run: |
+          # Strip Windows line endings just in case
+          sed -i 's/\r$//' ./scripts/*.sh
           chmod +x ./scripts/*.sh
           ./scripts/render-core-book.sh
           ./scripts/render-topic-libraries.sh
