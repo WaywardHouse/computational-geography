@@ -1,25 +1,48 @@
-# Inside waywardhouse-computational-geography/.github/workflows/publish.yml
+name: Publish Computational Geography Clusters
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Allows you to run this manually if needed
 
-- name: Render All Clusters
-  run: |
-    chmod +x ./scripts/*.sh
-    ./scripts/render-core-book.sh
-    ./scripts/render-topic-libraries.sh
-    ./scripts/render-laboratory.sh
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-- name: Deploy Core Book
-  uses: cpina/github-action-push-to-another-repository@main
-  env:
-    API_TOKEN_GITHUB: ${{ secrets.WAYWARD_PUBLISH_TOKEN }}
-  with:
-    source-directory: '_book-core'
-    target-directory: 'learn/computational-geography/core'
-    # ... other settings ...
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
 
-- name: Deploy Laboratory
-  uses: cpina/github-action-push-to-another-repository@main
-  env:
-    API_TOKEN_GITHUB: ${{ secrets.WAYWARD_PUBLISH_TOKEN }}
-  with:
-    source-directory: '_book-lab'
-    target-directory: 'learn/computational-geography/lab'
+      - name: Render All Clusters
+        run: |
+          # Strip Windows line endings just in case
+          sed -i 's/\r$//' ./scripts/*.sh
+          chmod +x ./scripts/*.sh
+          ./scripts/render-core-book.sh
+          ./scripts/render-topic-libraries.sh
+          ./scripts/render-laboratory.sh
+
+      - name: Deploy Core Book
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.WAYWARD_PUBLISH_TOKEN }}
+        with:
+          source-directory: '_book-core'
+          destination-github-username: 'WaywardHouse'
+          destination-repository-name: 'waywardhouse.github.io'
+          target-directory: 'learn/computational-geography/core'
+          user-email: github-actions@github.com
+          target-branch: main
+
+      - name: Deploy Laboratory
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.WAYWARD_PUBLISH_TOKEN }}
+        with:
+          source-directory: '_book-lab'
+          destination-github-username: 'WaywardHouse'
+          destination-repository-name: 'waywardhouse.github.io'
+          target-directory: 'learn/computational-geography/lab'
+          user-email: github-actions@github.com
+          target-branch: main
