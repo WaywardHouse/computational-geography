@@ -1,0 +1,25 @@
+# Inside waywardhouse-computational-geography/.github/workflows/publish.yml
+
+- name: Render All Clusters
+  run: |
+    chmod +x ./scripts/*.sh
+    ./scripts/render-core-book.sh
+    ./scripts/render-topic-libraries.sh
+    ./scripts/render-laboratory.sh
+
+- name: Deploy Core Book
+  uses: cpina/github-action-push-to-another-repository@main
+  env:
+    API_TOKEN_GITHUB: ${{ secrets.WAYWARD_PUBLISH_TOKEN }}
+  with:
+    source-directory: '_book-core'
+    target-directory: 'learn/computational-geography/core'
+    # ... other settings ...
+
+- name: Deploy Laboratory
+  uses: cpina/github-action-push-to-another-repository@main
+  env:
+    API_TOKEN_GITHUB: ${{ secrets.WAYWARD_PUBLISH_TOKEN }}
+  with:
+    source-directory: '_book-lab'
+    target-directory: 'learn/computational-geography/lab'
