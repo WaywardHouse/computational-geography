@@ -305,6 +305,7 @@ $$\rho(t) = \rho_0 + (\rho_{\max} - \rho_0)(1 - e^{-kt})$$
 
 Below is an interactive snow accumulation/melt simulator.
 
+```{=html}
 <div class="viz-container" id="snow-sim-viz">
   <div class="controls">
     <label>
@@ -600,6 +601,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Higher elevation:** Colder temps, later melt, more peak SWE

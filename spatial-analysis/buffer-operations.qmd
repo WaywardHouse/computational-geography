@@ -234,6 +234,7 @@ $A'(-40, 30) \to B'(260, 430) \to$ [8 arc points] $\to B''(340, 370) \to A''(40,
 
 Below is an interactive buffer generator.
 
+```{=html}
 <div class="viz-container" id="buffer-viz">
   <div class="controls">
     <label>
@@ -542,6 +543,7 @@ Below is an interactive buffer generator.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Point buffer:** Perfect circle around point

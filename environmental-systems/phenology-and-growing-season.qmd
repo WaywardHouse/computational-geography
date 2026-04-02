@@ -236,6 +236,7 @@ At 10 degree-days per day: 80 / 10 = 8 days.
 
 Below is an interactive phenology simulator.
 
+```{=html}
 <div class="viz-container" id="phenology-viz">
   <div class="controls">
     <label>
@@ -532,6 +533,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Higher latitude:** Later bud break (cooler spring), shorter growing season

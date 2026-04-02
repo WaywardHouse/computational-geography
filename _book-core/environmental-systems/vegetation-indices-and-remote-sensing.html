@@ -240,46 +240,45 @@ The essential idea is that healthy vegetation reflects near-infrared strongly an
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive vegetation index calculator with spectral reflectance curves.</p>
-<div id="vi-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Land cover type:
-  &lt;select id="landcover-type"&gt;
-    &lt;option value="dense-veg"&gt;Dense Vegetation&lt;/option&gt;
-    &lt;option value="moderate-veg" selected&gt;Moderate Vegetation&lt;/option&gt;
-    &lt;option value="sparse-veg"&gt;Sparse Vegetation&lt;/option&gt;
-    &lt;option value="bare-soil"&gt;Bare Soil&lt;/option&gt;
-    &lt;option value="water"&gt;Water&lt;/option&gt;
-    &lt;option value="snow"&gt;Snow&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Red reflectance:
-  &lt;input type="range" id="red-slider" min="0" max="0.5" step="0.01" value="0.08"&gt;
-  &lt;span id="red-value"&gt;0.08&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  NIR reflectance:
-  &lt;input type="range" id="nir-slider" min="0" max="0.6" step="0.01" value="0.42"&gt;
-  &lt;span id="nir-value"&gt;0.42&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Blue reflectance:
-  &lt;input type="range" id="blue-slider" min="0" max="0.4" step="0.01" value="0.06"&gt;
-  &lt;span id="blue-value"&gt;0.06&lt;/span&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="vi-viz">
+  <div class="controls">
+    <label>
+      Land cover type:
+      <select id="landcover-type">
+        <option value="dense-veg">Dense Vegetation</option>
+        <option value="moderate-veg" selected="">Moderate Vegetation</option>
+        <option value="sparse-veg">Sparse Vegetation</option>
+        <option value="bare-soil">Bare Soil</option>
+        <option value="water">Water</option>
+        <option value="snow">Snow</option>
+      </select>
+    </label>
+    <label>
+      Red reflectance:
+      <input type="range" id="red-slider" min="0" max="0.5" step="0.01" value="0.08">
+      <span id="red-value">0.08</span>
+    </label>
+    <label>
+      NIR reflectance:
+      <input type="range" id="nir-slider" min="0" max="0.6" step="0.01" value="0.42">
+      <span id="nir-value">0.42</span>
+    </label>
+    <label>
+      Blue reflectance:
+      <input type="range" id="blue-slider" min="0" max="0.4" step="0.01" value="0.06">
+      <span id="blue-value">0.06</span>
+    </label>
+  </div>
+  <div class="vi-results">
+    <p><strong>NDVI:</strong> <span id="ndvi-result"></span></p>
+    <p><strong>EVI:</strong> <span id="evi-result"></span></p>
+    <p><strong>Simple Ratio:</strong> <span id="sr-result"></span></p>
+    <p><strong>Est. LAI:</strong> <span id="lai-result"></span></p>
+    <p><strong>Classification:</strong> <span id="class-result"></span></p>
+  </div>
+  <div id="vi-chart" style="width: 100%; height: 450px;"></div>
 </div>
-<div class="vi-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;NDVI:&lt;/strong&gt; &lt;span id="ndvi-result"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;EVI:&lt;/strong&gt; &lt;span id="evi-result"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Simple Ratio:&lt;/strong&gt; &lt;span id="sr-result"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Est. LAI:&lt;/strong&gt; &lt;span id="lai-result"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Classification:&lt;/strong&gt; &lt;span id="class-result"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-<div id="vi-chart" style="width: 100%; height: 450px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

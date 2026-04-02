@@ -253,40 +253,41 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive GLOF simulator.</p>
-<div id="glof-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Lake volume (million m³):
-  &lt;input type="range" id="lake-vol" min="1" max="100" step="5" value="25"&gt;
-  &lt;span id="vol-val"&gt;25&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Ice dam thickness (m):
-  &lt;input type="range" id="ice-thick" min="50" max="200" step="10" value="80"&gt;
-  &lt;span id="ice-val"&gt;80&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Water depth (m):
-  &lt;input type="range" id="water-depth" min="30" max="150" step="5" value="75"&gt;
-  &lt;span id="depth-val"&gt;75&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Distance downstream (km):
-  &lt;input type="range" id="distance" min="5" max="50" step="5" value="15"&gt;
-  &lt;span id="dist-val"&gt;15&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="glof-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Safety factor:&lt;/strong&gt; &lt;span id="safety-factor"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Peak discharge:&lt;/strong&gt; &lt;span id="peak-q"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Travel time:&lt;/strong&gt; &lt;span id="travel-time"&gt;--&lt;/span&gt; min&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Downstream peak:&lt;/strong&gt; &lt;span id="down-q"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Hazard:&lt;/strong&gt; &lt;span id="hazard-level"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="glof-viz">
+  <div class="controls">
+    <label>
+      Lake volume (million m³):
+      <input type="range" id="lake-vol" min="1" max="100" step="5" value="25">
+      <span id="vol-val">25</span>
+    </label>
+    <label>
+      Ice dam thickness (m):
+      <input type="range" id="ice-thick" min="50" max="200" step="10" value="80">
+      <span id="ice-val">80</span>
+    </label>
+    <label>
+      Water depth (m):
+      <input type="range" id="water-depth" min="30" max="150" step="5" value="75">
+      <span id="depth-val">75</span>
+    </label>
+    <label>
+      Distance downstream (km):
+      <input type="range" id="distance" min="5" max="50" step="5" value="15">
+      <span id="dist-val">15</span>
+    </label>
+    <div class="glof-info">
+      <p><strong>Safety factor:</strong> <span id="safety-factor">--</span></p>
+      <p><strong>Peak discharge:</strong> <span id="peak-q">--</span> m³/s</p>
+      <p><strong>Travel time:</strong> <span id="travel-time">--</span> min</p>
+      <p><strong>Downstream peak:</strong> <span id="down-q">--</span> m³/s</p>
+      <p><strong>Hazard:</strong> <span id="hazard-level">--</span></p>
+    </div>
+  </div>
+  <div id="glof-canvas-container">
+    <canvas id="glof-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="glof-canvas-container">
-<pre><code>&lt;canvas id="glof-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

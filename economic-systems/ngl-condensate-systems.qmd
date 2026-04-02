@@ -459,6 +459,7 @@ sensitivity table: every 0.02 change in *x*<sub>bitumen</sub> shifts
 diluent demand by tens of thousands of barrels per day at the provincial
 scale.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 # ── Parameters — change these and hit Run ──────────────────────────────────
@@ -490,6 +491,7 @@ for frac in np.arange(0.65, 0.76, 0.02):
     dil = (bitumen_bbl_day / frac) * (1 - frac)
     print(f"  x_bitumen={frac:.2f}  diluent={dil:>10,.0f} bbl/day")
 </code></pre></div>
+```
 
 ## Where next?
 

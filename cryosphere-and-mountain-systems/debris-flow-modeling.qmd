@@ -300,6 +300,7 @@ $$F = \frac{1}{2} \times 1.5 \times 2000 \times 100 \times 15 = 2,250 \text{ kN}
 
 Below is an interactive debris flow simulator.
 
+```{=html}
 <div class="viz-container" id="debris-viz">
   <div class="controls">
     <label>
@@ -539,6 +540,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Larger volume:** Lower travel angle, longer runout

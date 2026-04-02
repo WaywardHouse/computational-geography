@@ -223,6 +223,7 @@ Key things to explore:
   </div>
 </div>
 
+```{=html}
 <div id="sail-chart" style="height:460px;"></div>
 
 <script type="module">
@@ -435,6 +436,7 @@ await new Promise(r => {
   ro.observe(el);
 })();
 </script>
+```
 
 ---
 

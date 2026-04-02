@@ -227,36 +227,35 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive ground track simulator.</p>
-<div id="groundtrack-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Altitude (km):
-  &lt;input type="range" id="alt-gt-slider" min="200" max="1500" step="50" value="600"&gt;
-  &lt;span id="alt-gt-value"&gt;600&lt;/span&gt; km
-&lt;/label&gt;
-&lt;label&gt;
-  Inclination (degrees):
-  &lt;input type="range" id="inc-slider" min="0" max="98" step="1" value="51"&gt;
-  &lt;span id="inc-value"&gt;51&lt;/span&gt;°
-&lt;/label&gt;
-&lt;label&gt;
-  Number of orbits to show:
-  &lt;input type="range" id="orbits-slider" min="1" max="16" step="1" value="4"&gt;
-  &lt;span id="orbits-value"&gt;4&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="preset-iss"&gt;ISS (400 km, 51.6°)&lt;/button&gt;
-  &lt;button id="preset-polar"&gt;Polar (800 km, 90°)&lt;/button&gt;
-  &lt;button id="preset-sso"&gt;SSO (800 km, 98°)&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="groundtrack-viz">
+  <div class="controls">
+    <label>
+      Altitude (km):
+      <input type="range" id="alt-gt-slider" min="200" max="1500" step="50" value="600">
+      <span id="alt-gt-value">600</span> km
+    </label>
+    <label>
+      Inclination (degrees):
+      <input type="range" id="inc-slider" min="0" max="98" step="1" value="51">
+      <span id="inc-value">51</span>°
+    </label>
+    <label>
+      Number of orbits to show:
+      <input type="range" id="orbits-slider" min="1" max="16" step="1" value="4">
+      <span id="orbits-value">4</span>
+    </label>
+    <div class="button-group">
+      <button id="preset-iss">ISS (400 km, 51.6°)</button>
+      <button id="preset-polar">Polar (800 km, 90°)</button>
+      <button id="preset-sso">SSO (800 km, 98°)</button>
+    </div>
+  </div>
+  <div id="groundtrack-chart" style="width: 100%; height: 600px;"></div>
+  <div class="info-panel">
+    <p id="gt-info"></p>
+  </div>
 </div>
-<div id="groundtrack-chart" style="width: 100%; height: 600px;">
 
-</div>
-<div class="info-panel">
-<pre><code>&lt;p id="gt-info"&gt;&lt;/p&gt;</code></pre>
-</div>
-</div>
 <script type="module">
 while (!window.echarts) await new Promise(r => setTimeout(r, 50));
 

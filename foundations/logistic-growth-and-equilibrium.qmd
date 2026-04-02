@@ -214,6 +214,7 @@ At half the carrying capacity, the population grows at 50 deer per year — the 
 
 Below is an interactive model with phase plot visualization.
 
+```{=html}
 <div class="viz-container" id="logistic-model-viz">
   <div class="controls">
     <label>
@@ -449,6 +450,7 @@ await new Promise(resolve => {
   });
 })();
 </script>
+```
 
 **Try this:**
 

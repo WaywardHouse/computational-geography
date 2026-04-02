@@ -319,6 +319,7 @@ $$P_{actual} = 0.40 \times 2.78 = 1.11 \text{ MW}$$
 
 Below is an interactive boundary layer wind profile simulator.
 
+```{=html}
 <div class="viz-container" id="wind-viz">
   <div class="controls">
     <label>
@@ -531,6 +532,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Logarithmic increase of wind with height

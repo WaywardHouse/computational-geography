@@ -419,34 +419,33 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is interactive flood frequency analyzer.</p>
-<div id="flood-freq-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Record length (years):
-  &lt;input type="range" id="record-length" min="10" max="100" step="5" value="30"&gt;
-  &lt;span id="length-val"&gt;30&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Skew coefficient:
-  &lt;input type="range" id="skew" min="-0.5" max="1.5" step="0.1" value="0.2"&gt;
-  &lt;span id="skew-val"&gt;0.2&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Mean flow (log cms):
-  &lt;input type="range" id="mean-log" min="2.0" max="3.5" step="0.1" value="2.7"&gt;
-  &lt;span id="mean-val"&gt;2.7&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="flood-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Q₁₀:&lt;/strong&gt; &lt;span id="q10"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Q₅₀:&lt;/strong&gt; &lt;span id="q50"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Q₁₀₀:&lt;/strong&gt; &lt;span id="q100"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;CI width (Q₁₀₀):&lt;/strong&gt; ±&lt;span id="ci-width"&gt;--&lt;/span&gt;%&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="flood-freq-viz">
+  <div class="controls">
+    <label>
+      Record length (years):
+      <input type="range" id="record-length" min="10" max="100" step="5" value="30">
+      <span id="length-val">30</span>
+    </label>
+    <label>
+      Skew coefficient:
+      <input type="range" id="skew" min="-0.5" max="1.5" step="0.1" value="0.2">
+      <span id="skew-val">0.2</span>
+    </label>
+    <label>
+      Mean flow (log cms):
+      <input type="range" id="mean-log" min="2.0" max="3.5" step="0.1" value="2.7">
+      <span id="mean-val">2.7</span>
+    </label>
+    <div class="flood-info">
+      <p><strong>Q₁₀:</strong> <span id="q10">--</span> m³/s</p>
+      <p><strong>Q₅₀:</strong> <span id="q50">--</span> m³/s</p>
+      <p><strong>Q₁₀₀:</strong> <span id="q100">--</span> m³/s</p>
+      <p><strong>CI width (Q₁₀₀):</strong> ±<span id="ci-width">--</span>%</p>
+    </div>
+  </div>
+  <div id="flood-canvas" style="height: 400px;"></div>
 </div>
-<div id="flood-canvas" style="height: 400px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(r => {
   const c = () => typeof echarts !== 'undefined' ? r() : setTimeout(c, 50);

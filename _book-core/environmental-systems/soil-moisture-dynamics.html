@@ -320,45 +320,44 @@ No stress: <span class="math inline">K_s = 1</span><br>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive soil moisture simulator.</p>
-<div id="soil-moisture-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Soil type:
-  &lt;select id="soil-type-sm"&gt;
-    &lt;option value="sand"&gt;Sandy Soil&lt;/option&gt;
-    &lt;option value="loam" selected&gt;Loam&lt;/option&gt;
-    &lt;option value="clay"&gt;Clay&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Root zone depth (m):
-  &lt;input type="range" id="depth-slider" min="0.5" max="2" step="0.1" value="1"&gt;
-  &lt;span id="depth-value"&gt;1.0&lt;/span&gt; m
-&lt;/label&gt;
-&lt;label&gt;
-  Growing season:
-  &lt;select id="season-select"&gt;
-    &lt;option value="wet"&gt;Wet Season (frequent rain)&lt;/option&gt;
-    &lt;option value="normal" selected&gt;Normal Season&lt;/option&gt;
-    &lt;option value="dry"&gt;Dry Season (drought)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="run-simulation"&gt;Run 90-Day Simulation&lt;/button&gt;
-  &lt;button id="add-rain"&gt;Add 30mm Rain Event&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="soil-moisture-viz">
+  <div class="controls">
+    <label>
+      Soil type:
+      <select id="soil-type-sm">
+        <option value="sand">Sandy Soil</option>
+        <option value="loam" selected="">Loam</option>
+        <option value="clay">Clay</option>
+      </select>
+    </label>
+    <label>
+      Root zone depth (m):
+      <input type="range" id="depth-slider" min="0.5" max="2" step="0.1" value="1">
+      <span id="depth-value">1.0</span> m
+    </label>
+    <label>
+      Growing season:
+      <select id="season-select">
+        <option value="wet">Wet Season (frequent rain)</option>
+        <option value="normal" selected="">Normal Season</option>
+        <option value="dry">Dry Season (drought)</option>
+      </select>
+    </label>
+    <div class="button-group">
+      <button id="run-simulation">Run 90-Day Simulation</button>
+      <button id="add-rain">Add 30mm Rain Event</button>
+    </div>
+  </div>
+  <div class="sm-results">
+    <p><strong>Current moisture:</strong> <span id="current-s"></span> mm</p>
+    <p><strong>Field capacity:</strong> <span id="fc-display"></span> mm</p>
+    <p><strong>Wilting point:</strong> <span id="wp-display"></span> mm</p>
+    <p><strong>Water stress (Ks):</strong> <span id="ks-display"></span></p>
+    <p><strong>Plant available water:</strong> <span id="paw-display"></span> mm</p>
+  </div>
+  <div id="soil-moisture-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="sm-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;Current moisture:&lt;/strong&gt; &lt;span id="current-s"&gt;&lt;/span&gt; mm&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Field capacity:&lt;/strong&gt; &lt;span id="fc-display"&gt;&lt;/span&gt; mm&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Wilting point:&lt;/strong&gt; &lt;span id="wp-display"&gt;&lt;/span&gt; mm&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Water stress (Ks):&lt;/strong&gt; &lt;span id="ks-display"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Plant available water:&lt;/strong&gt; &lt;span id="paw-display"&gt;&lt;/span&gt; mm&lt;/p&gt;</code></pre>
-</div>
-<div id="soil-moisture-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

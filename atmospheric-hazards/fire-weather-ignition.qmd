@@ -335,6 +335,7 @@ $$= 19.99 \times 4 = 80.0$$
 
 Below is an interactive fire weather simulator.
 
+```{=html}
 <div class="viz-container" id="fire-viz">
   <div class="controls">
     <label>
@@ -575,6 +576,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - VPD peaks in afternoon when temperature highest and humidity lowest

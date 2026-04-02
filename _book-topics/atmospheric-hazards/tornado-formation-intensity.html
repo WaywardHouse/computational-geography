@@ -290,36 +290,37 @@ DOD 5-6: 136-165 mph → <strong>EF3</strong></p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive tornado vortex simulator.</p>
-<div id="tornado-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Max wind speed (mph):
-  &lt;input type="range" id="max-wind" min="65" max="250" step="5" value="140"&gt;
-  &lt;span id="wind-val"&gt;140&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Radius of max wind (m):
-  &lt;input type="range" id="rmw" min="50" max="500" step="25" value="200"&gt;
-  &lt;span id="rmw-val"&gt;200&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Vortex profile:
-  &lt;select id="profile"&gt;
-    &lt;option value="rankine" selected&gt;Rankine&lt;/option&gt;
-    &lt;option value="modified"&gt;Modified (real)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="tornado-info"&gt;
-  &lt;p&gt;&lt;strong&gt;EF Rating:&lt;/strong&gt; &lt;span id="ef-rating"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Pressure deficit:&lt;/strong&gt; &lt;span id="pressure-deficit"&gt;--&lt;/span&gt; mb&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Core vorticity:&lt;/strong&gt; &lt;span id="vorticity"&gt;--&lt;/span&gt; s⁻¹&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Damage range:&lt;/strong&gt; &lt;span id="damage-range"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="tornado-viz">
+  <div class="controls">
+    <label>
+      Max wind speed (mph):
+      <input type="range" id="max-wind" min="65" max="250" step="5" value="140">
+      <span id="wind-val">140</span>
+    </label>
+    <label>
+      Radius of max wind (m):
+      <input type="range" id="rmw" min="50" max="500" step="25" value="200">
+      <span id="rmw-val">200</span>
+    </label>
+    <label>
+      Vortex profile:
+      <select id="profile">
+        <option value="rankine" selected="">Rankine</option>
+        <option value="modified">Modified (real)</option>
+      </select>
+    </label>
+    <div class="tornado-info">
+      <p><strong>EF Rating:</strong> <span id="ef-rating">--</span></p>
+      <p><strong>Pressure deficit:</strong> <span id="pressure-deficit">--</span> mb</p>
+      <p><strong>Core vorticity:</strong> <span id="vorticity">--</span> s⁻¹</p>
+      <p><strong>Damage range:</strong> <span id="damage-range">--</span></p>
+    </div>
+  </div>
+  <div id="tornado-canvas-container">
+    <canvas id="tornado-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="tornado-canvas-container">
-<pre><code>&lt;canvas id="tornado-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

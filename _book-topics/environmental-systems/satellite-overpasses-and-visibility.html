@@ -313,46 +313,45 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive satellite visibility calculator.</p>
-<div id="visibility-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Observer Latitude:
-  &lt;input type="range" id="obs-lat-slider" min="-90" max="90" step="1" value="40"&gt;
-  &lt;span id="obs-lat-value"&gt;40&lt;/span&gt;°N
-&lt;/label&gt;
-&lt;label&gt;
-  Observer Longitude:
-  &lt;input type="range" id="obs-lon-slider" min="-180" max="180" step="1" value="-105"&gt;
-  &lt;span id="obs-lon-value"&gt;-105&lt;/span&gt;°E
-&lt;/label&gt;
-&lt;label&gt;
-  Satellite Altitude (km):
-  &lt;input type="range" id="sat-alt-slider" min="200" max="1000" step="50" value="400"&gt;
-  &lt;span id="sat-alt-value"&gt;400&lt;/span&gt; km
-&lt;/label&gt;
-&lt;label&gt;
-  Time (hours since epoch):
-  &lt;input type="range" id="time-slider" min="0" max="24" step="0.1" value="0"&gt;
-  &lt;span id="time-value"&gt;0.0&lt;/span&gt; hours
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="animate-toggle"&gt;Animate Time&lt;/button&gt;
-  &lt;button id="find-next-pass"&gt;Find Next Pass&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="visibility-viz">
+  <div class="controls">
+    <label>
+      Observer Latitude:
+      <input type="range" id="obs-lat-slider" min="-90" max="90" step="1" value="40">
+      <span id="obs-lat-value">40</span>°N
+    </label>
+    <label>
+      Observer Longitude:
+      <input type="range" id="obs-lon-slider" min="-180" max="180" step="1" value="-105">
+      <span id="obs-lon-value">-105</span>°E
+    </label>
+    <label>
+      Satellite Altitude (km):
+      <input type="range" id="sat-alt-slider" min="200" max="1000" step="50" value="400">
+      <span id="sat-alt-value">400</span> km
+    </label>
+    <label>
+      Time (hours since epoch):
+      <input type="range" id="time-slider" min="0" max="24" step="0.1" value="0">
+      <span id="time-value">0.0</span> hours
+    </label>
+    <div class="button-group">
+      <button id="animate-toggle">Animate Time</button>
+      <button id="find-next-pass">Find Next Pass</button>
+    </div>
+  </div>
+  <div class="visibility-info">
+    <h4 class="anchored">Current Satellite Position:</h4>
+    <p><strong>Latitude:</strong> <span id="sat-lat-display"></span></p>
+    <p><strong>Longitude:</strong> <span id="sat-lon-display"></span></p>
+    <p><strong>Slant Range:</strong> <span id="slant-range-display"></span> km</p>
+    <p><strong>Elevation Angle:</strong> <span id="elevation-display"></span>°</p>
+    <p><strong>Azimuth:</strong> <span id="azimuth-display"></span>° (<span id="direction-display"></span>)</p>
+    <p><strong>Visibility:</strong> <span id="visibility-status"></span></p>
+  </div>
+  <div id="visibility-chart" style="width: 100%; height: 400px;"></div>
 </div>
-<div class="visibility-info">
-<pre><code>&lt;h4&gt;Current Satellite Position:&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Latitude:&lt;/strong&gt; &lt;span id="sat-lat-display"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Longitude:&lt;/strong&gt; &lt;span id="sat-lon-display"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Slant Range:&lt;/strong&gt; &lt;span id="slant-range-display"&gt;&lt;/span&gt; km&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Elevation Angle:&lt;/strong&gt; &lt;span id="elevation-display"&gt;&lt;/span&gt;°&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Azimuth:&lt;/strong&gt; &lt;span id="azimuth-display"&gt;&lt;/span&gt;° (&lt;span id="direction-display"&gt;&lt;/span&gt;)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Visibility:&lt;/strong&gt; &lt;span id="visibility-status"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-<div id="visibility-chart" style="width: 100%; height: 400px;">
 
-</div>
-</div>
 <script type="module">
 while (!window.echarts) await new Promise(r => setTimeout(r, 50));
 
@@ -648,40 +647,39 @@ while (!window.echarts) await new Promise(r => setTimeout(r, 50));
 <hr>
 <h2 id="polar-overpass-diagram" class="anchored">6. Polar Overpass Diagram</h2>
 <p>Below is a polar plot showing satellite passes from the observer’s perspective — a <strong>local sky map</strong> with zenith at center and horizon at the perimeter.</p>
-<div id="polar-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Observer Latitude:
-  &lt;input type="range" id="polar-obs-lat" min="-90" max="90" step="5" value="40"&gt;
-  &lt;span id="polar-obs-lat-val"&gt;40&lt;/span&gt;°N
-&lt;/label&gt;
-&lt;label&gt;
-  Satellite Altitude (km):
-  &lt;input type="range" id="polar-sat-alt" min="400" max="800" step="100" value="600"&gt;
-  &lt;span id="polar-sat-alt-val"&gt;600&lt;/span&gt; km
-&lt;/label&gt;
-&lt;label&gt;
-  Sensor Swath Width (km):
-  &lt;input type="range" id="swath-slider" min="0" max="500" step="50" value="185"&gt;
-  &lt;span id="swath-value"&gt;185&lt;/span&gt; km
-&lt;/label&gt;
-&lt;label&gt;
-  Time Window (hours):
-  &lt;input type="range" id="window-slider" min="6" max="48" step="6" value="24"&gt;
-  &lt;span id="window-value"&gt;24&lt;/span&gt; hours
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="toggle-swath"&gt;Toggle Swath&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="polar-viz">
+  <div class="controls">
+    <label>
+      Observer Latitude:
+      <input type="range" id="polar-obs-lat" min="-90" max="90" step="5" value="40">
+      <span id="polar-obs-lat-val">40</span>°N
+    </label>
+    <label>
+      Satellite Altitude (km):
+      <input type="range" id="polar-sat-alt" min="400" max="800" step="100" value="600">
+      <span id="polar-sat-alt-val">600</span> km
+    </label>
+    <label>
+      Sensor Swath Width (km):
+      <input type="range" id="swath-slider" min="0" max="500" step="50" value="185">
+      <span id="swath-value">185</span> km
+    </label>
+    <label>
+      Time Window (hours):
+      <input type="range" id="window-slider" min="6" max="48" step="6" value="24">
+      <span id="window-value">24</span> hours
+    </label>
+    <div class="button-group">
+      <button id="toggle-swath">Toggle Swath</button>
+    </div>
+  </div>
+  <div id="polar-chart" style="width: 100%; height: 700px;"></div>
+  <div class="info-panel">
+    <p id="polar-info"></p>
+    <p><strong>Reading the plot:</strong> Center = zenith (directly overhead), outer ring = horizon. Each colored arc is one satellite pass. Wider bands show sensor swath coverage.</p>
+  </div>
 </div>
-<div id="polar-chart" style="width: 100%; height: 700px;">
 
-</div>
-<div class="info-panel">
-<pre><code>&lt;p id="polar-info"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Reading the plot:&lt;/strong&gt; Center = zenith (directly overhead), outer ring = horizon. Each colored arc is one satellite pass. Wider bands show sensor swath coverage.&lt;/p&gt;</code></pre>
-</div>
-</div>
 <script type="module">
 while (!window.echarts) await new Promise(r => setTimeout(r, 50));
 

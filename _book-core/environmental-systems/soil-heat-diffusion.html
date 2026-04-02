@@ -295,44 +295,43 @@ Heat flux is proportional to the temperature gradient:</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive soil temperature profile simulator.</p>
-<div id="soil-temp-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Soil type:
-  &lt;select id="soil-type"&gt;
-    &lt;option value="dry-sand"&gt;Dry Sand (α=0.3)&lt;/option&gt;
-    &lt;option value="moist-sand" selected&gt;Moist Sand (α=0.6)&lt;/option&gt;
-    &lt;option value="clay"&gt;Clay (α=0.4)&lt;/option&gt;
-    &lt;option value="peat"&gt;Peat (α=0.1)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Surface temperature amplitude (°C):
-  &lt;input type="range" id="amplitude-slider" min="5" max="20" step="1" value="10"&gt;
-  &lt;span id="amplitude-value"&gt;10&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Mean temperature (°C):
-  &lt;input type="range" id="mean-temp-slider" min="5" max="25" step="1" value="15"&gt;
-  &lt;span id="mean-temp-value"&gt;15&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Time of day (hours):
-  &lt;input type="range" id="time-slider" min="0" max="24" step="0.5" value="12"&gt;
-  &lt;span id="time-value"&gt;12.0&lt;/span&gt; h
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="animate-toggle"&gt;Animate Daily Cycle&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="soil-temp-viz">
+  <div class="controls">
+    <label>
+      Soil type:
+      <select id="soil-type">
+        <option value="dry-sand">Dry Sand (α=0.3)</option>
+        <option value="moist-sand" selected="">Moist Sand (α=0.6)</option>
+        <option value="clay">Clay (α=0.4)</option>
+        <option value="peat">Peat (α=0.1)</option>
+      </select>
+    </label>
+    <label>
+      Surface temperature amplitude (°C):
+      <input type="range" id="amplitude-slider" min="5" max="20" step="1" value="10">
+      <span id="amplitude-value">10</span> °C
+    </label>
+    <label>
+      Mean temperature (°C):
+      <input type="range" id="mean-temp-slider" min="5" max="25" step="1" value="15">
+      <span id="mean-temp-value">15</span> °C
+    </label>
+    <label>
+      Time of day (hours):
+      <input type="range" id="time-slider" min="0" max="24" step="0.5" value="12">
+      <span id="time-value">12.0</span> h
+    </label>
+    <div class="button-group">
+      <button id="animate-toggle">Animate Daily Cycle</button>
+    </div>
+  </div>
+  <div class="soil-info">
+    <p><strong>Damping depth:</strong> <span id="damping-depth"></span> cm</p>
+    <p><strong>Temperature at 50 cm:</strong> <span id="temp-50cm"></span> °C</p>
+  </div>
+  <div id="soil-temp-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="soil-info">
-<pre><code>&lt;p&gt;&lt;strong&gt;Damping depth:&lt;/strong&gt; &lt;span id="damping-depth"&gt;&lt;/span&gt; cm&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Temperature at 50 cm:&lt;/strong&gt; &lt;span id="temp-50cm"&gt;&lt;/span&gt; °C&lt;/p&gt;</code></pre>
-</div>
-<div id="soil-temp-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

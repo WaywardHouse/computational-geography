@@ -184,6 +184,7 @@ The chart below uses published reference spectra for green vegetation (grass) an
   </div>
 </div>
 
+```{=html}
 <div id="spectral-mix-chart" style="height:420px;"></div>
 
 <script type="module">
@@ -287,6 +288,7 @@ await new Promise(r => {
   ro.observe(el);
 })();
 </script>
+```
 
 ### Part B: Sensor bandpass explorer
 
@@ -308,6 +310,7 @@ The second chart shows the same surface spectra with an adjustable sensor bandpa
   </div>
 </div>
 
+```{=html}
 <div id="sensor-chart" style="height:380px;"></div>
 
 <script type="module">
@@ -432,6 +435,7 @@ await new Promise(r => {
   ro.observe(el);
 })();
 </script>
+```
 
 **Things to try:**
 - Set the bandpass to 620–700 nm (Landsat Band 3, red). Note how vegetation reflectance is well below soil — strong contrast for vegetation detection.

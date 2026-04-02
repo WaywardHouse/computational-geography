@@ -304,6 +304,7 @@ $$\max(g_1, g_2) = \max(-0.776, -1.818) = -0.776$$
 
 Below is an interactive image classification demo.
 
+```{=html}
 <div class="viz-container" id="classify-viz">
   <div class="controls">
     <label>
@@ -647,6 +648,7 @@ Below is an interactive image classification demo.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Maximum likelihood:** Statistical classification based on class distributions

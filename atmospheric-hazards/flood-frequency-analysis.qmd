@@ -379,6 +379,7 @@ $$Q_{100} = 10^{2.890} \text{ to } 10^{3.130} = 776 \text{ to } 1349 \text{ m}^3
 
 Below is interactive flood frequency analyzer.
 
+```{=html}
 <div class="viz-container" id="flood-freq-viz">
   <div class="controls">
     <label>
@@ -541,6 +542,7 @@ await new Promise(r => {
   render();
 })();
 </script>
+```
 
 ---
 

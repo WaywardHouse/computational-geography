@@ -234,41 +234,42 @@ At <span class="math inline">B</span>: semicircle from <span class="math inline"
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive buffer generator.</p>
-<div id="buffer-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Feature type:
-  &lt;select id="feature-type"&gt;
-    &lt;option value="point"&gt;Point&lt;/option&gt;
-    &lt;option value="line" selected&gt;Line&lt;/option&gt;
-    &lt;option value="polygon"&gt;Polygon&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Buffer distance (pixels):
-  &lt;input type="range" id="buffer-distance" min="10" max="100" step="5" value="50"&gt;
-  &lt;span id="buffer-value"&gt;50&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show construction:
-  &lt;input type="checkbox" id="show-construction" checked&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Buffer style:
-  &lt;select id="buffer-style"&gt;
-    &lt;option value="filled" selected&gt;Filled&lt;/option&gt;
-    &lt;option value="outline"&gt;Outline only&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="buffer-viz">
+  <div class="controls">
+    <label>
+      Feature type:
+      <select id="feature-type">
+        <option value="point">Point</option>
+        <option value="line" selected="">Line</option>
+        <option value="polygon">Polygon</option>
+      </select>
+    </label>
+    <label>
+      Buffer distance (pixels):
+      <input type="range" id="buffer-distance" min="10" max="100" step="5" value="50">
+      <span id="buffer-value">50</span>
+    </label>
+    <label>
+      Show construction:
+      <input type="checkbox" id="show-construction" checked="">
+    </label>
+    <label>
+      Buffer style:
+      <select id="buffer-style">
+        <option value="filled" selected="">Filled</option>
+        <option value="outline">Outline only</option>
+      </select>
+    </label>
+  </div>
+  <div id="buffer-canvas-container">
+    <canvas id="buffer-canvas" width="600" height="500" style="border: 1px solid #ddd;"></canvas>
+  </div>
+  <div class="buffer-info">
+    <p><strong>Buffer area:</strong> <span id="buffer-area">--</span> px²</p>
+    <p><strong>Buffer perimeter:</strong> <span id="buffer-perimeter">--</span> px</p>
+  </div>
 </div>
-<div id="buffer-canvas-container">
-<pre><code>&lt;canvas id="buffer-canvas" width="600" height="500" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-<div class="buffer-info">
-<pre><code>&lt;p&gt;&lt;strong&gt;Buffer area:&lt;/strong&gt; &lt;span id="buffer-area"&gt;--&lt;/span&gt; px²&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Buffer perimeter:&lt;/strong&gt; &lt;span id="buffer-perimeter"&gt;--&lt;/span&gt; px&lt;/p&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('buffer-canvas');

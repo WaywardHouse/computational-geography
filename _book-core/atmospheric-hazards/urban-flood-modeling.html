@@ -409,43 +409,42 @@ Top area (with 3:1 side slopes): ~1200 m² (35 × 35 m)</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive urban hydrology calculator.</p>
-<div id="urban-hydro-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Site area (ha):
-  &lt;input type="range" id="site-area" min="1" max="20" step="1" value="5"&gt;
-  &lt;span id="area-val"&gt;5&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Imperviousness (%):
-  &lt;input type="range" id="imperv" min="10" max="95" step="5" value="70"&gt;
-  &lt;span id="imperv-val"&gt;70&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Design storm (years):
-  &lt;input type="range" id="return-period" min="2" max="100" step="1" value="10"&gt;
-  &lt;span id="rp-val"&gt;10&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Green infrastructure:
-  &lt;select id="gi-type"&gt;
-    &lt;option value="none"&gt;None&lt;/option&gt;
-    &lt;option value="bioretention"&gt;Bioretention&lt;/option&gt;
-    &lt;option value="permeable"&gt;Permeable pavement&lt;/option&gt;
-    &lt;option value="greenroof"&gt;Green roof&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="hydro-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Pre-dev Q:&lt;/strong&gt; &lt;span id="q-pre"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Post-dev Q:&lt;/strong&gt; &lt;span id="q-post"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Increase:&lt;/strong&gt; &lt;span id="increase"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Detention volume:&lt;/strong&gt; &lt;span id="detention"&gt;--&lt;/span&gt; m³&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="urban-hydro-viz">
+  <div class="controls">
+    <label>
+      Site area (ha):
+      <input type="range" id="site-area" min="1" max="20" step="1" value="5">
+      <span id="area-val">5</span>
+    </label>
+    <label>
+      Imperviousness (%):
+      <input type="range" id="imperv" min="10" max="95" step="5" value="70">
+      <span id="imperv-val">70</span>
+    </label>
+    <label>
+      Design storm (years):
+      <input type="range" id="return-period" min="2" max="100" step="1" value="10">
+      <span id="rp-val">10</span>
+    </label>
+    <label>
+      Green infrastructure:
+      <select id="gi-type">
+        <option value="none">None</option>
+        <option value="bioretention">Bioretention</option>
+        <option value="permeable">Permeable pavement</option>
+        <option value="greenroof">Green roof</option>
+      </select>
+    </label>
+    <div class="hydro-info">
+      <p><strong>Pre-dev Q:</strong> <span id="q-pre">--</span> m³/s</p>
+      <p><strong>Post-dev Q:</strong> <span id="q-post">--</span> m³/s</p>
+      <p><strong>Increase:</strong> <span id="increase">--</span>%</p>
+      <p><strong>Detention volume:</strong> <span id="detention">--</span> m³</p>
+    </div>
+  </div>
+  <div id="hydro-canvas" style="height: 400px;"></div>
 </div>
-<div id="hydro-canvas" style="height: 400px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(r => {
   const c = () => typeof echarts !== 'undefined' ? r() : setTimeout(c, 50);

@@ -731,8 +731,7 @@ Destination              Market   Tariff   Quality   Netback
   Ontario (Sarnia)        68.00     4.50     14.00     49.50</code></pre>
 <h2 id="run-it-yourself" class="anchored">Run it yourself</h2>
 <p>Two experiments illuminate the most important structural features of the network. First, set <code>HARD→CUSH</code> to 0 and observe the exact effect on Gulf max-flow: the theorem guarantees a reduction of precisely 590 Mbbl/day, no more, no less. Second, increase <code>EDMT→BURN</code> to 1,200 and observe that Pacific capacity grows by 310 Mbbl/day while Gulf capacity is unchanged — the two corridors share upstream capacity but not downstream bottlenecks.</p>
-<div class="pyodide-cell">
-<pre><code class="language-python">from collections import defaultdict, deque
+<div class="pyodide-cell"><pre><code class="language-python">from collections import defaultdict, deque
 
 # ── Simplified Edmonds-Karp ────────────────────────────────────────────────
 def bfs(graph, s, t, parent):
@@ -797,8 +796,7 @@ for dest, mkt, tar, qual in [
     ("Ontario (Sarnia)",      68.0,  4.5, 14.0),
 ]:
     print(f"  {dest:&lt;22} {mkt:&gt;8.2f} {tar:&gt;8.2f} {qual:&gt;9.2f} {mkt-tar-qual:&gt;9.2f}")
-</code></pre>
-</div>
+</code></pre></div>
 <h2 id="where-next" class="anchored">Where next?</h2>
 <p>The five essays in this cluster have moved from individual pipe hydraulics — the pressure drop across a 30-inch steel pipe carrying dilbit at 2 m/s — through commodity-specific flow equations, to the integrated capacity network that carries Alberta’s hydrocarbons to continental and Pacific markets.</p>
 <p>The system is larger, more capable, and more structurally concentrated than either side of the political debate about pipelines typically acknowledges. What the mathematics reveals is not a case for or against pipeline investment. It is a precise description of what the existing network can and cannot do: its maximum throughput to each market, its binding bottleneck cuts, the node whose failure would be most consequential, and the netback price each route offers at any given market condition.</p>

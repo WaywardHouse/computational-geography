@@ -270,6 +270,7 @@ $$\text{AAR} = \frac{9.0}{16.0} = 0.56 = 56\%$$
 
 Below is an interactive glacier mass balance simulator.
 
+```{=html}
 <div class="viz-container" id="glacier-viz">
   <div class="controls">
     <label>
@@ -491,6 +492,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **ELA shift +100m:** Warmer climate, glacier retreats (red bars dominate)

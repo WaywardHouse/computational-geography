@@ -264,42 +264,43 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive permafrost thaw simulator.</p>
-<div id="permafrost-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Mean summer temperature (°C):
-  &lt;input type="range" id="summer-temp" min="5" max="20" step="1" value="10"&gt;
-  &lt;span id="temp-val"&gt;10&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Ice content (%):
-  &lt;input type="range" id="ice-content" min="20" max="80" step="5" value="55"&gt;
-  &lt;span id="ice-val"&gt;55&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Porosity (%):
-  &lt;input type="range" id="porosity" min="25" max="50" step="5" value="35"&gt;
-  &lt;span id="porosity-val"&gt;35&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Climate scenario:
-  &lt;select id="climate-scenario"&gt;
-    &lt;option value="current"&gt;Current (baseline)&lt;/option&gt;
-    &lt;option value="rcp45"&gt;RCP 4.5 (+2°C by 2100)&lt;/option&gt;
-    &lt;option value="rcp85" selected&gt;RCP 8.5 (+4°C by 2100)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="permafrost-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Active layer depth:&lt;/strong&gt; &lt;span id="alt-depth"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Thaw settlement:&lt;/strong&gt; &lt;span id="settlement"&gt;--&lt;/span&gt; mm&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span id="permafrost-status"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Years to 3m thaw:&lt;/strong&gt; &lt;span id="years-to-thaw"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="permafrost-viz">
+  <div class="controls">
+    <label>
+      Mean summer temperature (°C):
+      <input type="range" id="summer-temp" min="5" max="20" step="1" value="10">
+      <span id="temp-val">10</span>
+    </label>
+    <label>
+      Ice content (%):
+      <input type="range" id="ice-content" min="20" max="80" step="5" value="55">
+      <span id="ice-val">55</span>
+    </label>
+    <label>
+      Porosity (%):
+      <input type="range" id="porosity" min="25" max="50" step="5" value="35">
+      <span id="porosity-val">35</span>
+    </label>
+    <label>
+      Climate scenario:
+      <select id="climate-scenario">
+        <option value="current">Current (baseline)</option>
+        <option value="rcp45">RCP 4.5 (+2°C by 2100)</option>
+        <option value="rcp85" selected="">RCP 8.5 (+4°C by 2100)</option>
+      </select>
+    </label>
+    <div class="permafrost-info">
+      <p><strong>Active layer depth:</strong> <span id="alt-depth">--</span> m</p>
+      <p><strong>Thaw settlement:</strong> <span id="settlement">--</span> mm</p>
+      <p><strong>Status:</strong> <span id="permafrost-status">--</span></p>
+      <p><strong>Years to 3m thaw:</strong> <span id="years-to-thaw">--</span></p>
+    </div>
+  </div>
+  <div id="permafrost-canvas-container">
+    <canvas id="permafrost-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="permafrost-canvas-container">
-<pre><code>&lt;canvas id="permafrost-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

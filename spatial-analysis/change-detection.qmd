@@ -265,6 +265,7 @@ $$\Delta\text{NDVI} = 0.057 - 0.68 = -0.623$$
 
 Below is an interactive change detection demo.
 
+```{=html}
 <div class="viz-container" id="change-viz">
   <div class="controls">
     <label>
@@ -519,6 +520,7 @@ Below is an interactive change detection demo.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **NDVI differencing:** Most sensitive to vegetation change

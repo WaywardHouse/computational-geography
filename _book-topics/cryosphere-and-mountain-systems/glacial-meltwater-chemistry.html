@@ -246,40 +246,41 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive glacial chemistry simulator.</p>
-<div id="chem-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Time of day (hour):
-  &lt;input type="range" id="hour" min="0" max="23" step="1" value="12"&gt;
-  &lt;span id="hour-val"&gt;12&lt;/span&gt;:00
-&lt;/label&gt;
-&lt;label&gt;
-  Season:
-  &lt;select id="season"&gt;
-    &lt;option value="summer" selected&gt;Summer (high melt)&lt;/option&gt;
-    &lt;option value="spring"&gt;Spring (moderate)&lt;/option&gt;
-    &lt;option value="fall"&gt;Fall (low melt)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Bedrock type:
-  &lt;select id="bedrock"&gt;
-    &lt;option value="carbonate"&gt;Carbonate (limestone)&lt;/option&gt;
-    &lt;option value="mixed" selected&gt;Mixed lithology&lt;/option&gt;
-    &lt;option value="silicate"&gt;Silicate (granite)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="chem-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Discharge:&lt;/strong&gt; &lt;span id="discharge"&gt;--&lt;/span&gt; m³/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;TDS:&lt;/strong&gt; &lt;span id="tds"&gt;--&lt;/span&gt; mg/L&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Subglacial %:&lt;/strong&gt; &lt;span id="sub-pct"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;SSC:&lt;/strong&gt; &lt;span id="ssc"&gt;--&lt;/span&gt; mg/L&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="chem-viz">
+  <div class="controls">
+    <label>
+      Time of day (hour):
+      <input type="range" id="hour" min="0" max="23" step="1" value="12">
+      <span id="hour-val">12</span>:00
+    </label>
+    <label>
+      Season:
+      <select id="season">
+        <option value="summer" selected="">Summer (high melt)</option>
+        <option value="spring">Spring (moderate)</option>
+        <option value="fall">Fall (low melt)</option>
+      </select>
+    </label>
+    <label>
+      Bedrock type:
+      <select id="bedrock">
+        <option value="carbonate">Carbonate (limestone)</option>
+        <option value="mixed" selected="">Mixed lithology</option>
+        <option value="silicate">Silicate (granite)</option>
+      </select>
+    </label>
+    <div class="chem-info">
+      <p><strong>Discharge:</strong> <span id="discharge">--</span> m³/s</p>
+      <p><strong>TDS:</strong> <span id="tds">--</span> mg/L</p>
+      <p><strong>Subglacial %:</strong> <span id="sub-pct">--</span>%</p>
+      <p><strong>SSC:</strong> <span id="ssc">--</span> mg/L</p>
+    </div>
+  </div>
+  <div id="chem-canvas-container">
+    <canvas id="chem-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="chem-canvas-container">
-<pre><code>&lt;canvas id="chem-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

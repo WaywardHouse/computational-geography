@@ -256,48 +256,49 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive thermal remote sensing simulator.</p>
-<div id="thermal-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Surface type:
-  &lt;select id="surface-type"&gt;
-    &lt;option value="water"&gt;Water&lt;/option&gt;
-    &lt;option value="vegetation"&gt;Vegetation&lt;/option&gt;
-    &lt;option value="soil-wet"&gt;Soil (wet)&lt;/option&gt;
-    &lt;option value="soil-dry"&gt;Soil (dry)&lt;/option&gt;
-    &lt;option value="asphalt"&gt;Asphalt&lt;/option&gt;
-    &lt;option value="concrete"&gt;Concrete&lt;/option&gt;
-    &lt;option value="metal"&gt;Metal roof&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Air temperature (°C):
-  &lt;input type="range" id="air-temp" min="15" max="35" step="1" value="25"&gt;
-  &lt;span id="air-val"&gt;25&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Solar radiation (W/m²):
-  &lt;input type="range" id="solar-rad" min="0" max="1000" step="50" value="600"&gt;
-  &lt;span id="solar-val"&gt;600&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Time of day:
-  &lt;input type="range" id="time-hour" min="0" max="23" step="1" value="12"&gt;
-  &lt;span id="time-val"&gt;12&lt;/span&gt;:00
-&lt;/label&gt;
-&lt;div class="thermal-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Surface temp:&lt;/strong&gt; &lt;span id="surf-temp"&gt;--&lt;/span&gt; °C&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Brightness temp:&lt;/strong&gt; &lt;span id="bright-temp"&gt;--&lt;/span&gt; K&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Emissivity:&lt;/strong&gt; &lt;span id="emissivity"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Net radiation:&lt;/strong&gt; &lt;span id="net-rad"&gt;--&lt;/span&gt; W/m²&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Sensible heat:&lt;/strong&gt; &lt;span id="sens-heat"&gt;--&lt;/span&gt; W/m²&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Latent heat:&lt;/strong&gt; &lt;span id="lat-heat"&gt;--&lt;/span&gt; W/m²&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="thermal-viz">
+  <div class="controls">
+    <label>
+      Surface type:
+      <select id="surface-type">
+        <option value="water">Water</option>
+        <option value="vegetation">Vegetation</option>
+        <option value="soil-wet">Soil (wet)</option>
+        <option value="soil-dry">Soil (dry)</option>
+        <option value="asphalt">Asphalt</option>
+        <option value="concrete">Concrete</option>
+        <option value="metal">Metal roof</option>
+      </select>
+    </label>
+    <label>
+      Air temperature (°C):
+      <input type="range" id="air-temp" min="15" max="35" step="1" value="25">
+      <span id="air-val">25</span>
+    </label>
+    <label>
+      Solar radiation (W/m²):
+      <input type="range" id="solar-rad" min="0" max="1000" step="50" value="600">
+      <span id="solar-val">600</span>
+    </label>
+    <label>
+      Time of day:
+      <input type="range" id="time-hour" min="0" max="23" step="1" value="12">
+      <span id="time-val">12</span>:00
+    </label>
+    <div class="thermal-info">
+      <p><strong>Surface temp:</strong> <span id="surf-temp">--</span> °C</p>
+      <p><strong>Brightness temp:</strong> <span id="bright-temp">--</span> K</p>
+      <p><strong>Emissivity:</strong> <span id="emissivity">--</span></p>
+      <p><strong>Net radiation:</strong> <span id="net-rad">--</span> W/m²</p>
+      <p><strong>Sensible heat:</strong> <span id="sens-heat">--</span> W/m²</p>
+      <p><strong>Latent heat:</strong> <span id="lat-heat">--</span> W/m²</p>
+    </div>
+  </div>
+  <div id="thermal-canvas-container">
+    <canvas id="thermal-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="thermal-canvas-container">
-<pre><code>&lt;canvas id="thermal-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

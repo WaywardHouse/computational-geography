@@ -342,6 +342,7 @@ $$\text{Cover} = \frac{5}{10} \times 100\% = 50\%$$
 
 Below is an interactive LiDAR point cloud analyzer.
 
+```{=html}
 <div class="viz-container" id="lidar-viz">
   <div class="controls">
     <label>
@@ -608,6 +609,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Green points show canopy/building tops (first returns)

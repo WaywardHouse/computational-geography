@@ -296,6 +296,7 @@ Only 10 grams remain after **36 years**.
 
 Below is an interactive model comparing **analytical** (exact formula) vs. **numerical** (step-by-step simulation) solutions.
 
+```{=html}
 <div class="viz-container" id="exponential-model-viz">
   <div class="controls">
     <label>
@@ -464,6 +465,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - Set $r = 0.1$ (10% growth). Watch the curve steepen.

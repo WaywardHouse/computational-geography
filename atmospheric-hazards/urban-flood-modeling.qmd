@@ -460,6 +460,7 @@ Detention handles rare storms (10-year design).
 
 Below is an interactive urban hydrology calculator.
 
+```{=html}
 <div class="viz-container" id="urban-hydro-viz">
   <div class="controls">
     <label>
@@ -631,6 +632,7 @@ await new Promise(r => {
   render();
 })();
 </script>
+```
 
 **Observations:**
 - Post-development hydrograph peaks higher and faster

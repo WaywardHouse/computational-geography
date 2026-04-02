@@ -228,6 +228,7 @@ The slope is **29.2° steep** and faces **63.4° (ENE — slightly east of north
 
 Below is an interactive model computing slope and aspect from a synthetic DEM.
 
+```{=html}
 <div class="viz-container" id="gradient-viz">
   <div class="controls">
     <label>
@@ -453,6 +454,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Plane:** Uniform slope and aspect (constant gradient everywhere)

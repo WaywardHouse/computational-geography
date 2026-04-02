@@ -255,6 +255,7 @@ Small increase because already near saturation ($K_m = 5$ is low).
 
 Below is an interactive nitrogen cycle simulator.
 
+```{=html}
 <div class="viz-container" id="n-cycle-viz">
   <div class="controls">
     <label>
@@ -490,6 +491,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Add fertilizer:** Mineral N increases → uptake increases → NPP increases

@@ -309,6 +309,7 @@ $$M = 5.6 \times 10^{-7} \times 3600 = 0.002 \text{ m/hour} = 2 \text{ mm/hour}$
 
 Below is an interactive snowpack energy balance calculator.
 
+```{=html}
 <div class="viz-container" id="snowpack-viz">
   <div class="controls">
     <label>
@@ -588,6 +589,7 @@ Below is an interactive snowpack energy balance calculator.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **High solar + low albedo:** Fast melt (dirty/old snow)

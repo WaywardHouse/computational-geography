@@ -282,6 +282,7 @@ $$z = 0.03 \times 6063 = 182 \text{ m}$$
 
 Below is an interactive wind profile simulator.
 
+```{=html}
 <div class="viz-container" id="wind-profile-viz">
   <div class="controls">
     <label>
@@ -499,6 +500,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Switch to ocean:** Very smooth → wind increases rapidly with height

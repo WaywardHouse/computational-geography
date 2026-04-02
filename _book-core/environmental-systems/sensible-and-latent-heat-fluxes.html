@@ -247,77 +247,80 @@ Remember that latent heat is energy hidden in evaporation, while sensible heat i
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive energy partitioning calculator.</p>
-<div id="energy-partition-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Surface type:
-  &lt;select id="surface-type-ep"&gt;
-    &lt;option value="wet"&gt;Open Water (rs=0)&lt;/option&gt;
-    &lt;option value="irrigated"&gt;Irrigated Crop (rs=50)&lt;/option&gt;
-    &lt;option value="grass" selected&gt;Grassland (rs=100)&lt;/option&gt;
-    &lt;option value="dryland"&gt;Dryland Crop (rs=200)&lt;/option&gt;
-    &lt;option value="desert"&gt;Desert (rs=500)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Net radiation (W/m²):
-  &lt;input type="range" id="rn-slider" min="100" max="800" step="50" value="600"&gt;
-  &lt;span id="rn-value"&gt;600&lt;/span&gt; W/m²
-&lt;/label&gt;
-&lt;label&gt;
-  Surface temperature (°C):
-  &lt;input type="range" id="ts-slider" min="15" max="45" step="1" value="30"&gt;
-  &lt;span id="ts-value"&gt;30&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Air temperature (°C):
-  &lt;input type="range" id="ta-slider" min="10" max="40" step="1" value="25"&gt;
-  &lt;span id="ta-value"&gt;25&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Relative humidity (%):
-  &lt;input type="range" id="rh-slider" min="10" max="90" step="5" value="50"&gt;
-  &lt;span id="rh-value"&gt;50&lt;/span&gt; %
-&lt;/label&gt;
-&lt;label&gt;
-  Wind speed (m/s):
-  &lt;input type="range" id="wind-slider" min="0.5" max="10" step="0.5" value="3"&gt;
-  &lt;span id="wind-value"&gt;3.0&lt;/span&gt; m/s
-&lt;/label&gt;</code></pre>
-</div>
-<div class="energy-results">
-<pre><code>&lt;h4&gt;Energy Partition:&lt;/h4&gt;
-&lt;table&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;R&lt;sub&gt;n&lt;/sub&gt; (net radiation):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="rn-result"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;H (sensible heat):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="h-result"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;LE (latent heat):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="le-result"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;G (ground heat):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="g-result"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr style="border-top: 1px solid #ddd;"&gt;
-    &lt;td&gt;&lt;strong&gt;Bowen ratio (β):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="beta-result"&gt;&lt;/span&gt;&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;Evaporation rate:&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="evap-result"&gt;&lt;/span&gt; mm/day&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-</div>
-<div id="energy-partition-chart" style="width: 100%; height: 400px;">
+<div class="viz-container" id="energy-partition-viz">
+  <div class="controls">
+    <label>
+      Surface type:
+      <select id="surface-type-ep">
+        <option value="wet">Open Water (rs=0)</option>
+        <option value="irrigated">Irrigated Crop (rs=50)</option>
+        <option value="grass" selected="">Grassland (rs=100)</option>
+        <option value="dryland">Dryland Crop (rs=200)</option>
+        <option value="desert">Desert (rs=500)</option>
+      </select>
+    </label>
+    <label>
+      Net radiation (W/m²):
+      <input type="range" id="rn-slider" min="100" max="800" step="50" value="600">
+      <span id="rn-value">600</span> W/m²
+    </label>
+    <label>
+      Surface temperature (°C):
+      <input type="range" id="ts-slider" min="15" max="45" step="1" value="30">
+      <span id="ts-value">30</span> °C
+    </label>
+    <label>
+      Air temperature (°C):
+      <input type="range" id="ta-slider" min="10" max="40" step="1" value="25">
+      <span id="ta-value">25</span> °C
+    </label>
+    <label>
+      Relative humidity (%):
+      <input type="range" id="rh-slider" min="10" max="90" step="5" value="50">
+      <span id="rh-value">50</span> %
+    </label>
+    <label>
+      Wind speed (m/s):
+      <input type="range" id="wind-slider" min="0.5" max="10" step="0.5" value="3">
+      <span id="wind-value">3.0</span> m/s
+    </label>
+  </div>
+  <div class="energy-results">
+    <h4 class="anchored">Energy Partition:</h4>
+    
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td><strong>R<sub>n</sub> (net radiation):</strong></td>
+<td><span id="rn-result"></span> W/m²</td>
+</tr>
+<tr class="even">
+<td><strong>H (sensible heat):</strong></td>
+<td><span id="h-result"></span> W/m²</td>
+</tr>
+<tr class="odd">
+<td><strong>LE (latent heat):</strong></td>
+<td><span id="le-result"></span> W/m²</td>
+</tr>
+<tr class="even">
+<td><strong>G (ground heat):</strong></td>
+<td><span id="g-result"></span> W/m²</td>
+</tr>
+<tr class="odd" style="border-top: 1px solid #ddd;">
+<td><strong>Bowen ratio (β):</strong></td>
+<td><span id="beta-result"></span></td>
+</tr>
+<tr class="even">
+<td><strong>Evaporation rate:</strong></td>
+<td><span id="evap-result"></span> mm/day</td>
+</tr>
+</tbody>
+</table>
 
+  </div>
+  <div id="energy-partition-chart" style="width: 100%; height: 400px;"></div>
 </div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

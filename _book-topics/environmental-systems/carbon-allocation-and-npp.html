@@ -232,51 +232,50 @@ Energy cost of synthesizing new tissue (proportional to NPP).</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive carbon allocation simulator.</p>
-<div id="carbon-alloc-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Ecosystem type:
-  &lt;select id="ecosystem-type"&gt;
-    &lt;option value="young-forest"&gt;Young Forest&lt;/option&gt;
-    &lt;option value="mature-forest" selected&gt;Mature Forest&lt;/option&gt;
-    &lt;option value="grassland"&gt;Grassland&lt;/option&gt;
-    &lt;option value="cropland"&gt;Annual Cropland&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  GPP (kg C/m²/year):
-  &lt;input type="range" id="gpp-slider" min="0.5" max="4" step="0.1" value="2.5"&gt;
-  &lt;span id="gpp-value"&gt;2.5&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Leaf allocation (aL):
-  &lt;input type="range" id="al-slider" min="0.1" max="0.6" step="0.05" value="0.25"&gt;
-  &lt;span id="al-value"&gt;0.25&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Wood allocation (aS):
-  &lt;input type="range" id="as-slider" min="0" max="0.7" step="0.05" value="0.50"&gt;
-  &lt;span id="as-value"&gt;0.50&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Simulation years:
-  &lt;input type="range" id="years-slider" min="10" max="200" step="10" value="100"&gt;
-  &lt;span id="years-value"&gt;100&lt;/span&gt; years
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="run-carbon-sim"&gt;Run Simulation&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="carbon-alloc-viz">
+  <div class="controls">
+    <label>
+      Ecosystem type:
+      <select id="ecosystem-type">
+        <option value="young-forest">Young Forest</option>
+        <option value="mature-forest" selected="">Mature Forest</option>
+        <option value="grassland">Grassland</option>
+        <option value="cropland">Annual Cropland</option>
+      </select>
+    </label>
+    <label>
+      GPP (kg C/m²/year):
+      <input type="range" id="gpp-slider" min="0.5" max="4" step="0.1" value="2.5">
+      <span id="gpp-value">2.5</span>
+    </label>
+    <label>
+      Leaf allocation (aL):
+      <input type="range" id="al-slider" min="0.1" max="0.6" step="0.05" value="0.25">
+      <span id="al-value">0.25</span>
+    </label>
+    <label>
+      Wood allocation (aS):
+      <input type="range" id="as-slider" min="0" max="0.7" step="0.05" value="0.50">
+      <span id="as-value">0.50</span>
+    </label>
+    <label>
+      Simulation years:
+      <input type="range" id="years-slider" min="10" max="200" step="10" value="100">
+      <span id="years-value">100</span> years
+    </label>
+    <div class="button-group">
+      <button id="run-carbon-sim">Run Simulation</button>
+    </div>
+  </div>
+  <div class="carbon-results">
+    <p><strong>NPP:</strong> <span id="npp-result"></span> kg C/m²/year</p>
+    <p><strong>R<sub>a</sub>/GPP:</strong> <span id="ra-gpp-ratio"></span></p>
+    <p><strong>Final total carbon:</strong> <span id="total-carbon"></span> kg C/m²</p>
+    <p><strong>Equilibrium reached:</strong> <span id="equilibrium-status"></span></p>
+  </div>
+  <div id="carbon-alloc-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="carbon-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;NPP:&lt;/strong&gt; &lt;span id="npp-result"&gt;&lt;/span&gt; kg C/m²/year&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;R&lt;sub&gt;a&lt;/sub&gt;/GPP:&lt;/strong&gt; &lt;span id="ra-gpp-ratio"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Final total carbon:&lt;/strong&gt; &lt;span id="total-carbon"&gt;&lt;/span&gt; kg C/m²&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Equilibrium reached:&lt;/strong&gt; &lt;span id="equilibrium-status"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-<div id="carbon-alloc-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

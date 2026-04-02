@@ -329,6 +329,7 @@ $$Q_{15\text{km}} = 641 \times e^{-0.03 \times 15} = 641 \times e^{-0.45} = 641 
 
 Below is an interactive GLOF simulator.
 
+```{=html}
 <div class="viz-container" id="glof-viz">
   <div class="controls">
     <label>
@@ -554,6 +555,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Increase water depth:** Safety factor drops below 1.0 → dam fails!

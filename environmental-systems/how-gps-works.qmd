@@ -337,6 +337,7 @@ $$(x_1, y_1, b_1) = (1, 1, 0) + (1.0, 2.0, 0.5) = (2.0, 3.0, 0.5)$$
 
 Below is an interactive GPS solver.
 
+```{=html}
 <div class="viz-container" id="gps-viz">
   <div class="controls">
     <label>
@@ -694,6 +695,7 @@ while (!window.echarts || !window.__echartsGL) await new Promise(r => setTimeout
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Increase satellites:** More satellites reduce error and improve PDOP

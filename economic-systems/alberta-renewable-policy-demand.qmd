@@ -790,6 +790,7 @@ argument for storage and interties. More renewable capacity cannot
 simply be added without addressing the absorption problem. The model
 surfaces this trade-off through the surplus/deficit line in the output.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 # ── Alberta electricity supply-demand model ────────────────────────────────
@@ -851,6 +852,7 @@ print()
 print(f"  Renewable penetration: {re_pct:.1f}%")
 print(f"  Reserve margin       : {reserve_margin*100:+.1f}%  (minimum target: +15%)")
 </code></pre></div>
+```
 
 ## Where next — and the thread back to the pipeline cluster
 

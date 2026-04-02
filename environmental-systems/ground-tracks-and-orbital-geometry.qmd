@@ -217,6 +217,7 @@ $$\text{longitude} = \arctan2(4320, 3657) = 49.8°\text{E}$$
 
 Below is an interactive ground track simulator.
 
+```{=html}
 <div class="viz-container" id="groundtrack-viz">
   <div class="controls">
     <label>
@@ -436,6 +437,7 @@ while (!window.echarts) await new Promise(r => setTimeout(r, 50));
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **ISS preset:** 51.6° inclination means it reaches ±51.6° latitude (no polar coverage)

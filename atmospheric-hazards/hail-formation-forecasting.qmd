@@ -322,6 +322,7 @@ Golf ball hail expected:
 
 Below is an interactive hail growth simulator.
 
+```{=html}
 <div class="viz-container" id="hail-viz">
   <div class="controls">
     <label>
@@ -518,6 +519,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Hail growth accelerates (larger stones collect more droplets)

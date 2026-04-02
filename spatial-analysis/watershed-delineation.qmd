@@ -324,6 +324,7 @@ i=3     1    2    3   16
 
 Below is an interactive watershed delineation tool.
 
+```{=html}
 <div class="viz-container" id="watershed-viz">
   <div class="controls">
     <label>
@@ -727,6 +728,7 @@ Below is an interactive watershed delineation tool.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Click right panel** to set pour point (red dot) and extract watershed (green overlay)

@@ -219,6 +219,7 @@ Typical for a mature temperate forest.
 
 Below is an interactive carbon allocation simulator.
 
+```{=html}
 <div class="viz-container" id="carbon-alloc-viz">
   <div class="controls">
     <label>
@@ -458,6 +459,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Young forest:** Higher wood allocation → rapid stem growth

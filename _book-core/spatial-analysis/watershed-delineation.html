@@ -292,39 +292,40 @@ i=3     1    2    3   16</code></pre>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive watershed delineation tool.</p>
-<div id="watershed-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Terrain type:
-  &lt;select id="terrain-type"&gt;
-    &lt;option value="valley" selected&gt;Simple Valley&lt;/option&gt;
-    &lt;option value="ridge"&gt;Ridge and Valleys&lt;/option&gt;
-    &lt;option value="complex"&gt;Complex Terrain&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Stream threshold:
-  &lt;input type="range" id="stream-threshold" min="10" max="200" step="10" value="50"&gt;
-  &lt;span id="stream-threshold-val"&gt;50&lt;/span&gt; cells
-&lt;/label&gt;
-&lt;label&gt;
-  Show flow direction:
-  &lt;input type="checkbox" id="show-flow-dir"&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show streams:
-  &lt;input type="checkbox" id="show-streams" checked&gt;
-&lt;/label&gt;
-&lt;div class="watershed-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Click any cell to extract its watershed&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Watershed area:&lt;/strong&gt; &lt;span id="watershed-area"&gt;--&lt;/span&gt; cells&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Max accumulation:&lt;/strong&gt; &lt;span id="max-accum"&gt;--&lt;/span&gt; cells&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="watershed-viz">
+  <div class="controls">
+    <label>
+      Terrain type:
+      <select id="terrain-type">
+        <option value="valley" selected="">Simple Valley</option>
+        <option value="ridge">Ridge and Valleys</option>
+        <option value="complex">Complex Terrain</option>
+      </select>
+    </label>
+    <label>
+      Stream threshold:
+      <input type="range" id="stream-threshold" min="10" max="200" step="10" value="50">
+      <span id="stream-threshold-val">50</span> cells
+    </label>
+    <label>
+      Show flow direction:
+      <input type="checkbox" id="show-flow-dir">
+    </label>
+    <label>
+      Show streams:
+      <input type="checkbox" id="show-streams" checked="">
+    </label>
+    <div class="watershed-info">
+      <p><strong>Click any cell to extract its watershed</strong></p>
+      <p><strong>Watershed area:</strong> <span id="watershed-area">--</span> cells</p>
+      <p><strong>Max accumulation:</strong> <span id="max-accum">--</span> cells</p>
+    </div>
+  </div>
+  <div id="watershed-canvas-container">
+    <canvas id="watershed-canvas" width="700" height="350" style="border: 1px solid #ddd; cursor: crosshair;"></canvas>
+  </div>
 </div>
-<div id="watershed-canvas-container">
-<pre><code>&lt;canvas id="watershed-canvas" width="700" height="350" style="border: 1px solid #ddd; cursor: crosshair;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('watershed-canvas');

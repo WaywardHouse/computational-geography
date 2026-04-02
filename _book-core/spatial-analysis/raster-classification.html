@@ -339,46 +339,47 @@ i=3   1    2    3    3</code></pre>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive raster classification tool.</p>
-<div id="classify-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Classification method:
-  &lt;select id="class-method"&gt;
-    &lt;option value="equal-interval" selected&gt;Equal Interval&lt;/option&gt;
-    &lt;option value="quantile"&gt;Quantile (Equal Count)&lt;/option&gt;
-    &lt;option value="std-dev"&gt;Standard Deviation&lt;/option&gt;
-    &lt;option value="manual"&gt;Manual Thresholds&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Number of classes:
-  &lt;input type="range" id="n-classes" min="2" max="8" step="1" value="5"&gt;
-  &lt;span id="n-classes-value"&gt;5&lt;/span&gt;
-&lt;/label&gt;
-&lt;div id="manual-controls" style="display:none;"&gt;
-  &lt;label&gt;
-    Threshold 1:
-    &lt;input type="range" id="manual-t1" min="0" max="100" step="5" value="30"&gt;
-    &lt;span id="manual-t1-val"&gt;30&lt;/span&gt;
-  &lt;/label&gt;
-  &lt;label&gt;
-    Threshold 2:
-    &lt;input type="range" id="manual-t2" min="0" max="100" step="5" value="60"&gt;
-    &lt;span id="manual-t2-val"&gt;60&lt;/span&gt;
-  &lt;/label&gt;
-&lt;/div&gt;
-&lt;label&gt;
-  Show histogram:
-  &lt;input type="checkbox" id="show-histogram" checked&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="classify-viz">
+  <div class="controls">
+    <label>
+      Classification method:
+      <select id="class-method">
+        <option value="equal-interval" selected="">Equal Interval</option>
+        <option value="quantile">Quantile (Equal Count)</option>
+        <option value="std-dev">Standard Deviation</option>
+        <option value="manual">Manual Thresholds</option>
+      </select>
+    </label>
+    <label>
+      Number of classes:
+      <input type="range" id="n-classes" min="2" max="8" step="1" value="5">
+      <span id="n-classes-value">5</span>
+    </label>
+    <div id="manual-controls" style="display:none;">
+      <label>
+        Threshold 1:
+        <input type="range" id="manual-t1" min="0" max="100" step="5" value="30">
+        <span id="manual-t1-val">30</span>
+      </label>
+      <label>
+        Threshold 2:
+        <input type="range" id="manual-t2" min="0" max="100" step="5" value="60">
+        <span id="manual-t2-val">60</span>
+      </label>
+    </div>
+    <label>
+      Show histogram:
+      <input type="checkbox" id="show-histogram" checked="">
+    </label>
+  </div>
+  <div id="classify-canvas-container">
+    <canvas id="classify-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
+  <div class="classify-info">
+    <p id="class-distribution"></p>
+  </div>
 </div>
-<div id="classify-canvas-container">
-<pre><code>&lt;canvas id="classify-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-<div class="classify-info">
-<pre><code>&lt;p id="class-distribution"&gt;&lt;/p&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('classify-canvas');

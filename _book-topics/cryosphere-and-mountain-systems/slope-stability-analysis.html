@@ -254,44 +254,45 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive slope stability calculator.</p>
-<div id="stability-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Slope angle (°):
-  &lt;input type="range" id="slope-angle" min="10" max="50" step="1" value="30"&gt;
-  &lt;span id="angle-val"&gt;30&lt;/span&gt;°
-&lt;/label&gt;
-&lt;label&gt;
-  Friction angle φ (°):
-  &lt;input type="range" id="friction-angle" min="20" max="45" step="1" value="35"&gt;
-  &lt;span id="friction-val"&gt;35&lt;/span&gt;°
-&lt;/label&gt;
-&lt;label&gt;
-  Cohesion (kPa):
-  &lt;input type="range" id="cohesion" min="0" max="20" step="1" value="5"&gt;
-  &lt;span id="cohesion-val"&gt;5&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Water table depth (m):
-  &lt;input type="range" id="water-depth" min="0" max="3" step="0.5" value="3"&gt;
-  &lt;span id="water-val"&gt;3.0&lt;/span&gt; (3m = dry)
-&lt;/label&gt;
-&lt;label&gt;
-  Seismic coefficient:
-  &lt;input type="range" id="seismic" min="0" max="0.3" step="0.05" value="0"&gt;
-  &lt;span id="seismic-val"&gt;0.00&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="stability-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Factor of Safety:&lt;/strong&gt; &lt;span id="fs-value"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span id="stability-status"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Driving stress:&lt;/strong&gt; &lt;span id="tau-drive"&gt;--&lt;/span&gt; kPa&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Resisting stress:&lt;/strong&gt; &lt;span id="tau-resist"&gt;--&lt;/span&gt; kPa&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="stability-viz">
+  <div class="controls">
+    <label>
+      Slope angle (°):
+      <input type="range" id="slope-angle" min="10" max="50" step="1" value="30">
+      <span id="angle-val">30</span>°
+    </label>
+    <label>
+      Friction angle φ (°):
+      <input type="range" id="friction-angle" min="20" max="45" step="1" value="35">
+      <span id="friction-val">35</span>°
+    </label>
+    <label>
+      Cohesion (kPa):
+      <input type="range" id="cohesion" min="0" max="20" step="1" value="5">
+      <span id="cohesion-val">5</span>
+    </label>
+    <label>
+      Water table depth (m):
+      <input type="range" id="water-depth" min="0" max="3" step="0.5" value="3">
+      <span id="water-val">3.0</span> (3m = dry)
+    </label>
+    <label>
+      Seismic coefficient:
+      <input type="range" id="seismic" min="0" max="0.3" step="0.05" value="0">
+      <span id="seismic-val">0.00</span>
+    </label>
+    <div class="stability-info">
+      <p><strong>Factor of Safety:</strong> <span id="fs-value">--</span></p>
+      <p><strong>Status:</strong> <span id="stability-status">--</span></p>
+      <p><strong>Driving stress:</strong> <span id="tau-drive">--</span> kPa</p>
+      <p><strong>Resisting stress:</strong> <span id="tau-resist">--</span> kPa</p>
+    </div>
+  </div>
+  <div id="stability-canvas-container">
+    <canvas id="stability-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="stability-canvas-container">
-<pre><code>&lt;canvas id="stability-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

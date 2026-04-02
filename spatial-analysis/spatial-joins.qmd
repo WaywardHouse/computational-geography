@@ -325,6 +325,7 @@ Point-in-polygon tests:
 
 Below is an interactive spatial join demonstration.
 
+```{=html}
 <div class="viz-container" id="join-viz">
   <div class="controls">
     <label>
@@ -622,6 +623,7 @@ Below is an interactive spatial join demonstration.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Point-in-polygon:** Green polygons contain red points

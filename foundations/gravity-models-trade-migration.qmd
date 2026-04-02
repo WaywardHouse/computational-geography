@@ -196,6 +196,7 @@ If $\gamma$ were larger (stronger distance decay), A would interact more with B.
 
 Below is an interactive gravity model with adjustable parameters.
 
+```{=html}
 <div class="viz-container" id="gravity-model-viz">
   <div class="controls">
     <label>
@@ -376,6 +377,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - Set $\gamma = 0.5$ (weak distance decay): Large distant cities dominate

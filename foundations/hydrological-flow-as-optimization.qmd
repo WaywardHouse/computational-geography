@@ -205,6 +205,7 @@ Every cell in the grid flows toward (4, 4) along the gradient. The entire 5×5 g
 
 Below is an interactive flow routing visualization.
 
+```{=html}
 <div class="viz-container" id="flow-routing-viz">
   <div class="controls">
     <label>
@@ -466,6 +467,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Plane:** Uniform flow direction; accumulation increases downslope

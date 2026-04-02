@@ -276,40 +276,41 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive bathymetric mapping simulator.</p>
-<div id="bathy-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Technology:
-  &lt;select id="tech-type"&gt;
-    &lt;option value="lidar"&gt;Bathymetric LiDAR&lt;/option&gt;
-    &lt;option value="sonar"&gt;Multibeam Sonar&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Water clarity (Secchi depth, m):
-  &lt;input type="range" id="clarity" min="1" max="30" step="1" value="15"&gt;
-  &lt;span id="clarity-val"&gt;15&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Bottom type:
-  &lt;select id="bottom-type"&gt;
-    &lt;option value="sand"&gt;Sand (bright)&lt;/option&gt;
-    &lt;option value="mud"&gt;Mud (dark)&lt;/option&gt;
-    &lt;option value="rock"&gt;Rock (variable)&lt;/option&gt;
-    &lt;option value="seagrass"&gt;Seagrass&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="bathy-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Max measurable depth:&lt;/strong&gt; &lt;span id="max-depth"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Swath width:&lt;/strong&gt; &lt;span id="swath-width"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Points measured:&lt;/strong&gt; &lt;span id="point-count"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Mean depth:&lt;/strong&gt; &lt;span id="mean-depth"&gt;--&lt;/span&gt; m&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="bathy-viz">
+  <div class="controls">
+    <label>
+      Technology:
+      <select id="tech-type">
+        <option value="lidar">Bathymetric LiDAR</option>
+        <option value="sonar">Multibeam Sonar</option>
+      </select>
+    </label>
+    <label>
+      Water clarity (Secchi depth, m):
+      <input type="range" id="clarity" min="1" max="30" step="1" value="15">
+      <span id="clarity-val">15</span>
+    </label>
+    <label>
+      Bottom type:
+      <select id="bottom-type">
+        <option value="sand">Sand (bright)</option>
+        <option value="mud">Mud (dark)</option>
+        <option value="rock">Rock (variable)</option>
+        <option value="seagrass">Seagrass</option>
+      </select>
+    </label>
+    <div class="bathy-info">
+      <p><strong>Max measurable depth:</strong> <span id="max-depth">--</span> m</p>
+      <p><strong>Swath width:</strong> <span id="swath-width">--</span> m</p>
+      <p><strong>Points measured:</strong> <span id="point-count">--</span></p>
+      <p><strong>Mean depth:</strong> <span id="mean-depth">--</span> m</p>
+    </div>
+  </div>
+  <div id="bathy-canvas-container">
+    <canvas id="bathy-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="bathy-canvas-container">
-<pre><code>&lt;canvas id="bathy-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

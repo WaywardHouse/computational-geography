@@ -282,6 +282,7 @@ Start at entering intersection $(4,1)$:
 
 Below is an interactive polygon overlay demonstration.
 
+```{=html}
 <div class="viz-container" id="overlay-viz">
   <div class="controls">
     <label>
@@ -591,6 +592,7 @@ Below is an interactive polygon overlay demonstration.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Intersection:** Purple area where polygons overlap (A AND B)

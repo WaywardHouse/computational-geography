@@ -338,6 +338,7 @@ $$V_{surface} \approx 112 \times 1.3 = 146 \text{ mph}$$
 
 Below is an interactive tornado vortex simulator.
 
+```{=html}
 <div class="viz-container" id="tornado-viz">
   <div class="controls">
     <label>
@@ -535,6 +536,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Rankine vortex shows linear increase to RMW, then decay

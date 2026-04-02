@@ -267,42 +267,43 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive boundary layer wind profile simulator.</p>
-<div id="wind-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  10m wind speed (m/s):
-  &lt;input type="range" id="wind-10m" min="2" max="15" step="0.5" value="6"&gt;
-  &lt;span id="wind-val"&gt;6&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Surface roughness:
-  &lt;select id="roughness"&gt;
-    &lt;option value="0.0001"&gt;Water (smooth)&lt;/option&gt;
-    &lt;option value="0.03"&gt;Grass/farmland&lt;/option&gt;
-    &lt;option value="0.15" selected&gt;Crops&lt;/option&gt;
-    &lt;option value="1.0"&gt;Forest&lt;/option&gt;
-    &lt;option value="2.0"&gt;Urban&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Stability:
-  &lt;select id="stability"&gt;
-    &lt;option value="unstable"&gt;Unstable (day)&lt;/option&gt;
-    &lt;option value="neutral" selected&gt;Neutral&lt;/option&gt;
-    &lt;option value="stable"&gt;Stable (night)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="wind-info"&gt;
-  &lt;p&gt;&lt;strong&gt;80m hub wind:&lt;/strong&gt; &lt;span id="hub-wind"&gt;--&lt;/span&gt; m/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Friction velocity:&lt;/strong&gt; &lt;span id="friction-vel"&gt;--&lt;/span&gt; m/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Power density (80m):&lt;/strong&gt; &lt;span id="power-density"&gt;--&lt;/span&gt; W/m²&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Wind class:&lt;/strong&gt; &lt;span id="wind-class"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="wind-viz">
+  <div class="controls">
+    <label>
+      10m wind speed (m/s):
+      <input type="range" id="wind-10m" min="2" max="15" step="0.5" value="6">
+      <span id="wind-val">6</span>
+    </label>
+    <label>
+      Surface roughness:
+      <select id="roughness">
+        <option value="0.0001">Water (smooth)</option>
+        <option value="0.03">Grass/farmland</option>
+        <option value="0.15" selected="">Crops</option>
+        <option value="1.0">Forest</option>
+        <option value="2.0">Urban</option>
+      </select>
+    </label>
+    <label>
+      Stability:
+      <select id="stability">
+        <option value="unstable">Unstable (day)</option>
+        <option value="neutral" selected="">Neutral</option>
+        <option value="stable">Stable (night)</option>
+      </select>
+    </label>
+    <div class="wind-info">
+      <p><strong>80m hub wind:</strong> <span id="hub-wind">--</span> m/s</p>
+      <p><strong>Friction velocity:</strong> <span id="friction-vel">--</span> m/s</p>
+      <p><strong>Power density (80m):</strong> <span id="power-density">--</span> W/m²</p>
+      <p><strong>Wind class:</strong> <span id="wind-class">--</span></p>
+    </div>
+  </div>
+  <div id="wind-canvas-container">
+    <canvas id="wind-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="wind-canvas-container">
-<pre><code>&lt;canvas id="wind-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

@@ -285,52 +285,51 @@ W/W_{\text{opt}} &amp; \text{if } W &lt; W_{\text{opt}} \\
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive decomposition simulator.</p>
-<div id="decomp-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Ecosystem type:
-  &lt;select id="ecosystem-decomp"&gt;
-    &lt;option value="tropical"&gt;Tropical Forest&lt;/option&gt;
-    &lt;option value="temperate" selected&gt;Temperate Forest&lt;/option&gt;
-    &lt;option value="boreal"&gt;Boreal Forest&lt;/option&gt;
-    &lt;option value="grassland"&gt;Grassland&lt;/option&gt;
-    &lt;option value="desert"&gt;Desert&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Litterfall rate (kg C/m²/year):
-  &lt;input type="range" id="litterfall-slider" min="0.1" max="1.0" step="0.05" value="0.4"&gt;
-  &lt;span id="litterfall-value"&gt;0.4&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Temperature (°C):
-  &lt;input type="range" id="temp-decomp-slider" min="0" max="30" step="1" value="15"&gt;
-  &lt;span id="temp-decomp-value"&gt;15&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Soil moisture (0-1):
-  &lt;input type="range" id="moisture-slider" min="0" max="1" step="0.05" value="0.6"&gt;
-  &lt;span id="moisture-value"&gt;0.6&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Simulation years:
-  &lt;input type="range" id="years-decomp-slider" min="50" max="500" step="50" value="200"&gt;
-  &lt;span id="years-decomp-value"&gt;200&lt;/span&gt; years
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="run-decomp-sim"&gt;Run Simulation&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="decomp-viz">
+  <div class="controls">
+    <label>
+      Ecosystem type:
+      <select id="ecosystem-decomp">
+        <option value="tropical">Tropical Forest</option>
+        <option value="temperate" selected="">Temperate Forest</option>
+        <option value="boreal">Boreal Forest</option>
+        <option value="grassland">Grassland</option>
+        <option value="desert">Desert</option>
+      </select>
+    </label>
+    <label>
+      Litterfall rate (kg C/m²/year):
+      <input type="range" id="litterfall-slider" min="0.1" max="1.0" step="0.05" value="0.4">
+      <span id="litterfall-value">0.4</span>
+    </label>
+    <label>
+      Temperature (°C):
+      <input type="range" id="temp-decomp-slider" min="0" max="30" step="1" value="15">
+      <span id="temp-decomp-value">15</span> °C
+    </label>
+    <label>
+      Soil moisture (0-1):
+      <input type="range" id="moisture-slider" min="0" max="1" step="0.05" value="0.6">
+      <span id="moisture-value">0.6</span>
+    </label>
+    <label>
+      Simulation years:
+      <input type="range" id="years-decomp-slider" min="50" max="500" step="50" value="200">
+      <span id="years-decomp-value">200</span> years
+    </label>
+    <div class="button-group">
+      <button id="run-decomp-sim">Run Simulation</button>
+    </div>
+  </div>
+  <div class="decomp-results">
+    <p><strong>Total soil C:</strong> <span id="total-soil-c"></span> kg C/m²</p>
+    <p><strong>Slow SOM fraction:</strong> <span id="slow-fraction"></span>%</p>
+    <p><strong>R<sub>h</sub>:</strong> <span id="rh-result"></span> kg C/m²/year</p>
+    <p><strong>Mean residence time:</strong> <span id="mrt-result"></span> years</p>
+  </div>
+  <div id="decomp-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="decomp-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;Total soil C:&lt;/strong&gt; &lt;span id="total-soil-c"&gt;&lt;/span&gt; kg C/m²&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Slow SOM fraction:&lt;/strong&gt; &lt;span id="slow-fraction"&gt;&lt;/span&gt;%&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;R&lt;sub&gt;h&lt;/sub&gt;:&lt;/strong&gt; &lt;span id="rh-result"&gt;&lt;/span&gt; kg C/m²/year&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Mean residence time:&lt;/strong&gt; &lt;span id="mrt-result"&gt;&lt;/span&gt; years&lt;/p&gt;</code></pre>
-</div>
-<div id="decomp-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

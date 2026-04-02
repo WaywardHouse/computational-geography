@@ -269,6 +269,7 @@ $$h_{\text{LCL}} = 125(T - T_d) = 125(30 - 20) = 1250 \text{ m}$$
 
 Below is an interactive atmospheric profile simulator.
 
+```{=html}
 <div class="viz-container" id="atmos-profile-viz">
   <div class="controls">
     <label>
@@ -499,6 +500,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Nighttime inversion:** Temperature increases with height → extremely stable

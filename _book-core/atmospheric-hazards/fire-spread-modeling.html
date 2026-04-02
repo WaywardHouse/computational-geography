@@ -276,39 +276,40 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive fire spread simulator.</p>
-<div id="spread-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Wind speed (km/h):
-  &lt;input type="range" id="wind" min="0" max="60" step="5" value="20"&gt;
-  &lt;span id="wind-val"&gt;20&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Slope (°):
-  &lt;input type="range" id="slope" min="0" max="30" step="5" value="10"&gt;
-  &lt;span id="slope-val"&gt;10&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Fuel moisture (%):
-  &lt;input type="range" id="moisture" min="4" max="20" step="2" value="8"&gt;
-  &lt;span id="moist-val"&gt;8&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Time elapsed (hours):
-  &lt;input type="range" id="time" min="1" max="12" step="1" value="4"&gt;
-  &lt;span id="time-val"&gt;4&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="spread-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Head ROS:&lt;/strong&gt; &lt;span id="ros-head"&gt;--&lt;/span&gt; m/min&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Fire area:&lt;/strong&gt; &lt;span id="fire-area"&gt;--&lt;/span&gt; ha&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Fireline intensity:&lt;/strong&gt; &lt;span id="intensity"&gt;--&lt;/span&gt; kW/m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Suppression:&lt;/strong&gt; &lt;span id="suppression"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="spread-viz">
+  <div class="controls">
+    <label>
+      Wind speed (km/h):
+      <input type="range" id="wind" min="0" max="60" step="5" value="20">
+      <span id="wind-val">20</span>
+    </label>
+    <label>
+      Slope (°):
+      <input type="range" id="slope" min="0" max="30" step="5" value="10">
+      <span id="slope-val">10</span>
+    </label>
+    <label>
+      Fuel moisture (%):
+      <input type="range" id="moisture" min="4" max="20" step="2" value="8">
+      <span id="moist-val">8</span>
+    </label>
+    <label>
+      Time elapsed (hours):
+      <input type="range" id="time" min="1" max="12" step="1" value="4">
+      <span id="time-val">4</span>
+    </label>
+    <div class="spread-info">
+      <p><strong>Head ROS:</strong> <span id="ros-head">--</span> m/min</p>
+      <p><strong>Fire area:</strong> <span id="fire-area">--</span> ha</p>
+      <p><strong>Fireline intensity:</strong> <span id="intensity">--</span> kW/m</p>
+      <p><strong>Suppression:</strong> <span id="suppression">--</span></p>
+    </div>
+  </div>
+  <div id="spread-canvas-container">
+    <canvas id="spread-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="spread-canvas-container">
-<pre><code>&lt;canvas id="spread-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('spread-canvas');

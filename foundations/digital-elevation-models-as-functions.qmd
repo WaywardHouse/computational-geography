@@ -244,6 +244,7 @@ z(15, 5) &= (1 - 0.5)(1 - 0.5)(105) + (0.5)(1 - 0.5)(110) \\
 
 Below is an interactive 3D visualization of a synthetic DEM.
 
+```{=html}
 <div class="viz-container" id="dem-viz">
   <div class="controls">
     <label>
@@ -377,6 +378,7 @@ document.getElementById('resolution-slider').addEventListener('input', e => {
 updateChart();
 window.addEventListener('resize', () => chart.resize());
 </script>
+```
 
 **Try this:**
 - **Cone:** Radial symmetry, single peak

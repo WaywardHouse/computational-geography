@@ -325,6 +325,7 @@ $$\rho_{pred} = 0.50(0.30) + 0.50(0.14) = 0.15 + 0.07 = 0.22$$ ✓
 
 Below is an interactive hyperspectral analysis tool.
 
+```{=html}
 <div class="viz-container" id="hyper-viz">
   <div class="controls">
     <label>
@@ -601,6 +602,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Green dashed line shows pure vegetation spectrum with strong NIR reflectance

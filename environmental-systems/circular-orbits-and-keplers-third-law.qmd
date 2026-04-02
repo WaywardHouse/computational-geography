@@ -261,6 +261,7 @@ $$v = \sqrt{\frac{\mu}{r}} = \sqrt{\frac{3.986 \times 10^{14}}{4.214 \times 10^7
 
 Below is an interactive orbit calculator.
 
+```{=html}
 <div class="viz-container" id="orbit-viz">
   <div class="controls">
     <label>
@@ -454,6 +455,7 @@ while (!window.echarts) await new Promise(r => setTimeout(r, 50));
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - Slide to LEO altitudes (200–800 km): High velocity, short periods, many orbits/day

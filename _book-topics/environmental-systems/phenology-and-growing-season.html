@@ -234,44 +234,43 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive phenology simulator.</p>
-<div id="phenology-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Latitude:
-  &lt;input type="range" id="latitude-slider" min="30" max="60" step="5" value="45"&gt;
-  &lt;span id="latitude-value"&gt;45&lt;/span&gt;°N
-&lt;/label&gt;
-&lt;label&gt;
-  Species type:
-  &lt;select id="species-type"&gt;
-    &lt;option value="early"&gt;Early (willow, 100 GDD)&lt;/option&gt;
-    &lt;option value="mid" selected&gt;Mid-season (oak, 200 GDD)&lt;/option&gt;
-    &lt;option value="late"&gt;Late (ash, 300 GDD)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Climate scenario:
-  &lt;select id="climate-scenario"&gt;
-    &lt;option value="current"&gt;Current Climate&lt;/option&gt;
-    &lt;option value="warm2c" selected&gt;+2°C Warming&lt;/option&gt;
-    &lt;option value="warm4c"&gt;+4°C Warming&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="run-phenology-sim"&gt;Run Year&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="phenology-viz">
+  <div class="controls">
+    <label>
+      Latitude:
+      <input type="range" id="latitude-slider" min="30" max="60" step="5" value="45">
+      <span id="latitude-value">45</span>°N
+    </label>
+    <label>
+      Species type:
+      <select id="species-type">
+        <option value="early">Early (willow, 100 GDD)</option>
+        <option value="mid" selected="">Mid-season (oak, 200 GDD)</option>
+        <option value="late">Late (ash, 300 GDD)</option>
+      </select>
+    </label>
+    <label>
+      Climate scenario:
+      <select id="climate-scenario">
+        <option value="current">Current Climate</option>
+        <option value="warm2c" selected="">+2°C Warming</option>
+        <option value="warm4c">+4°C Warming</option>
+      </select>
+    </label>
+    <div class="button-group">
+      <button id="run-phenology-sim">Run Year</button>
+    </div>
+  </div>
+  <div class="phenology-results">
+    <p><strong>Bud break (SOS):</strong> <span id="bud-break-date"></span></p>
+    <p><strong>Peak LAI date:</strong> <span id="peak-lai-date"></span></p>
+    <p><strong>Senescence start (EOS):</strong> <span id="senescence-date"></span></p>
+    <p><strong>Growing season length:</strong> <span id="gsl-result"></span> days</p>
+    <p><strong>Annual GPP:</strong> <span id="annual-gpp"></span> kg C/m²</p>
+  </div>
+  <div id="phenology-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="phenology-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;Bud break (SOS):&lt;/strong&gt; &lt;span id="bud-break-date"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Peak LAI date:&lt;/strong&gt; &lt;span id="peak-lai-date"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Senescence start (EOS):&lt;/strong&gt; &lt;span id="senescence-date"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Growing season length:&lt;/strong&gt; &lt;span id="gsl-result"&gt;&lt;/span&gt; days&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Annual GPP:&lt;/strong&gt; &lt;span id="annual-gpp"&gt;&lt;/span&gt; kg C/m²&lt;/p&gt;</code></pre>
-</div>
-<div id="phenology-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

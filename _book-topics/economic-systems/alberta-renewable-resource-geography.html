@@ -727,8 +727,7 @@ Station                      Annual GHI (kWh/m²)   Peak sun-hours/day
 <p>The model outputs match the NRCan Solar Atlas values to within a few percent — reasonable agreement for a two-parameter approximation (transmittance and clearness index) applied over a 6° latitude range. The remaining discrepancy reflects seasonal variation in cloud cover and aerosol loading that a fixed <em>k</em><sub><em>t</em></sub> cannot capture.</p>
 <h2 id="run-it-yourself" class="anchored">Run it yourself</h2>
 <p>The cell below calculates annual solar resource and capacity factor for any Alberta latitude, and estimates wind capacity factor from mean hub-height speed. Change <code>latitude_deg</code> to compare Lethbridge (49.7), Calgary (51.1), or Edmonton (53.6). Adjust <code>kt</code> down to 0.45 to simulate a cloudy year. For wind, try <code>wind_speed_80m = 8.5</code> for the Pincher Creek corridor, or <code>6.0</code> for a central prairie site near the economic break-even.</p>
-<div class="pyodide-cell">
-<pre><code class="language-python">import numpy as np
+<div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 # ── Solar resource calculator ──────────────────────────────────────────────
 # Estimate annual GHI and solar capacity factor for any Alberta location
@@ -789,8 +788,7 @@ print()
 print("Comparison (at 1 MW nameplate):")
 print(f"  Annual solar gen  : {cf_solar * 8760 * 1000:,.0f} kWh/year  (1 MW solar array)")
 print(f"  Annual wind gen   : {cf_wind  * 8760 * 1000:,.0f} kWh/year  (1 MW wind turbine)")
-</code></pre>
-</div>
+</code></pre></div>
 <p>The numbers that emerge from this exercise reward careful attention. At Lethbridge (49.7°N, kt = 0.55), annual GHI is approximately 1,277 kWh/m²/year, yielding a solar capacity factor of about 2.9% — which sounds low until you note it corresponds to 254 MWh per year per MW of installed capacity. At Edmonton (53.6°N), the same calculation gives roughly 1,094 kWh/m² and a CF of 2.5%. The 15% gap between Lethbridge and Edmonton in annual solar generation is a direct consequence of the latitude-driven change in solar zenith angle compounded over 365 days.</p>
 <p>For wind, the sensitivity to speed is the dominant message. Dropping from the Pincher Creek mean of 8.5 m/s to a central prairie site at 6.0 m/s changes the estimated capacity factor from 44% to 22%. That difference, applied to a 300 MW project generating over a 25-year life, is the difference between a project that clears its required rate of return and one that does not. The cubic law is not an abstraction — it is the reason the Crowsnest Pass wind corridor attracts developers despite its more difficult transmission access.</p>
 <h2 id="the-resource-is-not-the-constraint" class="anchored">The resource is not the constraint</h2>

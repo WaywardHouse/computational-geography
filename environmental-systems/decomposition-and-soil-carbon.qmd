@@ -260,6 +260,7 @@ At steady state, $R_h = I_L = 0.4$ kg C/m²/year (all inputs eventually respired
 
 Below is an interactive decomposition simulator.
 
+```{=html}
 <div class="viz-container" id="decomp-viz">
   <div class="controls">
     <label>
@@ -511,6 +512,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Tropical forest:** High temperature → fast decomposition → low soil carbon accumulation

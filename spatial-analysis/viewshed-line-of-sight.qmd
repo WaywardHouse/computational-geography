@@ -263,6 +263,7 @@ $-2.70° < 0°$ → **Not visible** (below horizon)
 
 Below is an interactive viewshed simulator.
 
+```{=html}
 <div class="viz-container" id="viewshed-viz">
   <div class="controls">
     <label>
@@ -532,6 +533,7 @@ Below is an interactive viewshed simulator.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Increase observer height:** See more terrain (taller tower = bigger viewshed)

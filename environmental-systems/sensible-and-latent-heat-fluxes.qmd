@@ -287,6 +287,7 @@ $$\beta = \frac{H}{LE} = \frac{100}{304} = 0.33$$
 
 Below is an interactive energy partitioning calculator.
 
+```{=html}
 <div class="viz-container" id="energy-partition-viz">
   <div class="controls">
     <label>
@@ -516,6 +517,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Switch to desert:** Surface resistance skyrockets → LE drops → β > 1 → most energy heats air

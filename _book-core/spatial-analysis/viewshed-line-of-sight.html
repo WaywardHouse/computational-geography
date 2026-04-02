@@ -269,36 +269,37 @@ Angle: <span class="math inline">\alpha = \arctan(-2/42.4) = -2.70°</span></p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive viewshed simulator.</p>
-<div id="viewshed-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Observer height (m):
-  &lt;input type="range" id="obs-height" min="0" max="20" step="1" value="5"&gt;
-  &lt;span id="obs-height-val"&gt;5&lt;/span&gt; m
-&lt;/label&gt;
-&lt;label&gt;
-  Target height (m):
-  &lt;input type="range" id="target-height" min="0" max="5" step="0.5" value="1.7"&gt;
-  &lt;span id="target-height-val"&gt;1.7&lt;/span&gt; m
-&lt;/label&gt;
-&lt;label&gt;
-  Show terrain:
-  &lt;input type="checkbox" id="show-terrain" checked&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show 3D profile:
-  &lt;input type="checkbox" id="show-profile"&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="viewshed-viz">
+  <div class="controls">
+    <label>
+      Observer height (m):
+      <input type="range" id="obs-height" min="0" max="20" step="1" value="5">
+      <span id="obs-height-val">5</span> m
+    </label>
+    <label>
+      Target height (m):
+      <input type="range" id="target-height" min="0" max="5" step="0.5" value="1.7">
+      <span id="target-height-val">1.7</span> m
+    </label>
+    <label>
+      Show terrain:
+      <input type="checkbox" id="show-terrain" checked="">
+    </label>
+    <label>
+      Show 3D profile:
+      <input type="checkbox" id="show-profile">
+    </label>
+  </div>
+  <div id="viewshed-canvas-container">
+    <canvas id="viewshed-canvas" width="700" height="350" style="border: 1px solid #ddd;"></canvas>
+  </div>
+  <div class="viewshed-info">
+    <p><strong>Visible cells:</strong> <span id="visible-count">--</span></p>
+    <p><strong>Total cells:</strong> <span id="total-cells">--</span></p>
+    <p><strong>Visibility:</strong> <span id="visibility-pct">--</span>%</p>
+  </div>
 </div>
-<div id="viewshed-canvas-container">
-<pre><code>&lt;canvas id="viewshed-canvas" width="700" height="350" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-<div class="viewshed-info">
-<pre><code>&lt;p&gt;&lt;strong&gt;Visible cells:&lt;/strong&gt; &lt;span id="visible-count"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Total cells:&lt;/strong&gt; &lt;span id="total-cells"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Visibility:&lt;/strong&gt; &lt;span id="visibility-pct"&gt;--&lt;/span&gt;%&lt;/p&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('viewshed-canvas');

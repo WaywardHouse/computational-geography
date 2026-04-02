@@ -293,76 +293,79 @@ Just keep asking two questions: what energy comes in, and what energy leaves? Ne
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive radiation balance calculator.</p>
-<div id="radiation-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Surface type:
-  &lt;select id="surface-type"&gt;
-    &lt;option value="snow"&gt;Fresh Snow (α=0.85)&lt;/option&gt;
-    &lt;option value="sand"&gt;Desert Sand (α=0.35)&lt;/option&gt;
-    &lt;option value="grass" selected&gt;Grassland (α=0.20)&lt;/option&gt;
-    &lt;option value="forest"&gt;Conifer Forest (α=0.10)&lt;/option&gt;
-    &lt;option value="ocean"&gt;Ocean (α=0.08)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Solar radiation (W/m²):
-  &lt;input type="range" id="solar-slider" min="0" max="1200" step="50" value="800"&gt;
-  &lt;span id="solar-value"&gt;800&lt;/span&gt; W/m²
-&lt;/label&gt;
-&lt;label&gt;
-  Surface temperature (°C):
-  &lt;input type="range" id="surf-temp-slider" min="-20" max="40" step="1" value="25"&gt;
-  &lt;span id="surf-temp-value"&gt;25&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Air temperature (°C):
-  &lt;input type="range" id="air-temp-slider" min="-20" max="40" step="1" value="20"&gt;
-  &lt;span id="air-temp-value"&gt;20&lt;/span&gt; °C
-&lt;/label&gt;
-&lt;label&gt;
-  Cloud cover:
-  &lt;input type="range" id="cloud-slider" min="0" max="1" step="0.1" value="0"&gt;
-  &lt;span id="cloud-value"&gt;0.0&lt;/span&gt; (0=clear, 1=overcast)
-&lt;/label&gt;</code></pre>
-</div>
-<div class="radiation-results">
-<pre><code>&lt;h4&gt;Energy Balance:&lt;/h4&gt;
-&lt;table&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;S↓ (incoming solar):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="s-down"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;S↑ (reflected):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="s-up"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr style="border-top: 1px solid #ddd;"&gt;
-    &lt;td&gt;&lt;strong&gt;Net shortwave:&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="s-net"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;L↓ (atmospheric IR):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="l-down"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-    &lt;td&gt;&lt;strong&gt;L↑ (surface IR):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="l-up"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr style="border-top: 1px solid #ddd;"&gt;
-    &lt;td&gt;&lt;strong&gt;Net longwave:&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="l-net"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr style="border-top: 2px solid #333;"&gt;
-    &lt;td&gt;&lt;strong&gt;Net radiation (Rn):&lt;/strong&gt;&lt;/td&gt;
-    &lt;td&gt;&lt;span id="r-net" style="font-weight: bold;"&gt;&lt;/span&gt; W/m²&lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
-</div>
-<div id="radiation-chart" style="width: 100%; height: 400px;">
+<div class="viz-container" id="radiation-viz">
+  <div class="controls">
+    <label>
+      Surface type:
+      <select id="surface-type">
+        <option value="snow">Fresh Snow (α=0.85)</option>
+        <option value="sand">Desert Sand (α=0.35)</option>
+        <option value="grass" selected="">Grassland (α=0.20)</option>
+        <option value="forest">Conifer Forest (α=0.10)</option>
+        <option value="ocean">Ocean (α=0.08)</option>
+      </select>
+    </label>
+    <label>
+      Solar radiation (W/m²):
+      <input type="range" id="solar-slider" min="0" max="1200" step="50" value="800">
+      <span id="solar-value">800</span> W/m²
+    </label>
+    <label>
+      Surface temperature (°C):
+      <input type="range" id="surf-temp-slider" min="-20" max="40" step="1" value="25">
+      <span id="surf-temp-value">25</span> °C
+    </label>
+    <label>
+      Air temperature (°C):
+      <input type="range" id="air-temp-slider" min="-20" max="40" step="1" value="20">
+      <span id="air-temp-value">20</span> °C
+    </label>
+    <label>
+      Cloud cover:
+      <input type="range" id="cloud-slider" min="0" max="1" step="0.1" value="0">
+      <span id="cloud-value">0.0</span> (0=clear, 1=overcast)
+    </label>
+  </div>
+  <div class="radiation-results">
+    <h4 class="anchored">Energy Balance:</h4>
+    
+<table class="caption-top">
+<tbody>
+<tr class="odd">
+<td><strong>S↓ (incoming solar):</strong></td>
+<td><span id="s-down"></span> W/m²</td>
+</tr>
+<tr class="even">
+<td><strong>S↑ (reflected):</strong></td>
+<td><span id="s-up"></span> W/m²</td>
+</tr>
+<tr class="odd" style="border-top: 1px solid #ddd;">
+<td><strong>Net shortwave:</strong></td>
+<td><span id="s-net"></span> W/m²</td>
+</tr>
+<tr class="even">
+<td><strong>L↓ (atmospheric IR):</strong></td>
+<td><span id="l-down"></span> W/m²</td>
+</tr>
+<tr class="odd">
+<td><strong>L↑ (surface IR):</strong></td>
+<td><span id="l-up"></span> W/m²</td>
+</tr>
+<tr class="even" style="border-top: 1px solid #ddd;">
+<td><strong>Net longwave:</strong></td>
+<td><span id="l-net"></span> W/m²</td>
+</tr>
+<tr class="odd" style="border-top: 2px solid #333;">
+<td><strong>Net radiation (Rn):</strong></td>
+<td><span id="r-net" style="font-weight: bold;"></span> W/m²</td>
+</tr>
+</tbody>
+</table>
 
+  </div>
+  <div id="radiation-chart" style="width: 100%; height: 400px;"></div>
 </div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

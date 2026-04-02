@@ -300,6 +300,7 @@ $$FS = \frac{17.9}{29.4} = 0.61$$
 
 Below is an interactive slope stability calculator.
 
+```{=html}
 <div class="viz-container" id="stability-viz">
   <div class="controls">
     <label>
@@ -560,6 +561,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Increase slope angle:** FS drops (steeper = less stable)

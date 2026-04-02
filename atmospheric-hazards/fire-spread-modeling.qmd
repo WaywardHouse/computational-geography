@@ -353,6 +353,7 @@ $$L = 0.0775 \times 446^{0.46} = 0.0775 \times 12.3 = 0.95 \text{ m}$$
 
 Below is an interactive fire spread simulator.
 
+```{=html}
 <div class="viz-container" id="spread-viz">
   <div class="controls">
     <label>
@@ -546,6 +547,7 @@ Below is an interactive fire spread simulator.
   render();
 })();
 </script>
+```
 
 **Observations:**
 - Fire spreads fastest downwind (head fire)

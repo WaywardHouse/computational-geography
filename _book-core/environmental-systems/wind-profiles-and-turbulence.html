@@ -321,42 +321,41 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive wind profile simulator.</p>
-<div id="wind-profile-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Surface type:
-  &lt;select id="surface-type-wind"&gt;
-    &lt;option value="ocean"&gt;Open Ocean (z₀=0.0002 m)&lt;/option&gt;
-    &lt;option value="snow"&gt;Snow (z₀=0.003 m)&lt;/option&gt;
-    &lt;option value="grass" selected&gt;Grassland (z₀=0.03 m)&lt;/option&gt;
-    &lt;option value="crops"&gt;Crops (z₀=0.10 m)&lt;/option&gt;
-    &lt;option value="forest"&gt;Forest (z₀=1.5 m)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Wind speed at 10 m (m/s):
-  &lt;input type="range" id="wind-ref-slider" min="2" max="20" step="1" value="8"&gt;
-  &lt;span id="wind-ref-value"&gt;8&lt;/span&gt; m/s
-&lt;/label&gt;
-&lt;label&gt;
-  Custom roughness length (m):
-  &lt;input type="range" id="z0-slider" min="-4" max="0.5" step="0.1" value="-1.52"&gt;
-  &lt;span id="z0-value"&gt;0.03&lt;/span&gt; m
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="toggle-log-scale"&gt;Toggle Log Scale&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="wind-profile-viz">
+  <div class="controls">
+    <label>
+      Surface type:
+      <select id="surface-type-wind">
+        <option value="ocean">Open Ocean (z₀=0.0002 m)</option>
+        <option value="snow">Snow (z₀=0.003 m)</option>
+        <option value="grass" selected="">Grassland (z₀=0.03 m)</option>
+        <option value="crops">Crops (z₀=0.10 m)</option>
+        <option value="forest">Forest (z₀=1.5 m)</option>
+      </select>
+    </label>
+    <label>
+      Wind speed at 10 m (m/s):
+      <input type="range" id="wind-ref-slider" min="2" max="20" step="1" value="8">
+      <span id="wind-ref-value">8</span> m/s
+    </label>
+    <label>
+      Custom roughness length (m):
+      <input type="range" id="z0-slider" min="-4" max="0.5" step="0.1" value="-1.52">
+      <span id="z0-value">0.03</span> m
+    </label>
+    <div class="button-group">
+      <button id="toggle-log-scale">Toggle Log Scale</button>
+    </div>
+  </div>
+  <div class="wind-results">
+    <p><strong>Friction velocity (u*):</strong> <span id="ustar-display"></span> m/s</p>
+    <p><strong>Wind at 2 m:</strong> <span id="wind-2m"></span> m/s</p>
+    <p><strong>Wind at 50 m:</strong> <span id="wind-50m"></span> m/s</p>
+    <p><strong>10m/2m ratio:</strong> <span id="wind-ratio"></span></p>
+  </div>
+  <div id="wind-profile-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="wind-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;Friction velocity (u*):&lt;/strong&gt; &lt;span id="ustar-display"&gt;&lt;/span&gt; m/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Wind at 2 m:&lt;/strong&gt; &lt;span id="wind-2m"&gt;&lt;/span&gt; m/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Wind at 50 m:&lt;/strong&gt; &lt;span id="wind-50m"&gt;&lt;/span&gt; m/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;10m/2m ratio:&lt;/strong&gt; &lt;span id="wind-ratio"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-<div id="wind-profile-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

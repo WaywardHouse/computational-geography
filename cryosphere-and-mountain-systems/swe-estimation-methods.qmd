@@ -332,6 +332,7 @@ $$V = \text{SWE} \times A = 0.453 \text{ m} \times 500 \times 10^6 \text{ m}^2 =
 
 Below is an interactive SWE estimation tool combining multiple sensors.
 
+```{=html}
 <div class="viz-container" id="swe-est-viz">
   <div class="controls">
     <label>
@@ -541,6 +542,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Red dots:** SNOTEL station measurements

@@ -310,6 +310,7 @@ Surface temperature of ~28°C typical for vegetated surface on warm day.
 
 Below is an interactive thermal remote sensing simulator.
 
+```{=html}
 <div class="viz-container" id="thermal-viz">
   <div class="controls">
     <label>
@@ -551,6 +552,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Red line shows surface temperature varying through day

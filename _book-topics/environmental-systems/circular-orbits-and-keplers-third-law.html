@@ -267,29 +267,28 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">6. Computational Implementation</h2>
 <p>Below is an interactive orbit calculator.</p>
-<div id="orbit-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Altitude (km):
-  &lt;input type="range" id="altitude-slider" min="200" max="40000" step="100" value="500"&gt;
-  &lt;span id="altitude-value"&gt;500&lt;/span&gt; km
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="set-leo"&gt;ISS (400 km)&lt;/button&gt;
-  &lt;button id="set-geo"&gt;GEO (35,786 km)&lt;/button&gt;
-  &lt;button id="set-sso"&gt;SSO (800 km)&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="orbit-viz">
+  <div class="controls">
+    <label>
+      Altitude (km):
+      <input type="range" id="altitude-slider" min="200" max="40000" step="100" value="500">
+      <span id="altitude-value">500</span> km
+    </label>
+    <div class="button-group">
+      <button id="set-leo">ISS (400 km)</button>
+      <button id="set-geo">GEO (35,786 km)</button>
+      <button id="set-sso">SSO (800 km)</button>
+    </div>
+  </div>
+  <div class="orbit-params">
+    <p><strong>Orbital radius:</strong> <span id="radius-display"></span> km</p>
+    <p><strong>Orbital velocity:</strong> <span id="velocity-display"></span> km/s</p>
+    <p><strong>Orbital period:</strong> <span id="period-display"></span></p>
+    <p><strong>Orbits per day:</strong> <span id="orbits-day-display"></span></p>
+  </div>
+  <div id="orbit-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="orbit-params">
-<pre><code>&lt;p&gt;&lt;strong&gt;Orbital radius:&lt;/strong&gt; &lt;span id="radius-display"&gt;&lt;/span&gt; km&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Orbital velocity:&lt;/strong&gt; &lt;span id="velocity-display"&gt;&lt;/span&gt; km/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Orbital period:&lt;/strong&gt; &lt;span id="period-display"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Orbits per day:&lt;/strong&gt; &lt;span id="orbits-day-display"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-<div id="orbit-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 while (!window.echarts) await new Promise(r => setTimeout(r, 50));
 

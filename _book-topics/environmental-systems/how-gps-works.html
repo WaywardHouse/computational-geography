@@ -299,42 +299,41 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">8. Computational Implementation</h2>
 <p>Below is an interactive GPS solver.</p>
-<div id="gps-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Number of satellites:
-  &lt;input type="range" id="num-sats-slider" min="4" max="12" step="1" value="6"&gt;
-  &lt;span id="num-sats-value"&gt;6&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Measurement noise (meters):
-  &lt;input type="range" id="noise-slider" min="0" max="20" step="1" value="5"&gt;
-  &lt;span id="noise-value"&gt;5&lt;/span&gt; m
-&lt;/label&gt;
-&lt;label&gt;
-  Clock bias (nanoseconds):
-  &lt;input type="range" id="bias-slider" min="-100" max="100" step="10" value="50"&gt;
-  &lt;span id="bias-value"&gt;50&lt;/span&gt; ns
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="solve-gps"&gt;Solve Position&lt;/button&gt;
-  &lt;button id="randomize-sats"&gt;Randomize Satellites&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="gps-viz">
+  <div class="controls">
+    <label>
+      Number of satellites:
+      <input type="range" id="num-sats-slider" min="4" max="12" step="1" value="6">
+      <span id="num-sats-value">6</span>
+    </label>
+    <label>
+      Measurement noise (meters):
+      <input type="range" id="noise-slider" min="0" max="20" step="1" value="5">
+      <span id="noise-value">5</span> m
+    </label>
+    <label>
+      Clock bias (nanoseconds):
+      <input type="range" id="bias-slider" min="-100" max="100" step="10" value="50">
+      <span id="bias-value">50</span> ns
+    </label>
+    <div class="button-group">
+      <button id="solve-gps">Solve Position</button>
+      <button id="randomize-sats">Randomize Satellites</button>
+    </div>
+  </div>
+  <div class="gps-results">
+    <h4 class="anchored">Solution:</h4>
+    <p><strong>True position:</strong> <span id="true-pos"></span></p>
+    <p><strong>Estimated position:</strong> <span id="est-pos"></span></p>
+    <p><strong>Position error:</strong> <span id="pos-error"></span> m</p>
+    <p><strong>True clock bias:</strong> <span id="true-bias"></span> ns</p>
+    <p><strong>Estimated clock bias:</strong> <span id="est-bias"></span> ns</p>
+    <p><strong>Iterations:</strong> <span id="iterations"></span></p>
+    <p><strong>PDOP:</strong> <span id="pdop-value"></span></p>
+  </div>
+  <div id="gps-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="gps-results">
-<pre><code>&lt;h4&gt;Solution:&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;True position:&lt;/strong&gt; &lt;span id="true-pos"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Estimated position:&lt;/strong&gt; &lt;span id="est-pos"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Position error:&lt;/strong&gt; &lt;span id="pos-error"&gt;&lt;/span&gt; m&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;True clock bias:&lt;/strong&gt; &lt;span id="true-bias"&gt;&lt;/span&gt; ns&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Estimated clock bias:&lt;/strong&gt; &lt;span id="est-bias"&gt;&lt;/span&gt; ns&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Iterations:&lt;/strong&gt; &lt;span id="iterations"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;PDOP:&lt;/strong&gt; &lt;span id="pdop-value"&gt;&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-<div id="gps-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 while (!window.echarts || !window.__echartsGL) await new Promise(r => setTimeout(r, 50));
 

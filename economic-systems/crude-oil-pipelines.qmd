@@ -484,6 +484,7 @@ also how sensitive the netback is to the quality discount — a $5/bbl
 widening of the WCS-WTI differential has exactly the same effect as a
 $5/bbl tariff increase.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 # ── Parameters — change these and hit Run ──────────────────────────────────
@@ -522,6 +523,7 @@ print(f"Transport tariff     : ${tariff_usd:.2f}/bbl")
 print(f"Quality discount     : ${quality_disc:.2f}/bbl")
 print(f"Netback at Hardisty  : ${netback:.2f}/bbl")
 </code></pre></div>
+```
 
 ## Where next?
 

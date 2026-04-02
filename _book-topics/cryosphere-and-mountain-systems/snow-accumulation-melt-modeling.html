@@ -305,39 +305,40 @@ a(T_{\text{air}} - T_{\text{melt}}) &amp; \text{if } T_{\text{air}} &gt; T_{\tex
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive snow accumulation/melt simulator.</p>
-<div id="snow-sim-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Degree-day factor (mm/°C/day):
-  &lt;input type="range" id="ddf" min="1" max="6" step="0.5" value="3"&gt;
-  &lt;span id="ddf-val"&gt;3.0&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Elevation (m):
-  &lt;input type="range" id="elevation" min="1000" max="3000" step="200" value="2000"&gt;
-  &lt;span id="elev-val"&gt;2000&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Winter precipitation (%):
-  &lt;input type="range" id="winter-precip" min="50" max="150" step="10" value="100"&gt;
-  &lt;span id="precip-val"&gt;100&lt;/span&gt;%
-&lt;/label&gt;
-&lt;label&gt;
-  Show components:
-  &lt;input type="checkbox" id="show-precip" checked&gt; Precipitation
-  &lt;input type="checkbox" id="show-melt" checked&gt; Melt
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="snow-sim-viz">
+  <div class="controls">
+    <label>
+      Degree-day factor (mm/°C/day):
+      <input type="range" id="ddf" min="1" max="6" step="0.5" value="3">
+      <span id="ddf-val">3.0</span>
+    </label>
+    <label>
+      Elevation (m):
+      <input type="range" id="elevation" min="1000" max="3000" step="200" value="2000">
+      <span id="elev-val">2000</span>
+    </label>
+    <label>
+      Winter precipitation (%):
+      <input type="range" id="winter-precip" min="50" max="150" step="10" value="100">
+      <span id="precip-val">100</span>%
+    </label>
+    <label>
+      Show components:
+      <input type="checkbox" id="show-precip" checked=""> Precipitation
+      <input type="checkbox" id="show-melt" checked=""> Melt
+    </label>
+  </div>
+  <div id="snow-sim-canvas-container">
+    <canvas id="snow-sim-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
+  <div class="snow-sim-info">
+    <p><strong>Peak SWE:</strong> <span id="peak-swe">--</span> mm</p>
+    <p><strong>Peak date:</strong> <span id="peak-date">--</span></p>
+    <p><strong>Snow-free date:</strong> <span id="snow-free">--</span></p>
+    <p><strong>Total melt:</strong> <span id="total-melt">--</span> mm</p>
+  </div>
 </div>
-<div id="snow-sim-canvas-container">
-<pre><code>&lt;canvas id="snow-sim-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-<div class="snow-sim-info">
-<pre><code>&lt;p&gt;&lt;strong&gt;Peak SWE:&lt;/strong&gt; &lt;span id="peak-swe"&gt;--&lt;/span&gt; mm&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Peak date:&lt;/strong&gt; &lt;span id="peak-date"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Snow-free date:&lt;/strong&gt; &lt;span id="snow-free"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Total melt:&lt;/strong&gt; &lt;span id="total-melt"&gt;--&lt;/span&gt; mm&lt;/p&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

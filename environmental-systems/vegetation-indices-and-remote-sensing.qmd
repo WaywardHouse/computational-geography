@@ -255,6 +255,7 @@ $$\text{LAI} \approx 6 \times \text{NDVI} = 6 \times 0.68 = 4.08$$
 
 Below is an interactive vegetation index calculator with spectral reflectance curves.
 
+```{=html}
 <div class="viz-container" id="vi-viz">
   <div class="controls">
     <label>
@@ -499,6 +500,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Dense vegetation:** High NIR peak (~850 nm), low red trough → high NDVI

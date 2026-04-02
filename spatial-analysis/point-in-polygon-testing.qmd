@@ -225,6 +225,7 @@ Don't count.
 
 Below is an interactive point-in-polygon tester.
 
+```{=html}
 <div class="viz-container" id="pip-viz">
   <div class="controls">
     <label>
@@ -443,6 +444,7 @@ Below is an interactive point-in-polygon tester.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Click inside the polygon:** Ray crosses odd number of edges → Green point (INSIDE)

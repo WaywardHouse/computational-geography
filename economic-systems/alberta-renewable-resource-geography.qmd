@@ -718,6 +718,7 @@ a cloudy year. For wind, try `wind_speed_80m = 8.5` for the Pincher
 Creek corridor, or `6.0` for a central prairie site near the economic
 break-even.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 # ── Solar resource calculator ──────────────────────────────────────────────
@@ -780,6 +781,7 @@ print("Comparison (at 1 MW nameplate):")
 print(f"  Annual solar gen  : {cf_solar * 8760 * 1000:,.0f} kWh/year  (1 MW solar array)")
 print(f"  Annual wind gen   : {cf_wind  * 8760 * 1000:,.0f} kWh/year  (1 MW wind turbine)")
 </code></pre></div>
+```
 
 The numbers that emerge from this exercise reward careful attention. At
 Lethbridge (49.7°N, kt = 0.55), annual GHI is approximately 1,277

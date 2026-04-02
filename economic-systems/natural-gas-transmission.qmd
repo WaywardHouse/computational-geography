@@ -428,6 +428,7 @@ constrained capacity) and `hh_price = 3.00` USD/MMBtu — then observe
 what AECO falls to, and compare to the $0.50 CAD/GJ actual observed in
 August 2018.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 MMBTU_TO_GJ  = 1.05505585
@@ -472,6 +473,7 @@ print(f"  Fuel cost        : ${fuel_cost_gj:.3f} CAD/GJ  ({fuel_pct:.1f}%)")
 print(f"  AECO implied     : ${aeco_cad_gj:.2f} CAD/GJ  (${aeco_usd_mmbtu:.2f} USD/MMBtu)")
 print(f"  Basis differential: ${basis_usd:.2f} USD/MMBtu  (HH − AECO)")
 </code></pre></div>
+```
 
 ## Where next?
 

@@ -288,6 +288,7 @@ $$\theta = \arctan(1.796) = 60.9°$$
 
 Below is an interactive avalanche terrain classifier.
 
+```{=html}
 <div class="viz-container" id="ava-terrain-viz">
   <div class="controls">
     <label>
@@ -504,6 +505,7 @@ Below is an interactive avalanche terrain classifier.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Simple terrain:** Mostly green (safe slopes)

@@ -268,46 +268,45 @@ NO₃⁻ → N₂, N₂O (anaerobic, waterlogged soils)</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive nitrogen cycle simulator.</p>
-<div id="n-cycle-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Ecosystem type:
-  &lt;select id="ecosystem-n"&gt;
-    &lt;option value="forest-unfertilized"&gt;Natural Forest&lt;/option&gt;
-    &lt;option value="grassland"&gt;Grassland&lt;/option&gt;
-    &lt;option value="crop-unfertilized" selected&gt;Crop (no fertilizer)&lt;/option&gt;
-    &lt;option value="crop-fertilized"&gt;Crop (fertilized)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Fertilizer addition (kg N/m²/year):
-  &lt;input type="range" id="fertilizer-slider" min="0" max="0.05" step="0.005" value="0"&gt;
-  &lt;span id="fertilizer-value"&gt;0.00&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Soil C:N ratio:
-  &lt;input type="range" id="cn-slider" min="8" max="20" step="1" value="12"&gt;
-  &lt;span id="cn-value"&gt;12&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Simulation years:
-  &lt;input type="range" id="years-n-slider" min="10" max="50" step="5" value="20"&gt;
-  &lt;span id="years-n-value"&gt;20&lt;/span&gt; years
-&lt;/label&gt;
-&lt;div class="button-group"&gt;
-  &lt;button id="run-n-sim"&gt;Run Simulation&lt;/button&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="n-cycle-viz">
+  <div class="controls">
+    <label>
+      Ecosystem type:
+      <select id="ecosystem-n">
+        <option value="forest-unfertilized">Natural Forest</option>
+        <option value="grassland">Grassland</option>
+        <option value="crop-unfertilized" selected="">Crop (no fertilizer)</option>
+        <option value="crop-fertilized">Crop (fertilized)</option>
+      </select>
+    </label>
+    <label>
+      Fertilizer addition (kg N/m²/year):
+      <input type="range" id="fertilizer-slider" min="0" max="0.05" step="0.005" value="0">
+      <span id="fertilizer-value">0.00</span>
+    </label>
+    <label>
+      Soil C:N ratio:
+      <input type="range" id="cn-slider" min="8" max="20" step="1" value="12">
+      <span id="cn-value">12</span>
+    </label>
+    <label>
+      Simulation years:
+      <input type="range" id="years-n-slider" min="10" max="50" step="5" value="20">
+      <span id="years-n-value">20</span> years
+    </label>
+    <div class="button-group">
+      <button id="run-n-sim">Run Simulation</button>
+    </div>
+  </div>
+  <div class="n-results">
+    <p><strong>Mineral N:</strong> <span id="mineral-n"></span> mg N/L</p>
+    <p><strong>Plant N uptake:</strong> <span id="n-uptake"></span> kg N/m²/year</p>
+    <p><strong>NPP (N-limited):</strong> <span id="npp-n-limited"></span> kg C/m²/year</p>
+    <p><strong>Leaching loss:</strong> <span id="leaching-loss"></span> kg N/m²/year</p>
+  </div>
+  <div id="n-cycle-chart" style="width: 100%; height: 500px;"></div>
 </div>
-<div class="n-results">
-<pre><code>&lt;p&gt;&lt;strong&gt;Mineral N:&lt;/strong&gt; &lt;span id="mineral-n"&gt;&lt;/span&gt; mg N/L&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Plant N uptake:&lt;/strong&gt; &lt;span id="n-uptake"&gt;&lt;/span&gt; kg N/m²/year&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NPP (N-limited):&lt;/strong&gt; &lt;span id="npp-n-limited"&gt;&lt;/span&gt; kg C/m²/year&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Leaching loss:&lt;/strong&gt; &lt;span id="leaching-loss"&gt;&lt;/span&gt; kg N/m²/year&lt;/p&gt;</code></pre>
-</div>
-<div id="n-cycle-chart" style="width: 100%; height: 500px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

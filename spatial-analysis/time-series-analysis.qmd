@@ -293,6 +293,7 @@ $$\approx 30 \times 5.31 = 159.3 \text{ NDVI-days}$$
 
 Below is an interactive time series analyzer.
 
+```{=html}
 <div class="viz-container" id="timeseries-viz">
   <div class="controls">
     <label>
@@ -661,6 +662,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Temperate forest:** Strong seasonal cycle, single peak

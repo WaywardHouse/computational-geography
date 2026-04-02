@@ -301,6 +301,7 @@ i=3   1    2    3    3
 
 Below is an interactive raster classification tool.
 
+```{=html}
 <div class="viz-container" id="classify-viz">
   <div class="controls">
     <label>
@@ -550,6 +551,7 @@ Below is an interactive raster classification tool.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Equal interval:** Fixed-width bins (may be unbalanced)

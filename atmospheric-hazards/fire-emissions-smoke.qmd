@@ -322,6 +322,7 @@ Health advisory warranted at this location.
 
 Below is an interactive smoke dispersion simulator.
 
+```{=html}
 <div class="viz-container" id="smoke-viz">
   <div class="controls">
     <label>
@@ -546,6 +547,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Concentration decreases with distance as plume disperses

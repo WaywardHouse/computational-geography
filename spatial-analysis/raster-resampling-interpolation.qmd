@@ -292,6 +292,7 @@ $$= 21 + 9.9 + 51.45 + 25.2 = 107.55 \text{ m}$$
 
 Below is an interactive resampling demonstration.
 
+```{=html}
 <div class="viz-container" id="resample-viz">
   <div class="controls">
     <label>
@@ -532,6 +533,7 @@ Below is an interactive resampling demonstration.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Nearest neighbor:** Blocky, stair-step appearance (preserves exact values)

@@ -477,6 +477,7 @@ watch transmix grow despite the larger pipe — that is the
 from four to six adds two interfaces, grows minimum cycle time by 50%,
 and requires larger terminal storage to buffer the longer batch cycle.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">import numpy as np
 
 MILES_PER_KM = 0.621371
@@ -522,6 +523,7 @@ for d in [16, 20, 24, 30, 36]:
     vm = 11.75 * (d**1.9 * length_miles)**0.5
     print(f"  D={d:2d} in: transmix = {vm:>6,.0f} bbl")
 </code></pre></div>
+```
 
 ## Where next?
 

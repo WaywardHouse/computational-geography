@@ -182,6 +182,7 @@ The chart below implements PROSPECT-5 across 400–900 nm at 10 nm resolution us
   </div>
 </div>
 
+```{=html}
 <div id="prospect-chart" style="height:460px;"></div>
 
 <script type="module">
@@ -378,6 +379,7 @@ await new Promise(r => {
   ro.observe(el);
 })();
 </script>
+```
 
 ---
 

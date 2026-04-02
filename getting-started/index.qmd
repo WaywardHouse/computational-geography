@@ -2,6 +2,7 @@
 title: "Part 0: Getting Started"
 subtitle: "A calm on-ramp into models, maps, equations, and the way this book works."
 page-layout: article
+body-classes: split-home split-home-core page-home
 ---
 
 ::: {.section-kicker}

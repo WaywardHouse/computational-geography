@@ -260,43 +260,44 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive snowpack energy balance calculator.</p>
-<div id="snowpack-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Solar radiation (W/m²):
-  &lt;input type="range" id="solar-rad" min="0" max="1000" step="50" value="600"&gt;
-  &lt;span id="solar-val"&gt;600&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Snow albedo:
-  &lt;input type="range" id="albedo" min="0.4" max="0.95" step="0.05" value="0.75"&gt;
-  &lt;span id="albedo-val"&gt;0.75&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Air temperature (°C):
-  &lt;input type="range" id="air-temp" min="-20" max="15" step="1" value="5"&gt;
-  &lt;span id="air-temp-val"&gt;5&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Wind speed (m/s):
-  &lt;input type="range" id="wind-speed" min="0" max="10" step="0.5" value="3"&gt;
-  &lt;span id="wind-val"&gt;3.0&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Cloud cover (%):
-  &lt;input type="range" id="cloud-cover" min="0" max="100" step="10" value="20"&gt;
-  &lt;span id="cloud-val"&gt;20&lt;/span&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="snowpack-viz">
+  <div class="controls">
+    <label>
+      Solar radiation (W/m²):
+      <input type="range" id="solar-rad" min="0" max="1000" step="50" value="600">
+      <span id="solar-val">600</span>
+    </label>
+    <label>
+      Snow albedo:
+      <input type="range" id="albedo" min="0.4" max="0.95" step="0.05" value="0.75">
+      <span id="albedo-val">0.75</span>
+    </label>
+    <label>
+      Air temperature (°C):
+      <input type="range" id="air-temp" min="-20" max="15" step="1" value="5">
+      <span id="air-temp-val">5</span>
+    </label>
+    <label>
+      Wind speed (m/s):
+      <input type="range" id="wind-speed" min="0" max="10" step="0.5" value="3">
+      <span id="wind-val">3.0</span>
+    </label>
+    <label>
+      Cloud cover (%):
+      <input type="range" id="cloud-cover" min="0" max="100" step="10" value="20">
+      <span id="cloud-val">20</span>
+    </label>
+  </div>
+  <div id="snowpack-canvas-container">
+    <canvas id="snowpack-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
+  <div class="snowpack-info">
+    <p><strong>Net energy:</strong> <span id="net-energy">--</span> W/m²</p>
+    <p><strong>Melt rate:</strong> <span id="melt-rate">--</span> mm/hour</p>
+    <p><strong>Status:</strong> <span id="snow-status">--</span></p>
+  </div>
 </div>
-<div id="snowpack-canvas-container">
-<pre><code>&lt;canvas id="snowpack-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-<div class="snowpack-info">
-<pre><code>&lt;p&gt;&lt;strong&gt;Net energy:&lt;/strong&gt; &lt;span id="net-energy"&gt;--&lt;/span&gt; W/m²&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Melt rate:&lt;/strong&gt; &lt;span id="melt-rate"&gt;--&lt;/span&gt; mm/hour&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span id="snow-status"&gt;--&lt;/span&gt;&lt;/p&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('snowpack-canvas');

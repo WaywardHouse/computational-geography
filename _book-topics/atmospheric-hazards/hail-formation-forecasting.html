@@ -277,34 +277,35 @@ Storm: 240° at 15 m/s</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive hail growth simulator.</p>
-<div id="hail-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Max updraft (m/s):
-  &lt;input type="range" id="updraft" min="15" max="70" step="5" value="40"&gt;
-  &lt;span id="updraft-val"&gt;40&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Liquid water content (g/m³):
-  &lt;input type="range" id="lwc" min="1" max="6" step="0.5" value="3"&gt;
-  &lt;span id="lwc-val"&gt;3&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Updraft residence time (min):
-  &lt;input type="range" id="residence" min="2" max="10" step="1" value="5"&gt;
-  &lt;span id="res-val"&gt;5&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="hail-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Max hail diameter:&lt;/strong&gt; &lt;span id="max-diameter"&gt;--&lt;/span&gt; mm&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Hail category:&lt;/strong&gt; &lt;span id="category"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Terminal velocity:&lt;/strong&gt; &lt;span id="terminal-vel"&gt;--&lt;/span&gt; m/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Damage potential:&lt;/strong&gt; &lt;span id="damage"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="hail-viz">
+  <div class="controls">
+    <label>
+      Max updraft (m/s):
+      <input type="range" id="updraft" min="15" max="70" step="5" value="40">
+      <span id="updraft-val">40</span>
+    </label>
+    <label>
+      Liquid water content (g/m³):
+      <input type="range" id="lwc" min="1" max="6" step="0.5" value="3">
+      <span id="lwc-val">3</span>
+    </label>
+    <label>
+      Updraft residence time (min):
+      <input type="range" id="residence" min="2" max="10" step="1" value="5">
+      <span id="res-val">5</span>
+    </label>
+    <div class="hail-info">
+      <p><strong>Max hail diameter:</strong> <span id="max-diameter">--</span> mm</p>
+      <p><strong>Hail category:</strong> <span id="category">--</span></p>
+      <p><strong>Terminal velocity:</strong> <span id="terminal-vel">--</span> m/s</p>
+      <p><strong>Damage potential:</strong> <span id="damage">--</span></p>
+    </div>
+  </div>
+  <div id="hail-canvas-container">
+    <canvas id="hail-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="hail-canvas-container">
-<pre><code>&lt;canvas id="hail-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

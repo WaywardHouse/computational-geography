@@ -330,6 +330,7 @@ Given -8 dB: **Moderately rough surface** (agricultural field, rough terrain)
 
 Below is an interactive SAR simulator.
 
+```{=html}
 <div class="viz-container" id="sar-viz">
   <div class="controls">
     <label>
@@ -541,6 +542,7 @@ Below is an interactive SAR simulator.
   render();
 })();
 </script>
+```
 
 **Observations:**
 - Urban areas show strong backscatter (bright in SAR images)

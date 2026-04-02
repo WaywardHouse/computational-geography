@@ -334,6 +334,7 @@ $$S = \sqrt{(-34.6 - 0)^2 + (-20 - (-10))^2} = \sqrt{1197 + 100} = \sqrt{1297} =
 
 Below is an interactive severe weather parameter simulator.
 
+```{=html}
 <div class="viz-container" id="severe-viz">
   <div class="controls">
     <label>
@@ -552,6 +553,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - CAPE increases with surface warmth and mid-level cooling

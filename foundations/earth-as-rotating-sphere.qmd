@@ -240,6 +240,7 @@ $$z = 3186 \text{ km}$$ (unchanged — latitude doesn't change due to rotation)
 
 Below is an interactive 3D visualization of Earth with controllable rotation.
 
+```{=html}
 <div class="viz-container" id="earth-viz">
   <div class="controls">
     <label>
@@ -471,6 +472,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - Watch the pink marker move as Earth rotates

@@ -203,6 +203,7 @@ $$S = 1200 \times 0.929 = 1115 \text{ W/m}^2$$
 
 Below is an interactive model showing solar flux on a tilted surface.
 
+```{=html}
 <div class="viz-container" id="solar-geometry-viz">
   <div class="controls">
     <label>
@@ -394,6 +395,7 @@ document.getElementById('flux-slider').addEventListener('input', e => {
 updateCalculation();
 window.addEventListener('resize', () => chart.resize());
 </script>
+```
 
 **Try this:**
 - Default (30° south-facing slope, sun at 45° elevation due south): Near-optimal alignment, high flux

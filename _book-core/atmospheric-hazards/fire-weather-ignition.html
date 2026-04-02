@@ -272,39 +272,40 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive fire weather simulator.</p>
-<div id="fire-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Temperature (°C):
-  &lt;input type="range" id="temperature" min="15" max="45" step="1" value="30"&gt;
-  &lt;span id="temp-val"&gt;30&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Relative Humidity (%):
-  &lt;input type="range" id="humidity" min="10" max="80" step="5" value="30"&gt;
-  &lt;span id="humid-val"&gt;30&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Wind Speed (km/h):
-  &lt;input type="range" id="wind-speed" min="0" max="60" step="5" value="20"&gt;
-  &lt;span id="wind-val"&gt;20&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Days since rain:
-  &lt;input type="range" id="days-dry" min="0" max="30" step="1" value="7"&gt;
-  &lt;span id="dry-val"&gt;7&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="fire-info"&gt;
-  &lt;p&gt;&lt;strong&gt;VPD:&lt;/strong&gt; &lt;span id="vpd"&gt;--&lt;/span&gt; kPa&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;1-hr fuel MC:&lt;/strong&gt; &lt;span id="fuel-mc"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;FFMC:&lt;/strong&gt; &lt;span id="ffmc"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Fire danger:&lt;/strong&gt; &lt;span id="danger-level"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="fire-viz">
+  <div class="controls">
+    <label>
+      Temperature (°C):
+      <input type="range" id="temperature" min="15" max="45" step="1" value="30">
+      <span id="temp-val">30</span>
+    </label>
+    <label>
+      Relative Humidity (%):
+      <input type="range" id="humidity" min="10" max="80" step="5" value="30">
+      <span id="humid-val">30</span>
+    </label>
+    <label>
+      Wind Speed (km/h):
+      <input type="range" id="wind-speed" min="0" max="60" step="5" value="20">
+      <span id="wind-val">20</span>
+    </label>
+    <label>
+      Days since rain:
+      <input type="range" id="days-dry" min="0" max="30" step="1" value="7">
+      <span id="dry-val">7</span>
+    </label>
+    <div class="fire-info">
+      <p><strong>VPD:</strong> <span id="vpd">--</span> kPa</p>
+      <p><strong>1-hr fuel MC:</strong> <span id="fuel-mc">--</span>%</p>
+      <p><strong>FFMC:</strong> <span id="ffmc">--</span></p>
+      <p><strong>Fire danger:</strong> <span id="danger-level">--</span></p>
+    </div>
+  </div>
+  <div id="fire-canvas-container">
+    <canvas id="fire-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="fire-canvas-container">
-<pre><code>&lt;canvas id="fire-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

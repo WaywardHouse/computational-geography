@@ -335,6 +335,7 @@ $$S = 0.12 \times 0.25 = 0.03 \text{ m} = 30 \text{ mm}$$
 
 Below is an interactive permafrost thaw simulator.
 
+```{=html}
 <div class="viz-container" id="permafrost-viz">
   <div class="controls">
     <label>
@@ -574,6 +575,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Higher summer temperature increases active layer thickness

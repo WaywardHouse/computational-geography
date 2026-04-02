@@ -288,6 +288,7 @@ $$f_{\text{supra}} = 1 - 0.37 = 0.63 = 63\%$$
 
 Below is an interactive glacial chemistry simulator.
 
+```{=html}
 <div class="viz-container" id="chem-viz">
   <div class="controls">
     <label>
@@ -516,6 +517,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Slide through day:** See discharge peak at noon (blue), TDS minimum (green)

@@ -186,6 +186,7 @@ If the linear trend holds, the terminus will reach 3000 m in **2050**.
 
 Below is a simple interactive model. Adjust the parameters and watch the line respond.
 
+```{=html}
 <div class="viz-container" id="linear-model-viz">
   <div class="controls">
     <label>
@@ -260,6 +261,7 @@ updateChart();
 
 window.addEventListener('resize', () => chart.resize());
 </script>
+```
 
 **Try this:**
 - Set $m = 0$. What happens? (A horizontal line — no change with $x$)

@@ -352,42 +352,43 @@ Total points: 10</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive LiDAR point cloud analyzer.</p>
-<div id="lidar-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Terrain type:
-  &lt;select id="terrain-type"&gt;
-    &lt;option value="flat-forest"&gt;Flat with forest&lt;/option&gt;
-    &lt;option value="slope-forest"&gt;Sloped with forest&lt;/option&gt;
-    &lt;option value="urban"&gt;Urban (buildings)&lt;/option&gt;
-    &lt;option value="bare"&gt;Bare ground&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Point density (pts/m²):
-  &lt;input type="range" id="point-density" min="1" max="20" step="1" value="10"&gt;
-  &lt;span id="density-val"&gt;10&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  View:
-  &lt;select id="view-type"&gt;
-    &lt;option value="profile"&gt;Cross-section profile&lt;/option&gt;
-    &lt;option value="chm"&gt;Canopy Height Model&lt;/option&gt;
-    &lt;option value="intensity"&gt;Intensity map&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="lidar-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Total points:&lt;/strong&gt; &lt;span id="total-points"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Ground points:&lt;/strong&gt; &lt;span id="ground-points"&gt;--&lt;/span&gt; (&lt;span id="ground-pct"&gt;--&lt;/span&gt;%)&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Mean ground elev:&lt;/strong&gt; &lt;span id="mean-ground"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Max canopy height:&lt;/strong&gt; &lt;span id="max-height"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Canopy cover:&lt;/strong&gt; &lt;span id="canopy-cover"&gt;--&lt;/span&gt;%&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="lidar-viz">
+  <div class="controls">
+    <label>
+      Terrain type:
+      <select id="terrain-type">
+        <option value="flat-forest">Flat with forest</option>
+        <option value="slope-forest">Sloped with forest</option>
+        <option value="urban">Urban (buildings)</option>
+        <option value="bare">Bare ground</option>
+      </select>
+    </label>
+    <label>
+      Point density (pts/m²):
+      <input type="range" id="point-density" min="1" max="20" step="1" value="10">
+      <span id="density-val">10</span>
+    </label>
+    <label>
+      View:
+      <select id="view-type">
+        <option value="profile">Cross-section profile</option>
+        <option value="chm">Canopy Height Model</option>
+        <option value="intensity">Intensity map</option>
+      </select>
+    </label>
+    <div class="lidar-info">
+      <p><strong>Total points:</strong> <span id="total-points">--</span></p>
+      <p><strong>Ground points:</strong> <span id="ground-points">--</span> (<span id="ground-pct">--</span>%)</p>
+      <p><strong>Mean ground elev:</strong> <span id="mean-ground">--</span> m</p>
+      <p><strong>Max canopy height:</strong> <span id="max-height">--</span> m</p>
+      <p><strong>Canopy cover:</strong> <span id="canopy-cover">--</span>%</p>
+    </div>
+  </div>
+  <div id="lidar-canvas-container">
+    <canvas id="lidar-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="lidar-canvas-container">
-<pre><code>&lt;canvas id="lidar-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

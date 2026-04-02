@@ -287,45 +287,46 @@ i=3  13   15   17   19</code></pre>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive map algebra demonstration.</p>
-<div id="mapalgebra-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Operation type:
-  &lt;select id="operation-type"&gt;
-    &lt;option value="local"&gt;Local (Cell-by-Cell)&lt;/option&gt;
-    &lt;option value="focal" selected&gt;Focal (Neighborhood)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label id="local-op-label" style="display:none;"&gt;
-  Local operation:
-  &lt;select id="local-operation"&gt;
-    &lt;option value="add"&gt;Add (A + B)&lt;/option&gt;
-    &lt;option value="subtract"&gt;Subtract (A - B)&lt;/option&gt;
-    &lt;option value="multiply"&gt;Multiply (A × B)&lt;/option&gt;
-    &lt;option value="ndvi"&gt;NDVI-like ((A - B) / (A + B))&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label id="focal-op-label"&gt;
-  Focal kernel:
-  &lt;select id="focal-kernel"&gt;
-    &lt;option value="mean" selected&gt;Mean (3×3)&lt;/option&gt;
-    &lt;option value="gaussian"&gt;Gaussian (3×3)&lt;/option&gt;
-    &lt;option value="sobel"&gt;Sobel Edge Detection&lt;/option&gt;
-    &lt;option value="laplacian"&gt;Laplacian&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show kernel weights:
-  &lt;input type="checkbox" id="show-kernel"&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="mapalgebra-viz">
+  <div class="controls">
+    <label>
+      Operation type:
+      <select id="operation-type">
+        <option value="local">Local (Cell-by-Cell)</option>
+        <option value="focal" selected="">Focal (Neighborhood)</option>
+      </select>
+    </label>
+    <label id="local-op-label" style="display:none;">
+      Local operation:
+      <select id="local-operation">
+        <option value="add">Add (A + B)</option>
+        <option value="subtract">Subtract (A - B)</option>
+        <option value="multiply">Multiply (A × B)</option>
+        <option value="ndvi">NDVI-like ((A - B) / (A + B))</option>
+      </select>
+    </label>
+    <label id="focal-op-label">
+      Focal kernel:
+      <select id="focal-kernel">
+        <option value="mean" selected="">Mean (3×3)</option>
+        <option value="gaussian">Gaussian (3×3)</option>
+        <option value="sobel">Sobel Edge Detection</option>
+        <option value="laplacian">Laplacian</option>
+      </select>
+    </label>
+    <label>
+      Show kernel weights:
+      <input type="checkbox" id="show-kernel">
+    </label>
+  </div>
+  <div class="mapalgebra-display">
+    <div id="kernel-display" style="display:none; margin: 10px 0; font-family: monospace; white-space: pre;"></div>
+  </div>
+  <div id="mapalgebra-canvas-container">
+    <canvas id="mapalgebra-canvas" width="700" height="350" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div class="mapalgebra-display">
-<pre><code>&lt;div id="kernel-display" style="display:none; margin: 10px 0; font-family: monospace; white-space: pre;"&gt;&lt;/div&gt;</code></pre>
-</div>
-<div id="mapalgebra-canvas-container">
-<pre><code>&lt;canvas id="mapalgebra-canvas" width="700" height="350" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('mapalgebra-canvas');

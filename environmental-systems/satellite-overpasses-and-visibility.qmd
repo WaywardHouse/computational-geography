@@ -302,6 +302,7 @@ The negative elevation means the satellite is on the opposite side of Earth from
 
 Below is an interactive satellite visibility calculator.
 
+```{=html}
 <div class="viz-container" id="visibility-viz">
   <div class="controls">
     <label>
@@ -631,6 +632,7 @@ while (!window.echarts) await new Promise(r => setTimeout(r, 50));
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Animate Time:** Watch the satellite rise and set
@@ -647,6 +649,7 @@ while (!window.echarts) await new Promise(r => setTimeout(r, 50));
 
 Below is a polar plot showing satellite passes from the observer's perspective — a **local sky map** with zenith at center and horizon at the perimeter.
 
+```{=html}
 <div class="viz-container" id="polar-viz">
   <div class="controls">
     <label>
@@ -1013,6 +1016,7 @@ while (!window.echarts) await new Promise(r => setTimeout(r, 50));
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Change latitude:** Higher latitudes see more polar orbit passes (inclination 98°)

@@ -287,39 +287,40 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive severe weather parameter simulator.</p>
-<div id="severe-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Surface temperature (°C):
-  &lt;input type="range" id="surface-temp" min="20" max="38" step="1" value="30"&gt;
-  &lt;span id="temp-val"&gt;30&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Surface dew point (°C):
-  &lt;input type="range" id="dew-point" min="10" max="28" step="1" value="22"&gt;
-  &lt;span id="dewpt-val"&gt;22&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Mid-level temperature (°C):
-  &lt;input type="range" id="mid-temp" min="-15" max="-5" step="1" value="-10"&gt;
-  &lt;span id="midtemp-val"&gt;-10&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Bulk shear 0-6km (m/s):
-  &lt;input type="range" id="shear" min="5" max="35" step="2.5" value="15"&gt;
-  &lt;span id="shear-val"&gt;15&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="severe-info"&gt;
-  &lt;p&gt;&lt;strong&gt;CAPE:&lt;/strong&gt; &lt;span id="cape"&gt;--&lt;/span&gt; J/kg&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Max updraft:&lt;/strong&gt; &lt;span id="updraft"&gt;--&lt;/span&gt; m/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Severe potential:&lt;/strong&gt; &lt;span id="potential"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Storm type:&lt;/strong&gt; &lt;span id="storm-type"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="severe-viz">
+  <div class="controls">
+    <label>
+      Surface temperature (°C):
+      <input type="range" id="surface-temp" min="20" max="38" step="1" value="30">
+      <span id="temp-val">30</span>
+    </label>
+    <label>
+      Surface dew point (°C):
+      <input type="range" id="dew-point" min="10" max="28" step="1" value="22">
+      <span id="dewpt-val">22</span>
+    </label>
+    <label>
+      Mid-level temperature (°C):
+      <input type="range" id="mid-temp" min="-15" max="-5" step="1" value="-10">
+      <span id="midtemp-val">-10</span>
+    </label>
+    <label>
+      Bulk shear 0-6km (m/s):
+      <input type="range" id="shear" min="5" max="35" step="2.5" value="15">
+      <span id="shear-val">15</span>
+    </label>
+    <div class="severe-info">
+      <p><strong>CAPE:</strong> <span id="cape">--</span> J/kg</p>
+      <p><strong>Max updraft:</strong> <span id="updraft">--</span> m/s</p>
+      <p><strong>Severe potential:</strong> <span id="potential">--</span></p>
+      <p><strong>Storm type:</strong> <span id="storm-type">--</span></p>
+    </div>
+  </div>
+  <div id="severe-canvas-container">
+    <canvas id="severe-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="severe-canvas-container">
-<pre><code>&lt;canvas id="severe-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

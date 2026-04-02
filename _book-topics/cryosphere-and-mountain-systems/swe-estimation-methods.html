@@ -265,38 +265,39 @@ Predicted at 2500m: 450mm</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive SWE estimation tool combining multiple sensors.</p>
-<div id="swe-est-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  SNOTEL low (mm):
-  &lt;input type="range" id="snotel-low" min="100" max="500" step="50" value="300"&gt;
-  &lt;span id="low-val"&gt;300&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  SNOTEL mid (mm):
-  &lt;input type="range" id="snotel-mid" min="200" max="700" step="50" value="450"&gt;
-  &lt;span id="mid-val"&gt;450&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  SNOTEL high (mm):
-  &lt;input type="range" id="snotel-high" min="300" max="900" step="50" value="600"&gt;
-  &lt;span id="high-val"&gt;600&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Microwave ΔTB (K):
-  &lt;input type="range" id="delta-tb" min="0" max="100" step="5" value="50"&gt;
-  &lt;span id="tb-val"&gt;50&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="swe-est-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Basin avg SWE:&lt;/strong&gt; &lt;span id="basin-swe"&gt;--&lt;/span&gt; mm&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Total volume:&lt;/strong&gt; &lt;span id="total-volume"&gt;--&lt;/span&gt; million m³&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Uncertainty:&lt;/strong&gt; &lt;span id="uncertainty"&gt;--&lt;/span&gt;%&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="swe-est-viz">
+  <div class="controls">
+    <label>
+      SNOTEL low (mm):
+      <input type="range" id="snotel-low" min="100" max="500" step="50" value="300">
+      <span id="low-val">300</span>
+    </label>
+    <label>
+      SNOTEL mid (mm):
+      <input type="range" id="snotel-mid" min="200" max="700" step="50" value="450">
+      <span id="mid-val">450</span>
+    </label>
+    <label>
+      SNOTEL high (mm):
+      <input type="range" id="snotel-high" min="300" max="900" step="50" value="600">
+      <span id="high-val">600</span>
+    </label>
+    <label>
+      Microwave ΔTB (K):
+      <input type="range" id="delta-tb" min="0" max="100" step="5" value="50">
+      <span id="tb-val">50</span>
+    </label>
+    <div class="swe-est-info">
+      <p><strong>Basin avg SWE:</strong> <span id="basin-swe">--</span> mm</p>
+      <p><strong>Total volume:</strong> <span id="total-volume">--</span> million m³</p>
+      <p><strong>Uncertainty:</strong> <span id="uncertainty">--</span>%</p>
+    </div>
+  </div>
+  <div id="swe-est-canvas-container">
+    <canvas id="swe-est-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="swe-est-canvas-container">
-<pre><code>&lt;canvas id="swe-est-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

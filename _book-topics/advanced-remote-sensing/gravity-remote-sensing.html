@@ -272,33 +272,34 @@ Month 13 (Jan 2023): Gravity anomaly = -30 μGal</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive GRACE data simulator.</p>
-<div id="grace-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Region:
-  &lt;select id="region"&gt;
-    &lt;option value="greenland" selected&gt;Greenland Ice Sheet&lt;/option&gt;
-    &lt;option value="amazon"&gt;Amazon Basin&lt;/option&gt;
-    &lt;option value="california"&gt;California&lt;/option&gt;
-    &lt;option value="ganges"&gt;Ganges Basin (India)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Time range (years):
-  &lt;input type="range" id="time-range" min="1" max="20" step="1" value="10"&gt;
-  &lt;span id="time-val"&gt;10&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="grace-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Linear trend:&lt;/strong&gt; &lt;span id="trend"&gt;--&lt;/span&gt; cm/year&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Seasonal amplitude:&lt;/strong&gt; &lt;span id="seasonal"&gt;--&lt;/span&gt; cm&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Total change:&lt;/strong&gt; &lt;span id="total-change"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Mass change rate:&lt;/strong&gt; &lt;span id="mass-rate"&gt;--&lt;/span&gt; Gt/year&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="grace-viz">
+  <div class="controls">
+    <label>
+      Region:
+      <select id="region">
+        <option value="greenland" selected="">Greenland Ice Sheet</option>
+        <option value="amazon">Amazon Basin</option>
+        <option value="california">California</option>
+        <option value="ganges">Ganges Basin (India)</option>
+      </select>
+    </label>
+    <label>
+      Time range (years):
+      <input type="range" id="time-range" min="1" max="20" step="1" value="10">
+      <span id="time-val">10</span>
+    </label>
+    <div class="grace-info">
+      <p><strong>Linear trend:</strong> <span id="trend">--</span> cm/year</p>
+      <p><strong>Seasonal amplitude:</strong> <span id="seasonal">--</span> cm</p>
+      <p><strong>Total change:</strong> <span id="total-change">--</span> m</p>
+      <p><strong>Mass change rate:</strong> <span id="mass-rate">--</span> Gt/year</p>
+    </div>
+  </div>
+  <div id="grace-canvas-container">
+    <canvas id="grace-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="grace-canvas-container">
-<pre><code>&lt;canvas id="grace-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

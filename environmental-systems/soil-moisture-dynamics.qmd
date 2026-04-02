@@ -264,6 +264,7 @@ If we continued without rain, stress would begin when $S < 140$ mm.
 
 Below is an interactive soil moisture simulator.
 
+```{=html}
 <div class="viz-container" id="soil-moisture-viz">
   <div class="controls">
     <label>
@@ -545,6 +546,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Dry season:** Watch moisture decline steadily, stress increases

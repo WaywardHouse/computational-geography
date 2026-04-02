@@ -373,6 +373,7 @@ $$Q_{capacity} \approx 420 \text{ L/s}$$
 
 Below is an interactive IDF curve generator.
 
+```{=html}
 <div class="viz-container" id="idf-viz">
   <div class="controls">
     <label>
@@ -573,6 +574,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Log-log plot shows power-law relationships

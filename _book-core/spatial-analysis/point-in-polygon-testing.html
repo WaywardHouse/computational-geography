@@ -238,37 +238,38 @@ Don’t count.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive point-in-polygon tester.</p>
-<div id="pip-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Test shape:
-  &lt;select id="shape-select"&gt;
-    &lt;option value="square"&gt;Square&lt;/option&gt;
-    &lt;option value="triangle"&gt;Triangle&lt;/option&gt;
-    &lt;option value="concave" selected&gt;Concave Polygon&lt;/option&gt;
-    &lt;option value="star"&gt;Star (Concave)&lt;/option&gt;
-    &lt;option value="complex"&gt;Complex Shape&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show ray:
-  &lt;input type="checkbox" id="show-ray" checked&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show intersections:
-  &lt;input type="checkbox" id="show-intersections" checked&gt;
-&lt;/label&gt;
-&lt;div class="pip-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Click on the canvas to test points&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;Point: &lt;span id="point-coords"&gt;(--, --)&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;Ray crossings: &lt;span id="crossing-count"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;Result: &lt;span id="pip-result"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="pip-viz">
+  <div class="controls">
+    <label>
+      Test shape:
+      <select id="shape-select">
+        <option value="square">Square</option>
+        <option value="triangle">Triangle</option>
+        <option value="concave" selected="">Concave Polygon</option>
+        <option value="star">Star (Concave)</option>
+        <option value="complex">Complex Shape</option>
+      </select>
+    </label>
+    <label>
+      Show ray:
+      <input type="checkbox" id="show-ray" checked="">
+    </label>
+    <label>
+      Show intersections:
+      <input type="checkbox" id="show-intersections" checked="">
+    </label>
+    <div class="pip-info">
+      <p><strong>Click on the canvas to test points</strong></p>
+      <p>Point: <span id="point-coords">(--, --)</span></p>
+      <p>Ray crossings: <span id="crossing-count">--</span></p>
+      <p>Result: <span id="pip-result">--</span></p>
+    </div>
+  </div>
+  <div id="pip-canvas-container">
+    <canvas id="pip-canvas" width="600" height="500" style="border: 1px solid #ddd; cursor: crosshair;"></canvas>
+  </div>
 </div>
-<div id="pip-canvas-container">
-<pre><code>&lt;canvas id="pip-canvas" width="600" height="500" style="border: 1px solid #ddd; cursor: crosshair;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('pip-canvas');

@@ -261,49 +261,48 @@ C4 crops: ~40–60 μmol/m²/s</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive photosynthesis simulator.</p>
-<div id="photosynthesis-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Plant type:
-  &lt;select id="plant-type"&gt;
-    &lt;option value="c3-crop" selected&gt;C3 Crop&lt;/option&gt;
-    &lt;option value="c4-crop"&gt;C4 Crop&lt;/option&gt;
-    &lt;option value="tree"&gt;Temperate Tree&lt;/option&gt;
-    &lt;option value="shade"&gt;Shade Plant&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Quantum efficiency (φ):
-  &lt;input type="range" id="phi-slider" min="0.02" max="0.08" step="0.01" value="0.05"&gt;
-  &lt;span id="phi-value"&gt;0.05&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Max photosynthesis (A&lt;sub&gt;max&lt;/sub&gt;, μmol/m²/s):
-  &lt;input type="range" id="amax-slider" min="10" max="60" step="5" value="30"&gt;
-  &lt;span id="amax-value"&gt;30&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Dark respiration (R&lt;sub&gt;d&lt;/sub&gt;, μmol/m²/s):
-  &lt;input type="range" id="rd-slider" min="0.5" max="5" step="0.5" value="2"&gt;
-  &lt;span id="rd-value"&gt;2.0&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Current light (μmol/m²/s):
-  &lt;input type="range" id="light-current-slider" min="0" max="2000" step="50" value="500"&gt;
-  &lt;span id="light-current-value"&gt;500&lt;/span&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="photosynthesis-viz">
+  <div class="controls">
+    <label>
+      Plant type:
+      <select id="plant-type">
+        <option value="c3-crop" selected="">C3 Crop</option>
+        <option value="c4-crop">C4 Crop</option>
+        <option value="tree">Temperate Tree</option>
+        <option value="shade">Shade Plant</option>
+      </select>
+    </label>
+    <label>
+      Quantum efficiency (φ):
+      <input type="range" id="phi-slider" min="0.02" max="0.08" step="0.01" value="0.05">
+      <span id="phi-value">0.05</span>
+    </label>
+    <label>
+      Max photosynthesis (A<sub>max</sub>, μmol/m²/s):
+      <input type="range" id="amax-slider" min="10" max="60" step="5" value="30">
+      <span id="amax-value">30</span>
+    </label>
+    <label>
+      Dark respiration (R<sub>d</sub>, μmol/m²/s):
+      <input type="range" id="rd-slider" min="0.5" max="5" step="0.5" value="2">
+      <span id="rd-value">2.0</span>
+    </label>
+    <label>
+      Current light (μmol/m²/s):
+      <input type="range" id="light-current-slider" min="0" max="2000" step="50" value="500">
+      <span id="light-current-value">500</span>
+    </label>
+  </div>
+  <div class="photo-results">
+    <h4 class="anchored">At Current Light Level:</h4>
+    <p><strong>Gross photosynthesis:</strong> <span id="a-gross"></span> μmol CO₂/m²/s</p>
+    <p><strong>Net photosynthesis:</strong> <span id="a-net"></span> μmol CO₂/m²/s</p>
+    <p><strong>Light compensation:</strong> <span id="light-comp"></span> μmol/m²/s</p>
+    <p><strong>Light saturation (90%):</strong> <span id="light-sat"></span> μmol/m²/s</p>
+  </div>
+  <div id="photosynthesis-chart" style="width: 100%; height: 450px;"></div>
 </div>
-<div class="photo-results">
-<pre><code>&lt;h4&gt;At Current Light Level:&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Gross photosynthesis:&lt;/strong&gt; &lt;span id="a-gross"&gt;&lt;/span&gt; μmol CO₂/m²/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Net photosynthesis:&lt;/strong&gt; &lt;span id="a-net"&gt;&lt;/span&gt; μmol CO₂/m²/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Light compensation:&lt;/strong&gt; &lt;span id="light-comp"&gt;&lt;/span&gt; μmol/m²/s&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Light saturation (90%):&lt;/strong&gt; &lt;span id="light-sat"&gt;&lt;/span&gt; μmol/m²/s&lt;/p&gt;</code></pre>
-</div>
-<div id="photosynthesis-chart" style="width: 100%; height: 450px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

@@ -279,42 +279,43 @@ Weak HV → not volume scattering</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive SAR simulator.</p>
-<div id="sar-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Wavelength band:
-  &lt;select id="wavelength-band"&gt;
-    &lt;option value="x"&gt;X-band (3 cm)&lt;/option&gt;
-    &lt;option value="c" selected&gt;C-band (6 cm)&lt;/option&gt;
-    &lt;option value="l"&gt;L-band (24 cm)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Scene type:
-  &lt;select id="scene-type"&gt;
-    &lt;option value="water"&gt;Open water&lt;/option&gt;
-    &lt;option value="urban" selected&gt;Urban area&lt;/option&gt;
-    &lt;option value="forest"&gt;Forest&lt;/option&gt;
-    &lt;option value="agriculture"&gt;Agriculture&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Incidence angle (°):
-  &lt;input type="range" id="incidence-angle" min="20" max="60" step="5" value="35"&gt;
-  &lt;span id="angle-val"&gt;35&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="sar-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Range resolution:&lt;/strong&gt; &lt;span id="range-res"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Azimuth resolution:&lt;/strong&gt; &lt;span id="azimuth-res"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Backscatter (HH):&lt;/strong&gt; &lt;span id="backscatter-hh"&gt;--&lt;/span&gt; dB&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Backscatter (VV):&lt;/strong&gt; &lt;span id="backscatter-vv"&gt;--&lt;/span&gt; dB&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Scattering type:&lt;/strong&gt; &lt;span id="scatter-type"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="sar-viz">
+  <div class="controls">
+    <label>
+      Wavelength band:
+      <select id="wavelength-band">
+        <option value="x">X-band (3 cm)</option>
+        <option value="c" selected="">C-band (6 cm)</option>
+        <option value="l">L-band (24 cm)</option>
+      </select>
+    </label>
+    <label>
+      Scene type:
+      <select id="scene-type">
+        <option value="water">Open water</option>
+        <option value="urban" selected="">Urban area</option>
+        <option value="forest">Forest</option>
+        <option value="agriculture">Agriculture</option>
+      </select>
+    </label>
+    <label>
+      Incidence angle (°):
+      <input type="range" id="incidence-angle" min="20" max="60" step="5" value="35">
+      <span id="angle-val">35</span>
+    </label>
+    <div class="sar-info">
+      <p><strong>Range resolution:</strong> <span id="range-res">--</span> m</p>
+      <p><strong>Azimuth resolution:</strong> <span id="azimuth-res">--</span> m</p>
+      <p><strong>Backscatter (HH):</strong> <span id="backscatter-hh">--</span> dB</p>
+      <p><strong>Backscatter (VV):</strong> <span id="backscatter-vv">--</span> dB</p>
+      <p><strong>Scattering type:</strong> <span id="scatter-type">--</span></p>
+    </div>
+  </div>
+  <div id="sar-canvas-container">
+    <canvas id="sar-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="sar-canvas-container">
-<pre><code>&lt;canvas id="sar-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('sar-canvas');

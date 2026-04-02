@@ -350,40 +350,41 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive hyperspectral analysis tool.</p>
-<div id="hyper-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Vegetation fraction:
-  &lt;input type="range" id="veg-frac" min="0" max="100" step="5" value="50"&gt;
-  &lt;span id="veg-val"&gt;50&lt;/span&gt;%
-&lt;/label&gt;
-&lt;label&gt;
-  Add noise:
-  &lt;input type="checkbox" id="add-noise"&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show endmembers:
-  &lt;input type="checkbox" id="show-endmembers" checked&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Analysis method:
-  &lt;select id="analysis-method"&gt;
-    &lt;option value="mixture"&gt;Linear unmixing&lt;/option&gt;
-    &lt;option value="sam"&gt;Spectral Angle Mapper&lt;/option&gt;
-    &lt;option value="absorption"&gt;Absorption features&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="hyper-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Estimated vegetation:&lt;/strong&gt; &lt;span id="est-veg"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Estimated soil:&lt;/strong&gt; &lt;span id="est-soil"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;RMSE:&lt;/strong&gt; &lt;span id="rmse"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Classification:&lt;/strong&gt; &lt;span id="classification"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="hyper-viz">
+  <div class="controls">
+    <label>
+      Vegetation fraction:
+      <input type="range" id="veg-frac" min="0" max="100" step="5" value="50">
+      <span id="veg-val">50</span>%
+    </label>
+    <label>
+      Add noise:
+      <input type="checkbox" id="add-noise">
+    </label>
+    <label>
+      Show endmembers:
+      <input type="checkbox" id="show-endmembers" checked="">
+    </label>
+    <label>
+      Analysis method:
+      <select id="analysis-method">
+        <option value="mixture">Linear unmixing</option>
+        <option value="sam">Spectral Angle Mapper</option>
+        <option value="absorption">Absorption features</option>
+      </select>
+    </label>
+    <div class="hyper-info">
+      <p><strong>Estimated vegetation:</strong> <span id="est-veg">--</span>%</p>
+      <p><strong>Estimated soil:</strong> <span id="est-soil">--</span>%</p>
+      <p><strong>RMSE:</strong> <span id="rmse">--</span></p>
+      <p><strong>Classification:</strong> <span id="classification">--</span></p>
+    </div>
+  </div>
+  <div id="hyper-canvas-container">
+    <canvas id="hyper-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="hyper-canvas-container">
-<pre><code>&lt;canvas id="hyper-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

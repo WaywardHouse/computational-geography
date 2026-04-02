@@ -304,6 +304,7 @@ $$= \frac{1}{9}(135) = 15.0 \text{ m}$$
 
 Below is an interactive map algebra demonstration.
 
+```{=html}
 <div class="viz-container" id="mapalgebra-viz">
   <div class="controls">
     <label>
@@ -569,6 +570,7 @@ Below is an interactive map algebra demonstration.
   render();
 })();
 </script>
+```
 
 **Try this:**
 - **Mean filter:** Smooths the noisy gradient pattern

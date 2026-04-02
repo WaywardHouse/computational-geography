@@ -320,6 +320,7 @@ $$z_{\text{bottom}} = z_{\text{surface}} - d = 2.5 - 45.2 = -42.7 \text{ m}$$
 
 Below is an interactive bathymetric mapping simulator.
 
+```{=html}
 <div class="viz-container" id="bathy-viz">
   <div class="controls">
     <label>
@@ -556,6 +557,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Blue area represents water column

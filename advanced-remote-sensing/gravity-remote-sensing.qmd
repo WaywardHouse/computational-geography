@@ -321,6 +321,7 @@ $$V = A \times \Delta h = 1.26 \times 10^{11} \times (-1.91) = -2.4 \times 10^{1
 
 Below is an interactive GRACE data simulator.
 
+```{=html}
 <div class="viz-container" id="grace-viz">
   <div class="controls">
     <label>
@@ -506,6 +507,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Observations:**
 - Greenland shows strong negative trend (ice loss: -280 Gt/year)

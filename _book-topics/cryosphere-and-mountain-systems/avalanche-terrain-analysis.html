@@ -251,44 +251,45 @@ i=3  2960  2940  2910  2860  2810</code></pre>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive avalanche terrain classifier.</p>
-<div id="ava-terrain-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Terrain complexity:
-  &lt;select id="terrain-type"&gt;
-    &lt;option value="simple"&gt;Simple (rolling terrain)&lt;/option&gt;
-    &lt;option value="moderate" selected&gt;Moderate (varied slopes)&lt;/option&gt;
-    &lt;option value="complex"&gt;Complex (steep alpine)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show hazard zones only:
-  &lt;input type="checkbox" id="show-hazard-only"&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Show aspect:
-  &lt;input type="checkbox" id="show-aspect"&gt;
-&lt;/label&gt;
-&lt;div class="ava-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Hazard distribution:&lt;/strong&gt;&lt;/p&gt;
-  &lt;p&gt;Non-avalanche: &lt;span id="pct-safe"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;Avalanche terrain: &lt;span id="pct-hazard"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;Extreme steep: &lt;span id="pct-extreme"&gt;--&lt;/span&gt;%&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="ava-terrain-viz">
+  <div class="controls">
+    <label>
+      Terrain complexity:
+      <select id="terrain-type">
+        <option value="simple">Simple (rolling terrain)</option>
+        <option value="moderate" selected="">Moderate (varied slopes)</option>
+        <option value="complex">Complex (steep alpine)</option>
+      </select>
+    </label>
+    <label>
+      Show hazard zones only:
+      <input type="checkbox" id="show-hazard-only">
+    </label>
+    <label>
+      Show aspect:
+      <input type="checkbox" id="show-aspect">
+    </label>
+    <div class="ava-info">
+      <p><strong>Hazard distribution:</strong></p>
+      <p>Non-avalanche: <span id="pct-safe">--</span>%</p>
+      <p>Avalanche terrain: <span id="pct-hazard">--</span>%</p>
+      <p>Extreme steep: <span id="pct-extreme">--</span>%</p>
+    </div>
+  </div>
+  <div id="ava-terrain-canvas-container">
+    <canvas id="ava-terrain-canvas" width="700" height="350" style="border: 1px solid #ddd;"></canvas>
+  </div>
+  <div class="legend">
+    <p><strong>Colors:</strong> 
+      <span style="color: #2E7D32">■ Safe (&lt;30°)</span>
+      <span style="color: #F57F17">■ Low (30-35°)</span>
+      <span style="color: #E64A19">■ Moderate (35-40°)</span>
+      <span style="color: #B71C1C">■ High (40-45°)</span>
+      <span style="color: #4A148C">■ Extreme (&gt;45°)</span>
+    </p>
+  </div>
 </div>
-<div id="ava-terrain-canvas-container">
-<pre><code>&lt;canvas id="ava-terrain-canvas" width="700" height="350" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-<div class="legend">
-<pre><code>&lt;p&gt;&lt;strong&gt;Colors:&lt;/strong&gt; 
-  &lt;span style="color: #2E7D32"&gt;■ Safe (&amp;lt;30°)&lt;/span&gt;
-  &lt;span style="color: #F57F17"&gt;■ Low (30-35°)&lt;/span&gt;
-  &lt;span style="color: #E64A19"&gt;■ Moderate (35-40°)&lt;/span&gt;
-  &lt;span style="color: #B71C1C"&gt;■ High (40-45°)&lt;/span&gt;
-  &lt;span style="color: #4A148C"&gt;■ Extreme (&amp;gt;45°)&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('ava-terrain-canvas');

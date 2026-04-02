@@ -247,39 +247,40 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive debris flow simulator.</p>
-<div id="debris-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Volume (m³):
-  &lt;input type="range" id="volume" min="1000" max="100000" step="5000" value="10000"&gt;
-  &lt;span id="vol-val"&gt;10000&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Vertical drop (m):
-  &lt;input type="range" id="vert-drop" min="200" max="1500" step="100" value="800"&gt;
-  &lt;span id="drop-val"&gt;800&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Channel slope (°):
-  &lt;input type="range" id="channel-slope" min="5" max="35" step="5" value="15"&gt;
-  &lt;span id="slope-val"&gt;15&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Friction coefficient:
-  &lt;input type="range" id="friction" min="0.1" max="0.4" step="0.05" value="0.15"&gt;
-  &lt;span id="friction-val"&gt;0.15&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="debris-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Travel angle:&lt;/strong&gt; &lt;span id="travel-angle"&gt;--&lt;/span&gt;°&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Runout distance:&lt;/strong&gt; &lt;span id="runout-dist"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Peak velocity:&lt;/strong&gt; &lt;span id="peak-vel"&gt;--&lt;/span&gt; m/s&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Impact force:&lt;/strong&gt; &lt;span id="impact-force"&gt;--&lt;/span&gt; kN&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="debris-viz">
+  <div class="controls">
+    <label>
+      Volume (m³):
+      <input type="range" id="volume" min="1000" max="100000" step="5000" value="10000">
+      <span id="vol-val">10000</span>
+    </label>
+    <label>
+      Vertical drop (m):
+      <input type="range" id="vert-drop" min="200" max="1500" step="100" value="800">
+      <span id="drop-val">800</span>
+    </label>
+    <label>
+      Channel slope (°):
+      <input type="range" id="channel-slope" min="5" max="35" step="5" value="15">
+      <span id="slope-val">15</span>
+    </label>
+    <label>
+      Friction coefficient:
+      <input type="range" id="friction" min="0.1" max="0.4" step="0.05" value="0.15">
+      <span id="friction-val">0.15</span>
+    </label>
+    <div class="debris-info">
+      <p><strong>Travel angle:</strong> <span id="travel-angle">--</span>°</p>
+      <p><strong>Runout distance:</strong> <span id="runout-dist">--</span> m</p>
+      <p><strong>Peak velocity:</strong> <span id="peak-vel">--</span> m/s</p>
+      <p><strong>Impact force:</strong> <span id="impact-force">--</span> kN</p>
+    </div>
+  </div>
+  <div id="debris-canvas-container">
+    <canvas id="debris-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="debris-canvas-container">
-<pre><code>&lt;canvas id="debris-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

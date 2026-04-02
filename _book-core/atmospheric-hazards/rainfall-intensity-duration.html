@@ -294,38 +294,39 @@ window.Quarto = {
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive IDF curve generator.</p>
-<div id="idf-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Return period (years):
-  &lt;input type="range" id="return-period" min="2" max="100" step="1" value="10"&gt;
-  &lt;span id="period-val"&gt;10&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Region:
-  &lt;select id="region"&gt;
-    &lt;option value="midwest"&gt;Midwest USA&lt;/option&gt;
-    &lt;option value="southeast"&gt;Southeast USA&lt;/option&gt;
-    &lt;option value="southwest"&gt;Southwest USA&lt;/option&gt;
-    &lt;option value="pacific"&gt;Pacific Northwest&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Duration (minutes):
-  &lt;input type="range" id="duration" min="5" max="1440" step="5" value="60"&gt;
-  &lt;span id="duration-val"&gt;60&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="idf-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Intensity:&lt;/strong&gt; &lt;span id="intensity"&gt;--&lt;/span&gt; mm/hr&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Rainfall depth:&lt;/strong&gt; &lt;span id="depth"&gt;--&lt;/span&gt; mm&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Exceedance prob:&lt;/strong&gt; &lt;span id="prob"&gt;--&lt;/span&gt;%&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Design standard:&lt;/strong&gt; &lt;span id="standard"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="idf-viz">
+  <div class="controls">
+    <label>
+      Return period (years):
+      <input type="range" id="return-period" min="2" max="100" step="1" value="10">
+      <span id="period-val">10</span>
+    </label>
+    <label>
+      Region:
+      <select id="region">
+        <option value="midwest">Midwest USA</option>
+        <option value="southeast">Southeast USA</option>
+        <option value="southwest">Southwest USA</option>
+        <option value="pacific">Pacific Northwest</option>
+      </select>
+    </label>
+    <label>
+      Duration (minutes):
+      <input type="range" id="duration" min="5" max="1440" step="5" value="60">
+      <span id="duration-val">60</span>
+    </label>
+    <div class="idf-info">
+      <p><strong>Intensity:</strong> <span id="intensity">--</span> mm/hr</p>
+      <p><strong>Rainfall depth:</strong> <span id="depth">--</span> mm</p>
+      <p><strong>Exceedance prob:</strong> <span id="prob">--</span>%</p>
+      <p><strong>Design standard:</strong> <span id="standard">--</span></p>
+    </div>
+  </div>
+  <div id="idf-canvas-container">
+    <canvas id="idf-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="idf-canvas-container">
-<pre><code>&lt;canvas id="idf-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

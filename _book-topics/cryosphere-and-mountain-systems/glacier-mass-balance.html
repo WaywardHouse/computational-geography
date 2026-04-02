@@ -282,34 +282,35 @@ Band 6: <span class="math inline">B_6 = 1.0 \times (-2.5) = -2.5</span></p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive glacier mass balance simulator.</p>
-<div id="glacier-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  ELA shift (m):
-  &lt;input type="range" id="ela-shift" min="-200" max="200" step="20" value="0"&gt;
-  &lt;span id="ela-val"&gt;0&lt;/span&gt; m
-&lt;/label&gt;
-&lt;label&gt;
-  Mass balance gradient:
-  &lt;input type="range" id="mb-gradient" min="0.004" max="0.012" step="0.001" value="0.008"&gt;
-  &lt;span id="gradient-val"&gt;0.008&lt;/span&gt; year⁻¹
-&lt;/label&gt;
-&lt;label&gt;
-  Terminus elevation (m):
-  &lt;input type="range" id="terminus-elev" min="2400" max="3000" step="100" value="2600"&gt;
-  &lt;span id="terminus-val"&gt;2600&lt;/span&gt;
-&lt;/label&gt;
-&lt;div class="glacier-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Glacier-wide balance:&lt;/strong&gt; &lt;span id="glacier-balance"&gt;--&lt;/span&gt; m/year&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;ELA:&lt;/strong&gt; &lt;span id="ela-result"&gt;--&lt;/span&gt; m&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;AAR:&lt;/strong&gt; &lt;span id="aar-result"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt; &lt;span id="glacier-status"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="glacier-viz">
+  <div class="controls">
+    <label>
+      ELA shift (m):
+      <input type="range" id="ela-shift" min="-200" max="200" step="20" value="0">
+      <span id="ela-val">0</span> m
+    </label>
+    <label>
+      Mass balance gradient:
+      <input type="range" id="mb-gradient" min="0.004" max="0.012" step="0.001" value="0.008">
+      <span id="gradient-val">0.008</span> year⁻¹
+    </label>
+    <label>
+      Terminus elevation (m):
+      <input type="range" id="terminus-elev" min="2400" max="3000" step="100" value="2600">
+      <span id="terminus-val">2600</span>
+    </label>
+    <div class="glacier-info">
+      <p><strong>Glacier-wide balance:</strong> <span id="glacier-balance">--</span> m/year</p>
+      <p><strong>ELA:</strong> <span id="ela-result">--</span> m</p>
+      <p><strong>AAR:</strong> <span id="aar-result">--</span></p>
+      <p><strong>Status:</strong> <span id="glacier-status">--</span></p>
+    </div>
+  </div>
+  <div id="glacier-canvas-container">
+    <canvas id="glacier-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="glacier-canvas-container">
-<pre><code>&lt;canvas id="glacier-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

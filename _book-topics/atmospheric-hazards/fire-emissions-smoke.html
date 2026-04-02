@@ -267,43 +267,44 @@ Stable (E-F): Limited mixing, concentrated plume</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive smoke dispersion simulator.</p>
-<div id="smoke-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Burned area (ha):
-  &lt;input type="range" id="burned-area" min="100" max="5000" step="100" value="1000"&gt;
-  &lt;span id="area-val"&gt;1000&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Wind speed (m/s):
-  &lt;input type="range" id="wind" min="2" max="15" step="1" value="5"&gt;
-  &lt;span id="wind-val"&gt;5&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Plume height (m):
-  &lt;input type="range" id="plume-height" min="200" max="2000" step="100" value="800"&gt;
-  &lt;span id="height-val"&gt;800&lt;/span&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Stability class:
-  &lt;select id="stability"&gt;
-    &lt;option value="A"&gt;A (Very unstable)&lt;/option&gt;
-    &lt;option value="B"&gt;B (Unstable)&lt;/option&gt;
-    &lt;option value="C" selected&gt;C (Slightly unstable)&lt;/option&gt;
-    &lt;option value="D"&gt;D (Neutral)&lt;/option&gt;
-    &lt;option value="E"&gt;E (Slightly stable)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;div class="smoke-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Total PM₂.₅:&lt;/strong&gt; &lt;span id="total-pm"&gt;--&lt;/span&gt; tonnes&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Max concentration:&lt;/strong&gt; &lt;span id="max-conc"&gt;--&lt;/span&gt; μg/m³&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Distance to standard:&lt;/strong&gt; &lt;span id="dist-standard"&gt;--&lt;/span&gt; km&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="smoke-viz">
+  <div class="controls">
+    <label>
+      Burned area (ha):
+      <input type="range" id="burned-area" min="100" max="5000" step="100" value="1000">
+      <span id="area-val">1000</span>
+    </label>
+    <label>
+      Wind speed (m/s):
+      <input type="range" id="wind" min="2" max="15" step="1" value="5">
+      <span id="wind-val">5</span>
+    </label>
+    <label>
+      Plume height (m):
+      <input type="range" id="plume-height" min="200" max="2000" step="100" value="800">
+      <span id="height-val">800</span>
+    </label>
+    <label>
+      Stability class:
+      <select id="stability">
+        <option value="A">A (Very unstable)</option>
+        <option value="B">B (Unstable)</option>
+        <option value="C" selected="">C (Slightly unstable)</option>
+        <option value="D">D (Neutral)</option>
+        <option value="E">E (Slightly stable)</option>
+      </select>
+    </label>
+    <div class="smoke-info">
+      <p><strong>Total PM₂.₅:</strong> <span id="total-pm">--</span> tonnes</p>
+      <p><strong>Max concentration:</strong> <span id="max-conc">--</span> μg/m³</p>
+      <p><strong>Distance to standard:</strong> <span id="dist-standard">--</span> km</p>
+    </div>
+  </div>
+  <div id="smoke-canvas-container">
+    <canvas id="smoke-canvas" width="700" height="400" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="smoke-canvas-container">
-<pre><code>&lt;canvas id="smoke-canvas" width="700" height="400" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

@@ -257,6 +257,7 @@ $$\Delta t = \phi \times \frac{P}{2\pi} = 1.90 \times \frac{86400}{2\pi} = 1.90 
 
 Below is an interactive soil temperature profile simulator.
 
+```{=html}
 <div class="viz-container" id="soil-temp-viz">
   <div class="controls">
     <label>
@@ -475,6 +476,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Animate the daily cycle:** Watch the temperature wave propagate downward

@@ -240,36 +240,35 @@ z[i+1,j-1]   z[i+1,j]   z[i+1,j+1]</code></pre>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive model computing slope and aspect from a synthetic DEM.</p>
-<div id="gradient-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Terrain type:
-  &lt;select id="terrain-gradient-select"&gt;
-    &lt;option value="plane"&gt;Tilted plane&lt;/option&gt;
-    &lt;option value="cone"&gt;Cone&lt;/option&gt;
-    &lt;option value="ridge"&gt;Ridge&lt;/option&gt;
-    &lt;option value="valley"&gt;Valley&lt;/option&gt;
-    &lt;option value="saddle"&gt;Saddle&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Grid resolution:
-  &lt;input type="range" id="res-gradient-slider" min="20" max="60" step="10" value="40"&gt;
-  &lt;span id="res-gradient-value"&gt;40&lt;/span&gt; cells
-&lt;/label&gt;
-&lt;label&gt;
-  Display:
-  &lt;select id="display-select"&gt;
-    &lt;option value="slope"&gt;Slope (degrees)&lt;/option&gt;
-    &lt;option value="aspect"&gt;Aspect (degrees from N)&lt;/option&gt;
-    &lt;option value="vectors"&gt;Gradient vectors&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;</code></pre>
+<div class="viz-container" id="gradient-viz">
+  <div class="controls">
+    <label>
+      Terrain type:
+      <select id="terrain-gradient-select">
+        <option value="plane">Tilted plane</option>
+        <option value="cone">Cone</option>
+        <option value="ridge">Ridge</option>
+        <option value="valley">Valley</option>
+        <option value="saddle">Saddle</option>
+      </select>
+    </label>
+    <label>
+      Grid resolution:
+      <input type="range" id="res-gradient-slider" min="20" max="60" step="10" value="40">
+      <span id="res-gradient-value">40</span> cells
+    </label>
+    <label>
+      Display:
+      <select id="display-select">
+        <option value="slope">Slope (degrees)</option>
+        <option value="aspect">Aspect (degrees from N)</option>
+        <option value="vectors">Gradient vectors</option>
+      </select>
+    </label>
+  </div>
+  <div id="gradient-chart" style="width: 100%; height: 600px;"></div>
 </div>
-<div id="gradient-chart" style="width: 100%; height: 600px;">
 
-</div>
-</div>
 <script type="module">
 await new Promise(resolve => {
   const checkECharts = () => {

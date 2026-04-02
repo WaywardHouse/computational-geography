@@ -232,6 +232,7 @@ $$I_C(1) = 0$$
 
 Below is an interactive spatial diffusion simulation.
 
+```{=html}
 <div class="viz-container" id="diffusion-viz">
   <div class="controls">
     <label>
@@ -538,6 +539,7 @@ await new Promise(resolve => {
   window.addEventListener('resize', () => chart.resize());
 })();
 </script>
+```
 
 **Try this:**
 - **Grid network:** Diffusion spreads outward in waves from the center

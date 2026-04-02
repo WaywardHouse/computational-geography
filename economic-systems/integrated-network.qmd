@@ -557,6 +557,7 @@ observe that Pacific capacity grows by 310 Mbbl/day while Gulf capacity
 is unchanged — the two corridors share upstream capacity but not
 downstream bottlenecks.
 
+```{=html}
 <div class="pyodide-cell"><pre><code class="language-python">from collections import defaultdict, deque
 
 # ── Simplified Edmonds-Karp ────────────────────────────────────────────────
@@ -623,6 +624,7 @@ for dest, mkt, tar, qual in [
 ]:
     print(f"  {dest:<22} {mkt:>8.2f} {tar:>8.2f} {qual:>9.2f} {mkt-tar-qual:>9.2f}")
 </code></pre></div>
+```
 
 ## Where next?
 

@@ -277,35 +277,36 @@ y=1    105   120</code></pre>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive resampling demonstration.</p>
-<div id="resample-viz" class="viz-container">
-<div class="controls">
-<pre><code>&lt;label&gt;
-  Method:
-  &lt;select id="interp-method"&gt;
-    &lt;option value="nearest"&gt;Nearest Neighbor&lt;/option&gt;
-    &lt;option value="bilinear" selected&gt;Bilinear&lt;/option&gt;
-    &lt;option value="bicubic"&gt;Bicubic&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/label&gt;
-&lt;label&gt;
-  Output resolution:
-  &lt;input type="range" id="resolution-slider" min="5" max="30" step="5" value="10"&gt;
-  &lt;span id="resolution-value"&gt;10&lt;/span&gt;×
-&lt;/label&gt;
-&lt;label&gt;
-  Show input grid:
-  &lt;input type="checkbox" id="show-input" checked&gt;
-&lt;/label&gt;
-&lt;div class="resample-info"&gt;
-  &lt;p&gt;&lt;strong&gt;Input cells:&lt;/strong&gt; 5×5 = 25&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Output cells:&lt;/strong&gt; &lt;span id="output-cells"&gt;--&lt;/span&gt;&lt;/p&gt;
-  &lt;p&gt;&lt;strong&gt;Sampling ratio:&lt;/strong&gt; &lt;span id="sample-ratio"&gt;--&lt;/span&gt;×&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+<div class="viz-container" id="resample-viz">
+  <div class="controls">
+    <label>
+      Method:
+      <select id="interp-method">
+        <option value="nearest">Nearest Neighbor</option>
+        <option value="bilinear" selected="">Bilinear</option>
+        <option value="bicubic">Bicubic</option>
+      </select>
+    </label>
+    <label>
+      Output resolution:
+      <input type="range" id="resolution-slider" min="5" max="30" step="5" value="10">
+      <span id="resolution-value">10</span>×
+    </label>
+    <label>
+      Show input grid:
+      <input type="checkbox" id="show-input" checked="">
+    </label>
+    <div class="resample-info">
+      <p><strong>Input cells:</strong> 5×5 = 25</p>
+      <p><strong>Output cells:</strong> <span id="output-cells">--</span></p>
+      <p><strong>Sampling ratio:</strong> <span id="sample-ratio">--</span>×</p>
+    </div>
+  </div>
+  <div id="resample-canvas-container">
+    <canvas id="resample-canvas" width="600" height="300" style="border: 1px solid #ddd;"></canvas>
+  </div>
 </div>
-<div id="resample-canvas-container">
-<pre><code>&lt;canvas id="resample-canvas" width="600" height="300" style="border: 1px solid #ddd;"&gt;&lt;/canvas&gt;</code></pre>
-</div>
-</div>
+
 <script type="module">
 (function() {
   const canvas = document.getElementById('resample-canvas');

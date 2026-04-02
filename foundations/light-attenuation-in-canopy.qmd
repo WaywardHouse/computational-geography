@@ -197,6 +197,7 @@ From part (a): $I_{\text{floor}} / I_0 = 0.0498 \approx 5\%$
 
 Below is an interactive model showing vertical light profiles.
 
+```{=html}
 <div class="viz-container" id="light-attenuation-viz">
   <div class="controls">
     <label>
@@ -319,6 +320,7 @@ document.getElementById('i0-slider').addEventListener('input', e => {
 updateChart();
 window.addEventListener('resize', () => chart.resize());
 </script>
+```
 
 **Try this:**
 - Increase LAI to 10 (dense tropical forest). Floor light drops below 1%.
