@@ -465,7 +465,7 @@ scale.
 # ── Parameters — change these and hit Run ──────────────────────────────────
 bitumen_bbl_day  = 1_000_000   # bitumen production to transport (bbl/day) — try: 500_000–1_500_000
 bitumen_fraction = 0.70        # bitumen content in dilbit (dimensionless) — range: 0.65–0.75
-                               # lower fraction = more diluent needed = more pipeline volume
+# lower fraction = more diluent needed = more pipeline volume
 condensate_price = 75.0        # condensate (diluent) price (USD/bbl) — try: 55–95
 bitumen_price    = 55.0        # bitumen price at mine (USD/bbl) — try: 40–70
 
@@ -488,8 +488,8 @@ print(f"Diluent cost         : ${diluent_cost:>14,.0f}/day  ({diluent_cost_pct:.
 print()
 print("Sensitivity to blend ratio:")
 for frac in np.arange(0.65, 0.76, 0.02):
-    dil = (bitumen_bbl_day / frac) * (1 - frac)
-    print(f"  x_bitumen={frac:.2f}  diluent={dil:>10,.0f} bbl/day")
+dil = (bitumen_bbl_day / frac) * (1 - frac)
+print(f"  x_bitumen={frac:.2f}  diluent={dil:>10,.0f} bbl/day")
 </code></pre></div>
 ```
 

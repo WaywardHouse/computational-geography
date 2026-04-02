@@ -485,12 +485,12 @@ annual_energy = capacity_factor * 8760          # kWh/kW/year
 lcoe_gen = (annual_capex + opex_kw_yr) / annual_energy * 1000  # $/MWh
 
 if include_storage:
-    n_batt = 15
-    crf_b  = discount_rate * (1 + discount_rate)**n_batt / ((1 + discount_rate)**n_batt - 1)
-    annual_capex_b  = battery_capex * crf_b
-    annual_output_b = battery_cycles * 0.87 * battery_rte
-    lcoe_storage    = (annual_capex_b + 0.025) / annual_output_b * 1000  # $/MWh
-    lcoe_combined   = lcoe_gen + lcoe_storage * 0.30   # 30% of output through storage
+n_batt = 15
+crf_b  = discount_rate * (1 + discount_rate)**n_batt / ((1 + discount_rate)**n_batt - 1)
+annual_capex_b  = battery_capex * crf_b
+annual_output_b = battery_cycles * 0.87 * battery_rte
+lcoe_storage    = (annual_capex_b + 0.025) / annual_output_b * 1000  # $/MWh
+lcoe_combined   = lcoe_gen + lcoe_storage * 0.30   # 30% of output through storage
 
 # ── Output ─────────────────────────────────────────────────────────────────
 print(f"LCOE Calculator — {technology}")
@@ -507,19 +507,19 @@ print()
 print(f"GENERATION LCOE: ${lcoe_gen:.1f}/MWh")
 
 if include_storage:
-    print()
-    print(f"Battery storage add-on:")
-    print(f"  BESS capex      : ${battery_capex}/kWh (4-hour system)")
-    print(f"  Cycles/year     : {battery_cycles}")
-    print(f"  Round-trip eff  : {battery_rte:.0%}")
-    print(f"  Storage LCOE    : ${lcoe_storage:.1f}/MWh discharged")
-    print(f"  Combined LCOE   : ${lcoe_combined:.1f}/MWh  (30% dispatched through storage)")
+print()
+print(f"Battery storage add-on:")
+print(f"  BESS capex      : ${battery_capex}/kWh (4-hour system)")
+print(f"  Cycles/year     : {battery_cycles}")
+print(f"  Round-trip eff  : {battery_rte:.0%}")
+print(f"  Storage LCOE    : ${lcoe_storage:.1f}/MWh discharged")
+print(f"  Combined LCOE   : ${lcoe_combined:.1f}/MWh  (30% dispatched through storage)")
 
 print()
 print("Sensitivity — LCOE vs capacity factor:")
 for cf in [0.20, 0.25, 0.30, 0.35, 0.40, 0.45]:
-    cost = (annual_capex + opex_kw_yr) / (cf * 8760) * 1000
-    print(f"  CF={cf:.0%}: ${cost:.1f}/MWh")
+cost = (annual_capex + opex_kw_yr) / (cf * 8760) * 1000
+print(f"  CF={cf:.0%}: ${cost:.1f}/MWh")
 </code></pre></div>
 <h2 id="reference-implementation" class="anchored">Reference implementation</h2>
 <p>The production-quality implementation below cleanly separates the three models (CRF, generation LCOE, battery LCOE) and runs the technology comparison with explicit parameter documentation. The output provides a benchmark for validating the interactive cell above.</p>

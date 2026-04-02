@@ -732,28 +732,28 @@ wind_speed_80m = 7.5     # mean wind speed at 80m hub height (m/s) — Pincher C
 
 # ── Solar calculation ──────────────────────────────────────────────────────
 def solar_declination(d):
-    return -23.45 * np.cos(np.radians(360 / 365 * (d + 10)))
+return -23.45 * np.cos(np.radians(360 / 365 * (d + 10)))
 
 def cos_zenith(lat, d):
-    delta = np.radians(solar_declination(d))
-    phi   = np.radians(lat)
-    return np.sin(phi)*np.sin(delta) + np.cos(phi)*np.cos(delta)
+delta = np.radians(solar_declination(d))
+phi   = np.radians(lat)
+return np.sin(phi)*np.sin(delta) + np.cos(phi)*np.cos(delta)
 
 def daylight_h(lat, d):
-    delta = np.radians(solar_declination(d))
-    phi   = np.radians(lat)
-    cos_ha = np.clip(-np.tan(phi)*np.tan(delta), -1, 1)
-    return 2 * np.degrees(np.arccos(cos_ha)) / 15.0
+delta = np.radians(solar_declination(d))
+phi   = np.radians(lat)
+cos_ha = np.clip(-np.tan(phi)*np.tan(delta), -1, 1)
+return 2 * np.degrees(np.arccos(cos_ha)) / 15.0
 
 days = np.arange(1, 366)
 annual_ghi = 0.0
 for d in days:
-    cz = cos_zenith(latitude_deg, d)
-    if cz <= 0:
-        continue
-    G0 = 1361 * cz * 0.75**(1/cz)
-    dl = daylight_h(latitude_deg, d)
-    annual_ghi += (2/np.pi) * G0 * dl * kt / 1000   # kWh/m²/day
+cz = cos_zenith(latitude_deg, d)
+if cz <= 0:
+continue
+G0 = 1361 * cz * 0.75**(1/cz)
+dl = daylight_h(latitude_deg, d)
+annual_ghi += (2/np.pi) * G0 * dl * kt / 1000   # kWh/m²/day
 
 annual_ghi_total = annual_ghi                         # kWh/m²/year
 cf_solar = annual_ghi_total * panel_eff / 8760        # capacity factor

@@ -520,8 +520,8 @@ print(f"                          ({storage_bbl/42_000:.0f} × 42,000-bbl tanks)
 print()
 print("Transmix sensitivity to pipe diameter:")
 for d in [16, 20, 24, 30, 36]:
-    vm = 11.75 * (d**1.9 * length_miles)**0.5
-    print(f"  D={d:2d} in: transmix = {vm:>6,.0f} bbl")
+vm = 11.75 * (d**1.9 * length_miles)**0.5
+print(f"  D={d:2d} in: transmix = {vm:>6,.0f} bbl")
 </code></pre></div>
 ```
 

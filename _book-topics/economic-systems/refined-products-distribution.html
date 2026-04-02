@@ -674,8 +674,8 @@ print(f"                          ({storage_bbl/42_000:.0f} × 42,000-bbl tanks)
 print()
 print("Transmix sensitivity to pipe diameter:")
 for d in [16, 20, 24, 30, 36]:
-    vm = 11.75 * (d**1.9 * length_miles)**0.5
-    print(f"  D={d:2d} in: transmix = {vm:&gt;6,.0f} bbl")
+vm = 11.75 * (d**1.9 * length_miles)**0.5
+print(f"  D={d:2d} in: transmix = {vm:&gt;6,.0f} bbl")
 </code></pre></div>
 <h2 id="where-next" class="anchored">Where next?</h2>
 <p>Each of the four commodity systems — crude oil, NGL, natural gas, refined products — can be modelled in isolation using the equations developed in P1 through P4. But Alberta’s energy economy operates all four simultaneously, and the systems interact: NGL volumes depend on gas production, diluent volumes depend on bitumen output, refined products volumes depend on refinery utilisation. P5 takes all four systems as a single directed graph and asks the overarching question: what is the total export capacity of Alberta’s energy network, and where is the binding constraint?</p>
