@@ -681,10 +681,10 @@ burnaby.report()
 "name": "Days of supply",
 "type": "bar",
 "data": [
-  {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
-  {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
-  {"value": 15.6, "itemStyle": {"color": "#16a34a"}},
-  {"value": 17.1, "itemStyle": {"color": "#16a34a"}}
+{"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
+{"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
+{"value": 15.6, "itemStyle": {"color": "#16a34a"}},
+{"value": 17.1, "itemStyle": {"color": "#16a34a"}}
 ],
 "label": {"show": true, "position": "top", "formatter": "{c} days"}
 },

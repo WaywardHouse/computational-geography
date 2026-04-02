@@ -248,9 +248,9 @@ when the primary gateway becomes saturated.
 "areaStyle": {"opacity": 0.06},
 "data": [2000, 2200, 2500, 2900, 3100, 3100, 2800, 3400, 3500, 3300],
 "markArea": {
-  "itemStyle": {"color": "rgba(156,163,175,0.15)"},
-  "data": [[{"xAxis": "2020"}, {"xAxis": "2021"}]],
-  "label": {"show": true, "position": "insideTop", "color": "#6b7280", "formatter": "COVID disruption"}
+"itemStyle": {"color": "rgba(156,163,175,0.15)"},
+"data": [[{"xAxis": "2020"}, {"xAxis": "2021"}]],
+"label": {"show": true, "position": "insideTop", "color": "#6b7280", "formatter": "COVID disruption"}
 }
 },
 {

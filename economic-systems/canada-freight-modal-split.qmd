@@ -237,10 +237,10 @@ the freight rate premium.
 "lineStyle": {"width": 3},
 "data": [[0,50],[200,78],[500,120],[800,162],[1000,190],[1500,260],[2000,330],[3000,470]],
 "markPoint": {
-  "symbol": "pin",
-  "data": [{"name": "Break-even truck/rail", "coord": [700, 125]}],
-  "itemStyle": {"color": "#7c3aed"},
-  "label": {"formatter": "Break-even\n~700 km"}
+"symbol": "pin",
+"data": [{"name": "Break-even truck/rail", "coord": [700, 125]}],
+"itemStyle": {"color": "#7c3aed"},
+"label": {"formatter": "Break-even\n~700 km"}
 }
 },
 {
@@ -252,10 +252,10 @@ the freight rate premium.
 "lineStyle": {"width": 3},
 "data": [[0,80],[200,93],[500,112.5],[800,132],[1000,145],[1500,177.5],[2000,210],[3000,275]],
 "markPoint": {
-  "symbol": "pin",
-  "data": [{"name": "Break-even rail/marine", "coord": [1700, 154]}],
-  "itemStyle": {"color": "#d97706"},
-  "label": {"formatter": "Break-even\n~1700 km"}
+"symbol": "pin",
+"data": [{"name": "Break-even rail/marine", "coord": [1700, 154]}],
+"itemStyle": {"color": "#d97706"},
+"label": {"formatter": "Break-even\n~1700 km"}
 }
 },
 {

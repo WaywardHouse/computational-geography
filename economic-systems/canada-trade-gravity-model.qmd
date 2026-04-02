@@ -250,8 +250,8 @@ historical trajectory and projects the 2025 reversal.
 },
 "markPoint": {
 "data": [
-  {"name": "McCallum (1995)", "coord": ["1995\nMcCallum", 22]},
-  {"name": "2025 reversal", "coord": ["2025\ntariffs", 12]}
+{"name": "McCallum (1995)", "coord": ["1995\nMcCallum", 22]},
+{"name": "2025 reversal", "coord": ["2025\ntariffs", 12]}
 ],
 "itemStyle": {"color": "#dc2626"},
 "label": {"formatter": "{b}"}
@@ -322,16 +322,16 @@ commodity exporters, the model captures less of the variation.
 "itemStyle": {"color": "#1e40af", "opacity": 0.85},
 "label": {"show": true, "position": "right", "formatter": "{@[2]}"},
 "data": [
-  [960, 310, "ON"],
-  [450, 175, "AB"],
-  [520, 120, "QC"],
-  [400, 90,  "BC"],
-  [100, 45,  "SK"],
-  [90,  28,  "MB"],
-  [55,  18,  "NB"],
-  [50,  15,  "NS"],
-  [40,  12,  "NL"],
-  [38,  3,   "PEI"]
+[960, 310, "ON"],
+[450, 175, "AB"],
+[520, 120, "QC"],
+[400, 90,  "BC"],
+[100, 45,  "SK"],
+[90,  28,  "MB"],
+[55,  18,  "NB"],
+[50,  15,  "NS"],
+[40,  12,  "NL"],
+[38,  3,   "PEI"]
 ]
 }
 ]

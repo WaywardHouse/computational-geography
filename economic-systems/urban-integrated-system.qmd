@@ -134,12 +134,12 @@ A 30% contraction in basic employment — roughly what Calgary experienced acros
 {
 "type": "bar",
 "data": [
-  {"value": -40, "itemStyle": {"color": "#e05c5c"}},
-  {"value": -30, "itemStyle": {"color": "#e07a5c"}},
-  {"value": -10, "itemStyle": {"color": "#e0a05c"}},
-  {"value": -5, "itemStyle": {"color": "#c0b05c"}},
-  {"value": -3, "itemStyle": {"color": "#a0c05c"}},
-  {"value": -88, "itemStyle": {"color": "#5c3c3c"}}
+{"value": -40, "itemStyle": {"color": "#e05c5c"}},
+{"value": -30, "itemStyle": {"color": "#e07a5c"}},
+{"value": -10, "itemStyle": {"color": "#e0a05c"}},
+{"value": -5, "itemStyle": {"color": "#c0b05c"}},
+{"value": -3, "itemStyle": {"color": "#a0c05c"}},
+{"value": -88, "itemStyle": {"color": "#5c3c3c"}}
 ],
 "label": {"show": true, "position": "bottom", "formatter": "{c}k"}
 }
@@ -174,24 +174,24 @@ The waterfall shows that a 40,000-job direct loss in the basic sector becomes an
 {
 "type": "radar",
 "data": [
-  {
-    "value": [80, 75, 55, 95, 70],
-    "name": "Calgary",
-    "itemStyle": {"color": "#e05c5c"},
-    "areaStyle": {"opacity": 0.15}
-  },
-  {
-    "value": [90, 90, 100, 30, 60],
-    "name": "Toronto",
-    "itemStyle": {"color": "#5c8ee0"},
-    "areaStyle": {"opacity": 0.15}
-  },
-  {
-    "value": [95, 65, 70, 40, 58],
-    "name": "Vancouver",
-    "itemStyle": {"color": "#6dba6d"},
-    "areaStyle": {"opacity": 0.15}
-  }
+{
+"value": [80, 75, 55, 95, 70],
+"name": "Calgary",
+"itemStyle": {"color": "#e05c5c"},
+"areaStyle": {"opacity": 0.15}
+},
+{
+"value": [90, 90, 100, 30, 60],
+"name": "Toronto",
+"itemStyle": {"color": "#5c8ee0"},
+"areaStyle": {"opacity": 0.15}
+},
+{
+"value": [95, 65, 70, 40, 58],
+"name": "Vancouver",
+"itemStyle": {"color": "#6dba6d"},
+"areaStyle": {"opacity": 0.15}
+}
 ]
 }
 ]

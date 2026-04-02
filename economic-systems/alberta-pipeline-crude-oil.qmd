@@ -561,9 +561,9 @@ network.report()
 "avoidLabelOverlap": false,
 "label": {"show": true, "formatter": "{b}\n{d}%"},
 "data": [
-  {"value": 2834, "name": "U.S. Midwest (Enbridge Mainline)", "itemStyle": {"color": "#2563eb"}},
-  {"value": 890, "name": "Pacific / Asia-Pacific (Trans Mountain)", "itemStyle": {"color": "#16a34a"}},
-  {"value": 870, "name": "U.S. Plains / Gulf (Keystone + Express)", "itemStyle": {"color": "#dc2626"}}
+{"value": 2834, "name": "U.S. Midwest (Enbridge Mainline)", "itemStyle": {"color": "#2563eb"}},
+{"value": 890, "name": "Pacific / Asia-Pacific (Trans Mountain)", "itemStyle": {"color": "#16a34a"}},
+{"value": 870, "name": "U.S. Plains / Gulf (Keystone + Express)", "itemStyle": {"color": "#dc2626"}}
 ]
 }
 ]
@@ -586,8 +586,8 @@ network.report()
 "itemStyle": {"color": "#16a34a"},
 "markPoint": {
 "data": [
-  {"name": "Original opening", "coord": ["1953", 150]},
-  {"name": "TMX in service", "coord": ["2024", 890]}
+{"name": "Original opening", "coord": ["1953", 150]},
+{"name": "TMX in service", "coord": ["2024", 890]}
 ]
 }
 }]
