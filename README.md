@@ -6,6 +6,8 @@ Its main editorial job is to hold the flagship `Computational Geography` book, w
 
 The repository currently also contains extension and laboratory material that may later be split into companion volumes.
 
+This repository is intended to be consumed by the main Wayward House site as a git submodule. It is not the deployment surface by itself.
+
 ## What is included
 
 - the full book source formerly embedded under `learn/`
@@ -35,9 +37,21 @@ The repo can now also render three clustered outputs without splitting into sepa
 
 These targets support the Earthdata-like clustered publishing model while keeping one source repository.
 
+## Submodule workflow
+
+The intended workflow is:
+
+1. Make editorial and theme changes in this repository.
+2. Render locally here for QA.
+3. Commit and push this repository.
+4. Update the submodule pointer in the main Wayward House site repository.
+5. Build and deploy from the main site repository.
+
+This repo should not directly publish rendered output to `waywardhouse.github.io` via its own GitHub Actions workflow.
+
 ## Current status
 
-This repo scaffold was extracted locally from the shell site so the book can become its own repository.
+This repo scaffold was extracted locally from the shell site so the book can become its own repository and submodule source.
 
 Editorially, the project is being reshaped away from one oversized continuous textbook and toward:
 
@@ -45,10 +59,10 @@ Editorially, the project is being reshaped away from one oversized continuous te
 - a set of companion books or field guides
 - a laboratory line for advanced investigations
 
-Before pushing to a real remote, the next steps are:
+Before the main site consumes a new version of this book, the next steps are:
 
-1. initialize a dedicated Git remote
-2. run full render and QA inside this repo
-3. rewrite any remaining shell-specific paths if found
-4. decide the final public URL target under `/library/computational-geography/`
+1. run full render and QA inside this repo
+2. push the updated book repository
+3. update the submodule pointer in the main site
+4. build and deploy from the main site repository
 # waywardhouse-computational-geography
