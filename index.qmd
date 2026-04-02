@@ -2,6 +2,7 @@
 title: "Learn"
 subtitle: "A clustered learning library in computational geography, with one core book, topic libraries, and advanced investigations."
 page-layout: article
+body-classes: articles-landing
 ---
 
 ```{=html}
@@ -43,9 +44,9 @@ page-layout: article
   <div class="mock-section-head">
     <div>
       <div class="section-kicker">Pathway</div>
-      <h3>How to move through the library</h3>
+      <h3>The structure should feel obvious in seconds</h3>
     </div>
-    <p>Start with Getting Started if you are new to the field. Read the Core Book as the main route through the subject, then branch into Topic Libraries or the Laboratory when you want deeper work in a specific area.</p>
+    <p>A good learning library reduces anxiety immediately: where to start, what the main book is, and where specialist branches live.</p>
   </div>
 
   <div class="mock-path-grid">
@@ -78,7 +79,7 @@ page-layout: article
       <div class="section-kicker">Core Path</div>
       <h3>The beginner-safe core book</h3>
     </div>
-    <p>If you want the main curriculum, read these parts in order. They are arranged as a steady climb from modelling basics through earth systems, GIS, hazards, and human geography.</p>
+    <p>This is the route we want most readers to see first.</p>
   </div>
 
   <div class="mock-shelf-grid">
