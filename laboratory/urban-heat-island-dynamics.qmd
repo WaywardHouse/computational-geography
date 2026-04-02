@@ -315,21 +315,21 @@ for d in [0, 100, 200, 400, 800]:
 "yAxis": {"name": "Energy flux (W m⁻²)", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 580},
 "series": [
 {"name": "Rural vegetated", "type": "bar",
- "data": [
-   {"value": 445, "itemStyle": {"color": "#FFC107"}},
-   {"value": 133, "itemStyle": {"color": "#FF7043"}},
-   {"value": 267, "itemStyle": {"color": "#42A5F5"}},
-   {"value": 45,  "itemStyle": {"color": "#8D6E63"}},
-   {"value": 2,   "itemStyle": {"color": "#BDBDBD"}}
- ]},
+"data": [
+  {"value": 445, "itemStyle": {"color": "#FFC107"}},
+  {"value": 133, "itemStyle": {"color": "#FF7043"}},
+  {"value": 267, "itemStyle": {"color": "#42A5F5"}},
+  {"value": 45,  "itemStyle": {"color": "#8D6E63"}},
+  {"value": 2,   "itemStyle": {"color": "#BDBDBD"}}
+]},
 {"name": "Urban dense", "type": "bar",
- "data": [
-   {"value": 510, "itemStyle": {"color": "#FFA000"}},
-   {"value": 357, "itemStyle": {"color": "#E53935"}},
-   {"value": 51,  "itemStyle": {"color": "#1E88E5"}},
-   {"value": 42,  "itemStyle": {"color": "#5D4037"}},
-   {"value": 60,  "itemStyle": {"color": "#757575"}}
- ]}
+"data": [
+  {"value": 510, "itemStyle": {"color": "#FFA000"}},
+  {"value": 357, "itemStyle": {"color": "#E53935"}},
+  {"value": 51,  "itemStyle": {"color": "#1E88E5"}},
+  {"value": 42,  "itemStyle": {"color": "#5D4037"}},
+  {"value": 60,  "itemStyle": {"color": "#757575"}}
+]}
 ]
 }'></div>
 ```

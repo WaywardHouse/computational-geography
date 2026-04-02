@@ -276,12 +276,12 @@ for U in [3, 5, 7, 9, 11, 13]:
 ],
 "series": [
 {"name": "Uptake flux at U10=8 m/s (g C/m²/yr)", "type": "bar",
- "itemStyle": {"color": "#1565C0"},
- "data": [35.8, 31.4, 27.6, 24.4, 21.6, 19.2, 17.1, 15.3, 13.7, 12.4, 11.2]},
+"itemStyle": {"color": "#1565C0"},
+"data": [35.8, 31.4, 27.6, 24.4, 21.6, 19.2, 17.1, 15.3, 13.7, 12.4, 11.2]},
 {"name": "CO₂ solubility K_H (relative, %)", "type": "line", "smooth": true,
- "yAxisIndex": 1,
- "itemStyle": {"color": "#C62828"},
- "data": [126, 116, 107, 99, 92, 85, 79, 74, 69, 64, 60]}
+"yAxisIndex": 1,
+"itemStyle": {"color": "#C62828"},
+"data": [126, 116, 107, 99, 92, 85, 79, 74, 69, 64, 60]}
 ]
 }'></div>
 ```

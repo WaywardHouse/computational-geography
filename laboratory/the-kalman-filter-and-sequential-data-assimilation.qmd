@@ -326,17 +326,17 @@ print(f"\nRMSE: raw observations = {rmse_obs:.4f}, Kalman filter = {rmse_kf:.4f}
 "yAxis": {"name": "Soil moisture (m³/m³)", "nameLocation": "middle", "nameGap": 60, "min": 0.15, "max": 0.38},
 "series": [
 {"name": "True state", "type": "line", "smooth": true, "lineStyle": {"width": 2},
- "itemStyle": {"color": "#2E7D32"},
- "data": [0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24]},
+"itemStyle": {"color": "#2E7D32"},
+"data": [0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24]},
 {"name": "Noisy observations", "type": "scatter",
- "itemStyle": {"color": "#90A4AE"},
- "data": [0.23,0.30,0.26,0.29,0.22,null,null,null,null,null,null,null,0.27,0.29,0.31,0.25,0.23,0.26,0.27,0.30,0.29,0.25,0.22,0.26,0.27,0.30,0.26,0.29,0.23,0.22]},
+"itemStyle": {"color": "#90A4AE"},
+"data": [0.23,0.30,0.26,0.29,0.22,null,null,null,null,null,null,null,0.27,0.29,0.31,0.25,0.23,0.26,0.27,0.30,0.29,0.25,0.22,0.26,0.27,0.30,0.26,0.29,0.23,0.22]},
 {"name": "Kalman filter analysis", "type": "line", "smooth": true,
- "itemStyle": {"color": "#C62828"},
- "data": [0.24,0.27,0.27,0.27,0.24,0.24,0.23,0.23,0.22,0.22,0.21,0.21,0.24,0.27,0.29,0.27,0.24,0.25,0.26,0.28,0.28,0.26,0.24,0.25,0.26,0.28,0.27,0.28,0.25,0.23]},
+"itemStyle": {"color": "#C62828"},
+"data": [0.24,0.27,0.27,0.27,0.24,0.24,0.23,0.23,0.22,0.22,0.21,0.21,0.24,0.27,0.29,0.27,0.24,0.25,0.26,0.28,0.28,0.26,0.24,0.25,0.26,0.28,0.27,0.28,0.25,0.23]},
 {"name": "Background (no obs)", "type": "line", "smooth": true,
- "lineStyle": {"type": "dashed", "color": "#F57F17"},
- "data": [null,null,null,null,null,0.24,0.24,0.24,0.23,0.23,0.23,0.22,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
+"lineStyle": {"type": "dashed", "color": "#F57F17"},
+"data": [null,null,null,null,null,0.24,0.24,0.24,0.23,0.23,0.23,0.22,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
 ]
 }'></div>
 ```

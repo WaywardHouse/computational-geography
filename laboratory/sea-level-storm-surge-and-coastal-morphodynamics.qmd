@@ -296,11 +296,11 @@ print(f"\nSurge decay timescale: {tau/3600:.1f} hours")
 "yAxis": {"name": "Shoreline Retreat R (m)", "nameLocation": "middle", "nameGap": 50},
 "series": [
 {"name": "Steep (L*=100m, B=2m, Dc=4m)", "type": "line", "smooth": false,
- "data": [1.7, 3.3, 5.0, 6.7, 8.3, 10.0, 13.3, 16.7]},
+"data": [1.7, 3.3, 5.0, 6.7, 8.3, 10.0, 13.3, 16.7]},
 {"name": "Typical (L*=500m, B=1.5m, Dc=6m)", "type": "line", "smooth": false,
- "data": [6.7, 13.3, 20.0, 26.7, 33.3, 40.0, 53.3, 66.7]},
+"data": [6.7, 13.3, 20.0, 26.7, 33.3, 40.0, 53.3, 66.7]},
 {"name": "Low-gradient (L*=2000m, B=0.8m, Dc=5m)", "type": "line", "smooth": false,
- "data": [34.5, 68.9, 103.4, 137.9, 172.4, 206.9, 275.9, 344.8]}
+"data": [34.5, 68.9, 103.4, 137.9, 172.4, 206.9, 275.9, 344.8]}
 ]
 }'></div>
 ```

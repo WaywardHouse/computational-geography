@@ -222,13 +222,13 @@ for name, f_ch4, f_co2 in conditions:
 "yAxis": {"name": "CH₄ flux (mg m⁻² h⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 0},
 "series": [
 {"name": "WT = 0 cm",   "type": "line", "smooth": true, "itemStyle": {"color": "#C62828"},
- "data": [0.9,1.5,2.5,4.1,6.7,11.1,18.3,30.2,49.7]},
+"data": [0.9,1.5,2.5,4.1,6.7,11.1,18.3,30.2,49.7]},
 {"name": "WT = −5 cm",  "type": "line", "smooth": true, "itemStyle": {"color": "#F57F17"},
- "data": [0.4,0.7,1.2,1.9,3.1,5.2,8.5,14.0,23.1]},
+"data": [0.4,0.7,1.2,1.9,3.1,5.2,8.5,14.0,23.1]},
 {"name": "WT = −15 cm", "type": "line", "smooth": true, "itemStyle": {"color": "#1565C0"},
- "data": [0.1,0.2,0.3,0.5,0.8,1.4,2.3,3.7,6.1]},
+"data": [0.1,0.2,0.3,0.5,0.8,1.4,2.3,3.7,6.1]},
 {"name": "WT = −30 cm", "type": "line", "smooth": true, "itemStyle": {"color": "#90A4AE"},
- "data": [0.0,0.1,0.1,0.1,0.2,0.3,0.5,0.8,1.3]}
+"data": [0.0,0.1,0.1,0.1,0.2,0.3,0.5,0.8,1.3]}
 ]
 }'></div>
 ```

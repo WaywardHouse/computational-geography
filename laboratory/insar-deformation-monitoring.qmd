@@ -274,10 +274,10 @@ print(f"  π/10 rad = {lam/40*1000:.1f} mm LOS displacement (noise floor)")
 "yAxis": {"name": "Fringes per year (2.8cm/fringe)", "nameLocation": "middle", "nameGap": 50},
 "series": [
 {
-  "name": "Fringes per year (C-band)",
-  "type": "bar",
-  "data": [0.4, 0.7, 1.8, 3.6, 7.1, 10.7, 17.9, 35.7],
-  "label": {"show": true, "position": "top", "formatter": "{c}"}
+"name": "Fringes per year (C-band)",
+"type": "bar",
+"data": [0.4, 0.7, 1.8, 3.6, 7.1, 10.7, 17.9, 35.7],
+"label": {"show": true, "position": "top", "formatter": "{c}"}
 }
 ]
 }'></div>

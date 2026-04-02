@@ -203,13 +203,13 @@ and simulate the effects of corridor disruptions.
 "type": "bar",
 "label": {"show": true, "position": "right", "formatter": "{c}B"},
 "data": [
-  {"value": 25,  "itemStyle": {"color": "#bfdbfe"}},
-  {"value": 40,  "itemStyle": {"color": "#93c5fd"}},
-  {"value": 50,  "itemStyle": {"color": "#7dd3fc"}},
-  {"value": 60,  "itemStyle": {"color": "#3b82f6"}},
-  {"value": 80,  "itemStyle": {"color": "#2563eb"}},
-  {"value": 100, "itemStyle": {"color": "#16a34a"}},
-  {"value": 146, "itemStyle": {"color": "#1e3a8a"}}
+{"value": 25,  "itemStyle": {"color": "#bfdbfe"}},
+{"value": 40,  "itemStyle": {"color": "#93c5fd"}},
+{"value": 50,  "itemStyle": {"color": "#7dd3fc"}},
+{"value": 60,  "itemStyle": {"color": "#3b82f6"}},
+{"value": 80,  "itemStyle": {"color": "#2563eb"}},
+{"value": 100, "itemStyle": {"color": "#16a34a"}},
+{"value": 146, "itemStyle": {"color": "#1e3a8a"}}
 ]
 }]
 }'></div>
@@ -284,22 +284,22 @@ on the assumptions made about pass-through rates and supply chain reconfiguratio
 "yAxis": {"type": "value", "name": "TEUs (thousands)"},
 "series": [
 {
-  "name": "Vancouver Port",
-  "type": "line",
-  "smooth": true,
-  "symbol": "circle",
-  "itemStyle": {"color": "#1e40af"},
-  "areaStyle": {"opacity": 0.08},
-  "data": [1800, 2100, 2500, 2900, 3100, 2800, 3400, 3300]
+"name": "Vancouver Port",
+"type": "line",
+"smooth": true,
+"symbol": "circle",
+"itemStyle": {"color": "#1e40af"},
+"areaStyle": {"opacity": 0.08},
+"data": [1800, 2100, 2500, 2900, 3100, 2800, 3400, 3300]
 },
 {
-  "name": "Prince Rupert",
-  "type": "line",
-  "smooth": true,
-  "symbol": "circle",
-  "itemStyle": {"color": "#16a34a"},
-  "areaStyle": {"opacity": 0.08},
-  "data": [300, 380, 450, 500, 620, 700, 850, 870]
+"name": "Prince Rupert",
+"type": "line",
+"smooth": true,
+"symbol": "circle",
+"itemStyle": {"color": "#16a34a"},
+"areaStyle": {"opacity": 0.08},
+"data": [300, 380, 450, 500, 620, 700, 850, 870]
 }
 ]
 }'></div>
@@ -321,18 +321,18 @@ on the assumptions made about pass-through rates and supply chain reconfiguratio
 "yAxis": {"type": "value", "name": "Cost index (baseline=100)", "min": 0, "max": 200},
 "series": [
 {
-  "name": "Without tariff (baseline)",
-  "type": "bar",
-  "itemStyle": {"color": "#2563eb"},
-  "label": {"show": true, "position": "top"},
-  "data": [100, 100, 100, 100]
+"name": "Without tariff (baseline)",
+"type": "bar",
+"itemStyle": {"color": "#2563eb"},
+"label": {"show": true, "position": "top"},
+"data": [100, 100, 100, 100]
 },
 {
-  "name": "With 25% tariff",
-  "type": "bar",
-  "itemStyle": {"color": "#dc2626"},
-  "label": {"show": true, "position": "top"},
-  "data": [175, 105, 125, 115]
+"name": "With 25% tariff",
+"type": "bar",
+"itemStyle": {"color": "#dc2626"},
+"label": {"show": true, "position": "top"},
+"data": [175, 105, 125, 115]
 }
 ]
 }'></div>

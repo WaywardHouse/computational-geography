@@ -201,13 +201,13 @@ the freight rate premium.
 "type": "bar",
 "label": {"show": true, "position": "top", "formatter": "{c}"},
 "data": [
-  {"value": 3.50, "itemStyle": {"color": "#dc2626"}},
-  {"value": 0.18, "itemStyle": {"color": "#f87171"}},
-  {"value": 0.13, "itemStyle": {"color": "#fca5a5"}},
-  {"value": 0.07, "itemStyle": {"color": "#60a5fa"}},
-  {"value": 0.04, "itemStyle": {"color": "#2563eb"}},
-  {"value": 0.02, "itemStyle": {"color": "#16a34a"}},
-  {"value": 0.006,"itemStyle": {"color": "#15803d"}}
+{"value": 3.50, "itemStyle": {"color": "#dc2626"}},
+{"value": 0.18, "itemStyle": {"color": "#f87171"}},
+{"value": 0.13, "itemStyle": {"color": "#fca5a5"}},
+{"value": 0.07, "itemStyle": {"color": "#60a5fa"}},
+{"value": 0.04, "itemStyle": {"color": "#2563eb"}},
+{"value": 0.02, "itemStyle": {"color": "#16a34a"}},
+{"value": 0.006,"itemStyle": {"color": "#15803d"}}
 ]
 }]
 }'></div>
@@ -229,43 +229,43 @@ the freight rate premium.
 "yAxis": {"type": "value", "name": "Total logistics cost (CAD$/tonne)", "min": 0, "max": 500},
 "series": [
 {
-  "name": "Truck (TL)",
-  "type": "line",
-  "smooth": false,
-  "symbol": "none",
-  "itemStyle": {"color": "#dc2626"},
-  "lineStyle": {"width": 3},
-  "data": [[0,50],[200,78],[500,120],[800,162],[1000,190],[1500,260],[2000,330],[3000,470]],
-  "markPoint": {
-    "symbol": "pin",
-    "data": [{"name": "Break-even truck/rail", "coord": [700, 125]}],
-    "itemStyle": {"color": "#7c3aed"},
-    "label": {"formatter": "Break-even\n~700 km"}
-  }
+"name": "Truck (TL)",
+"type": "line",
+"smooth": false,
+"symbol": "none",
+"itemStyle": {"color": "#dc2626"},
+"lineStyle": {"width": 3},
+"data": [[0,50],[200,78],[500,120],[800,162],[1000,190],[1500,260],[2000,330],[3000,470]],
+"markPoint": {
+  "symbol": "pin",
+  "data": [{"name": "Break-even truck/rail", "coord": [700, 125]}],
+  "itemStyle": {"color": "#7c3aed"},
+  "label": {"formatter": "Break-even\n~700 km"}
+}
 },
 {
-  "name": "Rail (intermodal)",
-  "type": "line",
-  "smooth": false,
-  "symbol": "none",
-  "itemStyle": {"color": "#2563eb"},
-  "lineStyle": {"width": 3},
-  "data": [[0,80],[200,93],[500,112.5],[800,132],[1000,145],[1500,177.5],[2000,210],[3000,275]],
-  "markPoint": {
-    "symbol": "pin",
-    "data": [{"name": "Break-even rail/marine", "coord": [1700, 154]}],
-    "itemStyle": {"color": "#d97706"},
-    "label": {"formatter": "Break-even\n~1700 km"}
-  }
+"name": "Rail (intermodal)",
+"type": "line",
+"smooth": false,
+"symbol": "none",
+"itemStyle": {"color": "#2563eb"},
+"lineStyle": {"width": 3},
+"data": [[0,80],[200,93],[500,112.5],[800,132],[1000,145],[1500,177.5],[2000,210],[3000,275]],
+"markPoint": {
+  "symbol": "pin",
+  "data": [{"name": "Break-even rail/marine", "coord": [1700, 154]}],
+  "itemStyle": {"color": "#d97706"},
+  "label": {"formatter": "Break-even\n~1700 km"}
+}
 },
 {
-  "name": "Marine",
-  "type": "line",
-  "smooth": false,
-  "symbol": "none",
-  "itemStyle": {"color": "#16a34a"},
-  "lineStyle": {"width": 3},
-  "data": [[0,120],[500,130],[1000,140],[1500,150],[2000,160],[3000,180]]
+"name": "Marine",
+"type": "line",
+"smooth": false,
+"symbol": "none",
+"itemStyle": {"color": "#16a34a"},
+"lineStyle": {"width": 3},
+"data": [[0,120],[500,130],[1000,140],[1500,150],[2000,160],[3000,180]]
 }
 ]
 }'></div>
@@ -324,11 +324,11 @@ as the two national carriers no longer contest each other's captive lanes.
 "center": ["38%", "55%"],
 "label": {"formatter": "{b}\n{d}%"},
 "data": [
-  {"value": 44, "name": "Rail",      "itemStyle": {"color": "#2563eb"}},
-  {"value": 37, "name": "Truck",     "itemStyle": {"color": "#dc2626"}},
-  {"value": 12, "name": "Pipeline",  "itemStyle": {"color": "#f59e0b"}},
-  {"value": 6,  "name": "Marine",    "itemStyle": {"color": "#16a34a"}},
-  {"value": 1,  "name": "Air",       "itemStyle": {"color": "#6b7280"}}
+{"value": 44, "name": "Rail",      "itemStyle": {"color": "#2563eb"}},
+{"value": 37, "name": "Truck",     "itemStyle": {"color": "#dc2626"}},
+{"value": 12, "name": "Pipeline",  "itemStyle": {"color": "#f59e0b"}},
+{"value": 6,  "name": "Marine",    "itemStyle": {"color": "#16a34a"}},
+{"value": 1,  "name": "Air",       "itemStyle": {"color": "#6b7280"}}
 ]
 }]
 }'></div>
@@ -374,18 +374,18 @@ potash customers.
 "yAxis": {"type": "value", "name": "% of freight volume by truck", "max": 100},
 "series": [
 {
-  "name": "2024 (% by truck)",
-  "type": "bar",
-  "itemStyle": {"color": "#2563eb"},
-  "label": {"show": true, "position": "top", "formatter": "{c}%"},
-  "data": [85, 15, 5, 40, 55]
+"name": "2024 (% by truck)",
+"type": "bar",
+"itemStyle": {"color": "#2563eb"},
+"label": {"show": true, "position": "top", "formatter": "{c}%"},
+"data": [85, 15, 5, 40, 55]
 },
 {
-  "name": "2025 estimate (% by truck)",
-  "type": "bar",
-  "itemStyle": {"color": "#dc2626"},
-  "label": {"show": true, "position": "top", "formatter": "{c}%"},
-  "data": [60, 15, 5, 35, 50]
+"name": "2025 estimate (% by truck)",
+"type": "bar",
+"itemStyle": {"color": "#dc2626"},
+"label": {"show": true, "position": "top", "formatter": "{c}%"},
+"data": [60, 15, 5, 35, 50]
 }
 ]
 }'></div>

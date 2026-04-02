@@ -307,11 +307,11 @@ for t, N in enumerate(traj):
 "data": ["0–4","5–14","15–24","25–34","35–44","45–54","55–64","65+"]},
 "series": [
 {"name": "2025 population", "type": "bar", "barGap": "-100%",
- "data": [350,700,600,900,850,750,500,350],
- "itemStyle": {"color": "#42A5F5", "opacity": 0.8}},
+"data": [350,700,600,900,850,750,500,350],
+"itemStyle": {"color": "#42A5F5", "opacity": 0.8}},
 {"name": "2045 projected", "type": "bar",
- "data": [210,440,340,560,700,780,620,520],
- "itemStyle": {"color": "#EF5350", "opacity": 0.8}}
+"data": [210,440,340,560,700,780,620,520],
+"itemStyle": {"color": "#EF5350", "opacity": 0.8}}
 ]
 }'></div>
 ```

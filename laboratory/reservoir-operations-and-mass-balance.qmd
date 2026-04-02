@@ -294,11 +294,11 @@ print(f"\nCv={Cv:.2f}, η_T={eta:.3f}, ΔK={dK:.3f} Mm³/yr, T_50={T50:.0f} yr")
 "yAxis": {"name": "Departure from yield (Mm³)", "nameLocation": "middle", "nameGap": 55},
 "series": [
 {"name": "Cumulative departure X(t)", "type": "line", "smooth": false,
- "itemStyle": {"color": "#1565C0"},
- "data": [-7,-16,-21,-11,14,49,64,61,54,44,33,21,10,1,-4,3]},
+"itemStyle": {"color": "#1565C0"},
+"data": [-7,-16,-21,-11,14,49,64,61,54,44,33,21,10,1,-4,3]},
 {"name": "Required storage K = 68", "type": "line",
- "lineStyle": {"type": "dashed", "color": "#C62828"},
- "data": [68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68]}
+"lineStyle": {"type": "dashed", "color": "#C62828"},
+"data": [68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68]}
 ]
 }'></div>
 ```

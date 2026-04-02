@@ -166,16 +166,16 @@ different commodity classifications.
 "type": "bar",
 "label": {"show": true, "position": "right", "formatter": "{c}B"},
 "data": [
-  {"value": 3,   "itemStyle": {"color": "#bfdbfe"}},
-  {"value": 12,  "itemStyle": {"color": "#93c5fd"}},
-  {"value": 15,  "itemStyle": {"color": "#7dd3fc"}},
-  {"value": 28,  "itemStyle": {"color": "#60a5fa"}},
-  {"value": 18,  "itemStyle": {"color": "#4db8ff"}},
-  {"value": 45,  "itemStyle": {"color": "#3b82f6"}},
-  {"value": 90,  "itemStyle": {"color": "#2563eb"}},
-  {"value": 120, "itemStyle": {"color": "#1d4ed8"}},
-  {"value": 175, "itemStyle": {"color": "#1e40af"}},
-  {"value": 310, "itemStyle": {"color": "#1e3a8a"}}
+{"value": 3,   "itemStyle": {"color": "#bfdbfe"}},
+{"value": 12,  "itemStyle": {"color": "#93c5fd"}},
+{"value": 15,  "itemStyle": {"color": "#7dd3fc"}},
+{"value": 28,  "itemStyle": {"color": "#60a5fa"}},
+{"value": 18,  "itemStyle": {"color": "#4db8ff"}},
+{"value": 45,  "itemStyle": {"color": "#3b82f6"}},
+{"value": 90,  "itemStyle": {"color": "#2563eb"}},
+{"value": 120, "itemStyle": {"color": "#1d4ed8"}},
+{"value": 175, "itemStyle": {"color": "#1e40af"}},
+{"value": 310, "itemStyle": {"color": "#1e3a8a"}}
 ]
 }]
 }'></div>
@@ -243,18 +243,18 @@ historical trajectory and projects the 2025 reversal.
 "areaStyle": {"opacity": 0.15, "color": "#1e40af"},
 "data": [30, 22, 18, 14, 11, 9, 8, 12],
 "markLine": {
-  "symbol": "none",
-  "lineStyle": {"color": "#16a34a", "type": "dashed", "width": 2},
-  "label": {"formatter": "Frictionless border = 1", "position": "insideEndTop"},
-  "data": [{"yAxis": 1}]
+"symbol": "none",
+"lineStyle": {"color": "#16a34a", "type": "dashed", "width": 2},
+"label": {"formatter": "Frictionless border = 1", "position": "insideEndTop"},
+"data": [{"yAxis": 1}]
 },
 "markPoint": {
-  "data": [
-    {"name": "McCallum (1995)", "coord": ["1995\nMcCallum", 22]},
-    {"name": "2025 reversal", "coord": ["2025\ntariffs", 12]}
-  ],
-  "itemStyle": {"color": "#dc2626"},
-  "label": {"formatter": "{b}"}
+"data": [
+  {"name": "McCallum (1995)", "coord": ["1995\nMcCallum", 22]},
+  {"name": "2025 reversal", "coord": ["2025\ntariffs", 12]}
+],
+"itemStyle": {"color": "#dc2626"},
+"label": {"formatter": "{b}"}
 }
 }]
 }'></div>
@@ -307,32 +307,32 @@ commodity exporters, the model captures less of the variation.
 "yAxis": {"type": "log", "name": "US Goods Trade (CAD$B)", "nameLocation": "middle", "nameGap": 40, "min": 2, "max": 400},
 "series": [
 {
-  "name": "Gravity prediction",
-  "type": "line",
-  "smooth": false,
-  "symbol": "none",
-  "lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
-  "data": [[30,3],[90,10],[960,310]],
-  "label": {"show": false}
+"name": "Gravity prediction",
+"type": "line",
+"smooth": false,
+"symbol": "none",
+"lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
+"data": [[30,3],[90,10],[960,310]],
+"label": {"show": false}
 },
 {
-  "name": "Province",
-  "type": "scatter",
-  "symbolSize": 14,
-  "itemStyle": {"color": "#1e40af", "opacity": 0.85},
-  "label": {"show": true, "position": "right", "formatter": "{@[2]}"},
-  "data": [
-    [960, 310, "ON"],
-    [450, 175, "AB"],
-    [520, 120, "QC"],
-    [400, 90,  "BC"],
-    [100, 45,  "SK"],
-    [90,  28,  "MB"],
-    [55,  18,  "NB"],
-    [50,  15,  "NS"],
-    [40,  12,  "NL"],
-    [38,  3,   "PEI"]
-  ]
+"name": "Province",
+"type": "scatter",
+"symbolSize": 14,
+"itemStyle": {"color": "#1e40af", "opacity": 0.85},
+"label": {"show": true, "position": "right", "formatter": "{@[2]}"},
+"data": [
+  [960, 310, "ON"],
+  [450, 175, "AB"],
+  [520, 120, "QC"],
+  [400, 90,  "BC"],
+  [100, 45,  "SK"],
+  [90,  28,  "MB"],
+  [55,  18,  "NB"],
+  [50,  15,  "NS"],
+  [40,  12,  "NL"],
+  [38,  3,   "PEI"]
+]
 }
 ]
 }'></div>
@@ -363,11 +363,11 @@ datasets on which gravity models are typically calibrated.
 "center": ["38%", "55%"],
 "label": {"formatter": "{d}%"},
 "data": [
-  {"value": 130, "name": "Crude oil — pipeline",           "itemStyle": {"color": "#1e3a8a"}},
-  {"value": 25,  "name": "Natural gas — pipeline",         "itemStyle": {"color": "#2563eb"}},
-  {"value": 20,  "name": "Agricultural products",          "itemStyle": {"color": "#16a34a"}},
-  {"value": 15,  "name": "Petrochemicals and NGL",         "itemStyle": {"color": "#f59e0b"}},
-  {"value": 10,  "name": "Other goods",                    "itemStyle": {"color": "#6b7280"}}
+{"value": 130, "name": "Crude oil — pipeline",           "itemStyle": {"color": "#1e3a8a"}},
+{"value": 25,  "name": "Natural gas — pipeline",         "itemStyle": {"color": "#2563eb"}},
+{"value": 20,  "name": "Agricultural products",          "itemStyle": {"color": "#16a34a"}},
+{"value": 15,  "name": "Petrochemicals and NGL",         "itemStyle": {"color": "#f59e0b"}},
+{"value": 10,  "name": "Other goods",                    "itemStyle": {"color": "#6b7280"}}
 ]
 }]
 }'></div>

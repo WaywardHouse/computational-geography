@@ -250,11 +250,11 @@ print(f"  = {eps/2.65*10:.4f} mm yr⁻¹")
 "yAxis": {"name": "Rate (×10⁻¹³ mol m⁻² s⁻¹)", "nameLocation": "middle", "nameGap": 50},
 "series": [
 {"name": "pH 4.0", "type": "line", "smooth": true,
- "data": [4.1, 5.5, 7.3, 9.7, 12.8, 16.8, 22.0]},
+"data": [4.1, 5.5, 7.3, 9.7, 12.8, 16.8, 22.0]},
 {"name": "pH 5.0", "type": "line", "smooth": true,
- "data": [1.3, 1.7, 2.3, 3.1, 4.0, 5.3, 6.9]},
+"data": [1.3, 1.7, 2.3, 3.1, 4.0, 5.3, 6.9]},
 {"name": "pH 6.0", "type": "line", "smooth": true,
- "data": [0.41, 0.55, 0.73, 0.97, 1.28, 1.68, 2.20]}
+"data": [0.41, 0.55, 0.73, 0.97, 1.28, 1.68, 2.20]}
 ]
 }'></div>
 ```

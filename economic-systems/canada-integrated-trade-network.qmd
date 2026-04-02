@@ -252,17 +252,17 @@ of path concentration.
 "type": "bar",
 "label": {"show": true, "position": "right", "formatter": "{c}"},
 "data": [
-  {"value": 0.18, "itemStyle": {"color": "#bfdbfe"}},
-  {"value": 0.20, "itemStyle": {"color": "#bfdbfe"}},
-  {"value": 0.22, "itemStyle": {"color": "#93c5fd"}},
-  {"value": 0.25, "itemStyle": {"color": "#93c5fd"}},
-  {"value": 0.28, "itemStyle": {"color": "#7dd3fc"}},
-  {"value": 0.32, "itemStyle": {"color": "#60a5fa"}},
-  {"value": 0.38, "itemStyle": {"color": "#3b82f6"}},
-  {"value": 0.45, "itemStyle": {"color": "#2563eb"}},
-  {"value": 0.58, "itemStyle": {"color": "#1d4ed8"}},
-  {"value": 0.71, "itemStyle": {"color": "#1e40af"}},
-  {"value": 0.82, "itemStyle": {"color": "#dc2626"}}
+{"value": 0.18, "itemStyle": {"color": "#bfdbfe"}},
+{"value": 0.20, "itemStyle": {"color": "#bfdbfe"}},
+{"value": 0.22, "itemStyle": {"color": "#93c5fd"}},
+{"value": 0.25, "itemStyle": {"color": "#93c5fd"}},
+{"value": 0.28, "itemStyle": {"color": "#7dd3fc"}},
+{"value": 0.32, "itemStyle": {"color": "#60a5fa"}},
+{"value": 0.38, "itemStyle": {"color": "#3b82f6"}},
+{"value": 0.45, "itemStyle": {"color": "#2563eb"}},
+{"value": 0.58, "itemStyle": {"color": "#1d4ed8"}},
+{"value": 0.71, "itemStyle": {"color": "#1e40af"}},
+{"value": 0.82, "itemStyle": {"color": "#dc2626"}}
 ]
 }]
 }'></div>
@@ -294,18 +294,18 @@ of path concentration.
 "yAxis": {"type": "value", "name": "000 TEU-equiv/year", "max": 4000},
 "series": [
 {
-  "name": "Theoretical capacity",
-  "type": "bar",
-  "itemStyle": {"color": "#2563eb"},
-  "label": {"show": true, "position": "top"},
-  "data": [3500, 1500, 700, 400, 300]
+"name": "Theoretical capacity",
+"type": "bar",
+"itemStyle": {"color": "#2563eb"},
+"label": {"show": true, "position": "top"},
+"data": [3500, 1500, 700, 400, 300]
 },
 {
-  "name": "Min-cut constraint",
-  "type": "bar",
-  "itemStyle": {"color": "#dc2626"},
-  "label": {"show": true, "position": "top"},
-  "data": [3500, 1500, 600, 400, 300]
+"name": "Min-cut constraint",
+"type": "bar",
+"itemStyle": {"color": "#dc2626"},
+"label": {"show": true, "position": "top"},
+"data": [3500, 1500, 600, 400, 300]
 }
 ]
 }'></div>
@@ -328,17 +328,17 @@ of path concentration.
 "type": "bar",
 "label": {"show": true, "position": "top", "formatter": "CAD${c}M"},
 "data": [
-  {"value": 180, "itemStyle": {"color": "#1e3a8a"}},
-  {"value": 55,  "itemStyle": {"color": "#2563eb"}},
-  {"value": 60,  "itemStyle": {"color": "#3b82f6"}},
-  {"value": 35,  "itemStyle": {"color": "#60a5fa"}},
-  {"value": 20,  "itemStyle": {"color": "#93c5fd"}}
+{"value": 180, "itemStyle": {"color": "#1e3a8a"}},
+{"value": 55,  "itemStyle": {"color": "#2563eb"}},
+{"value": 60,  "itemStyle": {"color": "#3b82f6"}},
+{"value": 35,  "itemStyle": {"color": "#60a5fa"}},
+{"value": 20,  "itemStyle": {"color": "#93c5fd"}}
 ],
 "markLine": {
-  "symbol": "none",
-  "lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
-  "label": {"formatter": "Total ~CAD&#36;350M/day", "position": "insideEndTop"},
-  "data": [{"yAxis": 350}]
+"symbol": "none",
+"lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
+"label": {"formatter": "Total ~CAD&#36;350M/day", "position": "insideEndTop"},
+"data": [{"yAxis": 350}]
 }
 }]
 }'></div>
@@ -363,27 +363,27 @@ of path concentration.
 "itemStyle": {"borderWidth": 1, "borderColor": "#aaa"},
 "lineStyle": {"color": "gradient", "opacity": 0.4},
 "nodes": [
-  {"name": "Pacific ports"},
-  {"name": "Prairie hub"},
-  {"name": "Eastern hub"},
-  {"name": "Windsor crossing"},
-  {"name": "Niagara + Sarnia"},
-  {"name": "Atlantic gateway"},
-  {"name": "US Midwest"},
-  {"name": "US East"},
-  {"name": "Asia"}
+{"name": "Pacific ports"},
+{"name": "Prairie hub"},
+{"name": "Eastern hub"},
+{"name": "Windsor crossing"},
+{"name": "Niagara + Sarnia"},
+{"name": "Atlantic gateway"},
+{"name": "US Midwest"},
+{"name": "US East"},
+{"name": "Asia"}
 ],
 "links": [
-  {"source": "Pacific ports",     "target": "Prairie hub",      "value": 100},
-  {"source": "Pacific ports",     "target": "Asia",             "value": 90},
-  {"source": "Prairie hub",       "target": "Eastern hub",      "value": 80},
-  {"source": "Prairie hub",       "target": "Asia",             "value": 30},
-  {"source": "Eastern hub",       "target": "Windsor crossing", "value": 146},
-  {"source": "Eastern hub",       "target": "Niagara + Sarnia", "value": 80},
-  {"source": "Eastern hub",       "target": "Atlantic gateway", "value": 40},
-  {"source": "Windsor crossing",  "target": "US Midwest",       "value": 146},
-  {"source": "Niagara + Sarnia",  "target": "US East",          "value": 80},
-  {"source": "Atlantic gateway",  "target": "US East",          "value": 40}
+{"source": "Pacific ports",     "target": "Prairie hub",      "value": 100},
+{"source": "Pacific ports",     "target": "Asia",             "value": 90},
+{"source": "Prairie hub",       "target": "Eastern hub",      "value": 80},
+{"source": "Prairie hub",       "target": "Asia",             "value": 30},
+{"source": "Eastern hub",       "target": "Windsor crossing", "value": 146},
+{"source": "Eastern hub",       "target": "Niagara + Sarnia", "value": 80},
+{"source": "Eastern hub",       "target": "Atlantic gateway", "value": 40},
+{"source": "Windsor crossing",  "target": "US Midwest",       "value": 146},
+{"source": "Niagara + Sarnia",  "target": "US East",          "value": 80},
+{"source": "Atlantic gateway",  "target": "US East",          "value": 40}
 ]
 }]
 }'></div>

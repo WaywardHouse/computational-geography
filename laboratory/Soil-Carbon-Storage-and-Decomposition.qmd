@@ -271,14 +271,14 @@ for T in [0, 5, 10, 15, 20, 25]:
 "yAxis": {"name": "SOC (t C ha⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 25, "max": 70},
 "series": [
 {"name": "Business as usual", "type": "line", "smooth": true,
- "itemStyle": {"color": "#90A4AE"},
- "data": [30.0, 30.9, 31.4, 31.7, 31.9, 32.0, 32.0, 32.0, 32.0]},
+"itemStyle": {"color": "#90A4AE"},
+"data": [30.0, 30.9, 31.4, 31.7, 31.9, 32.0, 32.0, 32.0, 32.0]},
 {"name": "Cover crops + no-till", "type": "line", "smooth": true,
- "itemStyle": {"color": "#2E7D32"},
- "data": [30.0, 33.5, 36.2, 38.4, 40.1, 41.5, 42.6, 44.2, 45.5]},
+"itemStyle": {"color": "#2E7D32"},
+"data": [30.0, 33.5, 36.2, 38.4, 40.1, 41.5, 42.6, 44.2, 45.5]},
 {"name": "Grassland restoration", "type": "line", "smooth": true,
- "itemStyle": {"color": "#1565C0"},
- "data": [30.0, 35.5, 40.0, 43.8, 47.0, 49.6, 51.9, 55.4, 58.3]}
+"itemStyle": {"color": "#1565C0"},
+"data": [30.0, 35.5, 40.0, 43.8, 47.0, 49.6, 51.9, 55.4, 58.3]}
 ]
 }'></div>
 ```

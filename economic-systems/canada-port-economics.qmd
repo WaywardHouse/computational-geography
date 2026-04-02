@@ -240,27 +240,27 @@ when the primary gateway becomes saturated.
 "yAxis": {"type": "value", "name": "TEUs (thousands)"},
 "series": [
 {
-  "name": "Vancouver",
-  "type": "line",
-  "smooth": true,
-  "symbol": "circle",
-  "itemStyle": {"color": "#1e40af"},
-  "areaStyle": {"opacity": 0.06},
-  "data": [2000, 2200, 2500, 2900, 3100, 3100, 2800, 3400, 3500, 3300],
-  "markArea": {
-    "itemStyle": {"color": "rgba(156,163,175,0.15)"},
-    "data": [[{"xAxis": "2020"}, {"xAxis": "2021"}]],
-    "label": {"show": true, "position": "insideTop", "color": "#6b7280", "formatter": "COVID disruption"}
-  }
+"name": "Vancouver",
+"type": "line",
+"smooth": true,
+"symbol": "circle",
+"itemStyle": {"color": "#1e40af"},
+"areaStyle": {"opacity": 0.06},
+"data": [2000, 2200, 2500, 2900, 3100, 3100, 2800, 3400, 3500, 3300],
+"markArea": {
+  "itemStyle": {"color": "rgba(156,163,175,0.15)"},
+  "data": [[{"xAxis": "2020"}, {"xAxis": "2021"}]],
+  "label": {"show": true, "position": "insideTop", "color": "#6b7280", "formatter": "COVID disruption"}
+}
 },
 {
-  "name": "Prince Rupert",
-  "type": "line",
-  "smooth": true,
-  "symbol": "circle",
-  "itemStyle": {"color": "#16a34a"},
-  "areaStyle": {"opacity": 0.06},
-  "data": [300, 380, 450, 500, 620, 680, 700, 820, 860, 870]
+"name": "Prince Rupert",
+"type": "line",
+"smooth": true,
+"symbol": "circle",
+"itemStyle": {"color": "#16a34a"},
+"areaStyle": {"opacity": 0.06},
+"data": [300, 380, 450, 500, 620, 680, 700, 820, 860, 870]
 }
 ]
 }'></div>
@@ -292,20 +292,20 @@ when the primary gateway becomes saturated.
 "yAxis": {"type": "category", "data": ["LA / Long Beach\n→ Chicago", "Vancouver\n→ Chicago", "Prince Rupert\n→ Chicago"]},
 "series": [
 {
-  "name": "Ocean transit (days)",
-  "type": "bar",
-  "stack": "total",
-  "itemStyle": {"color": "#1e40af"},
-  "label": {"show": true, "position": "inside", "formatter": "{c}d ocean"},
-  "data": [14, 12, 10]
+"name": "Ocean transit (days)",
+"type": "bar",
+"stack": "total",
+"itemStyle": {"color": "#1e40af"},
+"label": {"show": true, "position": "inside", "formatter": "{c}d ocean"},
+"data": [14, 12, 10]
 },
 {
-  "name": "Inland rail (days)",
-  "type": "bar",
-  "stack": "total",
-  "itemStyle": {"color": "#16a34a"},
-  "label": {"show": true, "position": "inside", "formatter": "{c}d rail"},
-  "data": [4, 4, 4.5]
+"name": "Inland rail (days)",
+"type": "bar",
+"stack": "total",
+"itemStyle": {"color": "#16a34a"},
+"label": {"show": true, "position": "inside", "formatter": "{c}d rail"},
+"data": [4, 4, 4.5]
 }
 ]
 }'></div>

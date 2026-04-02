@@ -523,25 +523,25 @@ network.report()
 "yAxis": {"type": "value", "name": "Capacity (000 bbl/d)", "nameLocation": "end"},
 "series": [
 {
-  "name": "Eastbound / U.S. Midwest",
-  "type": "bar",
-  "stack": "total",
-  "data": [235, 239, 760, 800, 800, 0, 0, 0, 0],
-  "itemStyle": {"color": "#2563eb"}
+"name": "Eastbound / U.S. Midwest",
+"type": "bar",
+"stack": "total",
+"data": [235, 239, 760, 800, 800, 0, 0, 0, 0],
+"itemStyle": {"color": "#2563eb"}
 },
 {
-  "name": "Westbound (Pacific)",
-  "type": "bar",
-  "stack": "total",
-  "data": [0, 0, 0, 0, 0, 590, 300, 0, 0],
-  "itemStyle": {"color": "#16a34a"}
+"name": "Westbound (Pacific)",
+"type": "bar",
+"stack": "total",
+"data": [0, 0, 0, 0, 0, 590, 300, 0, 0],
+"itemStyle": {"color": "#16a34a"}
 },
 {
-  "name": "Southbound (U.S. Plains/Gulf)",
-  "type": "bar",
-  "stack": "total",
-  "data": [0, 0, 0, 0, 0, 0, 0, 590, 280],
-  "itemStyle": {"color": "#dc2626"}
+"name": "Southbound (U.S. Plains/Gulf)",
+"type": "bar",
+"stack": "total",
+"data": [0, 0, 0, 0, 0, 0, 0, 590, 280],
+"itemStyle": {"color": "#dc2626"}
 }
 ]
 }'></div>
@@ -556,15 +556,15 @@ network.report()
 "legend": {"orient": "vertical", "left": "left"},
 "series": [
 {
-  "type": "pie",
-  "radius": ["40%", "70%"],
-  "avoidLabelOverlap": false,
-  "label": {"show": true, "formatter": "{b}\n{d}%"},
-  "data": [
-    {"value": 2834, "name": "U.S. Midwest (Enbridge Mainline)", "itemStyle": {"color": "#2563eb"}},
-    {"value": 890, "name": "Pacific / Asia-Pacific (Trans Mountain)", "itemStyle": {"color": "#16a34a"}},
-    {"value": 870, "name": "U.S. Plains / Gulf (Keystone + Express)", "itemStyle": {"color": "#dc2626"}}
-  ]
+"type": "pie",
+"radius": ["40%", "70%"],
+"avoidLabelOverlap": false,
+"label": {"show": true, "formatter": "{b}\n{d}%"},
+"data": [
+  {"value": 2834, "name": "U.S. Midwest (Enbridge Mainline)", "itemStyle": {"color": "#2563eb"}},
+  {"value": 890, "name": "Pacific / Asia-Pacific (Trans Mountain)", "itemStyle": {"color": "#16a34a"}},
+  {"value": 870, "name": "U.S. Plains / Gulf (Keystone + Express)", "itemStyle": {"color": "#dc2626"}}
+]
 }
 ]
 }'></div>
@@ -585,10 +585,10 @@ network.report()
 "areaStyle": {"opacity": 0.15},
 "itemStyle": {"color": "#16a34a"},
 "markPoint": {
-  "data": [
-    {"name": "Original opening", "coord": ["1953", 150]},
-    {"name": "TMX in service", "coord": ["2024", 890]}
-  ]
+"data": [
+  {"name": "Original opening", "coord": ["1953", 150]},
+  {"name": "TMX in service", "coord": ["2024", 890]}
+]
 }
 }]
 }'></div>
@@ -606,9 +606,9 @@ network.report()
 "series": [{
 "type": "bar",
 "data": [
-  {"value": 74.8, "itemStyle": {"color": "#2563eb"}},
-  {"value": 79.2, "itemStyle": {"color": "#dc2626"}},
-  {"value": 84.1, "itemStyle": {"color": "#16a34a"}}
+{"value": 74.8, "itemStyle": {"color": "#2563eb"}},
+{"value": 79.2, "itemStyle": {"color": "#dc2626"}},
+{"value": 84.1, "itemStyle": {"color": "#16a34a"}}
 ],
 "label": {"show": true, "position": "right", "formatter": "${c} CAD/bbl"}
 }]

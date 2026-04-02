@@ -303,17 +303,17 @@ for compound, vs_c, Rf in [("Benzene", vs/Rf_benz, Rf_benz), ("PCE", vs/Rf_pce, 
 "yAxis": {"name": "Relative concentration C/C₀", "nameLocation": "middle", "nameGap": 55, "min": 0, "max": 1},
 "series": [
 {"name": "Conservative tracer (Rf=1)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#1565C0"},
- "data": [1.0,0.92,0.80,0.65,0.50,0.38,0.28,0.20,0.14,0.10,0.07,0.03,0.01]},
+"itemStyle": {"color": "#1565C0"},
+"data": [1.0,0.92,0.80,0.65,0.50,0.38,0.28,0.20,0.14,0.10,0.07,0.03,0.01]},
 {"name": "Benzene (Rf=1.2)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#F57F17"},
- "data": [1.0,0.88,0.73,0.57,0.42,0.30,0.21,0.14,0.09,0.06,0.04,0.01,0.005]},
+"itemStyle": {"color": "#F57F17"},
+"data": [1.0,0.88,0.73,0.57,0.42,0.30,0.21,0.14,0.09,0.06,0.04,0.01,0.005]},
 {"name": "PCE (Rf=5)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#C62828"},
- "data": [1.0,0.72,0.50,0.34,0.22,0.14,0.09,0.06,0.035,0.022,0.014,0.004,0.001]},
+"itemStyle": {"color": "#C62828"},
+"data": [1.0,0.72,0.50,0.34,0.22,0.14,0.09,0.06,0.035,0.022,0.014,0.004,0.001]},
 {"name": "MCL threshold", "type": "line",
- "lineStyle": {"type": "dashed", "color": "#555"},
- "data": [0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003]}
+"lineStyle": {"type": "dashed", "color": "#555"},
+"data": [0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003]}
 ]
 }'></div>
 ```

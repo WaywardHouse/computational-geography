@@ -320,11 +320,11 @@ print(f"Brier skill score: {bss:.3f}")
 "yAxis": {"name": "Count", "nameLocation": "middle", "nameGap": 40},
 "series": [
 {"name": "Observed rank counts", "type": "bar",
- "itemStyle": {"color": "#1565C0"},
- "data": [62, 30, 28, 26, 28, 27, 29, 31, 28, 27, 64]},
+"itemStyle": {"color": "#1565C0"},
+"data": [62, 30, 28, 26, 28, 27, 29, 31, 28, 27, 64]},
 {"name": "Expected (uniform)", "type": "line",
- "lineStyle": {"type": "dashed", "color": "#C62828"},
- "data": [45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5]}
+"lineStyle": {"type": "dashed", "color": "#C62828"},
+"data": [45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5]}
 ]
 }'></div>
 ```

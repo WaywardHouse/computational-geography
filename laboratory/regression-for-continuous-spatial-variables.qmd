@@ -333,15 +333,15 @@ print(f"Optimism bias (spatial autocorr.): {np.mean(rmse_spatial)-np.mean(rmse_s
 "yAxis": {"name": "Expected prediction error", "nameLocation": "middle", "nameGap": 50},
 "series": [
 {"name": "Bias²", "type": "line", "smooth": true,
- "itemStyle": {"color": "#C62828"},
- "data": [0.01, 0.02, 0.04, 0.08, 0.15, 0.28, 0.50, 0.75, 1.10, 1.50, 2.00]},
+"itemStyle": {"color": "#C62828"},
+"data": [0.01, 0.02, 0.04, 0.08, 0.15, 0.28, 0.50, 0.75, 1.10, 1.50, 2.00]},
 {"name": "Variance", "type": "line", "smooth": true,
- "itemStyle": {"color": "#1565C0"},
- "data": [2.20, 1.80, 1.40, 1.05, 0.75, 0.52, 0.35, 0.25, 0.18, 0.14, 0.12]},
+"itemStyle": {"color": "#1565C0"},
+"data": [2.20, 1.80, 1.40, 1.05, 0.75, 0.52, 0.35, 0.25, 0.18, 0.14, 0.12]},
 {"name": "Total error (Bias² + Var + σ²)", "type": "line", "smooth": true,
- "lineStyle": {"width": 3},
- "itemStyle": {"color": "#2E7D32"},
- "data": [4.46, 4.07, 3.69, 3.38, 3.15, 3.05, 3.10, 3.25, 3.53, 3.89, 4.37]}
+"lineStyle": {"width": 3},
+"itemStyle": {"color": "#2E7D32"},
+"data": [4.46, 4.07, 3.69, 3.38, 3.15, 3.05, 3.10, 3.25, 3.53, 3.89, 4.37]}
 ]
 }'></div>
 ```

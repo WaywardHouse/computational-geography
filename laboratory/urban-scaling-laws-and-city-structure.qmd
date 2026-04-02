@@ -306,13 +306,13 @@ for d in [0, 5, 10, 15, 20, 25, 30]:
 "yAxis": {"name": "Bid rent ($ m⁻² yr⁻¹)", "nameLocation": "middle", "nameGap": 60},
 "series": [
 {"name": "Commercial/Retail", "type": "line", "smooth": false,
- "data": [4800, 3200, 1600, 0, 0, 0, 0, 0, 0]},
+"data": [4800, 3200, 1600, 0, 0, 0, 0, 0, 0]},
 {"name": "Residential", "type": "line", "smooth": false,
- "data": [1200, 1000, 800, 600, 400, 200, 0, 0, 0]},
+"data": [1200, 1000, 800, 600, 400, 200, 0, 0, 0]},
 {"name": "Industrial", "type": "line", "smooth": false,
- "data": [600, 570, 540, 510, 480, 450, 420, 360, 300]},
+"data": [600, 570, 540, 510, 480, 450, 420, 360, 300]},
 {"name": "Agriculture", "type": "line", "smooth": false,
- "data": [200, 195, 190, 185, 180, 175, 170, 160, 150]}
+"data": [200, 195, 190, 185, 180, 175, 170, 160, 150]}
 ]
 }'></div>
 ```

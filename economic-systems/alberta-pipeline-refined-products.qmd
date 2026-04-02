@@ -657,11 +657,11 @@ burnaby.report()
 "series": [{
 "type": "bar",
 "data": [
-  {"value": 2.1,  "itemStyle": {"color": "#16a34a"}},
-  {"value": 4.8,  "itemStyle": {"color": "#16a34a"}},
-  {"value": 9.4,  "itemStyle": {"color": "#f59e0b"}},
-  {"value": 18.2, "itemStyle": {"color": "#f59e0b"}},
-  {"value": 38.5, "itemStyle": {"color": "#dc2626"}}
+{"value": 2.1,  "itemStyle": {"color": "#16a34a"}},
+{"value": 4.8,  "itemStyle": {"color": "#16a34a"}},
+{"value": 9.4,  "itemStyle": {"color": "#f59e0b"}},
+{"value": 18.2, "itemStyle": {"color": "#f59e0b"}},
+{"value": 38.5, "itemStyle": {"color": "#dc2626"}}
 ],
 "label": {"show": true, "position": "right", "formatter": "{c} days"}
 }]
@@ -678,23 +678,23 @@ burnaby.report()
 "yAxis": {"type": "value", "name": "Days of supply"},
 "series": [
 {
-  "name": "Days of supply",
-  "type": "bar",
-  "data": [
-    {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
-    {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
-    {"value": 15.6, "itemStyle": {"color": "#16a34a"}},
-    {"value": 17.1, "itemStyle": {"color": "#16a34a"}}
-  ],
-  "label": {"show": true, "position": "top", "formatter": "{c} days"}
+"name": "Days of supply",
+"type": "bar",
+"data": [
+  {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
+  {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
+  {"value": 15.6, "itemStyle": {"color": "#16a34a"}},
+  {"value": 17.1, "itemStyle": {"color": "#16a34a"}}
+],
+"label": {"show": true, "position": "top", "formatter": "{c} days"}
 },
 {
-  "name": "Pipeline transit time",
-  "type": "line",
-  "data": [9.4, 9.4, 9.4, 9.4],
-  "lineStyle": {"type": "dashed", "color": "#dc2626", "width": 2},
-  "itemStyle": {"color": "#dc2626"},
-  "symbol": "none"
+"name": "Pipeline transit time",
+"type": "line",
+"data": [9.4, 9.4, 9.4, 9.4],
+"lineStyle": {"type": "dashed", "color": "#dc2626", "width": 2},
+"itemStyle": {"color": "#dc2626"},
+"symbol": "none"
 }
 ],
 "legend": {"data": ["Days of supply", "Pipeline transit time (9.4 days)"], "bottom": 0}
@@ -712,25 +712,25 @@ burnaby.report()
 "yAxis": {"type": "value", "name": "Relative demand (annual avg = 1.0)", "min": 0.6, "max": 1.4},
 "series": [
 {
-  "name": "Gasoline",
-  "type": "line",
-  "data": [0.82, 0.84, 0.90, 0.96, 1.05, 1.15, 1.22, 1.18, 1.08, 0.98, 0.88, 0.82],
-  "smooth": true,
-  "itemStyle": {"color": "#f59e0b"}
+"name": "Gasoline",
+"type": "line",
+"data": [0.82, 0.84, 0.90, 0.96, 1.05, 1.15, 1.22, 1.18, 1.08, 0.98, 0.88, 0.82],
+"smooth": true,
+"itemStyle": {"color": "#f59e0b"}
 },
 {
-  "name": "Diesel",
-  "type": "line",
-  "data": [1.12, 1.08, 1.05, 0.98, 0.95, 0.90, 0.88, 0.90, 0.98, 1.05, 1.12, 1.18],
-  "smooth": true,
-  "itemStyle": {"color": "#2563eb"}
+"name": "Diesel",
+"type": "line",
+"data": [1.12, 1.08, 1.05, 0.98, 0.95, 0.90, 0.88, 0.90, 0.98, 1.05, 1.12, 1.18],
+"smooth": true,
+"itemStyle": {"color": "#2563eb"}
 },
 {
-  "name": "Jet Fuel",
-  "type": "line",
-  "data": [0.78, 0.80, 0.88, 0.95, 1.05, 1.18, 1.28, 1.25, 1.12, 0.98, 0.85, 0.78],
-  "smooth": true,
-  "itemStyle": {"color": "#7c3aed"}
+"name": "Jet Fuel",
+"type": "line",
+"data": [0.78, 0.80, 0.88, 0.95, 1.05, 1.18, 1.28, 1.25, 1.12, 0.98, 0.85, 0.78],
+"smooth": true,
+"itemStyle": {"color": "#7c3aed"}
 }
 ]
 }'></div>
@@ -748,11 +748,11 @@ burnaby.report()
 "startAngle": 90,
 "label": {"formatter": "{b}\n{c} bbl\n({d}%)"},
 "data": [
-  {"value": 300000, "name": "ULSD Diesel",       "itemStyle": {"color": "#2563eb"}},
-  {"value": 280000, "name": "Regular Gasoline",  "itemStyle": {"color": "#f59e0b"}},
-  {"value": 120000, "name": "Jet A",             "itemStyle": {"color": "#7c3aed"}},
-  {"value": 90000,  "name": "Premium Gasoline",  "itemStyle": {"color": "#fb923c"}},
-  {"value": 13250,  "name": "Transmix (interfaces)", "itemStyle": {"color": "#6b7280"}}
+{"value": 300000, "name": "ULSD Diesel",       "itemStyle": {"color": "#2563eb"}},
+{"value": 280000, "name": "Regular Gasoline",  "itemStyle": {"color": "#f59e0b"}},
+{"value": 120000, "name": "Jet A",             "itemStyle": {"color": "#7c3aed"}},
+{"value": 90000,  "name": "Premium Gasoline",  "itemStyle": {"color": "#fb923c"}},
+{"value": 13250,  "name": "Transmix (interfaces)", "itemStyle": {"color": "#6b7280"}}
 ]
 }]
 }'></div>

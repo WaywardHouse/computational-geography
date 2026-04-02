@@ -298,14 +298,14 @@ for Cp_test in [20, 50, 80, 150]:
 "yAxis": {"name": "Predicted chlorophyll-a (μg L⁻¹)", "nameLocation": "middle", "nameGap": 55},
 "series": [
 {"name": "Predicted Chl-a (μg/L)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#2E7D32"},
- "data": [1.5, 3.1, 6.5, 13.8, 29.4, 44.6, 59.8, 91.0, 122.0]},
+"itemStyle": {"color": "#2E7D32"},
+"data": [1.5, 3.1, 6.5, 13.8, 29.4, 44.6, 59.8, 91.0, 122.0]},
 {"name": "Eutrophic threshold (Chl=8)", "type": "line",
- "lineStyle": {"type": "dashed", "color": "#F57F17"},
- "data": [8,8,8,8,8,8,8,8,8]},
+"lineStyle": {"type": "dashed", "color": "#F57F17"},
+"data": [8,8,8,8,8,8,8,8,8]},
 {"name": "Hypereutrophic threshold (Chl=25)", "type": "line",
- "lineStyle": {"type": "dashed", "color": "#C62828"},
- "data": [25,25,25,25,25,25,25,25,25]}
+"lineStyle": {"type": "dashed", "color": "#C62828"},
+"data": [25,25,25,25,25,25,25,25,25]}
 ]
 }'></div>
 ```

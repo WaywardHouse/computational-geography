@@ -128,26 +128,26 @@ Most estimates place North American cities well below $N^*$, implying that furth
 },
 "series": [
 {
-  "type": "scatter",
-  "symbolSize": 12,
-  "data": [
-    {"name": "Toronto", "value": [3200, 26]},
-    {"name": "Vancouver", "value": [1400, 18]},
-    {"name": "Montreal", "value": [2100, 12]},
-    {"name": "Calgary", "value": [830, 22]},
-    {"name": "Edmonton", "value": [620, 14]},
-    {"name": "Ottawa", "value": [730, 16]},
-    {"name": "Winnipeg", "value": [420, 4]},
-    {"name": "Quebec City", "value": [350, 2]},
-    {"name": "Hamilton", "value": [280, 1]},
-    {"name": "Saskatoon", "value": [160, -1]},
-    {"name": "Regina", "value": [130, -2]},
-    {"name": "Halifax", "value": [220, 0]},
-    {"name": "Kelowna", "value": [100, -3]},
-    {"name": "Lethbridge", "value": [60, -4]}
-  ],
-  "label": {"show": true, "formatter": "{b}", "position": "right", "fontSize": 11},
-  "itemStyle": {"color": "#5c8ee0"}
+"type": "scatter",
+"symbolSize": 12,
+"data": [
+  {"name": "Toronto", "value": [3200, 26]},
+  {"name": "Vancouver", "value": [1400, 18]},
+  {"name": "Montreal", "value": [2100, 12]},
+  {"name": "Calgary", "value": [830, 22]},
+  {"name": "Edmonton", "value": [620, 14]},
+  {"name": "Ottawa", "value": [730, 16]},
+  {"name": "Winnipeg", "value": [420, 4]},
+  {"name": "Quebec City", "value": [350, 2]},
+  {"name": "Hamilton", "value": [280, 1]},
+  {"name": "Saskatoon", "value": [160, -1]},
+  {"name": "Regina", "value": [130, -2]},
+  {"name": "Halifax", "value": [220, 0]},
+  {"name": "Kelowna", "value": [100, -3]},
+  {"name": "Lethbridge", "value": [60, -4]}
+],
+"label": {"show": true, "formatter": "{b}", "position": "right", "fontSize": 11},
+"itemStyle": {"color": "#5c8ee0"}
 }
 ]
 }'></div>
@@ -175,22 +175,22 @@ Calgary sits above the trend line: its wage premium exceeds what its size alone 
 },
 "series": [
 {
-  "name": "Calgary",
-  "type": "bar",
-  "data": [4.8, 1.6, 1.0, 0.7, 0.8, 0.9, 1.4],
-  "itemStyle": {"color": "#e05c5c"}
+"name": "Calgary",
+"type": "bar",
+"data": [4.8, 1.6, 1.0, 0.7, 0.8, 0.9, 1.4],
+"itemStyle": {"color": "#e05c5c"}
 },
 {
-  "name": "Toronto",
-  "type": "bar",
-  "data": [0.2, 2.8, 1.9, 0.9, 1.1, 1.0, 0.8],
-  "itemStyle": {"color": "#5c8ee0"}
+"name": "Toronto",
+"type": "bar",
+"data": [0.2, 2.8, 1.9, 0.9, 1.1, 1.0, 0.8],
+"itemStyle": {"color": "#5c8ee0"}
 },
 {
-  "name": "Vancouver",
-  "type": "bar",
-  "data": [0.3, 1.1, 1.7, 1.0, 1.2, 1.1, 1.2],
-  "itemStyle": {"color": "#6dba6d"}
+"name": "Vancouver",
+"type": "bar",
+"data": [0.3, 1.1, 1.7, 1.0, 1.2, 1.1, 1.2],
+"itemStyle": {"color": "#6dba6d"}
 }
 ]
 }'></div>

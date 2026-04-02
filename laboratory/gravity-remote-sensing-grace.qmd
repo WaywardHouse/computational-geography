@@ -259,14 +259,14 @@ for name, rate_Gt_yr, area in regions:
 "name": "Mass trend",
 "type": "bar",
 "data": [
-  {"value": -280, "itemStyle": {"color": "#F44336"}},
-  {"value": -150, "itemStyle": {"color": "#F44336"}},
-  {"value": -40,  "itemStyle": {"color": "#FF9800"}},
-  {"value":  60,  "itemStyle": {"color": "#2196F3"}},
-  {"value":  -4,  "itemStyle": {"color": "#FF5722"}},
-  {"value": -54,  "itemStyle": {"color": "#F44336"}},
-  {"value": -20,  "itemStyle": {"color": "#FF9800"}},
-  {"value": -25,  "itemStyle": {"color": "#FF9800"}}
+{"value": -280, "itemStyle": {"color": "#F44336"}},
+{"value": -150, "itemStyle": {"color": "#F44336"}},
+{"value": -40,  "itemStyle": {"color": "#FF9800"}},
+{"value":  60,  "itemStyle": {"color": "#2196F3"}},
+{"value":  -4,  "itemStyle": {"color": "#FF5722"}},
+{"value": -54,  "itemStyle": {"color": "#F44336"}},
+{"value": -20,  "itemStyle": {"color": "#FF9800"}},
+{"value": -25,  "itemStyle": {"color": "#FF9800"}}
 ]
 }]
 }'></div>

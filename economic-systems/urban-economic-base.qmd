@@ -111,34 +111,34 @@ Total basic employment is the sum of $B_{i,c}$ across all industries, and the mu
 "yAxis": {
 "type": "category",
 "data": [
-  "Education",
-  "Health & Social",
-  "Retail Trade",
-  "Government",
-  "Construction",
-  "Transport & Warehousing",
-  "Prof. & Scientific Services",
-  "Finance & Insurance",
-  "Energy, Mining & Oil & Gas"
+"Education",
+"Health & Social",
+"Retail Trade",
+"Government",
+"Construction",
+"Transport & Warehousing",
+"Prof. & Scientific Services",
+"Finance & Insurance",
+"Energy, Mining & Oil & Gas"
 ],
 "axisLabel": {"fontSize": 11}
 },
 "series": [
 {
-  "name": "LQ",
-  "type": "bar",
-  "data": [0.72, 0.81, 0.95, 0.68, 1.35, 1.12, 1.48, 1.58, 4.85],
-  "itemStyle": {
-    "color": {
-      "type": "linear",
-      "x": 0, "y": 0, "x2": 1, "y2": 0,
-      "colorStops": [
-        {"offset": 0, "color": "#5c8ee0"},
-        {"offset": 1, "color": "#e05c5c"}
-      ]
-    }
-  },
-  "label": {"show": true, "position": "right", "formatter": "{c}"}
+"name": "LQ",
+"type": "bar",
+"data": [0.72, 0.81, 0.95, 0.68, 1.35, 1.12, 1.48, 1.58, 4.85],
+"itemStyle": {
+  "color": {
+    "type": "linear",
+    "x": 0, "y": 0, "x2": 1, "y2": 0,
+    "colorStops": [
+      {"offset": 0, "color": "#5c8ee0"},
+      {"offset": 1, "color": "#e05c5c"}
+    ]
+  }
+},
+"label": {"show": true, "position": "right", "formatter": "{c}"}
 }
 ],
 "markLine": {
@@ -174,20 +174,20 @@ Government, Health, and Education all have LQs below 1, confirming that Calgary 
 },
 "series": [
 {
-  "name": "Basic Employment",
-  "type": "bar",
-  "stack": "total",
-  "data": [42, 35, 31],
-  "itemStyle": {"color": "#e05c5c"},
-  "label": {"show": true, "position": "inside", "formatter": "{c}%"}
+"name": "Basic Employment",
+"type": "bar",
+"stack": "total",
+"data": [42, 35, 31],
+"itemStyle": {"color": "#e05c5c"},
+"label": {"show": true, "position": "inside", "formatter": "{c}%"}
 },
 {
-  "name": "Non-Basic Employment",
-  "type": "bar",
-  "stack": "total",
-  "data": [58, 65, 69],
-  "itemStyle": {"color": "#5c8ee0"},
-  "label": {"show": true, "position": "inside", "formatter": "{c}%"}
+"name": "Non-Basic Employment",
+"type": "bar",
+"stack": "total",
+"data": [58, 65, 69],
+"itemStyle": {"color": "#5c8ee0"},
+"label": {"show": true, "position": "inside", "formatter": "{c}%"}
 }
 ]
 }'></div>

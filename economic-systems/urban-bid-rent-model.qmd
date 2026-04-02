@@ -133,28 +133,28 @@ The bid-rent gradient is clearly visible in Canadian metropolitan areas, though 
 "yAxis": {"type": "value", "name": "Annual Rent ($/m²)", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 1100},
 "series": [
 {
-  "name": "Commercial",
-  "type": "line",
-  "smooth": false,
-  "data": [[0,1000],[2,780],[4,560],[6,340],[8,120],[10,0]],
-  "lineStyle": {"width": 3},
-  "itemStyle": {"color": "#e05c5c"}
+"name": "Commercial",
+"type": "line",
+"smooth": false,
+"data": [[0,1000],[2,780],[4,560],[6,340],[8,120],[10,0]],
+"lineStyle": {"width": 3},
+"itemStyle": {"color": "#e05c5c"}
 },
 {
-  "name": "Residential",
-  "type": "line",
-  "smooth": false,
-  "data": [[0,600],[3,480],[6,360],[9,240],[12,120],[15,0]],
-  "lineStyle": {"width": 3},
-  "itemStyle": {"color": "#5c8ee0"}
+"name": "Residential",
+"type": "line",
+"smooth": false,
+"data": [[0,600],[3,480],[6,360],[9,240],[12,120],[15,0]],
+"lineStyle": {"width": 3},
+"itemStyle": {"color": "#5c8ee0"}
 },
 {
-  "name": "Agricultural",
-  "type": "line",
-  "smooth": false,
-  "data": [[0,200],[5,160],[10,120],[15,80],[20,40],[25,0]],
-  "lineStyle": {"width": 3},
-  "itemStyle": {"color": "#6dba6d"}
+"name": "Agricultural",
+"type": "line",
+"smooth": false,
+"data": [[0,200],[5,160],[10,120],[15,80],[20,40],[25,0]],
+"lineStyle": {"width": 3},
+"itemStyle": {"color": "#6dba6d"}
 }
 ]
 }'></div>
@@ -185,11 +185,11 @@ The chart shows the envelope logic: commercial use dominates from 0–8 km, resi
 },
 "series": [
 {
-  "name": "Office Rent",
-  "type": "bar",
-  "data": [850, 520, 310, 160],
-  "itemStyle": {"color": "#e05c5c"},
-  "label": {"show": true, "position": "top", "formatter": "${c}"}
+"name": "Office Rent",
+"type": "bar",
+"data": [850, 520, 310, 160],
+"itemStyle": {"color": "#e05c5c"},
+"label": {"show": true, "position": "top", "formatter": "${c}"}
 }
 ]
 }'></div>

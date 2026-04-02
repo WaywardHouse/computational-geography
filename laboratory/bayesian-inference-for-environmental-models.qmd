@@ -332,15 +332,15 @@ print(f"  90% interval: [{np.percentile(C60_pred,5):.2f}, {np.percentile(C60_pre
 "yAxis": {"name": "Relative density", "nameLocation": "middle", "nameGap": 45},
 "series": [
 {"name": "Prior p(k)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#90A4AE"},
- "data": [0.5,2.2,6.1,12.1,17.6,19.9,17.6,12.1,6.1,2.2,0.5]},
+"itemStyle": {"color": "#90A4AE"},
+"data": [0.5,2.2,6.1,12.1,17.6,19.9,17.6,12.1,6.1,2.2,0.5]},
 {"name": "Likelihood p(y|k) (scaled)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#1565C0"},
- "data": [0.0,0.0,0.1,0.5,2.8,9.8,8.2,2.1,0.2,0.0,0.0]},
+"itemStyle": {"color": "#1565C0"},
+"data": [0.0,0.0,0.1,0.5,2.8,9.8,8.2,2.1,0.2,0.0,0.0]},
 {"name": "Posterior p(k|y)", "type": "line", "smooth": true,
- "itemStyle": {"color": "#C62828"},
- "areaStyle": {"color": "#FFCDD2", "opacity": 0.5},
- "data": [0.0,0.0,0.1,0.8,5.4,18.6,15.0,4.0,0.4,0.0,0.0]}
+"itemStyle": {"color": "#C62828"},
+"areaStyle": {"color": "#FFCDD2", "opacity": 0.5},
+"data": [0.0,0.0,0.1,0.8,5.4,18.6,15.0,4.0,0.4,0.0,0.0]}
 ]
 }'></div>
 ```

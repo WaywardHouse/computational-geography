@@ -329,11 +329,11 @@ print("\nUpdated grid:\n", new_grid.astype(int))
 "yAxis": {"name": "Developed area (km²)", "nameLocation": "middle", "nameGap": 55, "min": 100},
 "series": [
 {"name": "Sprawl", "type": "line", "smooth": true,
- "data": [120, 148, 183, 224, 272, 328, 392, 465]},
+"data": [120, 148, 183, 224, 272, 328, 392, 465]},
 {"name": "Business as usual", "type": "line", "smooth": true,
- "data": [120, 140, 163, 190, 220, 254, 291, 333]},
+"data": [120, 140, 163, 190, 220, 254, 291, 333]},
 {"name": "Compact growth", "type": "line", "smooth": true,
- "data": [120, 132, 146, 161, 177, 195, 215, 236]}
+"data": [120, 132, 146, 161, 177, 195, 215, 236]}
 ]
 }'></div>
 ```

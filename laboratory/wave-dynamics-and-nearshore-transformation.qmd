@@ -355,10 +355,10 @@ for h in np.linspace(1.0, 15.0, 500):
 ],
 "series": [
 {"name": "Wave height H (m)", "type": "line", "smooth": true,
- "data": [2.00, 2.00, 2.01, 2.03, 2.06, 2.09, 2.18, 2.27, 2.33, 2.40, 2.44, 2.42],
- "markPoint": {"data": [{"type": "max", "name": "Breaking"}]}},
+"data": [2.00, 2.00, 2.01, 2.03, 2.06, 2.09, 2.18, 2.27, 2.33, 2.40, 2.44, 2.42],
+"markPoint": {"data": [{"type": "max", "name": "Breaking"}]}},
 {"name": "Group velocity Cg (m/s)", "type": "line", "smooth": true, "yAxisIndex": 1,
- "data": [9.25, 9.33, 9.35, 9.27, 9.10, 8.91, 7.88, 6.72, 5.97, 5.09, 4.76, 4.50]}
+"data": [9.25, 9.33, 9.35, 9.27, 9.10, 8.91, 7.88, 6.72, 5.97, 5.09, 4.76, 4.50]}
 ]
 }'></div>
 ```
