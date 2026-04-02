@@ -507,9 +507,9 @@ trigger: 'axis',
 axisPointer: {type: 'cross'},
 formatter: (params) => {
 if (params.length > 0) {
-  const d = params[0].value[0];
-  const i = params[0].value[1];
-  return `Duration: ${d} min<br/>Intensity: ${i.toFixed(1)} mm/hr<br/>${params[0].seriesName}`;
+const d = params[0].value[0];
+const i = params[0].value[1];
+return `Duration: ${d} min<br/>Intensity: ${i.toFixed(1)} mm/hr<br/>${params[0].seriesName}`;
 }
 }
 },
@@ -533,8 +533,8 @@ min: 5,
 max: 1440,
 axisLabel: {
 formatter: (value) => {
-  if (value >= 60) return `${(value/60).toFixed(0)}h`;
-  return `${value}m`;
+if (value >= 60) return `${(value/60).toFixed(0)}h`;
+return `${value}m`;
 }
 }
 },

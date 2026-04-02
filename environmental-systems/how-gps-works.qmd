@@ -572,8 +572,8 @@ return det;
   
 function determinant3x3(m) {
 return m[0][0]*(m[1][1]*m[2][2] - m[1][2]*m[2][1]) -
- m[0][1]*(m[1][0]*m[2][2] - m[1][2]*m[2][0]) +
- m[0][2]*(m[1][0]*m[2][1] - m[1][1]*m[2][0]);
+m[0][1]*(m[1][0]*m[2][2] - m[1][2]*m[2][0]) +
+m[0][2]*(m[1][0]*m[2][1] - m[1][1]*m[2][0]);
 }
   
 function getMinor(m, row, col) {
@@ -643,18 +643,18 @@ itemStyle: { color: '#4A90E2' }
 name: 'True Position',
 type: 'scatter3D',
 data: [{
-  value: [truePos.x/1000, truePos.y/1000, truePos.z/1000],
-  symbolSize: 15,
-  itemStyle: { color: '#2ECC71' }
+value: [truePos.x/1000, truePos.y/1000, truePos.z/1000],
+symbolSize: 15,
+itemStyle: { color: '#2ECC71' }
 }]
 },
 {
 name: 'Estimated',
 type: 'scatter3D',
 data: [{
-  value: [solution.estPos.x/1000, solution.estPos.y/1000, solution.estPos.z/1000],
-  symbolSize: 12,
-  itemStyle: { color: '#F0177A' }
+value: [solution.estPos.x/1000, solution.estPos.y/1000, solution.estPos.z/1000],
+symbolSize: 12,
+itemStyle: { color: '#F0177A' }
 }]
 }
 ]

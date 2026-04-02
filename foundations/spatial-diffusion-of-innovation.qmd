@@ -301,22 +301,22 @@ for (let i = 0; i < 5; i++) {
 for (let j = 0; j < 5; j++) {
 const idx = i * 5 + j;
 nodeList.push({
-  name: `${idx}`,
-  x: j * 100 + 50,
-  y: i * 100 + 50,
-  pop: 100,
-  adopters: (i === 2 && j === 2) ? 50 : 0,
-  category: 0
+name: `${idx}`,
+x: j * 100 + 50,
+y: i * 100 + 50,
+pop: 100,
+adopters: (i === 2 && j === 2) ? 50 : 0,
+category: 0
 });
           
 // Connect to neighbors
 if (j < 4) { // Right
-  adj[idx][idx + 1] = 1;
-  adj[idx + 1][idx] = 1;
+adj[idx][idx + 1] = 1;
+adj[idx + 1][idx] = 1;
 }
 if (i < 4) { // Down
-  adj[idx][idx + 5] = 1;
-  adj[idx + 5][idx] = 1;
+adj[idx][idx + 5] = 1;
+adj[idx + 5][idx] = 1;
 }
 }
 }
@@ -354,8 +354,8 @@ category: 0
 for (let i = 0; i < n; i++) {
 for (let j = i + 1; j < n; j++) {
 if (Math.random() < 0.2) {
-  adj[i][j] = 1;
-  adj[j][i] = 1;
+adj[i][j] = 1;
+adj[j][i] = 1;
 }
 }
 }
@@ -375,10 +375,10 @@ category: 0
 for (let i = 0; i < n; i++) {
 for (let j = i + 1; j < n; j++) {
 const d = Math.sqrt((nodeList[i].x - nodeList[j].x)**2 + 
-                    (nodeList[i].y - nodeList[j].y)**2);
+(nodeList[i].y - nodeList[j].y)**2);
 if (d < 150) {
-  adj[i][j] = Math.max(0.1, 1 - d / 150);
-  adj[j][i] = adj[i][j];
+adj[i][j] = Math.max(0.1, 1 - d / 150);
+adj[j][i] = adj[i][j];
 }
 }
 }
@@ -445,8 +445,8 @@ left: 'center'
 tooltip: {
 formatter: params => {
 if (params.dataType === 'node') {
-  const node = nodes[parseInt(params.name)];
-  return `Node ${params.name}<br/>Adopters: ${Math.round(node.adopters)} / ${node.pop}<br/>Rate: ${(node.adopters/node.pop*100).toFixed(1)}%`;
+const node = nodes[parseInt(params.name)];
+return `Node ${params.name}<br/>Adopters: ${Math.round(node.adopters)} / ${node.pop}<br/>Rate: ${(node.adopters/node.pop*100).toFixed(1)}%`;
 }
 return '';
 }
@@ -461,7 +461,7 @@ y: n.y,
 symbolSize: Math.sqrt(n.pop) * 2,
 value: n.adopters / n.pop,
 itemStyle: {
-  color: `rgb(${255 * (1 - n.adopters/n.pop)}, ${100 + 155 * (n.adopters/n.pop)}, ${240 * (1 - n.adopters/n.pop)})`
+color: `rgb(${255 * (1 - n.adopters/n.pop)}, ${100 + 155 * (n.adopters/n.pop)}, ${240 * (1 - n.adopters/n.pop)})`
 }
 })),
 links: edges,
@@ -476,7 +476,7 @@ show: false
 emphasis: {
 focus: 'adjacency',
 lineStyle: {
-  width: 3
+width: 3
 }
 }
 }]

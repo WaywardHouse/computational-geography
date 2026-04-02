@@ -411,10 +411,10 @@ if (Math.random() < 0.7) { // 70% canopy
 zCanopy = zGround + 10 + Math.random() * 5;
 // Add intermediate returns
 if (Math.random() < 0.5) {
-  points.push({
-    x, z: zGround + Math.random() * (zCanopy - zGround),
-    isGround: false, isFirst: false
-  });
+points.push({
+x, z: zGround + Math.random() * (zCanopy - zGround),
+isGround: false, isFirst: false
+});
 }
 } else {
 zCanopy = zGround;
@@ -425,10 +425,10 @@ zGround = 100 + x * 0.2 + Math.sin(x / 10) * 2;
 if (Math.random() < 0.6) {
 zCanopy = zGround + 8 + Math.random() * 6;
 if (Math.random() < 0.4) {
-  points.push({
-    x, z: zGround + Math.random() * (zCanopy - zGround),
-    isGround: false, isFirst: false
-  });
+points.push({
+x, z: zGround + Math.random() * (zCanopy - zGround),
+isGround: false, isFirst: false
+});
 }
 } else {
 zCanopy = zGround;

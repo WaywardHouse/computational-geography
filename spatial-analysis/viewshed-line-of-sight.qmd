@@ -407,9 +407,9 @@ ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
 ctx.fillStyle = '#FFF';
 ctx.beginPath();
 ctx.arc(
-  x + j * cellW + cellW/2,
-  y + i * cellH + cellH/2,
-  cellW/3, 0, 2 * Math.PI
+x + j * cellW + cellW/2,
+y + i * cellH + cellH/2,
+cellW/3, 0, 2 * Math.PI
 );
 ctx.fill();
 } else {

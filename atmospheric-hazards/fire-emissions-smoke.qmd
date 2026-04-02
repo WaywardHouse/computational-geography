@@ -410,8 +410,8 @@ const sigmaZ = params.c * Math.pow(x, params.d);
 const H = plumeHeight;
     
 const C = (Q / (Math.PI * windSpeed * sigmaY * sigmaZ)) *
-    Math.exp(-Math.pow(y, 2) / (2 * Math.pow(sigmaY, 2))) *
-    Math.exp(-Math.pow(H, 2) / (2 * Math.pow(sigmaZ, 2)));
+Math.exp(-Math.pow(y, 2) / (2 * Math.pow(sigmaY, 2))) *
+Math.exp(-Math.pow(H, 2) / (2 * Math.pow(sigmaZ, 2)));
     
 return C; // μg/m³
 }

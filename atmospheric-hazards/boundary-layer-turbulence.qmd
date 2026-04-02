@@ -475,7 +475,7 @@ trigger: 'axis',
 axisPointer: {type: 'cross'},
 formatter: (params) => {
 if (params[0]) {
-  return `Wind: ${params[0].value[0].toFixed(1)} m/s<br/>Height: ${params[0].value[1].toFixed(0)} m`;
+return `Wind: ${params[0].value[0].toFixed(1)} m/s<br/>Height: ${params[0].value[1].toFixed(0)} m`;
 }
 }
 },

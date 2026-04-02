@@ -414,8 +414,8 @@ silent: true,
 lineStyle: {color: '#FF9800', width: 3},
 data: [{xAxis: result.ELA}],
 label: {
-  formatter: 'ELA',
-  position: 'insideEndTop'
+formatter: 'ELA',
+position: 'insideEndTop'
 }
 }
 }

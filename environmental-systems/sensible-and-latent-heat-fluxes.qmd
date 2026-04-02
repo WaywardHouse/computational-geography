@@ -456,19 +456,19 @@ series: [
 type: 'pie',
 radius: '60%',
 data: [
-  { value: H, name: 'Sensible Heat (H)', itemStyle: { color: '#E74C3C' } },
-  { value: LE, name: 'Latent Heat (LE)', itemStyle: { color: '#3498DB' } },
-  { value: G, name: 'Ground Heat (G)', itemStyle: { color: '#95A5A6' } }
+{ value: H, name: 'Sensible Heat (H)', itemStyle: { color: '#E74C3C' } },
+{ value: LE, name: 'Latent Heat (LE)', itemStyle: { color: '#3498DB' } },
+{ value: G, name: 'Ground Heat (G)', itemStyle: { color: '#95A5A6' } }
 ],
 label: {
-  formatter: '{b}\n{c} W/m²'
+formatter: '{b}\n{c} W/m²'
 },
 emphasis: {
-  itemStyle: {
-    shadowBlur: 10,
-    shadowOffsetX: 0,
-    shadowColor: 'rgba(0, 0, 0, 0.5)'
-  }
+itemStyle: {
+shadowBlur: 10,
+shadowOffsetX: 0,
+shadowColor: 'rgba(0, 0, 0, 0.5)'
+}
 }
 }
 ]

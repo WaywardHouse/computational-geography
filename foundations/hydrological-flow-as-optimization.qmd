@@ -267,21 +267,21 @@ const y = (i - size/2) * step;
         
 switch(type) {
 case 'plane':
-  z[i][j] = 50 + x * 0.3 + y * 0.2;
-  break;
+z[i][j] = 50 + x * 0.3 + y * 0.2;
+break;
 case 'valley':
-  z[i][j] = Math.abs(y) * 0.5 + x * 0.1;
-  break;
+z[i][j] = Math.abs(y) * 0.5 + x * 0.1;
+break;
 case 'ridge':
-  z[i][j] = 50 - Math.abs(x) * 0.5 + y * 0.1;
-  break;
+z[i][j] = 50 - Math.abs(x) * 0.5 + y * 0.1;
+break;
 case 'cone':
-  z[i][j] = 60 - Math.sqrt(x*x + y*y) * 0.4;
-  break;
+z[i][j] = 60 - Math.sqrt(x*x + y*y) * 0.4;
+break;
 case 'crater':
-  const r = Math.sqrt(x*x + y*y);
-  z[i][j] = r < 30 ? r * 0.5 : 50 - (r - 30) * 0.3;
-  break;
+const r = Math.sqrt(x*x + y*y);
+z[i][j] = r < 30 ? r * 0.5 : 50 - (r - 30) * 0.3;
+break;
 }
 }
 }
@@ -309,11 +309,11 @@ const nj = j + directions[d][1];
 const dist = directions[d][2] * cellSize;
           
 if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
-  const slope = (z[i][j] - z[ni][nj]) / dist;
-  if (slope > maxSlope) {
-    maxSlope = slope;
-    bestDir = d;
-  }
+const slope = (z[i][j] - z[ni][nj]) / dist;
+if (slope > maxSlope) {
+maxSlope = slope;
+bestDir = d;
+}
 }
 }
         
@@ -389,7 +389,7 @@ orient: 'horizontal',
 left: 'center',
 bottom: 10,
 inRange: {
-  color: ['#313695', '#74add1', '#e0f3f8', '#ffffbf', '#fee090', '#f46d43', '#a50026']
+color: ['#313695', '#74add1', '#e0f3f8', '#ffffbf', '#fee090', '#f46d43', '#a50026']
 }
 },
 series: [{
@@ -415,9 +415,9 @@ title: { text: `Flow Accumulation (log scale): ${terrainType}`, left: 'center' }
 tooltip: { 
 position: 'top',
 formatter: params => {
-  const i = gridSize - 1 - params.value[1];
-  const j = params.value[0];
-  return `Flow accumulation: ${acc[i][j].toFixed(0)} cells`;
+const i = gridSize - 1 - params.value[1];
+const j = params.value[0];
+return `Flow accumulation: ${acc[i][j].toFixed(0)} cells`;
 }
 },
 grid: { left: 60, right: 60, top: 60, bottom: 60 },
@@ -432,7 +432,7 @@ left: 'center',
 bottom: 10,
 text: ['High', 'Low'],
 inRange: {
-  color: ['#ffffcc', '#c7e9b4', '#7fcdbb', '#41b6c4', '#2c7fb8', '#253494']
+color: ['#ffffcc', '#c7e9b4', '#7fcdbb', '#41b6c4', '#2c7fb8', '#253494']
 }
 },
 series: [{

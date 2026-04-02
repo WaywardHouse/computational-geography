@@ -429,9 +429,9 @@ ctx.fillStyle = '#ECEFF1';
 ctx.strokeStyle = '#90A4AE';
 ctx.lineWidth = 2;
 ctx.fillRect(centerX - snowWidth/2, centerY - snowHeight/2, 
-  snowWidth, snowHeight);
+snowWidth, snowHeight);
 ctx.strokeRect(centerX - snowWidth/2, centerY - snowHeight/2, 
-    snowWidth, snowHeight);
+  snowWidth, snowHeight);
     
 // Label
 ctx.fillStyle = '#37474F';
@@ -462,10 +462,10 @@ drawArrow(centerX + 60, arrowY, centerX + 60, arrowY - 70,
 // Sensible heat
 if (result.QH > 0) {
 drawArrow(centerX + 120, arrowY - 40, centerX + 120, arrowY, 
- '#E53935', result.QH, 'QH');
+'#E53935', result.QH, 'QH');
 } else {
 drawArrow(centerX + 120, arrowY, centerX + 120, arrowY - 40, 
- '#1E88E5', Math.abs(result.QH), 'QH', true);
+'#1E88E5', Math.abs(result.QH), 'QH', true);
 }
     
 // Ground heat (from below)

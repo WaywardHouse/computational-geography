@@ -418,7 +418,7 @@ else status = 'Permafrost loss';
     
 // Years to 3m thaw (simplified)
 const warmingRate = scenario === 'current' ? 0 : 
-             scenario === 'rcp45' ? 0.025 : 0.05; // °C/year
+         scenario === 'rcp45' ? 0.025 : 0.05; // °C/year
     
 const targetTemp = 15; // temp for 3m thaw
 const yearsToThaw = warmingRate > 0 ? 
@@ -432,7 +432,7 @@ const years = 100;
 const data = [];
     
 const warmingRate = scenario === 'current' ? 0 : 
-             scenario === 'rcp45' ? 0.02 : 0.04;
+         scenario === 'rcp45' ? 0.02 : 0.04;
     
 for (let year = 0; year <= years; year++) {
 const temp = summerTemp + warmingRate * year;
@@ -470,13 +470,13 @@ data: timeSeries,
 lineStyle: {color: '#1976D2', width: 3},
 areaStyle: {
 color: {
-  type: 'linear',
-  x: 0, y: 0, x2: 0, y2: 1,
-  colorStops: [
-    {offset: 0, color: 'rgba(244, 67, 54, 0.4)'},
-    {offset: 0.5, color: 'rgba(255, 193, 7, 0.4)'},
-    {offset: 1, color: 'rgba(33, 150, 243, 0.4)'}
-  ]
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{offset: 0, color: 'rgba(244, 67, 54, 0.4)'},
+{offset: 0.5, color: 'rgba(255, 193, 7, 0.4)'},
+{offset: 1, color: 'rgba(33, 150, 243, 0.4)'}
+]
 }
 }
 },

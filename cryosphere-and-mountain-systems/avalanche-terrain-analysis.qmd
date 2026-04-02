@@ -455,13 +455,13 @@ const aspect = calculateAspect(dem, i, j);
 const slope = calculateSlope(dem, i, j);
           
 if (slope >= 30) {
-  ctx.fillStyle = getAspectColor(aspect);
+ctx.fillStyle = getAspectColor(aspect);
 } else {
-  ctx.fillStyle = '#BDBDBD';
+ctx.fillStyle = '#BDBDBD';
 }
           
 ctx.fillRect(10 + size * cellSize + 20 + j * cellSize, 
-            10 + i * cellSize, cellSize, cellSize);
+10 + i * cellSize, cellSize, cellSize);
 }
 }
       

@@ -345,8 +345,8 @@ areaStyle: { color: 'rgba(240, 23, 122, 0.2)' },
 markPoint: {
 data: [{
 coord: [aspect, Math.max(0, S0 * dotProduct(
-  sphericalToCartesian(solarElev, solarAz),
-  surfaceNormal(slope, aspect)
+sphericalToCartesian(solarElev, solarAz),
+surfaceNormal(slope, aspect)
 ))],
 symbol: 'circle',
 symbolSize: 12,

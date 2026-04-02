@@ -412,37 +412,37 @@ data: lightValues.map((I, i) => [I, netValues[i]]),
 lineStyle: { color: '#3498DB', width: 2 },
 showSymbol: false,
 markLine: {
-  silent: true,
-  symbol: 'none',
-  data: [
-    { yAxis: 0, lineStyle: { type: 'dashed', color: '#95A5A6' }, label: { formatter: 'Zero' } },
-    { yAxis: Amax - Rd, lineStyle: { type: 'dashed', color: '#E74C3C' }, label: { formatter: 'Max Net' } }
-  ]
+silent: true,
+symbol: 'none',
+data: [
+{ yAxis: 0, lineStyle: { type: 'dashed', color: '#95A5A6' }, label: { formatter: 'Zero' } },
+{ yAxis: Amax - Rd, lineStyle: { type: 'dashed', color: '#E74C3C' }, label: { formatter: 'Max Net' } }
+]
 },
 markPoint: {
-  data: [
-    {
-      coord: [Ic, 0],
-      symbol: 'circle',
-      symbolSize: 8,
-      itemStyle: { color: '#F39C12' },
-      label: { show: true, formatter: 'Ic', position: 'top' }
-    },
-    {
-      coord: [Isat, 0.9 * (Amax - Rd)],
-      symbol: 'circle',
-      symbolSize: 8,
-      itemStyle: { color: '#9B59B6' },
-      label: { show: true, formatter: 'Isat', position: 'top' }
-    },
-    {
-      coord: [currentLight, Anet_current],
-      symbol: 'pin',
-      symbolSize: 50,
-      itemStyle: { color: '#E74C3C' },
-      label: { show: true, formatter: 'Current', position: 'top' }
-    }
-  ]
+data: [
+{
+  coord: [Ic, 0],
+  symbol: 'circle',
+  symbolSize: 8,
+  itemStyle: { color: '#F39C12' },
+  label: { show: true, formatter: 'Ic', position: 'top' }
+},
+{
+  coord: [Isat, 0.9 * (Amax - Rd)],
+  symbol: 'circle',
+  symbolSize: 8,
+  itemStyle: { color: '#9B59B6' },
+  label: { show: true, formatter: 'Isat', position: 'top' }
+},
+{
+  coord: [currentLight, Anet_current],
+  symbol: 'pin',
+  symbolSize: 50,
+  itemStyle: { color: '#E74C3C' },
+  label: { show: true, formatter: 'Current', position: 'top' }
+}
+]
 }
 }
 ]

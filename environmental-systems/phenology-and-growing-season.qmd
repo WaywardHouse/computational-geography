@@ -314,7 +314,7 @@ remaining -= daysInMonth[month];
 month++;
 }
 const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
-              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 return `${monthNames[month]} ${remaining}`;
 }
   
@@ -474,18 +474,18 @@ lineStyle: { color: '#2ECC71', width: 3 },
 showSymbol: false,
 yAxisIndex: 0,
 areaStyle: {
-  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-    { offset: 0, color: 'rgba(46, 204, 113, 0.3)' },
-    { offset: 1, color: 'rgba(46, 204, 113, 0)' }
-  ])
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(46, 204, 113, 0.3)' },
+{ offset: 1, color: 'rgba(46, 204, 113, 0)' }
+])
 },
 markLine: {
-  silent: true,
-  symbol: 'none',
-  data: [
-    budBreak ? { xAxis: budBreak, label: { formatter: 'Bud Break' }, lineStyle: { color: '#F39C12' } } : null,
-    senescence ? { xAxis: senescence, label: { formatter: 'Senescence' }, lineStyle: { color: '#E74C3C' } } : null
-  ].filter(x => x)
+silent: true,
+symbol: 'none',
+data: [
+budBreak ? { xAxis: budBreak, label: { formatter: 'Bud Break' }, lineStyle: { color: '#F39C12' } } : null,
+senescence ? { xAxis: senescence, label: { formatter: 'Senescence' }, lineStyle: { color: '#E74C3C' } } : null
+].filter(x => x)
 }
 },
 {

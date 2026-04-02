@@ -242,7 +242,7 @@ trigger: 'axis',
 formatter: params => {
 const wl = WL[params[0].dataIndex];
 return `<b>${wl} nm</b><br/>` + params.map(p =>
-  `${p.marker}${p.seriesName}: ${(p.value * 100).toFixed(1)}%`
+`${p.marker}${p.seriesName}: ${(p.value * 100).toFixed(1)}%`
 ).join('<br/>');
 },
 },
@@ -359,7 +359,7 @@ trigger: 'axis',
 formatter: params => {
 const wl = WL[params[0].dataIndex];
 return `<b>${wl} nm</b><br/>` + params.filter(p => p.seriesType === 'line').map(p =>
-  `${p.marker}${p.seriesName}: ${(p.value * 100).toFixed(1)}%`
+`${p.marker}${p.seriesName}: ${(p.value * 100).toFixed(1)}%`
 ).join('<br/>');
 },
 },

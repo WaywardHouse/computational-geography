@@ -391,38 +391,38 @@ series: [
 type: 'line',
 data: temps.map((t, i) => [t, depths[i]]),
 lineStyle: {
-  color: '#E74C3C',
-  width: 3
+color: '#E74C3C',
+width: 3
 },
 showSymbol: false,
 markLine: {
-  silent: true,
-  symbol: 'none',
-  data: [
-    {
-      xAxis: meanTemp,
-      lineStyle: { type: 'dashed', color: '#95A5A6' },
-      label: { formatter: 'Mean', position: 'end' }
-    }
-  ]
+silent: true,
+symbol: 'none',
+data: [
+{
+  xAxis: meanTemp,
+  lineStyle: { type: 'dashed', color: '#95A5A6' },
+  label: { formatter: 'Mean', position: 'end' }
+}
+]
 },
 markPoint: {
-  data: [
-    {
-      coord: [soilTemperature(0, timeOfDay, alpha, meanTemp, amplitude), 0],
-      symbol: 'circle',
-      symbolSize: 10,
-      itemStyle: { color: '#F39C12' },
-      label: { show: true, formatter: 'Surface', position: 'right' }
-    },
-    {
-      coord: [temp50, 0.5],
-      symbol: 'circle',
-      symbolSize: 8,
-      itemStyle: { color: '#3498DB' },
-      label: { show: true, formatter: '50 cm', position: 'right' }
-    }
-  ]
+data: [
+{
+  coord: [soilTemperature(0, timeOfDay, alpha, meanTemp, amplitude), 0],
+  symbol: 'circle',
+  symbolSize: 10,
+  itemStyle: { color: '#F39C12' },
+  label: { show: true, formatter: 'Surface', position: 'right' }
+},
+{
+  coord: [temp50, 0.5],
+  symbol: 'circle',
+  symbolSize: 8,
+  itemStyle: { color: '#3498DB' },
+  label: { show: true, formatter: '50 cm', position: 'right' }
+}
+]
 }
 }
 ]

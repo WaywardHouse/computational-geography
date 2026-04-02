@@ -381,7 +381,7 @@ trigger: 'axis',
 formatter: function(params) {
 let result = `t = ${params[0].value[0].toFixed(1)} years<br/>`;
 params.forEach(param => {
-  result += `${param.seriesName}: ${param.value[1].toFixed(2)}<br/>`;
+result += `${param.seriesName}: ${param.value[1].toFixed(2)}<br/>`;
 });
 return result;
 }
@@ -418,8 +418,8 @@ data: analyticalData,
 type: 'line',
 smooth: false,
 lineStyle: {
-  color: '#F0177A',
-  width: 3
+color: '#F0177A',
+width: 3
 },
 showSymbol: false
 },
@@ -429,9 +429,9 @@ data: numericalData,
 type: 'line',
 smooth: false,
 lineStyle: {
-  color: '#00A8E8',
-  width: 2,
-  type: 'dashed'
+color: '#00A8E8',
+width: 2,
+type: 'dashed'
 },
 symbol: 'circle',
 symbolSize: 4

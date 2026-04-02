@@ -450,7 +450,7 @@ visible: elevation > 0
   
 function getDirection(azimuth) {
 const dirs = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 
-        'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+    'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 const idx = Math.round(azimuth / 22.5) % 16;
 return dirs[idx];
 }
@@ -521,42 +521,42 @@ series: [
 type: 'line',
 data: elevationData,
 lineStyle: {
-  color: '#4A90E2',
-  width: 2
+color: '#4A90E2',
+width: 2
 },
 showSymbol: false,
 markLine: {
-  silent: true,
-  symbol: 'none',
-  lineStyle: {
-    color: '#999',
-    type: 'dashed'
-  },
-  data: [
-    {yAxis: 0, label: {formatter: 'Horizon'}},
-    {yAxis: 10, label: {formatter: '10° (min useful)'}}
-  ]
+silent: true,
+symbol: 'none',
+lineStyle: {
+color: '#999',
+type: 'dashed'
+},
+data: [
+{yAxis: 0, label: {formatter: 'Horizon'}},
+{yAxis: 10, label: {formatter: '10° (min useful)'}}
+]
 },
 markPoint: {
-  data: [{
-    coord: [time, vis.elevation],
-    symbol: 'circle',
-    symbolSize: 10,
-    itemStyle: {
-      color: vis.visible ? 'green' : 'red'
-    },
-    label: {
-      show: true,
-      formatter: 'Now',
-      position: 'top'
-    }
-  }]
+data: [{
+coord: [time, vis.elevation],
+symbol: 'circle',
+symbolSize: 10,
+itemStyle: {
+  color: vis.visible ? 'green' : 'red'
+},
+label: {
+  show: true,
+  formatter: 'Now',
+  position: 'top'
+}
+}]
 },
 areaStyle: {
-  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-    {offset: 0, color: 'rgba(74, 144, 226, 0.3)'},
-    {offset: 1, color: 'rgba(74, 144, 226, 0)'}
-  ])
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{offset: 0, color: 'rgba(74, 144, 226, 0.3)'},
+{offset: 1, color: 'rgba(74, 144, 226, 0)'}
+])
 }
 }
 ]
@@ -800,10 +800,10 @@ if (look.elevation > 0) {
 if (!currentPass) {
 // Start of new pass
 currentPass = {
-  id: passId++,
-  points: [],
-  maxElev: look.elevation,
-  maxElevTime: t
+id: passId++,
+points: [],
+maxElev: look.elevation,
+maxElevTime: t
 };
 }
         
@@ -872,10 +872,10 @@ type: 'line',
 coordinateSystem: 'polar',
 data: pass.points.map(p => [p.azimuth, Math.max(0, p.zenithAngle - swathAngle)]),
 lineStyle: {
-  color: color,
-  width: 1,
-  type: 'dashed',
-  opacity: 0.5
+color: color,
+width: 1,
+type: 'dashed',
+opacity: 0.5
 },
 showSymbol: false,
 silent: true,
@@ -888,10 +888,10 @@ type: 'line',
 coordinateSystem: 'polar',
 data: pass.points.map(p => [p.azimuth, Math.min(90, p.zenithAngle + swathAngle)]),
 lineStyle: {
-  color: color,
-  width: 1,
-  type: 'dashed',
-  opacity: 0.5
+color: color,
+width: 1,
+type: 'dashed',
+opacity: 0.5
 },
 showSymbol: false,
 silent: true,
@@ -919,9 +919,9 @@ coordinateSystem: 'polar',
 data: [[maxPoint.azimuth, maxPoint.zenithAngle]],
 symbolSize: 8,
 itemStyle: {
-  color: color,
-  borderColor: '#fff',
-  borderWidth: 2
+color: color,
+borderColor: '#fff',
+borderWidth: 2
 },
 silent: true,
 animation: false
@@ -949,9 +949,9 @@ max: 360,
 interval: 45,
 axisLabel: {
 formatter: function(value) {
-  const dirs = {0: 'N', 45: 'NE', 90: 'E', 135: 'SE', 
-               180: 'S', 225: 'SW', 270: 'W', 315: 'NW'};
-  return dirs[value] || '';
+const dirs = {0: 'N', 45: 'NE', 90: 'E', 135: 'SE', 
+180: 'S', 225: 'SW', 270: 'W', 315: 'NW'};
+return dirs[value] || '';
 }
 }
 },
@@ -962,17 +962,17 @@ max: 90,
 inverse: true, // Zenith at center
 axisLabel: {
 formatter: function(value) {
-  return (90 - value) + '°'; // Show as elevation
+return (90 - value) + '°'; // Show as elevation
 }
 },
 axisLine: {
 lineStyle: {
-  color: '#999'
+color: '#999'
 }
 },
 splitLine: {
 lineStyle: {
-  color: '#ddd'
+color: '#ddd'
 }
 }
 },

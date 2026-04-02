@@ -436,9 +436,9 @@ const edgeCost = edgeDist * (cost[u.i][u.j] + cost[ni][nj]) / 2;
 const newDist = dist[u.i][u.j] + edgeCost;
         
 if (newDist < dist[ni][nj]) {
-  dist[ni][nj] = newDist;
-  parent[ni][nj] = {i: u.i, j: u.j};
-  queue.push({i: ni, j: nj, dist: newDist});
+dist[ni][nj] = newDist;
+parent[ni][nj] = {i: u.i, j: u.j};
+queue.push({i: ni, j: nj, dist: newDist});
 }
 }
 }
@@ -484,8 +484,8 @@ let min = Infinity, max = -Infinity;
 for (let row of dist) {
 for (let val of row) {
 if (isFinite(val)) {
-  min = Math.min(min, val);
-  max = Math.max(max, val);
+min = Math.min(min, val);
+max = Math.max(max, val);
 }
 }
 }

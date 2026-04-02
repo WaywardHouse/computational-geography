@@ -363,10 +363,10 @@ legend: {data:['Canopy BRF (PROSAIL)', 'Leaf reflectance (PROSPECT)'], textStyle
 tooltip: {
 trigger:'axis',
 formatter: p => {
- const wl = WL[p[0].dataIndex];
- return `<b>${wl} nm</b><br/>`+p.map(s =>
-   `${s.marker}${s.seriesName}: ${(s.value*100).toFixed(1)}%`
- ).join('<br/>');
+const wl = WL[p[0].dataIndex];
+return `<b>${wl} nm</b><br/>`+p.map(s =>
+`${s.marker}${s.seriesName}: ${(s.value*100).toFixed(1)}%`
+).join('<br/>');
 },
 },
 xAxis: {type:'category', data:WL.map(String), name:'Wavelength (nm)', nameLocation:'middle', nameGap:30,

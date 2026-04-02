@@ -444,13 +444,13 @@ ctx.fillStyle = '#FFFFFF';
 // Color by magnitude
 const mag = change[i][j].magnitude;
 if (mag < 0) {
-  // Loss (red)
-  const intensity = Math.min(255, Math.floor(Math.abs(mag) * 400));
-  ctx.fillStyle = `rgb(${intensity}, 0, 0)`;
+// Loss (red)
+const intensity = Math.min(255, Math.floor(Math.abs(mag) * 400));
+ctx.fillStyle = `rgb(${intensity}, 0, 0)`;
 } else {
-  // Gain (green)
-  const intensity = Math.min(255, Math.floor(mag * 400));
-  ctx.fillStyle = `rgb(0, ${intensity}, 0)`;
+// Gain (green)
+const intensity = Math.min(255, Math.floor(mag * 400));
+ctx.fillStyle = `rgb(0, ${intensity}, 0)`;
 }
 } else {
 // No change (gray)
@@ -493,7 +493,7 @@ changeData = detectChangeCVA(threshold);
 }
     
 drawChange(changeData, 10 + (size * cellSize + 20) * 2, 30, 
-     `Change Map (${method})`);
+`Change Map (${method})`);
     
 // Legend
 ctx.fillStyle = '#2C3E50';

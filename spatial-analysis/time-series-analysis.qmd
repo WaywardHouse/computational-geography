@@ -388,7 +388,7 @@ amplitude = 0.30;
 phase = 0.2;
 trend = 0.0003 * t / 365;
 seasonal = amplitude * (Math.sin(2 * Math.PI * yearFrac + phase) + 
-                        0.5 * Math.sin(4 * Math.PI * yearFrac + 0.5));
+0.5 * Math.sin(4 * Math.PI * yearFrac + 0.5));
 noise = (Math.random() - 0.5) * 0.06;
 }
         

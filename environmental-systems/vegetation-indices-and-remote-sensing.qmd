@@ -413,46 +413,46 @@ data: wavelengths.map((wl, i) => [wl, reflectances[i]]),
 lineStyle: { color: '#2ECC71', width: 3 },
 showSymbol: false,
 areaStyle: {
-  color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-    { offset: 0, color: 'rgba(46, 204, 113, 0.3)' },
-    { offset: 1, color: 'rgba(46, 204, 113, 0)' }
-  ])
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(46, 204, 113, 0.3)' },
+{ offset: 1, color: 'rgba(46, 204, 113, 0)' }
+])
 },
 markArea: {
-  silent: true,
-  data: [
-    [
-      { name: 'Blue', xAxis: 450 },
-      { xAxis: 500 }
-    ],
-    [
-      { name: 'Red', xAxis: 620 },
-      { xAxis: 700 }
-    ],
-    [
-      { name: 'NIR', xAxis: 780 },
-      { xAxis: 900 }
-    ]
-  ],
-  itemStyle: {
-    color: 'rgba(52, 152, 219, 0.1)'
-  },
-  label: {
-    position: 'top'
-  }
+silent: true,
+data: [
+[
+  { name: 'Blue', xAxis: 450 },
+  { xAxis: 500 }
+],
+[
+  { name: 'Red', xAxis: 620 },
+  { xAxis: 700 }
+],
+[
+  { name: 'NIR', xAxis: 780 },
+  { xAxis: 900 }
+]
+],
+itemStyle: {
+color: 'rgba(52, 152, 219, 0.1)'
+},
+label: {
+position: 'top'
+}
 },
 markPoint: {
-  data: [
-    { coord: [450, blue], symbol: 'circle', symbolSize: 10, 
-      itemStyle: { color: '#3498DB' }, 
-      label: { show: true, formatter: 'Blue', position: 'top' } },
-    { coord: [670, red], symbol: 'circle', symbolSize: 10, 
-      itemStyle: { color: '#E74C3C' }, 
-      label: { show: true, formatter: 'Red', position: 'bottom' } },
-    { coord: [850, nir], symbol: 'circle', symbolSize: 10, 
-      itemStyle: { color: '#8B4513' }, 
-      label: { show: true, formatter: 'NIR', position: 'top' } }
-  ]
+data: [
+{ coord: [450, blue], symbol: 'circle', symbolSize: 10, 
+  itemStyle: { color: '#3498DB' }, 
+  label: { show: true, formatter: 'Blue', position: 'top' } },
+{ coord: [670, red], symbol: 'circle', symbolSize: 10, 
+  itemStyle: { color: '#E74C3C' }, 
+  label: { show: true, formatter: 'Red', position: 'bottom' } },
+{ coord: [850, nir], symbol: 'circle', symbolSize: 10, 
+  itemStyle: { color: '#8B4513' }, 
+  label: { show: true, formatter: 'NIR', position: 'top' } }
+]
 }
 }
 ]

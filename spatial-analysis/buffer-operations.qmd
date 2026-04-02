@@ -395,8 +395,8 @@ for (let j = 1; j <= segments; j++) {
 const t = j / segments;
 const angle = angle1 + angleDiff * t;
 buffer.push({
-  x: p2.x + dist * Math.cos(angle),
-  y: p2.y + dist * Math.sin(angle)
+x: p2.x + dist * Math.cos(angle),
+y: p2.y + dist * Math.sin(angle)
 });
 }
 }

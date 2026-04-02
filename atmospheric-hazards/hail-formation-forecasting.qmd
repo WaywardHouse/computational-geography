@@ -434,12 +434,12 @@ data: growthData,
 lineStyle: {color: category.color, width: 3},
 areaStyle: {
 color: {
-  type: 'linear',
-  x: 0, y: 0, x2: 0, y2: 1,
-  colorStops: [
-    {offset: 0, color: category.color + 'AA'},
-    {offset: 1, color: category.color + '22'}
-  ]
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{offset: 0, color: category.color + 'AA'},
+{offset: 1, color: category.color + '22'}
+]
 }
 }
 },
@@ -461,7 +461,7 @@ trigger: 'axis',
 axisPointer: {type: 'cross'},
 formatter: (params) => {
 if (params[0]) {
-  return `Time: ${params[0].value[0].toFixed(1)} min<br/>Diameter: ${params[0].value[1].toFixed(0)} mm`;
+return `Time: ${params[0].value[0].toFixed(1)} min<br/>Diameter: ${params[0].value[1].toFixed(0)} mm`;
 }
 }
 },

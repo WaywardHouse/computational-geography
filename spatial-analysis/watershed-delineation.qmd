@@ -450,11 +450,11 @@ const ni = i + di;
 const nj = j + dj;
           
 if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
-  const slope = (dem[i][j] - dem[ni][nj]) / dist;
-  if (slope > maxSlope) {
-    maxSlope = slope;
-    direction = code;
-  }
+const slope = (dem[i][j] - dem[ni][nj]) / dist;
+if (slope > maxSlope) {
+maxSlope = slope;
+direction = code;
+}
 }
 }
         
@@ -537,8 +537,8 @@ const nj = j + dj;
         
 if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
 if (!watershed[ni][nj] && flowDir[ni][nj] == reverseDir[code]) {
-  watershed[ni][nj] = true;
-  queue.push({i: ni, j: nj});
+watershed[ni][nj] = true;
+queue.push({i: ni, j: nj});
 }
 }
 }

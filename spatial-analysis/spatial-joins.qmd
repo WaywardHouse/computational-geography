@@ -422,7 +422,7 @@ return (count % 2 === 1);
   
 function mbrContains(mbr, point) {
 return point.x >= mbr.xmin && point.x <= mbr.xmax &&
- point.y >= mbr.ymin && point.y <= mbr.ymax;
+point.y >= mbr.ymin && point.y <= mbr.ymax;
 }
   
 function distance(p1, p2) {
@@ -446,8 +446,8 @@ return mbrContains(poly.mbr, point);
 for (let poly of candidates) {
 testCount++;
 if (pointInPolygon(point, poly)) {
-  results.push({point, poly});
-  break; // Point can only be in one polygon
+results.push({point, poly});
+break; // Point can only be in one polygon
 }
 }
 }
@@ -465,8 +465,8 @@ const cy = (poly.mbr.ymin + poly.mbr.ymax) / 2;
 const dist = distance(point, {x: cx, y: cy});
           
 if (dist < minDist) {
-  minDist = dist;
-  nearest = poly;
+minDist = dist;
+nearest = poly;
 }
 }
         
@@ -484,7 +484,7 @@ const cy = (poly.mbr.ymin + poly.mbr.ymax) / 2;
 const dist = distance(point, {x: cx, y: cy});
           
 if (dist <= distThreshold) {
-  results.push({point, poly, distance: dist});
+results.push({point, poly, distance: dist});
 }
 }
 }

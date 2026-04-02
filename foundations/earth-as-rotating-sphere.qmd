@@ -320,7 +320,7 @@ const colorValue = (lat + 90) / 180;
 data.push({
 value: [pos.x, pos.y, pos.z],
 itemStyle: {
-  color: `rgb(${100 * colorValue}, ${150 * colorValue}, ${200 + 55 * colorValue})`
+color: `rgb(${100 * colorValue}, ${150 * colorValue}, ${200 + 55 * colorValue})`
 }
 });
 }
@@ -380,11 +380,11 @@ distance: 200
 },
 light: {
 main: {
-  intensity: 1.2,
-  shadow: true
+intensity: 1.2,
+shadow: true
 },
 ambient: {
-  intensity: 0.5
+intensity: 0.5
 }
 }
 },
@@ -394,7 +394,7 @@ type: 'scatter3D',
 data: generateSphere(20),
 symbolSize: 8,
 itemStyle: {
-  opacity: 0.8
+opacity: 0.8
 }
 },
 {
@@ -402,26 +402,26 @@ type: 'scatter3D',
 data: [[markerPos.x, markerPos.y, markerPos.z]],
 symbolSize: 20,
 itemStyle: {
-  color: '#F0177A'
+color: '#F0177A'
 },
 label: {
-  show: true,
-  formatter: `(${lat}°, ${lon}°)`,
-  position: 'top',
-  distance: 10,
-  textStyle: {
-    fontSize: 14,
-    color: '#F0177A'
-  }
+show: true,
+formatter: `(${lat}°, ${lon}°)`,
+position: 'top',
+distance: 10,
+textStyle: {
+fontSize: 14,
+color: '#F0177A'
+}
 }
 },
 ...graticule.map(line => ({
 type: 'line3D',
 data: line,
 lineStyle: {
-  color: '#888',
-  width: 1,
-  opacity: 0.3
+color: '#888',
+width: 1,
+opacity: 0.3
 }
 }))
 ]

@@ -412,9 +412,9 @@ data: [[orbit.r, 0]],
 symbolSize: 12,
 itemStyle: { color: '#F0177A' },
 label: {
-  show: true,
-  formatter: `${altitude} km`,
-  position: 'right'
+show: true,
+formatter: `${altitude} km`,
+position: 'right'
 }
 }
 ]

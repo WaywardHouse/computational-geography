@@ -299,10 +299,10 @@ legend: {data: ['Reflectance', 'Transmittance', 'Absorptance'], textStyle: {colo
 tooltip: {
 trigger: 'axis',
 formatter: p => {
- const wl = WL[p[0].dataIndex];
- return `<b>${wl} nm</b><br/>` + p.map(s =>
-   `${s.marker}${s.seriesName}: ${(s.value * 100).toFixed(1)}%`
- ).join('<br/>');
+const wl = WL[p[0].dataIndex];
+return `<b>${wl} nm</b><br/>` + p.map(s =>
+`${s.marker}${s.seriesName}: ${(s.value * 100).toFixed(1)}%`
+).join('<br/>');
 },
 },
 xAxis: {

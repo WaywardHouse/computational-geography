@@ -324,20 +324,20 @@ data: timeData,
 type: 'line',
 smooth: true,
 lineStyle: {
-  color: '#F0177A',
-  width: 3
+color: '#F0177A',
+width: 3
 },
 showSymbol: false,
 markLine: {
-  silent: true,
-  symbol: 'none',
-  lineStyle: {
-    color: '#666',
-    type: 'dashed'
-  },
-  data: [
-    {yAxis: K, label: {formatter: 'K = ' + K, position: 'end'}}
-  ]
+silent: true,
+symbol: 'none',
+lineStyle: {
+color: '#666',
+type: 'dashed'
+},
+data: [
+{yAxis: K, label: {formatter: 'K = ' + K, position: 'end'}}
+]
 }
 }
 ]
@@ -389,32 +389,32 @@ data: phaseData,
 type: 'line',
 smooth: false,
 lineStyle: {
-  color: '#00A8E8',
-  width: 3
+color: '#00A8E8',
+width: 3
 },
 showSymbol: false,
 markPoint: {
-  symbol: 'circle',
-  symbolSize: 10,
-  itemStyle: {
-    color: '#F0177A'
-  },
-  data: [
-    {coord: [N0, currentRate], label: {formatter: 'N₀', position: 'top'}}
-  ]
+symbol: 'circle',
+symbolSize: 10,
+itemStyle: {
+color: '#F0177A'
+},
+data: [
+{coord: [N0, currentRate], label: {formatter: 'N₀', position: 'top'}}
+]
 },
 markLine: {
-  silent: true,
-  symbol: 'none',
-  lineStyle: {
-    color: '#666',
-    type: 'dashed'
-  },
-  data: [
-    {xAxis: K, label: {formatter: 'K', position: 'end'}},
-    {xAxis: 0, label: {formatter: 'N=0', position: 'start'}},
-    {yAxis: 0}
-  ]
+silent: true,
+symbol: 'none',
+lineStyle: {
+color: '#666',
+type: 'dashed'
+},
+data: [
+{xAxis: K, label: {formatter: 'K', position: 'end'}},
+{xAxis: 0, label: {formatter: 'N=0', position: 'start'}},
+{yAxis: 0}
+]
 }
 }
 ]

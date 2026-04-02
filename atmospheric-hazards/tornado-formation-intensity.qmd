@@ -448,12 +448,12 @@ data: vortexData,
 lineStyle: {color: rating.color, width: 3},
 areaStyle: {
 color: {
-  type: 'linear',
-  x: 0, y: 0, x2: 0, y2: 1,
-  colorStops: [
-    {offset: 0, color: rating.color + 'AA'},
-    {offset: 1, color: rating.color + '22'}
-  ]
+type: 'linear',
+x: 0, y: 0, x2: 0, y2: 1,
+colorStops: [
+{offset: 0, color: rating.color + 'AA'},
+{offset: 1, color: rating.color + '22'}
+]
 }
 }
 },
@@ -479,7 +479,7 @@ trigger: 'axis',
 axisPointer: {type: 'cross'},
 formatter: (params) => {
 if (params[0]) {
-  return `Radius: ${params[0].value[0]} m<br/>Wind: ${params[0].value[1].toFixed(0)} mph`;
+return `Radius: ${params[0].value[0]} m<br/>Wind: ${params[0].value[1].toFixed(0)} mph`;
 }
 }
 },

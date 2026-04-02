@@ -461,7 +461,7 @@ const k01 = K_TABLE[ti][gi+1];
 const k10 = K_TABLE[ti+1][gi];
 const k11 = K_TABLE[ti+1][gi+1];
 return (k00*(1-tFrac)*(1-gFrac) + k10*tFrac*(1-gFrac) +
-    k01*(1-tFrac)*gFrac    + k11*tFrac*gFrac);
+k01*(1-tFrac)*gFrac    + k11*tFrac*gFrac);
 }
 
 function render() {
@@ -519,12 +519,12 @@ axisLabel: {color: 'var(--text-2)'},
 },
 series: [
 {name: 'Fitted curve', type: 'line', showSymbol: false, data: pts,
-  lineStyle: {color: '#4e8ac4', width: 2.5}},
+lineStyle: {color: '#4e8ac4', width: 2.5}},
 {name: '95% CI', type: 'line', showSymbol: false, data: upper,
-  lineStyle: {color: '#4e8ac4', width: 1, type: 'dashed'}, itemStyle: {color: '#4e8ac4'}},
+lineStyle: {color: '#4e8ac4', width: 1, type: 'dashed'}, itemStyle: {color: '#4e8ac4'}},
 {name: '95% CI (lower)', type: 'line', showSymbol: false, data: lower,
-  lineStyle: {color: '#4e8ac4', width: 1, type: 'dashed'}, legend: {show: false},
-  itemStyle: {color: '#4e8ac4'}},
+lineStyle: {color: '#4e8ac4', width: 1, type: 'dashed'}, legend: {show: false},
+itemStyle: {color: '#4e8ac4'}},
 ]
 });
 }
