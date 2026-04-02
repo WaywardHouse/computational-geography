@@ -749,7 +749,7 @@ for p in analysis.pipelines:
 "value": 4.2,
 "itemStyle": {"color": "#2563eb"},
 "children": [
-  {"name": "Ontario/Quebec\n4.2 Bcf/d", "value": 4.2, "itemStyle": {"color": "#93c5fd"}}
+{"name": "Ontario/Quebec\n4.2 Bcf/d", "value": 4.2, "itemStyle": {"color": "#93c5fd"}}
 ]
 },
 {
@@ -757,7 +757,7 @@ for p in analysis.pipelines:
 "value": 2.8,
 "itemStyle": {"color": "#16a34a"},
 "children": [
-  {"name": "Pacific NW/CA\n2.8 Bcf/d", "value": 2.8, "itemStyle": {"color": "#86efac"}}
+{"name": "Pacific NW/CA\n2.8 Bcf/d", "value": 2.8, "itemStyle": {"color": "#86efac"}}
 ]
 },
 {
@@ -765,7 +765,7 @@ for p in analysis.pipelines:
 "value": 1.6,
 "itemStyle": {"color": "#7c3aed"},
 "children": [
-  {"name": "Chicago\n1.6 Bcf/d", "value": 1.6, "itemStyle": {"color": "#c4b5fd"}}
+{"name": "Chicago\n1.6 Bcf/d", "value": 1.6, "itemStyle": {"color": "#c4b5fd"}}
 ]
 },
 {
@@ -773,7 +773,7 @@ for p in analysis.pipelines:
 "value": 2.3,
 "itemStyle": {"color": "#dc2626"},
 "children": [
-  {"name": "Midwest/Rockies\n2.3 Bcf/d", "value": 2.3, "itemStyle": {"color": "#fca5a5"}}
+{"name": "Midwest/Rockies\n2.3 Bcf/d", "value": 2.3, "itemStyle": {"color": "#fca5a5"}}
 ]
 },
 {
@@ -781,7 +781,7 @@ for p in analysis.pipelines:
 "value": 4.1,
 "itemStyle": {"color": "#f59e0b"},
 "children": [
-  {"name": "Alberta demand\n4.1 Bcf/d", "value": 4.1, "itemStyle": {"color": "#fde68a"}}
+{"name": "Alberta demand\n4.1 Bcf/d", "value": 4.1, "itemStyle": {"color": "#fde68a"}}
 ]
 }
 ]
