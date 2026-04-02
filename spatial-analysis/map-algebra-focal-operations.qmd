@@ -529,7 +529,7 @@ result = convolve(rasterA, kernels[focalKernel]);
       
 drawRaster(rasterA, 50, 40, 250, 250, 'Input');
 drawRaster(result, 350, 40, 250, 250, 
-    `Output (${focalKernel})`);
+`Output (${focalKernel})`);
       
 if (showKernel && kernels[focalKernel]) {
 displayKernel(kernels[focalKernel]);

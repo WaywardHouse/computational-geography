@@ -183,45 +183,47 @@ Key things to explore:
 - **View angle / hotspot:** set $\theta_v = \theta_s$ and $\phi = 180°$ to see the hotspot brighten
 - **Soil:** dry bare soil has higher reflectance than wet soil; the soil signal dominates at low LAI
 
+```{=html}
 <div class="model-controls">
-  <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
-    <legend style="font-weight:600;">Leaf (PROSPECT)</legend>
-    <label>Chlorophyll C<sub>ab</sub>: <strong id="s-cab-val">40</strong> µg cm⁻²
-      <input type="range" id="s-cab" min="5" max="80" step="1" value="40"></label>
-    <label>Water C<sub>w</sub>: <strong id="s-cw-val">0.013</strong> cm
-      <input type="range" id="s-cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
-    <label>Structure N: <strong id="s-n-val">1.5</strong>
-      <input type="range" id="s-n" min="1.0" max="3.5" step="0.1" value="1.5"></label>
-  </fieldset>
-  <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
-    <legend style="font-weight:600;">Canopy (SAIL)</legend>
-    <label>LAI: <strong id="s-lai-val">3.0</strong> m² m⁻²
-      <input type="range" id="s-lai" min="0.2" max="8" step="0.1" value="3.0"></label>
-    <label>Mean leaf angle: <strong id="s-ala-val">57</strong>°
-      <input type="range" id="s-ala" min="10" max="80" step="1" value="57"></label>
-    <label>Hotspot s: <strong id="s-hot-val">0.10</strong>
-      <input type="range" id="s-hot" min="0.01" max="0.50" step="0.01" value="0.10"></label>
-    <label>Soil reflectance factor: <strong id="s-soil-val">0.15</strong>
-      <input type="range" id="s-soil" min="0.02" max="0.40" step="0.01" value="0.15"></label>
-    <label>Diffuse fraction: <strong id="s-diff-val">0.10</strong>
-      <input type="range" id="s-diff" min="0.0" max="0.50" step="0.01" value="0.10"></label>
-  </fieldset>
-  <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
-    <legend style="font-weight:600;">Geometry</legend>
-    <label>Solar zenith θ<sub>s</sub>: <strong id="s-ts-val">30</strong>°
-      <input type="range" id="s-ts" min="0" max="70" step="1" value="30"></label>
-    <label>View zenith θ<sub>v</sub>: <strong id="s-tv-val">0</strong>°
-      <input type="range" id="s-tv" min="0" max="60" step="1" value="0"></label>
-    <label>Relative azimuth φ: <strong id="s-phi-val">0</strong>°
-      <input type="range" id="s-phi" min="0" max="180" step="5" value="0"></label>
-  </fieldset>
-  <div class="flood-info" style="margin-top:0.5rem;">
-    <p><strong>NDVI:</strong> <span id="s-ndvi">--</span></p>
-    <p><strong>NIR (800 nm):</strong> <span id="s-nir">--</span></p>
-    <p><strong>Red (670 nm):</strong> <span id="s-red">--</span></p>
-    <p><strong>Gap fraction:</strong> <span id="s-gap">--</span></p>
-  </div>
+<fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
+<legend style="font-weight:600;">Leaf (PROSPECT)</legend>
+<label>Chlorophyll C<sub>ab</sub>: <strong id="s-cab-val">40</strong> µg cm⁻²
+<input type="range" id="s-cab" min="5" max="80" step="1" value="40"></label>
+<label>Water C<sub>w</sub>: <strong id="s-cw-val">0.013</strong> cm
+<input type="range" id="s-cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
+<label>Structure N: <strong id="s-n-val">1.5</strong>
+<input type="range" id="s-n" min="1.0" max="3.5" step="0.1" value="1.5"></label>
+</fieldset>
+<fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
+<legend style="font-weight:600;">Canopy (SAIL)</legend>
+<label>LAI: <strong id="s-lai-val">3.0</strong> m² m⁻²
+<input type="range" id="s-lai" min="0.2" max="8" step="0.1" value="3.0"></label>
+<label>Mean leaf angle: <strong id="s-ala-val">57</strong>°
+<input type="range" id="s-ala" min="10" max="80" step="1" value="57"></label>
+<label>Hotspot s: <strong id="s-hot-val">0.10</strong>
+<input type="range" id="s-hot" min="0.01" max="0.50" step="0.01" value="0.10"></label>
+<label>Soil reflectance factor: <strong id="s-soil-val">0.15</strong>
+<input type="range" id="s-soil" min="0.02" max="0.40" step="0.01" value="0.15"></label>
+<label>Diffuse fraction: <strong id="s-diff-val">0.10</strong>
+<input type="range" id="s-diff" min="0.0" max="0.50" step="0.01" value="0.10"></label>
+</fieldset>
+<fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
+<legend style="font-weight:600;">Geometry</legend>
+<label>Solar zenith θ<sub>s</sub>: <strong id="s-ts-val">30</strong>°
+<input type="range" id="s-ts" min="0" max="70" step="1" value="30"></label>
+<label>View zenith θ<sub>v</sub>: <strong id="s-tv-val">0</strong>°
+<input type="range" id="s-tv" min="0" max="60" step="1" value="0"></label>
+<label>Relative azimuth φ: <strong id="s-phi-val">0</strong>°
+<input type="range" id="s-phi" min="0" max="180" step="5" value="0"></label>
+</fieldset>
+<div class="flood-info" style="margin-top:0.5rem;">
+<p><strong>NDVI:</strong> <span id="s-ndvi">--</span></p>
+<p><strong>NIR (800 nm):</strong> <span id="s-nir">--</span></p>
+<p><strong>Red (670 nm):</strong> <span id="s-red">--</span></p>
+<p><strong>Gap fraction:</strong> <span id="s-gap">--</span></p>
 </div>
+</div>
+```
 
 ```{=html}
 <div id="sail-chart" style="height:460px;"></div>

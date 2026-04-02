@@ -431,7 +431,7 @@ ctx.lineWidth = 2;
 ctx.fillRect(centerX - snowWidth/2, centerY - snowHeight/2, 
 snowWidth, snowHeight);
 ctx.strokeRect(centerX - snowWidth/2, centerY - snowHeight/2, 
-  snowWidth, snowHeight);
+snowWidth, snowHeight);
     
 // Label
 ctx.fillStyle = '#37474F';

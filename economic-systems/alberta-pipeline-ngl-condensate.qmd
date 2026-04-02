@@ -561,133 +561,143 @@ chain.report(PRICES)
 
 ### Figure 1 — The NGL Fractionation Cascade
 
+```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-  "title": {"text": "NGL Fractionation Cascade", "subtext": "Approximate product split from WCSB deep-cut gas plant raw mix", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: {c}% of feed"},
-  "legend": {"orient": "vertical", "left": "left"},
-  "series": [{
-    "type": "pie",
-    "radius": ["35%", "65%"],
-    "label": {"formatter": "{b}\n{d}%"},
-    "data": [
-      {"value": 28, "name": "Ethane (C₂)\nPlastics feedstock", "itemStyle": {"color": "#7c3aed"}},
-      {"value": 32, "name": "Propane (C₃)\nHeating / feedstock", "itemStyle": {"color": "#2563eb"}},
-      {"value": 18, "name": "Butane (C₄)\nBlending / feedstock", "itemStyle": {"color": "#0891b2"}},
-      {"value": 22, "name": "Condensate (C₅+)\nBitumen diluent", "itemStyle": {"color": "#16a34a"}}
-    ]
-  }]
+"title": {"text": "NGL Fractionation Cascade", "subtext": "Approximate product split from WCSB deep-cut gas plant raw mix", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: {c}% of feed"},
+"legend": {"orient": "vertical", "left": "left"},
+"series": [{
+"type": "pie",
+"radius": ["35%", "65%"],
+"label": {"formatter": "{b}\n{d}%"},
+"data": [
+  {"value": 28, "name": "Ethane (C₂)\nPlastics feedstock", "itemStyle": {"color": "#7c3aed"}},
+  {"value": 32, "name": "Propane (C₃)\nHeating / feedstock", "itemStyle": {"color": "#2563eb"}},
+  {"value": 18, "name": "Butane (C₄)\nBlending / feedstock", "itemStyle": {"color": "#0891b2"}},
+  {"value": 22, "name": "Condensate (C₅+)\nBitumen diluent", "itemStyle": {"color": "#16a34a"}}
+]
+}]
 }'></div>
+```
 
 ### Figure 2 — Alberta Diluent Supply Sources
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Alberta Diluent Supply by Source", "subtext": "Approximate share of ~990,000 bbl/d total requirement, 2024", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: {c}000 bbl/d ({d}%)"},
-  "legend": {"bottom": 0},
-  "series": [{
-    "type": "pie",
-    "radius": ["40%", "68%"],
-    "label": {"formatter": "{b}\n{d}%"},
-    "data": [
-      {"value": 544, "name": "WCSB deep-cut gas plants", "itemStyle": {"color": "#2563eb"}},
-      {"value": 198, "name": "SCO used as diluent", "itemStyle": {"color": "#16a34a"}},
-      {"value": 95,  "name": "Cochin (U.S. condensate import)", "itemStyle": {"color": "#dc2626"}},
-      {"value": 153, "name": "Other imports / storage", "itemStyle": {"color": "#f59e0b"}}
-    ]
-  }]
+"title": {"text": "Alberta Diluent Supply by Source", "subtext": "Approximate share of ~990,000 bbl/d total requirement, 2024", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: {c}000 bbl/d ({d}%)"},
+"legend": {"bottom": 0},
+"series": [{
+"type": "pie",
+"radius": ["40%", "68%"],
+"label": {"formatter": "{b}\n{d}%"},
+"data": [
+  {"value": 544, "name": "WCSB deep-cut gas plants", "itemStyle": {"color": "#2563eb"}},
+  {"value": 198, "name": "SCO used as diluent", "itemStyle": {"color": "#16a34a"}},
+  {"value": 95,  "name": "Cochin (U.S. condensate import)", "itemStyle": {"color": "#dc2626"}},
+  {"value": 153, "name": "Other imports / storage", "itemStyle": {"color": "#f59e0b"}}
+]
+}]
 }'></div>
+```
 
 ### Figure 3 — Diluent Demand Growth vs. Supply Capacity
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Alberta Diluent Demand and Supply Capacity", "subtext": "Thousands of bbl/d — historical and projected", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Diluent demand", "Domestic supply capacity", "Import capacity"], "bottom": 0},
-  "xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2020","2022","2024","2026E","2028E"]},
-  "yAxis": {"type": "value", "name": "000 bbl/d"},
-  "series": [
-    {
-      "name": "Diluent demand",
-      "type": "line",
-      "data": [450, 530, 620, 680, 760, 710, 870, 990, 1050, 1100],
-      "smooth": true,
-      "itemStyle": {"color": "#dc2626"},
-      "lineStyle": {"width": 3}
-    },
-    {
-      "name": "Domestic supply capacity",
-      "type": "line",
-      "data": [380, 440, 510, 560, 630, 650, 750, 810, 860, 900],
-      "smooth": true,
-      "itemStyle": {"color": "#2563eb"},
-      "areaStyle": {"opacity": 0.1}
-    },
-    {
-      "name": "Import capacity",
-      "type": "line",
-      "data": [20, 20, 95, 150, 170, 170, 175, 175, 195, 210],
-      "smooth": true,
-      "itemStyle": {"color": "#f59e0b"},
-      "lineStyle": {"type": "dashed"}
-    }
-  ]
+"title": {"text": "Alberta Diluent Demand and Supply Capacity", "subtext": "Thousands of bbl/d — historical and projected", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Diluent demand", "Domestic supply capacity", "Import capacity"], "bottom": 0},
+"xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2020","2022","2024","2026E","2028E"]},
+"yAxis": {"type": "value", "name": "000 bbl/d"},
+"series": [
+{
+  "name": "Diluent demand",
+  "type": "line",
+  "data": [450, 530, 620, 680, 760, 710, 870, 990, 1050, 1100],
+  "smooth": true,
+  "itemStyle": {"color": "#dc2626"},
+  "lineStyle": {"width": 3}
+},
+{
+  "name": "Domestic supply capacity",
+  "type": "line",
+  "data": [380, 440, 510, 560, 630, 650, 750, 810, 860, 900],
+  "smooth": true,
+  "itemStyle": {"color": "#2563eb"},
+  "areaStyle": {"opacity": 0.1}
+},
+{
+  "name": "Import capacity",
+  "type": "line",
+  "data": [20, 20, 95, 150, 170, 170, 175, 175, 195, 210],
+  "smooth": true,
+  "itemStyle": {"color": "#f59e0b"},
+  "lineStyle": {"type": "dashed"}
+}
+]
 }'></div>
+```
 
 ### Figure 4 — NGL Product Value by Component (Fort Saskatchewan)
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "NGL Product Revenue by Component", "subtext": "Representative 50,000 bbl/d fractionator — CAD$/day", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "xAxis": {"type": "category", "data": ["Ethane", "Propane", "Butane", "Condensate"]},
-  "yAxis": {"type": "value", "name": "CAD $/day", "axisLabel": {"formatter": "${value}"}},
-  "series": [{
-    "type": "bar",
-    "data": [
-      {"value": 154560, "itemStyle": {"color": "#7c3aed"}},
-      {"value": 651840, "itemStyle": {"color": "#2563eb"}},
-      {"value": 485100, "itemStyle": {"color": "#0891b2"}},
-      {"value": 816750, "itemStyle": {"color": "#16a34a"}}
-    ],
-    "label": {
-      "show": true,
-      "position": "top",
-      "formatter": "${c}"
-    }
-  }]
+"title": {"text": "NGL Product Revenue by Component", "subtext": "Representative 50,000 bbl/d fractionator — CAD$/day", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"xAxis": {"type": "category", "data": ["Ethane", "Propane", "Butane", "Condensate"]},
+"yAxis": {"type": "value", "name": "CAD $/day", "axisLabel": {"formatter": "${value}"}},
+"series": [{
+"type": "bar",
+"data": [
+  {"value": 154560, "itemStyle": {"color": "#7c3aed"}},
+  {"value": 651840, "itemStyle": {"color": "#2563eb"}},
+  {"value": 485100, "itemStyle": {"color": "#0891b2"}},
+  {"value": 816750, "itemStyle": {"color": "#16a34a"}}
+],
+"label": {
+  "show": true,
+  "position": "top",
+  "formatter": "${c}"
+}
+}]
 }'></div>
+```
 
 ### Figure 5 — The Diluent Circuit: Schematic Flow
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "The Diluent Circuit — Schematic", "subtext": "Condensate flows north; dilbit flows south", "left": "center"},
-  "tooltip": {"trigger": "item"},
-  "series": [{
-    "type": "sankey",
-    "layout": "none",
-    "emphasis": {"focus": "adjacency"},
-    "nodeAlign": "left",
-    "data": [
-      {"name": "WCSB Gas Plants"},
-      {"name": "U.S. Imports (Cochin)"},
-      {"name": "Fort Saskatchewan Hub"},
-      {"name": "Hardisty Terminal"},
-      {"name": "Oil Sands Blending"},
-      {"name": "Dilbit Export System"},
-      {"name": "U.S. Midwest Refineries"},
-      {"name": "Pacific (Westridge)"}
-    ],
-    "links": [
-      {"source": "WCSB Gas Plants",      "target": "Fort Saskatchewan Hub", "value": 540},
-      {"source": "U.S. Imports (Cochin)","target": "Hardisty Terminal",     "value": 175},
-      {"source": "Fort Saskatchewan Hub","target": "Hardisty Terminal",     "value": 540},
-      {"source": "Hardisty Terminal",    "target": "Oil Sands Blending",   "value": 715},
-      {"source": "Oil Sands Blending",   "target": "Dilbit Export System", "value": 4290},
-      {"source": "Dilbit Export System", "target": "U.S. Midwest Refineries","value": 2660},
-      {"source": "Dilbit Export System", "target": "Pacific (Westridge)",  "value": 890},
-      {"source": "Dilbit Export System", "target": "U.S. Midwest Refineries","value": 740}
-    ]
-  }]
+"title": {"text": "The Diluent Circuit — Schematic", "subtext": "Condensate flows north; dilbit flows south", "left": "center"},
+"tooltip": {"trigger": "item"},
+"series": [{
+"type": "sankey",
+"layout": "none",
+"emphasis": {"focus": "adjacency"},
+"nodeAlign": "left",
+"data": [
+  {"name": "WCSB Gas Plants"},
+  {"name": "U.S. Imports (Cochin)"},
+  {"name": "Fort Saskatchewan Hub"},
+  {"name": "Hardisty Terminal"},
+  {"name": "Oil Sands Blending"},
+  {"name": "Dilbit Export System"},
+  {"name": "U.S. Midwest Refineries"},
+  {"name": "Pacific (Westridge)"}
+],
+"links": [
+  {"source": "WCSB Gas Plants",      "target": "Fort Saskatchewan Hub", "value": 540},
+  {"source": "U.S. Imports (Cochin)","target": "Hardisty Terminal",     "value": 175},
+  {"source": "Fort Saskatchewan Hub","target": "Hardisty Terminal",     "value": 540},
+  {"source": "Hardisty Terminal",    "target": "Oil Sands Blending",   "value": 715},
+  {"source": "Oil Sands Blending",   "target": "Dilbit Export System", "value": 4290},
+  {"source": "Dilbit Export System", "target": "U.S. Midwest Refineries","value": 2660},
+  {"source": "Dilbit Export System", "target": "Pacific (Westridge)",  "value": 890},
+  {"source": "Dilbit Export System", "target": "U.S. Midwest Refineries","value": 740}
+]
+}]
 }'></div>
+```
 
 ---
 

@@ -90,8 +90,10 @@ Each scenario produces a different government revenue profile, which then flows 
 
 Before running the full scenarios, it is useful to understand the sensitivity of each system component to a &#36;20 WTI price change. The waterfall chart traces this from wellhead to spending capacity.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Impact of $20 WTI Price Change on Alberta Fiscal System", "subtext": "Illustrative annual flow, CAD billion"}, "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}}, "xAxis": {"type": "category", "data": ["Gross Revenue\n(all producers)", "Less: Operating\nCosts (fixed)", "Less: Transport\n& WCS Discount", "= Pre-royalty\nNetback", "Less: Royalties\n(~12% avg)", "= Producer\nProfit Change", "Government\nRoyalty Revenue", "Heritage Fund\nContribution\n(if saved)", "Spending\nCapacity"]}, "yAxis": {"type": "value", "name": "CAD Billion", "min": -5, "max": 30}, "series": [{"name": "Cumulative Impact", "type": "bar", "data": [28, -3, -2, 23, -2.8, 20.2, 2.8, 0.5, 2.3], "itemStyle": {"color": ["#5470c6","#ee6666","#ee6666","#5470c6","#ee6666","#91cc75","#5470c6","#fac858","#73c0de"]}, "label": {"show": true, "position": "top", "formatter": "{c}B"}}]}'>
 </div>
+```
 
 The waterfall shows that a &#36;20 WTI price change generates roughly &#36;28 billion in additional gross revenue across Alberta's oil sector (at ~1.4 Mbd production). But operating costs, transport costs, and the WCS discount are largely fixed — they do not scale with price. So most of the price gain flows through to netback. The royalty capture (at an average effective rate of ~12%) is only &#36;2.8 billion — reflecting how low Alberta's effective royalty rate is relative to gross revenues.
 
@@ -99,8 +101,10 @@ The Heritage Fund contribution depends on whether the government chooses to save
 
 ## Scenario Revenue Projections 2025–2040
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Alberta Government Revenue by Source: Three Price Scenarios (2025–2040)", "subtext": "CAD billion, stacked area by revenue source"}, "tooltip": {"trigger": "axis"}, "legend": {"data": ["Royalties (High Oil)", "Royalties (Med Oil)", "Royalties (Low Oil)", "Non-resource Revenue"], "bottom": 0}, "xAxis": {"type": "category", "data": ["2025","2026","2027","2028","2029","2030","2032","2034","2036","2038","2040"]}, "yAxis": {"type": "value", "name": "CAD Billion", "max": 80}, "series": [{"name": "Non-resource Revenue", "type": "line", "data": [42, 43, 44, 45, 46, 47, 49, 51, 52, 53, 54], "lineStyle": {"width": 2, "type": "dashed"}, "itemStyle": {"color": "#73c0de"}}, {"name": "Royalties (High Oil)", "type": "line", "smooth": true, "data": [24, 26, 27, 28, 29, 30, 31, 30, 28, 25, 22], "lineStyle": {"width": 2}, "itemStyle": {"color": "#5470c6"}, "areaStyle": {"opacity": 0.15}}, {"name": "Royalties (Med Oil)", "type": "line", "smooth": true, "data": [14, 15, 15, 16, 16, 15, 14, 12, 10, 8, 6], "lineStyle": {"width": 2}, "itemStyle": {"color": "#fac858"}, "areaStyle": {"opacity": 0.15}}, {"name": "Royalties (Low Oil)", "type": "line", "smooth": true, "data": [5, 4, 4, 3, 3, 2, 2, 1, 1, 0, 0], "lineStyle": {"width": 2}, "itemStyle": {"color": "#ee6666"}, "areaStyle": {"opacity": 0.15}}]}'>
 </div>
+```
 
 The spread between scenarios widens over time as the energy transition compounds the demand effect. By 2040, royalty revenues in the low-oil scenario have essentially collapsed to zero (operating costs exceed netback for most projects), while non-resource revenues (income taxes, federal transfers) remain relatively stable across all scenarios — they are not oil-dependent.
 
@@ -140,8 +144,10 @@ where $\tau(t)$ is the carbon price per barrel (rising over time under most carb
 
 The three major oil sands deposit areas in Alberta have distinct production profiles and dominant extraction methods:
 
+```{=html}
 <div data-leaflet data-lat="56.5" data-lng="-113.0" data-zoom="6" data-tiles="carto-dark" data-markers='[{"lat":57.2,"lng":-111.5,"label":"Athabasca: ~1.2 Mbd (65% mining, 35% SAGD)"},{"lat":54.5,"lng":-110.2,"label":"Cold Lake: ~0.25 Mbd (100% SAGD / CSS)"},{"lat":56.1,"lng":-117.2,"label":"Peace River: ~0.05 Mbd (experimental SAGD)"}]'>
 </div>
+```
 
 **Athabasca** (Fort McMurray region) is the largest deposit and the only one with bitumen close enough to the surface for open-pit mining. It accounts for roughly 85% of current oil sands production. The mining operations (Suncor, CNRL Horizon, Imperial Kearl) have high capital costs but low OPEX once operating; SAGD operations in the deeper Athabasca formation have lower capital but higher energy costs.
 

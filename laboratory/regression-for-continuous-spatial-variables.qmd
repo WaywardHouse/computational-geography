@@ -323,26 +323,28 @@ print(f"Optimism bias (spatial autocorr.): {np.mean(rmse_spatial)-np.mean(rmse_s
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Bias-Variance Tradeoff — Ridge Regression as λ Varies", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Bias²", "Variance", "Total error (Bias² + Var + σ²)"], "bottom": 0},
-  "xAxis": {"name": "log₁₀(λ) — regularisation strength", "nameLocation": "middle", "nameGap": 30,
-    "data": ["-3","-2.5","-2","-1.5","-1","-0.5","0","0.5","1","1.5","2"]},
-  "yAxis": {"name": "Expected prediction error", "nameLocation": "middle", "nameGap": 50},
-  "series": [
-    {"name": "Bias²", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#C62828"},
-     "data": [0.01, 0.02, 0.04, 0.08, 0.15, 0.28, 0.50, 0.75, 1.10, 1.50, 2.00]},
-    {"name": "Variance", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [2.20, 1.80, 1.40, 1.05, 0.75, 0.52, 0.35, 0.25, 0.18, 0.14, 0.12]},
-    {"name": "Total error (Bias² + Var + σ²)", "type": "line", "smooth": true,
-     "lineStyle": {"width": 3},
-     "itemStyle": {"color": "#2E7D32"},
-     "data": [4.46, 4.07, 3.69, 3.38, 3.15, 3.05, 3.10, 3.25, 3.53, 3.89, 4.37]}
-  ]
+"title": {"text": "Bias-Variance Tradeoff — Ridge Regression as λ Varies", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Bias²", "Variance", "Total error (Bias² + Var + σ²)"], "bottom": 0},
+"xAxis": {"name": "log₁₀(λ) — regularisation strength", "nameLocation": "middle", "nameGap": 30,
+"data": ["-3","-2.5","-2","-1.5","-1","-0.5","0","0.5","1","1.5","2"]},
+"yAxis": {"name": "Expected prediction error", "nameLocation": "middle", "nameGap": 50},
+"series": [
+{"name": "Bias²", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#C62828"},
+ "data": [0.01, 0.02, 0.04, 0.08, 0.15, 0.28, 0.50, 0.75, 1.10, 1.50, 2.00]},
+{"name": "Variance", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [2.20, 1.80, 1.40, 1.05, 0.75, 0.52, 0.35, 0.25, 0.18, 0.14, 0.12]},
+{"name": "Total error (Bias² + Var + σ²)", "type": "line", "smooth": true,
+ "lineStyle": {"width": 3},
+ "itemStyle": {"color": "#2E7D32"},
+ "data": [4.46, 4.07, 3.69, 3.38, 3.15, 3.05, 3.10, 3.25, 3.53, 3.89, 4.37]}
+]
 }'></div>
+```
 
 Total error has a minimum at intermediate regularisation (λ ≈ 0.3 in this example). Left of the minimum: variance dominates, the model overfits training data. Right of the minimum: bias dominates, the model is too constrained. Standard cross-validation finds this minimum empirically without needing to know the true signal or noise level.
 

@@ -459,9 +459,9 @@ silent: true,
 symbol: 'none',
 data: lcl > 0 ? [
 {
-  yAxis: lcl,
-  lineStyle: { type: 'solid', color: '#95A5A6' },
-  label: { formatter: 'LCL (cloud base)', position: 'end' }
+yAxis: lcl,
+lineStyle: { type: 'solid', color: '#95A5A6' },
+label: { formatter: 'LCL (cloud base)', position: 'end' }
 }
 ] : []
 }

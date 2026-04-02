@@ -310,22 +310,24 @@ print(f"Brier skill score: {bss:.3f}")
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Rank Histogram — Under-Dispersive Ensemble (U-shape = too confident)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Observed rank counts", "Expected (uniform)"], "bottom": 0},
-  "xAxis": {"name": "Rank of observation among ensemble members", "nameLocation": "middle", "nameGap": 30,
-    "data": ["Below all","2","3","4","5","6","7","8","9","10","Above all"]},
-  "yAxis": {"name": "Count", "nameLocation": "middle", "nameGap": 40},
-  "series": [
-    {"name": "Observed rank counts", "type": "bar",
-     "itemStyle": {"color": "#1565C0"},
-     "data": [62, 30, 28, 26, 28, 27, 29, 31, 28, 27, 64]},
-    {"name": "Expected (uniform)", "type": "line",
-     "lineStyle": {"type": "dashed", "color": "#C62828"},
-     "data": [45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5]}
-  ]
+"title": {"text": "Rank Histogram — Under-Dispersive Ensemble (U-shape = too confident)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Observed rank counts", "Expected (uniform)"], "bottom": 0},
+"xAxis": {"name": "Rank of observation among ensemble members", "nameLocation": "middle", "nameGap": 30,
+"data": ["Below all","2","3","4","5","6","7","8","9","10","Above all"]},
+"yAxis": {"name": "Count", "nameLocation": "middle", "nameGap": 40},
+"series": [
+{"name": "Observed rank counts", "type": "bar",
+ "itemStyle": {"color": "#1565C0"},
+ "data": [62, 30, 28, 26, 28, 27, 29, 31, 28, 27, 64]},
+{"name": "Expected (uniform)", "type": "line",
+ "lineStyle": {"type": "dashed", "color": "#C62828"},
+ "data": [45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5]}
+]
 }'></div>
+```
 
 The U-shape confirms under-dispersion: the observation falls outside the ensemble range (ranks 1 and 11) far more often than expected. A uniform histogram would indicate perfect calibration. This diagnostic directly informs post-processing: the ensemble spread needs to be inflated, or a BMA/EMOS model needs to be trained on recent cases to recalibrate.
 

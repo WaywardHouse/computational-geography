@@ -290,21 +290,23 @@ for MCE in [0.75, 0.80, 0.85, 0.90, 0.93, 0.96, 0.99]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Pyrogenic Carbon Partition by Fire Type (%  of burned carbon by fate)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["CO₂","CO","CH₄","NMHC + other","BC/char"], "bottom": 0},
-  "xAxis": {"type": "category",
-    "data": ["Tropical forest", "Savanna", "Boreal forest", "Prescribed burn", "Smouldering peat"]},
-  "yAxis": {"name": "% of burned carbon", "nameLocation": "middle", "nameGap": 45, "max": 100},
-  "series": [
-    {"name": "CO₂",        "type": "bar", "stack": "total", "itemStyle": {"color": "#B71C1C"}, "data": [92.5,91.5,88.0,86.0,70.0]},
-    {"name": "CO",         "type": "bar", "stack": "total", "itemStyle": {"color": "#F57F17"}, "data": [4.0, 5.5, 7.5, 9.0, 20.0]},
-    {"name": "CH₄",        "type": "bar", "stack": "total", "itemStyle": {"color": "#F9A825"}, "data": [0.8, 0.8, 1.2, 1.5, 4.5]},
-    {"name": "NMHC + other","type":"bar", "stack": "total", "itemStyle": {"color": "#90A4AE"}, "data": [2.2, 1.7, 2.3, 2.5, 4.5]},
-    {"name": "BC/char",    "type": "bar", "stack": "total", "itemStyle": {"color": "#212121"}, "data": [0.5, 0.5, 1.0, 1.0, 1.0]}
-  ]
+"title": {"text": "Pyrogenic Carbon Partition by Fire Type (%  of burned carbon by fate)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["CO₂","CO","CH₄","NMHC + other","BC/char"], "bottom": 0},
+"xAxis": {"type": "category",
+"data": ["Tropical forest", "Savanna", "Boreal forest", "Prescribed burn", "Smouldering peat"]},
+"yAxis": {"name": "% of burned carbon", "nameLocation": "middle", "nameGap": 45, "max": 100},
+"series": [
+{"name": "CO₂",        "type": "bar", "stack": "total", "itemStyle": {"color": "#B71C1C"}, "data": [92.5,91.5,88.0,86.0,70.0]},
+{"name": "CO",         "type": "bar", "stack": "total", "itemStyle": {"color": "#F57F17"}, "data": [4.0, 5.5, 7.5, 9.0, 20.0]},
+{"name": "CH₄",        "type": "bar", "stack": "total", "itemStyle": {"color": "#F9A825"}, "data": [0.8, 0.8, 1.2, 1.5, 4.5]},
+{"name": "NMHC + other","type":"bar", "stack": "total", "itemStyle": {"color": "#90A4AE"}, "data": [2.2, 1.7, 2.3, 2.5, 4.5]},
+{"name": "BC/char",    "type": "bar", "stack": "total", "itemStyle": {"color": "#212121"}, "data": [0.5, 0.5, 1.0, 1.0, 1.0]}
+]
 }'></div>
+```
 
 CO₂ dominates in flaming combustion (>88%); CO rises sharply as combustion efficiency falls (smouldering peat reaches 20% CO). The BC/char fraction (~0.5–1%) appears small but represents a persistent soil carbon addition — one of the few cases where fire may contribute to long-term carbon storage.
 

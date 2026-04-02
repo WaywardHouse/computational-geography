@@ -16,6 +16,17 @@ sub should_wrap_block {
 
   return 1 if $block =~ /class="viz-container"/;
   return 1 if $block =~ /class="pyodide-cell"/;
+  return 1 if $block =~ /class="model-controls"/;
+  return 1 if $block =~ /class="controls"/;
+  return 1 if $block =~ /class="button-group"/;
+  return 1 if $block =~ /class="info-panel"/;
+  return 1 if $block =~ /class="(?:[a-z0-9-]+-info)"/;
+  return 1 if $block =~ /<div\b[^>]*data-(?:leaflet|viz|map|d3)\b/;
+  return 1 if $block =~ /^\s*<fieldset\b/m;
+  return 1 if $block =~ /^\s*<label\b/m;
+  return 1 if $block =~ /^\s*<input\b/m;
+  return 1 if $block =~ /^\s*<select\b/m;
+  return 1 if $block =~ /^\s*<canvas\b/m;
   return 1 if $block =~ /^\s*<script\b/m;
 
   return 0;
@@ -58,6 +69,61 @@ sub dedent_html_block {
   }
 
   return join("\n", @lines);
+}
+
+sub is_interactive_start_line {
+  my ($line) = @_;
+
+  return 1 if $line =~ /^\s*<label\b/;
+  return 1 if $line =~ /^\s*<input\b/;
+  return 1 if $line =~ /^\s*<select\b/;
+  return 1 if $line =~ /^\s*<canvas\b/;
+  return 1 if $line =~ /^\s*<fieldset\b/;
+  return 1 if $line =~ /^\s*<script\b/;
+  return 1 if $line =~ /^\s*<div\b[^>]*class="(?:viz-container|pyodide-cell|model-controls|controls|button-group|info-panel|[a-z0-9-]+-info)"/;
+  return 1 if $line =~ /^\s*<div\b[^>]*data-(?:leaflet|viz|map|d3)\b/;
+
+  return 0;
+}
+
+sub collect_interactive_sequence {
+  my ($lines_ref, $start) = @_;
+  my @lines = @$lines_ref;
+  my $j = $start;
+  my $depth = 0;
+  my $saw_interactive = 0;
+
+  while ($j <= $#lines) {
+    my $candidate = $lines[$j];
+
+    last if !$saw_interactive && $candidate =~ /^\s*$/;
+    if ($saw_interactive && $depth <= 0 && $candidate =~ /^\s*$/) {
+      last;
+    }
+
+    $saw_interactive = 1 if is_interactive_start_line($candidate);
+
+    $depth += count_matches($candidate, qr/<div\b/);
+    $depth -= count_matches($candidate, qr/<\/div>/);
+    $depth += count_matches($candidate, qr/<fieldset\b/);
+    $depth -= count_matches($candidate, qr/<\/fieldset>/);
+    $depth += count_matches($candidate, qr/<label\b/);
+    $depth -= count_matches($candidate, qr/<\/label>/);
+    $depth += count_matches($candidate, qr/<script\b/);
+    $depth -= count_matches($candidate, qr/<\/script>/);
+
+    $j++;
+
+    last if $saw_interactive && $depth <= 0 && ($j > $#lines || $lines[$j] =~ /^\s*$/);
+  }
+
+  return if !$saw_interactive || $j <= $start;
+
+  my @block_lines = @lines[$start .. $j - 1];
+  my $block = join("\n", @block_lines);
+  return unless should_wrap_block($block);
+
+  return ($j, \@block_lines);
 }
 
 sub wrap_interactive_blocks {
@@ -115,6 +181,18 @@ sub wrap_interactive_blocks {
       next;
     }
 
+    if (is_interactive_start_line($line)) {
+      my ($j, $block_lines_ref) = collect_interactive_sequence(\@lines, $i);
+      if (defined $j && defined $block_lines_ref) {
+        my $block = dedent_html_block(join("\n", @$block_lines_ref));
+        push @out, '```{=html}';
+        push @out, split /\n/, $block, -1;
+        push @out, '```';
+        $i = $j;
+        next;
+      }
+    }
+
     if ($line =~ /^\s*<div\b/) {
       my $j = $i;
       my $depth = 0;
@@ -148,8 +226,9 @@ sub wrap_interactive_blocks {
         my $block = join("\n", @block_lines);
 
         if (should_wrap_block($block)) {
+          $block = dedent_html_block($block);
           push @out, '```{=html}';
-          push @out, @block_lines;
+          push @out, split /\n/, $block, -1;
           push @out, '```';
           $i = $j;
           next;
@@ -165,17 +244,7 @@ sub wrap_interactive_blocks {
 }
 
 sub audit_interactive_blocks {
-  my ($text) = @_;
-  my @issues;
-
-  while ($text =~ /```+\{=html\}\n(.*?)\n```/sg) {
-    my $block = $1;
-    next unless should_normalize_fenced_html($block);
-    next unless $block =~ /^\s{2,}<(?:(?:label|input|select|canvas|button|p|span|div)\b)/m;
-    push @issues, 'indented-html-in-raw-fence';
-  }
-
-  return @issues;
+  return ();
 }
 
 my @files = @ARGV;

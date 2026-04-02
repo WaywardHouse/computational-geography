@@ -627,126 +627,136 @@ burnaby.report()
 
 ### Figure 1 — Alberta Refinery Capacity by Product Output
 
+```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-  "title": {"text": "Alberta Refinery Capacity by Product", "subtext": "Approximate product split — combined 374,000 bbl/d nameplate capacity", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["Gasoline", "Diesel / ULSD", "Jet Fuel", "Asphalt / Other", "Chemicals / Diluent"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "15%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["Strathcona\n(Imperial)", "Scotford\n(Shell/Dow)", "Co-op\n(Regina SK)", "Sturgeon\n(NWR)"]},
-  "yAxis": {"type": "value", "name": "Capacity (000 bbl/d)"},
-  "series": [
-    {"name": "Gasoline",           "type": "bar", "stack": "p", "data": [78, 0,  58, 0],  "itemStyle": {"color": "#f59e0b"}},
-    {"name": "Diesel / ULSD",      "type": "bar", "stack": "p", "data": [60, 30, 50, 65], "itemStyle": {"color": "#2563eb"}},
-    {"name": "Jet Fuel",           "type": "bar", "stack": "p", "data": [25, 0,  15, 0],  "itemStyle": {"color": "#7c3aed"}},
-    {"name": "Asphalt / Other",    "type": "bar", "stack": "p", "data": [22, 10,  12, 0], "itemStyle": {"color": "#6b7280"}},
-    {"name": "Chemicals / Diluent","type": "bar", "stack": "p", "data": [10, 60,  10, 14],"itemStyle": {"color": "#16a34a"}}
-  ]
+"title": {"text": "Alberta Refinery Capacity by Product", "subtext": "Approximate product split — combined 374,000 bbl/d nameplate capacity", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["Gasoline", "Diesel / ULSD", "Jet Fuel", "Asphalt / Other", "Chemicals / Diluent"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "15%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Strathcona\n(Imperial)", "Scotford\n(Shell/Dow)", "Co-op\n(Regina SK)", "Sturgeon\n(NWR)"]},
+"yAxis": {"type": "value", "name": "Capacity (000 bbl/d)"},
+"series": [
+{"name": "Gasoline",           "type": "bar", "stack": "p", "data": [78, 0,  58, 0],  "itemStyle": {"color": "#f59e0b"}},
+{"name": "Diesel / ULSD",      "type": "bar", "stack": "p", "data": [60, 30, 50, 65], "itemStyle": {"color": "#2563eb"}},
+{"name": "Jet Fuel",           "type": "bar", "stack": "p", "data": [25, 0,  15, 0],  "itemStyle": {"color": "#7c3aed"}},
+{"name": "Asphalt / Other",    "type": "bar", "stack": "p", "data": [22, 10,  12, 0], "itemStyle": {"color": "#6b7280"}},
+{"name": "Chemicals / Diluent","type": "bar", "stack": "p", "data": [10, 60,  10, 14],"itemStyle": {"color": "#16a34a"}}
+]
 }'></div>
+```
 
 ### Figure 2 — Refined Products Pipeline Transit Times from Edmonton
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Pipeline Transit Times from Edmonton", "subtext": "Days for refined product batch to reach destination terminal", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Transit time (days)"},
-  "yAxis": {"type": "category", "data": ["Calgary\n(Rangeland)", "Kamloops\n(Trans Mountain)", "Burnaby/Vancouver\n(Trans Mountain)", "Winnipeg\n(Enbridge)", "Sarnia ON\n(Enbridge)"]},
-  "series": [{
-    "type": "bar",
-    "data": [
-      {"value": 2.1,  "itemStyle": {"color": "#16a34a"}},
-      {"value": 4.8,  "itemStyle": {"color": "#16a34a"}},
-      {"value": 9.4,  "itemStyle": {"color": "#f59e0b"}},
-      {"value": 18.2, "itemStyle": {"color": "#f59e0b"}},
-      {"value": 38.5, "itemStyle": {"color": "#dc2626"}}
-    ],
-    "label": {"show": true, "position": "right", "formatter": "{c} days"}
-  }]
+"title": {"text": "Pipeline Transit Times from Edmonton", "subtext": "Days for refined product batch to reach destination terminal", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Transit time (days)"},
+"yAxis": {"type": "category", "data": ["Calgary\n(Rangeland)", "Kamloops\n(Trans Mountain)", "Burnaby/Vancouver\n(Trans Mountain)", "Winnipeg\n(Enbridge)", "Sarnia ON\n(Enbridge)"]},
+"series": [{
+"type": "bar",
+"data": [
+  {"value": 2.1,  "itemStyle": {"color": "#16a34a"}},
+  {"value": 4.8,  "itemStyle": {"color": "#16a34a"}},
+  {"value": 9.4,  "itemStyle": {"color": "#f59e0b"}},
+  {"value": 18.2, "itemStyle": {"color": "#f59e0b"}},
+  {"value": 38.5, "itemStyle": {"color": "#dc2626"}}
+],
+"label": {"show": true, "position": "right", "formatter": "{c} days"}
+}]
 }'></div>
+```
 
 ### Figure 3 — Terminal Days of Supply: Burnaby
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Burnaby Terminal: Days of Supply by Product", "subtext": "Working storage ÷ daily demand — pipeline transit time = 9.4 days", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {"type": "category", "data": ["Regular\nGasoline", "Premium\nGasoline", "ULSD\nDiesel", "Jet A\nFuel"]},
-  "yAxis": {"type": "value", "name": "Days of supply"},
-  "series": [
-    {
-      "name": "Days of supply",
-      "type": "bar",
-      "data": [
-        {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
-        {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
-        {"value": 15.6, "itemStyle": {"color": "#16a34a"}},
-        {"value": 17.1, "itemStyle": {"color": "#16a34a"}}
-      ],
-      "label": {"show": true, "position": "top", "formatter": "{c} days"}
-    },
-    {
-      "name": "Pipeline transit time",
-      "type": "line",
-      "data": [9.4, 9.4, 9.4, 9.4],
-      "lineStyle": {"type": "dashed", "color": "#dc2626", "width": 2},
-      "itemStyle": {"color": "#dc2626"},
-      "symbol": "none"
-    }
+"title": {"text": "Burnaby Terminal: Days of Supply by Product", "subtext": "Working storage ÷ daily demand — pipeline transit time = 9.4 days", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"xAxis": {"type": "category", "data": ["Regular\nGasoline", "Premium\nGasoline", "ULSD\nDiesel", "Jet A\nFuel"]},
+"yAxis": {"type": "value", "name": "Days of supply"},
+"series": [
+{
+  "name": "Days of supply",
+  "type": "bar",
+  "data": [
+    {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
+    {"value": 11.4, "itemStyle": {"color": "#f59e0b"}},
+    {"value": 15.6, "itemStyle": {"color": "#16a34a"}},
+    {"value": 17.1, "itemStyle": {"color": "#16a34a"}}
   ],
-  "legend": {"data": ["Days of supply", "Pipeline transit time (9.4 days)"], "bottom": 0}
+  "label": {"show": true, "position": "top", "formatter": "{c} days"}
+},
+{
+  "name": "Pipeline transit time",
+  "type": "line",
+  "data": [9.4, 9.4, 9.4, 9.4],
+  "lineStyle": {"type": "dashed", "color": "#dc2626", "width": 2},
+  "itemStyle": {"color": "#dc2626"},
+  "symbol": "none"
+}
+],
+"legend": {"data": ["Days of supply", "Pipeline transit time (9.4 days)"], "bottom": 0}
 }'></div>
+```
 
 ### Figure 4 — Seasonal Demand Pattern by Product
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Seasonal Refined Products Demand Pattern", "subtext": "Relative to annual average (1.0) — western Canada illustrative", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Gasoline", "Diesel", "Jet Fuel"], "bottom": 0},
-  "xAxis": {"type": "category", "data": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},
-  "yAxis": {"type": "value", "name": "Relative demand (annual avg = 1.0)", "min": 0.6, "max": 1.4},
-  "series": [
-    {
-      "name": "Gasoline",
-      "type": "line",
-      "data": [0.82, 0.84, 0.90, 0.96, 1.05, 1.15, 1.22, 1.18, 1.08, 0.98, 0.88, 0.82],
-      "smooth": true,
-      "itemStyle": {"color": "#f59e0b"}
-    },
-    {
-      "name": "Diesel",
-      "type": "line",
-      "data": [1.12, 1.08, 1.05, 0.98, 0.95, 0.90, 0.88, 0.90, 0.98, 1.05, 1.12, 1.18],
-      "smooth": true,
-      "itemStyle": {"color": "#2563eb"}
-    },
-    {
-      "name": "Jet Fuel",
-      "type": "line",
-      "data": [0.78, 0.80, 0.88, 0.95, 1.05, 1.18, 1.28, 1.25, 1.12, 0.98, 0.85, 0.78],
-      "smooth": true,
-      "itemStyle": {"color": "#7c3aed"}
-    }
-  ]
+"title": {"text": "Seasonal Refined Products Demand Pattern", "subtext": "Relative to annual average (1.0) — western Canada illustrative", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Gasoline", "Diesel", "Jet Fuel"], "bottom": 0},
+"xAxis": {"type": "category", "data": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},
+"yAxis": {"type": "value", "name": "Relative demand (annual avg = 1.0)", "min": 0.6, "max": 1.4},
+"series": [
+{
+  "name": "Gasoline",
+  "type": "line",
+  "data": [0.82, 0.84, 0.90, 0.96, 1.05, 1.15, 1.22, 1.18, 1.08, 0.98, 0.88, 0.82],
+  "smooth": true,
+  "itemStyle": {"color": "#f59e0b"}
+},
+{
+  "name": "Diesel",
+  "type": "line",
+  "data": [1.12, 1.08, 1.05, 0.98, 0.95, 0.90, 0.88, 0.90, 0.98, 1.05, 1.12, 1.18],
+  "smooth": true,
+  "itemStyle": {"color": "#2563eb"}
+},
+{
+  "name": "Jet Fuel",
+  "type": "line",
+  "data": [0.78, 0.80, 0.88, 0.95, 1.05, 1.18, 1.28, 1.25, 1.12, 0.98, 0.85, 0.78],
+  "smooth": true,
+  "itemStyle": {"color": "#7c3aed"}
+}
+]
 }'></div>
+```
 
 ### Figure 5 — Batch Sequence: Trans Mountain Products Line
 
+```{=html}
 <div data-viz="echarts" style="height:340px" data-options='{
-  "title": {"text": "Trans Mountain Products: Illustrative Batch Sequence", "subtext": "Volume (bbl) by product grade — one scheduling cycle", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: {c} bbl ({d}%)"},
-  "series": [{
-    "type": "pie",
-    "radius": ["30%", "65%"],
-    "startAngle": 90,
-    "label": {"formatter": "{b}\n{c} bbl\n({d}%)"},
-    "data": [
-      {"value": 300000, "name": "ULSD Diesel",       "itemStyle": {"color": "#2563eb"}},
-      {"value": 280000, "name": "Regular Gasoline",  "itemStyle": {"color": "#f59e0b"}},
-      {"value": 120000, "name": "Jet A",             "itemStyle": {"color": "#7c3aed"}},
-      {"value": 90000,  "name": "Premium Gasoline",  "itemStyle": {"color": "#fb923c"}},
-      {"value": 13250,  "name": "Transmix (interfaces)", "itemStyle": {"color": "#6b7280"}}
-    ]
-  }]
+"title": {"text": "Trans Mountain Products: Illustrative Batch Sequence", "subtext": "Volume (bbl) by product grade — one scheduling cycle", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: {c} bbl ({d}%)"},
+"series": [{
+"type": "pie",
+"radius": ["30%", "65%"],
+"startAngle": 90,
+"label": {"formatter": "{b}\n{c} bbl\n({d}%)"},
+"data": [
+  {"value": 300000, "name": "ULSD Diesel",       "itemStyle": {"color": "#2563eb"}},
+  {"value": 280000, "name": "Regular Gasoline",  "itemStyle": {"color": "#f59e0b"}},
+  {"value": 120000, "name": "Jet A",             "itemStyle": {"color": "#7c3aed"}},
+  {"value": 90000,  "name": "Premium Gasoline",  "itemStyle": {"color": "#fb923c"}},
+  {"value": 13250,  "name": "Transmix (interfaces)", "itemStyle": {"color": "#6b7280"}}
+]
+}]
 }'></div>
+```
 
 ---
 

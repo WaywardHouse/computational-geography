@@ -513,99 +513,107 @@ network.report()
 
 ### Figure 1 — Nameplate Capacity by Pipeline Corridor
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Alberta Crude Oil Export Pipeline Capacity", "subtext": "Nameplate capacity, thousand bbl/d — 2025", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["Eastbound / U.S. Midwest", "Westbound (Pacific)", "Southbound (U.S. Plains/Gulf)"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "12%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["Enbridge L1", "Enbridge L2", "Enbridge L3", "Enbridge L4", "Enbridge L67", "TMX (new)", "TM Original", "Keystone", "Express"]},
-  "yAxis": {"type": "value", "name": "Capacity (000 bbl/d)", "nameLocation": "end"},
-  "series": [
-    {
-      "name": "Eastbound / U.S. Midwest",
-      "type": "bar",
-      "stack": "total",
-      "data": [235, 239, 760, 800, 800, 0, 0, 0, 0],
-      "itemStyle": {"color": "#2563eb"}
-    },
-    {
-      "name": "Westbound (Pacific)",
-      "type": "bar",
-      "stack": "total",
-      "data": [0, 0, 0, 0, 0, 590, 300, 0, 0],
-      "itemStyle": {"color": "#16a34a"}
-    },
-    {
-      "name": "Southbound (U.S. Plains/Gulf)",
-      "type": "bar",
-      "stack": "total",
-      "data": [0, 0, 0, 0, 0, 0, 0, 590, 280],
-      "itemStyle": {"color": "#dc2626"}
-    }
-  ]
+"title": {"text": "Alberta Crude Oil Export Pipeline Capacity", "subtext": "Nameplate capacity, thousand bbl/d — 2025", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["Eastbound / U.S. Midwest", "Westbound (Pacific)", "Southbound (U.S. Plains/Gulf)"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "12%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Enbridge L1", "Enbridge L2", "Enbridge L3", "Enbridge L4", "Enbridge L67", "TMX (new)", "TM Original", "Keystone", "Express"]},
+"yAxis": {"type": "value", "name": "Capacity (000 bbl/d)", "nameLocation": "end"},
+"series": [
+{
+  "name": "Eastbound / U.S. Midwest",
+  "type": "bar",
+  "stack": "total",
+  "data": [235, 239, 760, 800, 800, 0, 0, 0, 0],
+  "itemStyle": {"color": "#2563eb"}
+},
+{
+  "name": "Westbound (Pacific)",
+  "type": "bar",
+  "stack": "total",
+  "data": [0, 0, 0, 0, 0, 590, 300, 0, 0],
+  "itemStyle": {"color": "#16a34a"}
+},
+{
+  "name": "Southbound (U.S. Plains/Gulf)",
+  "type": "bar",
+  "stack": "total",
+  "data": [0, 0, 0, 0, 0, 0, 0, 590, 280],
+  "itemStyle": {"color": "#dc2626"}
+}
+]
 }'></div>
+```
 
 ### Figure 2 — Market Direction Split (% of total export capacity)
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Alberta Crude Export Capacity by Market Direction", "subtext": "Percentage of total nameplate capacity, 2025", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: {c}000 bbl/d ({d}%)"},
-  "legend": {"orient": "vertical", "left": "left"},
-  "series": [
-    {
-      "type": "pie",
-      "radius": ["40%", "70%"],
-      "avoidLabelOverlap": false,
-      "label": {"show": true, "formatter": "{b}\n{d}%"},
-      "data": [
-        {"value": 2834, "name": "U.S. Midwest (Enbridge Mainline)", "itemStyle": {"color": "#2563eb"}},
-        {"value": 890, "name": "Pacific / Asia-Pacific (Trans Mountain)", "itemStyle": {"color": "#16a34a"}},
-        {"value": 870, "name": "U.S. Plains / Gulf (Keystone + Express)", "itemStyle": {"color": "#dc2626"}}
-      ]
-    }
+"title": {"text": "Alberta Crude Export Capacity by Market Direction", "subtext": "Percentage of total nameplate capacity, 2025", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: {c}000 bbl/d ({d}%)"},
+"legend": {"orient": "vertical", "left": "left"},
+"series": [
+{
+  "type": "pie",
+  "radius": ["40%", "70%"],
+  "avoidLabelOverlap": false,
+  "label": {"show": true, "formatter": "{b}\n{d}%"},
+  "data": [
+    {"value": 2834, "name": "U.S. Midwest (Enbridge Mainline)", "itemStyle": {"color": "#2563eb"}},
+    {"value": 890, "name": "Pacific / Asia-Pacific (Trans Mountain)", "itemStyle": {"color": "#16a34a"}},
+    {"value": 870, "name": "U.S. Plains / Gulf (Keystone + Express)", "itemStyle": {"color": "#dc2626"}}
   ]
+}
+]
 }'></div>
+```
 
 ### Figure 3 — Historical Capacity Growth: Trans Mountain System
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Trans Mountain Pipeline System: Capacity Growth", "subtext": "Thousands of barrels per day", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {"type": "category", "data": ["1953", "1957", "1985", "2008", "2013", "2018", "2024"]},
-  "yAxis": {"type": "value", "name": "Capacity (000 bbl/d)"},
-  "series": [{
-    "type": "line",
-    "data": [150, 200, 260, 280, 300, 300, 890],
-    "smooth": true,
-    "areaStyle": {"opacity": 0.15},
-    "itemStyle": {"color": "#16a34a"},
-    "markPoint": {
-      "data": [
-        {"name": "Original opening", "coord": ["1953", 150]},
-        {"name": "TMX in service", "coord": ["2024", 890]}
-      ]
-    }
-  }]
+"title": {"text": "Trans Mountain Pipeline System: Capacity Growth", "subtext": "Thousands of barrels per day", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"xAxis": {"type": "category", "data": ["1953", "1957", "1985", "2008", "2013", "2018", "2024"]},
+"yAxis": {"type": "value", "name": "Capacity (000 bbl/d)"},
+"series": [{
+"type": "line",
+"data": [150, 200, 260, 280, 300, 300, 890],
+"smooth": true,
+"areaStyle": {"opacity": 0.15},
+"itemStyle": {"color": "#16a34a"},
+"markPoint": {
+  "data": [
+    {"name": "Original opening", "coord": ["1953", 150]},
+    {"name": "TMX in service", "coord": ["2024", 890]}
+  ]
+}
+}]
 }'></div>
+```
 
 ### Figure 4 — Netback Price Sensitivity: Market Access Value
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Netback Price by Market Destination", "subtext": "CAD/bbl — WTI at &#36;75 USD, exchange rate 0.73, illustrative tariffs", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Netback (CAD/bbl)", "min": 60},
-  "yAxis": {"type": "category", "data": ["U.S. Midwest\n(Enbridge, Patoka IL)", "Gulf Coast\n(Keystone, Port Arthur)", "Asia-Pacific\n(TMX, Westridge)"]},
-  "series": [{
-    "type": "bar",
-    "data": [
-      {"value": 74.8, "itemStyle": {"color": "#2563eb"}},
-      {"value": 79.2, "itemStyle": {"color": "#dc2626"}},
-      {"value": 84.1, "itemStyle": {"color": "#16a34a"}}
-    ],
-    "label": {"show": true, "position": "right", "formatter": "${c} CAD/bbl"}
-  }]
+"title": {"text": "Netback Price by Market Destination", "subtext": "CAD/bbl — WTI at &#36;75 USD, exchange rate 0.73, illustrative tariffs", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Netback (CAD/bbl)", "min": 60},
+"yAxis": {"type": "category", "data": ["U.S. Midwest\n(Enbridge, Patoka IL)", "Gulf Coast\n(Keystone, Port Arthur)", "Asia-Pacific\n(TMX, Westridge)"]},
+"series": [{
+"type": "bar",
+"data": [
+  {"value": 74.8, "itemStyle": {"color": "#2563eb"}},
+  {"value": 79.2, "itemStyle": {"color": "#dc2626"}},
+  {"value": 84.1, "itemStyle": {"color": "#16a34a"}}
+],
+"label": {"show": true, "position": "right", "formatter": "${c} CAD/bbl"}
+}]
 }'></div>
+```
 
 ---
 

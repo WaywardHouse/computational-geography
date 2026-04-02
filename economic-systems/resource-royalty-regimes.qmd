@@ -100,8 +100,10 @@ The contrast is stark enough to deserve its own analysis. Both Norway and Albert
 
 **3. Fund governance:** Norway's fund is governed at arm's length from politics, with explicit rules against domestic investment (to prevent Dutch disease) and strong disclosure requirements. Alberta's Heritage Fund has been subject to political direction and has at times held provincial infrastructure assets.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Sovereign Wealth Fund Growth: Norway vs Alberta (1990–2024)", "subtext": "Norway Government Pension Fund Global vs Alberta Heritage Savings Trust Fund (USD billion)"}, "tooltip": {"trigger": "axis"}, "legend": {"data": ["Norway GPFG", "Alberta Heritage Fund"], "bottom": 0}, "xAxis": {"type": "category", "data": ["1990","1993","1996","1999","2002","2005","2008","2011","2014","2017","2020","2024"]}, "yAxis": {"type": "value", "name": "USD Billion", "max": 1800}, "series": [{"name": "Norway GPFG", "type": "line", "smooth": true, "data": [0, 8, 40, 175, 220, 380, 450, 680, 870, 1020, 1200, 1700], "lineStyle": {"width": 3}, "itemStyle": {"color": "#5470c6"}, "areaStyle": {"opacity": 0.1}}, {"name": "Alberta Heritage Fund", "type": "line", "smooth": true, "data": [12, 13, 13, 13, 13, 14, 15, 16, 17, 17, 17, 18], "lineStyle": {"width": 3}, "itemStyle": {"color": "#ee6666"}, "areaStyle": {"opacity": 0.1}}]}'>
 </div>
+```
 
 The divergence is almost entirely a policy difference. Norway reinvested; Alberta spent. Both had access to comparable oil wealth relative to their populations in the critical 1990–2010 period.
 
@@ -126,8 +128,10 @@ Norway partially avoided Dutch disease precisely because its sovereign wealth fu
 
 The fragility of Alberta's fiscal position becomes visible in its revenue composition. In boom years, royalties dominate; in bust years, they collapse, leaving a structural deficit that forces cuts to public services.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Alberta Government Revenue by Source", "subtext": "Boom year (2022–23) vs Bust year (2015–16), CAD billion"}, "tooltip": {"trigger": "item", "formatter": "{b}: ${c}B ({d}%)"}, "legend": {"bottom": 0}, "series": [{"name": "Boom Year 2022-23", "type": "pie", "radius": ["30%", "55%"], "center": ["25%", "50%"], "data": [{"value": 25.2, "name": "Royalties"}, {"value": 7.8, "name": "Corporate Tax"}, {"value": 14.5, "name": "Federal Transfers"}, {"value": 12.4, "name": "Personal Income Tax"}, {"value": 7.1, "name": "Other"}], "label": {"formatter": "{b}\n${c}B"}}, {"name": "Bust Year 2015-16", "type": "pie", "radius": ["30%", "55%"], "center": ["75%", "50%"], "data": [{"value": 2.8, "name": "Royalties"}, {"value": 4.9, "name": "Corporate Tax"}, {"value": 9.8, "name": "Federal Transfers"}, {"value": 10.1, "name": "Personal Income Tax"}, {"value": 5.2, "name": "Other"}], "label": {"formatter": "{b}\n${c}B"}}]}'>
 </div>
+```
 
 The contrast is dramatic: royalty revenue of &#36;25.2 billion in the boom year (2022–23) versus &#36;2.8 billion in the bust year (2015–16) — a nine-fold swing, while total government spending remained relatively stable. This volatility is the direct consequence of high rent capture dependency without a stabilisation fund.
 

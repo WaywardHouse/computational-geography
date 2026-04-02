@@ -230,39 +230,41 @@ when the primary gateway becomes saturated.
 
 ## 5. Port Throughput: Historical Trends
 
+```{=html}
 <div data-viz="echarts" style="height:340px" data-options='{
-  "title": {"text": "Pacific Gateway: Prince Rupert vs Vancouver TEU Throughput", "subtext": "TEUs (thousands). Grey band = COVID supply chain disruption period.", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Vancouver", "Prince Rupert"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "10%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2019","2020","2021","2022","2023"]},
-  "yAxis": {"type": "value", "name": "TEUs (thousands)"},
-  "series": [
-    {
-      "name": "Vancouver",
-      "type": "line",
-      "smooth": true,
-      "symbol": "circle",
-      "itemStyle": {"color": "#1e40af"},
-      "areaStyle": {"opacity": 0.06},
-      "data": [2000, 2200, 2500, 2900, 3100, 3100, 2800, 3400, 3500, 3300],
-      "markArea": {
-        "itemStyle": {"color": "rgba(156,163,175,0.15)"},
-        "data": [[{"xAxis": "2020"}, {"xAxis": "2021"}]],
-        "label": {"show": true, "position": "insideTop", "color": "#6b7280", "formatter": "COVID disruption"}
-      }
-    },
-    {
-      "name": "Prince Rupert",
-      "type": "line",
-      "smooth": true,
-      "symbol": "circle",
-      "itemStyle": {"color": "#16a34a"},
-      "areaStyle": {"opacity": 0.06},
-      "data": [300, 380, 450, 500, 620, 680, 700, 820, 860, 870]
-    }
-  ]
+"title": {"text": "Pacific Gateway: Prince Rupert vs Vancouver TEU Throughput", "subtext": "TEUs (thousands). Grey band = COVID supply chain disruption period.", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Vancouver", "Prince Rupert"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "10%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2019","2020","2021","2022","2023"]},
+"yAxis": {"type": "value", "name": "TEUs (thousands)"},
+"series": [
+{
+  "name": "Vancouver",
+  "type": "line",
+  "smooth": true,
+  "symbol": "circle",
+  "itemStyle": {"color": "#1e40af"},
+  "areaStyle": {"opacity": 0.06},
+  "data": [2000, 2200, 2500, 2900, 3100, 3100, 2800, 3400, 3500, 3300],
+  "markArea": {
+    "itemStyle": {"color": "rgba(156,163,175,0.15)"},
+    "data": [[{"xAxis": "2020"}, {"xAxis": "2021"}]],
+    "label": {"show": true, "position": "insideTop", "color": "#6b7280", "formatter": "COVID disruption"}
+  }
+},
+{
+  "name": "Prince Rupert",
+  "type": "line",
+  "smooth": true,
+  "symbol": "circle",
+  "itemStyle": {"color": "#16a34a"},
+  "areaStyle": {"opacity": 0.06},
+  "data": [300, 380, 450, 500, 620, 680, 700, 820, 860, 870]
+}
+]
 }'></div>
+```
 
 *Prince Rupert grew nearly 190% from 2010 to 2023, compared to Vancouver's 65%. Unlike Vancouver, Prince Rupert saw minimal throughput decline during COVID, partly because its lower pre-crisis utilisation left more buffer capacity.*
 
@@ -270,7 +272,9 @@ when the primary gateway becomes saturated.
 
 ## 6. Port Hinterland Geography
 
+```{=html}
 <div data-leaflet id="port-hinterland-map" style="height:400px" data-lat="50" data-lng="-95" data-zoom="3" data-tiles="carto" data-markers='[{"lat":49.28,"lng":-123.12,"label":"Vancouver — 3.3M TEU 2023"},{"lat":54.31,"lng":-130.32,"label":"Prince Rupert — 870K TEU, fastest-growing"},{"lat":45.50,"lng":-73.57,"label":"Montreal — 1.57M TEU, inland port"},{"lat":44.64,"lng":-63.57,"label":"Halifax — 535K TEU, Atlantic gateway"},{"lat":41.85,"lng":-87.65,"label":"Chicago — key inland destination"},{"lat":49.90,"lng":-97.14,"label":"Winnipeg — Prairie freight hub"},{"lat":53.55,"lng":-113.49,"label":"Edmonton — Prairie origin"}]'></div>
+```
 
 *The geographic logic of hinterland competition: Vancouver and Prince Rupert compete for Prairie and Ontario freight to Asia; Montreal and Halifax compete for eastern Canadian freight to Europe. The hinterland boundary between Pacific and Atlantic gateways for grain exports from Saskatchewan shifts depending on the relative cost of CN rail to the two coasts.*
 
@@ -278,32 +282,34 @@ when the primary gateway becomes saturated.
 
 ## 7. Asia-Pacific Transit Time to Chicago
 
+```{=html}
 <div data-viz="echarts" style="height:300px" data-options='{
-  "title": {"text": "Asia-Pacific Shipping + Inland Rail to Chicago", "subtext": "Days by route. Prince Rupert ocean advantage partially offset by longer inland distance.", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}, "formatter": "function(params){var total=0;params.forEach(function(p){total+=p.value});return params[0].name+\"<br/>Total: \"+total+\" days\";}"},
-  "legend": {"data": ["Ocean transit (days)", "Inland rail (days)"], "bottom": 0},
-  "grid": {"left": "4%", "right": "8%", "bottom": "12%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Days", "max": 22},
-  "yAxis": {"type": "category", "data": ["LA / Long Beach\n→ Chicago", "Vancouver\n→ Chicago", "Prince Rupert\n→ Chicago"]},
-  "series": [
-    {
-      "name": "Ocean transit (days)",
-      "type": "bar",
-      "stack": "total",
-      "itemStyle": {"color": "#1e40af"},
-      "label": {"show": true, "position": "inside", "formatter": "{c}d ocean"},
-      "data": [14, 12, 10]
-    },
-    {
-      "name": "Inland rail (days)",
-      "type": "bar",
-      "stack": "total",
-      "itemStyle": {"color": "#16a34a"},
-      "label": {"show": true, "position": "inside", "formatter": "{c}d rail"},
-      "data": [4, 4, 4.5]
-    }
-  ]
+"title": {"text": "Asia-Pacific Shipping + Inland Rail to Chicago", "subtext": "Days by route. Prince Rupert ocean advantage partially offset by longer inland distance.", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}, "formatter": "function(params){var total=0;params.forEach(function(p){total+=p.value});return params[0].name+\"<br/>Total: \"+total+\" days\";}"},
+"legend": {"data": ["Ocean transit (days)", "Inland rail (days)"], "bottom": 0},
+"grid": {"left": "4%", "right": "8%", "bottom": "12%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Days", "max": 22},
+"yAxis": {"type": "category", "data": ["LA / Long Beach\n→ Chicago", "Vancouver\n→ Chicago", "Prince Rupert\n→ Chicago"]},
+"series": [
+{
+  "name": "Ocean transit (days)",
+  "type": "bar",
+  "stack": "total",
+  "itemStyle": {"color": "#1e40af"},
+  "label": {"show": true, "position": "inside", "formatter": "{c}d ocean"},
+  "data": [14, 12, 10]
+},
+{
+  "name": "Inland rail (days)",
+  "type": "bar",
+  "stack": "total",
+  "itemStyle": {"color": "#16a34a"},
+  "label": {"show": true, "position": "inside", "formatter": "{c}d rail"},
+  "data": [4, 4, 4.5]
+}
+]
 }'></div>
+```
 
 *Prince Rupert's 2-day ocean advantage over Vancouver is partially offset by its 0.5-day longer inland rail to Chicago. Net advantage to Prince Rupert: approximately 1.5 days total, with an additional maritime cost saving from fewer vessel operating days.*
 

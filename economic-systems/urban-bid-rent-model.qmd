@@ -124,72 +124,76 @@ The bid-rent gradient is clearly visible in Canadian metropolitan areas, though 
 
 ### Bid-Rent Curves by Land Use
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{
-  "title": {"text": "Bid-Rent Curves by Land Use Type", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Commercial", "Residential", "Agricultural"], "bottom": 0},
-  "xAxis": {"type": "value", "name": "Distance from CBD (km)", "nameLocation": "middle", "nameGap": 30, "min": 0, "max": 25},
-  "yAxis": {"type": "value", "name": "Annual Rent ($/m²)", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 1100},
-  "series": [
-    {
-      "name": "Commercial",
-      "type": "line",
-      "smooth": false,
-      "data": [[0,1000],[2,780],[4,560],[6,340],[8,120],[10,0]],
-      "lineStyle": {"width": 3},
-      "itemStyle": {"color": "#e05c5c"}
-    },
-    {
-      "name": "Residential",
-      "type": "line",
-      "smooth": false,
-      "data": [[0,600],[3,480],[6,360],[9,240],[12,120],[15,0]],
-      "lineStyle": {"width": 3},
-      "itemStyle": {"color": "#5c8ee0"}
-    },
-    {
-      "name": "Agricultural",
-      "type": "line",
-      "smooth": false,
-      "data": [[0,200],[5,160],[10,120],[15,80],[20,40],[25,0]],
-      "lineStyle": {"width": 3},
-      "itemStyle": {"color": "#6dba6d"}
-    }
-  ]
+"title": {"text": "Bid-Rent Curves by Land Use Type", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Commercial", "Residential", "Agricultural"], "bottom": 0},
+"xAxis": {"type": "value", "name": "Distance from CBD (km)", "nameLocation": "middle", "nameGap": 30, "min": 0, "max": 25},
+"yAxis": {"type": "value", "name": "Annual Rent ($/m²)", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 1100},
+"series": [
+{
+  "name": "Commercial",
+  "type": "line",
+  "smooth": false,
+  "data": [[0,1000],[2,780],[4,560],[6,340],[8,120],[10,0]],
+  "lineStyle": {"width": 3},
+  "itemStyle": {"color": "#e05c5c"}
+},
+{
+  "name": "Residential",
+  "type": "line",
+  "smooth": false,
+  "data": [[0,600],[3,480],[6,360],[9,240],[12,120],[15,0]],
+  "lineStyle": {"width": 3},
+  "itemStyle": {"color": "#5c8ee0"}
+},
+{
+  "name": "Agricultural",
+  "type": "line",
+  "smooth": false,
+  "data": [[0,200],[5,160],[10,120],[15,80],[20,40],[25,0]],
+  "lineStyle": {"width": 3},
+  "itemStyle": {"color": "#6dba6d"}
+}
+]
 }'></div>
+```
 
 The chart shows the envelope logic: commercial use dominates from 0–8 km, residential from 8–15 km, and agricultural beyond 15 km. These crossover points are where land use transitions occur in a monocentric city.
 
 ### Floor-Space Rent by Distance Band: Canadian City
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{
-  "title": {"text": "Average Office Rent by Distance Band (Stylised Canadian CBD)", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {
-    "type": "category",
-    "data": ["0–2 km", "2–5 km", "5–10 km", "10–20 km"],
-    "name": "Distance from CBD",
-    "nameLocation": "middle",
-    "nameGap": 30
-  },
-  "yAxis": {
-    "type": "value",
-    "name": "Avg. Office Rent ($/m²/yr)",
-    "nameLocation": "middle",
-    "nameGap": 50,
-    "min": 0,
-    "max": 900
-  },
-  "series": [
-    {
-      "name": "Office Rent",
-      "type": "bar",
-      "data": [850, 520, 310, 160],
-      "itemStyle": {"color": "#e05c5c"},
-      "label": {"show": true, "position": "top", "formatter": "${c}"}
-    }
-  ]
+"title": {"text": "Average Office Rent by Distance Band (Stylised Canadian CBD)", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"xAxis": {
+"type": "category",
+"data": ["0–2 km", "2–5 km", "5–10 km", "10–20 km"],
+"name": "Distance from CBD",
+"nameLocation": "middle",
+"nameGap": 30
+},
+"yAxis": {
+"type": "value",
+"name": "Avg. Office Rent ($/m²/yr)",
+"nameLocation": "middle",
+"nameGap": 50,
+"min": 0,
+"max": 900
+},
+"series": [
+{
+  "name": "Office Rent",
+  "type": "bar",
+  "data": [850, 520, 310, 160],
+  "itemStyle": {"color": "#e05c5c"},
+  "label": {"show": true, "position": "top", "formatter": "${c}"}
+}
+]
 }'></div>
+```
 
 The steep drop from the 0–2 km core to the 2–5 km ring captures the premium for highest-centrality locations. Beyond 5 km, rents still fall but more gradually — reflecting the flatter section of the residential bid-rent curve and the growing influence of suburban employment nodes.
 

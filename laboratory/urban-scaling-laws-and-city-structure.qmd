@@ -296,24 +296,26 @@ for d in [0, 5, 10, 15, 20, 25, 30]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Von Thünen Bid Rent Gradients — Land Use Competition by Distance", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Commercial/Retail", "Residential", "Industrial", "Agriculture"], "bottom": 0},
-  "xAxis": {"name": "Distance from city centre (km)", "nameLocation": "middle", "nameGap": 30,
-    "data": [0, 5, 10, 15, 20, 25, 30, 40, 50]},
-  "yAxis": {"name": "Bid rent ($ m⁻² yr⁻¹)", "nameLocation": "middle", "nameGap": 60},
-  "series": [
-    {"name": "Commercial/Retail", "type": "line", "smooth": false,
-     "data": [4800, 3200, 1600, 0, 0, 0, 0, 0, 0]},
-    {"name": "Residential", "type": "line", "smooth": false,
-     "data": [1200, 1000, 800, 600, 400, 200, 0, 0, 0]},
-    {"name": "Industrial", "type": "line", "smooth": false,
-     "data": [600, 570, 540, 510, 480, 450, 420, 360, 300]},
-    {"name": "Agriculture", "type": "line", "smooth": false,
-     "data": [200, 195, 190, 185, 180, 175, 170, 160, 150]}
-  ]
+"title": {"text": "Von Thünen Bid Rent Gradients — Land Use Competition by Distance", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Commercial/Retail", "Residential", "Industrial", "Agriculture"], "bottom": 0},
+"xAxis": {"name": "Distance from city centre (km)", "nameLocation": "middle", "nameGap": 30,
+"data": [0, 5, 10, 15, 20, 25, 30, 40, 50]},
+"yAxis": {"name": "Bid rent ($ m⁻² yr⁻¹)", "nameLocation": "middle", "nameGap": 60},
+"series": [
+{"name": "Commercial/Retail", "type": "line", "smooth": false,
+ "data": [4800, 3200, 1600, 0, 0, 0, 0, 0, 0]},
+{"name": "Residential", "type": "line", "smooth": false,
+ "data": [1200, 1000, 800, 600, 400, 200, 0, 0, 0]},
+{"name": "Industrial", "type": "line", "smooth": false,
+ "data": [600, 570, 540, 510, 480, 450, 420, 360, 300]},
+{"name": "Agriculture", "type": "line", "smooth": false,
+ "data": [200, 195, 190, 185, 180, 175, 170, 160, 150]}
+]
 }'></div>
+```
 
 The dominant land use at each distance is determined by the highest bid rent. Commercial wins the CBD (0–15 km here); residential wins the inner suburbs (15–30 km); industrial wins the outer fringe; agriculture dominates the rural-urban interface. The crossover distances define the boundaries between urban zones — which in this stylised model appear as concentric rings, matching the classical monocentric city structure observed in many mid-20th century North American cities.
 

@@ -104,8 +104,10 @@ When the slope is positive (contango): $(r + u) > y$, storage is plentiful, no u
 
 The term structure across all maturities encodes the market's expectation of how the supply-demand balance evolves over time. A curve that is backwardated at the front but switches to contango at 12 months is saying: "The market is tight now, but we expect it to ease within a year."
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "WTI Futures Curve Shape: Three Market States", "subtext": "Spot to 24 months forward — contango (2020 surplus), backwardation (2022 post-Ukraine), flat (2023 normalisation)"}, "tooltip": {"trigger": "axis"}, "legend": {"data": ["Contango (Apr 2020)", "Backwardation (Jul 2022)", "Flat (Sep 2023)"], "bottom": 0}, "xAxis": {"type": "category", "data": ["Spot","1M","2M","3M","6M","9M","12M","18M","24M"]}, "yAxis": {"type": "value", "name": "USD/bbl", "min": 0, "max": 130}, "series": [{"name": "Contango (Apr 2020)", "type": "line", "smooth": true, "data": [15, 22, 25, 27, 30, 32, 33, 35, 36], "lineStyle": {"width": 2}, "itemStyle": {"color": "#5470c6"}, "markPoint": {"data": [{"type": "min", "name": "Spot low"}]}}, {"name": "Backwardation (Jul 2022)", "type": "line", "smooth": true, "data": [105, 100, 96, 93, 87, 83, 80, 76, 73], "lineStyle": {"width": 2}, "itemStyle": {"color": "#ee6666"}}, {"name": "Flat (Sep 2023)", "type": "line", "smooth": true, "data": [88, 87, 86, 85, 83, 82, 81, 80, 79], "lineStyle": {"width": 2}, "itemStyle": {"color": "#91cc75"}}]}'>
 </div>
+```
 
 The three curves tell three different stories about the world. The 2020 contango curve has an enormous slope — storing oil for 24 months at the April 2020 spot price and delivering it into a futures contract was worth &#36;21/bbl, reflecting the extraordinary cost of storage. The 2022 backwardation curve falls steeply — the market in July 2022 was pricing in supply relief over time, as LNG and non-Russian sources ramped up. The 2023 flat curve reflects relative market equilibrium: carrying costs and convenience yields roughly balanced.
 
@@ -136,8 +138,10 @@ $$\text{WCS Price Risk} = \text{WTI Price Risk} + \text{Differential Risk}$$
 
 A WTI futures hedge eliminates WTI price risk. It does not touch differential risk. The differential itself must be separately hedged — using WCS-specific derivative instruments that have historically been less liquid and more expensive than WTI futures.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "WCS-WTI Differential vs Trans Mountain Utilisation 2016–2024", "subtext": "Showing that pipeline utilisation rate is the primary driver of differential widening"}, "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}}, "legend": {"data": ["WCS-WTI Differential (USD/bbl)", "Trans Mountain Utilisation (%)"], "bottom": 0}, "xAxis": {"type": "category", "data": ["Q1 2016","Q3 2016","Q1 2017","Q3 2017","Q1 2018","Q3 2018","Q4 2018","Q1 2019","Q3 2019","Q1 2020","Q3 2020","Q1 2021","Q3 2021","Q1 2022","Q3 2022","Q1 2023","Q3 2023","Q1 2024"]}, "yAxis": [{"type": "value", "name": "USD/bbl Differential", "min": 0, "max": 55, "inverse": false}, {"type": "value", "name": "Pipeline Utilisation (%)", "min": 50, "max": 105, "position": "right"}], "series": [{"name": "WCS-WTI Differential (USD/bbl)", "type": "bar", "data": [18, 15, 14, 16, 22, 35, 49, 20, 15, 18, 12, 14, 16, 14, 13, 15, 17, 14], "itemStyle": {"color": "#ee6666", "opacity": 0.8}}, {"name": "Trans Mountain Utilisation (%)", "type": "line", "yAxisIndex": 1, "smooth": true, "data": [88, 85, 90, 92, 95, 98, 100, 92, 87, 82, 75, 80, 85, 88, 86, 84, 86, 78], "lineStyle": {"width": 2}, "itemStyle": {"color": "#5470c6"}}]}'>
 </div>
+```
 
 The relationship is visible: when Trans Mountain operates near 100% utilisation, the WCS-WTI differential widens significantly — because there is no capacity margin to absorb additional production, and the market cannot arbitrage the differential through additional pipeline shipments. The Q4 2018 spike to nearly &#36;50/bbl occurred when Trans Mountain was simultaneously at capacity and regulatory uncertainty about the expansion project was at its peak, eliminating the expectation of new capacity.
 

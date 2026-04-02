@@ -247,28 +247,30 @@ for name, rate_Gt_yr, area in regions:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "GRACE-Observed Water Storage Trends — Selected Regions (approx.)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {"type": "category",
-    "data": ["Greenland", "W. Antarctica", "E. Antarctica", "Amazon basin", "Central Valley CA", "North India", "Tigris-Euphrates", "Patagonia"],
-    "axisLabel": {"rotate": 25}},
-  "yAxis": {"name": "Mass trend (Gt yr⁻¹)", "nameLocation": "middle", "nameGap": 55},
-  "series": [{
-    "name": "Mass trend",
-    "type": "bar",
-    "data": [
-      {"value": -280, "itemStyle": {"color": "#F44336"}},
-      {"value": -150, "itemStyle": {"color": "#F44336"}},
-      {"value": -40,  "itemStyle": {"color": "#FF9800"}},
-      {"value":  60,  "itemStyle": {"color": "#2196F3"}},
-      {"value":  -4,  "itemStyle": {"color": "#FF5722"}},
-      {"value": -54,  "itemStyle": {"color": "#F44336"}},
-      {"value": -20,  "itemStyle": {"color": "#FF9800"}},
-      {"value": -25,  "itemStyle": {"color": "#FF9800"}}
-    ]
-  }]
+"title": {"text": "GRACE-Observed Water Storage Trends — Selected Regions (approx.)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"xAxis": {"type": "category",
+"data": ["Greenland", "W. Antarctica", "E. Antarctica", "Amazon basin", "Central Valley CA", "North India", "Tigris-Euphrates", "Patagonia"],
+"axisLabel": {"rotate": 25}},
+"yAxis": {"name": "Mass trend (Gt yr⁻¹)", "nameLocation": "middle", "nameGap": 55},
+"series": [{
+"name": "Mass trend",
+"type": "bar",
+"data": [
+  {"value": -280, "itemStyle": {"color": "#F44336"}},
+  {"value": -150, "itemStyle": {"color": "#F44336"}},
+  {"value": -40,  "itemStyle": {"color": "#FF9800"}},
+  {"value":  60,  "itemStyle": {"color": "#2196F3"}},
+  {"value":  -4,  "itemStyle": {"color": "#FF5722"}},
+  {"value": -54,  "itemStyle": {"color": "#F44336"}},
+  {"value": -20,  "itemStyle": {"color": "#FF9800"}},
+  {"value": -25,  "itemStyle": {"color": "#FF9800"}}
+]
+}]
 }'></div>
+```
 
 Red bars indicate mass loss; blue indicates gain. The Greenland and Antarctic ice sheets dominate the global mass balance, collectively contributing ~430 Gt yr⁻¹ to sea level rise. Regional groundwater depletion in India and the Tigris-Euphrates basin — invisible to optical sensors — is clearly resolved by GRACE at the basin scale.
 

@@ -293,28 +293,30 @@ for compound, vs_c, Rf in [("Benzene", vs/Rf_benz, Rf_benz), ("PCE", vs/Rf_pce, 
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Contaminant Plume Relative Concentration vs Distance — Conservative vs Retarded", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Conservative tracer (Rf=1)", "Benzene (Rf=1.2)", "PCE (Rf=5)", "MCL threshold"], "bottom": 0},
-  "xAxis": {"name": "Distance downgradient (m)", "nameLocation": "middle", "nameGap": 30,
-    "data": [0,20,40,60,80,100,120,140,160,180,200,250,300]},
-  "yAxis": {"name": "Relative concentration C/C₀", "nameLocation": "middle", "nameGap": 55, "min": 0, "max": 1},
-  "series": [
-    {"name": "Conservative tracer (Rf=1)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [1.0,0.92,0.80,0.65,0.50,0.38,0.28,0.20,0.14,0.10,0.07,0.03,0.01]},
-    {"name": "Benzene (Rf=1.2)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#F57F17"},
-     "data": [1.0,0.88,0.73,0.57,0.42,0.30,0.21,0.14,0.09,0.06,0.04,0.01,0.005]},
-    {"name": "PCE (Rf=5)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#C62828"},
-     "data": [1.0,0.72,0.50,0.34,0.22,0.14,0.09,0.06,0.035,0.022,0.014,0.004,0.001]},
-    {"name": "MCL threshold", "type": "line",
-     "lineStyle": {"type": "dashed", "color": "#555"},
-     "data": [0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003]}
-  ]
+"title": {"text": "Contaminant Plume Relative Concentration vs Distance — Conservative vs Retarded", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Conservative tracer (Rf=1)", "Benzene (Rf=1.2)", "PCE (Rf=5)", "MCL threshold"], "bottom": 0},
+"xAxis": {"name": "Distance downgradient (m)", "nameLocation": "middle", "nameGap": 30,
+"data": [0,20,40,60,80,100,120,140,160,180,200,250,300]},
+"yAxis": {"name": "Relative concentration C/C₀", "nameLocation": "middle", "nameGap": 55, "min": 0, "max": 1},
+"series": [
+{"name": "Conservative tracer (Rf=1)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [1.0,0.92,0.80,0.65,0.50,0.38,0.28,0.20,0.14,0.10,0.07,0.03,0.01]},
+{"name": "Benzene (Rf=1.2)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#F57F17"},
+ "data": [1.0,0.88,0.73,0.57,0.42,0.30,0.21,0.14,0.09,0.06,0.04,0.01,0.005]},
+{"name": "PCE (Rf=5)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#C62828"},
+ "data": [1.0,0.72,0.50,0.34,0.22,0.14,0.09,0.06,0.035,0.022,0.014,0.004,0.001]},
+{"name": "MCL threshold", "type": "line",
+ "lineStyle": {"type": "dashed", "color": "#555"},
+ "data": [0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003]}
+]
 }'></div>
+```
 
 PCE concentrations decline more steeply with distance than benzene because its higher retardation factor (Rf=5) gives attenuation mechanisms more time to act per unit of downgradient travel. However, both compounds remain well above the MCL (0.03% of source concentration) for hundreds of metres — confirming why groundwater contamination from NAPL source zones requires active remediation rather than passive monitoring alone in many settings.
 

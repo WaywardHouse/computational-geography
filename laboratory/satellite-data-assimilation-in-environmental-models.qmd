@@ -283,29 +283,31 @@ for sigma_sat in [0.01, 0.03, 0.05, 0.08, 0.12]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "3D-Var Cost Function — Analysis as Minimum of Background + Observation Terms", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Background term J_b", "Observation term J_o", "Total cost J", "Analysis x_a"], "bottom": 0},
-  "xAxis": {"name": "Soil moisture x (m³/m³)", "nameLocation": "middle", "nameGap": 30,
-    "data": ["0.18","0.20","0.22","0.24","0.25","0.26","0.27","0.28","0.30","0.32","0.35"]},
-  "yAxis": {"name": "Cost J(x)", "nameLocation": "middle", "nameGap": 45, "min": 0},
-  "series": [
-    {"name": "Background term J_b", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#90A4AE"},
-     "data": [4.0, 2.88, 1.92, 0.88, 0.45, 0.18, 0.05, 0.0, 0.18, 0.72, 2.45]},
-    {"name": "Observation term J_o", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [6.32, 3.87, 2.15, 0.88, 0.45, 0.30, 0.40, 0.72, 1.85, 3.85, 8.35]},
-    {"name": "Total cost J", "type": "line", "smooth": true, "lineStyle": {"width": 3},
-     "itemStyle": {"color": "#C62828"},
-     "data": [10.32, 6.75, 4.07, 1.76, 0.90, 0.48, 0.45, 0.72, 2.03, 4.57, 10.80]},
-    {"name": "Analysis x_a", "type": "line",
-     "lineStyle": {"type": "dashed", "color": "#2E7D32"},
-     "data": [null,null,null,null,null,0.48,null,null,null,null,null],
-     "markPoint": {"data": [{"name":"min", "coord":["0.26","0.45"]}]}}
-  ]
+"title": {"text": "3D-Var Cost Function — Analysis as Minimum of Background + Observation Terms", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Background term J_b", "Observation term J_o", "Total cost J", "Analysis x_a"], "bottom": 0},
+"xAxis": {"name": "Soil moisture x (m³/m³)", "nameLocation": "middle", "nameGap": 30,
+"data": ["0.18","0.20","0.22","0.24","0.25","0.26","0.27","0.28","0.30","0.32","0.35"]},
+"yAxis": {"name": "Cost J(x)", "nameLocation": "middle", "nameGap": 45, "min": 0},
+"series": [
+{"name": "Background term J_b", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#90A4AE"},
+ "data": [4.0, 2.88, 1.92, 0.88, 0.45, 0.18, 0.05, 0.0, 0.18, 0.72, 2.45]},
+{"name": "Observation term J_o", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [6.32, 3.87, 2.15, 0.88, 0.45, 0.30, 0.40, 0.72, 1.85, 3.85, 8.35]},
+{"name": "Total cost J", "type": "line", "smooth": true, "lineStyle": {"width": 3},
+ "itemStyle": {"color": "#C62828"},
+ "data": [10.32, 6.75, 4.07, 1.76, 0.90, 0.48, 0.45, 0.72, 2.03, 4.57, 10.80]},
+{"name": "Analysis x_a", "type": "line",
+ "lineStyle": {"type": "dashed", "color": "#2E7D32"},
+ "data": [null,null,null,null,null,0.48,null,null,null,null,null],
+ "markPoint": {"data": [{"name":"min", "coord":["0.26","0.45"]}]}}
+]
 }'></div>
+```
 
 The background term (grey) is minimised at $x^b = 0.28$; the observation term (blue) is minimised at the precision-weighted mean of the two observations (~0.245). The total cost (red) achieves its minimum at the analysis $x^a = 0.250$ — slightly below the background, close to the precise in-situ observation, and less influenced by the noisier satellite retrieval. The parabolic shape of the cost function reflects the Gaussian error assumptions.
 

@@ -165,22 +165,24 @@ The chart below implements PROSPECT-5 across 400–900 nm at 10 nm resolution us
 - **Dry matter (Cm):** broad low-level absorption across all wavelengths
 - **Structure (N):** increasing N spreads light over more scattering surfaces, raising NIR reflectance and reducing transmittance
 
+```{=html}
 <div class="model-controls">
-  <label>Chlorophyll a+b C<sub>ab</sub>: <strong id="cab-val">40</strong> µg cm⁻²
-    <input type="range" id="cab" min="5" max="80" step="1" value="40"></label>
-  <label>Carotenoids C<sub>ar</sub>: <strong id="car-val">8</strong> µg cm⁻²
-    <input type="range" id="car" min="0" max="20" step="0.5" value="8"></label>
-  <label>Water C<sub>w</sub>: <strong id="cw-val">0.013</strong> cm
-    <input type="range" id="cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
-  <label>Dry matter C<sub>m</sub>: <strong id="cm-val">0.009</strong> g cm⁻²
-    <input type="range" id="cm" min="0.002" max="0.020" step="0.001" value="0.009"></label>
-  <label>Leaf structure N: <strong id="n-val">1.5</strong>
-    <input type="range" id="n-param" min="1.0" max="3.5" step="0.1" value="1.5"></label>
-  <div class="flood-info" style="margin-top:0.75rem;">
-    <p><strong>Red-edge position (approx.):</strong> <span id="red-edge">--</span> nm</p>
-    <p><strong>NDVI (800 nm / 670 nm):</strong> <span id="ndvi-val">--</span></p>
-  </div>
+<label>Chlorophyll a+b C<sub>ab</sub>: <strong id="cab-val">40</strong> µg cm⁻²
+<input type="range" id="cab" min="5" max="80" step="1" value="40"></label>
+<label>Carotenoids C<sub>ar</sub>: <strong id="car-val">8</strong> µg cm⁻²
+<input type="range" id="car" min="0" max="20" step="0.5" value="8"></label>
+<label>Water C<sub>w</sub>: <strong id="cw-val">0.013</strong> cm
+<input type="range" id="cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
+<label>Dry matter C<sub>m</sub>: <strong id="cm-val">0.009</strong> g cm⁻²
+<input type="range" id="cm" min="0.002" max="0.020" step="0.001" value="0.009"></label>
+<label>Leaf structure N: <strong id="n-val">1.5</strong>
+<input type="range" id="n-param" min="1.0" max="3.5" step="0.1" value="1.5"></label>
+<div class="flood-info" style="margin-top:0.75rem;">
+<p><strong>Red-edge position (approx.):</strong> <span id="red-edge">--</span> nm</p>
+<p><strong>NDVI (800 nm / 670 nm):</strong> <span id="ndvi-val">--</span></p>
 </div>
+</div>
+```
 
 ```{=html}
 <div id="prospect-chart" style="height:460px;"></div>

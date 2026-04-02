@@ -212,24 +212,26 @@ for name, f_ch4, f_co2 in conditions:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Wetland CH₄ Flux: Temperature and Water Table Sensitivity", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["WT = 0 cm","WT = −5 cm","WT = −15 cm","WT = −30 cm"], "bottom": 0},
-  "xAxis": {"name": "Temperature (°C)", "nameLocation": "middle", "nameGap": 30,
-    "data": [0,4,8,12,16,20,24,28,32]},
-  "yAxis": {"name": "CH₄ flux (mg m⁻² h⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 0},
-  "series": [
-    {"name": "WT = 0 cm",   "type": "line", "smooth": true, "itemStyle": {"color": "#C62828"},
-     "data": [0.9,1.5,2.5,4.1,6.7,11.1,18.3,30.2,49.7]},
-    {"name": "WT = −5 cm",  "type": "line", "smooth": true, "itemStyle": {"color": "#F57F17"},
-     "data": [0.4,0.7,1.2,1.9,3.1,5.2,8.5,14.0,23.1]},
-    {"name": "WT = −15 cm", "type": "line", "smooth": true, "itemStyle": {"color": "#1565C0"},
-     "data": [0.1,0.2,0.3,0.5,0.8,1.4,2.3,3.7,6.1]},
-    {"name": "WT = −30 cm", "type": "line", "smooth": true, "itemStyle": {"color": "#90A4AE"},
-     "data": [0.0,0.1,0.1,0.1,0.2,0.3,0.5,0.8,1.3]}
-  ]
+"title": {"text": "Wetland CH₄ Flux: Temperature and Water Table Sensitivity", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["WT = 0 cm","WT = −5 cm","WT = −15 cm","WT = −30 cm"], "bottom": 0},
+"xAxis": {"name": "Temperature (°C)", "nameLocation": "middle", "nameGap": 30,
+"data": [0,4,8,12,16,20,24,28,32]},
+"yAxis": {"name": "CH₄ flux (mg m⁻² h⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 0},
+"series": [
+{"name": "WT = 0 cm",   "type": "line", "smooth": true, "itemStyle": {"color": "#C62828"},
+ "data": [0.9,1.5,2.5,4.1,6.7,11.1,18.3,30.2,49.7]},
+{"name": "WT = −5 cm",  "type": "line", "smooth": true, "itemStyle": {"color": "#F57F17"},
+ "data": [0.4,0.7,1.2,1.9,3.1,5.2,8.5,14.0,23.1]},
+{"name": "WT = −15 cm", "type": "line", "smooth": true, "itemStyle": {"color": "#1565C0"},
+ "data": [0.1,0.2,0.3,0.5,0.8,1.4,2.3,3.7,6.1]},
+{"name": "WT = −30 cm", "type": "line", "smooth": true, "itemStyle": {"color": "#90A4AE"},
+ "data": [0.0,0.1,0.1,0.1,0.2,0.3,0.5,0.8,1.3]}
+]
 }'></div>
+```
 
 At 20°C with the water table at the surface (WT = 0), flux is ~11× higher than at WT = −30 cm — demonstrating that water table management is a more powerful lever than temperature for controlling wetland methane. This is the basis for the "keep it wet" conservation strategy for northern peatlands: drainage releases both stored peat carbon and increases flux from previously waterlogged layers.
 

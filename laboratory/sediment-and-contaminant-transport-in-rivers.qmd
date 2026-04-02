@@ -282,25 +282,27 @@ for xs in stations:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Conservative Tracer Breakthrough Curves at Downstream Monitoring Stations", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["x = 20 km", "x = 50 km", "x = 100 km"], "bottom": 0},
-  "xAxis": {"name": "Time after spill (hours)", "nameLocation": "middle", "nameGap": 30,
-    "data": [0,2,4,6,8,10,12,14,16,18,20,22,24,28,32,38,46,56,70,90]},
-  "yAxis": {"name": "Concentration (mg m⁻³)", "nameLocation": "middle", "nameGap": 55},
-  "series": [
-    {"name": "x = 20 km", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#C62828"},
-     "data": [0,0,0,820,3200,4100,2800,1400,550,190,55,14,3,0,0,0,0,0,0,0]},
-    {"name": "x = 50 km", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [0,0,0,0,0,0,60,320,780,1050,980,720,460,180,55,10,2,0,0,0]},
-    {"name": "x = 100 km", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#2E7D32"},
-     "data": [0,0,0,0,0,0,0,0,5,35,110,280,480,680,700,560,360,190,80,25]}
-  ]
+"title": {"text": "Conservative Tracer Breakthrough Curves at Downstream Monitoring Stations", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["x = 20 km", "x = 50 km", "x = 100 km"], "bottom": 0},
+"xAxis": {"name": "Time after spill (hours)", "nameLocation": "middle", "nameGap": 30,
+"data": [0,2,4,6,8,10,12,14,16,18,20,22,24,28,32,38,46,56,70,90]},
+"yAxis": {"name": "Concentration (mg m⁻³)", "nameLocation": "middle", "nameGap": 55},
+"series": [
+{"name": "x = 20 km", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#C62828"},
+ "data": [0,0,0,820,3200,4100,2800,1400,550,190,55,14,3,0,0,0,0,0,0,0]},
+{"name": "x = 50 km", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [0,0,0,0,0,0,60,320,780,1050,980,720,460,180,55,10,2,0,0,0]},
+{"name": "x = 100 km", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#2E7D32"},
+ "data": [0,0,0,0,0,0,0,0,5,35,110,280,480,680,700,560,360,190,80,25]}
+]
 }'></div>
+```
 
 Three characteristic features of ADE breakthrough curves: the peak arrives approximately at $t = x/U$; the peak concentration falls proportionally to &#36;1/\sqrt{x}$ as the plume spreads; and the curves become increasingly asymmetric (right-tailed) at greater distances due to the time-domain stretching of the Gaussian. The emergency manager can read directly when contamination will arrive and how long it will last.
 

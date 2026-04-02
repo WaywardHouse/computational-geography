@@ -307,20 +307,22 @@ print(f"Competence D_max = {D_max*1000:.1f} mm")
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Dimensionless Bedload Transport Rate (MPM) vs Shields Parameter", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {"name": "Shields parameter τ*", "nameLocation": "middle", "nameGap": 30,
-    "data": ["0.047","0.06","0.07","0.08","0.10","0.12","0.15","0.20","0.25","0.30"]},
-  "yAxis": {"name": "q* (dimensionless bedload rate)", "nameLocation": "middle", "nameGap": 50},
-  "series": [{
-    "name": "MPM formula",
-    "type": "line",
-    "smooth": false,
-    "markLine": {"data": [{"xAxis": "0.047", "label": {"formatter": "threshold τ*c"}}]},
-    "data": [0, 0.0137, 0.0400, 0.0726, 0.1697, 0.3082, 0.5657, 1.219, 2.057, 3.079]
-  }]
+"title": {"text": "Dimensionless Bedload Transport Rate (MPM) vs Shields Parameter", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"xAxis": {"name": "Shields parameter τ*", "nameLocation": "middle", "nameGap": 30,
+"data": ["0.047","0.06","0.07","0.08","0.10","0.12","0.15","0.20","0.25","0.30"]},
+"yAxis": {"name": "q* (dimensionless bedload rate)", "nameLocation": "middle", "nameGap": 50},
+"series": [{
+"name": "MPM formula",
+"type": "line",
+"smooth": false,
+"markLine": {"data": [{"xAxis": "0.047", "label": {"formatter": "threshold τ*c"}}]},
+"data": [0, 0.0137, 0.0400, 0.0726, 0.1697, 0.3082, 0.5657, 1.219, 2.057, 3.079]
+}]
 }'></div>
+```
 
 The rapid rise above the threshold reflects the $(3/2)$ power: transport is near-zero just below the threshold and escalates steeply above it. This nonlinearity means that the small fraction of high-discharge events in a river's flow regime carries a disproportionate share of the annual sediment load.
 

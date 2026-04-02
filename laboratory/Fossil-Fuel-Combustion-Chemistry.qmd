@@ -304,19 +304,21 @@ print(f"  Carbon balance: {emitted_C:.1f} / {e['C_total_t']:.1f} t C accounted")
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "CO₂ Emission Factors by Fuel Type (kg CO₂ per kg fuel)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "xAxis": {"type": "category",
-    "data": ["Anthracite coal","Bituminous coal","Sub-bit. coal","Lignite","Heavy fuel oil","Diesel","Petrol","Natural gas","LPG","Wood"]},
-  "yAxis": {"name": "kg CO₂ per kg fuel", "nameLocation": "middle", "nameGap": 50},
-  "series": [{
-    "type": "bar",
-    "data": [3.30,2.94,2.39,1.76,3.16,3.16,3.12,2.68,3.01,1.65],
-    "itemStyle": {"color": "#B71C1C"},
-    "label": {"show": true, "position": "top", "fontSize": 11}
-  }]
+"title": {"text": "CO₂ Emission Factors by Fuel Type (kg CO₂ per kg fuel)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"xAxis": {"type": "category",
+"data": ["Anthracite coal","Bituminous coal","Sub-bit. coal","Lignite","Heavy fuel oil","Diesel","Petrol","Natural gas","LPG","Wood"]},
+"yAxis": {"name": "kg CO₂ per kg fuel", "nameLocation": "middle", "nameGap": 50},
+"series": [{
+"type": "bar",
+"data": [3.30,2.94,2.39,1.76,3.16,3.16,3.12,2.68,3.01,1.65],
+"itemStyle": {"color": "#B71C1C"},
+"label": {"show": true, "position": "top", "fontSize": 11}
+}]
 }'></div>
+```
 
 Coal is the most carbon-intensive fuel per unit mass, but natural gas has the highest carbon intensity per unit **energy** relative to coal? No — natural gas has lower carbon intensity per unit energy (~54 kg CO₂/GJ vs ~96 for coal) because its high hydrogen content provides more heat per carbon atom. The chart shows mass-based emission factors; energy-based factors require dividing by the fuel's energy density (heating value).
 

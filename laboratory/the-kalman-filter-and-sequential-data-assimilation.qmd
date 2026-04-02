@@ -316,28 +316,30 @@ print(f"\nRMSE: raw observations = {rmse_obs:.4f}, Kalman filter = {rmse_kf:.4f}
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Kalman Filter — Soil Moisture Tracking with Satellite Observations", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["True state", "Noisy observations", "Kalman filter analysis", "Background (no obs)"], "bottom": 0},
-  "xAxis": {"name": "Day", "nameLocation": "middle", "nameGap": 28,
-    "data": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]},
-  "yAxis": {"name": "Soil moisture (m³/m³)", "nameLocation": "middle", "nameGap": 60, "min": 0.15, "max": 0.38},
-  "series": [
-    {"name": "True state", "type": "line", "smooth": true, "lineStyle": {"width": 2},
-     "itemStyle": {"color": "#2E7D32"},
-     "data": [0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24]},
-    {"name": "Noisy observations", "type": "scatter",
-     "itemStyle": {"color": "#90A4AE"},
-     "data": [0.23,0.30,0.26,0.29,0.22,null,null,null,null,null,null,null,0.27,0.29,0.31,0.25,0.23,0.26,0.27,0.30,0.29,0.25,0.22,0.26,0.27,0.30,0.26,0.29,0.23,0.22]},
-    {"name": "Kalman filter analysis", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#C62828"},
-     "data": [0.24,0.27,0.27,0.27,0.24,0.24,0.23,0.23,0.22,0.22,0.21,0.21,0.24,0.27,0.29,0.27,0.24,0.25,0.26,0.28,0.28,0.26,0.24,0.25,0.26,0.28,0.27,0.28,0.25,0.23]},
-    {"name": "Background (no obs)", "type": "line", "smooth": true,
-     "lineStyle": {"type": "dashed", "color": "#F57F17"},
-     "data": [null,null,null,null,null,0.24,0.24,0.24,0.23,0.23,0.23,0.22,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
-  ]
+"title": {"text": "Kalman Filter — Soil Moisture Tracking with Satellite Observations", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["True state", "Noisy observations", "Kalman filter analysis", "Background (no obs)"], "bottom": 0},
+"xAxis": {"name": "Day", "nameLocation": "middle", "nameGap": 28,
+"data": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]},
+"yAxis": {"name": "Soil moisture (m³/m³)", "nameLocation": "middle", "nameGap": 60, "min": 0.15, "max": 0.38},
+"series": [
+{"name": "True state", "type": "line", "smooth": true, "lineStyle": {"width": 2},
+ "itemStyle": {"color": "#2E7D32"},
+ "data": [0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24,0.25,0.27,0.28,0.27,0.25,0.24]},
+{"name": "Noisy observations", "type": "scatter",
+ "itemStyle": {"color": "#90A4AE"},
+ "data": [0.23,0.30,0.26,0.29,0.22,null,null,null,null,null,null,null,0.27,0.29,0.31,0.25,0.23,0.26,0.27,0.30,0.29,0.25,0.22,0.26,0.27,0.30,0.26,0.29,0.23,0.22]},
+{"name": "Kalman filter analysis", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#C62828"},
+ "data": [0.24,0.27,0.27,0.27,0.24,0.24,0.23,0.23,0.22,0.22,0.21,0.21,0.24,0.27,0.29,0.27,0.24,0.25,0.26,0.28,0.28,0.26,0.24,0.25,0.26,0.28,0.27,0.28,0.25,0.23]},
+{"name": "Background (no obs)", "type": "line", "smooth": true,
+ "lineStyle": {"type": "dashed", "color": "#F57F17"},
+ "data": [null,null,null,null,null,0.24,0.24,0.24,0.23,0.23,0.23,0.22,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null]}
+]
 }'></div>
+```
 
 During days 6–12 (no satellite observations), the Kalman filter background drifts slowly under the model dynamics. When observations resume at day 13, the filter rapidly corrects — the Kalman gain is larger (less certain background after free run), pulling the analysis strongly toward the observation. The filter tracks the true signal better than the raw noisy observations, confirming that optimal weighting reduces RMSE.
 

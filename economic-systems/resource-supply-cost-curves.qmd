@@ -73,8 +73,10 @@ The approximate full-cycle break-even ranges by major supply category (2024 esti
 
 Alberta spans a wide range — conventional oil is competitive with US shale, while oil sands mining sits near the top of the global cost curve. This heterogeneity within a single jurisdiction is unusual.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Global Oil Supply Stack (Illustrative)", "subtext": "Cumulative capacity vs full-cycle break-even, 2024"}, "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}, "formatter": "{b}: ${c}/bbl break-even"}, "xAxis": {"type": "category", "name": "Cumulative Capacity (Mbd)", "data": ["ME Conv\n(20 Mbd)", "Russia\n(10 Mbd)", "Alta Conv\n(3 Mbd)", "US Shale\nCore (8 Mbd)", "Alta SAGD\n(2 Mbd)", "Deepwater\n(5 Mbd)", "US Shale\nNon-core (4 Mbd)", "Alta Mining\n(1.5 Mbd)", "Arctic\n(1 Mbd)"]}, "yAxis": [{"type": "value", "name": "Break-even (USD/bbl)", "min": 0, "max": 130}, {"type": "value", "name": "Break-even Range", "show": false}], "series": [{"name": "Min Break-even", "type": "bar", "stack": "stack", "itemStyle": {"color": "transparent"}, "data": [10, 20, 30, 35, 45, 50, 45, 65, 80]}, {"name": "Break-even Range", "type": "bar", "stack": "stack", "data": [15, 15, 15, 15, 20, 20, 15, 20, 40], "itemStyle": {"color": "#5470c6", "opacity": 0.8}, "label": {"show": false}}, {"name": "WTI Price ($75)", "type": "line", "markLine": {"data": [{"yAxis": 75, "label": {"formatter": "WTI $75", "position": "end"}, "lineStyle": {"color": "#ee6666", "width": 2, "type": "dashed"}}]}}]}'>
 </div>
+```
 
 The supply stack chart shows break-even ranges (the bar spans minimum to maximum break-even within each category). At &#36;75 WTI, Alberta SAGD operations are near break-even on a full-cycle basis, while Alberta mining and Arctic supply are underwater. Middle Eastern conventional producers earn enormous rents.
 
@@ -116,8 +118,10 @@ The netback framework means Alberta's effective position on the global supply st
 
 The break-even for Alberta SAGD operations is not static. Capital costs, energy prices, royalty rates, and transport costs have all shifted over the past fifteen years.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Alberta SAGD Break-Even Components (2010–2024)", "subtext": "Full-cycle cost decomposition, USD/bbl"}, "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}}, "legend": {"data": ["Capital Cost Recovery", "OPEX", "Royalties", "Transport / WCS Discount", "Return on Capital"], "bottom": 0}, "xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2020","2022","2024"]}, "yAxis": {"type": "value", "name": "USD/bbl", "max": 80}, "series": [{"name": "Capital Cost Recovery", "type": "bar", "stack": "total", "data": [18, 22, 25, 20, 18, 15, 16, 17], "itemStyle": {"color": "#5470c6"}}, {"name": "OPEX", "type": "bar", "stack": "total", "data": [14, 16, 18, 18, 17, 16, 19, 22], "itemStyle": {"color": "#91cc75"}}, {"name": "Royalties", "type": "bar", "stack": "total", "data": [6, 8, 10, 4, 5, 3, 8, 7], "itemStyle": {"color": "#fac858"}}, {"name": "Transport / WCS Discount", "type": "bar", "stack": "total", "data": [8, 9, 10, 12, 18, 10, 11, 12], "itemStyle": {"color": "#ee6666"}}, {"name": "Return on Capital", "type": "bar", "stack": "total", "data": [8, 9, 10, 8, 7, 6, 7, 8], "itemStyle": {"color": "#73c0de"}}]}'>
 </div>
+```
 
 Several features stand out. Transport costs spiked in 2018 (the pipeline constraint crisis). Royalties dropped sharply in 2016 and 2020 (bust years, when the pre-payout royalty tiers kicked in). OPEX has risen post-2020, partly from energy cost inflation. Capital cost recovery peaked in the mid-2010s as the construction boom completed.
 

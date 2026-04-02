@@ -634,154 +634,164 @@ for p in analysis.pipelines:
 
 ### Figure 1 — Alberta Gas Export Capacity by Corridor
 
+```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-  "title": {"text": "Alberta Natural Gas Export Pipeline Capacity", "subtext": "Bcf/d nameplate capacity by corridor — 2024", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Capacity (Bcf/d)"},
-  "yAxis": {"type": "category", "data": ["Foothills\n(U.S. Rockies)", "TC Mainline to\nU.S. Midwest", "Alliance\n(Chicago)", "Westcoast/Spectra\n(Pacific NW/CA)", "TC Canadian\nMainline (East)"]},
-  "series": [{
-    "type": "bar",
-    "data": [
-      {"value": 0.80, "itemStyle": {"color": "#f59e0b"}},
-      {"value": 1.50, "itemStyle": {"color": "#dc2626"}},
-      {"value": 1.60, "itemStyle": {"color": "#7c3aed"}},
-      {"value": 2.80, "itemStyle": {"color": "#0891b2"}},
-      {"value": 4.20, "itemStyle": {"color": "#2563eb"}}
-    ],
-    "label": {"show": true, "position": "right", "formatter": "{c} Bcf/d"}
-  }]
+"title": {"text": "Alberta Natural Gas Export Pipeline Capacity", "subtext": "Bcf/d nameplate capacity by corridor — 2024", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Capacity (Bcf/d)"},
+"yAxis": {"type": "category", "data": ["Foothills\n(U.S. Rockies)", "TC Mainline to\nU.S. Midwest", "Alliance\n(Chicago)", "Westcoast/Spectra\n(Pacific NW/CA)", "TC Canadian\nMainline (East)"]},
+"series": [{
+"type": "bar",
+"data": [
+  {"value": 0.80, "itemStyle": {"color": "#f59e0b"}},
+  {"value": 1.50, "itemStyle": {"color": "#dc2626"}},
+  {"value": 1.60, "itemStyle": {"color": "#7c3aed"}},
+  {"value": 2.80, "itemStyle": {"color": "#0891b2"}},
+  {"value": 4.20, "itemStyle": {"color": "#2563eb"}}
+],
+"label": {"show": true, "position": "right", "formatter": "{c} Bcf/d"}
+}]
 }'></div>
+```
 
 ### Figure 2 — AECO vs Henry Hub: Historical Price Comparison
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "AECO vs Henry Hub Natural Gas Prices", "subtext": "CAD$/GJ — annual averages, 2015–2024 (approximate)", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Henry Hub (CAD equiv.)", "AECO", "Basis differential"], "bottom": 0},
-  "xAxis": {"type": "category", "data": ["2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]},
-  "yAxis": [
-    {"type": "value", "name": "CAD$/GJ", "position": "left"},
-    {"type": "value", "name": "Basis (CAD$/GJ)", "position": "right", "min": -5, "max": 0}
-  ],
-  "series": [
-    {
-      "name": "Henry Hub (CAD equiv.)",
-      "type": "line",
-      "data": [3.12, 2.78, 3.40, 4.20, 3.55, 2.45, 4.80, 9.20, 4.10, 3.65],
-      "smooth": true,
-      "itemStyle": {"color": "#2563eb"},
-      "lineStyle": {"width": 2}
-    },
-    {
-      "name": "AECO",
-      "type": "line",
-      "data": [2.40, 1.20, 1.90, 1.10, 1.45, 1.80, 3.20, 5.80, 2.60, 2.50],
-      "smooth": true,
-      "itemStyle": {"color": "#dc2626"},
-      "lineStyle": {"width": 2}
-    },
-    {
-      "name": "Basis differential",
-      "type": "bar",
-      "yAxisIndex": 1,
-      "data": [-0.72, -1.58, -1.50, -3.10, -2.10, -0.65, -1.60, -3.40, -1.50, -1.15],
-      "itemStyle": {"color": "#f59e0b", "opacity": 0.6}
-    }
-  ]
+"title": {"text": "AECO vs Henry Hub Natural Gas Prices", "subtext": "CAD$/GJ — annual averages, 2015–2024 (approximate)", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Henry Hub (CAD equiv.)", "AECO", "Basis differential"], "bottom": 0},
+"xAxis": {"type": "category", "data": ["2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]},
+"yAxis": [
+{"type": "value", "name": "CAD$/GJ", "position": "left"},
+{"type": "value", "name": "Basis (CAD$/GJ)", "position": "right", "min": -5, "max": 0}
+],
+"series": [
+{
+  "name": "Henry Hub (CAD equiv.)",
+  "type": "line",
+  "data": [3.12, 2.78, 3.40, 4.20, 3.55, 2.45, 4.80, 9.20, 4.10, 3.65],
+  "smooth": true,
+  "itemStyle": {"color": "#2563eb"},
+  "lineStyle": {"width": 2}
+},
+{
+  "name": "AECO",
+  "type": "line",
+  "data": [2.40, 1.20, 1.90, 1.10, 1.45, 1.80, 3.20, 5.80, 2.60, 2.50],
+  "smooth": true,
+  "itemStyle": {"color": "#dc2626"},
+  "lineStyle": {"width": 2}
+},
+{
+  "name": "Basis differential",
+  "type": "bar",
+  "yAxisIndex": 1,
+  "data": [-0.72, -1.58, -1.50, -3.10, -2.10, -0.65, -1.60, -3.40, -1.50, -1.15],
+  "itemStyle": {"color": "#f59e0b", "opacity": 0.6}
+}
+]
 }'></div>
+```
 
 ### Figure 3 — Weymouth Equation: Diameter vs. Flow Capacity
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Weymouth Equation: Pipe Diameter vs. Flow Capacity", "subtext": "Relative capacity — 24-inch pipe = 1.0 baseline. Fixed pressure, length, and gas properties.", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {"type": "category", "data": ["16\"","20\"","24\"","30\"","36\"","42\"","48\""], "name": "Pipe diameter"},
-  "yAxis": {"type": "value", "name": "Relative capacity (24\" = 1.0)"},
-  "series": [{
-    "type": "bar",
-    "data": [0.30, 0.53, 1.00, 1.95, 3.30, 5.16, 7.57],
-    "itemStyle": {"color": "#2563eb"},
-    "label": {"show": true, "position": "top", "formatter": "{c}x"}
-  }]
+"title": {"text": "Weymouth Equation: Pipe Diameter vs. Flow Capacity", "subtext": "Relative capacity — 24-inch pipe = 1.0 baseline. Fixed pressure, length, and gas properties.", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"xAxis": {"type": "category", "data": ["16\"","20\"","24\"","30\"","36\"","42\"","48\""], "name": "Pipe diameter"},
+"yAxis": {"type": "value", "name": "Relative capacity (24\" = 1.0)"},
+"series": [{
+"type": "bar",
+"data": [0.30, 0.53, 1.00, 1.95, 3.30, 5.16, 7.57],
+"itemStyle": {"color": "#2563eb"},
+"label": {"show": true, "position": "top", "formatter": "{c}x"}
+}]
 }'></div>
+```
 
 ### Figure 4 — Annual Basis Cost by Export Corridor
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Annual Revenue Foregone: AECO-Henry Hub Basis", "subtext": "CAD$ million/year per corridor — AECO &#36;2.50/GJ, HH &#36;2.80 USD/MMBtu", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Annual basis cost (CAD$ million/yr)"},
-  "yAxis": {"type": "category", "data": ["Foothills\n(Rockies)", "Midwest\n(TCPL)", "Alliance\n(Chicago)", "Westcoast\n(Pacific)", "TC Mainline\n(East)"]},
-  "series": [{
-    "type": "bar",
-    "data": [110, 207, 220, 385, 578],
-    "itemStyle": {"color": "#dc2626"},
-    "label": {"show": true, "position": "right", "formatter": "${c}M"}
-  }]
+"title": {"text": "Annual Revenue Foregone: AECO-Henry Hub Basis", "subtext": "CAD$ million/year per corridor — AECO &#36;2.50/GJ, HH &#36;2.80 USD/MMBtu", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Annual basis cost (CAD$ million/yr)"},
+"yAxis": {"type": "category", "data": ["Foothills\n(Rockies)", "Midwest\n(TCPL)", "Alliance\n(Chicago)", "Westcoast\n(Pacific)", "TC Mainline\n(East)"]},
+"series": [{
+"type": "bar",
+"data": [110, 207, 220, 385, 578],
+"itemStyle": {"color": "#dc2626"},
+"label": {"show": true, "position": "right", "formatter": "${c}M"}
+}]
 }'></div>
+```
 
 ### Figure 5 — NGTL System Extent and Export Connections
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Alberta Gas Transmission: System Overview", "subtext": "NGTL intra-provincial network and export corridor capacities (Bcf/d)", "left": "center"},
-  "tooltip": {"trigger": "item"},
-  "series": [{
-    "type": "sunburst",
-    "data": [
+"title": {"text": "Alberta Gas Transmission: System Overview", "subtext": "NGTL intra-provincial network and export corridor capacities (Bcf/d)", "left": "center"},
+"tooltip": {"trigger": "item"},
+"series": [{
+"type": "sunburst",
+"data": [
+  {
+    "name": "NGTL System\n(25,000 km)",
+    "value": 15,
+    "itemStyle": {"color": "#1e40af"},
+    "children": [
       {
-        "name": "NGTL System\n(25,000 km)",
-        "value": 15,
-        "itemStyle": {"color": "#1e40af"},
+        "name": "East (TC Mainline)",
+        "value": 4.2,
+        "itemStyle": {"color": "#2563eb"},
         "children": [
-          {
-            "name": "East (TC Mainline)",
-            "value": 4.2,
-            "itemStyle": {"color": "#2563eb"},
-            "children": [
-              {"name": "Ontario/Quebec\n4.2 Bcf/d", "value": 4.2, "itemStyle": {"color": "#93c5fd"}}
-            ]
-          },
-          {
-            "name": "West (Westcoast)",
-            "value": 2.8,
-            "itemStyle": {"color": "#16a34a"},
-            "children": [
-              {"name": "Pacific NW/CA\n2.8 Bcf/d", "value": 2.8, "itemStyle": {"color": "#86efac"}}
-            ]
-          },
-          {
-            "name": "South (Alliance)",
-            "value": 1.6,
-            "itemStyle": {"color": "#7c3aed"},
-            "children": [
-              {"name": "Chicago\n1.6 Bcf/d", "value": 1.6, "itemStyle": {"color": "#c4b5fd"}}
-            ]
-          },
-          {
-            "name": "South (Misc.)",
-            "value": 2.3,
-            "itemStyle": {"color": "#dc2626"},
-            "children": [
-              {"name": "Midwest/Rockies\n2.3 Bcf/d", "value": 2.3, "itemStyle": {"color": "#fca5a5"}}
-            ]
-          },
-          {
-            "name": "In-province\nconsumption",
-            "value": 4.1,
-            "itemStyle": {"color": "#f59e0b"},
-            "children": [
-              {"name": "Alberta demand\n4.1 Bcf/d", "value": 4.1, "itemStyle": {"color": "#fde68a"}}
-            ]
-          }
+          {"name": "Ontario/Quebec\n4.2 Bcf/d", "value": 4.2, "itemStyle": {"color": "#93c5fd"}}
+        ]
+      },
+      {
+        "name": "West (Westcoast)",
+        "value": 2.8,
+        "itemStyle": {"color": "#16a34a"},
+        "children": [
+          {"name": "Pacific NW/CA\n2.8 Bcf/d", "value": 2.8, "itemStyle": {"color": "#86efac"}}
+        ]
+      },
+      {
+        "name": "South (Alliance)",
+        "value": 1.6,
+        "itemStyle": {"color": "#7c3aed"},
+        "children": [
+          {"name": "Chicago\n1.6 Bcf/d", "value": 1.6, "itemStyle": {"color": "#c4b5fd"}}
+        ]
+      },
+      {
+        "name": "South (Misc.)",
+        "value": 2.3,
+        "itemStyle": {"color": "#dc2626"},
+        "children": [
+          {"name": "Midwest/Rockies\n2.3 Bcf/d", "value": 2.3, "itemStyle": {"color": "#fca5a5"}}
+        ]
+      },
+      {
+        "name": "In-province\nconsumption",
+        "value": 4.1,
+        "itemStyle": {"color": "#f59e0b"},
+        "children": [
+          {"name": "Alberta demand\n4.1 Bcf/d", "value": 4.1, "itemStyle": {"color": "#fde68a"}}
         ]
       }
-    ],
-    "radius": ["10%", "90%"],
-    "label": {"rotate": "radial", "fontSize": 11}
-  }]
+    ]
+  }
+],
+"radius": ["10%", "90%"],
+"label": {"rotate": "radial", "fontSize": 11}
+}]
 }'></div>
+```
 
 ---
 

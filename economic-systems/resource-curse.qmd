@@ -90,8 +90,10 @@ $$\Delta \ln Y_{t} = \alpha + \beta \cdot \Delta \ln P_{\text{oil}, t} + \gamma 
 
 where $Y_t$ is any downstream variable (government revenue, employment, etc.) and $\beta, \gamma$ capture contemporaneous and lagged responses. For Alberta GDP, estimates suggest $\beta \approx 0.3$: a 10% oil price fall reduces Alberta GDP growth by roughly 3 percentage points — a very high sensitivity for a province with a &#36;400 billion economy.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Alberta GDP Growth vs WTI Oil Price (2000–2024)", "subtext": "Annual % change in Alberta real GDP vs WTI annual average price change"}, "tooltip": {"trigger": "axis"}, "legend": {"data": ["Alberta GDP Growth (%)", "WTI Price Change (%)"], "bottom": 0}, "xAxis": {"type": "category", "data": ["2000","2002","2004","2006","2008","2010","2012","2014","2016","2018","2020","2022","2024"]}, "yAxis": {"type": "value", "name": "Annual Change (%)", "min": -20, "max": 30}, "series": [{"name": "Alberta GDP Growth (%)", "type": "bar", "data": [5.2, 4.1, 5.8, 7.2, 0.5, 4.8, 4.3, 4.7, -3.7, 2.4, -8.2, 5.1, 2.8], "itemStyle": {"color": "#5470c6", "opacity": 0.7}}, {"name": "WTI Price Change (%)", "type": "line", "data": [57, -4, 33, 19, 38, 29, -1, -8, -46, 25, -23, 67, -11], "lineStyle": {"width": 2}, "itemStyle": {"color": "#ee6666"}}]}'>
 </div>
+```
 
 The correlation is visible even in this simplified chart. The 2015–16 downturn (Alberta GDP −3.7%) followed the 2014 oil price collapse; the 2020 recession (−8.2%) combined COVID demand destruction with the oil price crash. Strong oil price years generally track Alberta economic booms.
 
@@ -105,8 +107,10 @@ where $s_i$ is the share of sector $i$ in total exports. HHI ranges from &#36;1/
 
 Alberta's export HHI is dominated by energy. Energy goods account for roughly 85% of Alberta's merchandise exports — an HHI approaching 0.73. Compare this to Ontario (automotive, machinery, pharmaceuticals — HHI around 0.15) and British Columbia (forestry, mining, agricultural, software — HHI around 0.25).
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Export Concentration (HHI) by Province", "subtext": "Higher HHI = more concentrated = more vulnerable to sector shocks"}, "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}}, "xAxis": {"type": "category", "data": ["Alberta", "Saskatchewan", "Newfoundland", "BC", "Manitoba", "Quebec", "Ontario"]}, "yAxis": {"type": "value", "name": "HHI (0–1)", "max": 0.85}, "series": [{"name": "Export HHI", "type": "bar", "data": [0.73, 0.52, 0.58, 0.25, 0.28, 0.18, 0.15], "itemStyle": {"color": {"type": "linear", "x": 0, "y": 0, "x2": 0, "y2": 1, "colorStops": [{"offset": 0, "color": "#ee6666"}, {"offset": 1, "color": "#fac858"}]}}, "label": {"show": true, "position": "top", "formatter": "{c}"}}]}'>
 </div>
+```
 
 Alberta's HHI of 0.73 is roughly five times Ontario's — reflecting the degree to which the provincial economy is built around a single commodity. Saskatchewan's high HHI (0.52) reflects potash and grain concentration; Newfoundland (0.58) reflects offshore oil and fish.
 

@@ -297,25 +297,27 @@ print(f"\nPrimary treatment: min DO = {Cs-Dcp:.2f} mg/L ({'FAIL' if Cs-Dcp<6 els
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "DO Sag Curve — River Response to Wastewater Discharge", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["DO (secondary treatment)", "DO (primary treatment only)", "DO standard (6 mg/L)"], "bottom": 0},
-  "xAxis": {"name": "Distance downstream (km)", "nameLocation": "middle", "nameGap": 30,
-    "data": [0,5,10,20,30,40,60,80,100,130,160,200]},
-  "yAxis": {"name": "Dissolved oxygen (mg L⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 3, "max": 10},
-  "series": [
-    {"name": "DO (secondary treatment)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [8.88, 8.72, 8.63, 8.60, 8.67, 8.78, 9.00, 9.18, 9.30, 9.38, 9.42, 9.45]},
-    {"name": "DO (primary treatment only)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#E53935"},
-     "data": [8.88, 8.1, 7.4, 6.5, 5.8, 5.6, 5.9, 6.5, 7.1, 7.8, 8.3, 8.8]},
-    {"name": "DO standard (6 mg/L)", "type": "line",
-     "lineStyle": {"type": "dashed", "color": "#F57F17"},
-     "data": [6,6,6,6,6,6,6,6,6,6,6,6]}
-  ]
+"title": {"text": "DO Sag Curve — River Response to Wastewater Discharge", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["DO (secondary treatment)", "DO (primary treatment only)", "DO standard (6 mg/L)"], "bottom": 0},
+"xAxis": {"name": "Distance downstream (km)", "nameLocation": "middle", "nameGap": 30,
+"data": [0,5,10,20,30,40,60,80,100,130,160,200]},
+"yAxis": {"name": "Dissolved oxygen (mg L⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 3, "max": 10},
+"series": [
+{"name": "DO (secondary treatment)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [8.88, 8.72, 8.63, 8.60, 8.67, 8.78, 9.00, 9.18, 9.30, 9.38, 9.42, 9.45]},
+{"name": "DO (primary treatment only)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#E53935"},
+ "data": [8.88, 8.1, 7.4, 6.5, 5.8, 5.6, 5.9, 6.5, 7.1, 7.8, 8.3, 8.8]},
+{"name": "DO standard (6 mg/L)", "type": "line",
+ "lineStyle": {"type": "dashed", "color": "#F57F17"},
+ "data": [6,6,6,6,6,6,6,6,6,6,6,6]}
+]
 }'></div>
+```
 
 Secondary treatment maintains DO well above the 6 mg/L standard at all distances. Primary treatment only produces a sag to ~5.6 mg/L at ~40 km downstream — a clear standard violation over a 30 km reach. The difference between the two treatment levels is the difference between a living and a dead reach of river for aquatic life.
 

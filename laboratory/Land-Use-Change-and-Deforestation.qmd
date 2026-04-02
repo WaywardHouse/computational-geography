@@ -291,22 +291,24 @@ for yr in [0, 1, 5, 10, 20, 30, 50]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Cumulative Fraction of Deforestation Emissions Realised Over Time", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Tropical forest conversion","Boreal forest conversion"], "bottom": 0},
-  "xAxis": {"name": "Years after conversion", "nameLocation": "middle", "nameGap": 30,
-    "data": [0,1,2,3,5,7,10,15,20,25,30,40,50]},
-  "yAxis": {"name": "% of total emissions realised", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 100},
-  "series": [
-    {"name": "Tropical forest conversion", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#2E7D32"},
-     "data": [42, 52, 59, 64, 72, 77, 82, 88, 91, 93, 95, 97, 98]},
-    {"name": "Boreal forest conversion", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [32, 38, 43, 47, 54, 60, 66, 73, 78, 82, 85, 89, 92]}
-  ]
+"title": {"text": "Cumulative Fraction of Deforestation Emissions Realised Over Time", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Tropical forest conversion","Boreal forest conversion"], "bottom": 0},
+"xAxis": {"name": "Years after conversion", "nameLocation": "middle", "nameGap": 30,
+"data": [0,1,2,3,5,7,10,15,20,25,30,40,50]},
+"yAxis": {"name": "% of total emissions realised", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 100},
+"series": [
+{"name": "Tropical forest conversion", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#2E7D32"},
+ "data": [42, 52, 59, 64, 72, 77, 82, 88, 91, 93, 95, 97, 98]},
+{"name": "Boreal forest conversion", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [32, 38, 43, 47, 54, 60, 66, 73, 78, 82, 85, 89, 92]}
+]
 }'></div>
+```
 
 Tropical deforestation releases emissions faster — higher soil temperatures accelerate decomposition, root systems are shallower, and burning is more complete. Boreal conversion shows a slower release pattern, particularly from cold, waterlogged soils with slow microbial decomposition. For carbon accounting, a boreal-to-cropland conversion today will not realise its full emissions until 2050 and beyond.
 

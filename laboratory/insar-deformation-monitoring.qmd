@@ -264,22 +264,24 @@ print(f"  π/10 rad = {lam/40*1000:.1f} mm LOS displacement (noise floor)")
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "InSAR Displacement Sensitivity and Fringe Count vs Subsidence Rate", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Sentinel-1 C (λ=5.6cm)", "Sentinel-1 C (λ=5.6cm, 1yr)"], "bottom": 0},
-  "xAxis": {"name": "Subsidence rate (cm yr⁻¹)", "nameLocation": "middle", "nameGap": 30,
-    "data": [1, 2, 5, 10, 20, 30, 50, 100]},
-  "yAxis": {"name": "Fringes per year (2.8cm/fringe)", "nameLocation": "middle", "nameGap": 50},
-  "series": [
-    {
-      "name": "Fringes per year (C-band)",
-      "type": "bar",
-      "data": [0.4, 0.7, 1.8, 3.6, 7.1, 10.7, 17.9, 35.7],
-      "label": {"show": true, "position": "top", "formatter": "{c}"}
-    }
-  ]
+"title": {"text": "InSAR Displacement Sensitivity and Fringe Count vs Subsidence Rate", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Sentinel-1 C (λ=5.6cm)", "Sentinel-1 C (λ=5.6cm, 1yr)"], "bottom": 0},
+"xAxis": {"name": "Subsidence rate (cm yr⁻¹)", "nameLocation": "middle", "nameGap": 30,
+"data": [1, 2, 5, 10, 20, 30, 50, 100]},
+"yAxis": {"name": "Fringes per year (2.8cm/fringe)", "nameLocation": "middle", "nameGap": 50},
+"series": [
+{
+  "name": "Fringes per year (C-band)",
+  "type": "bar",
+  "data": [0.4, 0.7, 1.8, 3.6, 7.1, 10.7, 17.9, 35.7],
+  "label": {"show": true, "position": "top", "formatter": "{c}"}
+}
+]
 }'></div>
+```
 
 Each fringe represents 2.8 cm of LOS displacement for Sentinel-1. Subsidence of 10 cm yr⁻¹ produces 3.6 fringes — easily counted in an interferogram. At very high rates (>50 cm yr⁻¹), fringes become densely packed and phase unwrapping becomes unreliable without supplementary data.
 

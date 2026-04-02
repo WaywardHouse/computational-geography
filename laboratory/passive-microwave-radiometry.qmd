@@ -321,21 +321,23 @@ for diff in [0, 10, 20, 40, 60]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "L-band Brightness Temperature vs Soil Moisture (θ = 40°, T_s = 290K)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["H-polarisation", "V-polarisation"], "bottom": 0},
-  "xAxis": {"name": "Volumetric Soil Moisture (m³ m⁻³)", "nameLocation": "middle", "nameGap": 30,
-    "data": [0.00, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40]},
-  "yAxis": {"name": "Brightness Temperature T_B (K)", "nameLocation": "middle", "nameGap": 50,
-    "min": 180, "max": 300},
-  "series": [
-    {"name": "H-polarisation", "type": "line", "smooth": true,
-     "data": [275, 266, 257, 248, 240, 232, 225, 218, 212]},
-    {"name": "V-polarisation", "type": "line", "smooth": true,
-     "data": [286, 281, 275, 269, 262, 256, 250, 244, 238]}
-  ]
+"title": {"text": "L-band Brightness Temperature vs Soil Moisture (θ = 40°, T_s = 290K)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["H-polarisation", "V-polarisation"], "bottom": 0},
+"xAxis": {"name": "Volumetric Soil Moisture (m³ m⁻³)", "nameLocation": "middle", "nameGap": 30,
+"data": [0.00, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40]},
+"yAxis": {"name": "Brightness Temperature T_B (K)", "nameLocation": "middle", "nameGap": 50,
+"min": 180, "max": 300},
+"series": [
+{"name": "H-polarisation", "type": "line", "smooth": true,
+ "data": [275, 266, 257, 248, 240, 232, 225, 218, 212]},
+{"name": "V-polarisation", "type": "line", "smooth": true,
+ "data": [286, 281, 275, 269, 262, 256, 250, 244, 238]}
+]
 }'></div>
+```
 
 Both polarisations decrease monotonically with soil moisture, reflecting the decreasing emissivity as soil dielectric constant rises. The H-polarisation is more sensitive (~63 K change from dry to saturated) than V-polarisation (~48 K), making it the preferred channel for soil moisture retrieval. The polarisation difference narrows as moisture increases — the PR index exploits this convergence.
 

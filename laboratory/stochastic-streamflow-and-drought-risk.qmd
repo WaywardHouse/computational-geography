@@ -315,21 +315,23 @@ print(f"\nSPI-12 severe drought months: {n_drought}/{len(spi_12)} ({100*n_drough
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Flow Duration Curve — North Saskatchewan Tributary (typical)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis", "formatter": "Exceedance: {b}<br/>Flow: {c} Mm³/mo"},
-  "legend": {"data": ["Monthly flow"], "bottom": 0},
-  "xAxis": {"name": "Exceedance probability (%)", "nameLocation": "middle", "nameGap": 30,
-    "data": [1,5,10,20,30,40,50,60,70,80,90,95,99]},
-  "yAxis": {"name": "Monthly flow (Mm³)", "nameLocation": "middle", "nameGap": 50, "min": 0},
-  "series": [{
-    "name": "Monthly flow",
-    "type": "line", "smooth": true,
-    "itemStyle": {"color": "#1565C0"},
-    "areaStyle": {"color": "#BBDEFB", "opacity": 0.4},
-    "data": [92, 65, 50, 38, 29, 22, 17, 13, 10, 7.5, 5.2, 4.0, 2.5]
-  }]
+"title": {"text": "Flow Duration Curve — North Saskatchewan Tributary (typical)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis", "formatter": "Exceedance: {b}<br/>Flow: {c} Mm³/mo"},
+"legend": {"data": ["Monthly flow"], "bottom": 0},
+"xAxis": {"name": "Exceedance probability (%)", "nameLocation": "middle", "nameGap": 30,
+"data": [1,5,10,20,30,40,50,60,70,80,90,95,99]},
+"yAxis": {"name": "Monthly flow (Mm³)", "nameLocation": "middle", "nameGap": 50, "min": 0},
+"series": [{
+"name": "Monthly flow",
+"type": "line", "smooth": true,
+"itemStyle": {"color": "#1565C0"},
+"areaStyle": {"color": "#BBDEFB", "opacity": 0.4},
+"data": [92, 65, 50, 38, 29, 22, 17, 13, 10, 7.5, 5.2, 4.0, 2.5]
+}]
 }'></div>
+```
 
 The FDC spans two orders of magnitude from the highest 1% flows (92 Mm³/mo, spring snowmelt) to the lowest 1% flows (2.5 Mm³/mo, January baseflow). The steep slope reflects the highly seasonal flow regime of a Rocky Mountain tributary. Environmental flow standards typically protect the $Q_{90}$–$Q_{95}$ range (5–7 Mm³/mo) as minimum ecologically required flows.
 

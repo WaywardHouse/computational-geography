@@ -188,30 +188,32 @@ and simulate the effects of corridor disruptions.
 
 ## 4. Corridor Trade Volumes: The Data
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Canada-US Trade by Major Crossing or Corridor (2023)", "subtext": "Estimated two-way trade value, CAD$ billions", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "4%", "right": "8%", "bottom": "5%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "CAD$ billions"},
-  "yAxis": {
-    "type": "category",
-    "data": ["Pacific Highway BC", "St. Lawrence marine", "Other crossings", "Sarnia-Port Huron", "Niagara crossings", "Pacific Gateway rail", "Windsor-Detroit road"],
-    "axisLabel": {"fontSize": 11}
-  },
-  "series": [{
-    "type": "bar",
-    "label": {"show": true, "position": "right", "formatter": "{c}B"},
-    "data": [
-      {"value": 25,  "itemStyle": {"color": "#bfdbfe"}},
-      {"value": 40,  "itemStyle": {"color": "#93c5fd"}},
-      {"value": 50,  "itemStyle": {"color": "#7dd3fc"}},
-      {"value": 60,  "itemStyle": {"color": "#3b82f6"}},
-      {"value": 80,  "itemStyle": {"color": "#2563eb"}},
-      {"value": 100, "itemStyle": {"color": "#16a34a"}},
-      {"value": 146, "itemStyle": {"color": "#1e3a8a"}}
-    ]
-  }]
+"title": {"text": "Canada-US Trade by Major Crossing or Corridor (2023)", "subtext": "Estimated two-way trade value, CAD$ billions", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "4%", "right": "8%", "bottom": "5%", "containLabel": true},
+"xAxis": {"type": "value", "name": "CAD$ billions"},
+"yAxis": {
+"type": "category",
+"data": ["Pacific Highway BC", "St. Lawrence marine", "Other crossings", "Sarnia-Port Huron", "Niagara crossings", "Pacific Gateway rail", "Windsor-Detroit road"],
+"axisLabel": {"fontSize": 11}
+},
+"series": [{
+"type": "bar",
+"label": {"show": true, "position": "right", "formatter": "{c}B"},
+"data": [
+  {"value": 25,  "itemStyle": {"color": "#bfdbfe"}},
+  {"value": 40,  "itemStyle": {"color": "#93c5fd"}},
+  {"value": 50,  "itemStyle": {"color": "#7dd3fc"}},
+  {"value": 60,  "itemStyle": {"color": "#3b82f6"}},
+  {"value": 80,  "itemStyle": {"color": "#2563eb"}},
+  {"value": 100, "itemStyle": {"color": "#16a34a"}},
+  {"value": 146, "itemStyle": {"color": "#1e3a8a"}}
+]
+}]
 }'></div>
+```
 
 *Windsor-Detroit's dominance is structural, not incidental: it reflects the geographic concentration of North American automotive manufacturing on both sides of a narrow river. Pacific Gateway rail volumes reflect container imports from Asia moving to Canadian and US interior markets.*
 
@@ -219,7 +221,9 @@ and simulate the effects of corridor disruptions.
 
 ## 5. The Network: Corridor Geography
 
+```{=html}
 <div data-leaflet id="corridors-map" style="height:420px" data-lat="48" data-lng="-88" data-zoom="4" data-tiles="carto" data-markers='[{"lat":49.28,"lng":-123.12,"label":"Pacific Gateway — 3.3M TEUs (Vancouver)"},{"lat":54.31,"lng":-130.32,"label":"Prince Rupert — 870K TEUs, fastest growing"},{"lat":42.31,"lng":-83.04,"label":"Windsor-Detroit — CAD&#36;146B/yr"},{"lat":42.97,"lng":-82.40,"label":"Sarnia-Port Huron — CAD&#36;60B/yr"},{"lat":43.10,"lng":-79.07,"label":"Niagara crossings — CAD&#36;80B/yr"},{"lat":45.50,"lng":-73.57,"label":"Montreal Port — 1.57M TEUs"},{"lat":44.64,"lng":-63.57,"label":"Halifax — 535K TEUs"},{"lat":53.55,"lng":-113.49,"label":"Edmonton — Prairie freight hub"},{"lat":49.90,"lng":-97.14,"label":"Winnipeg — Mid-continent hub"}]'></div>
+```
 
 *The three corridor systems are geographically separate: Pacific Gateway on the west coast, Atlantic on the east, and the mid-continent Windsor-Detroit crossing in the south. Note the absence of a major crossing between Sarnia and Niagara — Windsor dominates the Great Lakes crossing geography.*
 
@@ -270,34 +274,36 @@ on the assumptions made about pass-through rates and supply chain reconfiguratio
 
 ## 7. Pacific Gateway Growth
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Pacific Gateway Container Throughput Growth (2010–2023)", "subtext": "TEUs (thousands). Note 2020 dip from COVID-19 supply chain disruption.", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Vancouver Port", "Prince Rupert"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "10%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2020","2022","2023"]},
-  "yAxis": {"type": "value", "name": "TEUs (thousands)"},
-  "series": [
-    {
-      "name": "Vancouver Port",
-      "type": "line",
-      "smooth": true,
-      "symbol": "circle",
-      "itemStyle": {"color": "#1e40af"},
-      "areaStyle": {"opacity": 0.08},
-      "data": [1800, 2100, 2500, 2900, 3100, 2800, 3400, 3300]
-    },
-    {
-      "name": "Prince Rupert",
-      "type": "line",
-      "smooth": true,
-      "symbol": "circle",
-      "itemStyle": {"color": "#16a34a"},
-      "areaStyle": {"opacity": 0.08},
-      "data": [300, 380, 450, 500, 620, 700, 850, 870]
-    }
-  ]
+"title": {"text": "Pacific Gateway Container Throughput Growth (2010–2023)", "subtext": "TEUs (thousands). Note 2020 dip from COVID-19 supply chain disruption.", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Vancouver Port", "Prince Rupert"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "10%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["2010","2012","2014","2016","2018","2020","2022","2023"]},
+"yAxis": {"type": "value", "name": "TEUs (thousands)"},
+"series": [
+{
+  "name": "Vancouver Port",
+  "type": "line",
+  "smooth": true,
+  "symbol": "circle",
+  "itemStyle": {"color": "#1e40af"},
+  "areaStyle": {"opacity": 0.08},
+  "data": [1800, 2100, 2500, 2900, 3100, 2800, 3400, 3300]
+},
+{
+  "name": "Prince Rupert",
+  "type": "line",
+  "smooth": true,
+  "symbol": "circle",
+  "itemStyle": {"color": "#16a34a"},
+  "areaStyle": {"opacity": 0.08},
+  "data": [300, 380, 450, 500, 620, 700, 850, 870]
+}
+]
 }'></div>
+```
 
 *Prince Rupert grew by roughly 190% between 2010 and 2023, compared to Vancouver's 83%. The rate of growth reflects Prince Rupert's geographic advantage (2.4 days closer to Shanghai), expanding Fairview container terminal capacity, and CN's direct Chicago rail service. Unlike most ports, Prince Rupert saw minimal throughput decline during COVID, reflecting its position as a preferred alternative when Vancouver congestion peaked.*
 
@@ -305,30 +311,32 @@ on the assumptions made about pass-through rates and supply chain reconfiguratio
 
 ## 8. Tariff Impact by Corridor
 
+```{=html}
 <div data-viz="echarts" style="height:300px" data-options='{
-  "title": {"text": "2025 Tariff Impact — Cost Index by Corridor and Commodity", "subtext": "Baseline (pre-tariff) = 100. Higher = greater cost burden from 25% tariff. Auto parts cross border 5–7x during assembly.", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["Without tariff (baseline)", "With 25% tariff"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "14%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["Auto parts\n(Windsor)", "Agri exports\n(Pacific/Atlantic)", "Steel/Aluminum\n(Multiple)", "Consumer goods\n(Pacific)"]},
-  "yAxis": {"type": "value", "name": "Cost index (baseline=100)", "min": 0, "max": 200},
-  "series": [
-    {
-      "name": "Without tariff (baseline)",
-      "type": "bar",
-      "itemStyle": {"color": "#2563eb"},
-      "label": {"show": true, "position": "top"},
-      "data": [100, 100, 100, 100]
-    },
-    {
-      "name": "With 25% tariff",
-      "type": "bar",
-      "itemStyle": {"color": "#dc2626"},
-      "label": {"show": true, "position": "top"},
-      "data": [175, 105, 125, 115]
-    }
-  ]
+"title": {"text": "2025 Tariff Impact — Cost Index by Corridor and Commodity", "subtext": "Baseline (pre-tariff) = 100. Higher = greater cost burden from 25% tariff. Auto parts cross border 5–7x during assembly.", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["Without tariff (baseline)", "With 25% tariff"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "14%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Auto parts\n(Windsor)", "Agri exports\n(Pacific/Atlantic)", "Steel/Aluminum\n(Multiple)", "Consumer goods\n(Pacific)"]},
+"yAxis": {"type": "value", "name": "Cost index (baseline=100)", "min": 0, "max": 200},
+"series": [
+{
+  "name": "Without tariff (baseline)",
+  "type": "bar",
+  "itemStyle": {"color": "#2563eb"},
+  "label": {"show": true, "position": "top"},
+  "data": [100, 100, 100, 100]
+},
+{
+  "name": "With 25% tariff",
+  "type": "bar",
+  "itemStyle": {"color": "#dc2626"},
+  "label": {"show": true, "position": "top"},
+  "data": [175, 105, 125, 115]
+}
+]
 }'></div>
+```
 
 *Auto parts face by far the largest tariff burden because supply chains are structured around multiple border crossings per component. Each crossing incurs the 25% levy, compounding the effective cost. Agricultural exports to non-US markets are largely unaffected (indexed to 105, reflecting minor routing cost changes). Steel and aluminum face a direct 25% tariff, reflected in the 125 index.*
 

@@ -315,24 +315,26 @@ print(f"  Social optimum:   {N/2/100 + 45:.0f} min (same as without edge)")
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Gravity Model Distance Decay Functions (normalised)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Power β=1.5", "Power β=2.0", "Exponential β=0.04", "Exponential β=0.08"], "bottom": 0},
-  "xAxis": {"name": "Travel time (minutes)", "nameLocation": "middle", "nameGap": 30,
-    "data": [5, 10, 15, 20, 25, 30, 40, 50, 60]},
-  "yAxis": {"name": "Deterrence f(c) — normalised to f(5)=1", "nameLocation": "middle", "nameGap": 55},
-  "series": [
-    {"name": "Power β=1.5", "type": "line", "smooth": true,
-     "data": [1.0, 0.354, 0.171, 0.099, 0.063, 0.043, 0.022, 0.013, 0.009]},
-    {"name": "Power β=2.0", "type": "line", "smooth": true,
-     "data": [1.0, 0.25, 0.111, 0.063, 0.04, 0.028, 0.016, 0.01, 0.007]},
-    {"name": "Exponential β=0.04", "type": "line", "smooth": true,
-     "data": [1.0, 0.819, 0.670, 0.549, 0.449, 0.368, 0.247, 0.165, 0.111]},
-    {"name": "Exponential β=0.08", "type": "line", "smooth": true,
-     "data": [1.0, 0.670, 0.449, 0.301, 0.202, 0.135, 0.061, 0.027, 0.012]}
-  ]
+"title": {"text": "Gravity Model Distance Decay Functions (normalised)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Power β=1.5", "Power β=2.0", "Exponential β=0.04", "Exponential β=0.08"], "bottom": 0},
+"xAxis": {"name": "Travel time (minutes)", "nameLocation": "middle", "nameGap": 30,
+"data": [5, 10, 15, 20, 25, 30, 40, 50, 60]},
+"yAxis": {"name": "Deterrence f(c) — normalised to f(5)=1", "nameLocation": "middle", "nameGap": 55},
+"series": [
+{"name": "Power β=1.5", "type": "line", "smooth": true,
+ "data": [1.0, 0.354, 0.171, 0.099, 0.063, 0.043, 0.022, 0.013, 0.009]},
+{"name": "Power β=2.0", "type": "line", "smooth": true,
+ "data": [1.0, 0.25, 0.111, 0.063, 0.04, 0.028, 0.016, 0.01, 0.007]},
+{"name": "Exponential β=0.04", "type": "line", "smooth": true,
+ "data": [1.0, 0.819, 0.670, 0.549, 0.449, 0.368, 0.247, 0.165, 0.111]},
+{"name": "Exponential β=0.08", "type": "line", "smooth": true,
+ "data": [1.0, 0.670, 0.449, 0.301, 0.202, 0.135, 0.061, 0.027, 0.012]}
+]
 }'></div>
+```
 
 Power-law deterrence drops steeply for short trips (strongly penalising any distance) then levels off. Exponential decay falls at a constant proportional rate — every 10-minute increase in travel time multiplies the deterrence by the same factor ($e^{-\beta \times 10}$). Choice of functional form changes the predicted spatial structure of trips: power-law calibration overpredicts local trips and underpredicts long-distance travel compared to exponential. Calibration to observed trip length distributions selects the form and parameter appropriate to each city and trip purpose.
 

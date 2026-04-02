@@ -327,28 +327,30 @@ print(f"Network efficiency without node 3: {E_no3:.4f}")
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Node Betweenness Centrality — Hypothetical Urban Transit Network", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "xAxis": {"type": "category",
-    "data": ["Suburban A", "Branch B", "Hub C", "Hub D", "Branch E", "Terminal F"],
-    "axisLabel": {"rotate": 12}},
-  "yAxis": {"name": "Normalised betweenness centrality", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 1},
-  "series": [{
-    "name": "Betweenness",
-    "type": "bar",
-    "itemStyle": {"color": "#1565C0"},
-    "data": [
-      {"value": 0.03, "itemStyle": {"color": "#90CAF9"}},
-      {"value": 0.18, "itemStyle": {"color": "#42A5F5"}},
-      {"value": 0.74, "itemStyle": {"color": "#C62828"}},
-      {"value": 0.68, "itemStyle": {"color": "#E53935"}},
-      {"value": 0.15, "itemStyle": {"color": "#42A5F5"}},
-      {"value": 0.04, "itemStyle": {"color": "#90CAF9"}}
-    ],
-    "label": {"show": true, "position": "top", "formatter": "{c}"}
-  }]
+"title": {"text": "Node Betweenness Centrality — Hypothetical Urban Transit Network", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"xAxis": {"type": "category",
+"data": ["Suburban A", "Branch B", "Hub C", "Hub D", "Branch E", "Terminal F"],
+"axisLabel": {"rotate": 12}},
+"yAxis": {"name": "Normalised betweenness centrality", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 1},
+"series": [{
+"name": "Betweenness",
+"type": "bar",
+"itemStyle": {"color": "#1565C0"},
+"data": [
+  {"value": 0.03, "itemStyle": {"color": "#90CAF9"}},
+  {"value": 0.18, "itemStyle": {"color": "#42A5F5"}},
+  {"value": 0.74, "itemStyle": {"color": "#C62828"}},
+  {"value": 0.68, "itemStyle": {"color": "#E53935"}},
+  {"value": 0.15, "itemStyle": {"color": "#42A5F5"}},
+  {"value": 0.04, "itemStyle": {"color": "#90CAF9"}}
+],
+"label": {"show": true, "position": "top", "formatter": "{c}"}
+}]
 }'></div>
+```
 
 Hub nodes C and D carry betweenness centrality 4–5× higher than branch nodes B and E, and 20× higher than terminal nodes. Their removal would force ~70% of all origin-destination pairs to use longer detours. This concentration of criticality in a small number of nodes is characteristic of real transit networks — it is the price of efficiency: the same hub structure that minimises average travel time also creates the network's most catastrophic single points of failure.
 

@@ -450,7 +450,7 @@ visible: elevation > 0
   
 function getDirection(azimuth) {
 const dirs = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 
-    'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
+'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 const idx = Math.round(azimuth / 22.5) % 16;
 return dirs[idx];
 }
@@ -543,12 +543,12 @@ coord: [time, vis.elevation],
 symbol: 'circle',
 symbolSize: 10,
 itemStyle: {
-  color: vis.visible ? 'green' : 'red'
+color: vis.visible ? 'green' : 'red'
 },
 label: {
-  show: true,
-  formatter: 'Now',
-  position: 'top'
+show: true,
+formatter: 'Now',
+position: 'top'
 }
 }]
 },

@@ -773,143 +773,153 @@ for nid, r in sorted(surface.items(), key=lambda x: -x[1]["netback_cad"]):
 
 ### Figure 1 — Network Node Betweenness Centrality
 
+```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-  "title": {"text": "Pipeline Hub Criticality", "subtext": "Approximate betweenness centrality — crude oil subsystem. Higher = more critical to network flow.", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Betweenness centrality (normalized)"},
-  "yAxis": {"type": "category", "data": ["Port Arthur TX", "Patoka IL", "Burnaby BC", "Cushing OK", "Superior WI", "Hardisty AB"]},
-  "series": [{
-    "type": "bar",
-    "data": [
-      {"value": 0.041, "itemStyle": {"color": "#dc2626"}},
-      {"value": 0.088, "itemStyle": {"color": "#f59e0b"}},
-      {"value": 0.095, "itemStyle": {"color": "#16a34a"}},
-      {"value": 0.142, "itemStyle": {"color": "#f59e0b"}},
-      {"value": 0.198, "itemStyle": {"color": "#2563eb"}},
-      {"value": 0.312, "itemStyle": {"color": "#1e40af"}}
-    ],
-    "label": {"show": true, "position": "right", "formatter": "{c}"}
-  }]
+"title": {"text": "Pipeline Hub Criticality", "subtext": "Approximate betweenness centrality — crude oil subsystem. Higher = more critical to network flow.", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Betweenness centrality (normalized)"},
+"yAxis": {"type": "category", "data": ["Port Arthur TX", "Patoka IL", "Burnaby BC", "Cushing OK", "Superior WI", "Hardisty AB"]},
+"series": [{
+"type": "bar",
+"data": [
+  {"value": 0.041, "itemStyle": {"color": "#dc2626"}},
+  {"value": 0.088, "itemStyle": {"color": "#f59e0b"}},
+  {"value": 0.095, "itemStyle": {"color": "#16a34a"}},
+  {"value": 0.142, "itemStyle": {"color": "#f59e0b"}},
+  {"value": 0.198, "itemStyle": {"color": "#2563eb"}},
+  {"value": 0.312, "itemStyle": {"color": "#1e40af"}}
+],
+"label": {"show": true, "position": "right", "formatter": "{c}"}
+}]
 }'></div>
+```
 
 ### Figure 2 — Netback Price Surface by Market Destination
 
+```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-  "title": {"text": "Crude Oil Netback Price Surface", "subtext": "CAD/bbl from Hardisty AB — WTI &#36;75 USD, quality discount &#36;19 CAD/bbl, exchange 0.73", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["Market price (CAD)", "Transport tariff", "Quality discount", "Netback"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "15%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["Sarnia ON", "Guernsey SD", "Port Arthur TX", "Cushing OK", "Patoka IL", "Burnaby BC"]},
-  "yAxis": {"type": "value", "name": "CAD/bbl"},
-  "series": [
-    {
-      "name": "Netback",
-      "type": "bar",
-      "data": [74.7, 75.2, 75.7, 76.7, 76.8, 77.0],
-      "itemStyle": {"color": "#16a34a"},
-      "label": {"show": true, "position": "top", "formatter": "${c}"}
-    },
-    {
-      "name": "Transport tariff",
-      "type": "bar",
-      "data": [11.3, 12.5, 14.4, 10.5, 10.7, 11.0],
-      "itemStyle": {"color": "#f59e0b"}
-    },
-    {
-      "name": "Quality discount",
-      "type": "bar",
-      "data": [19.0, 19.0, 19.0, 19.0, 19.0, 19.0],
-      "itemStyle": {"color": "#dc2626"}
-    }
-  ]
+"title": {"text": "Crude Oil Netback Price Surface", "subtext": "CAD/bbl from Hardisty AB — WTI &#36;75 USD, quality discount &#36;19 CAD/bbl, exchange 0.73", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["Market price (CAD)", "Transport tariff", "Quality discount", "Netback"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "15%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Sarnia ON", "Guernsey SD", "Port Arthur TX", "Cushing OK", "Patoka IL", "Burnaby BC"]},
+"yAxis": {"type": "value", "name": "CAD/bbl"},
+"series": [
+{
+  "name": "Netback",
+  "type": "bar",
+  "data": [74.7, 75.2, 75.7, 76.7, 76.8, 77.0],
+  "itemStyle": {"color": "#16a34a"},
+  "label": {"show": true, "position": "top", "formatter": "${c}"}
+},
+{
+  "name": "Transport tariff",
+  "type": "bar",
+  "data": [11.3, 12.5, 14.4, 10.5, 10.7, 11.0],
+  "itemStyle": {"color": "#f59e0b"}
+},
+{
+  "name": "Quality discount",
+  "type": "bar",
+  "data": [19.0, 19.0, 19.0, 19.0, 19.0, 19.0],
+  "itemStyle": {"color": "#dc2626"}
+}
+]
 }'></div>
+```
 
 ### Figure 3 — Multi-Commodity Network Capacity Summary
 
+```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-  "title": {"text": "Alberta Pipeline Network: Capacity by Commodity", "subtext": "Total export nameplate capacity — all four commodity streams", "left": "center"},
-  "tooltip": {"trigger": "item"},
-  "series": [{
-    "type": "pie",
-    "radius": ["35%", "65%"],
-    "label": {"formatter": "{b}\n{d}%"},
-    "data": [
-      {"value": 4594, "name": "Crude oil\n(000 bbl/d)", "itemStyle": {"color": "#2563eb"}},
-      {"value": 990,  "name": "NGL / Condensate\n(000 bbl/d)", "itemStyle": {"color": "#16a34a"}},
-      {"value": 374,  "name": "Refined products\n(000 bbl/d)", "itemStyle": {"color": "#f59e0b"}},
-      {"value": 10900,"name": "Natural gas\n(MMcf/d equiv.)", "itemStyle": {"color": "#7c3aed"}}
-    ]
-  }]
+"title": {"text": "Alberta Pipeline Network: Capacity by Commodity", "subtext": "Total export nameplate capacity — all four commodity streams", "left": "center"},
+"tooltip": {"trigger": "item"},
+"series": [{
+"type": "pie",
+"radius": ["35%", "65%"],
+"label": {"formatter": "{b}\n{d}%"},
+"data": [
+  {"value": 4594, "name": "Crude oil\n(000 bbl/d)", "itemStyle": {"color": "#2563eb"}},
+  {"value": 990,  "name": "NGL / Condensate\n(000 bbl/d)", "itemStyle": {"color": "#16a34a"}},
+  {"value": 374,  "name": "Refined products\n(000 bbl/d)", "itemStyle": {"color": "#f59e0b"}},
+  {"value": 10900,"name": "Natural gas\n(MMcf/d equiv.)", "itemStyle": {"color": "#7c3aed"}}
+]
+}]
 }'></div>
+```
 
 ### Figure 4 — Max Flow vs Minimum Cut by Market Corridor
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Max Flow to Each Market: Alberta Crude Export", "subtext": "000 bbl/d — limited by minimum cut on each source-to-sink routing", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["Direct pipeline capacity", "Min-cut constraint"], "bottom": 0},
-  "xAxis": {"type": "category", "data": ["Burnaby BC\n(Pacific)", "Cushing OK\n(Gulf)", "Patoka IL\n(Midwest)", "Superior WI\n(Midwest hub)", "Port Arthur TX\n(Gulf Coast)"]},
-  "yAxis": {"type": "value", "name": "000 bbl/d"},
-  "series": [
-    {
-      "name": "Direct pipeline capacity",
-      "type": "bar",
-      "data": [890, 590, 280, 3100, 600],
-      "itemStyle": {"color": "#93c5fd"}
-    },
-    {
-      "name": "Min-cut constraint",
-      "type": "bar",
-      "data": [890, 870, 870, 3100, 870],
-      "itemStyle": {"color": "#2563eb"},
-      "label": {"show": true, "position": "top", "formatter": "{c}"}
-    }
-  ]
+"title": {"text": "Max Flow to Each Market: Alberta Crude Export", "subtext": "000 bbl/d — limited by minimum cut on each source-to-sink routing", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["Direct pipeline capacity", "Min-cut constraint"], "bottom": 0},
+"xAxis": {"type": "category", "data": ["Burnaby BC\n(Pacific)", "Cushing OK\n(Gulf)", "Patoka IL\n(Midwest)", "Superior WI\n(Midwest hub)", "Port Arthur TX\n(Gulf Coast)"]},
+"yAxis": {"type": "value", "name": "000 bbl/d"},
+"series": [
+{
+  "name": "Direct pipeline capacity",
+  "type": "bar",
+  "data": [890, 590, 280, 3100, 600],
+  "itemStyle": {"color": "#93c5fd"}
+},
+{
+  "name": "Min-cut constraint",
+  "type": "bar",
+  "data": [890, 870, 870, 3100, 870],
+  "itemStyle": {"color": "#2563eb"},
+  "label": {"show": true, "position": "top", "formatter": "{c}"}
+}
+]
 }'></div>
+```
 
 ### Figure 5 — Integrated Network Flow: Sankey
 
+```{=html}
 <div data-viz="echarts" style="height:480px" data-options='{
-  "title": {"text": "Alberta Integrated Hydrocarbon Network", "subtext": "Multi-commodity flows — all pipeline systems combined (illustrative volumes)", "left": "center"},
-  "tooltip": {"trigger": "item"},
-  "series": [{
-    "type": "sankey",
-    "layout": "none",
-    "emphasis": {"focus": "adjacency"},
-    "nodeAlign": "left",
-    "data": [
-      {"name": "Oil Sands Production"},
-      {"name": "WCSB Gas / NGL"},
-      {"name": "Hardisty Hub"},
-      {"name": "Fort Saskatchewan"},
-      {"name": "AECO Hub"},
-      {"name": "Edmonton"},
-      {"name": "Enbridge Mainline →\nU.S. Midwest"},
-      {"name": "Trans Mountain →\nPacific"},
-      {"name": "Keystone →\nGulf Coast"},
-      {"name": "TC Mainline →\nEastern Canada"},
-      {"name": "Alliance →\nChicago"},
-      {"name": "Westcoast →\nPacific NW"},
-      {"name": "Refined Products →\nBC / East"},
-      {"name": "Ethane →\nPetrochemicals"}
-    ],
-    "links": [
-      {"source": "Oil Sands Production",  "target": "Hardisty Hub",            "value": 3300},
-      {"source": "WCSB Gas / NGL",        "target": "AECO Hub",                "value": 1500},
-      {"source": "WCSB Gas / NGL",        "target": "Fort Saskatchewan",       "value": 360},
-      {"source": "Hardisty Hub",          "target": "Enbridge Mainline →\nU.S. Midwest", "value": 2700},
-      {"source": "Hardisty Hub",          "target": "Trans Mountain →\nPacific","value": 890},
-      {"source": "Hardisty Hub",          "target": "Keystone →\nGulf Coast",  "value": 590},
-      {"source": "Fort Saskatchewan",     "target": "Hardisty Hub",            "value": 350},
-      {"source": "Fort Saskatchewan",     "target": "Ethane →\nPetrochemicals","value": 180},
-      {"source": "AECO Hub",              "target": "TC Mainline →\nEastern Canada","value": 4200},
-      {"source": "AECO Hub",              "target": "Alliance →\nChicago",     "value": 1600},
-      {"source": "AECO Hub",              "target": "Westcoast →\nPacific NW", "value": 2800},
-      {"source": "Edmonton",              "target": "Refined Products →\nBC / East","value": 194}
-    ]
-  }]
+"title": {"text": "Alberta Integrated Hydrocarbon Network", "subtext": "Multi-commodity flows — all pipeline systems combined (illustrative volumes)", "left": "center"},
+"tooltip": {"trigger": "item"},
+"series": [{
+"type": "sankey",
+"layout": "none",
+"emphasis": {"focus": "adjacency"},
+"nodeAlign": "left",
+"data": [
+  {"name": "Oil Sands Production"},
+  {"name": "WCSB Gas / NGL"},
+  {"name": "Hardisty Hub"},
+  {"name": "Fort Saskatchewan"},
+  {"name": "AECO Hub"},
+  {"name": "Edmonton"},
+  {"name": "Enbridge Mainline →\nU.S. Midwest"},
+  {"name": "Trans Mountain →\nPacific"},
+  {"name": "Keystone →\nGulf Coast"},
+  {"name": "TC Mainline →\nEastern Canada"},
+  {"name": "Alliance →\nChicago"},
+  {"name": "Westcoast →\nPacific NW"},
+  {"name": "Refined Products →\nBC / East"},
+  {"name": "Ethane →\nPetrochemicals"}
+],
+"links": [
+  {"source": "Oil Sands Production",  "target": "Hardisty Hub",            "value": 3300},
+  {"source": "WCSB Gas / NGL",        "target": "AECO Hub",                "value": 1500},
+  {"source": "WCSB Gas / NGL",        "target": "Fort Saskatchewan",       "value": 360},
+  {"source": "Hardisty Hub",          "target": "Enbridge Mainline →\nU.S. Midwest", "value": 2700},
+  {"source": "Hardisty Hub",          "target": "Trans Mountain →\nPacific","value": 890},
+  {"source": "Hardisty Hub",          "target": "Keystone →\nGulf Coast",  "value": 590},
+  {"source": "Fort Saskatchewan",     "target": "Hardisty Hub",            "value": 350},
+  {"source": "Fort Saskatchewan",     "target": "Ethane →\nPetrochemicals","value": 180},
+  {"source": "AECO Hub",              "target": "TC Mainline →\nEastern Canada","value": 4200},
+  {"source": "AECO Hub",              "target": "Alliance →\nChicago",     "value": 1600},
+  {"source": "AECO Hub",              "target": "Westcoast →\nPacific NW", "value": 2800},
+  {"source": "Edmonton",              "target": "Refined Products →\nBC / East","value": 194}
+]
+}]
 }'></div>
+```
 
 ---
 

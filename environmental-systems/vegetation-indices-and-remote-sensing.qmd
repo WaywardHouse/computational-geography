@@ -422,16 +422,16 @@ markArea: {
 silent: true,
 data: [
 [
-  { name: 'Blue', xAxis: 450 },
-  { xAxis: 500 }
+{ name: 'Blue', xAxis: 450 },
+{ xAxis: 500 }
 ],
 [
-  { name: 'Red', xAxis: 620 },
-  { xAxis: 700 }
+{ name: 'Red', xAxis: 620 },
+{ xAxis: 700 }
 ],
 [
-  { name: 'NIR', xAxis: 780 },
-  { xAxis: 900 }
+{ name: 'NIR', xAxis: 780 },
+{ xAxis: 900 }
 ]
 ],
 itemStyle: {
@@ -444,14 +444,14 @@ position: 'top'
 markPoint: {
 data: [
 { coord: [450, blue], symbol: 'circle', symbolSize: 10, 
-  itemStyle: { color: '#3498DB' }, 
-  label: { show: true, formatter: 'Blue', position: 'top' } },
+itemStyle: { color: '#3498DB' }, 
+label: { show: true, formatter: 'Blue', position: 'top' } },
 { coord: [670, red], symbol: 'circle', symbolSize: 10, 
-  itemStyle: { color: '#E74C3C' }, 
-  label: { show: true, formatter: 'Red', position: 'bottom' } },
+itemStyle: { color: '#E74C3C' }, 
+label: { show: true, formatter: 'Red', position: 'bottom' } },
 { coord: [850, nir], symbol: 'circle', symbolSize: 10, 
-  itemStyle: { color: '#8B4513' }, 
-  label: { show: true, formatter: 'NIR', position: 'top' } }
+itemStyle: { color: '#8B4513' }, 
+label: { show: true, formatter: 'NIR', position: 'top' } }
 ]
 }
 }

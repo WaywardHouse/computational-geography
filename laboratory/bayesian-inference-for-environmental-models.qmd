@@ -322,26 +322,28 @@ print(f"  90% interval: [{np.percentile(C60_pred,5):.2f}, {np.percentile(C60_pre
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Prior, Likelihood, and Posterior for Decay Rate k", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Prior p(k)", "Likelihood p(y|k) (scaled)", "Posterior p(k|y)"], "bottom": 0},
-  "xAxis": {"name": "Decay rate k (day⁻¹)", "nameLocation": "middle", "nameGap": 30,
-    "data": ["0.00","0.01","0.02","0.03","0.04","0.05","0.06","0.07","0.08","0.09","0.10"]},
-  "yAxis": {"name": "Relative density", "nameLocation": "middle", "nameGap": 45},
-  "series": [
-    {"name": "Prior p(k)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#90A4AE"},
-     "data": [0.5,2.2,6.1,12.1,17.6,19.9,17.6,12.1,6.1,2.2,0.5]},
-    {"name": "Likelihood p(y|k) (scaled)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [0.0,0.0,0.1,0.5,2.8,9.8,8.2,2.1,0.2,0.0,0.0]},
-    {"name": "Posterior p(k|y)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#C62828"},
-     "areaStyle": {"color": "#FFCDD2", "opacity": 0.5},
-     "data": [0.0,0.0,0.1,0.8,5.4,18.6,15.0,4.0,0.4,0.0,0.0]}
-  ]
+"title": {"text": "Prior, Likelihood, and Posterior for Decay Rate k", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Prior p(k)", "Likelihood p(y|k) (scaled)", "Posterior p(k|y)"], "bottom": 0},
+"xAxis": {"name": "Decay rate k (day⁻¹)", "nameLocation": "middle", "nameGap": 30,
+"data": ["0.00","0.01","0.02","0.03","0.04","0.05","0.06","0.07","0.08","0.09","0.10"]},
+"yAxis": {"name": "Relative density", "nameLocation": "middle", "nameGap": 45},
+"series": [
+{"name": "Prior p(k)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#90A4AE"},
+ "data": [0.5,2.2,6.1,12.1,17.6,19.9,17.6,12.1,6.1,2.2,0.5]},
+{"name": "Likelihood p(y|k) (scaled)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [0.0,0.0,0.1,0.5,2.8,9.8,8.2,2.1,0.2,0.0,0.0]},
+{"name": "Posterior p(k|y)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#C62828"},
+ "areaStyle": {"color": "#FFCDD2", "opacity": 0.5},
+ "data": [0.0,0.0,0.1,0.8,5.4,18.6,15.0,4.0,0.4,0.0,0.0]}
+]
 }'></div>
+```
 
 The posterior is concentrated between the prior (peaked at 0.05) and the likelihood (peaked near 0.051 from the MLE). With only one observation at t=30, the prior carries substantial weight and the posterior is noticeably narrower than either component alone — demonstrating Bayesian updating as a principled combination of prior knowledge and new evidence.
 

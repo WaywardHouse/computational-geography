@@ -422,25 +422,25 @@ data: [
 markPoint: {
 data: [
 {
-  coord: [Ic, 0],
-  symbol: 'circle',
-  symbolSize: 8,
-  itemStyle: { color: '#F39C12' },
-  label: { show: true, formatter: 'Ic', position: 'top' }
+coord: [Ic, 0],
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: { color: '#F39C12' },
+label: { show: true, formatter: 'Ic', position: 'top' }
 },
 {
-  coord: [Isat, 0.9 * (Amax - Rd)],
-  symbol: 'circle',
-  symbolSize: 8,
-  itemStyle: { color: '#9B59B6' },
-  label: { show: true, formatter: 'Isat', position: 'top' }
+coord: [Isat, 0.9 * (Amax - Rd)],
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: { color: '#9B59B6' },
+label: { show: true, formatter: 'Isat', position: 'top' }
 },
 {
-  coord: [currentLight, Anet_current],
-  symbol: 'pin',
-  symbolSize: 50,
-  itemStyle: { color: '#E74C3C' },
-  label: { show: true, formatter: 'Current', position: 'top' }
+coord: [currentLight, Anet_current],
+symbol: 'pin',
+symbolSize: 50,
+itemStyle: { color: '#E74C3C' },
+label: { show: true, formatter: 'Current', position: 'top' }
 }
 ]
 }

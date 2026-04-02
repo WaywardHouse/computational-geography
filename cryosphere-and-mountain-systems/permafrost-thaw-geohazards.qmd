@@ -418,7 +418,7 @@ else status = 'Permafrost loss';
     
 // Years to 3m thaw (simplified)
 const warmingRate = scenario === 'current' ? 0 : 
-         scenario === 'rcp45' ? 0.025 : 0.05; // °C/year
+scenario === 'rcp45' ? 0.025 : 0.05; // °C/year
     
 const targetTemp = 15; // temp for 3m thaw
 const yearsToThaw = warmingRate > 0 ? 
@@ -432,7 +432,7 @@ const years = 100;
 const data = [];
     
 const warmingRate = scenario === 'current' ? 0 : 
-         scenario === 'rcp45' ? 0.02 : 0.04;
+scenario === 'rcp45' ? 0.02 : 0.04;
     
 for (let year = 0; year <= years; year++) {
 const temp = summerTemp + warmingRate * year;

@@ -304,33 +304,35 @@ for d in [0, 100, 200, 400, 800]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Surface Energy Balance: Rural vs Urban (summer midday)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Rural vegetated", "Urban dense"], "bottom": 0},
-  "xAxis": {"type": "category",
-    "data": ["Net radiation Q*", "Sensible QH", "Latent QE", "Storage ΔQS", "Anthropogenic QF"],
-    "axisLabel": {"rotate": 12}},
-  "yAxis": {"name": "Energy flux (W m⁻²)", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 580},
-  "series": [
-    {"name": "Rural vegetated", "type": "bar",
-     "data": [
-       {"value": 445, "itemStyle": {"color": "#FFC107"}},
-       {"value": 133, "itemStyle": {"color": "#FF7043"}},
-       {"value": 267, "itemStyle": {"color": "#42A5F5"}},
-       {"value": 45,  "itemStyle": {"color": "#8D6E63"}},
-       {"value": 2,   "itemStyle": {"color": "#BDBDBD"}}
-     ]},
-    {"name": "Urban dense", "type": "bar",
-     "data": [
-       {"value": 510, "itemStyle": {"color": "#FFA000"}},
-       {"value": 357, "itemStyle": {"color": "#E53935"}},
-       {"value": 51,  "itemStyle": {"color": "#1E88E5"}},
-       {"value": 42,  "itemStyle": {"color": "#5D4037"}},
-       {"value": 60,  "itemStyle": {"color": "#757575"}}
-     ]}
-  ]
+"title": {"text": "Surface Energy Balance: Rural vs Urban (summer midday)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Rural vegetated", "Urban dense"], "bottom": 0},
+"xAxis": {"type": "category",
+"data": ["Net radiation Q*", "Sensible QH", "Latent QE", "Storage ΔQS", "Anthropogenic QF"],
+"axisLabel": {"rotate": 12}},
+"yAxis": {"name": "Energy flux (W m⁻²)", "nameLocation": "middle", "nameGap": 50, "min": 0, "max": 580},
+"series": [
+{"name": "Rural vegetated", "type": "bar",
+ "data": [
+   {"value": 445, "itemStyle": {"color": "#FFC107"}},
+   {"value": 133, "itemStyle": {"color": "#FF7043"}},
+   {"value": 267, "itemStyle": {"color": "#42A5F5"}},
+   {"value": 45,  "itemStyle": {"color": "#8D6E63"}},
+   {"value": 2,   "itemStyle": {"color": "#BDBDBD"}}
+ ]},
+{"name": "Urban dense", "type": "bar",
+ "data": [
+   {"value": 510, "itemStyle": {"color": "#FFA000"}},
+   {"value": 357, "itemStyle": {"color": "#E53935"}},
+   {"value": 51,  "itemStyle": {"color": "#1E88E5"}},
+   {"value": 42,  "itemStyle": {"color": "#5D4037"}},
+   {"value": 60,  "itemStyle": {"color": "#757575"}}
+ ]}
+]
 }'></div>
+```
 
 The energy balance shift from rural to urban is primarily the collapse of $Q_E$ (latent heat) and the corresponding rise in $Q_H$ (sensible heat). Rural areas route ~60% of net radiation into evaporation; dense urban areas route less than 10%. That additional ~200 W m⁻² of sensible heat directly warms the urban atmosphere. The anthropogenic term adds a further 60 W m⁻² with no rural analogue.
 

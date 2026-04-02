@@ -261,25 +261,27 @@ for T in [0, 5, 10, 15, 20, 25]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Soil Carbon Approach to New Equilibrium Under Changed Management", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Business as usual","Cover crops + no-till","Grassland restoration"], "bottom": 0},
-  "xAxis": {"name": "Years after management change", "nameLocation": "middle", "nameGap": 30,
-    "data": [0,5,10,15,20,25,30,40,50]},
-  "yAxis": {"name": "SOC (t C ha⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 25, "max": 70},
-  "series": [
-    {"name": "Business as usual", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#90A4AE"},
-     "data": [30.0, 30.9, 31.4, 31.7, 31.9, 32.0, 32.0, 32.0, 32.0]},
-    {"name": "Cover crops + no-till", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#2E7D32"},
-     "data": [30.0, 33.5, 36.2, 38.4, 40.1, 41.5, 42.6, 44.2, 45.5]},
-    {"name": "Grassland restoration", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#1565C0"},
-     "data": [30.0, 35.5, 40.0, 43.8, 47.0, 49.6, 51.9, 55.4, 58.3]}
-  ]
+"title": {"text": "Soil Carbon Approach to New Equilibrium Under Changed Management", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Business as usual","Cover crops + no-till","Grassland restoration"], "bottom": 0},
+"xAxis": {"name": "Years after management change", "nameLocation": "middle", "nameGap": 30,
+"data": [0,5,10,15,20,25,30,40,50]},
+"yAxis": {"name": "SOC (t C ha⁻¹)", "nameLocation": "middle", "nameGap": 50, "min": 25, "max": 70},
+"series": [
+{"name": "Business as usual", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#90A4AE"},
+ "data": [30.0, 30.9, 31.4, 31.7, 31.9, 32.0, 32.0, 32.0, 32.0]},
+{"name": "Cover crops + no-till", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#2E7D32"},
+ "data": [30.0, 33.5, 36.2, 38.4, 40.1, 41.5, 42.6, 44.2, 45.5]},
+{"name": "Grassland restoration", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#1565C0"},
+ "data": [30.0, 35.5, 40.0, 43.8, 47.0, 49.6, 51.9, 55.4, 58.3]}
+]
 }'></div>
+```
 
 Sequestration rates are highest in the early years (large disequilibrium), declining as the system approaches the new equilibrium. After 50 years, cover crops + no-till have added ~15 t C ha⁻¹; grassland restoration adds ~28 t C ha⁻¹. Neither reaches the new equilibrium within 50 years — maximum sequestration potential requires centuries of consistent management.
 

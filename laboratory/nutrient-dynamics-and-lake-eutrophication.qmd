@@ -288,25 +288,27 @@ for Cp_test in [20, 50, 80, 150]:
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "Vollenweider Diagram — Phosphorus Loading vs Lake Trophic State", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Predicted Chl-a (μg/L)", "Eutrophic threshold (Chl=8)", "Hypereutrophic threshold (Chl=25)"], "bottom": 0},
-  "xAxis": {"name": "Areal phosphorus loading (mg m⁻² yr⁻¹)", "nameLocation": "middle", "nameGap": 30,
-    "data": [50, 100, 200, 400, 800, 1200, 1600, 2400, 3200]},
-  "yAxis": {"name": "Predicted chlorophyll-a (μg L⁻¹)", "nameLocation": "middle", "nameGap": 55},
-  "series": [
-    {"name": "Predicted Chl-a (μg/L)", "type": "line", "smooth": true,
-     "itemStyle": {"color": "#2E7D32"},
-     "data": [1.5, 3.1, 6.5, 13.8, 29.4, 44.6, 59.8, 91.0, 122.0]},
-    {"name": "Eutrophic threshold (Chl=8)", "type": "line",
-     "lineStyle": {"type": "dashed", "color": "#F57F17"},
-     "data": [8,8,8,8,8,8,8,8,8]},
-    {"name": "Hypereutrophic threshold (Chl=25)", "type": "line",
-     "lineStyle": {"type": "dashed", "color": "#C62828"},
-     "data": [25,25,25,25,25,25,25,25,25]}
-  ]
+"title": {"text": "Vollenweider Diagram — Phosphorus Loading vs Lake Trophic State", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Predicted Chl-a (μg/L)", "Eutrophic threshold (Chl=8)", "Hypereutrophic threshold (Chl=25)"], "bottom": 0},
+"xAxis": {"name": "Areal phosphorus loading (mg m⁻² yr⁻¹)", "nameLocation": "middle", "nameGap": 30,
+"data": [50, 100, 200, 400, 800, 1200, 1600, 2400, 3200]},
+"yAxis": {"name": "Predicted chlorophyll-a (μg L⁻¹)", "nameLocation": "middle", "nameGap": 55},
+"series": [
+{"name": "Predicted Chl-a (μg/L)", "type": "line", "smooth": true,
+ "itemStyle": {"color": "#2E7D32"},
+ "data": [1.5, 3.1, 6.5, 13.8, 29.4, 44.6, 59.8, 91.0, 122.0]},
+{"name": "Eutrophic threshold (Chl=8)", "type": "line",
+ "lineStyle": {"type": "dashed", "color": "#F57F17"},
+ "data": [8,8,8,8,8,8,8,8,8]},
+{"name": "Hypereutrophic threshold (Chl=25)", "type": "line",
+ "lineStyle": {"type": "dashed", "color": "#C62828"},
+ "data": [25,25,25,25,25,25,25,25,25]}
+]
 }'></div>
+```
 
 The transition from mesotrophic to eutrophic occurs at ~200 mg m⁻² yr⁻¹ loading for this lake, and to hypereutrophic at ~900 mg m⁻² yr⁻¹. The Alberta lake in the worked example receives 3200 mg m⁻² yr⁻¹ — well into hypereutrophic territory. The steep slope of the curve at high loadings means that large reductions in loading produce relatively modest improvements in trophic state until loading falls below the eutrophic threshold.
 

@@ -114,36 +114,38 @@ Calgary's basic employment share was roughly 40–45% of total during the oil-pr
 
 A 30% contraction in basic employment — roughly what Calgary experienced across the 2015–2016 and 2020 downturns combined — propagates through the system in a predictable sequence.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{
-  "title": {"text": "Impact Propagation: 30% Basic Employment Shock (Calgary)", "left": "center", "subtext": "Waterfall chart — each bar shows the contribution of each mechanism to the total employment change"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "xAxis": {
-    "type": "category",
-    "data": ["Basic jobs lost", "Multiplier (non-basic)", "Agglomeration erosion", "Rent gradient collapse", "Density adjustment", "Net employment change"]
-  },
-  "yAxis": {
-    "type": "value",
-    "name": "Change in employment (thousands)",
-    "nameLocation": "middle",
-    "nameGap": 55,
-    "min": -95,
-    "max": 10
-  },
-  "series": [
-    {
-      "type": "bar",
-      "data": [
-        {"value": -40, "itemStyle": {"color": "#e05c5c"}},
-        {"value": -30, "itemStyle": {"color": "#e07a5c"}},
-        {"value": -10, "itemStyle": {"color": "#e0a05c"}},
-        {"value": -5, "itemStyle": {"color": "#c0b05c"}},
-        {"value": -3, "itemStyle": {"color": "#a0c05c"}},
-        {"value": -88, "itemStyle": {"color": "#5c3c3c"}}
-      ],
-      "label": {"show": true, "position": "bottom", "formatter": "{c}k"}
-    }
-  ]
+"title": {"text": "Impact Propagation: 30% Basic Employment Shock (Calgary)", "left": "center", "subtext": "Waterfall chart — each bar shows the contribution of each mechanism to the total employment change"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"xAxis": {
+"type": "category",
+"data": ["Basic jobs lost", "Multiplier (non-basic)", "Agglomeration erosion", "Rent gradient collapse", "Density adjustment", "Net employment change"]
+},
+"yAxis": {
+"type": "value",
+"name": "Change in employment (thousands)",
+"nameLocation": "middle",
+"nameGap": 55,
+"min": -95,
+"max": 10
+},
+"series": [
+{
+  "type": "bar",
+  "data": [
+    {"value": -40, "itemStyle": {"color": "#e05c5c"}},
+    {"value": -30, "itemStyle": {"color": "#e07a5c"}},
+    {"value": -10, "itemStyle": {"color": "#e0a05c"}},
+    {"value": -5, "itemStyle": {"color": "#c0b05c"}},
+    {"value": -3, "itemStyle": {"color": "#a0c05c"}},
+    {"value": -88, "itemStyle": {"color": "#5c3c3c"}}
+  ],
+  "label": {"show": true, "position": "bottom", "formatter": "{c}k"}
+}
+]
 }'></div>
+```
 
 The waterfall shows that a 40,000-job direct loss in the basic sector becomes an estimated 88,000-job total loss when the multiplier, agglomeration erosion, and density adjustment effects are included. Each stage amplifies the previous one. The agglomeration erosion effect reflects that some of the productivity premium which made Calgary attractive to basic-sector firms evaporates when the cluster contracts — reducing the incentive for future investment and slowing recovery.
 
@@ -151,48 +153,50 @@ The waterfall shows that a 40,000-job direct loss in the basic sector becomes an
 
 ## 5. Multi-Dimensional City Comparison
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{
-  "title": {"text": "Urban System Profile: Calgary vs Toronto vs Vancouver", "left": "center"},
-  "tooltip": {},
-  "legend": {"data": ["Calgary", "Toronto", "Vancouver"], "bottom": 0},
-  "radar": {
-    "indicator": [
-      {"name": "Rent Gradient Slope", "max": 100},
-      {"name": "Agglomeration Premium (%)", "max": 100},
-      {"name": "Zipf Rank (inverted)", "max": 100},
-      {"name": "LQ Concentration", "max": 100},
-      {"name": "Base Multiplier", "max": 100}
-    ],
-    "shape": "polygon",
-    "splitNumber": 4,
-    "axisName": {"color": "#333", "fontSize": 12}
-  },
-  "series": [
+"title": {"text": "Urban System Profile: Calgary vs Toronto vs Vancouver", "left": "center"},
+"tooltip": {},
+"legend": {"data": ["Calgary", "Toronto", "Vancouver"], "bottom": 0},
+"radar": {
+"indicator": [
+  {"name": "Rent Gradient Slope", "max": 100},
+  {"name": "Agglomeration Premium (%)", "max": 100},
+  {"name": "Zipf Rank (inverted)", "max": 100},
+  {"name": "LQ Concentration", "max": 100},
+  {"name": "Base Multiplier", "max": 100}
+],
+"shape": "polygon",
+"splitNumber": 4,
+"axisName": {"color": "#333", "fontSize": 12}
+},
+"series": [
+{
+  "type": "radar",
+  "data": [
     {
-      "type": "radar",
-      "data": [
-        {
-          "value": [80, 75, 55, 95, 70],
-          "name": "Calgary",
-          "itemStyle": {"color": "#e05c5c"},
-          "areaStyle": {"opacity": 0.15}
-        },
-        {
-          "value": [90, 90, 100, 30, 60],
-          "name": "Toronto",
-          "itemStyle": {"color": "#5c8ee0"},
-          "areaStyle": {"opacity": 0.15}
-        },
-        {
-          "value": [95, 65, 70, 40, 58],
-          "name": "Vancouver",
-          "itemStyle": {"color": "#6dba6d"},
-          "areaStyle": {"opacity": 0.15}
-        }
-      ]
+      "value": [80, 75, 55, 95, 70],
+      "name": "Calgary",
+      "itemStyle": {"color": "#e05c5c"},
+      "areaStyle": {"opacity": 0.15}
+    },
+    {
+      "value": [90, 90, 100, 30, 60],
+      "name": "Toronto",
+      "itemStyle": {"color": "#5c8ee0"},
+      "areaStyle": {"opacity": 0.15}
+    },
+    {
+      "value": [95, 65, 70, 40, 58],
+      "name": "Vancouver",
+      "itemStyle": {"color": "#6dba6d"},
+      "areaStyle": {"opacity": 0.15}
     }
   ]
+}
+]
 }'></div>
+```
 
 The radar chart encodes five dimensions (all scaled 0–100):
 
@@ -212,15 +216,17 @@ The models in this cluster have largely assumed a monocentric city structure —
 
 Calgary has developed notable subcentres: the University District, Kensington's commercial strip, the Airport Business Park, the Beltline mixed-use corridor, and the emerging Seton health and commercial campus in the southeast. Each subcentre has its own local bid-rent gradient, superimposed on the city-wide gradient.
 
+```{=html}
 <div data-leaflet data-lat="51.0447" data-lng="-114.0719" data-zoom="11" data-tiles="carto-dark" data-markers='[
-  {"lat": 51.0447, "lng": -114.0719, "label": "Downtown Core (CBD) — Peak office rent, energy HQ cluster"},
-  {"lat": 51.0367, "lng": -114.0986, "label": "Beltline — Mixed-use inner district, tech startups, hospitality"},
-  {"lat": 51.0686, "lng": -114.1290, "label": "Kensington — Commercial village, independent retail node"},
-  {"lat": 51.1282, "lng": -114.0100, "label": "Calgary International Airport — Logistics, aviation, business park"},
-  {"lat": 51.0217, "lng": -114.0720, "label": "Mission — Café district, professional services, residential premium"},
-  {"lat": 50.9413, "lng": -113.9997, "label": "Seton — Emerging health campus, South Health Campus, retail power centre"},
-  {"lat": 51.0797, "lng": -114.1311, "label": "University District — U of C, innovation corridor, knowledge economy"}
+{"lat": 51.0447, "lng": -114.0719, "label": "Downtown Core (CBD) — Peak office rent, energy HQ cluster"},
+{"lat": 51.0367, "lng": -114.0986, "label": "Beltline — Mixed-use inner district, tech startups, hospitality"},
+{"lat": 51.0686, "lng": -114.1290, "label": "Kensington — Commercial village, independent retail node"},
+{"lat": 51.1282, "lng": -114.0100, "label": "Calgary International Airport — Logistics, aviation, business park"},
+{"lat": 51.0217, "lng": -114.0720, "label": "Mission — Café district, professional services, residential premium"},
+{"lat": 50.9413, "lng": -113.9997, "label": "Seton — Emerging health campus, South Health Campus, retail power centre"},
+{"lat": 51.0797, "lng": -114.1311, "label": "University District — U of C, innovation corridor, knowledge economy"}
 ]'></div>
+```
 
 The Leaflet map shows Calgary's polycentric employment geography with concentric distance rings from the CBD implied by the marker distribution. Each node generates its own local agglomeration and its own contribution to the city's economic base. The integrated model applies at the level of the metropolitan system, not just the CBD.
 

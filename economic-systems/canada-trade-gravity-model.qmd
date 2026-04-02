@@ -155,29 +155,31 @@ origin. These are goods-trade figures; they exclude pipeline crude oil and natur
 gas from Alberta, which are accounted for in energy trade statistics under
 different commodity classifications.
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Canada-US Goods Trade by Province (2023)", "subtext": "Estimated two-way goods trade, CAD$ billions. Excludes pipeline crude and natural gas.", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "grid": {"left": "4%", "right": "8%", "bottom": "5%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "CAD$ billions"},
-  "yAxis": {"type": "category", "data": ["PEI","NL","NS","MB","NB","SK","BC","QC","AB","ON"], "axisLabel": {"fontSize": 12}},
-  "series": [{
-    "type": "bar",
-    "label": {"show": true, "position": "right", "formatter": "{c}B"},
-    "data": [
-      {"value": 3,   "itemStyle": {"color": "#bfdbfe"}},
-      {"value": 12,  "itemStyle": {"color": "#93c5fd"}},
-      {"value": 15,  "itemStyle": {"color": "#7dd3fc"}},
-      {"value": 28,  "itemStyle": {"color": "#60a5fa"}},
-      {"value": 18,  "itemStyle": {"color": "#4db8ff"}},
-      {"value": 45,  "itemStyle": {"color": "#3b82f6"}},
-      {"value": 90,  "itemStyle": {"color": "#2563eb"}},
-      {"value": 120, "itemStyle": {"color": "#1d4ed8"}},
-      {"value": 175, "itemStyle": {"color": "#1e40af"}},
-      {"value": 310, "itemStyle": {"color": "#1e3a8a"}}
-    ]
-  }]
+"title": {"text": "Canada-US Goods Trade by Province (2023)", "subtext": "Estimated two-way goods trade, CAD$ billions. Excludes pipeline crude and natural gas.", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "4%", "right": "8%", "bottom": "5%", "containLabel": true},
+"xAxis": {"type": "value", "name": "CAD$ billions"},
+"yAxis": {"type": "category", "data": ["PEI","NL","NS","MB","NB","SK","BC","QC","AB","ON"], "axisLabel": {"fontSize": 12}},
+"series": [{
+"type": "bar",
+"label": {"show": true, "position": "right", "formatter": "{c}B"},
+"data": [
+  {"value": 3,   "itemStyle": {"color": "#bfdbfe"}},
+  {"value": 12,  "itemStyle": {"color": "#93c5fd"}},
+  {"value": 15,  "itemStyle": {"color": "#7dd3fc"}},
+  {"value": 28,  "itemStyle": {"color": "#60a5fa"}},
+  {"value": 18,  "itemStyle": {"color": "#4db8ff"}},
+  {"value": 45,  "itemStyle": {"color": "#3b82f6"}},
+  {"value": 90,  "itemStyle": {"color": "#2563eb"}},
+  {"value": 120, "itemStyle": {"color": "#1d4ed8"}},
+  {"value": 175, "itemStyle": {"color": "#1e40af"}},
+  {"value": 310, "itemStyle": {"color": "#1e3a8a"}}
+]
+}]
 }'></div>
+```
 
 *Ontario's dominance reflects both GDP size and geographic proximity to Detroit, Buffalo, and the US manufacturing corridor. Alberta's figure of CAD&#36;175B substantially understates total US-bound flows — crude oil pipeline exports add another CAD&#36;130B+ that does not appear in goods-trade statistics.*
 
@@ -224,37 +226,39 @@ that have been built on the assumption of frictionless crossing. The estimated
 border effect multiplier is expected to rise — the chart below shows the
 historical trajectory and projects the 2025 reversal.
 
+```{=html}
 <div data-viz="echarts" style="height:320px" data-options='{
-  "title": {"text": "Canada-US Border Effect Multiplier Over Time", "subtext": "How many times more provinces trade with each other vs equivalent US states at same distance", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "grid": {"left": "3%", "right": "4%", "bottom": "10%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["1988\npre-FTA", "1995\nMcCallum", "2001", "2008", "2014", "2020", "2023", "2025\ntariffs"]},
-  "yAxis": {"type": "value", "name": "Border effect multiplier", "min": 0},
-  "series": [{
-    "name": "Border effect multiplier",
-    "type": "line",
-    "smooth": true,
-    "symbol": "circle",
-    "symbolSize": 8,
-    "itemStyle": {"color": "#1e40af"},
-    "areaStyle": {"opacity": 0.15, "color": "#1e40af"},
-    "data": [30, 22, 18, 14, 11, 9, 8, 12],
-    "markLine": {
-      "symbol": "none",
-      "lineStyle": {"color": "#16a34a", "type": "dashed", "width": 2},
-      "label": {"formatter": "Frictionless border = 1", "position": "insideEndTop"},
-      "data": [{"yAxis": 1}]
-    },
-    "markPoint": {
-      "data": [
-        {"name": "McCallum (1995)", "coord": ["1995\nMcCallum", 22]},
-        {"name": "2025 reversal", "coord": ["2025\ntariffs", 12]}
-      ],
-      "itemStyle": {"color": "#dc2626"},
-      "label": {"formatter": "{b}"}
-    }
-  }]
+"title": {"text": "Canada-US Border Effect Multiplier Over Time", "subtext": "How many times more provinces trade with each other vs equivalent US states at same distance", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"grid": {"left": "3%", "right": "4%", "bottom": "10%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["1988\npre-FTA", "1995\nMcCallum", "2001", "2008", "2014", "2020", "2023", "2025\ntariffs"]},
+"yAxis": {"type": "value", "name": "Border effect multiplier", "min": 0},
+"series": [{
+"name": "Border effect multiplier",
+"type": "line",
+"smooth": true,
+"symbol": "circle",
+"symbolSize": 8,
+"itemStyle": {"color": "#1e40af"},
+"areaStyle": {"opacity": 0.15, "color": "#1e40af"},
+"data": [30, 22, 18, 14, 11, 9, 8, 12],
+"markLine": {
+  "symbol": "none",
+  "lineStyle": {"color": "#16a34a", "type": "dashed", "width": 2},
+  "label": {"formatter": "Frictionless border = 1", "position": "insideEndTop"},
+  "data": [{"yAxis": 1}]
+},
+"markPoint": {
+  "data": [
+    {"name": "McCallum (1995)", "coord": ["1995\nMcCallum", 22]},
+    {"name": "2025 reversal", "coord": ["2025\ntariffs", 12]}
+  ],
+  "itemStyle": {"color": "#dc2626"},
+  "label": {"formatter": "{b}"}
+}
+}]
 }'></div>
+```
 
 *The 2025 tariff spike reverses three decades of integration. A multiplier of 12 means that, controlling for economic size and distance, provinces still trade twelve times more with each other than with equivalent US states. The green dashed line at y=1 represents a theoretically frictionless border — a level no real border in the world has ever achieved.*
 
@@ -294,43 +298,45 @@ gravity model was originally calibrated on. The gravity model performs best
 when trade is diversified across many commodity classes. For highly specialised
 commodity exporters, the model captures less of the variation.
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Provincial GDP vs US Goods Trade — Gravity Scatter", "subtext": "Log-log axes. Red dashed line = gravity model prediction. Points below the line underperform gravity prediction.", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: GDP ${c[0]}B, US trade ${c[1]}B"},
-  "grid": {"left": "5%", "right": "5%", "bottom": "10%", "containLabel": true},
-  "xAxis": {"type": "log", "name": "Provincial GDP (CAD$B)", "nameLocation": "middle", "nameGap": 30, "min": 30, "max": 1100},
-  "yAxis": {"type": "log", "name": "US Goods Trade (CAD$B)", "nameLocation": "middle", "nameGap": 40, "min": 2, "max": 400},
-  "series": [
-    {
-      "name": "Gravity prediction",
-      "type": "line",
-      "smooth": false,
-      "symbol": "none",
-      "lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
-      "data": [[30,3],[90,10],[960,310]],
-      "label": {"show": false}
-    },
-    {
-      "name": "Province",
-      "type": "scatter",
-      "symbolSize": 14,
-      "itemStyle": {"color": "#1e40af", "opacity": 0.85},
-      "label": {"show": true, "position": "right", "formatter": "{@[2]}"},
-      "data": [
-        [960, 310, "ON"],
-        [450, 175, "AB"],
-        [520, 120, "QC"],
-        [400, 90,  "BC"],
-        [100, 45,  "SK"],
-        [90,  28,  "MB"],
-        [55,  18,  "NB"],
-        [50,  15,  "NS"],
-        [40,  12,  "NL"],
-        [38,  3,   "PEI"]
-      ]
-    }
+"title": {"text": "Provincial GDP vs US Goods Trade — Gravity Scatter", "subtext": "Log-log axes. Red dashed line = gravity model prediction. Points below the line underperform gravity prediction.", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: GDP ${c[0]}B, US trade ${c[1]}B"},
+"grid": {"left": "5%", "right": "5%", "bottom": "10%", "containLabel": true},
+"xAxis": {"type": "log", "name": "Provincial GDP (CAD$B)", "nameLocation": "middle", "nameGap": 30, "min": 30, "max": 1100},
+"yAxis": {"type": "log", "name": "US Goods Trade (CAD$B)", "nameLocation": "middle", "nameGap": 40, "min": 2, "max": 400},
+"series": [
+{
+  "name": "Gravity prediction",
+  "type": "line",
+  "smooth": false,
+  "symbol": "none",
+  "lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
+  "data": [[30,3],[90,10],[960,310]],
+  "label": {"show": false}
+},
+{
+  "name": "Province",
+  "type": "scatter",
+  "symbolSize": 14,
+  "itemStyle": {"color": "#1e40af", "opacity": 0.85},
+  "label": {"show": true, "position": "right", "formatter": "{@[2]}"},
+  "data": [
+    [960, 310, "ON"],
+    [450, 175, "AB"],
+    [520, 120, "QC"],
+    [400, 90,  "BC"],
+    [100, 45,  "SK"],
+    [90,  28,  "MB"],
+    [55,  18,  "NB"],
+    [50,  15,  "NS"],
+    [40,  12,  "NL"],
+    [38,  3,   "PEI"]
   ]
+}
+]
 }'></div>
+```
 
 *Alberta (AB) falls below the gravity prediction line, but this reflects the exclusion of pipeline crude oil and gas from goods-trade statistics. Quebec (QC) also underperforms somewhat, reflecting its export structure and distance effects. Saskatchewan (SK) overperforms relative to its GDP due to high-value agricultural and potash exports to specific US destinations.*
 
@@ -346,24 +352,26 @@ model analyses: the province is not an underperformer by economic geography —
 it is an economy whose primary export mode is systematically excluded from the
 datasets on which gravity models are typically calibrated.
 
+```{=html}
 <div data-viz="echarts" style="height:340px" data-options='{
-  "title": {"text": "Alberta Exports to US by Channel (CAD$B/yr, estimated)", "subtext": "Pipeline categories are excluded from standard goods-trade statistics — explaining Alberta gravity model underperformance", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: CAD${c}B ({d}%)"},
-  "legend": {"orient": "vertical", "right": 10, "top": "center"},
-  "series": [{
-    "type": "pie",
-    "radius": ["42%", "68%"],
-    "center": ["38%", "55%"],
-    "label": {"formatter": "{d}%"},
-    "data": [
-      {"value": 130, "name": "Crude oil — pipeline",           "itemStyle": {"color": "#1e3a8a"}},
-      {"value": 25,  "name": "Natural gas — pipeline",         "itemStyle": {"color": "#2563eb"}},
-      {"value": 20,  "name": "Agricultural products",          "itemStyle": {"color": "#16a34a"}},
-      {"value": 15,  "name": "Petrochemicals and NGL",         "itemStyle": {"color": "#f59e0b"}},
-      {"value": 10,  "name": "Other goods",                    "itemStyle": {"color": "#6b7280"}}
-    ]
-  }]
+"title": {"text": "Alberta Exports to US by Channel (CAD$B/yr, estimated)", "subtext": "Pipeline categories are excluded from standard goods-trade statistics — explaining Alberta gravity model underperformance", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: CAD${c}B ({d}%)"},
+"legend": {"orient": "vertical", "right": 10, "top": "center"},
+"series": [{
+"type": "pie",
+"radius": ["42%", "68%"],
+"center": ["38%", "55%"],
+"label": {"formatter": "{d}%"},
+"data": [
+  {"value": 130, "name": "Crude oil — pipeline",           "itemStyle": {"color": "#1e3a8a"}},
+  {"value": 25,  "name": "Natural gas — pipeline",         "itemStyle": {"color": "#2563eb"}},
+  {"value": 20,  "name": "Agricultural products",          "itemStyle": {"color": "#16a34a"}},
+  {"value": 15,  "name": "Petrochemicals and NGL",         "itemStyle": {"color": "#f59e0b"}},
+  {"value": 10,  "name": "Other goods",                    "itemStyle": {"color": "#6b7280"}}
+]
+}]
 }'></div>
+```
 
 *Pipeline exports (crude oil + natural gas) account for roughly 77% of Alberta's total exports to the United States by value. These flows move through entirely separate trade statistics and infrastructure channels, and are invisible to gravity model analyses based on goods-trade data alone.*
 

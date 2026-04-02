@@ -319,22 +319,24 @@ print("\nUpdated grid:\n", new_grid.astype(int))
 
 ## 6. Visualization
 
+```{=html}
 <div data-viz="echarts" style="height:420px" data-options='{
-  "title": {"text": "CA Urban Growth: Simulated Developed Area vs Year (Three Scenarios)", "textStyle": {"fontSize": 14}},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Sprawl", "Business as usual", "Compact growth"], "bottom": 0},
-  "xAxis": {"name": "Year", "nameLocation": "middle", "nameGap": 30,
-    "data": [2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060]},
-  "yAxis": {"name": "Developed area (km²)", "nameLocation": "middle", "nameGap": 55, "min": 100},
-  "series": [
-    {"name": "Sprawl", "type": "line", "smooth": true,
-     "data": [120, 148, 183, 224, 272, 328, 392, 465]},
-    {"name": "Business as usual", "type": "line", "smooth": true,
-     "data": [120, 140, 163, 190, 220, 254, 291, 333]},
-    {"name": "Compact growth", "type": "line", "smooth": true,
-     "data": [120, 132, 146, 161, 177, 195, 215, 236]}
-  ]
+"title": {"text": "CA Urban Growth: Simulated Developed Area vs Year (Three Scenarios)", "textStyle": {"fontSize": 14}},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Sprawl", "Business as usual", "Compact growth"], "bottom": 0},
+"xAxis": {"name": "Year", "nameLocation": "middle", "nameGap": 30,
+"data": [2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060]},
+"yAxis": {"name": "Developed area (km²)", "nameLocation": "middle", "nameGap": 55, "min": 100},
+"series": [
+{"name": "Sprawl", "type": "line", "smooth": true,
+ "data": [120, 148, 183, 224, 272, 328, 392, 465]},
+{"name": "Business as usual", "type": "line", "smooth": true,
+ "data": [120, 140, 163, 190, 220, 254, 291, 333]},
+{"name": "Compact growth", "type": "line", "smooth": true,
+ "data": [120, 132, 146, 161, 177, 195, 215, 236]}
+]
 }'></div>
+```
 
 By 2060, the sprawl scenario produces nearly 2× the developed area of the compact growth scenario for the same population growth. The difference — approximately 230 km² of agricultural and natural land — represents the land use consequence of policy choices made over the next 35 years. The compact scenario achieves the same population accommodation in half the footprint through infill and density intensification, reducing infrastructure costs per capita and preserving agricultural land.
 

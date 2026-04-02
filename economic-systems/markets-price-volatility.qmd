@@ -85,8 +85,10 @@ $$\bar{\sigma}^2 = \frac{\omega}{1 - \alpha - \beta}$$
 
 At $\alpha + \beta = 0.97$, the denominator is only 0.03 — small shocks to $\omega$ produce large changes in long-run volatility. This is why oil price regime changes (new OPEC policy, energy transition demand shift) have outsized effects on long-run price uncertainty.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "WTI 30-Day Realised Volatility 2010–2024 with GARCH Overlay", "subtext": "Annualised volatility (%) — realised (bars) and GARCH(1,1) fitted conditional volatility (line)"}, "tooltip": {"trigger": "axis", "axisPointer": {"type": "cross"}}, "legend": {"data": ["Realised Volatility (30d)", "GARCH(1,1) Fitted"], "bottom": 0}, "xAxis": {"type": "category", "data": ["Jan 2010","Jan 2011","Jan 2012","Jan 2013","Jan 2014","Jan 2015","Jan 2016","Jan 2017","Jan 2018","Jan 2019","Jan 2020","Apr 2020","Jan 2021","Jan 2022","Jul 2022","Jan 2023","Jan 2024"]}, "yAxis": {"type": "value", "name": "Annualised Volatility (%)", "min": 0, "max": 120}, "series": [{"name": "Realised Volatility (30d)", "type": "bar", "data": [32, 28, 24, 18, 22, 45, 50, 28, 32, 38, 55, 112, 48, 38, 45, 30, 28], "itemStyle": {"color": "#5470c6", "opacity": 0.6}}, {"name": "GARCH(1,1) Fitted", "type": "line", "smooth": true, "data": [30, 26, 22, 20, 24, 38, 44, 28, 30, 35, 48, 88, 52, 40, 43, 32, 28], "lineStyle": {"width": 2}, "itemStyle": {"color": "#ee6666"}}]}'>
 </div>
+```
 
 The chart makes volatility clustering visible: the 2015–16 period (OPEC supply war), the April 2020 COVID collapse (peak at over 100%), and the 2022 Ukraine shock all produced persistent elevated volatility — not single spikes but sustained periods of high conditional variance. The GARCH model tracks these clusters closely because it builds in the persistence structure.
 
@@ -157,8 +159,10 @@ where $\beta$ is estimated at roughly 1.5–2.0 (in proportional terms): a 10% d
 
 This high beta reflects the royalty dependence identified in the RE cluster: when oil prices fall, royalties collapse, but the government's spending obligations do not. The structural deficit created by a 20% revenue fall in a single year is not closable by normal fiscal adjustment.
 
+```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Alberta Government Revenue: With vs Without Oil Royalties", "subtext": "Illustrating total revenue volatility reduction through fiscal diversification (CAD billion)"}, "tooltip": {"trigger": "axis"}, "legend": {"data": ["Total Revenue (historical)", "Non-royalty Revenue (stable base)", "Royalty Revenue (volatile)", "Diversified Target (royalties capped at 15%)"], "bottom": 0}, "xAxis": {"type": "category", "data": ["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024"]}, "yAxis": {"type": "value", "name": "CAD Billion", "min": 0, "max": 80}, "series": [{"name": "Non-royalty Revenue (stable base)", "type": "bar", "stack": "revenue", "data": [32, 34, 35, 36, 37, 33, 32, 34, 35, 36, 32, 35, 40, 43, 45], "itemStyle": {"color": "#5470c6"}}, {"name": "Royalty Revenue (volatile)", "type": "bar", "stack": "revenue", "data": [8, 9, 8, 7, 9, 3, 2, 5, 9, 5, 2, 8, 25, 16, 12], "itemStyle": {"color": "#ee6666", "opacity": 0.8}}, {"name": "Total Revenue (historical)", "type": "line", "data": [40, 43, 43, 43, 46, 36, 34, 39, 44, 41, 34, 43, 65, 59, 57], "lineStyle": {"width": 2, "type": "dashed"}, "itemStyle": {"color": "#333"}}, {"name": "Diversified Target (royalties capped at 15%)", "type": "line", "smooth": true, "data": [38, 40, 41, 42, 43, 38, 37, 40, 41, 41, 37, 40, 46, 49, 52], "lineStyle": {"width": 2}, "itemStyle": {"color": "#fac858"}}]}'>
 </div>
+```
 
 The chart makes the stability case for fiscal diversification concrete. The royalty-inclusive revenue (stacked bars) swings from &#36;34 billion in bust years to &#36;65 billion in the 2022 boom — a &#36;31 billion range. A diversification strategy that caps the royalty contribution and directs excess to a stabilisation fund would produce a smoother, more predictable revenue profile (gold line) — with lower peak revenues but dramatically lower trough risks.
 

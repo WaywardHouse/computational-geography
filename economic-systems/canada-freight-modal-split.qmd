@@ -190,26 +190,28 @@ the freight rate premium.
 
 ## 4. Cost Comparison by Mode
 
+```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-  "title": {"text": "Freight Cost by Mode — CAD$/Tonne-Kilometre", "subtext": "Log scale. Typical long-haul rates; excludes terminal costs. Pipeline included for comparison.", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}, "formatter": "{b}: CAD${c}/tonne-km"},
-  "grid": {"left": "3%", "right": "4%", "bottom": "8%", "containLabel": true},
-  "xAxis": {"type": "category", "axisLabel": {"interval": 0, "fontSize": 11}, "data": ["Air", "Truck\n(short-haul)", "Truck\n(long-haul TL)", "Rail\n(intermodal)", "Rail\n(bulk)", "Marine\n(coastal)", "Marine\n(ocean)"]},
-  "yAxis": {"type": "log", "name": "CAD$/tonne-km (log scale)", "min": 0.001},
-  "series": [{
-    "type": "bar",
-    "label": {"show": true, "position": "top", "formatter": "{c}"},
-    "data": [
-      {"value": 3.50, "itemStyle": {"color": "#dc2626"}},
-      {"value": 0.18, "itemStyle": {"color": "#f87171"}},
-      {"value": 0.13, "itemStyle": {"color": "#fca5a5"}},
-      {"value": 0.07, "itemStyle": {"color": "#60a5fa"}},
-      {"value": 0.04, "itemStyle": {"color": "#2563eb"}},
-      {"value": 0.02, "itemStyle": {"color": "#16a34a"}},
-      {"value": 0.006,"itemStyle": {"color": "#15803d"}}
-    ]
-  }]
+"title": {"text": "Freight Cost by Mode — CAD$/Tonne-Kilometre", "subtext": "Log scale. Typical long-haul rates; excludes terminal costs. Pipeline included for comparison.", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}, "formatter": "{b}: CAD${c}/tonne-km"},
+"grid": {"left": "3%", "right": "4%", "bottom": "8%", "containLabel": true},
+"xAxis": {"type": "category", "axisLabel": {"interval": 0, "fontSize": 11}, "data": ["Air", "Truck\n(short-haul)", "Truck\n(long-haul TL)", "Rail\n(intermodal)", "Rail\n(bulk)", "Marine\n(coastal)", "Marine\n(ocean)"]},
+"yAxis": {"type": "log", "name": "CAD$/tonne-km (log scale)", "min": 0.001},
+"series": [{
+"type": "bar",
+"label": {"show": true, "position": "top", "formatter": "{c}"},
+"data": [
+  {"value": 3.50, "itemStyle": {"color": "#dc2626"}},
+  {"value": 0.18, "itemStyle": {"color": "#f87171"}},
+  {"value": 0.13, "itemStyle": {"color": "#fca5a5"}},
+  {"value": 0.07, "itemStyle": {"color": "#60a5fa"}},
+  {"value": 0.04, "itemStyle": {"color": "#2563eb"}},
+  {"value": 0.02, "itemStyle": {"color": "#16a34a"}},
+  {"value": 0.006,"itemStyle": {"color": "#15803d"}}
+]
+}]
 }'></div>
+```
 
 *Air freight is three orders of magnitude more expensive than ocean marine. Rail bulk at CAD&#36;0.04/tonne-km is roughly 3x more expensive than coastal marine, but rail can reach inland origins and destinations where marine cannot. The log scale is necessary to display this range.*
 
@@ -217,55 +219,57 @@ the freight rate premium.
 
 ## 5. Break-Even Distance Analysis
 
+```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-  "title": {"text": "Total Logistics Cost vs Distance — Mode Comparison", "subtext": "Includes terminal handling costs. Truck base = CAD&#36;50 terminal; Rail = CAD&#36;80 terminal; Marine = CAD&#36;120 terminal.", "left": "center"},
-  "tooltip": {"trigger": "axis"},
-  "legend": {"data": ["Truck (TL)", "Rail (intermodal)", "Marine"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "12%", "containLabel": true},
-  "xAxis": {"type": "value", "name": "Distance (km)", "min": 0, "max": 3000},
-  "yAxis": {"type": "value", "name": "Total logistics cost (CAD$/tonne)", "min": 0, "max": 500},
-  "series": [
-    {
-      "name": "Truck (TL)",
-      "type": "line",
-      "smooth": false,
-      "symbol": "none",
-      "itemStyle": {"color": "#dc2626"},
-      "lineStyle": {"width": 3},
-      "data": [[0,50],[200,78],[500,120],[800,162],[1000,190],[1500,260],[2000,330],[3000,470]],
-      "markPoint": {
-        "symbol": "pin",
-        "data": [{"name": "Break-even truck/rail", "coord": [700, 125]}],
-        "itemStyle": {"color": "#7c3aed"},
-        "label": {"formatter": "Break-even\n~700 km"}
-      }
-    },
-    {
-      "name": "Rail (intermodal)",
-      "type": "line",
-      "smooth": false,
-      "symbol": "none",
-      "itemStyle": {"color": "#2563eb"},
-      "lineStyle": {"width": 3},
-      "data": [[0,80],[200,93],[500,112.5],[800,132],[1000,145],[1500,177.5],[2000,210],[3000,275]],
-      "markPoint": {
-        "symbol": "pin",
-        "data": [{"name": "Break-even rail/marine", "coord": [1700, 154]}],
-        "itemStyle": {"color": "#d97706"},
-        "label": {"formatter": "Break-even\n~1700 km"}
-      }
-    },
-    {
-      "name": "Marine",
-      "type": "line",
-      "smooth": false,
-      "symbol": "none",
-      "itemStyle": {"color": "#16a34a"},
-      "lineStyle": {"width": 3},
-      "data": [[0,120],[500,130],[1000,140],[1500,150],[2000,160],[3000,180]]
-    }
-  ]
+"title": {"text": "Total Logistics Cost vs Distance — Mode Comparison", "subtext": "Includes terminal handling costs. Truck base = CAD&#36;50 terminal; Rail = CAD&#36;80 terminal; Marine = CAD&#36;120 terminal.", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"data": ["Truck (TL)", "Rail (intermodal)", "Marine"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "12%", "containLabel": true},
+"xAxis": {"type": "value", "name": "Distance (km)", "min": 0, "max": 3000},
+"yAxis": {"type": "value", "name": "Total logistics cost (CAD$/tonne)", "min": 0, "max": 500},
+"series": [
+{
+  "name": "Truck (TL)",
+  "type": "line",
+  "smooth": false,
+  "symbol": "none",
+  "itemStyle": {"color": "#dc2626"},
+  "lineStyle": {"width": 3},
+  "data": [[0,50],[200,78],[500,120],[800,162],[1000,190],[1500,260],[2000,330],[3000,470]],
+  "markPoint": {
+    "symbol": "pin",
+    "data": [{"name": "Break-even truck/rail", "coord": [700, 125]}],
+    "itemStyle": {"color": "#7c3aed"},
+    "label": {"formatter": "Break-even\n~700 km"}
+  }
+},
+{
+  "name": "Rail (intermodal)",
+  "type": "line",
+  "smooth": false,
+  "symbol": "none",
+  "itemStyle": {"color": "#2563eb"},
+  "lineStyle": {"width": 3},
+  "data": [[0,80],[200,93],[500,112.5],[800,132],[1000,145],[1500,177.5],[2000,210],[3000,275]],
+  "markPoint": {
+    "symbol": "pin",
+    "data": [{"name": "Break-even rail/marine", "coord": [1700, 154]}],
+    "itemStyle": {"color": "#d97706"},
+    "label": {"formatter": "Break-even\n~1700 km"}
+  }
+},
+{
+  "name": "Marine",
+  "type": "line",
+  "smooth": false,
+  "symbol": "none",
+  "itemStyle": {"color": "#16a34a"},
+  "lineStyle": {"width": 3},
+  "data": [[0,120],[500,130],[1000,140],[1500,150],[2000,160],[3000,180]]
+}
+]
 }'></div>
+```
 
 *The cross-over points are the break-even distances. Below ~700 km, truck's lower terminal cost outweighs its higher variable rate; above ~700 km, rail's lower variable rate wins. Marine only becomes competitive beyond ~1,700 km for non-time-sensitive goods with water-adjacent origins and destinations.*
 
@@ -309,24 +313,26 @@ as the two national carriers no longer contest each other's captive lanes.
 
 ## 7. Canadian Freight Modal Split
 
+```{=html}
 <div data-viz="echarts" style="height:300px" data-options='{
-  "title": {"text": "Canadian Freight by Mode — Tonne-Kilometre Share (2023)", "subtext": "Includes all domestic and international freight originating or terminating in Canada.", "left": "center"},
-  "tooltip": {"trigger": "item", "formatter": "{b}: {c}% ({d}%)"},
-  "legend": {"orient": "vertical", "right": 10, "top": "center"},
-  "series": [{
-    "type": "pie",
-    "radius": ["42%", "68%"],
-    "center": ["38%", "55%"],
-    "label": {"formatter": "{b}\n{d}%"},
-    "data": [
-      {"value": 44, "name": "Rail",      "itemStyle": {"color": "#2563eb"}},
-      {"value": 37, "name": "Truck",     "itemStyle": {"color": "#dc2626"}},
-      {"value": 12, "name": "Pipeline",  "itemStyle": {"color": "#f59e0b"}},
-      {"value": 6,  "name": "Marine",    "itemStyle": {"color": "#16a34a"}},
-      {"value": 1,  "name": "Air",       "itemStyle": {"color": "#6b7280"}}
-    ]
-  }]
+"title": {"text": "Canadian Freight by Mode — Tonne-Kilometre Share (2023)", "subtext": "Includes all domestic and international freight originating or terminating in Canada.", "left": "center"},
+"tooltip": {"trigger": "item", "formatter": "{b}: {c}% ({d}%)"},
+"legend": {"orient": "vertical", "right": 10, "top": "center"},
+"series": [{
+"type": "pie",
+"radius": ["42%", "68%"],
+"center": ["38%", "55%"],
+"label": {"formatter": "{b}\n{d}%"},
+"data": [
+  {"value": 44, "name": "Rail",      "itemStyle": {"color": "#2563eb"}},
+  {"value": 37, "name": "Truck",     "itemStyle": {"color": "#dc2626"}},
+  {"value": 12, "name": "Pipeline",  "itemStyle": {"color": "#f59e0b"}},
+  {"value": 6,  "name": "Marine",    "itemStyle": {"color": "#16a34a"}},
+  {"value": 1,  "name": "Air",       "itemStyle": {"color": "#6b7280"}}
+]
+}]
 }'></div>
+```
 
 *Rail dominates by tonne-kilometre because it handles the enormous bulk volumes of Prairie grain, potash, coal, and forest products over transcontinental distances. Truck dominates by shipment count (not shown) because short-haul, small-shipment, and high-frequency freight moves by truck regardless of commodity.*
 
@@ -358,30 +364,32 @@ and Prince Rupert for Asian markets) while reducing demand for the truck-heavy
 US-border movements that historically served US domestic grain, lumber, and
 potash customers.
 
+```{=html}
 <div data-viz="echarts" style="height:340px" data-options='{
-  "title": {"text": "Modal Split Shift Under 2025 Tariff Scenario", "subtext": "Truck percentage of mode mix by commodity. Volume reduction not shown — only modal share within remaining flows.", "left": "center"},
-  "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
-  "legend": {"data": ["2024 (% by truck)", "2025 estimate (% by truck)"], "bottom": 0},
-  "grid": {"left": "3%", "right": "4%", "bottom": "14%", "containLabel": true},
-  "xAxis": {"type": "category", "data": ["Automotive\nparts", "Prairie\ngrain", "Potash", "Lumber", "Consumer\ngoods"]},
-  "yAxis": {"type": "value", "name": "% of freight volume by truck", "max": 100},
-  "series": [
-    {
-      "name": "2024 (% by truck)",
-      "type": "bar",
-      "itemStyle": {"color": "#2563eb"},
-      "label": {"show": true, "position": "top", "formatter": "{c}%"},
-      "data": [85, 15, 5, 40, 55]
-    },
-    {
-      "name": "2025 estimate (% by truck)",
-      "type": "bar",
-      "itemStyle": {"color": "#dc2626"},
-      "label": {"show": true, "position": "top", "formatter": "{c}%"},
-      "data": [60, 15, 5, 35, 50]
-    }
-  ]
+"title": {"text": "Modal Split Shift Under 2025 Tariff Scenario", "subtext": "Truck percentage of mode mix by commodity. Volume reduction not shown — only modal share within remaining flows.", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"data": ["2024 (% by truck)", "2025 estimate (% by truck)"], "bottom": 0},
+"grid": {"left": "3%", "right": "4%", "bottom": "14%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Automotive\nparts", "Prairie\ngrain", "Potash", "Lumber", "Consumer\ngoods"]},
+"yAxis": {"type": "value", "name": "% of freight volume by truck", "max": 100},
+"series": [
+{
+  "name": "2024 (% by truck)",
+  "type": "bar",
+  "itemStyle": {"color": "#2563eb"},
+  "label": {"show": true, "position": "top", "formatter": "{c}%"},
+  "data": [85, 15, 5, 40, 55]
+},
+{
+  "name": "2025 estimate (% by truck)",
+  "type": "bar",
+  "itemStyle": {"color": "#dc2626"},
+  "label": {"show": true, "position": "top", "formatter": "{c}%"},
+  "data": [60, 15, 5, 35, 50]
+}
+]
 }'></div>
+```
 
 *Automotive parts show the largest modal share shift: as US-bound automotive trade collapses under tariff pressure, some remaining flows re-route via rail to alternative assembly locations. Grain and potash show minimal change because they are already rail-dominated and their US market exposure is lower relative to total production volume.*
 
