@@ -10,6 +10,7 @@ book:
   title: "Computational Geography"
   subtitle: "Laboratory"
   author: "Paul Hobson"
+  search: true
   chapters:
     - index.qmd
     - advanced-investigations/index.qmd

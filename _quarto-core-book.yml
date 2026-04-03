@@ -10,6 +10,7 @@ book:
   title: "Computational Geography"
   subtitle: "Core Book"
   author: "Paul Hobson"
+  search: true
   chapters:
     - index.qmd
     - getting-started/index.qmd

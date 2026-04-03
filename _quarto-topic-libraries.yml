@@ -10,6 +10,7 @@ book:
   title: "Computational Geography"
   subtitle: "Topic Libraries"
   author: "Paul Hobson"
+  search: true
   chapters:
     - index.qmd
     - explore-more/index.qmd

@@ -1,6 +1,6 @@
 ---
 title: "Learn"
-subtitle: "A clustered learning library in computational geography, with one core book, topic libraries, and advanced investigations."
+subtitle: "Environmental modelling, GIS, hazards, and earth systems taught as one connected field."
 page-layout: article
 body-classes: articles-landing
 ---
@@ -8,13 +8,13 @@ body-classes: articles-landing
 ```{=html}
 <section class="mock-book-hero">
   <div class="mock-book-hero__copy">
-    <div class="mock-kicker">Library / Computational Geography</div>
-    <h2>One core book, plus topic libraries and a laboratory.</h2>
-    <p>Learn is the home of the Wayward House computational geography program. Start with the core ENVMOD209-inspired book, branch into topic libraries when a subject grabs you, and use the laboratory for harder applied investigations.</p>
+    <div class="mock-kicker">Environmental Modelling Hub</div>
+    <h2>Learn how environmental systems behave, and how to model them.</h2>
+    <p>This is the Wayward House home for environmental modelling: a connected path through maths for modelling, earth systems, GIS, hazards, and human geography, with deeper specialist libraries when you want to branch out.</p>
     <div class="mock-action-row">
-      <a class="cta" href="./getting-started/">Start Here</a>
-      <a class="cta cta-ghost" href="./foundations/">Open the Core Book</a>
-      <a class="cta cta-ghost" href="./methods-and-tools/">Methods and Tools</a>
+      <a class="cta cta-primary" href="./getting-started/">Start the Learning Path</a>
+      <a class="cta cta-ghost cta-ghost--light" href="./foundations/">Open the Core Book</a>
+      <a class="cta cta-ghost cta-ghost--light" href="./explore-more/">Browse Topic Libraries</a>
     </div>
     <div class="mock-pill-row">
       <span class="book-pill">Start Here</span>
@@ -26,16 +26,16 @@ body-classes: articles-landing
   </div>
   <aside class="mock-book-hero__meta">
     <div class="book-meta-card">
-      <strong>Best Entry</strong>
-      <span>Start with Getting Started, then move into Maths for Modelling Space.</span>
+      <strong>Best Place To Begin</strong>
+      <span>Start with Getting Started if you want the shortest route into the core modelling sequence.</span>
     </div>
     <div class="book-meta-card">
-      <strong>Audience</strong>
-      <span>Smart Grade 10 readers and up, plus self-directed learners who want a serious but readable path.</span>
+      <strong>What You’ll Cover</strong>
+      <span>Spatial models, earth systems, GIS logic, environmental hazards, trade and infrastructure, and the maths that ties them together.</span>
     </div>
     <div class="book-meta-card">
-      <strong>How It Works</strong>
-      <span>Start Here first. Read the Core Book as the main staircase. Open Topic Libraries by subject. Use the Laboratory for projects and harder integrated problems.</span>
+      <strong>How To Use It</strong>
+      <span>Use the Core Book as the main route, then open Topic Libraries for depth and the Laboratory for harder integrated investigations.</span>
     </div>
   </aside>
 </section>
@@ -43,32 +43,32 @@ body-classes: articles-landing
 <section class="mock-pathway">
   <div class="mock-section-head">
     <div>
-      <div class="section-kicker">Pathway</div>
-      <h3>The structure should feel obvious in seconds</h3>
+      <div class="section-kicker">How The Hub Works</div>
+      <h3>Choose a route, then keep moving</h3>
     </div>
-    <p>A good learning library reduces anxiety immediately: where to start, what the main book is, and where specialist branches live.</p>
+    <p>The goal is simple: one strong central path for environmental modelling, with clear branches for methods, specialist topics, and applied investigations.</p>
   </div>
 
   <div class="mock-path-grid">
     <article class="mock-path-card">
       <span class="part-eyebrow">Start Here</span>
       <h4>Getting Started</h4>
-      <p>Begin here if you are new to modelling, new to reading equations, or not yet confident about how to approach the book.</p>
+      <p>Get oriented fast: how to read equations, think about scale, and approach the subject without getting lost in the machinery.</p>
     </article>
     <article class="mock-path-card">
       <span class="part-eyebrow">Core Book</span>
-      <h4>Maths, Earth Systems, GIS, Hazards, Human Geography</h4>
-      <p>The main staircase through the subject, designed to be readable in sequence by a motivated beginner.</p>
+      <h4>Build The Full Environmental Modelling Spine</h4>
+      <p>Work through the main sequence from mathematical foundations into earth systems, GIS, hazards, and economic geography.</p>
     </article>
     <article class="mock-path-card">
       <span class="part-eyebrow">Topic Libraries</span>
-      <h4>Browse By Subject</h4>
-      <p>Remote sensing, cryosphere, economic systems, and machine learning open as coherent branches when you want subject-focused depth.</p>
+      <h4>Go Deeper By Subject</h4>
+      <p>Remote sensing, cryosphere, machine learning, and economic systems are organised as specialist branches rather than scattered side notes.</p>
     </article>
     <article class="mock-path-card">
       <span class="part-eyebrow">Methods and Tools</span>
-      <h4>Cross-Cutting Resources</h4>
-      <p>Setup help, GIS logic, quantitative methods, and practical workflows support the whole project instead of living inside just one branch.</p>
+      <h4>Keep The Practical Tools Close</h4>
+      <p>Use shared methods, setup help, and workflows when you need them, without breaking the flow of the main learning path.</p>
     </article>
   </div>
 </section>
@@ -77,9 +77,9 @@ body-classes: articles-landing
   <div class="mock-section-head mock-section-head--light">
     <div>
       <div class="section-kicker">Core Path</div>
-      <h3>The beginner-safe core book</h3>
+      <h3>The main route through environmental modelling</h3>
     </div>
-    <p>This is the route we want most readers to see first.</p>
+    <p>Start here if you want the full sequence rather than a single-topic detour.</p>
   </div>
 
   <div class="mock-shelf-grid">
