@@ -55,11 +55,13 @@ How has the growing season changed over the past 20 years?
 **Time series analysis** examines sequences of observations through time:
 
 **Satellite time series:**
+
 - MODIS: 500m, 16-day composites, 2000-present
 - Landsat: 30m, 16-day revisit, 1984-present
 - Sentinel-2: 10m, 5-day revisit, 2015-present
 
 **Applications:**
+
 - **Phenology:** Timing of green-up, peak, senescence
 - **Productivity trends:** Is vegetation increasing or decreasing?
 - **Drought detection:** NDVI anomalies below normal
@@ -89,6 +91,7 @@ Where:
 - $\varepsilon(t)$ = noise/residual
 
 **Example - NDVI time series:**
+
 - **Trend:** Gradual greening (+0.001 NDVI/year)
 - **Seasonal:** Spring green-up, summer peak, autumn senescence
 - **Noise:** Clouds, atmospheric effects, sensor variations
@@ -217,6 +220,7 @@ $$\beta_1 = \frac{\sum (t_i - \bar{t})(y_i - \bar{y})}{\sum (t_i - \bar{t})^2}$$
 $$\beta_0 = \bar{y} - \beta_1 \bar{t}$$
 
 **Interpretation:**
+
 - $\beta_1 > 0$: Increasing trend (greening)
 - $\beta_1 < 0$: Decreasing trend (browning)
 - $\beta_1 = 0$: No trend
@@ -336,6 +340,7 @@ $$\approx 30 \times (0.265 + 0.315 + 0.425 + 0.590 + 0.715 + 0.735 + 0.685 + 0.5
 $$\approx 30 \times 5.31 = 159.3 \text{ NDVI-days}$$
 
 **Summary:**
+
 - SOS: DOY 105
 - POS: DOY 165  
 - EOS: DOY 255
@@ -720,6 +725,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Temperate forest:** Strong seasonal cycle, single peak
 - **Grassland:** Similar but smaller amplitude
 - **Tropical evergreen:** Minimal seasonality (always green)
@@ -739,11 +745,13 @@ window.addEventListener('resize', () => chart.resize());
 ### Climate Change Signals
 
 **Global greening trend:**
+
 - NDVI increased ~0.001-0.002/year (1982-2015)
 - Reasons: CO₂ fertilization, warmer temperatures, longer growing seasons
 - Arctic: Strongest greening (shrub expansion)
 
 **Growing season extension:**
+
 - SOS earlier (1-2 weeks in 40 years)
 - EOS later (1 week)
 - Net: +10-20 days GSL in northern latitudes
@@ -765,11 +773,13 @@ Where climatology = long-term average for that time of year.
 ### Agricultural Phenology
 
 **Crop calendars from satellites:**
+
 - SOS = planting date
 - POS = peak vegetative growth
 - EOS = harvest date
 
 **Applications:**
+
 - Yield forecasting (early prediction)
 - Insurance claims (verify timing)
 - Double-cropping detection
@@ -783,10 +793,12 @@ Where climatology = long-term average for that time of year.
 **Clouds reduce NDVI** (appear as low values).
 
 **Spurious phenology:**
+
 - Cloudy spring → delayed SOS (false)
 - Need cloud masking
 
 **Solutions:**
+
 - Composite images (maximum NDVI in period)
 - Cloud screening (quality flags)
 - Gap-filling interpolation
@@ -798,6 +810,7 @@ Where climatology = long-term average for that time of year.
 **Irregular time series** → difficult to analyze.
 
 **Solutions:**
+
 - Interpolation (linear, spline)
 - Harmonic fitting (smooth through gaps)
 - Data fusion (combine Landsat + Sentinel)
@@ -809,6 +822,7 @@ Where climatology = long-term average for that time of year.
 **Calibration drift** → false trend.
 
 **Solution:**
+
 - Cross-calibration between sensors
 - Atmospheric correction updates
 - Use surface reflectance products
@@ -820,6 +834,7 @@ Where climatology = long-term average for that time of year.
 **Phenology represents blend** → hard to interpret.
 
 **Solution:**
+
 - Use finer resolution
 - Classify first, then analyze per class
 - Sub-pixel unmixing
@@ -831,17 +846,20 @@ Where climatology = long-term average for that time of year.
 **Software package** for time series processing.
 
 **Functions:**
+
 - Gap-filling (interpolation)
 - Smoothing (Savitzky-Golay, asymmetric Gaussian)
 - Phenology extraction (multiple methods)
 - Visualization
 
 **Three fitting methods:**
+
 1. **Asymmetric Gaussian:** Separate rise/fall curves
 2. **Double logistic:** S-curves for green-up/senescence
 3. **Savitzky-Golay filter:** Polynomial smoothing
 
 **Outputs:**
+
 - Start/end of season
 - Length of season
 - Base/peak/amplitude

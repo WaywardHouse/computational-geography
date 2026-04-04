@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -130,6 +134,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That regression predicts a continuous outcome from measured predictors, and that spatial data can make ordinary validation look better than it really is.</p>
+<p><strong>You will learn</strong><br>
+How linear and regularized regression compare, why spatial cross-validation matters, and where random forests improve prediction.</p>
+<p><strong>Why this matters</strong><br>
+A map prediction is only useful if it generalizes to places you did not sample.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The tradeoff between fit and generalization.</p>
 <p>In 2019, the International Soil Reference and Information Centre completed a global mapping exercise that assigned a soil organic carbon (SOC) value to every 250 m grid cell on Earth’s land surface. They did not measure SOC at every cell — there are approximately 800 million such cells on the global land surface. They measured it at 150,000 sites and used regression models, trained on those measurements, to predict SOC everywhere else from covariate rasters: climate variables, vegetation indices, terrain attributes, and soil parent material classes.</p>
 <p>This process — spatially exhaustive prediction from point observations using covariates — is the central task of environmental machine learning. Its success depends on understanding which regression method is appropriate, how to validate that it generalises correctly to new locations, and how to honestly communicate prediction uncertainty.</p>
 <hr>
@@ -221,7 +234,12 @@ window.Quarto = {
 <h3 id="feature-engineering-from-raster-datasets" class="anchored">3.6 Feature Engineering from Raster Datasets</h3>
 <p>Raw raster pixels are rarely optimal predictors. Feature engineering extracts meaningful quantities:</p>
 <p><strong>Terrain features from DEM</strong> (Essay C8): slope, aspect, curvature, topographic wetness index <span class="math inline">\text{TWI} = \ln(A_s/\tan\beta)</span> where <span class="math inline">A_s</span> = upslope contributing area and <span class="math inline">\beta</span> = slope angle.</p>
-<p><strong>Spectral indices from multispectral imagery:</strong> - <span class="math inline">\text{NDVI} = (\rho_{\text{NIR}} - \rho_{\text{Red}})/(\rho_{\text{NIR}} + \rho_{\text{Red}})</span> - <span class="math inline">\text{NDWI} = (\rho_{\text{Green}} - \rho_{\text{NIR}})/(\rho_{\text{Green}} + \rho_{\text{NIR}})</span> - <span class="math inline">\text{EVI} = 2.5(\rho_{\text{NIR}} - \rho_{\text{Red}})/(\rho_{\text{NIR}} + 6\rho_{\text{Red}} - 7.5\rho_{\text{Blue}} + 1)</span></p>
+<p><strong>Spectral indices from multispectral imagery:</strong></p>
+<ul>
+<li><span class="math inline">\text{NDVI} = (\rho_{\text{NIR}} - \rho_{\text{Red}})/(\rho_{\text{NIR}} + \rho_{\text{Red}})</span></li>
+<li><span class="math inline">\text{NDWI} = (\rho_{\text{Green}} - \rho_{\text{NIR}})/(\rho_{\text{Green}} + \rho_{\text{NIR}})</span></li>
+<li><span class="math inline">\text{EVI} = 2.5(\rho_{\text{NIR}} - \rho_{\text{Red}})/(\rho_{\text{NIR}} + 6\rho_{\text{Red}} - 7.5\rho_{\text{Blue}} + 1)</span></li>
+</ul>
 <p><strong>Climate aggregates:</strong> Mean, minimum, maximum, and coefficient of variation across months or seasons. Growing degree days. Precipitation seasonality.</p>
 <p><strong>Spatial lag features:</strong> Mean value of the response variable (or covariate) within a radius <span class="math inline">r</span> of each prediction location — captures neighbourhood effects and residual spatial structure not explained by the covariates.</p>
 <h3 id="random-forest-regression" class="anchored">3.7 Random Forest Regression</h3>
@@ -293,7 +311,7 @@ window.Quarto = {
 <p>Interpretation: each 100 m of elevation adds ~8 mm yr⁻¹ of precipitation (orographic effect); each degree north adds ~10.5 mm yr⁻¹ (shifting from semi-arid southern Alberta toward boreal precipitation).</p>
 <p><strong>Ridge with <span class="math inline">\lambda = 5</span>:</strong> Shrinks coefficients toward zero. With only 5 observations and 2 predictors, ridge provides modest benefit; the real advantage appears with 20+ correlated predictors.</p>
 <p><strong>Prediction interval at a new site (Banff, <span class="math inline">x_1 = 1383</span> m, <span class="math inline">x_2 = 51.2°</span>N):</strong> <span class="math inline">\hat{y} = 416 + 0.08(498) + 10.5(-0.2) = 416 + 39.8 - 2.1 = 453.7</span> mm</p>
-<p>Given <span class="math inline">\hat{\sigma} = 22</span> mm from training residuals and the leverage factor for Banff ≈ 1.6: 95% prediction interval: $453.7 = 453.7 = [386, 521]$ mm.</p>
+<p>Given <span class="math inline">\hat{\sigma} = 22</span> mm from training residuals and the leverage factor for Banff ≈ 1.6: 95% prediction interval: <span class="math inline">453.7 \pm 2.78 \times 22 \times \sqrt{1 + 1.6/5} = 453.7 \pm 68 = [386, 521]</span> mm.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <pre><code>function ols(X, y):
@@ -381,27 +399,25 @@ print(f"Optimism bias (spatial autocorr.): {np.mean(rmse_spatial)-np.mean(rmse_s
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Bias-Variance Tradeoff — Ridge Regression as λ Varies&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Bias²&quot;, &quot;Variance&quot;, &quot;Total error (Bias² + Var + σ²)&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;log₁₀(λ) — regularisation strength&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [&quot;-3&quot;,&quot;-2.5&quot;,&quot;-2&quot;,&quot;-1.5&quot;,&quot;-1&quot;,&quot;-0.5&quot;,&quot;0&quot;,&quot;0.5&quot;,&quot;1&quot;,&quot;1.5&quot;,&quot;2&quot;]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Expected prediction error&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Bias²&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [0.01, 0.02, 0.04, 0.08, 0.15, 0.28, 0.50, 0.75, 1.10, 1.50, 2.00]},
-    {&quot;name&quot;: &quot;Variance&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [2.20, 1.80, 1.40, 1.05, 0.75, 0.52, 0.35, 0.25, 0.18, 0.14, 0.12]},
-    {&quot;name&quot;: &quot;Total error (Bias² + Var + σ²)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;lineStyle&quot;: {&quot;width&quot;: 3},
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2E7D32&quot;},
-     &quot;data&quot;: [4.46, 4.07, 3.69, 3.38, 3.15, 3.05, 3.10, 3.25, 3.53, 3.89, 4.37]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Bias-Variance Tradeoff — Ridge Regression as λ Varies&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Bias²&quot;, &quot;Variance&quot;, &quot;Total error (Bias² + Var + σ²)&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;log₁₀(λ) — regularisation strength&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [&quot;-3&quot;,&quot;-2.5&quot;,&quot;-2&quot;,&quot;-1.5&quot;,&quot;-1&quot;,&quot;-0.5&quot;,&quot;0&quot;,&quot;0.5&quot;,&quot;1&quot;,&quot;1.5&quot;,&quot;2&quot;]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Expected prediction error&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Bias²&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [0.01, 0.02, 0.04, 0.08, 0.15, 0.28, 0.50, 0.75, 1.10, 1.50, 2.00]},
+{&quot;name&quot;: &quot;Variance&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [2.20, 1.80, 1.40, 1.05, 0.75, 0.52, 0.35, 0.25, 0.18, 0.14, 0.12]},
+{&quot;name&quot;: &quot;Total error (Bias² + Var + σ²)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;lineStyle&quot;: {&quot;width&quot;: 3},
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2E7D32&quot;},
+&quot;data&quot;: [4.46, 4.07, 3.69, 3.38, 3.15, 3.05, 3.10, 3.25, 3.53, 3.89, 4.37]}
+]
+}"></div>
 <p>Total error has a minimum at intermediate regularisation (λ ≈ 0.3 in this example). Left of the minimum: variance dominates, the model overfits training data. Right of the minimum: bias dominates, the model is too constrained. Standard cross-validation finds this minimum empirically without needing to know the true signal or noise level.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -439,24 +455,24 @@ print(f"Optimism bias (spatial autocorr.): {np.mean(rmse_spatial)-np.mean(rmse_s
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

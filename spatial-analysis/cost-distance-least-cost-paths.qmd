@@ -58,6 +58,7 @@ What's the easiest hiking route from the trailhead to the summit?
 **Cost-distance** accumulates travel cost across a surface:
 
 **Applications:**
+
 - **Hiking trails:** Minimize elevation gain and distance
 - **Wildlife corridors:** Connect habitats through suitable terrain
 - **Pipelines:** Minimize construction cost (avoid wetlands, steep slopes)
@@ -101,6 +102,7 @@ $$\text{cost}_{\text{total}} = w_1 \times \text{cost}_{\text{slope}} + w_2 \time
 **For each cell:** Minimum total cost to reach it from source.
 
 **Initialization:**
+
 - Source cell: cost = 0
 - All others: cost = ∞
 
@@ -113,6 +115,7 @@ $$\text{cost}_{\text{total}} = w_1 \times \text{cost}_{\text{slope}} + w_2 \time
 **Trace route** from destination back to source following steepest descent in cost surface.
 
 **Backtracking:**
+
 - Start at destination
 - Move to neighbor with lowest accumulated cost
 - Repeat until reaching source
@@ -173,6 +176,7 @@ $$\text{cost}_{\text{total}} = w_1 \times \text{cost}_{\text{slope}} + w_2 \time
 ### Graph Representation
 
 **Raster as graph:**
+
 - **Nodes:** Grid cells
 - **Edges:** Connections to neighbors (4-neighbor or 8-neighbor)
 - **Edge weights:** Cost to traverse from cell to neighbor
@@ -182,6 +186,7 @@ $$\text{cost}_{\text{total}} = w_1 \times \text{cost}_{\text{slope}} + w_2 \time
 $$c_{ij} = \text{distance}_{ij} \times \frac{\text{cost}_i + \text{cost}_j}{2}$$
 
 **Distance:**
+
 - Cardinal neighbors (N, S, E, W): distance = 1 (cell size)
 - Diagonal neighbors: distance = $\sqrt{2}$ (cell size)
 
@@ -192,6 +197,7 @@ $$c_{ij} = \text{distance}_{ij} \times \frac{\text{cost}_i + \text{cost}_j}{2}$$
 **Classic shortest-path algorithm** (Edsger Dijkstra, 1956).
 
 **Data structures:**
+
 - `dist[v]`: Minimum distance from source to node `v`
 - `visited`: Set of nodes with finalized distances
 - `priority_queue`: Nodes to process, ordered by distance
@@ -680,6 +686,7 @@ render();
 ```
 
 **Try this:**
+
 - **Click to set start (green) and end (red)** - path computes automatically
 - **Slope-based:** Path avoids steep center (darker = higher cost)
 - **Land cover:** Path finds low-cost patches
@@ -699,6 +706,7 @@ render();
 **Problem:** Connect two habitat patches for animal movement.
 
 **Approach:**
+
 1. Create cost surface from habitat suitability
    - Low cost: Forest, grassland
    - High cost: Urban, agricultural
@@ -714,6 +722,7 @@ render();
 ### Pipeline Routing
 
 **Cost factors:**
+
 - Slope (steep = expensive construction)
 - Land ownership (private > public)
 - Environmental sensitivity (wetlands = regulatory cost)
@@ -738,6 +747,7 @@ Where $v$ is speed in km/h.
 $$t = \frac{d}{v}$$
 
 **Trail routing:**
+
 - Minimize total time
 - Avoid slopes > 15% (too steep)
 - Stay near scenic viewpoints (negative cost)
@@ -777,6 +787,7 @@ Diagonal cost = $\sqrt{2} \approx 1.41$ but often approximated as 1.5 or 1
 ### Raster Resolution
 
 **Coarse DEM misses fine-scale barriers:**
+
 - Small cliffs
 - Narrow canyons  
 - Local hazards
@@ -844,19 +855,23 @@ Where:
 ### Implementation Options
 
 **Array (unsorted):**
+
 - Insert: $O(1)$
 - Extract min: $O(n)$ (must scan)
 
 **Array (sorted):**
+
 - Insert: $O(n)$ (maintain order)
 - Extract min: $O(1)$ (first element)
 
 **Binary heap:**
+
 - Insert: $O(\log n)$
 - Extract min: $O(\log n)$
 - **Best for Dijkstra**
 
 **Fibonacci heap:**
+
 - Decrease priority: $O(1)$ amortized
 - Theoretical improvement for Dijkstra
 - Complex implementation, rarely used in practice

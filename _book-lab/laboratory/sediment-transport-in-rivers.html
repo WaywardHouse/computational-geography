@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -129,6 +133,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That rivers move sediment only when flow forces exceed the resistance holding grains in place.</p>
+<p><strong>You will learn</strong><br>
+How entrainment thresholds, bedload transport, suspended transport, and rating curves connect hydraulics to sediment flux.</p>
+<p><strong>Why this matters</strong><br>
+Sediment transport controls channel change, reservoir filling, habitat structure, and the response of rivers to altered flow.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The threshold idea: motion begins only after shear stress crosses a critical value.</p>
 <p>The Fraser River carries roughly 17 million tonnes of sediment to the Pacific Ocean every year. The Bow River, more modestly, transports several hundred thousand tonnes past Calgary annually — gravel and sand moved grain by grain along the riverbed, or suspended in the water column like dust in air. Every one of those grains was entrained, transported, and eventually deposited according to a balance of forces that we can write down precisely.</p>
 <p>Sediment transport is where geomorphology becomes most explicitly mechanical. The river does not care about land use or political boundaries — it responds to the balance of fluid drag, grain weight, and bed friction. Understanding that balance gives us the tools to predict channel behaviour, design stable channels, estimate reservoir sedimentation rates, and understand what happens to river systems when we change their hydrology.</p>
 <hr>
@@ -170,7 +183,7 @@ window.Quarto = {
 <p><span class="math display">q_b^* = \frac{q_b}{\sqrt{(s-1)g D^3}}</span></p>
 <p>and <span class="math inline">q_b</span> [m² s⁻¹] is bedload transport per unit channel width, <span class="math inline">s = \rho_s/\rho_f = 2.65</span> is the relative density of sediment. Rearranging to get dimensional bedload flux:</p>
 <p><span class="math display">q_b = 8 (\tau^* - \tau^*_c)^{3/2} \sqrt{(s-1)g D^3}</span></p>
-<p>The <span class="math inline">(3/2)</span> exponent in the MPM formula arises from the physics: transport rate scales with both the number of grains in motion (proportional to <span class="math inline">\tau^* - \tau^*_c</span>) and the velocity of those grains (also proportional to <span class="math inline">\tau^* - \tau^*_c</span>, raised to the $1/2<span class="math inline">). Their product gives the &amp;#36;3/2</span> power.</p>
+<p>The <span class="math inline">(3/2)</span> exponent in the MPM formula arises from the physics: transport rate scales with both the number of grains in motion (proportional to <span class="math inline">\tau^* - \tau^*_c</span>) and the velocity of those grains (also proportional to <span class="math inline">\tau^* - \tau^*_c</span>, raised to the <span class="math inline">1/2</span>). Their product gives the <span class="math inline">3/2</span> power.</p>
 <p>Total bedload discharge [m³ s⁻¹] for a channel of width <span class="math inline">W</span> is <span class="math inline">Q_b = q_b \times W</span>, or in mass units [kg s⁻¹]: <span class="math inline">\dot{M}_b = \rho_s q_b W</span>.</p>
 <h3 id="suspended-sediment-the-rouse-profile" class="anchored">3.4 Suspended Sediment: The Rouse Profile</h3>
 <p>Fine sediment carried in suspension is distributed vertically according to the <strong>Rouse profile</strong>, derived from the balance between upward turbulent diffusion and downward gravitational settling.</p>
@@ -181,8 +194,7 @@ window.Quarto = {
 <p>where <span class="math inline">w_s</span> [m s⁻¹] is the grain settling velocity and <span class="math inline">C</span> [kg m⁻³] is sediment concentration. This first-order ODE has the solution:</p>
 <p><span class="math display">\frac{C(z)}{C_a} = \left(\frac{a(h-z)}{z(h-a)}\right)^Z</span></p>
 <p>where: - <span class="math inline">C_a</span> is the reference concentration at reference height <span class="math inline">a</span> above the bed (typically <span class="math inline">a = 0.05h</span>) - <span class="math inline">Z = w_s / (\kappa u_*)</span> is the <strong>Rouse number</strong> (dimensionless) - <span class="math inline">h</span> is flow depth</p>
-<p>The Rouse number controls the shape of the profile: - <span class="math inline">Z &gt; 2.5</span>: sediment essentially all in bedload, negligible suspension - $1.2 &lt; Z &lt; 2.5<span class="math inline">: mixed transport, grains near bed
-- &amp;#36;0.8 &lt; Z &lt; 1.2</span>: graded suspension, concentration decreases upward - <span class="math inline">Z &lt; 0.2</span>: near-uniform distribution, fine washload</p>
+<p>The Rouse number controls the shape of the profile: - <span class="math inline">Z &gt; 2.5</span>: sediment essentially all in bedload, negligible suspension - <span class="math inline">1.2 &lt; Z &lt; 2.5</span>: mixed transport, grains near bed - <span class="math inline">0.8 &lt; Z &lt; 1.2</span>: graded suspension, concentration decreases upward - <span class="math inline">Z &lt; 0.2</span>: near-uniform distribution, fine washload</p>
 <h3 id="settling-velocity" class="anchored">3.5 Settling Velocity</h3>
 <p>The settling velocity of a grain in quiescent water is needed for the Rouse number. For a sphere, it is found from the balance of drag and submerged weight. A convenient approximation (valid for 0.1 mm &lt; D &lt; 2 mm) is:</p>
 <p><span class="math display">w_s = \frac{(s-1)g D^2}{18\nu} \quad \text{(Stokes, valid for } Re_p &lt; 1 \text{)}</span></p>
@@ -191,7 +203,7 @@ window.Quarto = {
 <h3 id="sediment-rating-curves" class="anchored">3.6 Sediment Rating Curves</h3>
 <p>Continuous measurement of suspended sediment concentration is expensive. The standard approach is to measure sediment concentration at a range of discharge levels and fit a power-law <strong>rating curve</strong>:</p>
 <p><span class="math display">Q_s = a Q^b</span></p>
-<p>where <span class="math inline">Q_s</span> [kg s⁻¹] is the suspended sediment discharge, <span class="math inline">Q</span> [m³ s⁻¹] is water discharge, and <span class="math inline">a</span>, <span class="math inline">b</span> are empirically fitted constants. Typical values: <span class="math inline">b \approx 1.5</span>–$2.5$.</p>
+<p>where <span class="math inline">Q_s</span> [kg s⁻¹] is the suspended sediment discharge, <span class="math inline">Q</span> [m³ s⁻¹] is water discharge, and <span class="math inline">a</span>, <span class="math inline">b</span> are empirically fitted constants. Typical values: <span class="math inline">b \approx 1.5</span>-<span class="math inline">2.5</span>.</p>
 <p>In log-log space, the rating curve is linear:</p>
 <p><span class="math display">\log Q_s = \log a + b \log Q</span></p>
 <p>This is fitted by ordinary least squares on log-transformed data. A key caution: rating curves have large scatter and can underestimate total sediment flux if high-flow events are under-sampled.</p>
@@ -206,7 +218,13 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> A gravel-bed reach of the Oldman River, Alberta, during a moderate flood event.</p>
-<p><strong>Given:</strong> - Mean depth <span class="math inline">h = 1.8</span> m, width <span class="math inline">W = 45</span> m - Channel slope <span class="math inline">S = 0.0018</span> - Median bed grain size <span class="math inline">D_{50} = 32</span> mm (0.032 m), <span class="math inline">D_{90} = 65</span> mm - <span class="math inline">\rho_s = 2650</span> kg m⁻³, <span class="math inline">\rho_f = 1000</span> kg m⁻³, <span class="math inline">\nu = 1.0 \times 10^{-6}</span> m² s⁻¹</p>
+<p><strong>Given:</strong></p>
+<ul>
+<li>Mean depth <span class="math inline">h = 1.8</span> m, width <span class="math inline">W = 45</span> m</li>
+<li>Channel slope <span class="math inline">S = 0.0018</span></li>
+<li>Median bed grain size <span class="math inline">D_{50} = 32</span> mm (0.032 m), <span class="math inline">D_{90} = 65</span> mm</li>
+<li><span class="math inline">\rho_s = 2650</span> kg m⁻³, <span class="math inline">\rho_f = 1000</span> kg m⁻³, <span class="math inline">\nu = 1.0 \times 10^{-6}</span> m² s⁻¹</li>
+</ul>
 <p><strong>Step 1: Bed shear stress</strong></p>
 <p><span class="math display">\tau_b = \rho_f g h S = 1000 \times 9.81 \times 1.8 \times 0.0018 = 31.77 \text{ Pa}</span></p>
 <p><strong>Step 2: Shields parameter</strong></p>
@@ -272,21 +290,19 @@ print(f"Competence D_max = {D_max*1000:.1f} mm")</code></pre>
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Dimensionless Bedload Transport Rate (MPM) vs Shields Parameter&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Shields parameter τ*&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [&quot;0.047&quot;,&quot;0.06&quot;,&quot;0.07&quot;,&quot;0.08&quot;,&quot;0.10&quot;,&quot;0.12&quot;,&quot;0.15&quot;,&quot;0.20&quot;,&quot;0.25&quot;,&quot;0.30&quot;]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;q* (dimensionless bedload rate)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50},
-  &quot;series&quot;: [{
-    &quot;name&quot;: &quot;MPM formula&quot;,
-    &quot;type&quot;: &quot;line&quot;,
-    &quot;smooth&quot;: false,
-    &quot;markLine&quot;: {&quot;data&quot;: [{&quot;xAxis&quot;: &quot;0.047&quot;, &quot;label&quot;: {&quot;formatter&quot;: &quot;threshold τ*c&quot;}}]},
-    &quot;data&quot;: [0, 0.0137, 0.0400, 0.0726, 0.1697, 0.3082, 0.5657, 1.219, 2.057, 3.079]
-  }]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Dimensionless Bedload Transport Rate (MPM) vs Shields Parameter&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Shields parameter τ*&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [&quot;0.047&quot;,&quot;0.06&quot;,&quot;0.07&quot;,&quot;0.08&quot;,&quot;0.10&quot;,&quot;0.12&quot;,&quot;0.15&quot;,&quot;0.20&quot;,&quot;0.25&quot;,&quot;0.30&quot;]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;q* (dimensionless bedload rate)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50},
+&quot;series&quot;: [{
+&quot;name&quot;: &quot;MPM formula&quot;,
+&quot;type&quot;: &quot;line&quot;,
+&quot;smooth&quot;: false,
+&quot;markLine&quot;: {&quot;data&quot;: [{&quot;xAxis&quot;: &quot;0.047&quot;, &quot;label&quot;: {&quot;formatter&quot;: &quot;threshold τ*c&quot;}}]},
+&quot;data&quot;: [0, 0.0137, 0.0400, 0.0726, 0.1697, 0.3082, 0.5657, 1.219, 2.057, 3.079]
+}]
+}"></div>
 <p>The rapid rise above the threshold reflects the <span class="math inline">(3/2)</span> power: transport is near-zero just below the threshold and escalates steeply above it. This nonlinearity means that the small fraction of high-discharge events in a river’s flow regime carries a disproportionate share of the annual sediment load.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -323,24 +339,24 @@ print(f"Competence D_max = {D_max*1000:.1f} mm")</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

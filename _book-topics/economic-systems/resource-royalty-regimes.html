@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#resource-rent-the-prize-worth-capturing" id="toc-resource-rent-the-prize-worth-capturing">Resource Rent: The Prize Worth Capturing</a></li>
   <li><a href="#two-approaches-to-fiscal-design" id="toc-two-approaches-to-fiscal-design">Two Approaches to Fiscal Design</a>
   <ul>
@@ -122,6 +126,15 @@ window.Quarto = {
   <li><a href="#references" id="toc-references">References</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That governments can tax resource production in different ways, and that resource wealth does not automatically become long-run public wealth.</p>
+<p><strong>You will learn</strong><br>
+What resource rent is, how royalties differ from profit-based taxes, and why Alberta and Norway ended up with such different fiscal outcomes.</p>
+<p><strong>Why this matters</strong><br>
+Royalty design shapes how much of a finite resource’s value reaches future generations.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core difference between taxing gross revenue and taxing economic rent.</p>
 <p>In 1976, Premier Peter Lougheed established the Alberta Heritage Savings Trust Fund. The premise was straightforward: Alberta’s oil wealth was finite and non-renewable, so a portion of royalty revenues should be saved for future generations. For a few years, it worked. Then in 1987, deposits stopped. The fund, which held $12 billion at that point, sat largely idle for four decades. Today it holds about $18 billion — roughly $14,000 per Albertan.</p>
 <p>In 1990, Norway established its Government Pension Fund Global on identical logic. Today it holds $1.7 trillion — roughly $310,000 per Norwegian.</p>
 <p>Both countries extracted their oil. Both collected royalties. The difference is almost entirely fiscal design and political will. Understanding it requires understanding what resource rents are, how royalty regimes work, and why some approaches to rent capture destroy the investment they are trying to tax.</p>
@@ -156,9 +169,68 @@ window.Quarto = {
 <p><strong>2. Mandatory saving:</strong> Norway requires all surplus petroleum revenues to flow into the Government Pension Fund Global. The fund cannot be spent — only the real return (currently capped at 3% per year) is available for the government budget. Alberta stopped mandatory Heritage Fund deposits in 1987 and began using royalty revenues for general spending.</p>
 <p><strong>3. Fund governance:</strong> Norway’s fund is governed at arm’s length from politics, with explicit rules against domestic investment (to prevent Dutch disease) and strong disclosure requirements. Alberta’s Heritage Fund has been subject to political direction and has at times held provincial infrastructure assets.</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{&quot;title&quot;: {&quot;text&quot;: &quot;Sovereign Wealth Fund Growth: Norway vs Alberta (1990–2024)&quot;, &quot;subtext&quot;: &quot;Norway Government Pension Fund Global vs Alberta Heritage Savings Trust Fund (USD billion)&quot;}, &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;}, &quot;legend&quot;: {&quot;data&quot;: [&quot;Norway GPFG&quot;, &quot;Alberta Heritage Fund&quot;], &quot;bottom&quot;: 0}, &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;1990&quot;,&quot;1993&quot;,&quot;1996&quot;,&quot;1999&quot;,&quot;2002&quot;,&quot;2005&quot;,&quot;2008&quot;,&quot;2011&quot;,&quot;2014&quot;,&quot;2017&quot;,&quot;2020&quot;,&quot;2024&quot;]}, &quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;USD Billion&quot;, &quot;max&quot;: 1800}, &quot;series&quot;: [{&quot;name&quot;: &quot;Norway GPFG&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;data&quot;: [0, 8, 40, 175, 220, 380, 450, 680, 870, 1020, 1200, 1700], &quot;lineStyle&quot;: {&quot;width&quot;: 3}, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5470c6&quot;}, &quot;areaStyle&quot;: {&quot;opacity&quot;: 0.1}}, {&quot;name&quot;: &quot;Alberta Heritage Fund&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;data&quot;: [12, 13, 13, 13, 13, 14, 15, 16, 17, 17, 17, 18], &quot;lineStyle&quot;: {&quot;width&quot;: 3}, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#ee6666&quot;}, &quot;areaStyle&quot;: {&quot;opacity&quot;: 0.1}}]}">
-
 </div>
 <p>The divergence is almost entirely a policy difference. Norway reinvested; Alberta spent. Both had access to comparable oil wealth relative to their populations in the critical 1990–2010 period.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Fiscal Design
+</div>
+<h3 class="cg-ill__title anchored">
+Royalty Regimes Differ In What They Tax And When They Collect
+</h3>
+<p class="cg-ill__lede">
+This chapter is clearer when the two fiscal logics are put side by side. Revenue royalties collect early and simply; rent-based systems try to wait for genuine surplus, then capture much more of it.
+</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Gross Royalty
+</div>
+<p>
+<strong>Base:</strong> revenue
+</p>
+<p>
+<strong>Strength:</strong> simple, predictable, paid even before payout
+</p>
+<p>
+<strong>Risk:</strong> can over-burden marginal or high-cost projects
+</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Rent Tax
+</div>
+<p>
+<strong>Base:</strong> profit or economic rent
+</p>
+<p>
+<strong>Strength:</strong> targets genuine surplus, lighter on marginal projects
+</p>
+<p>
+<strong>Risk:</strong> depends on contested cost accounting and timing
+</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Alberta Hybrid
+</div>
+<p>
+<strong>Base:</strong> low pre-payout, higher post-payout
+</p>
+<p>
+<strong>Tradeoff:</strong> tries to balance early collection with rent capture
+</p>
+<p>
+<strong>Weakness:</strong> payout timing creates incentives to defer the higher-rate phase
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Fiscal design is a choice about where to place the tax burden in the project life cycle. The key tradeoff is administrative simplicity versus precise capture of economic rent.
+</figcaption>
+</figure>
 <h2 id="dutch-disease-when-resources-crowd-out-the-economy" class="anchored">Dutch Disease: When Resources Crowd Out the Economy</h2>
 <p>The <strong>Dutch disease</strong> mechanism describes how a resource boom can harm a country’s non-resource economy:</p>
 <ol type="1">
@@ -174,9 +246,8 @@ window.Quarto = {
 <h2 id="alberta-revenue-composition-boom-vs-bust" class="anchored">Alberta Revenue Composition: Boom vs Bust</h2>
 <p>The fragility of Alberta’s fiscal position becomes visible in its revenue composition. In boom years, royalties dominate; in bust years, they collapse, leaving a structural deficit that forces cuts to public services.</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{&quot;title&quot;: {&quot;text&quot;: &quot;Alberta Government Revenue by Source&quot;, &quot;subtext&quot;: &quot;Boom year (2022–23) vs Bust year (2015–16), CAD billion&quot;}, &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;item&quot;, &quot;formatter&quot;: &quot;{b}: ${c}B ({d}%)&quot;}, &quot;legend&quot;: {&quot;bottom&quot;: 0}, &quot;series&quot;: [{&quot;name&quot;: &quot;Boom Year 2022-23&quot;, &quot;type&quot;: &quot;pie&quot;, &quot;radius&quot;: [&quot;30%&quot;, &quot;55%&quot;], &quot;center&quot;: [&quot;25%&quot;, &quot;50%&quot;], &quot;data&quot;: [{&quot;value&quot;: 25.2, &quot;name&quot;: &quot;Royalties&quot;}, {&quot;value&quot;: 7.8, &quot;name&quot;: &quot;Corporate Tax&quot;}, {&quot;value&quot;: 14.5, &quot;name&quot;: &quot;Federal Transfers&quot;}, {&quot;value&quot;: 12.4, &quot;name&quot;: &quot;Personal Income Tax&quot;}, {&quot;value&quot;: 7.1, &quot;name&quot;: &quot;Other&quot;}], &quot;label&quot;: {&quot;formatter&quot;: &quot;{b}\n${c}B&quot;}}, {&quot;name&quot;: &quot;Bust Year 2015-16&quot;, &quot;type&quot;: &quot;pie&quot;, &quot;radius&quot;: [&quot;30%&quot;, &quot;55%&quot;], &quot;center&quot;: [&quot;75%&quot;, &quot;50%&quot;], &quot;data&quot;: [{&quot;value&quot;: 2.8, &quot;name&quot;: &quot;Royalties&quot;}, {&quot;value&quot;: 4.9, &quot;name&quot;: &quot;Corporate Tax&quot;}, {&quot;value&quot;: 9.8, &quot;name&quot;: &quot;Federal Transfers&quot;}, {&quot;value&quot;: 10.1, &quot;name&quot;: &quot;Personal Income Tax&quot;}, {&quot;value&quot;: 5.2, &quot;name&quot;: &quot;Other&quot;}], &quot;label&quot;: {&quot;formatter&quot;: &quot;{b}\n${c}B&quot;}}]}">
-
 </div>
-<p>The contrast is dramatic: royalty revenue of $25.2 billion in the boom year (2022–23) versus $2.8 billion in the bust year (2015–16) — a nine-fold swing, while total government spending remained relatively stable. This volatility is the direct consequence of high rent capture dependency without a stabilisation fund.</p>
+<p>The contrast is dramatic: royalty revenue of $25.2 billion in the boom year (2022-23) versus $2.8 billion in the bust year (2015-16) — a nine-fold swing, while total government spending remained relatively stable. This volatility is the direct consequence of high rent capture dependency without a stabilisation fund.</p>
 <h2 id="the-royalty-holiday-problem" class="anchored">The Royalty Holiday Problem</h2>
 <p>Alberta’s pre-payout / post-payout structure creates specific distortions. During the pre-payout period (before cumulative revenue exceeds allowed costs), the royalty rate is only 1–5%. Post-payout, rates rise to 25–40% on net revenues.</p>
 <p>This structure incentivises:</p>
@@ -211,24 +282,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

@@ -300,6 +300,7 @@ Add clock bias ($c = 1$):
 **Initial guess:** $(x_0, y_0, b_0) = (1, 1, 0)$
 
 **Predicted ranges:**
+
 - $r_{1,0} = \sqrt{1^2 + 1^2} = 1.414$
 - $r_{2,0} = \sqrt{(1-10)^2 + 1^2} = \sqrt{82} = 9.055$
 - $r_{3,0} = \sqrt{1^2 + (1-10)^2} = \sqrt{82} = 9.055$
@@ -310,6 +311,7 @@ Add clock bias ($c = 1$):
 - $\hat{\rho}_3 = 9.055$
 
 **Residuals:**
+
 - $f_1 = 1.414 - 4.106 = -2.692$
 - $f_2 = 9.055 - 9.044 = 0.011$
 - $f_3 = 9.055 - 7.780 = 1.275$
@@ -712,6 +714,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Increase satellites:** More satellites reduce error and improve PDOP
 - **Add noise:** See how measurement errors affect position accuracy
 - **Change clock bias:** Even large biases (100 ns) are solved correctly
@@ -777,6 +780,7 @@ Radio signals slow down in the ionosphere (charged particles) and troposphere (w
 **Effect:** Signals take longer than expected → pseudoranges are too large → position error.
 
 **Mitigation:**
+
 - **Dual-frequency receivers:** Use two frequencies (L1 and L2) to estimate ionospheric delay
 - **Atmospheric models:** Predict tropospheric delay from temperature/pressure
 - **Differential GPS:** Use corrections from a nearby base station
@@ -788,6 +792,7 @@ Signals bounce off buildings, terrain, or water before reaching the antenna.
 **Effect:** Reflected signals travel farther → pseudoranges too large → position error (typically 5–10 m in urban areas).
 
 **Mitigation:**
+
 - **Antenna design:** Reject signals from below (likely reflected)
 - **Signal processing:** Correlate to detect direct vs. reflected signals
 - **Carrier phase tracking:** More resistant to multipath than code phase

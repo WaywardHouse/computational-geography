@@ -83,6 +83,7 @@ Visualize in RGB color space.
 Retain 95%+ of variance.
 
 **Applications:**
+
 - Hyperspectral image visualization (224 bands → RGB)
 - Feature compression for classification (reduce computation)
 - Anomaly detection (outliers visible in reduced space)
@@ -95,6 +96,7 @@ Retain 95%+ of variance.
 Many features correlated (redundancy).
 
 **Example - Landsat 8:**
+
 - Blue and Green bands: $r = 0.92$ (both measure visible light)
 - NIR and Red bands: $r = -0.78$ (vegetation signature)
 - SWIR1 and SWIR2: $r = 0.95$ (both measure soil/rock)
@@ -112,11 +114,13 @@ Finds uncorrelated components capturing maximum variance.
 **Core idea: Find directions of maximum variance.**
 
 **First principal component (PC1):**
+
 - Direction with largest variance
 - Linear combination of original features
 - Captures most information
 
 **Second principal component (PC2):**
+
 - Orthogonal to PC1 (perpendicular)
 - Next largest variance
 - Uncorrelated with PC1
@@ -189,15 +193,18 @@ Preserve local neighborhoods in high dimensions when mapping to low dimensions.
 4. Use t-distribution in low-D (long tails prevent crowding)
 
 **Hyperparameters:**
+
 - Perplexity (effective number of neighbors, typical: 5-50)
 - Learning rate
 - Number of iterations (typical: 1000-5000)
 
 **Advantages:**
+
 - Reveals clusters (nonlinear structure)
 - Beautiful visualizations
 
 **Disadvantages:**
+
 - Computationally expensive: $O(n^2)$
 - Stochastic (different runs give different results)
 - Distances not meaningful (only clusters)
@@ -207,6 +214,7 @@ Preserve local neighborhoods in high dimensions when mapping to low dimensions.
 **Modern alternative to t-SNE.**
 
 **Advantages over t-SNE:**
+
 - Faster: $O(n \log n)$ with approximate nearest neighbors
 - Preserves global structure better
 - Deterministic (reproducible)
@@ -217,6 +225,7 @@ Preserve local neighborhoods in high dimensions when mapping to low dimensions.
 Clustering, visualization, preprocessing for classification.
 
 **Typical parameters:**
+
 - n_neighbors (local structure, typical: 15)
 - min_dist (how tight clusters are, typical: 0.1)
 - n_components (usually 2 or 3)
@@ -621,6 +630,7 @@ plt.savefig('dimensionality_reduction_comparison.webp', dpi=150)
 ```
 
 **Runtime:**
+
 - PCA: 5-10 seconds (100k × 224)
 - t-SNE: 30-60 seconds (5k subsample)
 - UMAP: 10-20 seconds (5k subsample)

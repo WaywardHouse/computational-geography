@@ -138,6 +138,35 @@ The $27.50/bbl gap between the Permian and Alberta netbacks — at the same WTI 
 
 The waterfall makes the penalty structure concrete. The quality discount is the largest single component — it reflects the refinery economics of upgrading heavy sour crude. Transport is the second largest — it reflects Alberta's landlocked geography and limited pipeline access. The diluent cost is real but recoverable (diluent returns in the condensate stream), making it a net cost only if condensate prices are high.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Producer Price Logic</div>
+<h3 class="cg-ill__title">A Headline Benchmark Turns Into A Producer Price Through A Chain Of Deductions</h3>
+<p class="cg-ill__lede">This chapter works best when the benchmark is treated as the start of a calculation instead of the final answer. Different producers live at different points on that deduction chain.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Permian</div>
+<p><strong>Benchmark:</strong> WTI</p>
+<p><strong>Main deductions:</strong> modest transport only</p>
+<p><strong>Result:</strong> producer receives close to benchmark.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Athabasca</div>
+<p><strong>Benchmark:</strong> WTI-linked</p>
+<p><strong>Main deductions:</strong> quality, transport, diluent, processing</p>
+<p><strong>Result:</strong> large gap between headline price and actual netback.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Key lesson</div>
+<p>The benchmark is a reference price.</p>
+<p>The netback is the economic price.</p>
+<p>Geology and infrastructure decide the distance between them.</p>
+</div>
+</div>
+</div>
+<figcaption>Commodity price formation is a location-specific pricing formula. The same benchmark can imply very different producer receipts once quality and transport enter the calculation.</figcaption>
+</figure>
+
 ## Market Segmentation and the Limits of Arbitrage
 
 A key implication of the netback analysis is that markets are not seamlessly integrated. The textbook assumption of a Law of One Price — identical goods trade at identical prices everywhere — only holds when trade is frictionless. When transport has a cost (a tariff, a pipeline fee, an ocean freight rate), identical goods can trade at different prices in different geographies simultaneously without creating a profitable arbitrage opportunity.

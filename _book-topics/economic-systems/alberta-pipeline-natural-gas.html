@@ -71,10 +71,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -143,6 +146,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -195,6 +199,15 @@ window.Quarto = {
   <li><a href="#sources-and-data-notes" id="toc-sources-and-data-notes">Sources and Data Notes</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That gases are compressible, that pipeline networks have finite capacity, and that regional prices can differ when transport is costly or constrained.</p>
+<p><strong>You will learn</strong><br>
+How Alberta’s gas transmission system is organized, how the Weymouth equation approximates gas-pipeline flow, and why AECO trades below Henry Hub.</p>
+<p><strong>Why this matters</strong><br>
+Gas pricing is not only a market story. It is also a geography and infrastructure story written into the pipeline network.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The central idea that Alberta gas is cheaper because it must travel through a constrained transport system to reach distant benchmarks.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>Why does Alberta natural gas consistently sell for less than the North American benchmark price, and what does the pipeline network have to do with it?</p>
 <p>Alberta’s natural gas story has a paradox at its centre. The province sits atop one of the largest natural gas reserves in North America. It produces approximately 70% of Canadian natural gas — roughly 15–17 billion cubic feet per day (Bcf/d). And yet the price Alberta producers receive at the AECO hub near Suffield, Alberta persistently trades at a discount to Henry Hub in Erath, Louisiana — the North American reference price.</p>
@@ -211,14 +224,26 @@ window.Quarto = {
 <p>NGTL is unusual among Canadian pipeline systems in that it serves both as a gathering system (collecting gas from thousands of wells) and as a transmission system (moving large volumes to export connections). This dual role means it operates simultaneously at multiple pressure levels across a vast geographic area.</p>
 <h3 id="the-export-corridors" class="anchored">The export corridors</h3>
 <p>Gas leaving Alberta via NGTL exits through several border connections:</p>
-<p><strong>Westbound — Pacific exports:</strong> - <strong>Westcoast Energy / Spectra</strong> pipeline runs south from northeastern BC through BC to the U.S. border near Huntingdon/Sumas, connecting to the U.S. Pacific Northwest and California markets - <strong>Alliance Pipeline</strong> runs from northeastern BC/Alberta to the Chicago area — a high-pressure, large-diameter (36-inch) line that moves approximately 1.6 Bcf/d in a single corridor</p>
-<p><strong>Southbound — U.S. Midwest and Rockies:</strong> - <strong>TC Energy’s Canadian Mainline</strong> (formerly TransCanada) runs east from Alberta, but historically also fed U.S. interconnects via the Northern Border and Great Lakes pipeline systems - Multiple small interconnects at the Alberta-Montana and Alberta-Saskatchewan-U.S. borders serve local Midwest markets</p>
-<p><strong>Eastbound — Canadian markets:</strong> - <strong>TC Energy’s Canadian Mainline</strong> carries gas from Alberta east through Saskatchewan, Manitoba, Ontario, and Quebec — approximately 4,900 km to Montreal and connections to the Maritimes - Flow on the Canadian Mainline has declined significantly as Ontario and Quebec shifted toward locally produced gas (from Appalachian plays via U.S. routes) and other energy sources — a structural change that has reduced Alberta’s eastward market share</p>
+<p><strong>Westbound — Pacific exports:</strong></p>
+<ul>
+<li><strong>Westcoast Energy / Spectra</strong> pipeline runs south from northeastern BC through BC to the U.S. border near Huntingdon/Sumas, connecting to the U.S. Pacific Northwest and California markets</li>
+<li><strong>Alliance Pipeline</strong> runs from northeastern BC/Alberta to the Chicago area — a high-pressure, large-diameter (36-inch) line that moves approximately 1.6 Bcf/d in a single corridor</li>
+</ul>
+<p><strong>Southbound — U.S. Midwest and Rockies:</strong></p>
+<ul>
+<li><strong>TC Energy’s Canadian Mainline</strong> (formerly TransCanada) runs east from Alberta, but historically also fed U.S. interconnects via the Northern Border and Great Lakes pipeline systems</li>
+<li>Multiple small interconnects at the Alberta-Montana and Alberta-Saskatchewan-U.S. borders serve local Midwest markets</li>
+</ul>
+<p><strong>Eastbound — Canadian markets:</strong></p>
+<ul>
+<li><strong>TC Energy’s Canadian Mainline</strong> carries gas from Alberta east through Saskatchewan, Manitoba, Ontario, and Quebec — approximately 4,900 km to Montreal and connections to the Maritimes</li>
+<li>Flow on the Canadian Mainline has declined significantly as Ontario and Quebec shifted toward locally produced gas (from Appalachian plays via U.S. routes) and other energy sources — a structural change that has reduced Alberta’s eastward market share</li>
+</ul>
 <h3 id="the-aeco-henry-hub-basis-differential" class="anchored">The AECO-Henry Hub basis differential</h3>
 <p>The <strong>basis differential</strong> is the difference between the local gas price and the reference benchmark:</p>
 <p><span class="math display">\text{Basis} = P_{\text{AECO}} - P_{\text{Henry Hub}}</span></p>
-<p>This value is almost always negative — AECO trades at a discount to Henry Hub. The discount varies with season and pipeline capacity conditions, but has historically averaged CAD $1.00–$2.50/GJ, with occasional spikes to CAD $4–5/GJ during constraint events.</p>
-<p>The discount exists because: 1. <strong>Transport cost</strong>: moving gas from AECO to Henry Hub costs money — approximately USD $0.50–$1.00/MMBtu in tariffs 2. <strong>Basis risk</strong>: shippers demand a discount to hold Alberta gas relative to a benchmark they can hedge on financial markets 3. <strong>Capacity constraints</strong>: when NGTL or export corridors are congested, Alberta gas cannot easily reach better-priced markets, and local oversupply depresses AECO</p>
+<p>This value is almost always negative — AECO trades at a discount to Henry Hub. The discount varies with season and pipeline capacity conditions, but has historically averaged CAD $1.00-$2.50/GJ, with occasional spikes to CAD $4-$5/GJ during constraint events.</p>
+<p>The discount exists because: 1. <strong>Transport cost</strong>: moving gas from AECO to Henry Hub costs money — approximately USD $0.50-$1.00/MMBtu in tariffs 2. <strong>Basis risk</strong>: shippers demand a discount to hold Alberta gas relative to a benchmark they can hedge on financial markets 3. <strong>Capacity constraints</strong>: when NGTL or export corridors are congested, Alberta gas cannot easily reach better-priced markets, and local oversupply depresses AECO</p>
 <p>Understanding the basis differential quantitatively is the central economic lesson of Alberta’s gas transmission geography.</p>
 <hr>
 <h2 id="the-mathematical-model" class="anchored">3. The Mathematical Model</h2>
@@ -226,7 +251,7 @@ window.Quarto = {
 <p>For compressible gas flow in a pipeline, the Weymouth equation is a widely used approximation relating throughput to pressure, pipe geometry, and gas properties:</p>
 <p><span class="math display">Q = 433.5 \cdot T_b \cdot \left(\frac{P_1^2 - P_2^2}{G \cdot T_f \cdot L \cdot Z}\right)^{0.5} \cdot D^{8/3} \cdot \frac{1}{P_b}</span></p>
 <p>where in field units (common in the North American gas industry): - <span class="math inline">Q</span> is gas flow rate (standard cubic feet per day, scf/d) - <span class="math inline">T_b</span> is base temperature (520 °R = 60°F) - <span class="math inline">P_1</span> is inlet pressure (psia) - <span class="math inline">P_2</span> is outlet pressure (psia) - <span class="math inline">G</span> is gas specific gravity (dimensionless; air = 1.0; natural gas <span class="math inline">\approx</span> 0.65) - <span class="math inline">T_f</span> is mean flowing temperature (°R) - <span class="math inline">L</span> is pipe length (miles) - <span class="math inline">Z</span> is gas compressibility factor (dimensionless; <span class="math inline">\approx</span> 0.88–0.92 at typical pipeline conditions) - <span class="math inline">D</span> is pipe internal diameter (inches) - <span class="math inline">P_b</span> is base pressure (14.73 psia)</p>
-<p>The key insight from this equation is the <strong>diameter exponent</strong>: flow rate scales as <span class="math inline">D^{8/3} \approx D^{2.67}</span>. Doubling the diameter increases capacity by a factor of $2^{8/3} $ — a far more powerful leverage than for liquid pipelines (where flow scales roughly as <span class="math inline">D^{2.5}</span> via Darcy-Weisbach). This is why gas transmission investments strongly favour large-diameter pipes.</p>
+<p>The key insight from this equation is the <strong>diameter exponent</strong>: flow rate scales as <span class="math inline">D^{8/3} \approx D^{2.67}</span>. Doubling the diameter increases capacity by a factor of <span class="math inline">2^{8/3} \approx 6.35</span> — a far more powerful leverage than for liquid pipelines (where flow scales roughly as <span class="math inline">D^{2.5}</span> via Darcy-Weisbach). This is why gas transmission investments strongly favour large-diameter pipes.</p>
 <h3 id="simplifying-for-understanding" class="anchored">Simplifying for understanding</h3>
 <p>Stripping the constants and rearranging, the Weymouth equation says:</p>
 <p><span class="math display">Q \propto D^{8/3} \cdot \sqrt{\frac{P_1^2 - P_2^2}{G \cdot T \cdot L \cdot Z}}</span></p>
@@ -240,8 +265,8 @@ window.Quarto = {
 <p><span class="math display">\text{Basis}_{\min} = -(T_{\text{NGTL}} + T_{\text{export}} + T_{\text{U.S.}})</span></p>
 <p>where <span class="math inline">T</span> represents tariff segments in consistent units (CAD/GJ or USD/MMBtu). In practice, the market basis is at least as negative as the sum of tariffs; it widens further when capacity is constrained and Alberta gas cannot physically reach the destination.</p>
 <p>Converting between common gas pricing units:</p>
-<p><span class="math inline">&amp;#36;1 \text{ MMBtu} \approx 1.055 \text{ GJ} \approx 28.3 \text{ m}^3
-\text{ (at standard conditions)}</span>$</p>
+<p><span class="math display">1 \text{ MMBtu} \approx 1.055 \text{ GJ} \approx 28.3 \text{ m}^3
+\text{ (at standard conditions)}</span></p>
 <p><span class="math display">P_{\text{CAD/GJ}} = P_{\text{USD/MMBtu}} \times \frac{1}{1.055}
 \times \frac{1}{\text{exchange rate (USD/CAD)}}</span></p>
 <hr>
@@ -249,7 +274,17 @@ window.Quarto = {
 <h3 id="how-much-gas-can-a-36-inch-alliance-pipeline-segment-move" class="anchored">How much gas can a 36-inch Alliance Pipeline segment move?</h3>
 <p>Alliance Pipeline runs from northeastern BC/Alberta to Chicago — approximately 3,848 km (2,391 miles). Its design capacity is approximately 1.6 Bcf/d through a 36-inch (914 mm) pipeline.</p>
 <p>Let us verify this with a simplified Weymouth calculation.</p>
-<p><strong>Given:</strong> - <span class="math inline">D = 36</span> inches - <span class="math inline">L = 200</span> miles (representative segment between compressor stations) - <span class="math inline">P_1 = 1,200</span> psia (inlet, post-compression) - <span class="math inline">P_2 = 900</span> psia (outlet, pre-next-compressor) - <span class="math inline">G = 0.65</span> (Alberta gas specific gravity) - <span class="math inline">T_f = 540</span> °R (80°F mean flowing temperature) - <span class="math inline">Z = 0.90</span> - <span class="math inline">T_b = 520</span> °R, <span class="math inline">P_b = 14.73</span> psia</p>
+<p><strong>Given:</strong></p>
+<ul>
+<li><span class="math inline">D = 36</span> inches</li>
+<li><span class="math inline">L = 200</span> miles (representative segment between compressor stations)</li>
+<li><span class="math inline">P_1 = 1,200</span> psia (inlet, post-compression)</li>
+<li><span class="math inline">P_2 = 900</span> psia (outlet, pre-next-compressor)</li>
+<li><span class="math inline">G = 0.65</span> (Alberta gas specific gravity)</li>
+<li><span class="math inline">T_f = 540</span> °R (80°F mean flowing temperature)</li>
+<li><span class="math inline">Z = 0.90</span></li>
+<li><span class="math inline">T_b = 520</span> °R, <span class="math inline">P_b = 14.73</span> psia</li>
+</ul>
 <p><strong>Step 1 — Compute pressure term:</strong></p>
 <p><span class="math display">P_1^2 - P_2^2 = 1{,}200^2 - 900^2 = 1{,}440{,}000 - 810{,}000
 = 630{,}000 \text{ psia}^2</span></p>
@@ -261,8 +296,8 @@ window.Quarto = {
 <p><span class="math display">\sqrt{9.972} \approx 3.158</span></p>
 <p><strong>Step 4 — Diameter term:</strong></p>
 <p><span class="math display">D^{8/3} = 36^{8/3}</span></p>
-<p><span class="math inline">&amp;#36;36^{1/3} \approx 3.302 \qquad 36^{8/3} = 36^2 \times 36^{2/3}
-= 1{,}296 \times 10.90 \approx 14{,}126</span>$</p>
+<p><span class="math display">36^{1/3} \approx 3.302 \qquad 36^{8/3} = 36^2 \times 36^{2/3}
+= 1{,}296 \times 10.90 \approx 14{,}126</span></p>
 <p><strong>Step 5 — Assemble:</strong></p>
 <p><span class="math display">Q = 433.5 \times \frac{520}{14.73} \times 3.158 \times 14{,}126</span></p>
 <p><span class="math display">Q = 433.5 \times 35.30 \times 3.158 \times 14{,}126</span></p>
@@ -272,13 +307,13 @@ window.Quarto = {
 <p>This is a single 200-mile segment between two compressor stations. With multiple compressor stations restoring pressure along Alliance’s full length, total system throughput of 1.6 Bcf/d is consistent with this per-segment calculation — each segment contributes independently to total system throughput.</p>
 <p><strong>Step 6 — Convert to economic terms:</strong></p>
 <p>At an AECO price of CAD $2.50/GJ:</p>
-<p><span class="math inline">&amp;#36;1 \text{ Bcf} = 10^9 \text{ scf} \times 0.02832 \text{ m}^3/\text{scf}
-\times 0.03726 \text{ GJ/m}^3 \approx 1.055 \text{ PJ}</span>$</p>
+<p><span class="math display">1 \text{ Bcf} = 10^9 \text{ scf} \times 0.02832 \text{ m}^3/\text{scf}
+\times 0.03726 \text{ GJ/m}^3 \approx 1.055 \text{ PJ}</span></p>
 <p><span class="math display">\text{Annual value of Alliance throughput} = 1.6 \text{ Bcf/d}
 \times 365 \times 1.055 \text{ PJ/Bcf} \times 1{,}000 \text{ GJ/PJ}
-\times \&amp;#36;2.50/\text{GJ}</span></p>
+\times 2.50/\text{GJ}</span></p>
 <p><span class="math display">\approx 1.6 \times 365 \times 1{,}055 \times 2{,}500 \approx
-\&amp;#36;2.44 \text{ billion CAD/yr}</span></p>
+2.44 \text{ billion CAD/yr}</span></p>
 <p>One pipeline, at AECO prices. At Henry Hub prices of USD $3.00/MMBtu (approximately CAD $4.35/GJ at current exchange rates), the same volume would be worth approximately <strong>CAD $3.52 billion/yr</strong> — the basis differential costs Alberta producers roughly <strong>CAD $1.1 billion/yr</strong> on Alliance throughput alone.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
@@ -581,155 +616,145 @@ window.Quarto = {
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <h3 id="figure-1-alberta-gas-export-capacity-by-corridor" class="anchored">Figure 1 — Alberta Gas Export Capacity by Corridor</h3>
 <div data-viz="echarts" style="height:400px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Alberta Natural Gas Export Pipeline Capacity&quot;, &quot;subtext&quot;: &quot;Bcf/d nameplate capacity by corridor — 2024&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
-  &quot;grid&quot;: {&quot;left&quot;: &quot;3%&quot;, &quot;right&quot;: &quot;8%&quot;, &quot;bottom&quot;: &quot;8%&quot;, &quot;containLabel&quot;: true},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Capacity (Bcf/d)&quot;},
-  &quot;yAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;Foothills\n(U.S. Rockies)&quot;, &quot;TC Mainline to\nU.S. Midwest&quot;, &quot;Alliance\n(Chicago)&quot;, &quot;Westcoast/Spectra\n(Pacific NW/CA)&quot;, &quot;TC Canadian\nMainline (East)&quot;]},
-  &quot;series&quot;: [{
-    &quot;type&quot;: &quot;bar&quot;,
-    &quot;data&quot;: [
-      {&quot;value&quot;: 0.80, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#f59e0b&quot;}},
-      {&quot;value&quot;: 1.50, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;}},
-      {&quot;value&quot;: 1.60, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#7c3aed&quot;}},
-      {&quot;value&quot;: 2.80, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#0891b2&quot;}},
-      {&quot;value&quot;: 4.20, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;}}
-    ],
-    &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;right&quot;, &quot;formatter&quot;: &quot;{c} Bcf/d&quot;}
-  }]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Alberta Natural Gas Export Pipeline Capacity&quot;, &quot;subtext&quot;: &quot;Bcf/d nameplate capacity by corridor — 2024&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
+&quot;grid&quot;: {&quot;left&quot;: &quot;3%&quot;, &quot;right&quot;: &quot;8%&quot;, &quot;bottom&quot;: &quot;8%&quot;, &quot;containLabel&quot;: true},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Capacity (Bcf/d)&quot;},
+&quot;yAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;Foothills\n(U.S. Rockies)&quot;, &quot;TC Mainline to\nU.S. Midwest&quot;, &quot;Alliance\n(Chicago)&quot;, &quot;Westcoast/Spectra\n(Pacific NW/CA)&quot;, &quot;TC Canadian\nMainline (East)&quot;]},
+&quot;series&quot;: [{
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [
+{&quot;value&quot;: 0.80, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#f59e0b&quot;}},
+{&quot;value&quot;: 1.50, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;}},
+{&quot;value&quot;: 1.60, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#7c3aed&quot;}},
+{&quot;value&quot;: 2.80, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#0891b2&quot;}},
+{&quot;value&quot;: 4.20, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;}}
+],
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;right&quot;, &quot;formatter&quot;: &quot;{c} Bcf/d&quot;}
+}]
+}"></div>
 <h3 id="figure-2-aeco-vs-henry-hub-historical-price-comparison" class="anchored">Figure 2 — AECO vs Henry Hub: Historical Price Comparison</h3>
 <div data-viz="echarts" style="height:380px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;AECO vs Henry Hub Natural Gas Prices&quot;, &quot;subtext&quot;: &quot;CAD$/GJ — annual averages, 2015–2024 (approximate)&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Henry Hub (CAD equiv.)&quot;, &quot;AECO&quot;, &quot;Basis differential&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;2015&quot;,&quot;2016&quot;,&quot;2017&quot;,&quot;2018&quot;,&quot;2019&quot;,&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;,&quot;2023&quot;,&quot;2024&quot;]},
-  &quot;yAxis&quot;: [
-    {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;CAD$/GJ&quot;, &quot;position&quot;: &quot;left&quot;},
-    {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Basis (CAD$/GJ)&quot;, &quot;position&quot;: &quot;right&quot;, &quot;min&quot;: -5, &quot;max&quot;: 0}
-  ],
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;Henry Hub (CAD equiv.)&quot;,
-      &quot;type&quot;: &quot;line&quot;,
-      &quot;data&quot;: [3.12, 2.78, 3.40, 4.20, 3.55, 2.45, 4.80, 9.20, 4.10, 3.65],
-      &quot;smooth&quot;: true,
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;},
-      &quot;lineStyle&quot;: {&quot;width&quot;: 2}
-    },
-    {
-      &quot;name&quot;: &quot;AECO&quot;,
-      &quot;type&quot;: &quot;line&quot;,
-      &quot;data&quot;: [2.40, 1.20, 1.90, 1.10, 1.45, 1.80, 3.20, 5.80, 2.60, 2.50],
-      &quot;smooth&quot;: true,
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;},
-      &quot;lineStyle&quot;: {&quot;width&quot;: 2}
-    },
-    {
-      &quot;name&quot;: &quot;Basis differential&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;yAxisIndex&quot;: 1,
-      &quot;data&quot;: [-0.72, -1.58, -1.50, -3.10, -2.10, -0.65, -1.60, -3.40, -1.50, -1.15],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#f59e0b&quot;, &quot;opacity&quot;: 0.6}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;AECO vs Henry Hub Natural Gas Prices&quot;, &quot;subtext&quot;: &quot;CAD$/GJ — annual averages, 2015–2024 (approximate)&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Henry Hub (CAD equiv.)&quot;, &quot;AECO&quot;, &quot;Basis differential&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;2015&quot;,&quot;2016&quot;,&quot;2017&quot;,&quot;2018&quot;,&quot;2019&quot;,&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;,&quot;2023&quot;,&quot;2024&quot;]},
+&quot;yAxis&quot;: [
+{&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;CAD$/GJ&quot;, &quot;position&quot;: &quot;left&quot;},
+{&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Basis (CAD$/GJ)&quot;, &quot;position&quot;: &quot;right&quot;, &quot;min&quot;: -5, &quot;max&quot;: 0}
+],
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;Henry Hub (CAD equiv.)&quot;,
+&quot;type&quot;: &quot;line&quot;,
+&quot;data&quot;: [3.12, 2.78, 3.40, 4.20, 3.55, 2.45, 4.80, 9.20, 4.10, 3.65],
+&quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;},
+&quot;lineStyle&quot;: {&quot;width&quot;: 2}
+},
+{
+&quot;name&quot;: &quot;AECO&quot;,
+&quot;type&quot;: &quot;line&quot;,
+&quot;data&quot;: [2.40, 1.20, 1.90, 1.10, 1.45, 1.80, 3.20, 5.80, 2.60, 2.50],
+&quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;},
+&quot;lineStyle&quot;: {&quot;width&quot;: 2}
+},
+{
+&quot;name&quot;: &quot;Basis differential&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;yAxisIndex&quot;: 1,
+&quot;data&quot;: [-0.72, -1.58, -1.50, -3.10, -2.10, -0.65, -1.60, -3.40, -1.50, -1.15],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#f59e0b&quot;, &quot;opacity&quot;: 0.6}
+}
+]
+}"></div>
 <h3 id="figure-3-weymouth-equation-diameter-vs.-flow-capacity" class="anchored">Figure 3 — Weymouth Equation: Diameter vs.&nbsp;Flow Capacity</h3>
 <div data-viz="echarts" style="height:360px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Weymouth Equation: Pipe Diameter vs. Flow Capacity&quot;, &quot;subtext&quot;: &quot;Relative capacity — 24-inch pipe = 1.0 baseline. Fixed pressure, length, and gas properties.&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;16\&quot;&quot;,&quot;20\&quot;&quot;,&quot;24\&quot;&quot;,&quot;30\&quot;&quot;,&quot;36\&quot;&quot;,&quot;42\&quot;&quot;,&quot;48\&quot;&quot;], &quot;name&quot;: &quot;Pipe diameter&quot;},
-  &quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Relative capacity (24\&quot; = 1.0)&quot;},
-  &quot;series&quot;: [{
-    &quot;type&quot;: &quot;bar&quot;,
-    &quot;data&quot;: [0.30, 0.53, 1.00, 1.95, 3.30, 5.16, 7.57],
-    &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;},
-    &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;top&quot;, &quot;formatter&quot;: &quot;{c}x&quot;}
-  }]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Weymouth Equation: Pipe Diameter vs. Flow Capacity&quot;, &quot;subtext&quot;: &quot;Relative capacity — 24-inch pipe = 1.0 baseline. Fixed pressure, length, and gas properties.&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;16\&quot;&quot;,&quot;20\&quot;&quot;,&quot;24\&quot;&quot;,&quot;30\&quot;&quot;,&quot;36\&quot;&quot;,&quot;42\&quot;&quot;,&quot;48\&quot;&quot;], &quot;name&quot;: &quot;Pipe diameter&quot;},
+&quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Relative capacity (24\&quot; = 1.0)&quot;},
+&quot;series&quot;: [{
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [0.30, 0.53, 1.00, 1.95, 3.30, 5.16, 7.57],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;},
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;top&quot;, &quot;formatter&quot;: &quot;{c}x&quot;}
+}]
+}"></div>
 <h3 id="figure-4-annual-basis-cost-by-export-corridor" class="anchored">Figure 4 — Annual Basis Cost by Export Corridor</h3>
 <div data-viz="echarts" style="height:360px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Annual Revenue Foregone: AECO-Henry Hub Basis&quot;, &quot;subtext&quot;: &quot;CAD$ million/year per corridor — AECO $2.50/GJ, HH $2.80 USD/MMBtu&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
-  &quot;grid&quot;: {&quot;left&quot;: &quot;3%&quot;, &quot;right&quot;: &quot;8%&quot;, &quot;bottom&quot;: &quot;8%&quot;, &quot;containLabel&quot;: true},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Annual basis cost (CAD$ million/yr)&quot;},
-  &quot;yAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;Foothills\n(Rockies)&quot;, &quot;Midwest\n(TCPL)&quot;, &quot;Alliance\n(Chicago)&quot;, &quot;Westcoast\n(Pacific)&quot;, &quot;TC Mainline\n(East)&quot;]},
-  &quot;series&quot;: [{
-    &quot;type&quot;: &quot;bar&quot;,
-    &quot;data&quot;: [110, 207, 220, 385, 578],
-    &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;},
-    &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;right&quot;, &quot;formatter&quot;: &quot;${c}M&quot;}
-  }]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Annual Revenue Foregone: AECO-Henry Hub Basis&quot;, &quot;subtext&quot;: &quot;CAD$ million/year per corridor — AECO $2.50/GJ, HH $2.80 USD/MMBtu&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
+&quot;grid&quot;: {&quot;left&quot;: &quot;3%&quot;, &quot;right&quot;: &quot;8%&quot;, &quot;bottom&quot;: &quot;8%&quot;, &quot;containLabel&quot;: true},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Annual basis cost (CAD$ million/yr)&quot;},
+&quot;yAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;Foothills\n(Rockies)&quot;, &quot;Midwest\n(TCPL)&quot;, &quot;Alliance\n(Chicago)&quot;, &quot;Westcoast\n(Pacific)&quot;, &quot;TC Mainline\n(East)&quot;]},
+&quot;series&quot;: [{
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [110, 207, 220, 385, 578],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;},
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;right&quot;, &quot;formatter&quot;: &quot;${c}M&quot;}
+}]
+}"></div>
 <h3 id="figure-5-ngtl-system-extent-and-export-connections" class="anchored">Figure 5 — NGTL System Extent and Export Connections</h3>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Alberta Gas Transmission: System Overview&quot;, &quot;subtext&quot;: &quot;NGTL intra-provincial network and export corridor capacities (Bcf/d)&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;item&quot;},
-  &quot;series&quot;: [{
-    &quot;type&quot;: &quot;sunburst&quot;,
-    &quot;data&quot;: [
-      {
-        &quot;name&quot;: &quot;NGTL System\n(25,000 km)&quot;,
-        &quot;value&quot;: 15,
-        &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1e40af&quot;},
-        &quot;children&quot;: [
-          {
-            &quot;name&quot;: &quot;East (TC Mainline)&quot;,
-            &quot;value&quot;: 4.2,
-            &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;},
-            &quot;children&quot;: [
-              {&quot;name&quot;: &quot;Ontario/Quebec\n4.2 Bcf/d&quot;, &quot;value&quot;: 4.2, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#93c5fd&quot;}}
-            ]
-          },
-          {
-            &quot;name&quot;: &quot;West (Westcoast)&quot;,
-            &quot;value&quot;: 2.8,
-            &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#16a34a&quot;},
-            &quot;children&quot;: [
-              {&quot;name&quot;: &quot;Pacific NW/CA\n2.8 Bcf/d&quot;, &quot;value&quot;: 2.8, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#86efac&quot;}}
-            ]
-          },
-          {
-            &quot;name&quot;: &quot;South (Alliance)&quot;,
-            &quot;value&quot;: 1.6,
-            &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#7c3aed&quot;},
-            &quot;children&quot;: [
-              {&quot;name&quot;: &quot;Chicago\n1.6 Bcf/d&quot;, &quot;value&quot;: 1.6, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#c4b5fd&quot;}}
-            ]
-          },
-          {
-            &quot;name&quot;: &quot;South (Misc.)&quot;,
-            &quot;value&quot;: 2.3,
-            &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;},
-            &quot;children&quot;: [
-              {&quot;name&quot;: &quot;Midwest/Rockies\n2.3 Bcf/d&quot;, &quot;value&quot;: 2.3, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#fca5a5&quot;}}
-            ]
-          },
-          {
-            &quot;name&quot;: &quot;In-province\nconsumption&quot;,
-            &quot;value&quot;: 4.1,
-            &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#f59e0b&quot;},
-            &quot;children&quot;: [
-              {&quot;name&quot;: &quot;Alberta demand\n4.1 Bcf/d&quot;, &quot;value&quot;: 4.1, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#fde68a&quot;}}
-            ]
-          }
-        ]
-      }
-    ],
-    &quot;radius&quot;: [&quot;10%&quot;, &quot;90%&quot;],
-    &quot;label&quot;: {&quot;rotate&quot;: &quot;radial&quot;, &quot;fontSize&quot;: 11}
-  }]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Alberta Gas Transmission: System Overview&quot;, &quot;subtext&quot;: &quot;NGTL intra-provincial network and export corridor capacities (Bcf/d)&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;item&quot;},
+&quot;series&quot;: [{
+&quot;type&quot;: &quot;sunburst&quot;,
+&quot;data&quot;: [
+{
+&quot;name&quot;: &quot;NGTL System\n(25,000 km)&quot;,
+&quot;value&quot;: 15,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1e40af&quot;},
+&quot;children&quot;: [
+{
+&quot;name&quot;: &quot;East (TC Mainline)&quot;,
+&quot;value&quot;: 4.2,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2563eb&quot;},
+&quot;children&quot;: [
+{&quot;name&quot;: &quot;Ontario/Quebec\n4.2 Bcf/d&quot;, &quot;value&quot;: 4.2, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#93c5fd&quot;}}
+]
+},
+{
+&quot;name&quot;: &quot;West (Westcoast)&quot;,
+&quot;value&quot;: 2.8,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#16a34a&quot;},
+&quot;children&quot;: [
+{&quot;name&quot;: &quot;Pacific NW/CA\n2.8 Bcf/d&quot;, &quot;value&quot;: 2.8, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#86efac&quot;}}
+]
+},
+{
+&quot;name&quot;: &quot;South (Alliance)&quot;,
+&quot;value&quot;: 1.6,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#7c3aed&quot;},
+&quot;children&quot;: [
+{&quot;name&quot;: &quot;Chicago\n1.6 Bcf/d&quot;, &quot;value&quot;: 1.6, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#c4b5fd&quot;}}
+]
+},
+{
+&quot;name&quot;: &quot;South (Misc.)&quot;,
+&quot;value&quot;: 2.3,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#dc2626&quot;},
+&quot;children&quot;: [
+{&quot;name&quot;: &quot;Midwest/Rockies\n2.3 Bcf/d&quot;, &quot;value&quot;: 2.3, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#fca5a5&quot;}}
+]
+},
+{
+&quot;name&quot;: &quot;In-province\nconsumption&quot;,
+&quot;value&quot;: 4.1,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#f59e0b&quot;},
+&quot;children&quot;: [
+{&quot;name&quot;: &quot;Alberta demand\n4.1 Bcf/d&quot;, &quot;value&quot;: 4.1, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#fde68a&quot;}}
+]
+}
+]
+}
+],
+&quot;radius&quot;: [&quot;10%&quot;, &quot;90%&quot;],
+&quot;label&quot;: {&quot;rotate&quot;: &quot;radial&quot;, &quot;fontSize&quot;: 11}
+}]
+}"></div>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
 <h3 id="alberta-is-the-dominant-canadian-gas-producer-but-not-the-price-setter" class="anchored">Alberta is the dominant Canadian gas producer — but not the price setter</h3>
@@ -860,24 +885,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

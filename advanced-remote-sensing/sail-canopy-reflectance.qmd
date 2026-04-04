@@ -128,6 +128,48 @@ The most striking bidirectional effect is the **hotspot**: when the sensor looks
 
 SAIL parameterises the hotspot with a single parameter $s = s_l / h$ — the ratio of the leaf size to canopy height. Larger leaves relative to canopy height produce a stronger, broader hotspot.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Canopy Geometry</div>
+<h3 class="cg-ill__title">SAIL Tracks How Light Meets Leaves, Soil, And Viewing Direction Together</h3>
+<p class="cg-ill__lede">The canopy signal is a geometry problem layered on top of leaf optics: sunlight enters from one direction, some is intercepted by leaves, some reaches soil, and the observed reflectance depends on where the sensor sits relative to the shadows.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewBox="0 0 560 320" role="img" aria-label="Canopy reflectance diagram showing solar beam, canopy layer, soil background, multiple scattering, and hotspot geometry.">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
+  <rect x="86" y="78" width="334" height="146" rx="18" fill="#dcfce7" stroke="#86efac"/>
+  <rect x="86" y="224" width="334" height="38" fill="#caa472"/>
+  <text x="222" y="100" font-size="18" fill="#166534" font-weight="700">canopy layer</text>
+  <text x="218" y="248" font-size="16" fill="#6f4e37" font-weight="700">soil background</text>
+  <line x1="44" y1="44" x2="150" y2="112" stroke="#f59e0b" stroke-width="5" marker-end="url(#sail-sun)"/>
+  <text x="32" y="34" font-size="16" fill="#b45309">sun beam</text>
+  <line x1="488" y1="54" x2="350" y2="120" stroke="#334155" stroke-width="5" marker-end="url(#sail-view)"/>
+  <text x="436" y="38" font-size="16" fill="#334155">sensor view</text>
+  <line x1="184" y1="112" x2="184" y2="224" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 5"/>
+  <ellipse cx="188" cy="144" rx="22" ry="8" fill="#22c55e" transform="rotate(55 188 144)"/>
+  <ellipse cx="248" cy="168" rx="22" ry="8" fill="#22c55e" transform="rotate(20 248 168)"/>
+  <ellipse cx="308" cy="132" rx="22" ry="8" fill="#22c55e" transform="rotate(70 308 132)"/>
+  <ellipse cx="352" cy="182" rx="22" ry="8" fill="#22c55e" transform="rotate(35 352 182)"/>
+  <path d="M168 120 C214 142, 252 156, 302 164" fill="none" stroke="#7c3aed" stroke-width="4" stroke-dasharray="6 5"/>
+  <path d="M256 222 C258 198, 270 184, 296 170" fill="none" stroke="#0ea5a6" stroke-width="4" stroke-dasharray="6 5"/>
+  <text x="302" y="156" font-size="14" fill="#6d28d9">multiple scattering</text>
+  <text x="262" y="206" font-size="14" fill="#0f766e">soil contribution</text>
+  <path d="M438 92 C404 96, 378 106, 358 120" fill="none" stroke="#ef4444" stroke-width="4"/>
+  <text x="404" y="118" font-size="14" fill="#991b1b">hotspot when view aligns with sun</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4>What changes the canopy signal</h4>
+<p><strong>LAI:</strong> higher LAI closes gaps and reduces the soil contribution.</p>
+<p><strong>Leaf angle distribution:</strong> erect and horizontal canopies intercept light differently even with the same LAI.</p>
+<p><strong>Multiple scattering:</strong> especially important in the near-infrared, where leaves reflect and transmit strongly.</p>
+<p><strong>Hotspot geometry:</strong> reflectance spikes when the sensor sees the canopy from nearly the same direction as incoming sunlight, minimizing visible shadows.</p>
+</div>
+</div>
+</div>
+<figcaption>SAIL adds canopy geometry to leaf optics. What the satellite sees depends not only on the leaves themselves, but on canopy density, leaf angles, soil background, and the alignment of sun and sensor.</figcaption>
+</figure>
+
 ---
 
 ## 3. The PROSAIL Forward Chain

@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -166,6 +170,15 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That distance can be computed from travel time if speed is known, and that spheres can intersect to identify a location.</p>
+<p><strong>You will learn</strong><br>
+How GPS turns signal timing into pseudoranges, why clock bias forces a fourth unknown into the system, and how iterative least-squares solves the position.</p>
+<p><strong>Why this matters</strong><br>
+Positioning is one of the quiet foundations of modern geographic work, from field surveys to phones to autonomous systems.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The basic picture of intersecting distance spheres, with one extra correction term for the receiver clock.</p>
 <p>On 2 May 2000, the United States government switched off Selective Availability — the deliberate degradation of GPS accuracy that had been limiting civilian receivers to about 100 metres. Overnight, accuracy improved to roughly 20 metres. Within two years, GPS receivers were in cars, boats, and hiking packs across the world, and within fifteen years they were in every smartphone. The underlying technology — announced by the Department of Defense in the 1970s, operationally complete by 1995 — is one of the most consequential engineering achievements of the twentieth century, and it rests on a piece of mathematics you can derive in an afternoon.</p>
 <p>The principle is deceptively simple: if you know your distance from three points in space whose positions are known, you can compute your position. GPS executes this in three dimensions using satellites instead of fixed ground beacons, measuring distances from the travel time of radio signals at the speed of light. The complication — and the mathematical interest — is that the receiver’s clock is not synchronised with the satellites’ atomic clocks. This introduces an unknown, the clock bias, which requires a fourth satellite to solve. The resulting system of four non-linear equations in four unknowns (three spatial coordinates, one clock bias) is solved iteratively on cheap hardware a dozen times per second. This model derives those equations from first principles and shows why the geometry of the satellite constellation — the Dilution of Precision — matters as much as the signal quality.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -275,9 +288,19 @@ window.Quarto = {
 <p>Add clock bias (<span class="math inline">c = 1</span>): - <span class="math inline">\rho_1 = 3.606 + 0.5 = 4.106</span> - <span class="math inline">\rho_2 = 8.544 + 0.5 = 9.044</span> - <span class="math inline">\rho_3 = 7.280 + 0.5 = 7.780</span></p>
 <h3 id="iteration-1" class="anchored">Iteration 1</h3>
 <p><strong>Initial guess:</strong> <span class="math inline">(x_0, y_0, b_0) = (1, 1, 0)</span></p>
-<p><strong>Predicted ranges:</strong> - <span class="math inline">r_{1,0} = \sqrt{1^2 + 1^2} = 1.414</span> - <span class="math inline">r_{2,0} = \sqrt{(1-10)^2 + 1^2} = \sqrt{82} = 9.055</span> - <span class="math inline">r_{3,0} = \sqrt{1^2 + (1-10)^2} = \sqrt{82} = 9.055</span></p>
+<p><strong>Predicted ranges:</strong></p>
+<ul>
+<li><span class="math inline">r_{1,0} = \sqrt{1^2 + 1^2} = 1.414</span></li>
+<li><span class="math inline">r_{2,0} = \sqrt{(1-10)^2 + 1^2} = \sqrt{82} = 9.055</span></li>
+<li><span class="math inline">r_{3,0} = \sqrt{1^2 + (1-10)^2} = \sqrt{82} = 9.055</span></li>
+</ul>
 <p><strong>Predicted pseudoranges</strong> (with <span class="math inline">b_0 = 0</span>): - <span class="math inline">\hat{\rho}_1 = 1.414</span> - <span class="math inline">\hat{\rho}_2 = 9.055</span> - <span class="math inline">\hat{\rho}_3 = 9.055</span></p>
-<p><strong>Residuals:</strong> - <span class="math inline">f_1 = 1.414 - 4.106 = -2.692</span> - <span class="math inline">f_2 = 9.055 - 9.044 = 0.011</span> - <span class="math inline">f_3 = 9.055 - 7.780 = 1.275</span></p>
+<p><strong>Residuals:</strong></p>
+<ul>
+<li><span class="math inline">f_1 = 1.414 - 4.106 = -2.692</span></li>
+<li><span class="math inline">f_2 = 9.055 - 9.044 = 0.011</span></li>
+<li><span class="math inline">f_3 = 9.055 - 7.780 = 1.275</span></li>
+</ul>
 <p><strong>Jacobian rows:</strong></p>
 <p>For <span class="math inline">S_1 = (0, 0)</span>: <span class="math display">\left[ \frac{1-0}{1.414}, \frac{1-0}{1.414}, 1 \right] = [0.707, 0.707, 1]</span></p>
 <p>For <span class="math inline">S_2 = (10, 0)</span>: <span class="math display">\left[ \frac{1-10}{9.055}, \frac{1-0}{9.055}, 1 \right] = [-0.994, 0.110, 1]</span></p>
@@ -533,8 +556,8 @@ return det;
   
 function determinant3x3(m) {
 return m[0][0]*(m[1][1]*m[2][2] - m[1][2]*m[2][1]) -
- m[0][1]*(m[1][0]*m[2][2] - m[1][2]*m[2][0]) +
- m[0][2]*(m[1][0]*m[2][1] - m[1][1]*m[2][0]);
+m[0][1]*(m[1][0]*m[2][2] - m[1][2]*m[2][0]) +
+m[0][2]*(m[1][0]*m[2][1] - m[1][1]*m[2][0]);
 }
   
 function getMinor(m, row, col) {
@@ -604,18 +627,18 @@ itemStyle: { color: '#4A90E2' }
 name: 'True Position',
 type: 'scatter3D',
 data: [{
-  value: [truePos.x/1000, truePos.y/1000, truePos.z/1000],
-  symbolSize: 15,
-  itemStyle: { color: '#2ECC71' }
+value: [truePos.x/1000, truePos.y/1000, truePos.z/1000],
+symbolSize: 15,
+itemStyle: { color: '#2ECC71' }
 }]
 },
 {
 name: 'Estimated',
 type: 'scatter3D',
 data: [{
-  value: [solution.estPos.x/1000, solution.estPos.y/1000, solution.estPos.z/1000],
-  symbolSize: 12,
-  itemStyle: { color: '#F0177A' }
+value: [solution.estPos.x/1000, solution.estPos.y/1000, solution.estPos.z/1000],
+symbolSize: 12,
+itemStyle: { color: '#F0177A' }
 }]
 }
 ]
@@ -656,7 +679,14 @@ updateDisplay();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Increase satellites:</strong> More satellites reduce error and improve PDOP - <strong>Add noise:</strong> See how measurement errors affect position accuracy - <strong>Change clock bias:</strong> Even large biases (100 ns) are solved correctly - <strong>Randomize satellites:</strong> Different geometries produce different PDOP values - Notice: The estimated position (pink) converges to true position (green) despite clock bias</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Increase satellites:</strong> More satellites reduce error and improve PDOP</li>
+<li><strong>Add noise:</strong> See how measurement errors affect position accuracy</li>
+<li><strong>Change clock bias:</strong> Even large biases (100 ns) are solved correctly</li>
+<li><strong>Randomize satellites:</strong> Different geometries produce different PDOP values</li>
+<li>Notice: The estimated position (pink) converges to true position (green) despite clock bias</li>
+</ul>
 <p><strong>Key insight:</strong> The fourth unknown (clock bias) is why GPS needs four satellites minimum. The system simultaneously solves for position and time.</p>
 <hr>
 <h2 id="interpretation" class="anchored">9. Interpretation</h2>
@@ -679,11 +709,21 @@ window.addEventListener('resize', () => chart.resize());
 <h3 id="atmospheric-delay" class="anchored">Atmospheric Delay</h3>
 <p>Radio signals slow down in the ionosphere (charged particles) and troposphere (water vapor).</p>
 <p><strong>Effect:</strong> Signals take longer than expected → pseudoranges are too large → position error.</p>
-<p><strong>Mitigation:</strong> - <strong>Dual-frequency receivers:</strong> Use two frequencies (L1 and L2) to estimate ionospheric delay - <strong>Atmospheric models:</strong> Predict tropospheric delay from temperature/pressure - <strong>Differential GPS:</strong> Use corrections from a nearby base station</p>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li><strong>Dual-frequency receivers:</strong> Use two frequencies (L1 and L2) to estimate ionospheric delay</li>
+<li><strong>Atmospheric models:</strong> Predict tropospheric delay from temperature/pressure</li>
+<li><strong>Differential GPS:</strong> Use corrections from a nearby base station</li>
+</ul>
 <h3 id="multipath" class="anchored">Multipath</h3>
 <p>Signals bounce off buildings, terrain, or water before reaching the antenna.</p>
 <p><strong>Effect:</strong> Reflected signals travel farther → pseudoranges too large → position error (typically 5–10 m in urban areas).</p>
-<p><strong>Mitigation:</strong> - <strong>Antenna design:</strong> Reject signals from below (likely reflected) - <strong>Signal processing:</strong> Correlate to detect direct vs.&nbsp;reflected signals - <strong>Carrier phase tracking:</strong> More resistant to multipath than code phase</p>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li><strong>Antenna design:</strong> Reject signals from below (likely reflected)</li>
+<li><strong>Signal processing:</strong> Correlate to detect direct vs.&nbsp;reflected signals</li>
+<li><strong>Carrier phase tracking:</strong> More resistant to multipath than code phase</li>
+</ul>
 <h3 id="poor-satellite-geometry" class="anchored">Poor Satellite Geometry</h3>
 <p>If all visible satellites are in one part of the sky (high PDOP): - Position error is amplified - Vertical accuracy suffers most (satellites overhead improve HDOP but not VDOP)</p>
 <p><strong>Mitigation:</strong> Wait for better satellite configuration, or use multi-GNSS (GPS + GLONASS + Galileo + BeiDou).</p>
@@ -742,24 +782,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

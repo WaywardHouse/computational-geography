@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -125,6 +129,15 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">9. Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That decomposition changes when oxygen runs out, and that methane production only appears under strongly anaerobic conditions.</p>
+<p><strong>You will learn</strong><br>
+How methanogenesis fits into the anaerobic decomposition chain, how CH4 and CO2 are partitioned, and what environmental controls drive methane emissions.</p>
+<p><strong>Why this matters</strong><br>
+Wetlands and other anaerobic environments are major methane sources, so their behavior matters for climate feedbacks.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The sequence of electron acceptors: methanogenesis begins only after the higher-energy options are exhausted.</p>
 <p>The Hudson Bay Lowlands, stretching across northern Ontario, Manitoba, and Quebec, contain the world’s largest wetland complex outside Siberia — approximately 370,000 km² of peat bogs and fens. Every summer, as the permafrost thaws and water tables rise, these wetlands emit methane at rates of 10–100 mg CH₄ m⁻² d⁻¹. Integrated across the wetland area, this amounts to 20–30 million tonnes of CH₄ annually from Canada alone — about 10% of total global natural methane emissions.</p>
 <hr>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -276,25 +289,23 @@ for name, f_ch4, f_co2 in conditions:
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Wetland CH₄ Flux: Temperature and Water Table Sensitivity&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;WT = 0 cm&quot;,&quot;WT = −5 cm&quot;,&quot;WT = −15 cm&quot;,&quot;WT = −30 cm&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Temperature (°C)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [0,4,8,12,16,20,24,28,32]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;CH₄ flux (mg m⁻² h⁻¹)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;: 0},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;WT = 0 cm&quot;,   &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [0.9,1.5,2.5,4.1,6.7,11.1,18.3,30.2,49.7]},
-    {&quot;name&quot;: &quot;WT = −5 cm&quot;,  &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F57F17&quot;},
-     &quot;data&quot;: [0.4,0.7,1.2,1.9,3.1,5.2,8.5,14.0,23.1]},
-    {&quot;name&quot;: &quot;WT = −15 cm&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [0.1,0.2,0.3,0.5,0.8,1.4,2.3,3.7,6.1]},
-    {&quot;name&quot;: &quot;WT = −30 cm&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#90A4AE&quot;},
-     &quot;data&quot;: [0.0,0.1,0.1,0.1,0.2,0.3,0.5,0.8,1.3]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Wetland CH₄ Flux: Temperature and Water Table Sensitivity&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;WT = 0 cm&quot;,&quot;WT = −5 cm&quot;,&quot;WT = −15 cm&quot;,&quot;WT = −30 cm&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Temperature (°C)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [0,4,8,12,16,20,24,28,32]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;CH₄ flux (mg m⁻² h⁻¹)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;: 0},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;WT = 0 cm&quot;,   &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [0.9,1.5,2.5,4.1,6.7,11.1,18.3,30.2,49.7]},
+{&quot;name&quot;: &quot;WT = −5 cm&quot;,  &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F57F17&quot;},
+&quot;data&quot;: [0.4,0.7,1.2,1.9,3.1,5.2,8.5,14.0,23.1]},
+{&quot;name&quot;: &quot;WT = −15 cm&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [0.1,0.2,0.3,0.5,0.8,1.4,2.3,3.7,6.1]},
+{&quot;name&quot;: &quot;WT = −30 cm&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#90A4AE&quot;},
+&quot;data&quot;: [0.0,0.1,0.1,0.1,0.2,0.3,0.5,0.8,1.3]}
+]
+}"></div>
 <p>At 20°C with the water table at the surface (WT = 0), flux is ~11× higher than at WT = −30 cm — demonstrating that water table management is a more powerful lever than temperature for controlling wetland methane. This is the basis for the “keep it wet” conservation strategy for northern peatlands: drainage releases both stored peat carbon and increases flux from previously waterlogged layers.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -317,24 +328,24 @@ for name, f_ch4, f_co2 in conditions:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -153,11 +157,26 @@ window.Quarto = {
 </nav>
 <p>The floods that struck Alberta in June 2013, causing over $6 billion in damage and forcing the evacuation of 100,000 people in Calgary, were triggered by a combination of an exceptional snowpack in the Rockies and prolonged intense rainfall. The snowpack — which had accumulated through a cold, wet winter — melted rapidly when warm air and rain arrived simultaneously. Hydrologists tracking the event needed to know not just how much snow was there, but how quickly it would release its stored water under the prevailing energy inputs. That question belongs to the snowpack energy balance.</p>
 <p>Snow is not simply ice that melts when the temperature goes above zero. The snowpack has its own energy budget: it gains energy from solar radiation (which it partially reflects due to its high albedo), from longwave radiation emitted by clouds and trees, from warm air, and from rain falling on it. It loses energy by emitting longwave radiation and by sublimation. Only when the energy content of the snowpack drives the temperature of the entire snow column to 0°C and supplies the latent heat of fusion — 334,000 joules per kilogram — does actual meltwater appear. This model derives that full energy budget, explains why a clear sunny day can produce more melt than a warm cloudy one, and shows why early spring storms that rain on snow produce the fastest and most dangerous runoff.</p>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p>This chapter works best if you keep the energy-accounting idea in view from the start. Each term in the snowpack budget is a gain or loss of energy, not yet a gain or loss of water. Snow only begins to melt after the pack first warms to <span class="math inline">0^\circ\text{C}</span> and then receives enough extra energy to supply the latent heat of fusion.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>Why does snow melt faster on sunny spring days even when air temperature is below freezing?</p>
 <p><strong>Snow is a dynamic system</strong> that gains and loses energy through multiple pathways:</p>
-<p><strong>Energy inputs:</strong> - ☀️ Shortwave radiation (solar) - 🌥️ Longwave radiation (atmospheric/cloud) - 🌡️ Sensible heat (warm air) - 💧 Latent heat (condensation) - 🌍 Ground heat flux (from soil below)</p>
-<p><strong>Energy outputs:</strong> - ❄️ Longwave emission (snow surface) - 🌡️ Sensible heat (to cold air) - 💨 Latent heat (sublimation/evaporation) - 💧 Melt (phase change requires 334 kJ/kg!)</p>
+<p><strong>Energy inputs:</strong></p>
+<ul>
+<li>☀️ Shortwave radiation (solar)</li>
+<li>🌥️ Longwave radiation (atmospheric/cloud)</li>
+<li>🌡️ Sensible heat (warm air)</li>
+<li>💧 Latent heat (condensation)</li>
+<li>🌍 Ground heat flux (from soil below)</li>
+</ul>
+<p><strong>Energy outputs:</strong></p>
+<ul>
+<li>❄️ Longwave emission (snow surface)</li>
+<li>🌡️ Sensible heat (to cold air)</li>
+<li>💨 Latent heat (sublimation/evaporation)</li>
+<li>💧 Melt (phase change requires 334 kJ/kg!)</li>
+</ul>
 <p>The mathematical question: How do we quantify each energy flux and determine when the snowpack reaches 0°C and begins melting?</p>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
@@ -165,7 +184,12 @@ window.Quarto = {
 <p><strong>At the snow surface:</strong></p>
 <p><span class="math display">Q_{\text{net}} = Q_{\text{SW}}^{\downarrow} - Q_{\text{SW}}^{\uparrow} + Q_{\text{LW}}^{\downarrow} - Q_{\text{LW}}^{\uparrow} + Q_H + Q_E + Q_G</span></p>
 <p>Where: - <span class="math inline">Q_{\text{SW}}^{\downarrow}</span> = Incoming shortwave radiation (W/m²) - <span class="math inline">Q_{\text{SW}}^{\uparrow}</span> = Reflected shortwave (high albedo!) - <span class="math inline">Q_{\text{LW}}^{\downarrow}</span> = Incoming longwave (from atmosphere) - <span class="math inline">Q_{\text{LW}}^{\uparrow}</span> = Outgoing longwave (snow emits strongly) - <span class="math inline">Q_H</span> = Sensible heat flux (convection) - <span class="math inline">Q_E</span> = Latent heat flux (sublimation/evaporation) - <span class="math inline">Q_G</span> = Ground heat flux (from soil)</p>
-<p><strong>Net energy determines:</strong> - <span class="math inline">Q_{\text{net}} &lt; 0</span>: Snowpack cools (energy loss) - <span class="math inline">Q_{\text{net}} &gt; 0</span> and <span class="math inline">T_{\text{snow}} &lt; 0°C</span>: Snowpack warms - <span class="math inline">Q_{\text{net}} &gt; 0</span> and <span class="math inline">T_{\text{snow}} = 0°C</span>: <strong>Melt occurs</strong></p>
+<p><strong>Net energy determines:</strong></p>
+<ul>
+<li><span class="math inline">Q_{\text{net}} &lt; 0</span>: Snowpack cools (energy loss)</li>
+<li><span class="math inline">Q_{\text{net}} &gt; 0</span> and <span class="math inline">T_{\text{snow}} &lt; 0°C</span>: Snowpack warms</li>
+<li><span class="math inline">Q_{\text{net}} &gt; 0</span> and <span class="math inline">T_{\text{snow}} = 0°C</span>: <strong>Melt occurs</strong></li>
+</ul>
 <h3 id="phase-change" class="anchored">Phase Change</h3>
 <p><strong>Melting requires latent heat of fusion:</strong></p>
 <p><span class="math display">L_f = 334 \text{ kJ/kg} = 334,000 \text{ J/kg}</span></p>
@@ -176,12 +200,89 @@ window.Quarto = {
 <h3 id="snow-albedo" class="anchored">Snow Albedo</h3>
 <p><strong>Critical parameter:</strong> Fresh snow reflects 80-95% of solar radiation!</p>
 <p><span class="math display">\alpha = \frac{Q_{\text{SW}}^{\uparrow}}{Q_{\text{SW}}^{\downarrow}}</span></p>
-<p><strong>Typical values:</strong> - Fresh snow: <span class="math inline">\alpha = 0.80-0.95</span> - Old snow: <span class="math inline">\alpha = 0.60-0.75</span> - Dirty snow: <span class="math inline">\alpha = 0.40-0.60</span> - Wet snow: <span class="math inline">\alpha = 0.50-0.70</span></p>
+<p><strong>Typical values:</strong></p>
+<ul>
+<li>Fresh snow: <span class="math inline">\alpha = 0.80-0.95</span></li>
+<li>Old snow: <span class="math inline">\alpha = 0.60-0.75</span></li>
+<li>Dirty snow: <span class="math inline">\alpha = 0.40-0.60</span></li>
+<li>Wet snow: <span class="math inline">\alpha = 0.50-0.70</span></li>
+</ul>
 <p><strong>Albedo decay:</strong></p>
 <p><span class="math display">\alpha(t) = \alpha_{\min} + (\alpha_0 - \alpha_{\min})e^{-kt}</span></p>
 <p>Where <span class="math inline">k \approx 0.01-0.05</span> day⁻¹ (aging rate).</p>
 <p><strong>Temperature effect:</strong></p>
 <p><span class="math display">\alpha = \alpha_{\text{cold}} - 0.008 \times T_{\text{surface}} \quad \text{(when } T &gt; -10°C\text{)}</span></p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Energy Budget
+</div>
+<h3 class="cg-ill__title anchored">
+Snow Melt Begins Only After The Budget Turns Positive
+</h3>
+<p class="cg-ill__lede">
+The snowpack is best understood as a balance sheet of incoming and outgoing energy. Positive net energy first warms the pack to 0°C, then pays the latent-heat cost of melt.
+</p>
+<div class="cg-ill__snow-grid">
+<div class="cg-ill__snow-budget">
+<div class="cg-ill__snow-arrow cg-ill__snow-arrow--sun">
+<p><strong>Shortwave in</strong> <span>solar radiation absorbed after albedo reflection</span></p>
+</div>
+<div class="cg-ill__snow-arrow cg-ill__snow-arrow--sky">
+<p><strong>Longwave in</strong> <span>clouds, trees, and atmosphere emit toward the surface</span></p>
+</div>
+<div class="cg-ill__snowpack">
+<div class="cg-ill__snow-layer cg-ill__snow-layer--surface">
+snow surface
+</div>
+<div class="cg-ill__snow-layer cg-ill__snow-layer--body">
+cold snowpack
+</div>
+<div class="cg-ill__snow-layer cg-ill__snow-layer--ground">
+soil and ground heat
+</div>
+<div class="cg-ill__snow-core">
+<p><span class="cg-ill__snow-chip">warm to 0°C</span> <span class="cg-ill__snow-chip">then melt</span></p>
+</div>
+</div>
+<div class="cg-ill__snow-arrow cg-ill__snow-arrow--air">
+<p><strong>Sensible heat</strong> <span>warm air and wind can add energy to the pack</span></p>
+</div>
+<div class="cg-ill__snow-arrow cg-ill__snow-arrow--moisture">
+<p><strong>Latent heat</strong> <span>condensation adds energy, sublimation removes it</span></p>
+</div>
+<div class="cg-ill__snow-arrow cg-ill__snow-arrow--loss">
+<p><strong>Longwave out</strong> <span>snow emits infrared energy strongly, especially at night</span></p>
+</div>
+<div class="cg-ill__snow-arrow cg-ill__snow-arrow--melt">
+<p><strong>Meltwater out</strong> <span>only after latent heat of fusion is supplied</span></p>
+</div>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+Reading the figure
+</h4>
+<ul>
+<li>
+High albedo keeps most shortwave energy from being absorbed.
+</li>
+<li>
+Cloudy nights can reduce cooling because longwave input increases.
+</li>
+<li>
+Rain-on-snow and warm windy weather increase turbulent fluxes.
+</li>
+<li>
+Net positive energy does not instantly create runoff; the pack must first become isothermal at 0°C.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>
+The key snowmelt idea is sequential: incoming energy first warms the snowpack, then drives phase change, and only after that does liquid water leave the pack.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="shortwave-radiation-balance" class="anchored">Shortwave Radiation Balance</h3>
@@ -228,11 +329,25 @@ window.Quarto = {
 <p><span class="math display">Q_G = -k_{\text{soil}} \frac{\partial T}{\partial z}</span></p>
 <p>Where <span class="math inline">k_{\text{soil}} \approx 0.5-2</span> W/(m·K).</p>
 <p><strong>Typical magnitude:</strong> 5-20 W/m² (small compared to radiation).</p>
-<p><strong>Direction:</strong> - Early winter: Warm soil → energy input to snowpack - Late winter: Cold soil → energy loss from base</p>
+<p><strong>Direction:</strong></p>
+<ul>
+<li>Early winter: Warm soil → energy input to snowpack</li>
+<li>Late winter: Cold soil → energy loss from base</li>
+</ul>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Problem:</strong> Calculate net energy balance for snowpack on sunny spring day.</p>
-<p><strong>Conditions:</strong> - Solar radiation: <span class="math inline">Q_{\text{SW}}^{\downarrow} = 600</span> W/m² - Snow albedo: <span class="math inline">\alpha = 0.75</span> (old snow) - Air temperature: <span class="math inline">T_{\text{air}} = 5°C = 278</span> K - Snow surface temperature: <span class="math inline">T_{\text{surface}} = 0°C = 273</span> K - Wind speed: <span class="math inline">u = 3</span> m/s - Relative humidity: 60% - Cloud cover: 20% - Ground heat flux: <span class="math inline">Q_G = 10</span> W/m²</p>
+<p><strong>Conditions:</strong></p>
+<ul>
+<li>Solar radiation: <span class="math inline">Q_{\text{SW}}^{\downarrow} = 600</span> W/m²</li>
+<li>Snow albedo: <span class="math inline">\alpha = 0.75</span> (old snow)</li>
+<li>Air temperature: <span class="math inline">T_{\text{air}} = 5°C = 278</span> K</li>
+<li>Snow surface temperature: <span class="math inline">T_{\text{surface}} = 0°C = 273</span> K</li>
+<li>Wind speed: <span class="math inline">u = 3</span> m/s</li>
+<li>Relative humidity: 60%</li>
+<li>Cloud cover: 20%</li>
+<li>Ground heat flux: <span class="math inline">Q_G = 10</span> W/m²</li>
+</ul>
 <p>Calculate: Is snow melting? If so, how fast?</p>
 <h3 id="solution" class="anchored">Solution</h3>
 <p><strong>Step 1: Shortwave balance</strong></p>
@@ -255,7 +370,13 @@ window.Quarto = {
 <p><span class="math display">M = \frac{187.7}{334000 \times 1000} = 5.6 \times 10^{-7} \text{ m/s}</span></p>
 <p><span class="math display">M = 5.6 \times 10^{-7} \times 3600 = 0.002 \text{ m/hour} = 2 \text{ mm/hour}</span></p>
 <p><strong>Conclusion:</strong> Snow <strong>IS melting</strong> at 2 mm/hour.</p>
-<p><strong>Energy breakdown:</strong> - Absorbed solar: 150 W/m² (80% of total) - Sensible heat: 38 W/m² (20%) - Net longwave: -10 W/m² (radiative cooling) - Ground heat: 10 W/m²</p>
+<p><strong>Energy breakdown:</strong></p>
+<ul>
+<li>Absorbed solar: 150 W/m² (80% of total)</li>
+<li>Sensible heat: 38 W/m² (20%)</li>
+<li>Net longwave: -10 W/m² (radiative cooling)</li>
+<li>Ground heat: 10 W/m²</li>
+</ul>
 <p><strong>Key insight:</strong> Even though air is only 5°C, strong solar absorption drives melt!</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
@@ -379,9 +500,9 @@ ctx.fillStyle = '#ECEFF1';
 ctx.strokeStyle = '#90A4AE';
 ctx.lineWidth = 2;
 ctx.fillRect(centerX - snowWidth/2, centerY - snowHeight/2, 
-  snowWidth, snowHeight);
+snowWidth, snowHeight);
 ctx.strokeRect(centerX - snowWidth/2, centerY - snowHeight/2, 
-    snowWidth, snowHeight);
+snowWidth, snowHeight);
     
 // Label
 ctx.fillStyle = '#37474F';
@@ -412,10 +533,10 @@ drawArrow(centerX + 60, arrowY, centerX + 60, arrowY - 70,
 // Sensible heat
 if (result.QH > 0) {
 drawArrow(centerX + 120, arrowY - 40, centerX + 120, arrowY, 
- '#E53935', result.QH, 'QH');
+'#E53935', result.QH, 'QH');
 } else {
 drawArrow(centerX + 120, arrowY, centerX + 120, arrowY - 40, 
- '#1E88E5', Math.abs(result.QH), 'QH', true);
+'#1E88E5', Math.abs(result.QH), 'QH', true);
 }
     
 // Ground heat (from below)
@@ -539,14 +660,35 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>High solar + low albedo:</strong> Fast melt (dirty/old snow) - <strong>High albedo:</strong> Most solar reflected, slow melt (fresh snow) - <strong>Increase clouds:</strong> More longwave input → warmer conditions - <strong>Increase wind:</strong> Stronger sensible heat transfer - <strong>Cold air temp:</strong> Can still melt with strong solar! - Watch arrows scale with energy magnitude - Solid arrows = energy input, Dashed arrows = energy output</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>High solar + low albedo:</strong> Fast melt (dirty/old snow)</li>
+<li><strong>High albedo:</strong> Most solar reflected, slow melt (fresh snow)</li>
+<li><strong>Increase clouds:</strong> More longwave input → warmer conditions</li>
+<li><strong>Increase wind:</strong> Stronger sensible heat transfer</li>
+<li><strong>Cold air temp:</strong> Can still melt with strong solar!</li>
+<li>Watch arrows scale with energy magnitude</li>
+<li>Solid arrows = energy input, Dashed arrows = energy output</li>
+</ul>
 <p><strong>Key insight:</strong> Albedo is CRITICAL—fresh snow (α=0.9) reflects 90% of solar, while dirty snow (α=0.5) absorbs 50%!</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
 <h3 id="spring-melt-timing" class="anchored">Spring Melt Timing</h3>
 <p><strong>Energy balance controls melt onset:</strong></p>
-<p><strong>Early spring:</strong> - Solar angle low → less SW radiation - Cold air → negative sensible heat - Clear nights → strong LW cooling - <strong>Net:</strong> Diurnal melt/refreeze cycles</p>
-<p><strong>Late spring:</strong> - Solar angle high → strong SW radiation - Warm air → positive sensible heat - Albedo decreasing (aging snow) - <strong>Net:</strong> Sustained melt, rapid snowpack depletion</p>
+<p><strong>Early spring:</strong></p>
+<ul>
+<li>Solar angle low → less SW radiation</li>
+<li>Cold air → negative sensible heat</li>
+<li>Clear nights → strong LW cooling</li>
+<li><strong>Net:</strong> Diurnal melt/refreeze cycles</li>
+</ul>
+<p><strong>Late spring:</strong></p>
+<ul>
+<li>Solar angle high → strong SW radiation</li>
+<li>Warm air → positive sensible heat</li>
+<li>Albedo decreasing (aging snow)</li>
+<li><strong>Net:</strong> Sustained melt, rapid snowpack depletion</li>
+</ul>
 <h3 id="rain-on-snow-events" class="anchored">Rain-on-Snow Events</h3>
 <p><strong>Liquid precipitation adds energy:</strong></p>
 <p><span class="math display">Q_{\text{rain}} = \rho_w c_w T_{\text{rain}} P</span></p>
@@ -556,11 +698,27 @@ render();
 <p><strong>Combined with:</strong> Warm air, clouds (high LW), wind → <strong>Extreme melt rates!</strong></p>
 <p><strong>Flood risk:</strong> Rain + rapid snowmelt = compounded runoff.</p>
 <h3 id="forest-canopy-effects" class="anchored">Forest Canopy Effects</h3>
-<p><strong>Under trees:</strong> - Reduced SW↓ (40-60% intercepted by canopy) - Increased LW↓ (trees emit longwave) - Reduced wind → lower turbulent fluxes - Snow lasts longer in dense forest</p>
-<p><strong>Clearings:</strong> - Full solar exposure - Higher wind - Earlier melt</p>
+<p><strong>Under trees:</strong></p>
+<ul>
+<li>Reduced SW↓ (40-60% intercepted by canopy)</li>
+<li>Increased LW↓ (trees emit longwave)</li>
+<li>Reduced wind → lower turbulent fluxes</li>
+<li>Snow lasts longer in dense forest</li>
+</ul>
+<p><strong>Clearings:</strong></p>
+<ul>
+<li>Full solar exposure</li>
+<li>Higher wind</li>
+<li>Earlier melt</li>
+</ul>
 <h3 id="elevation-gradients" class="anchored">Elevation Gradients</h3>
 <p><strong>Lapse rate:</strong> Temperature decreases ~6.5°C per 1000m.</p>
-<p><strong>Higher elevations:</strong> - Colder air → less sensible heat input - More precipitation as snow - Longer snow cover duration</p>
+<p><strong>Higher elevations:</strong></p>
+<ul>
+<li>Colder air → less sensible heat input</li>
+<li>More precipitation as snow</li>
+<li>Longer snow cover duration</li>
+</ul>
 <p><strong>Critical elevation:</strong> Snowline rises ~150m per 1°C warming.</p>
 <hr>
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
@@ -580,7 +738,12 @@ render();
 <p><strong>Subsurface warming:</strong> Energy absorbed below surface → internal melt.</p>
 <p><strong>Solution:</strong> Multi-layer snowpack model.</p>
 <h3 id="ignoring-snowpack-structure" class="anchored">Ignoring Snowpack Structure</h3>
-<p><strong>Layering:</strong> - Fresh snow on old snow - Ice layers from refreeze - Depth hoar (weak layer)</p>
+<p><strong>Layering:</strong></p>
+<ul>
+<li>Fresh snow on old snow</li>
+<li>Ice layers from refreeze</li>
+<li>Depth hoar (weak layer)</li>
+</ul>
 <p><strong>Each layer:</strong> Different density, albedo, thermal properties.</p>
 <p><strong>Simple models:</strong> Single-layer bulk properties (acceptable for water balance, not avalanche).</p>
 <hr>
@@ -590,8 +753,17 @@ render();
 <p>Where: - <span class="math inline">M</span> = melt (mm/day) - <span class="math inline">f</span> = degree-day factor (2-6 mm/(°C·day)) - <span class="math inline">T_{\text{threshold}}</span> = 0°C</p>
 <p><strong>Example:</strong> Air temp = 5°C, <span class="math inline">f = 3</span> mm/(°C·day)</p>
 <p><span class="math display">M = 3 \times (5 - 0) = 15 \text{ mm/day}</span></p>
-<p><strong>Advantages:</strong> - Simple (only needs air temperature) - Calibrate <span class="math inline">f</span> to observations</p>
-<p><strong>Disadvantages:</strong> - No physics (black box) - Fails when: Sunny + cold air (still melts) or cloudy + warm (less melt) - No albedo effect</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Simple (only needs air temperature)</li>
+<li>Calibrate <span class="math inline">f</span> to observations</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>No physics (black box)</li>
+<li>Fails when: Sunny + cold air (still melts) or cloudy + warm (less melt)</li>
+<li>No albedo effect</li>
+</ul>
 <p><strong>Use:</strong> Quick estimates, ungauged basins.</p>
 <hr>
 <h2 id="math-refresher-stefan-boltzmann-law" class="anchored">9. Math Refresher: Stefan-Boltzmann Law</h2>
@@ -636,24 +808,24 @@ render();
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

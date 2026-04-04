@@ -105,6 +105,7 @@ $$A \setminus B = \{(x,y) : (x,y) \in A \text{ AND } (x,y) \notin B\}$$
 **Special case:** Clip polygon $A$ to window $B$ (intersection).
 
 **Examples:**
+
 - Clip state boundaries to study area rectangle
 - Clip satellite image to county boundary
 - Clip parcels to watershed boundary
@@ -112,6 +113,7 @@ $$A \setminus B = \{(x,y) : (x,y) \in A \text{ AND } (x,y) \notin B\}$$
 **Challenge:** Find vertices of resulting polygon.
 
 **Required pieces:**
+
 1. Vertices from $A$ inside $B$
 2. Vertices from $B$ inside $A$
 3. Edge-edge intersection points
@@ -650,6 +652,7 @@ render();
 ```
 
 **Try this:**
+
 - **Intersection:** Purple area where polygons overlap (A AND B)
 - **Union:** Yellow area covered by either polygon (A OR B)
 - **Difference:** Red area in A but not in B (A NOT B)
@@ -736,6 +739,7 @@ Expected: (5.0, 3.0)
 **Result:** Duplicate vertices, tiny slivers, self-intersecting polygons
 
 **Solution:**
+
 - Round coordinates to tolerance (e.g., 6 decimal places)
 - Snap vertices within threshold
 - Use robust predicates (exact arithmetic for orientation tests)
@@ -780,6 +784,7 @@ All protected areas = collection of many parks/preserves.
 $$\text{MultiPoly}_1 \cap \text{MultiPoly}_2 = \bigcup_{i,j} (P_{1i} \cap P_{2j})$$
 
 **Algorithm:**
+
 1. For each polygon in MultiPolygon1:
 2. For each polygon in MultiPolygon2:
 3. Compute pairwise intersection
@@ -802,6 +807,7 @@ $$\text{MultiPoly}_1 \cap \text{MultiPoly}_2 = \bigcup_{i,j} (P_{1i} \cap P_{2j}
 $$A \cap B = \{x : x \in A \text{ AND } x \in B\}$$
 
 **Properties:**
+
 - Commutative: $A \cap B = B \cap A$
 - Associative: $(A \cap B) \cap C = A \cap (B \cap C)$
 - Identity: $A \cap U = A$ (where $U$ is universal set)
@@ -811,6 +817,7 @@ $$A \cap B = \{x : x \in A \text{ AND } x \in B\}$$
 $$A \cup B = \{x : x \in A \text{ OR } x \in B\}$$
 
 **Properties:**
+
 - Commutative: $A \cup B = B \cup A$
 - Associative: $(A \cup B) \cup C = A \cup (B \cup C)$
 - Identity: $A \cup \emptyset = A$

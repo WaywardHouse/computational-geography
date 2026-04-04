@@ -194,6 +194,7 @@ $$R_a = \frac{R_m + r_g \cdot \text{GPP}}{1 + r_g}$$
 ### Three-Pool Carbon Model
 
 **State variables:**
+
 - $C_L$ = leaf carbon (kg C/m²)
 - $C_S$ = stem (wood) carbon (kg C/m²)
 - $C_R$ = root carbon (kg C/m²)
@@ -534,6 +535,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Young forest:** Higher wood allocation → rapid stem growth
 - **Mature forest:** Stem carbon accumulates to ~30-40 kg C/m² over 100 years
 - **Grassland:** No wood allocation → only leaves and roots, reaches equilibrium quickly
@@ -571,6 +573,7 @@ Evidence suggests some continued net uptake (~0.1–0.2 kg C/m²/year).
 $$\text{CUE} = \frac{\text{NPP}}{\text{GPP}}$$
 
 **Typical values:**
+
 - Young forest: 0.60 (low respiration costs)
 - Mature forest: 0.50 (higher maintenance from large biomass)
 - Stressed ecosystem: 0.30 (high respiration, drought, heat)
@@ -580,6 +583,7 @@ $$\text{CUE} = \frac{\text{NPP}}{\text{GPP}}$$
 ### Harvest and Regrowth
 
 **Clear-cut harvest:**
+
 - Removes most aboveground biomass ($C_L$, $C_S$)
 - Roots partially remain ($C_R$)
 - Regrowth from sprouts/seeds

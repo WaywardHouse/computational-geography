@@ -52,6 +52,7 @@ How much forest was lost between 2010 and 2020?
 **Change detection** identifies where and what type of change occurred:
 
 **Applications:**
+
 - **Deforestation:** Forest loss mapping
 - **Urban growth:** City expansion tracking
 - **Agriculture:** Crop rotation patterns
@@ -60,6 +61,7 @@ How much forest was lost between 2010 and 2020?
 - **Mining:** Excavation monitoring
 
 **Challenges:**
+
 - **Phenology:** Seasonal vegetation differences (not real change)
 - **Sensor differences:** Different satellites/settings
 - **Atmospheric conditions:** Clouds, haze, sun angle
@@ -171,6 +173,7 @@ Where $DN$ = digital number (pixel value).
 $$|\Delta_i| > T_i$$
 
 **T can be:**
+
 - **Fixed:** e.g., $T = 20$ (DN units)
 - **Statistical:** $T = k\sigma$ where $\sigma$ = standard deviation of $\Delta_i$ over stable areas
 - **Adaptive:** Vary spatially based on local variance
@@ -188,12 +191,14 @@ $$\text{NDVI}_t = \frac{\text{NIR}_t - \text{Red}_t}{\text{NIR}_t + \text{Red}_t
 $$\Delta\text{NDVI} = \text{NDVI}_{t_2} - \text{NDVI}_{t_1}$$
 
 **Interpretation:**
+
 - $\Delta\text{NDVI} < -0.2$: Significant vegetation loss (deforestation, fire)
 - $-0.2 \leq \Delta\text{NDVI} < -0.1$: Moderate degradation
 - $-0.1 \leq \Delta\text{NDVI} \leq 0.1$: No change (stable)
 - $\Delta\text{NDVI} > 0.1$: Vegetation increase (regrowth, greening)
 
 **Advantages:**
+
 - Normalized (reduces illumination effects)
 - Directly interpretable (vegetation change)
 - Works across sensors
@@ -219,6 +224,7 @@ $$\theta = \arctan\left(\frac{\Delta B_2}{\Delta B_1}\right)$$
 (For 2D case; generalizes to $n$ dimensions)
 
 **Interpretation:**
+
 - **Magnitude:** How much changed
 - **Direction:** Type of change (e.g., vegetation loss vs. urban growth have different spectral trajectories)
 
@@ -247,6 +253,7 @@ $$\theta = \arctan\left(\frac{\Delta B_2}{\Delta B_1}\right)$$
 | Water_t1   | 5         | 10       | 285      |
 
 **Analysis:**
+
 - Diagonal: No change (stable)
 - Off-diagonal: Change
 - 450 pixels: Forest → Urban (deforestation + urbanization)
@@ -264,9 +271,11 @@ $$\theta = \arctan\left(\frac{\Delta B_2}{\Delta B_1}\right)$$
 **Pixel values:**
 
 **Date 1 (2015):**
+
 - Red = 0.08, NIR = 0.42
 
 **Date 2 (2020):**
+
 - Red = 0.25, NIR = 0.28
 
 ### Solution
@@ -560,6 +569,7 @@ render();
 ```
 
 **Try this:**
+
 - **NDVI differencing:** Most sensitive to vegetation change
 - **Image differencing:** Simple NIR band comparison
 - **Change vector analysis:** Uses both Red and NIR together
@@ -586,6 +596,7 @@ render();
 **Method:** NDVI-based change detection + classification
 
 **Findings:**
+
 - ~1.5 million km² forest lost 2000-2012
 - Brazil, Indonesia, Canada largest losses
 - Tropics most dynamic
@@ -604,24 +615,29 @@ render();
 **Rapid mapping after events:**
 
 **Floods:**
+
 - Water extent change (NIR differencing)
 - Pre-flood vs. during flood
 
 **Wildfires:**
+
 - NDVI drop in burned areas
 - Burn severity mapping (dNBR)
 
 **Earthquakes:**
+
 - Building collapse (texture change)
 - Landslides (slope failure)
 
 ### Agricultural Monitoring
 
 **Crop rotation:**
+
 - Annual land cover change
 - Corn-soybean patterns
 
 **Irrigation expansion:**
+
 - NDVI increase in arid regions
 - Water use monitoring
 
@@ -641,6 +657,7 @@ Result: ΔNDVI < 0 everywhere (false change!)
 ```
 
 **Solution:**
+
 - Use anniversary dates (same month/season)
 - Or normalize for phenology using time series
 - Multi-year baseline to understand natural variation
@@ -652,6 +669,7 @@ Result: ΔNDVI < 0 everywhere (false change!)
 **Apparent change** from atmospheric conditions, not land cover.
 
 **Solution:**
+
 - Atmospheric correction (essential!)
 - Cloud masking
 - Surface reflectance products (pre-corrected)
@@ -663,6 +681,7 @@ Result: ΔNDVI < 0 everywhere (false change!)
 **Edge pixels** show false change.
 
 **Solution:**
+
 - Co-registration (align precisely)
 - Sub-pixel accuracy (<0.5 pixel)
 - Buffer stable features to avoid edges
@@ -678,6 +697,7 @@ If each classification is 90% accurate:
 **Errors compound!**
 
 **Solution:**
+
 - Use direct change detection (differencing) when possible
 - Improve individual classifications first
 
@@ -697,6 +717,7 @@ Decomposes time series into:
 - Remainder (noise + abrupt changes)
 
 **Detects:**
+
 - Gradual change (forest degradation)
 - Abrupt change (clearcut)
 - Timing of change (when it occurred)

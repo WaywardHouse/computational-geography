@@ -191,6 +191,7 @@ The **effluent quality** determines $L_e$; working through the Streeter-Phelps m
 **Setting:** The Bow River in Calgary receives treated effluent from the Bonnybrook wastewater treatment plant. Determine whether a secondary-treatment effluent meets the provincial water quality standard of 6 mg/L DO.
 
 **Given:**
+
 - River: $Q_r = 80$ m³/s, $C_r = 9.0$ mg/L, $L_r = 1.5$ mg/L, $T = 18°C$
 - Effluent: $Q_e = 2$ m³/s, $C_e = 4.0$ mg/L, $L_e = 15$ mg/L (secondary treatment)
 - River hydraulics: $U = 0.4$ m/s = 34.6 km/day, $H = 2.5$ m

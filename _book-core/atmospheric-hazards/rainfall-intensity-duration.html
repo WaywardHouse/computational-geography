@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -150,6 +154,8 @@ window.Quarto = {
 <p>On 8 July 2013, a thunderstorm dropped 126 mm of rain on Toronto in roughly 90 minutes. The Gardiner Expressway flooded. GO Transit trains stalled with passengers trapped for hours. Basements across the city filled faster than sump pumps could respond. The storm caused $940 million in insured losses — the costliest natural disaster in Ontario history to that point. Engineers reviewing the event noted that it had exceeded the design threshold of the city’s 100-year IDF curves. The infrastructure had been built to a standard, and the storm broke it.</p>
 <p>IDF stands for Intensity-Duration-Frequency. An IDF curve answers the question a drainage engineer must always ask: for a storm of a given duration — five minutes, one hour, 24 hours — how intense can the rain get at a specified return period? A culvert designed for the 10-year, 60-minute storm will overflow roughly once a decade. A highway underpass designed for the 100-year storm should, in theory, flood about once in a century. Getting those numbers right requires fitting statistical distributions to decades of rainfall records and extrapolating into the tail — the rare, intense events that infrastructure must handle.</p>
 <p>The challenge is that IDF curves are calibrated to the past. Climate change is already shifting extreme precipitation upward in many regions, meaning curves built on 20th-century data underestimate what 21st-century storms will deliver. Toronto’s 2013 event was a preview: storms that once represented “100-year” rarity are now arriving on shorter cycles. This model builds the statistical machinery of IDF analysis from the ground up — so you understand not just the curves themselves, but exactly where their assumptions live and where they can break.</p>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p>This chapter uses a few probability words in a very specific way. A return period of <span class="math inline">T</span> years does not mean an event waits exactly <span class="math inline">T</span> years before happening again; it means the annual exceedance probability is about <span class="math inline">1/T</span>. We will also switch carefully between rainfall intensity <span class="math inline">I</span>, duration <span class="math inline">D</span>, and return period <span class="math inline">T</span>. If you keep track of those three symbols and their units, the rest of the model stays readable.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>What rainfall intensity should this culvert be designed for?</p>
 <p><strong>Design storm problem:</strong></p>
@@ -163,7 +169,15 @@ window.Quarto = {
 <p><strong>100-year storm:</strong> 1% annual exceedance probability</p>
 <p><strong>Not:</strong> “Occurs once per century”<br>
 <strong>Rather:</strong> “1% chance each year”</p>
-<p><strong>Applications:</strong> - Storm sewer design (10-25 year typical) - Culvert sizing (25-50 year) - Dam spillway capacity (100-10,000 year) - Urban drainage systems - Flood insurance rate maps - Building codes (rainfall loads)</p>
+<p><strong>Applications:</strong></p>
+<ul>
+<li>Storm sewer design (10-25 year typical)</li>
+<li>Culvert sizing (25-50 year)</li>
+<li>Dam spillway capacity (100-10,000 year)</li>
+<li>Urban drainage systems</li>
+<li>Flood insurance rate maps</li>
+<li>Building codes (rainfall loads)</li>
+</ul>
 <p><strong>Key insight:</strong></p>
 <p>Short-duration storms are intense (cloudburst).</p>
 <p>Long-duration storms are moderate (multi-day rain).</p>
@@ -173,7 +187,14 @@ window.Quarto = {
 <h3 id="extreme-value-theory" class="anchored">Extreme Value Theory</h3>
 <p><strong>Annual maximum series:</strong></p>
 <p>For each year, extract maximum rainfall intensity for given duration.</p>
-<p><strong>Example - 1-hour duration:</strong> - 2010: 45 mm/hr - 2011: 32 mm/hr - 2012: 67 mm/hr (extreme event) - … - 2025: 41 mm/hr</p>
+<p><strong>Example - 1-hour duration:</strong></p>
+<ul>
+<li>2010: 45 mm/hr</li>
+<li>2011: 32 mm/hr</li>
+<li>2012: 67 mm/hr (extreme event)</li>
+<li>…</li>
+<li>2025: 41 mm/hr</li>
+</ul>
 <p><strong>Statistical distribution:</strong></p>
 <p>Fit probability distribution to these annual maxima.</p>
 <p><strong>Generalized Extreme Value (GEV) distribution:</strong></p>
@@ -238,7 +259,12 @@ window.Quarto = {
 <p><span class="math display">I = \frac{28.5 T^{0.17}}{(D + 8.5)^{0.78}}</span></p>
 <p>Units: <span class="math inline">I</span> in inches/hr, <span class="math inline">D</span> in minutes</p>
 <h3 id="confidence-intervals" class="anchored">Confidence Intervals</h3>
-<p><strong>Uncertainty sources:</strong> - Sampling variability (limited record length) - Distribution choice (GEV vs Gumbel vs Log-Pearson III) - Non-stationarity (climate change)</p>
+<p><strong>Uncertainty sources:</strong></p>
+<ul>
+<li>Sampling variability (limited record length)</li>
+<li>Distribution choice (GEV vs Gumbel vs Log-Pearson III)</li>
+<li>Non-stationarity (climate change)</li>
+</ul>
 <p><strong>Confidence interval:</strong></p>
 <p><span class="math display">I_T \pm t_{\alpha/2} \times SE(I_T)</span></p>
 <p>Where: - <span class="math inline">t_{\alpha/2}</span> = Student’s t value (95% → 1.96) - <span class="math inline">SE</span> = standard error from GEV fit</p>
@@ -251,17 +277,31 @@ window.Quarto = {
 <p><strong>Regional IDF equation:</strong></p>
 <p><span class="math display">I = \frac{1200 T^{0.2}}{(D+10)^{0.8}}</span></p>
 <p>Units: <span class="math inline">I</span> (mm/hr), <span class="math inline">D</span> (min), <span class="math inline">T</span> (years)</p>
-<p><strong>Design criteria:</strong> - Return period: 10 years (urban standard) - Time of concentration: 15 minutes (computed from watershed)</p>
-<p><strong>Calculate:</strong> 1. Design rainfall intensity 2. Total rainfall depth 3. Peak runoff (rational method)</p>
-<p><strong>Watershed properties:</strong> - Area: 5 hectares - Imperviousness: 70% (urban commercial) - Runoff coefficient: <span class="math inline">C = 0.75</span></p>
+<p><strong>Design criteria:</strong></p>
+<ul>
+<li>Return period: 10 years (urban standard)</li>
+<li>Time of concentration: 15 minutes (computed from watershed)</li>
+</ul>
+<p><strong>Calculate:</strong></p>
+<ol type="1">
+<li>Design rainfall intensity</li>
+<li>Total rainfall depth</li>
+<li>Peak runoff (rational method)</li>
+</ol>
+<p><strong>Watershed properties:</strong></p>
+<ul>
+<li>Area: 5 hectares</li>
+<li>Imperviousness: 70% (urban commercial)</li>
+<li>Runoff coefficient: <span class="math inline">C = 0.75</span></li>
+</ul>
 <h3 id="solution" class="anchored">Solution</h3>
 <p><strong>Step 1: Design intensity</strong></p>
 <p>Apply IDF equation with <span class="math inline">T = 10</span> years, <span class="math inline">D = 15</span> min:</p>
 <p><span class="math display">I = \frac{1200 \times 10^{0.2}}{(15+10)^{0.8}}</span></p>
 <p><strong>Calculate return period term:</strong></p>
-<p><span class="math inline">&amp;#36;10^{0.2} = 10^{1/5} = \sqrt[5]{10} = 1.585</span>$</p>
+<p><span class="math display">10^{0.2} = 10^{1/5} = \sqrt[5]{10} = 1.585</span></p>
 <p><strong>Calculate duration term:</strong></p>
-<p><span class="math inline">&amp;#36;25^{0.8} = 25^{4/5} = (25^4)^{1/5} = (390625)^{1/5} = 14.62</span>$</p>
+<p><span class="math display">25^{0.8} = 25^{4/5} = (25^4)^{1/5} = (390625)^{1/5} = 14.62</span></p>
 <p><strong>Compute intensity:</strong></p>
 <p><span class="math display">I = \frac{1200 \times 1.585}{14.62} = \frac{1902}{14.62} = 130.1 \text{ mm/hr}</span></p>
 <p><strong>Design intensity: 130 mm/hr</strong></p>
@@ -289,7 +329,7 @@ window.Quarto = {
 <p>Verify capacity exceeds design flow with safety margin.</p>
 <p><strong>Actual capacity</strong> at 80% depth, 600 mm, <span class="math inline">S = 0.005</span>:</p>
 <p><span class="math display">Q_{capacity} \approx 420 \text{ L/s}</span></p>
-<p><strong>Margin:</strong> $420/376 = 1.12$ (12% safety margin)</p>
+<p><strong>Margin:</strong> <span class="math inline">420/376 = 1.12</span> (12% safety margin)</p>
 <p><strong>Acceptable</strong> (&gt;10% desired)</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
@@ -304,10 +344,10 @@ Return period (years):
 <label>
 Region:
 <select id="region">
-  <option value="midwest">Midwest USA</option>
-  <option value="southeast">Southeast USA</option>
-  <option value="southwest">Southwest USA</option>
-  <option value="pacific">Pacific Northwest</option>
+<option value="midwest">Midwest USA</option>
+<option value="southeast">Southeast USA</option>
+<option value="southwest">Southwest USA</option>
+<option value="pacific">Pacific Northwest</option>
 </select>
 </label>
 <label>
@@ -376,17 +416,17 @@ durations.push(d);
     
 const series = returnPeriods.map(T => {
 const data = durations.map(D => {
-  const I = calculateIntensity(T, D, params);
-  return [D, I];
+const I = calculateIntensity(T, D, params);
+return [D, I];
 });
       
 return {
-  name: `${T}-year`,
-  type: 'line',
-  data: data,
-  smooth: true,
-  lineStyle: {width: T === returnPeriod ? 3 : 2},
-  showSymbol: false
+name: `${T}-year`,
+type: 'line',
+data: data,
+smooth: true,
+lineStyle: {width: T === returnPeriod ? 3 : 2},
+showSymbol: false
 };
 });
     
@@ -419,52 +459,52 @@ const series = generateIDFCurves();
     
 const option = {
 title: {
-  text: 'Intensity-Duration-Frequency Curves',
-  left: 'center'
+text: 'Intensity-Duration-Frequency Curves',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  axisPointer: {type: 'cross'},
-  formatter: (params) => {
-    if (params.length > 0) {
-      const d = params[0].value[0];
-      const i = params[0].value[1];
-      return `Duration: ${d} min<br/>Intensity: ${i.toFixed(1)} mm/hr<br/>${params[0].seriesName}`;
-    }
-  }
+trigger: 'axis',
+axisPointer: {type: 'cross'},
+formatter: (params) => {
+if (params.length > 0) {
+const d = params[0].value[0];
+const i = params[0].value[1];
+return `Duration: ${d} min<br/>Intensity: ${i.toFixed(1)} mm/hr<br/>${params[0].seriesName}`;
+}
+}
 },
 legend: {
-  data: series.map(s => s.name),
-  top: 30,
-  type: 'scroll'
+data: series.map(s => s.name),
+top: 30,
+type: 'scroll'
 },
 grid: {
-  left: 80,
-  right: 40,
-  top: 80,
-  bottom: 60
+left: 80,
+right: 40,
+top: 80,
+bottom: 60
 },
 xAxis: {
-  type: 'log',
-  name: 'Duration (minutes)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: 5,
-  max: 1440,
-  axisLabel: {
-    formatter: (value) => {
-      if (value >= 60) return `${(value/60).toFixed(0)}h`;
-      return `${value}m`;
-    }
-  }
+type: 'log',
+name: 'Duration (minutes)',
+nameLocation: 'middle',
+nameGap: 30,
+min: 5,
+max: 1440,
+axisLabel: {
+formatter: (value) => {
+if (value >= 60) return `${(value/60).toFixed(0)}h`;
+return `${value}m`;
+}
+}
 },
 yAxis: {
-  type: 'log',
-  name: 'Intensity (mm/hr)',
-  nameLocation: 'middle',
-  nameGap: 50,
-  min: 1,
-  max: 300
+type: 'log',
+name: 'Intensity (mm/hr)',
+nameLocation: 'middle',
+nameGap: 50,
+min: 1,
+max: 300
 },
 series: series
 };
@@ -494,8 +534,22 @@ render();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Observations:</strong> - Log-log plot shows power-law relationships - Curves decrease monotonically with duration - Higher return periods shift curves upward - Short durations show steepest slopes - Current design point highlighted in red - Regional differences significant (Southeast vs Southwest)</p>
-<p><strong>Key insights:</strong> - 5-minute cloudbursts extremely intense (150+ mm/hr) - 24-hour events moderate (5-15 mm/hr) - Doubling return period increases intensity ~15-20% - Regional climate strongly affects IDF parameters</p>
+<p><strong>Observations:</strong></p>
+<ul>
+<li>Log-log plot shows power-law relationships</li>
+<li>Curves decrease monotonically with duration</li>
+<li>Higher return periods shift curves upward</li>
+<li>Short durations show steepest slopes</li>
+<li>Current design point highlighted in red</li>
+<li>Regional differences significant (Southeast vs Southwest)</li>
+</ul>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li>5-minute cloudbursts extremely intense (150+ mm/hr)</li>
+<li>24-hour events moderate (5-15 mm/hr)</li>
+<li>Doubling return period increases intensity ~15-20%</li>
+<li>Regional climate strongly affects IDF parameters</li>
+</ul>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
 <h3 id="design-standards-by-application" class="anchored">Design Standards by Application</h3>
@@ -523,15 +577,43 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Scupper sizing:</strong> 100-year</p>
 <h3 id="regional-variations" class="anchored">Regional Variations</h3>
 <p><strong>Climate influences IDF curves:</strong></p>
-<p><strong>Southeast USA:</strong> - High <span class="math inline">K</span> values (intense convection) - Frequent thunderstorms - 100-year, 1-hour: 100-130 mm/hr</p>
-<p><strong>Southwest USA (arid):</strong> - Lower <span class="math inline">K</span> (less moisture) - But extreme events still severe - Monsoon-driven - 100-year, 1-hour: 60-80 mm/hr</p>
-<p><strong>Pacific Northwest:</strong> - Frontal precipitation dominates - Less intense, more persistent - 100-year, 1-hour: 40-60 mm/hr - 100-year, 24-hour: 150-200 mm (high!)</p>
-<p><strong>Great Plains:</strong> - Severe convection - Hail-producing storms - Flash flood potential - 100-year, 1-hour: 90-120 mm/hr</p>
+<p><strong>Southeast USA:</strong></p>
+<ul>
+<li>High <span class="math inline">K</span> values (intense convection)</li>
+<li>Frequent thunderstorms</li>
+<li>100-year, 1-hour: 100-130 mm/hr</li>
+</ul>
+<p><strong>Southwest USA (arid):</strong></p>
+<ul>
+<li>Lower <span class="math inline">K</span> (less moisture)</li>
+<li>But extreme events still severe</li>
+<li>Monsoon-driven</li>
+<li>100-year, 1-hour: 60-80 mm/hr</li>
+</ul>
+<p><strong>Pacific Northwest:</strong></p>
+<ul>
+<li>Frontal precipitation dominates</li>
+<li>Less intense, more persistent</li>
+<li>100-year, 1-hour: 40-60 mm/hr</li>
+<li>100-year, 24-hour: 150-200 mm (high!)</li>
+</ul>
+<p><strong>Great Plains:</strong></p>
+<ul>
+<li>Severe convection</li>
+<li>Hail-producing storms</li>
+<li>Flash flood potential</li>
+<li>100-year, 1-hour: 90-120 mm/hr</li>
+</ul>
 <h3 id="climate-change-impacts" class="anchored">Climate Change Impacts</h3>
 <p><strong>Clausius-Clapeyron scaling:</strong></p>
 <p><span class="math display">\frac{dP}{dT} \approx 7\%/°C</span></p>
 <p><strong>Warmer atmosphere</strong> → more moisture → more intense precipitation</p>
-<p><strong>Observed trends:</strong> - Extreme events intensifying 5-10% - Return periods shifting (100-year → 50-year) - IDF curves becoming outdated</p>
+<p><strong>Observed trends:</strong></p>
+<ul>
+<li>Extreme events intensifying 5-10%</li>
+<li>Return periods shifting (100-year → 50-year)</li>
+<li>IDF curves becoming outdated</li>
+</ul>
 <p><strong>Design implications:</strong></p>
 <p><strong>NOAA Atlas 14:</strong> Updated IDF data (2000s-2010s)</p>
 <p>Replaces older TP-40 (1960s) and TP-49 (1970s)</p>
@@ -550,7 +632,12 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Example:</strong></p>
 <p>Estimated 100-year rainfall: 100 mm/hr</p>
 <p>95% CI: 60-140 mm/hr</p>
-<p><strong>Solution:</strong> - Regional frequency analysis (pool data from similar stations) - Longer records when available (&gt;50 years better) - Bayesian methods (incorporate prior information)</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Regional frequency analysis (pool data from similar stations)</li>
+<li>Longer records when available (&gt;50 years better)</li>
+<li>Bayesian methods (incorporate prior information)</li>
+</ul>
 <h3 id="non-stationarity" class="anchored">Non-Stationarity</h3>
 <p><strong>Climate change</strong> violates stationarity assumption.</p>
 <p><strong>Past distribution</strong> ≠ future distribution</p>
@@ -561,7 +648,12 @@ Previous TP-40 (1961): 100-year, 24-hour = 13 inches</p>
 <p><strong>23% increase</strong> in design rainfall</p>
 <p><strong>Consequences:</strong></p>
 <p>Existing infrastructure underdesigned.</p>
-<p><strong>Solution:</strong> - Update IDF curves regularly (10-20 year cycle) - Climate-adjusted design (add 20-30% safety margin) - Green infrastructure (adaptable)</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Update IDF curves regularly (10-20 year cycle)</li>
+<li>Climate-adjusted design (add 20-30% safety margin)</li>
+<li>Green infrastructure (adaptable)</li>
+</ul>
 <h3 id="spatial-variability" class="anchored">Spatial Variability</h3>
 <p><strong>IDF curves</strong> represent point estimates (rain gauge).</p>
 <p><strong>Storms are spatially variable:</strong></p>
@@ -572,7 +664,11 @@ Previous TP-40 (1961): 100-year, 24-hour = 13 inches</p>
 <p><strong>Example:</strong> 50 km² watershed, 1-hour storm</p>
 <p>ARF ≈ 0.85</p>
 <p><strong>Design intensity reduced</strong> 15% from point value.</p>
-<p><strong>Solution:</strong> - Apply ARF for large watersheds (&gt;25 km²) - Radar-based IDF (spatial coverage)</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Apply ARF for large watersheds (&gt;25 km²)</li>
+<li>Radar-based IDF (spatial coverage)</li>
+</ul>
 <h3 id="mixed-distributions" class="anchored">Mixed Distributions</h3>
 <p><strong>Two storm types:</strong></p>
 <p><strong>Convective:</strong> Short, intense (thunderstorms)</p>
@@ -685,24 +781,24 @@ Long durations: Atmospheric rivers (winter)</p>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

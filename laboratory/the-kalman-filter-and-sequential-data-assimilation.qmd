@@ -192,11 +192,13 @@ $$\mathbf{x}_t^{a,(m)} = \mathbf{x}_t^{b,(m)} + \hat{\mathbf{K}}_t\left(\mathbf{
 where $\boldsymbol{\epsilon}_t^{(m)} \sim \mathcal{N}(\mathbf{0}, \mathbf{R})$ are perturbed observations (necessary to prevent filter inbreeding).
 
 **Key EnKF advantages:**
+
 - No need to explicitly compute or store $n\times n$ covariance matrices (impossible for $n = 10^7$ in global NWP)
 - Sample covariance naturally captures flow-dependent structure (covariances are larger along weather system axes)
 - Handles nonlinear models without explicit Jacobian computation
 
 **EnKF limitations:**
+
 - Sample covariance is rank-deficient (rank $\leq M - 1$); for $M = 50$ members and $n = 10^7$ state variables, the sample covariance is severely rank-deficient → **covariance localisation** (multiplying by a distance-based function) is required to suppress spurious long-range correlations
 
 ---

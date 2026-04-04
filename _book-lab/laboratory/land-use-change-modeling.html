@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,6 +132,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That land use change is spatially uneven and tends to cluster around existing development and infrastructure.</p>
+<p><strong>You will learn</strong><br>
+How logistic transition probabilities, neighbourhood effects, and cellular automata combine into a land-change simulation.</p>
+<p><strong>Why this matters</strong><br>
+Land-use models help turn past spatial patterns into testable future scenarios.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The idea that each cell has a probability of change based on its location and neighbours.</p>
 <p>Between 1985 and 2015, the urbanised area of China increased by approximately 5.8 million hectares — an expansion of built-up land roughly the size of France in 30 years. That expansion did not occur randomly. It followed roads, spread outward from existing urban centres in concentric waves, leapfrogged in places where agricultural land was cheap, and concentrated along rivers and flat terrain. Its spatial pattern was the product of millions of individual decisions by landowners, developers, and planners — but those decisions shared common drivers that could, in principle, be modelled.</p>
 <p>The <strong>cellular automaton</strong> (CA) approach treats the landscape as a grid of cells, each with a land use state, and simulates change by applying transition rules that depend on the cell’s own state, its neighbourhood, and its attributes. It does not model the decisions of individual actors — it models the aggregate outcome of those decisions as a spatially explicit probability field.</p>
 <hr>
@@ -389,23 +402,21 @@ print("\nUpdated grid:\n", new_grid.astype(int))</code></pre>
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;CA Urban Growth: Simulated Developed Area vs Year (Three Scenarios)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Sprawl&quot;, &quot;Business as usual&quot;, &quot;Compact growth&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Year&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Developed area (km²)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55, &quot;min&quot;: 100},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Sprawl&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [120, 148, 183, 224, 272, 328, 392, 465]},
-    {&quot;name&quot;: &quot;Business as usual&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [120, 140, 163, 190, 220, 254, 291, 333]},
-    {&quot;name&quot;: &quot;Compact growth&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [120, 132, 146, 161, 177, 195, 215, 236]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;CA Urban Growth: Simulated Developed Area vs Year (Three Scenarios)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Sprawl&quot;, &quot;Business as usual&quot;, &quot;Compact growth&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Year&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Developed area (km²)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55, &quot;min&quot;: 100},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Sprawl&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [120, 148, 183, 224, 272, 328, 392, 465]},
+{&quot;name&quot;: &quot;Business as usual&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [120, 140, 163, 190, 220, 254, 291, 333]},
+{&quot;name&quot;: &quot;Compact growth&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [120, 132, 146, 161, 177, 195, 215, 236]}
+]
+}"></div>
 <p>By 2060, the sprawl scenario produces nearly 2× the developed area of the compact growth scenario for the same population growth. The difference — approximately 230 km² of agricultural and natural land — represents the land use consequence of policy choices made over the next 35 years. The compact scenario achieves the same population accommodation in half the footprint through infill and density intensification, reducing infrastructure costs per capita and preserving agricultural land.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -443,24 +454,24 @@ print("\nUpdated grid:\n", new_grid.astype(int))</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

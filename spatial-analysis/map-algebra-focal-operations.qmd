@@ -64,6 +64,7 @@ How do you find suitable land that is both flat AND near water?
 **Map algebra** treats rasters as mathematical objects that can be added, multiplied, and combined with logical operations:
 
 **Examples:**
+
 - **Suitability modelling:** Combine slope, distance, and land cover grids
 - **Change detection:** Subtract two dates: `change = image2 - image1`
 - **NDVI calculation:** `(NIR - Red) / (NIR + Red)` (from Model 25)
@@ -85,6 +86,7 @@ Output value depends only on value(s) at same position in input(s).
 $$z_{\text{out}}[i,j] = f(z_1[i,j], z_2[i,j], \ldots)$$
 
 **Examples:**
+
 - Add: `elevation_change = dem_2020 - dem_2010`
 - Multiply: `suitable = slope_ok * soil_ok * zoning_ok`
 - Reclassify: `if z > 100 then 1 else 0`
@@ -96,6 +98,7 @@ Output depends on value and its neighbors (moving window).
 $$z_{\text{out}}[i,j] = f(z[i-k:i+k, j-k:j+k])$$
 
 **Examples:**
+
 - Mean filter: Average 3×3 neighborhood
 - Gaussian blur: Weighted average
 - Edge detection: Gradient computation
@@ -107,6 +110,7 @@ Output depends on all cells in a zone (region).
 $$z_{\text{out}}[i,j] = f(\{z[m,n] : \text{zone}[m,n] = \text{zone}[i,j]\})$$
 
 **Examples:**
+
 - Mean elevation per watershed
 - Total area per land cover class
 - Maximum temperature per county
@@ -118,6 +122,7 @@ Output depends on all cells.
 $$z_{\text{out}}[i,j] = f(\text{all } z[m,n])$$
 
 **Examples:**
+
 - Euclidean distance transform
 - Cost-distance analysis
 - Viewshed computation
@@ -133,6 +138,7 @@ $$z_{\text{out}}[i,j] = f(\text{all } z[m,n])$$
 $$z_{\text{out}}[i,j] = f(z_{\text{in}}[i,j])$$
 
 **Examples:**
+
 - Square root: $\sqrt{z}$
 - Threshold: $z > 100$
 - Reclassify: Map values to classes
@@ -142,6 +148,7 @@ $$z_{\text{out}}[i,j] = f(z_{\text{in}}[i,j])$$
 $$z_{\text{out}}[i,j] = f(z_1[i,j], z_2[i,j])$$
 
 **Examples:**
+
 - Sum: $z_1 + z_2$
 - Difference: $z_1 - z_2$
 - Ratio: $z_1 / z_2$
@@ -224,6 +231,7 @@ $$K = \frac{1}{9}\begin{bmatrix}
 **Each output cell** = weighted average of input cell and its 8 neighbors.
 
 **Properties:**
+
 - **Linear:** Convolution is a linear operation
 - **Translation invariant:** Same operation everywhere
 - **Separable:** Some kernels can be split into 1D operations (faster)
@@ -633,6 +641,7 @@ render();
 ```
 
 **Try this:**
+
 - **Mean filter:** Smooths the noisy gradient pattern
 - **Gaussian:** Smoother than mean, better edge preservation
 - **Sobel:** Highlights edges (bright = steep gradient)
@@ -651,6 +660,7 @@ render();
 **Problem:** Find land suitable for solar farm.
 
 **Criteria:**
+
 1. Slope < 5° (flat land)
 2. Within 2km of roads
 3. Not in protected areas
@@ -807,6 +817,7 @@ $$G_{1D}(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-x^2/(2\sigma^2)}$$
 **Separable (two 1D):** $O(n^2 \times 2k)$
 
 **For 5×5 kernel:**
+
 - 2D: 25 multiplications per pixel
 - Separable: 10 multiplications per pixel
 - **2.5× speedup**

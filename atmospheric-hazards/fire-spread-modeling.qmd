@@ -58,6 +58,7 @@ Where will this fire be in 6 hours, and what communities are at risk?
 Predicts fire perimeter expansion over time.
 
 **Inputs:**
+
 - Fuel type and loading
 - Fuel moisture
 - Wind speed and direction
@@ -65,6 +66,7 @@ Predicts fire perimeter expansion over time.
 - Weather forecast
 
 **Outputs:**
+
 - Rate of spread (m/min)
 - Fire perimeter at time $t$
 - Fireline intensity
@@ -79,6 +81,7 @@ Predicts fire perimeter expansion over time.
 **Hybrid:** Couple multiple approaches
 
 **Operational systems:**
+
 - FARSITE (USA Forest Service)
 - Phoenix RapidFire (Australia)
 - Prometheus (Canada)
@@ -163,6 +166,7 @@ $$L = 0.0775 I^{0.46}$$
 Where $L$ = flame length (m)
 
 **Suppression difficulty:**
+
 - $I < 500$ kW/m: Direct attack possible
 - $I = 500-2000$ kW/m: Indirect attack
 - $I = 2000-4000$ kW/m: Very difficult
@@ -236,11 +240,13 @@ For each time step:
 ```
 
 **Advantages:**
+
 - Computationally fast
 - Handles complex landscapes
 - Stochastic variation
 
 **Disadvantages:**
+
 - Requires calibration
 - Less physical basis than Rothermel
 
@@ -270,6 +276,7 @@ Contours of equal arrival time.
 **Problem:** Calculate fire spread and perimeter.
 
 **Conditions:**
+
 - Fuel: Grass (short, dry)
 - Fuel load: 0.5 kg/m²
 - Fuel moisture: 6%
@@ -278,6 +285,7 @@ Contours of equal arrival time.
 - Initial ignition: Point source
 
 **Constants (grass fuel model):**
+
 - $\xi = 0.4$ (propagating flux ratio)
 - $\epsilon = 0.7$ (effective heating)
 - $Q_{ig} = 300$ kJ/kg (heat of preignition)
@@ -554,6 +562,7 @@ render();
 ```
 
 **Observations:**
+
 - Fire spreads fastest downwind (head fire)
 - Elliptical shape elongated in wind direction
 - Higher wind dramatically increases spread rate
@@ -562,6 +571,7 @@ render();
 - Fireline intensity determines suppression feasibility
 
 **Key insights:**
+
 - Exponential area growth over time
 - Wind and slope effects multiplicative
 - Even moderate winds create elongated fires
@@ -581,12 +591,14 @@ render();
 4. **Repeat:** Until forecast end or fire containment
 
 **Outputs:**
+
 - Fire perimeter evolution (hourly)
 - Arrival time maps
 - Intensity maps
 - Flame length maps
 
 **Used for:**
+
 - Evacuation planning
 - Resource pre-positioning
 - Backfire/burnout strategy
@@ -607,11 +619,13 @@ Enabled evacuation (though still 85 deaths, rapid spread).
 Determine burn window (weather conditions for control).
 
 **Required:**
+
 - Low intensity (< 1000 kW/m)
 - Slow spread (< 1 m/min)
 - Favorable wind direction (away from structures)
 
 **Example conditions:**
+
 - Fuel MC: 12-15%
 - Wind: 10-15 km/h
 - Atmospheric stability: Stable
@@ -693,6 +707,7 @@ Variable loading, moisture, species within same classification.
 **Result:** Under/overprediction locally.
 
 **Solution:**
+
 - Fine-scale fuel mapping (LiDAR-derived)
 - Stochastic variation in parameters
 
@@ -705,6 +720,7 @@ Variable loading, moisture, species within same classification.
 10% wind error → 15% ROS error → 25% perimeter error.
 
 **Solution:**
+
 - Ensemble forecasts (multiple weather scenarios)
 - Probabilistic fire prediction
 
@@ -722,11 +738,13 @@ Input: Fuel, weather, terrain
 Output: ROS or probability of burning
 
 **Advantages:**
+
 - Capture complex nonlinear relationships
 - No need to specify physics
 - Fast inference
 
 **Disadvantages:**
+
 - Requires large training datasets
 - Difficult to extrapolate beyond training conditions
 - Less interpretable than physics-based

@@ -219,6 +219,7 @@ $$\text{NEP} = \text{NPP} - R_h$$
 ### Three-Pool Decomposition Model
 
 **State variables:**
+
 - $C_L$ = litter carbon (kg C/m²)
 - $C_A$ = active SOM carbon (kg C/m²)
 - $C_S$ = slow SOM carbon (kg C/m²)
@@ -252,6 +253,7 @@ Where $f_{AS}$ is fraction of decomposed active SOM entering slow SOM (typically
 | Slow SOM | 0.001–0.01 | 100–1000 |
 
 **Variation by climate:**
+
 - Tropical: High $k$ (warm, wet)
 - Temperate: Moderate $k$
 - Boreal: Low $k$ (cold)
@@ -323,6 +325,7 @@ $$= \frac{0.048}{0.005} = 9.6 \text{ kg C/m}^2$$
 $$C_{\text{soil}}^* = 0.4 + 1.6 + 9.6 = 11.6 \text{ kg C/m}^2$$
 
 **Interpretation:**
+
 - Slow SOM holds **83%** of total soil carbon (9.6 / 11.6)
 - This matches observations: most soil carbon is old, stable material
 - Total = 11.6 kg C/m² = 116 tonnes C/ha (typical for temperate forest soil)
@@ -592,6 +595,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Tropical forest:** High temperature → fast decomposition → low soil carbon accumulation
 - **Boreal forest:** Low temperature → slow decomposition → huge soil carbon stores (peat)
 - **Desert:** Dry conditions (low moisture) → very slow decomposition
@@ -608,11 +612,13 @@ window.addEventListener('resize', () => chart.resize());
 ### Global Soil Carbon Distribution
 
 **Largest soil carbon stores:**
+
 1. **Boreal forests & tundra:** Cold → slow decomposition
 2. **Peatlands:** Waterlogged → anaerobic, very slow decay
 3. **Grasslands:** Deep roots, moderate climate
 
 **Smallest stores:**
+
 1. **Tropical forests:** Fast turnover (hot, wet)
 2. **Deserts:** Low productivity + dry conditions
 
@@ -629,6 +635,7 @@ $$k_{\text{new}} = k_{\text{old}} \times 2^{5/10} = k_{\text{old}} \times 1.41$$
 **41% faster decomposition** → releases soil carbon → positive feedback.
 
 **Permafrost thaw:**
+
 - Frozen organic matter begins decomposing
 - Releases CO₂ and CH₄
 - Major climate concern (~1000 Pg C in permafrost)
@@ -636,6 +643,7 @@ $$k_{\text{new}} = k_{\text{old}} \times 2^{5/10} = k_{\text{old}} \times 1.41$$
 ### Soil Carbon Sequestration
 
 **Practices to increase soil C:**
+
 1. **No-till agriculture:** Reduces disturbance → less decomposition
 2. **Cover crops:** More inputs to soil
 3. **Biochar:** Very slow decay ($k \approx 0.0001$ year⁻¹)
@@ -693,6 +701,7 @@ Decomposition requires **nitrogen** (microbes need C:N ~10:1).
 The **Century model** (Parton et al., 1987) is the classic soil C model:
 
 **Five pools:**
+
 1. Structural litter (slow decay)
 2. Metabolic litter (fast decay)
 3. Active SOM (fast)
@@ -700,11 +709,13 @@ The **Century model** (Parton et al., 1987) is the classic soil C model:
 5. Passive SOM (very slow)
 
 **Climate modifiers:**
+
 - Temperature (Q₁₀)
 - Moisture (optimal curve)
 - Soil texture (clay slows decay)
 
 **Lignin effects:**
+
 - High lignin → more to structural litter
 - Affects decay rates
 

@@ -68,11 +68,13 @@ All four questions are answered by the same fundamental algorithm: **routing flo
 A digital elevation model is a grid of cells. Each cell can pass water to one or more **downslope neighbors**.
 
 **Graph representation:**
+
 - **Nodes:** Grid cells
 - **Edges:** Flow connections from one cell to a downslope neighbor
 - **Directed:** Water flows in one direction (downhill)
 
 **Flow routing algorithms:**
+
 1. **D8 (Deterministic 8-direction):** Flow goes to the **steepest** of 8 neighbors
 2. **D-infinity:** Flow direction can be any angle (not constrained to 8 directions)
 3. **Multiple flow direction (MFD):** Flow splits among all downslope neighbors
@@ -121,6 +123,7 @@ If all neighbors are upslope or equal elevation, the cell is a **sink** (local m
 Once flow direction is determined for every cell, trace water **upstream** to count how many cells drain through each location.
 
 **Algorithm:**
+
 1. Initialize accumulation to 1 for every cell (each cell contributes itself)
 2. Process cells in order from **highest to lowest elevation**
 3. For each cell, add its accumulation to the accumulation of its downstream neighbor
@@ -132,6 +135,7 @@ Once flow direction is determined for every cell, trace water **upstream** to co
 A **watershed** (or catchment) is the area that drains to a specific outlet.
 
 **Algorithm:**
+
 1. Choose an **outlet** cell (e.g., where a stream exits the DEM)
 2. Trace **upstream** from the outlet, marking all cells that flow (directly or indirectly) to it
 3. The marked cells form the watershed
@@ -470,6 +474,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Plane:** Uniform flow direction; accumulation increases downslope
 - **Valley:** Flow converges to valley axis; high accumulation along the channel
 - **Ridge:** Flow diverges from ridgeline; low accumulation on the crest
@@ -521,6 +526,7 @@ Real DEMs often contain **sinks** — cells lower than all neighbors (artifacts 
 If multiple cells have identical elevation, slope is zero in all directions — flow direction is ambiguous.
 
 **Solutions:**
+
 - Add small random perturbations to elevations
 - Use **flow direction from surrounding higher cells** to infer flow across flats
 - Specialized flat-routing algorithms

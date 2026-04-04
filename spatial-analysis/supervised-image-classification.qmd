@@ -53,6 +53,7 @@ How do you create a land cover map from a Landsat satellite image?
 **Image classification** assigns every pixel to a category (class):
 
 **Land cover classes:**
+
 - Water
 - Forest
 - Urban/Built-up
@@ -61,6 +62,7 @@ How do you create a land cover map from a Landsat satellite image?
 - Barren land
 
 **Supervised classification workflow:**
+
 1. **Select training samples:** Identify pixels of known class
 2. **Extract signatures:** Calculate spectral characteristics per class
 3. **Train classifier:** Learn decision boundaries in feature space
@@ -78,6 +80,7 @@ The mathematical question: Given training data (pixels with known labels) in mul
 **Each pixel** is a point in n-dimensional space where n = number of bands.
 
 **Landsat 8 example (6 bands):**
+
 - Band 2 (Blue): 0.45-0.51 μm
 - Band 3 (Green): 0.53-0.59 μm
 - Band 4 (Red): 0.64-0.67 μm
@@ -98,12 +101,14 @@ The mathematical question: Given training data (pixels with known labels) in mul
 **Training samples:** Pixels of known class (ground truth).
 
 **Collection methods:**
+
 - Field surveys (GPS + visual ID)
 - High-resolution imagery interpretation
 - Existing maps
 - Expert knowledge
 
 **Requirements:**
+
 - Representative of class variability
 - Spatially distributed across scene
 - Sufficient quantity (50-100 pixels per class minimum)
@@ -292,10 +297,12 @@ Where $P_e$ = expected accuracy by chance.
 **Training statistics (2 bands for simplicity):**
 
 **Class 1 (Vegetation):**
+
 - Mean: $\boldsymbol{\mu}_1 = (0.08, 0.50)$ (low red, high NIR)
 - Covariance: $\boldsymbol{\Sigma}_1 = \begin{pmatrix} 0.01 & 0 \\ 0 & 0.02 \end{pmatrix}$
 
 **Class 2 (Soil):**
+
 - Mean: $\boldsymbol{\mu}_2 = (0.25, 0.30)$ (moderate both)
 - Covariance: $\boldsymbol{\Sigma}_2 = \begin{pmatrix} 0.02 & 0 \\ 0 & 0.02 \end{pmatrix}$
 
@@ -698,6 +705,7 @@ render();
 ```
 
 **Try this:**
+
 - **Maximum likelihood:** Statistical classification based on class distributions
 - **K-nearest neighbors:** Non-parametric, uses nearest training samples
 - **Minimum distance:** Simplest method, distance to class means
@@ -715,11 +723,13 @@ render();
 ### Global Land Cover Mapping
 
 **Products:**
+
 - **MODIS Land Cover** (500m, annual, 2001-present)
 - **ESA CCI Land Cover** (300m, annual, 1992-2020)
 - **FROM-GLC** (30m, Landsat-based)
 
 **Uses:**
+
 - Climate modelling (surface albedo, roughness)
 - Carbon cycle (vegetation biomass)
 - Agriculture monitoring
@@ -733,6 +743,7 @@ render();
 - Accuracy: >90% for major crops
 
 **Applications:**
+
 - Yield prediction
 - Irrigation demand
 - Crop insurance
@@ -741,11 +752,13 @@ render();
 ### Forest Mapping
 
 **Forest/non-forest:**
+
 - Binary classification (easier, higher accuracy)
 - Global Forest Change product (Hansen et al.)
 - 30m resolution, 2000-2023
 
 **Forest type:**
+
 - Deciduous vs. evergreen vs. mixed
 - Requires phenology (time series)
 
@@ -758,6 +771,7 @@ render();
 **Small sample size** → Poor class statistics → Misclassification
 
 **Solution:**
+
 - Collect 50-100 pixels per class minimum
 - Ensure spatial distribution across scene
 - Include class variability (e.g., young vs. mature forest)
@@ -765,6 +779,7 @@ render();
 ### Class Confusion
 
 **Spectrally similar classes:**
+
 - Dry grass vs. bare soil
 - Urban vs. bare rock
 - Shallow water vs. wet sand
@@ -780,6 +795,7 @@ $$D_{ij} = \frac{||\boldsymbol{\mu}_i - \boldsymbol{\mu}_j||^2}{\sigma_i^2 + \si
 **Terrain shadows** reduce brightness → misclassified as water.
 
 **Solution:**
+
 - Topographic correction (normalize for solar angle + slope)
 - Use indices less sensitive to illumination (e.g., NDVI)
 
@@ -790,6 +806,7 @@ $$D_{ij} = \frac{||\boldsymbol{\mu}_i - \boldsymbol{\mu}_j||^2}{\sigma_i^2 + \si
 - Urban with scattered vegetation
 
 **Sub-pixel classification:**
+
 - Estimate fractional cover (30% forest, 70% grass)
 - Spectral unmixing algorithms
 
@@ -816,12 +833,14 @@ Classification:
 ```
 
 **Advantages:**
+
 - Handles non-linear relationships
 - Robust to outliers
 - Feature importance ranking
 - High accuracy
 
 **Disadvantages:**
+
 - Black box (hard to interpret)
 - Computationally intensive
 
@@ -848,6 +867,7 @@ $$p(x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^
 $$p(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{n/2}|\boldsymbol{\Sigma}|^{1/2}} \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)$$
 
 **Parameters:**
+
 - Mean vector $\boldsymbol{\mu} = (\mu_1, \mu_2, \ldots, \mu_n)$
 - Covariance matrix $\boldsymbol{\Sigma}$ (n×n, symmetric, positive definite)
 

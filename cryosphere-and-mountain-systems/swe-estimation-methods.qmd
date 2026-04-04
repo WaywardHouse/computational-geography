@@ -57,17 +57,20 @@ What's the total water stored in snow across a 1000 km² mountain basin?
 **Three measurement approaches:**
 
 **1. Ground observations (point data):**
+
 - SNOTEL stations (automated)
 - Manual snow courses (monthly surveys)
 - Snow pillows (weight measurement)
 
 **2. Remote sensing (spatial coverage):**
+
 - Passive microwave (AMSR-E, SSMIS)
 - Active microwave (SAR)
 - LiDAR (airborne snow depth)
 - Optical (MODIS snow cover extent)
 
 **3. Model-data fusion:**
+
 - Combine observations with snow models
 - Assimilation techniques
 - Produce gridded SWE estimates
@@ -137,6 +140,7 @@ Where $\beta$ = scattering coefficient (~0.002-0.005 m²/kg at 37 GHz).
 ### Multi-Frequency Approach
 
 **Use two frequencies:**
+
 - 19 GHz (penetrates deep, insensitive to grain size)
 - 37 GHz (scattered by snow grains)
 
@@ -228,6 +232,7 @@ $$\text{SWE} = \frac{W}{A \times \rho_w \times g}$$
 ### Manual Snow Course
 
 **Federal sampler:**
+
 - Aluminum tube pushed through snowpack
 - Extract core
 - Weigh core
@@ -265,6 +270,7 @@ $$f_{\text{forest}} = 1 - 0.8 \times f_c$$
 Where $f_c$ = forest cover fraction (0-1).
 
 **Limitations:**
+
 - Saturates at ~150mm SWE (deep snow)
 - Fails with wet snow (liquid water absorbs microwaves)
 - Coarse resolution (25 km pixels)
@@ -286,6 +292,7 @@ $$d = z_{\text{snow}} - z_{\text{ground}}$$
 $$\text{SWE} = \rho(x,y) \times d(x,y)$$
 
 **Density from:**
+
 - Regional relationships
 - Interpolated from SNOTEL
 - modelled
@@ -303,20 +310,24 @@ $$\text{SWE} = \rho(x,y) \times d(x,y)$$
 **Data:**
 
 **SNOTEL stations (3 sites):**
+
 - Low elevation (2000m): SWE = 300 mm
 - Mid elevation (2500m): SWE = 450 mm
 - High elevation (3000m): SWE = 600 mm
 
 **Passive microwave (basin average):**
+
 - $\Delta T_B = 50$ K
 - SWE = $1.59 \times 50 = 79.5$ mm (underestimate due to saturation)
 
 **LiDAR (sample area, 2500m elevation):**
+
 - Average depth: 1.8 m
 - Estimated density: 300 kg/m³
 - SWE = $0.300 \times 1.8 = 540$ mm
 
 **Basin characteristics:**
+
 - Area: 500 km²
 - Elevation range: 1800-3200 m
 - Forest cover: 40%
@@ -363,6 +374,7 @@ Predicted at 2500m: 450mm
 **Difference:** 90mm (20% higher)
 
 **Possible reasons:**
+
 - Local accumulation pattern
 - Density uncertainty
 - Measurement error
@@ -598,6 +610,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Red dots:** SNOTEL station measurements
 - **Blue line:** Interpolated SWE-elevation relationship
 - **Green bars:** Elevation band SWE values
@@ -616,6 +629,7 @@ window.addEventListener('resize', () => chart.resize());
 ### SNOTEL Network
 
 **Automated stations:**
+
 - Snow pillow (SWE)
 - Snow depth (ultrasonic)
 - Precipitation
@@ -626,6 +640,7 @@ window.addEventListener('resize', () => chart.resize());
 **Real-time data** at https://www.nrcs.usda.gov/wps/portal/wcc/home/
 
 **Uses:**
+
 - Water supply forecasting
 - Avalanche prediction
 - Climate monitoring
@@ -636,17 +651,20 @@ window.addEventListener('resize', () => chart.resize());
 **Multi-sensor airborne campaign:**
 
 **Sensors:**
+
 - Passive microwave radiometer
 - Active microwave (SAR, scatterometer)
 - LiDAR snow depth
 - Ground-penetrating radar (snow stratigraphy)
 
 **Goals:**
+
 - Improve satellite algorithms
 - Understand uncertainty sources
 - Develop next-generation products
 
 **Findings:**
+
 - Forest significantly attenuates microwave signal
 - Snow grain size affects scattering
 - Wet snow problematic for all microwave sensors
@@ -656,10 +674,12 @@ window.addEventListener('resize', () => chart.resize());
 **Surface Water and Ocean Topography (2022 launch):**
 
 **Ka-band radar interferometry:**
+
 - Measures water surface elevation
 - Rivers, lakes, reservoirs
 
 **Snow applications:**
+
 - Seasonal water storage changes in reservoirs
 - Flood wave propagation
 - Groundwater-surface water exchange
@@ -677,6 +697,7 @@ window.addEventListener('resize', () => chart.resize());
 Microwave signal saturates → underestimate.
 
 **Example:**
+
 - True SWE: 800mm
 - Microwave estimate: 120mm
 - **Error: -85%!**
@@ -695,6 +716,7 @@ Microwave signal saturates → underestimate.
 **Result:** Brightness temperature increases (appears as less snow).
 
 **Example:**
+
 - Dry snow: SWE = 300mm, ΔTB = 40K
 - After melt onset: Same SWE, ΔTB = 10K
 - **Appears as:** SWE decreased to 80mm (false!)
@@ -704,6 +726,7 @@ Microwave signal saturates → underestimate.
 ### Forest Masking
 
 **Dense canopy:**
+
 - Intercepts snow (different properties)
 - Emits radiation (masks snow signal)
 - Attenuates satellite view
@@ -719,6 +742,7 @@ Microwave signal saturates → underestimate.
 **Basin = 100s-1000s km²**
 
 **Representativeness issues:**
+
 - SNOTEL in clearings (higher SWE than forest)
 - Elevation bias (stations at accessible locations)
 - Aspect not captured
@@ -734,6 +758,7 @@ Microwave signal saturates → underestimate.
 **Ensemble Kalman Filter (EnKF):**
 
 **Steps:**
+
 1. Run snow model ensemble (100s of realizations with perturbed forcing)
 2. Forecast SWE at observation time
 3. Compare forecast to observations

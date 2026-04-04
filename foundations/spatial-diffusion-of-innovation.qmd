@@ -269,6 +269,7 @@ $$\Delta I_{\text{ext}, C} = 0.2 \times 800 \times \left(1 \times \frac{0}{500}\
 $$I_C(1) = 0$$
 
 **Summary after 1 year:**
+
 - City A: 109 adopters
 - City B: 10 adopters (innovation has **jumped** to B)
 - City C: 0 adopters (still waiting)
@@ -589,6 +590,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Grid network:** Diffusion spreads outward in waves from the center
 - **Hub network:** Central city infects all spokes rapidly, then they spread internally
 - **Random network:** Irregular diffusion pattern, depends on network structure
@@ -619,21 +621,25 @@ window.addEventListener('resize', () => chart.resize());
 ### Barriers to Diffusion
 
 **Physical barriers:**
+
 - Mountains, oceans → low adjacency weights
 - Poor roads → slow transmission
 
 **Social barriers:**
+
 - Language differences
 - Cultural resistance
 - Incompatible infrastructure (e.g., technology standards)
 
 **Economic barriers:**
+
 - High cost → only wealthy locations adopt
 - Network externalities → need critical mass
 
 ### Policy Implications
 
 **To accelerate diffusion:**
+
 1. **Seed innovation in hubs** (large, central cities)
 2. **Subsidize early adoption** (reduce cost barrier)
 3. **Improve connectivity** (roads, communication networks)

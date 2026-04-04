@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#marshalls-three-sources-of-localisation" id="toc-marshalls-three-sources-of-localisation">1. Marshall’s Three Sources of Localisation</a></li>
   <li><a href="#jacobs-and-urbanisation-economies" id="toc-jacobs-and-urbanisation-economies">2. Jacobs and Urbanisation Economies</a></li>
   <li><a href="#the-wage-density-relationship" id="toc-the-wage-density-relationship">3. The Wage-Density Relationship</a></li>
@@ -121,6 +125,62 @@ window.Quarto = {
 </nav>
 <p>In 2014, when oil prices collapsed from over $100 to under $50 a barrel, Calgary’s unemployment rate rose from roughly 4% to 9% within eighteen months. Edmonton’s rose too, but more slowly and by less. Montreal and Toronto barely registered the shock. This asymmetry was not an accident of geography or policy — it was a predictable consequence of how differently these cities had organised their economic bases. Calgary had clustered, deeply and deliberately, into a single sector. That clustering had made it extraordinarily productive in good times. The same clustering made it fragile.</p>
 <p>To understand why, we need to distinguish two things that both look like clustering but work through entirely different mechanisms. <strong>Localisation economies</strong> are productivity gains that come from being near other firms in the <em>same</em> industry. <strong>Urbanisation economies</strong> are productivity gains that come from being in a <em>large and diverse</em> city, regardless of industry. Alfred Marshall identified the first in 1890; Jane Jacobs articulated the second in 1969. The distinction matters enormously for economic policy — and for interpreting what happened to Calgary.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Two Kinds Of Clustering
+</div>
+<h3 class="cg-ill__title anchored">
+Specialisation And Diversity Raise Productivity Through Different Channels
+</h3>
+<p class="cg-ill__lede">
+This chapter is easiest to hold in memory when Marshall and Jacobs are kept separate. One mechanism deepens a single sector. The other broadens the city’s cross-industry learning and resilience.
+</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Localisation
+</div>
+<p>
+<strong>Source:</strong> firms in the same industry cluster together
+</p>
+<p>
+<strong>Benefits:</strong> labour pooling, supplier depth, within-sector spillovers
+</p>
+<p>
+<strong>Risk:</strong> strong boom productivity, weak diversification
+</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Urbanisation
+</div>
+<p>
+<strong>Source:</strong> large, mixed urban systems
+</p>
+<p>
+<strong>Benefits:</strong> cross-sector recombination, broader matching, resilience
+</p>
+<p>
+<strong>Risk:</strong> congestion and housing cost if growth outruns capacity
+</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Calgary vs Toronto
+</div>
+<p>
+Calgary sits closer to the localisation model; Toronto captures more diversified urbanisation gains.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Agglomeration is not one thing. Productivity can come from deep specialisation within a sector or from dense interaction across many sectors, and the resilience implications are very different.
+</figcaption>
+</figure>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p>This chapter uses one main comparison all the way through. Localisation economies are gains from clustering within one industry, while urbanisation economies are gains from being in a large, mixed city. When we later introduce the wage-density elasticity <span class="math inline">\beta</span>, read it as a summary of how much pay tends to rise when density rises. The notation matters, but the bigger idea is about the type of clustering each city depends on.</p>
 <hr>
 <h2 id="marshalls-three-sources-of-localisation" class="anchored">1. Marshall’s Three Sources of Localisation</h2>
 <p>Marshall observed that firms in the same industry benefit from co-locating through three distinct channels:</p>
@@ -137,7 +197,7 @@ window.Quarto = {
 <p>The cleanest empirical test of agglomeration economies is the wage-density elasticity. The idea is straightforward: if agglomeration raises productivity, wages should be higher in denser places, even after controlling for worker characteristics. The relationship is typically estimated as:</p>
 <p><span class="math display">\ln(w_i) = \alpha + \beta \ln(\text{density}_j) + \mathbf{X}_i \gamma + \varepsilon_i</span></p>
 <p>where <span class="math inline">w_i</span> is the wage of worker <span class="math inline">i</span>, <span class="math inline">\text{density}_j</span> is the employment density of the city or zone where they work, <span class="math inline">\mathbf{X}_i</span> is a vector of individual controls (education, experience, occupation), and <span class="math inline">\beta</span> is the <strong>wage-density elasticity</strong> — the percentage increase in wages associated with a doubling of density.</p>
-<p>Across dozens of studies of North American and European cities, <span class="math inline">\hat{\beta}</span> typically falls in the range $0.04$ to $0.08$. That is: doubling employment density is associated with a 4–8% wage premium. At first glance this seems modest. But consider the difference in density between a small city of 100,000 and a metropolitan area of 5,000,000. A ten-fold difference in density implies a wage premium of <span class="math inline">\beta \cdot \ln(10) \approx 0.06 \cdot 2.3 \approx 14\%</span> — before controlling for industry composition or worker selection.</p>
+<p>Across dozens of studies of North American and European cities, <span class="math inline">\hat{\beta}</span> typically falls in the range <span class="math inline">0.04</span> to <span class="math inline">0.08</span>. That is: doubling employment density is associated with a 4–8% wage premium. At first glance this seems modest. But consider the difference in density between a small city of 100,000 and a metropolitan area of 5,000,000. A ten-fold difference in density implies a wage premium of <span class="math inline">\beta \cdot \ln(10) \approx 0.06 \cdot 2.3 \approx 14\%</span> — before controlling for industry composition or worker selection.</p>
 <p>The challenge for causal identification is that high-ability workers sort into dense cities. The wage premium in Toronto relative to Lethbridge partly reflects the skill of the people who chose to move there, not only the productivity boost from density itself. Identifying the pure agglomeration effect requires instruments for density — historical population levels, geographic constraints, or the density of railroads in 1900 — or longitudinal data tracking the same workers as they move between cities.</p>
 <hr>
 <h2 id="location-quotient-measuring-specialisation" class="anchored">4. Location Quotient: Measuring Specialisation</h2>
@@ -157,92 +217,88 @@ window.Quarto = {
 <hr>
 <h2 id="calgary-vs-toronto-specialised-vs-diversified-agglomeration" class="anchored">6. Calgary vs Toronto: Specialised vs Diversified Agglomeration</h2>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;City-Size vs Wage Premium: Canadian CMAs&quot;, &quot;left&quot;: &quot;center&quot;, &quot;subtext&quot;: &quot;Stylised — log scale on x-axis&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;item&quot;, &quot;formatter&quot;: &quot;{b}: {c}% premium&quot;},
-  &quot;xAxis&quot;: {
-    &quot;type&quot;: &quot;log&quot;,
-    &quot;name&quot;: &quot;CMA Employment (thousands, log scale)&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 35,
-    &quot;min&quot;: 50,
-    &quot;max&quot;: 4000
-  },
-  &quot;yAxis&quot;: {
-    &quot;type&quot;: &quot;value&quot;,
-    &quot;name&quot;: &quot;Estimated Wage Premium vs National Median (%)&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 50,
-    &quot;min&quot;: -5,
-    &quot;max&quot;: 30
-  },
-  &quot;series&quot;: [
-    {
-      &quot;type&quot;: &quot;scatter&quot;,
-      &quot;symbolSize&quot;: 12,
-      &quot;data&quot;: [
-        {&quot;name&quot;: &quot;Toronto&quot;, &quot;value&quot;: [3200, 26]},
-        {&quot;name&quot;: &quot;Vancouver&quot;, &quot;value&quot;: [1400, 18]},
-        {&quot;name&quot;: &quot;Montreal&quot;, &quot;value&quot;: [2100, 12]},
-        {&quot;name&quot;: &quot;Calgary&quot;, &quot;value&quot;: [830, 22]},
-        {&quot;name&quot;: &quot;Edmonton&quot;, &quot;value&quot;: [620, 14]},
-        {&quot;name&quot;: &quot;Ottawa&quot;, &quot;value&quot;: [730, 16]},
-        {&quot;name&quot;: &quot;Winnipeg&quot;, &quot;value&quot;: [420, 4]},
-        {&quot;name&quot;: &quot;Quebec City&quot;, &quot;value&quot;: [350, 2]},
-        {&quot;name&quot;: &quot;Hamilton&quot;, &quot;value&quot;: [280, 1]},
-        {&quot;name&quot;: &quot;Saskatoon&quot;, &quot;value&quot;: [160, -1]},
-        {&quot;name&quot;: &quot;Regina&quot;, &quot;value&quot;: [130, -2]},
-        {&quot;name&quot;: &quot;Halifax&quot;, &quot;value&quot;: [220, 0]},
-        {&quot;name&quot;: &quot;Kelowna&quot;, &quot;value&quot;: [100, -3]},
-        {&quot;name&quot;: &quot;Lethbridge&quot;, &quot;value&quot;: [60, -4]}
-      ],
-      &quot;label&quot;: {&quot;show&quot;: true, &quot;formatter&quot;: &quot;{b}&quot;, &quot;position&quot;: &quot;right&quot;, &quot;fontSize&quot;: 11},
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;City-Size vs Wage Premium: Canadian CMAs&quot;, &quot;left&quot;: &quot;center&quot;, &quot;subtext&quot;: &quot;Stylised — log scale on x-axis&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;item&quot;, &quot;formatter&quot;: &quot;{b}: {c}% premium&quot;},
+&quot;xAxis&quot;: {
+&quot;type&quot;: &quot;log&quot;,
+&quot;name&quot;: &quot;CMA Employment (thousands, log scale)&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 35,
+&quot;min&quot;: 50,
+&quot;max&quot;: 4000
+},
+&quot;yAxis&quot;: {
+&quot;type&quot;: &quot;value&quot;,
+&quot;name&quot;: &quot;Estimated Wage Premium vs National Median (%)&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 50,
+&quot;min&quot;: -5,
+&quot;max&quot;: 30
+},
+&quot;series&quot;: [
+{
+&quot;type&quot;: &quot;scatter&quot;,
+&quot;symbolSize&quot;: 12,
+&quot;data&quot;: [
+{&quot;name&quot;: &quot;Toronto&quot;, &quot;value&quot;: [3200, 26]},
+{&quot;name&quot;: &quot;Vancouver&quot;, &quot;value&quot;: [1400, 18]},
+{&quot;name&quot;: &quot;Montreal&quot;, &quot;value&quot;: [2100, 12]},
+{&quot;name&quot;: &quot;Calgary&quot;, &quot;value&quot;: [830, 22]},
+{&quot;name&quot;: &quot;Edmonton&quot;, &quot;value&quot;: [620, 14]},
+{&quot;name&quot;: &quot;Ottawa&quot;, &quot;value&quot;: [730, 16]},
+{&quot;name&quot;: &quot;Winnipeg&quot;, &quot;value&quot;: [420, 4]},
+{&quot;name&quot;: &quot;Quebec City&quot;, &quot;value&quot;: [350, 2]},
+{&quot;name&quot;: &quot;Hamilton&quot;, &quot;value&quot;: [280, 1]},
+{&quot;name&quot;: &quot;Saskatoon&quot;, &quot;value&quot;: [160, -1]},
+{&quot;name&quot;: &quot;Regina&quot;, &quot;value&quot;: [130, -2]},
+{&quot;name&quot;: &quot;Halifax&quot;, &quot;value&quot;: [220, 0]},
+{&quot;name&quot;: &quot;Kelowna&quot;, &quot;value&quot;: [100, -3]},
+{&quot;name&quot;: &quot;Lethbridge&quot;, &quot;value&quot;: [60, -4]}
+],
+&quot;label&quot;: {&quot;show&quot;: true, &quot;formatter&quot;: &quot;{b}&quot;, &quot;position&quot;: &quot;right&quot;, &quot;fontSize&quot;: 11},
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;}
+}
+]
+}"></div>
 <p>Calgary sits above the trend line: its wage premium exceeds what its size alone would predict. This is the signature of localisation economies — sector-specific productivity gains from energy cluster density that push wages above the urbanisation-only benchmark. Toronto’s premium reflects diversified urbanisation: a mix of finance, technology, professional services, and creative industries that generates broad-based productivity gains.</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Location Quotient by Industry: Calgary vs Toronto vs Vancouver&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Calgary&quot;, &quot;Toronto&quot;, &quot;Vancouver&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;data&quot;: [&quot;Energy &amp; Mining&quot;, &quot;Finance &amp; Insurance&quot;, &quot;Technology&quot;, &quot;Government&quot;, &quot;Health &amp; Social&quot;, &quot;Retail&quot;, &quot;Construction&quot;],
-    &quot;axisLabel&quot;: {&quot;rotate&quot;: 25, &quot;fontSize&quot;: 11}
-  },
-  &quot;yAxis&quot;: {
-    &quot;type&quot;: &quot;value&quot;,
-    &quot;name&quot;: &quot;Location Quotient&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 45,
-    &quot;min&quot;: 0,
-    &quot;max&quot;: 5
-  },
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;Calgary&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;data&quot;: [4.8, 1.6, 1.0, 0.7, 0.8, 0.9, 1.4],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;}
-    },
-    {
-      &quot;name&quot;: &quot;Toronto&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;data&quot;: [0.2, 2.8, 1.9, 0.9, 1.1, 1.0, 0.8],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;}
-    },
-    {
-      &quot;name&quot;: &quot;Vancouver&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;data&quot;: [0.3, 1.1, 1.7, 1.0, 1.2, 1.1, 1.2],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#6dba6d&quot;}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Location Quotient by Industry: Calgary vs Toronto vs Vancouver&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Calgary&quot;, &quot;Toronto&quot;, &quot;Vancouver&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {
+&quot;type&quot;: &quot;category&quot;,
+&quot;data&quot;: [&quot;Energy &amp; Mining&quot;, &quot;Finance &amp; Insurance&quot;, &quot;Technology&quot;, &quot;Government&quot;, &quot;Health &amp; Social&quot;, &quot;Retail&quot;, &quot;Construction&quot;],
+&quot;axisLabel&quot;: {&quot;rotate&quot;: 25, &quot;fontSize&quot;: 11}
+},
+&quot;yAxis&quot;: {
+&quot;type&quot;: &quot;value&quot;,
+&quot;name&quot;: &quot;Location Quotient&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 45,
+&quot;min&quot;: 0,
+&quot;max&quot;: 5
+},
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;Calgary&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [4.8, 1.6, 1.0, 0.7, 0.8, 0.9, 1.4],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;}
+},
+{
+&quot;name&quot;: &quot;Toronto&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [0.2, 2.8, 1.9, 0.9, 1.1, 1.0, 0.8],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;}
+},
+{
+&quot;name&quot;: &quot;Vancouver&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [0.3, 1.1, 1.7, 1.0, 1.2, 1.1, 1.2],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#6dba6d&quot;}
+}
+]
+}"></div>
 <p>Calgary’s energy LQ of ~4.8 dwarfs any other specialisation in any of the three cities. Toronto’s finance LQ of ~2.8 reflects a significant cluster but one embedded in a far more diversified economy. Vancouver is the most balanced of the three — moderate LQs across technology, finance, and construction, consistent with Jacobs-style urbanisation rather than Marshall-style localisation.</p>
 <hr>
 <h2 id="resilience-implications" class="anchored">7. Resilience Implications</h2>
@@ -275,24 +331,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

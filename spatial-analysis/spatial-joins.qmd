@@ -76,6 +76,7 @@ JOIN census_tracts ON ST_Contains(census_tracts.geom, addresses.point)
 ```
 
 **Key operations:**
+
 - **Contains:** Which polygon contains each point?
 - **Intersects:** Which features overlap?
 - **Within distance:** Which features are near each other?
@@ -202,6 +203,7 @@ for each point in A:
 **Idea:** Organize spatial data into hierarchical bounding boxes.
 
 **R-tree structure:**
+
 - Each node: Minimum Bounding Rectangle (MBR) containing child nodes
 - Leaf nodes: Actual geometries
 - Internal nodes: MBRs that bound groups of features
@@ -246,6 +248,7 @@ $$y_{\min}^1 \leq y_{\max}^2 \text{ AND } y_{\max}^1 \geq y_{\min}^2$$
 **K-d tree:** Binary tree that partitions k-dimensional space.
 
 **For 2D (k=2):**
+
 - Root level: split by x-coordinate (median)
 - Level 1: split by y-coordinate
 - Level 2: split by x-coordinate
@@ -313,11 +316,13 @@ function nearestNeighbor(tree, query):
 **Problem:** Find which census tract contains each address.
 
 **Addresses (points):**
+
 - A1: (2, 3)
 - A2: (7, 8)
 - A3: (5, 2)
 
 **Census tracts (polygons):**
+
 - T1: Square from (0,0) to (5,5)
 - T2: Square from (5,0) to (10,5)
 - T3: Square from (0,5) to (5,10)
@@ -375,6 +380,7 @@ Point-in-polygon tests:
 **Result:** A3 → T2
 
 **Final join results:**
+
 - A1 (2,3) → T1
 - A2 (7,8) → T4
 - A3 (5,2) → T2
@@ -686,6 +692,7 @@ render();
 ```
 
 **Try this:**
+
 - **Point-in-polygon:** Green polygons contain red points
 - **Nearest neighbor:** Blue lines connect each point to nearest polygon
 - **Within distance:** Purple circles show search radius, lines show matches
@@ -702,10 +709,12 @@ render();
 ### Real-World Performance
 
 **Without spatial index:**
+
 - 1 million addresses × 50,000 census tracts = 50 billion tests
 - At 1 μs per test: 50,000 seconds = 13.9 hours
 
 **With R-tree index:**
+
 - 1 million addresses × log₂(50,000) ≈ 16 million tests
 - At 1 μs per test: 16 seconds
 
@@ -803,6 +812,7 @@ Polygons in UTM Zone 10 (meters)
 ### Topology Errors
 
 **Invalid polygons:**
+
 - Self-intersecting boundaries
 - Holes not properly encoded
 - Duplicate vertices
@@ -879,6 +889,7 @@ $$y_1^{\max} \geq y_2^{\min} \text{ AND } y_1^{\min} \leq y_2^{\max}$$
 **Search complexity:** $O(\log n)$ for balanced tree
 
 **K-d tree extends this to k dimensions:**
+
 - Each level splits on one dimension
 - Alternates dimensions: x, y, x, y, ...
 
@@ -895,6 +906,7 @@ $$V(s_i) = \{p : d(p, s_i) \leq d(p, s_j) \text{ for all } j \neq i\}$$
 **Construction:** Nearest neighbor join creates Voronoi assignment.
 
 **Applications:**
+
 - Service territories
 - Catchment areas
 - Thiessen polygons (rainfall interpolation)

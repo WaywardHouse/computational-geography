@@ -54,12 +54,14 @@ After heavy rain, which hillslopes will fail as landslides?
 **Slope stability** determines whether soil/rock remains in place or slides downslope.
 
 **Driving forces:**
+
 - Gravity (weight component parallel to slope)
 - Water pressure (reduces effective stress)
 - Earthquakes (dynamic loading)
 - External loads (buildings, traffic)
 
 **Resisting forces:**
+
 - Friction (depends on normal stress)
 - Cohesion (soil/rock strength)
 - Vegetation (root reinforcement)
@@ -67,6 +69,7 @@ After heavy rain, which hillslopes will fail as landslides?
 **Critical question:** Does resistance exceed driving force?
 
 **Applications:**
+
 - Landslide hazard mapping
 - Cut/fill slope design (roads, buildings)
 - Dam stability
@@ -80,16 +83,19 @@ After heavy rain, which hillslopes will fail as landslides?
 ### Landslide Types
 
 **By material:**
+
 - **Rock slide:** Bedrock failure
 - **Debris slide:** Soil + rock fragments
 - **Earth slide:** Predominantly soil
 
 **By mechanism:**
+
 - **Rotational:** Curved failure surface
 - **Translational:** Planar failure surface
 - **Complex:** Multiple failure modes
 
 **By movement:**
+
 - **Slide:** Mass moves as coherent unit
 - **Flow:** Fluid-like behavior
 - **Fall:** Free-fall from cliff
@@ -122,6 +128,7 @@ Where:
 $$FS = \frac{\text{Resisting Forces}}{\text{Driving Forces}} = \frac{\tau_f}{\tau}$$
 
 **Interpretation:**
+
 - $FS > 1.5$: Stable (safe)
 - $FS = 1.0-1.5$: Marginal (monitor)
 - $FS < 1.0$: **Failure** (landslide occurs)
@@ -177,6 +184,7 @@ $$FS = \frac{\text{Resisting Forces}}{\text{Driving Forces}} = \frac{\tau_f}{\ta
 ### Infinite Slope Model
 
 **Assumptions:**
+
 - Uniform slope angle $\theta$
 - Failure parallel to surface
 - Infinite extent (no edge effects)
@@ -282,6 +290,7 @@ $$FS_{\text{seismic}} = \frac{c + \gamma z \cos^2\theta \tan\phi}{\gamma z (\sin
 **Problem:** Calculate factor of safety for hillslope.
 
 **Slope conditions:**
+
 - Angle: $\theta = 30°$
 - Soil depth to bedrock: $z = 3$ m
 - Unit weight: $\gamma = 18$ kN/m³
@@ -289,6 +298,7 @@ $$FS_{\text{seismic}} = \frac{c + \gamma z \cos^2\theta \tan\phi}{\gamma z (\sin
 - Friction angle: $\phi = 35°$
 
 **Calculate FS for:**
+
 1. Dry slope
 2. Fully saturated slope
 3. Saturated slope with earthquake ($k_h = 0.15$)
@@ -334,6 +344,7 @@ $$FS = \frac{17.9}{29.4} = 0.61$$
 **Catastrophic failure** (FS well below 1.0)
 
 **Summary:**
+
 - Dry: FS = 1.43 (marginal)
 - Saturated: FS = 0.76 (fails)
 - Saturated + earthquake: FS = 0.61 (catastrophic)
@@ -610,6 +621,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Increase slope angle:** FS drops (steeper = less stable)
 - **Lower water table (0m = saturated):** FS drops dramatically!
 - **Add seismic loading:** FS drops further
@@ -630,6 +642,7 @@ window.addEventListener('resize', () => chart.resize());
 ### Rainfall-Induced Landslides
 
 **Mechanism:**
+
 1. Rain infiltrates soil
 2. Water table rises
 3. Pore pressure increases
@@ -638,22 +651,26 @@ window.addEventListener('resize', () => chart.resize());
 6. **Failure** when FS < 1.0
 
 **Threshold rainfall:**
+
 - Short duration, high intensity: Shallow slides
 - Long duration, moderate intensity: Deep-seated slides
 
 **Example - Pacific Northwest:**
+
 - Threshold: ~200mm in 3 days
 - Thousands of landslides triggered
 
 ### Earthquake-Induced Landslides
 
 **Case study - 2015 Nepal:**
+
 - Magnitude 7.8 earthquake
 - 25,000+ landslides triggered
 - Some on slopes previously stable (FS > 1.5 dry)
 - Liquefaction in saturated soils
 
 **Newmark displacement:**
+
 - Permanent downslope movement during shaking
 - Depends on: Peak acceleration, critical acceleration, duration
 
@@ -664,12 +681,14 @@ window.addEventListener('resize', () => chart.resize());
 **Typical criterion:** FS > 1.5 for permanent cuts
 
 **Design strategies:**
+
 - Flatten slope (reduce $\theta$)
 - Improve drainage (keep dry)
 - Soil nails/anchors (add resistance)
 - Retaining walls
 
 **Cost trade-off:**
+
 - Steeper → less excavation → cheaper
 - BUT steeper → lower FS → higher failure risk
 
@@ -684,6 +703,7 @@ window.addEventListener('resize', () => chart.resize());
 **Weak layer** controls failure (lowest strength).
 
 **Example:**
+
 - Strong surface soil (c=10 kPa, φ=40°)
 - Weak clay layer at depth (c=2 kPa, φ=25°)
 - **Failure occurs along clay**
@@ -727,16 +747,19 @@ window.addEventListener('resize', () => chart.resize());
 **Combine factors spatially:**
 
 **From DEM:**
+
 - Slope angle
 - Aspect (wetness)
 - Curvature (convergent topography)
 - Upslope contributing area (water accumulation)
 
 **From soils:**
+
 - Soil type (strength parameters)
 - Depth to bedrock
 
 **From land cover:**
+
 - Vegetation (root strength)
 - Land use
 

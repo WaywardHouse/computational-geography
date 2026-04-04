@@ -76,6 +76,7 @@ How do you convert a 30-meter resolution satellite image to 10-meter resolution?
 The mathematical question: Given values at known grid positions, how do we estimate values at new positions?
 
 **Trade-offs:**
+
 - **Speed vs. quality:** Fast methods produce blocky results
 - **Smoothness vs. fidelity:** Smooth methods may blur sharp features
 - **Artifacts:** Poor methods create visual or analytical problems
@@ -313,6 +314,7 @@ $$z = (1-u)(1-v)z_{0,0} + u(1-v)z_{1,0} + (1-u)v z_{0,1} + uv z_{1,1}$$
 $(1-u)(1-v) + u(1-v) + (1-u)v + uv = 1$ ✓
 
 **Properties:**
+
 - Continuous (no jumps)
 - $C^0$ continuous (values match, derivatives don't)
 - Exact at grid points: $z(0,0) = z_{0,0}$, etc.
@@ -336,6 +338,7 @@ Where $a = -0.5$ (standard choice) or $a = -0.75$ (sharper).
 $$z(u, v) = \sum_{m=0}^{3} \sum_{n=0}^{3} z_{m-1, n-1} \cdot w(m - u) \cdot w(n - v)$$
 
 **Properties:**
+
 - $C^1$ continuous (smooth derivatives)
 - Preserves local shape better than bilinear
 - Can overshoot (produce values < min or > max of neighbors)
@@ -665,6 +668,7 @@ render();
 ```
 
 **Try this:**
+
 - **Nearest neighbor:** Blocky, stair-step appearance (preserves exact values)
 - **Bilinear:** Smooth, continuous (but blurs the peak)
 - **Bicubic:** Very smooth (may overshoot slightly)
@@ -681,18 +685,21 @@ render();
 ### When to Use Each Method
 
 **Nearest Neighbor:**
+
 - **Categorical data:** Land cover, soil types, zoning codes
 - **Preserving exact values:** Don't want interpolated values (e.g., "class 2.3")
 - **Speed critical:** Fastest method
 - **Example:** Reproject land cover map—don't create new land cover classes
 
 **Bilinear:**
+
 - **Continuous data:** Elevation, temperature, NDVI
 - **General purpose:** Good balance of speed and quality
 - **Moderate smoothing acceptable:** Slight blur is OK
 - **Example:** Resize satellite imagery for display
 
 **Bicubic:**
+
 - **High-quality visualization:** Print maps, publications
 - **Preserving gradients:** Slope/aspect calculation from DEM
 - **Smooth interpolation needed:** Climate surfaces, bathymetry
@@ -741,6 +748,7 @@ This is **area-weighted averaging**, not interpolation.
 **Bicubic can create values outside input range.**
 
 **Example:**
+
 - Input range: [0, 255] (8-bit image)
 - Bicubic output: Values like -5 or 270
 
@@ -753,6 +761,7 @@ This is **area-weighted averaging**, not interpolation.
 **Near grid boundaries:** Insufficient neighbors for bilinear/bicubic.
 
 **Options:**
+
 1. **Fallback to nearest neighbor** at edges
 2. **Pad with replicated edge values**
 3. **Assume zeros** beyond boundary
@@ -763,11 +772,13 @@ This is **area-weighted averaging**, not interpolation.
 ### Assuming Regular Grid
 
 **Many interpolation methods assume:**
+
 - Rectangular grid
 - Uniform spacing
 - Aligned with axes
 
 **Real data may be:**
+
 - Irregular point clouds (LiDAR)
 - Rotated grids
 - Variable resolution
@@ -779,6 +790,7 @@ This is **area-weighted averaging**, not interpolation.
 **Bilinear/bicubic blur sharp features.**
 
 **Problem for:**
+
 - Coastlines (land/water boundary)
 - Faults (abrupt elevation change)
 - Roads (linear features)
@@ -812,6 +824,7 @@ $p$ = power parameter (typically 2)
 **Geostatistical interpolation** using spatial covariance.
 
 **Steps:**
+
 1. Fit **variogram** (model of spatial correlation vs. distance)
 2. Solve system of equations for weights
 3. Compute weighted sum (optimal in least-squares sense)
@@ -825,6 +838,7 @@ $p$ = power parameter (typically 2)
 **Minimizes bending energy** (creates smoothest surface).
 
 **Used for:**
+
 - Climate data interpolation
 - Surface fitting with constraints
 - Morphing between shapes
@@ -850,6 +864,7 @@ $$y = (1 - t) y_0 + t y_1$$
 Where $t = \frac{x - x_0}{x_1 - x_0}$ is normalized position.
 
 **Properties:**
+
 - Linear in $x$
 - Exact at endpoints: $y(x_0) = y_0$, $y(x_1) = y_1$
 - $t = 0$ → $y = y_0$; $t = 1$ → $y = y_1$

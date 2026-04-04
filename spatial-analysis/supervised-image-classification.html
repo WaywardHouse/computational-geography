@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.8.27" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-
-<meta name="dcterms.date" content="2026-02-27" />
-<meta name="description" content="How do you convert satellite imagery to land cover maps? Supervised classification uses training samples to learn spectral signatures of each class, then classifies every pixel. This model derives maximum likelihood classification, implements k-nearest neighbors, and shows how to assess accuracy with confusion matrices." />
+<meta name="dcterms.date" content="2026-02-27">
+<meta name="description" content="How do you convert satellite imagery to land cover maps? Supervised classification uses training samples to learn spectral signatures of each class, then classifies every pixel. This model derives maximum likelihood classification, implements k-nearest neighbors, and shows how to assess accuracy with confusion matrices.">
 
 <title>Supervised Image Classification – Computational Geography</title>
 <style>
@@ -26,7 +24,16 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html-734cb40618f438257b19a1e532635a32.min.css" rel="stylesheet" append-hash="true" data-mode="light">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
     document.documentElement.dataset.theme = 'light';
@@ -40,10 +47,10 @@ ul.task-list li input[type="checkbox"] {
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Barlow:wght@300;400;500;600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700;1,800&amp;family=Barlow:wght@300;400;500;600&amp;family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&amp;family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;1,7..72,300;1,7..72,400&amp;display=swap" rel="stylesheet">
 
-  <script defer="" src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -58,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
    });
 }}});
   </script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -87,10 +94,10 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../assets/css/quarto-wayward.css" />
+<link rel="stylesheet" href="../assets/css/quarto-wayward.css">
 </head>
 
-<body>
+<body class="reading-body tag-hash-math tag-hash-viz">
 
 
 <header id="title-block-header">
@@ -147,24 +154,58 @@ window.Quarto = {
 </nav>
 <p>Global Forest Watch, maintained by the World Resources Institute, tracks deforestation in near-real time across every forested hectare on Earth using Landsat and Sentinel imagery. Every time a patch of forest is cleared — in the Amazon, the Congo Basin, the forests of Southeast Asia — the spectral signature of that pixel changes: less near-infrared, more red and shortwave infrared. Algorithms running on Google Earth Engine classify millions of pixels per day, distinguishing forest from agriculture, urban, bare soil, and water. The foundation of all of it is supervised image classification: the process of teaching a computer to recognise land cover types from their spectral signatures, then applying that knowledge across an entire image.</p>
 <p>Supervised classification works because different land cover types reflect electromagnetic radiation differently. Water absorbs near-infrared. Healthy vegetation reflects it strongly. Urban surfaces reflect broadly across the visible. Soil reflectance varies with moisture and mineralogy. These spectral fingerprints are distinctive enough in multidimensional band space that a statistical classifier can learn them from a modest number of training pixels and generalise to the rest of the image. The maximum likelihood classifier — the workhorse of remote sensing for half a century — assumes each class follows a multivariate normal distribution and assigns each pixel to the class whose probability density is highest at that pixel’s spectral location. This model derives that classifier from first principles, introduces k-nearest neighbour as a non-parametric alternative, and shows how the confusion matrix measures classification accuracy.</p>
-<h2 id="the-question">1. The Question</h2>
+<h2 id="the-question" class="anchored">1. The Question</h2>
 <p>How do you create a land cover map from a Landsat satellite image?</p>
 <p><strong>Image classification</strong> assigns every pixel to a category (class):</p>
-<p><strong>Land cover classes:</strong> - Water - Forest - Urban/Built-up - Agriculture (crops) - Grassland/Pasture - Barren land</p>
-<p><strong>Supervised classification workflow:</strong> 1. <strong>Select training samples:</strong> Identify pixels of known class 2. <strong>Extract signatures:</strong> Calculate spectral characteristics per class 3. <strong>Train classifier:</strong> Learn decision boundaries in feature space 4. <strong>Classify image:</strong> Assign every pixel to most likely class 5. <strong>Assess accuracy:</strong> Compare results to ground truth</p>
+<p><strong>Land cover classes:</strong></p>
+<ul>
+<li>Water</li>
+<li>Forest</li>
+<li>Urban/Built-up</li>
+<li>Agriculture (crops)</li>
+<li>Grassland/Pasture</li>
+<li>Barren land</li>
+</ul>
+<p><strong>Supervised classification workflow:</strong></p>
+<ol type="1">
+<li><strong>Select training samples:</strong> Identify pixels of known class</li>
+<li><strong>Extract signatures:</strong> Calculate spectral characteristics per class</li>
+<li><strong>Train classifier:</strong> Learn decision boundaries in feature space</li>
+<li><strong>Classify image:</strong> Assign every pixel to most likely class</li>
+<li><strong>Assess accuracy:</strong> Compare results to ground truth</li>
+</ol>
 <p>The mathematical question: Given training data (pixels with known labels) in multi-dimensional spectral space, how do we optimally classify unknown pixels?</p>
-<hr />
-<h2 id="the-conceptual-model">2. The Conceptual Model</h2>
-<h3 id="feature-space">Feature Space</h3>
+<hr>
+<h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
+<h3 id="feature-space" class="anchored">Feature Space</h3>
 <p><strong>Each pixel</strong> is a point in n-dimensional space where n = number of bands.</p>
-<p><strong>Landsat 8 example (6 bands):</strong> - Band 2 (Blue): 0.45-0.51 μm - Band 3 (Green): 0.53-0.59 μm - Band 4 (Red): 0.64-0.67 μm - Band 5 (NIR): 0.85-0.88 μm - Band 6 (SWIR1): 1.57-1.65 μm - Band 7 (SWIR2): 2.11-2.29 μm</p>
+<p><strong>Landsat 8 example (6 bands):</strong></p>
+<ul>
+<li>Band 2 (Blue): 0.45-0.51 μm</li>
+<li>Band 3 (Green): 0.53-0.59 μm</li>
+<li>Band 4 (Red): 0.64-0.67 μm</li>
+<li>Band 5 (NIR): 0.85-0.88 μm</li>
+<li>Band 6 (SWIR1): 1.57-1.65 μm</li>
+<li>Band 7 (SWIR2): 2.11-2.29 μm</li>
+</ul>
 <p><strong>Pixel = 6D point:</strong> <span class="math inline">(B_2, B_3, B_4, B_5, B_6, B_7)</span></p>
 <p><strong>Classes form clusters</strong> in feature space: - <strong>Water:</strong> Low NIR (absorbed), moderate visible - <strong>Vegetation:</strong> Low red (chlorophyll absorption), high NIR (leaf scattering) - <strong>Urban:</strong> Moderate across all bands - <strong>Bare soil:</strong> Red-NIR similar, high SWIR</p>
-<h3 id="training-data">Training Data</h3>
+<h3 id="training-data" class="anchored">Training Data</h3>
 <p><strong>Training samples:</strong> Pixels of known class (ground truth).</p>
-<p><strong>Collection methods:</strong> - Field surveys (GPS + visual ID) - High-resolution imagery interpretation - Existing maps - Expert knowledge</p>
-<p><strong>Requirements:</strong> - Representative of class variability - Spatially distributed across scene - Sufficient quantity (50-100 pixels per class minimum)</p>
-<h3 id="classification-algorithms">Classification Algorithms</h3>
+<p><strong>Collection methods:</strong></p>
+<ul>
+<li>Field surveys (GPS + visual ID)</li>
+<li>High-resolution imagery interpretation</li>
+<li>Existing maps</li>
+<li>Expert knowledge</li>
+</ul>
+<p><strong>Requirements:</strong></p>
+<ul>
+<li>Representative of class variability</li>
+<li>Spatially distributed across scene</li>
+<li>Sufficient quantity (50-100 pixels per class minimum)</li>
+</ul>
+<h3 id="classification-algorithms" class="anchored">Classification Algorithms</h3>
 <p><strong>1. Maximum Likelihood (Parametric)</strong></p>
 <p>Assumes class signatures follow multivariate normal distribution.</p>
 <p>Classifies to class with highest probability given pixel values.</p>
@@ -182,7 +223,7 @@ window.Quarto = {
 <div class="cg-ill__eyebrow">
 Feature Space
 </div>
-<h3 class="cg-ill__title">
+<h3 class="cg-ill__title anchored">
 Training Data Teaches The Classifier Where Classes Live
 </h3>
 <p class="cg-ill__lede">
@@ -265,7 +306,7 @@ The unknown pixel gets assigned to the class whose signature best matches its lo
 <div class="cg-ill__label">
 Classifier intuition
 </div>
-<h4>
+<h4 class="anchored">
 Learn, Then Generalize
 </h4>
 <p>
@@ -279,9 +320,9 @@ Training samples define the class signature first. The classifier then applies t
 Supervised image classification turns labeled training pixels into decision regions in spectral feature space.
 </figcaption>
 </figure>
-<hr />
-<h2 id="building-the-mathematical-model">3. Building the Mathematical Model</h2>
-<h3 id="multivariate-normal-distribution">Multivariate Normal Distribution</h3>
+<hr>
+<h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
+<h3 id="multivariate-normal-distribution" class="anchored">Multivariate Normal Distribution</h3>
 <p><strong>Class <span class="math inline">i</span> signature:</strong> Mean vector <span class="math inline">\boldsymbol{\mu}_i</span> and covariance matrix <span class="math inline">\boldsymbol{\Sigma}_i</span></p>
 <p><strong>For pixel with values <span class="math inline">\mathbf{x} = (x_1, x_2, \ldots, x_n)</span>:</strong></p>
 <p><strong>Probability density:</strong></p>
@@ -290,7 +331,7 @@ Supervised image classification turns labeled training pixels into decision regi
 <p><strong>Mahalanobis distance:</strong></p>
 <p><span class="math display">D_i^2 = (\mathbf{x} - \boldsymbol{\mu}_i)^T \boldsymbol{\Sigma}_i^{-1} (\mathbf{x} - \boldsymbol{\mu}_i)</span></p>
 <p>Measures distance in units of standard deviations (accounts for correlation).</p>
-<h3 id="maximum-likelihood-classification">Maximum Likelihood Classification</h3>
+<h3 id="maximum-likelihood-classification" class="anchored">Maximum Likelihood Classification</h3>
 <p><strong>Bayes’ theorem:</strong></p>
 <p><span class="math display">P(C_i | \mathbf{x}) = \frac{p(\mathbf{x} | C_i) P(C_i)}{p(\mathbf{x})}</span></p>
 <p>Where: - <span class="math inline">P(C_i | \mathbf{x})</span> = posterior probability (class given pixel) - <span class="math inline">p(\mathbf{x} | C_i)</span> = likelihood (pixel given class) - <span class="math inline">P(C_i)</span> = prior probability (class frequency) - <span class="math inline">p(\mathbf{x})</span> = evidence (constant for all classes)</p>
@@ -299,7 +340,7 @@ Supervised image classification turns labeled training pixels into decision regi
 <p><strong>Equivalent (taking log):</strong></p>
 <p><span class="math display">\hat{C} = \arg\max_i \left[\ln P(C_i) - \frac{1}{2}\ln|\boldsymbol{\Sigma}_i| - \frac{1}{2}D_i^2\right]</span></p>
 <p><strong>If equal priors and equal covariances:</strong> Simplifies to minimum Mahalanobis distance.</p>
-<h3 id="k-nearest-neighbors-k-nn">K-Nearest Neighbors (k-NN)</h3>
+<h3 id="k-nearest-neighbors-k-nn" class="anchored">K-Nearest Neighbors (k-NN)</h3>
 <p><strong>Algorithm:</strong></p>
 <pre><code>For pixel x:
     1. Calculate distance to all training pixels
@@ -309,10 +350,10 @@ Supervised image classification turns labeled training pixels into decision regi
 <p><strong>Distance metric</strong> (Euclidean in feature space):</p>
 <p><span class="math display">d(\mathbf{x}, \mathbf{x}_j) = \sqrt{\sum_{b=1}^{n} (x_b - x_{jb})^2}</span></p>
 <p><strong>Typical k values:</strong> 3, 5, 7 (odd to avoid ties)</p>
-<p><strong>Pros:</strong> Simple, no distribution assumptions<br />
+<p><strong>Pros:</strong> Simple, no distribution assumptions<br>
 <strong>Cons:</strong> Computationally expensive, sensitive to k choice</p>
-<h3 id="accuracy-assessment">Accuracy Assessment</h3>
-<p><strong>Confusion matrix:</strong> Cross-tabulation of predicted vs. actual classes.</p>
+<h3 id="accuracy-assessment" class="anchored">Accuracy Assessment</h3>
+<p><strong>Confusion matrix:</strong> Cross-tabulation of predicted vs.&nbsp;actual classes.</p>
 <p><strong>Example:</strong></p>
 <table class="caption-top">
 <thead>
@@ -354,15 +395,23 @@ Supervised image classification turns labeled training pixels into decision regi
 <p><strong>Kappa coefficient:</strong> Agreement beyond chance</p>
 <p><span class="math display">\kappa = \frac{OA - P_e}{1 - P_e}</span></p>
 <p>Where <span class="math inline">P_e</span> = expected accuracy by chance.</p>
-<hr />
-<h2 id="worked-example-by-hand">4. Worked Example by Hand</h2>
+<hr>
+<h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Problem:</strong> Classify a pixel using maximum likelihood.</p>
 <p><strong>Pixel values:</strong> Red = 0.10, NIR = 0.45</p>
 <p><strong>Training statistics (2 bands for simplicity):</strong></p>
-<p><strong>Class 1 (Vegetation):</strong> - Mean: <span class="math inline">\boldsymbol{\mu}_1 = (0.08, 0.50)</span> (low red, high NIR) - Covariance: <span class="math inline">\boldsymbol{\Sigma}_1 = \begin{pmatrix} 0.01 &amp; 0 \\ 0 &amp; 0.02 \end{pmatrix}</span></p>
-<p><strong>Class 2 (Soil):</strong> - Mean: <span class="math inline">\boldsymbol{\mu}_2 = (0.25, 0.30)</span> (moderate both) - Covariance: <span class="math inline">\boldsymbol{\Sigma}_2 = \begin{pmatrix} 0.02 &amp; 0 \\ 0 &amp; 0.02 \end{pmatrix}</span></p>
+<p><strong>Class 1 (Vegetation):</strong></p>
+<ul>
+<li>Mean: <span class="math inline">\boldsymbol{\mu}_1 = (0.08, 0.50)</span> (low red, high NIR)</li>
+<li>Covariance: <span class="math inline">\boldsymbol{\Sigma}_1 = \begin{pmatrix} 0.01 &amp; 0 \\ 0 &amp; 0.02 \end{pmatrix}</span></li>
+</ul>
+<p><strong>Class 2 (Soil):</strong></p>
+<ul>
+<li>Mean: <span class="math inline">\boldsymbol{\mu}_2 = (0.25, 0.30)</span> (moderate both)</li>
+<li>Covariance: <span class="math inline">\boldsymbol{\Sigma}_2 = \begin{pmatrix} 0.02 &amp; 0 \\ 0 &amp; 0.02 \end{pmatrix}</span></li>
+</ul>
 <p>Assume equal priors: <span class="math inline">P(C_1) = P(C_2) = 0.5</span></p>
-<h3 id="solution">Solution</h3>
+<h3 id="solution" class="anchored">Solution</h3>
 <p><strong>Step 1: Compute Mahalanobis distance to each class</strong></p>
 <p><strong>Class 1 (Vegetation):</strong></p>
 <p><span class="math display">\mathbf{x} - \boldsymbol{\mu}_1 = (0.10 - 0.08, 0.45 - 0.50) = (0.02, -0.05)</span></p>
@@ -384,26 +433,26 @@ Supervised image classification turns labeled training pixels into decision regi
 <p><span class="math display">\max(g_1, g_2) = \max(-0.776, -1.818) = -0.776</span></p>
 <p><strong>Classification: Vegetation (Class 1)</strong></p>
 <p><strong>Interpretation:</strong> Pixel is closer to vegetation signature (low red, high NIR).</p>
-<hr />
-<h2 id="computational-implementation">5. Computational Implementation</h2>
+<hr>
+<h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive image classification demo.</p>
 <div class="viz-container" id="classify-viz">
 <div class="controls">
 <label>
 Classification method:
 <select id="class-method">
-<option value="maximum-likelihood" selected>Maximum Likelihood</option>
+<option value="maximum-likelihood" selected="">Maximum Likelihood</option>
 <option value="knn">K-Nearest Neighbors (k=5)</option>
 <option value="minimum-distance">Minimum Distance</option>
 </select>
 </label>
 <label>
 Show feature space:
-<input type="checkbox" id="show-feature-space" checked>
+<input type="checkbox" id="show-feature-space" checked="">
 </label>
 <label>
 Show training samples:
-<input type="checkbox" id="show-training" checked>
+<input type="checkbox" id="show-training" checked="">
 </label>
 <div class="classify-info">
 <p><strong>Classes:</strong> Water (blue), Vegetation (green), Urban (gray), Bare soil (brown)</p>
@@ -730,37 +779,90 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Maximum likelihood:</strong> Statistical classification based on class distributions - <strong>K-nearest neighbors:</strong> Non-parametric, uses nearest training samples - <strong>Minimum distance:</strong> Simplest method, distance to class means - <strong>Feature space plot:</strong> Shows class separation in Red-NIR space - <strong>Training samples:</strong> White boxes show training regions - <strong>Color legend:</strong> Blue (water), Green (vegetation), Gray (urban), Brown (soil) - Notice: Classes cluster in feature space—high NIR separates vegetation!</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Maximum likelihood:</strong> Statistical classification based on class distributions</li>
+<li><strong>K-nearest neighbors:</strong> Non-parametric, uses nearest training samples</li>
+<li><strong>Minimum distance:</strong> Simplest method, distance to class means</li>
+<li><strong>Feature space plot:</strong> Shows class separation in Red-NIR space</li>
+<li><strong>Training samples:</strong> White boxes show training regions</li>
+<li><strong>Color legend:</strong> Blue (water), Green (vegetation), Gray (urban), Brown (soil)</li>
+<li>Notice: Classes cluster in feature space—high NIR separates vegetation!</li>
+</ul>
 <p><strong>Key insight:</strong> Spectral signatures enable automatic land cover mapping from satellite imagery!</p>
-<hr />
-<h2 id="interpretation">6. Interpretation</h2>
-<h3 id="global-land-cover-mapping">Global Land Cover Mapping</h3>
-<p><strong>Products:</strong> - <strong>MODIS Land Cover</strong> (500m, annual, 2001-present) - <strong>ESA CCI Land Cover</strong> (300m, annual, 1992-2020) - <strong>FROM-GLC</strong> (30m, Landsat-based)</p>
-<p><strong>Uses:</strong> - Climate modelling (surface albedo, roughness) - Carbon cycle (vegetation biomass) - Agriculture monitoring - Urban growth tracking</p>
-<h3 id="crop-type-mapping">Crop Type Mapping</h3>
-<p><strong>USDA Cropland Data Layer</strong> (30m, annual, US): - Corn vs. soybeans vs. wheat - Training: Field surveys + farmer reports - Accuracy: &gt;90% for major crops</p>
-<p><strong>Applications:</strong> - Yield prediction - Irrigation demand - Crop insurance - Policy planning</p>
-<h3 id="forest-mapping">Forest Mapping</h3>
-<p><strong>Forest/non-forest:</strong> - Binary classification (easier, higher accuracy) - Global Forest Change product (Hansen et al.) - 30m resolution, 2000-2023</p>
-<p><strong>Forest type:</strong> - Deciduous vs. evergreen vs. mixed - Requires phenology (time series)</p>
-<hr />
-<h2 id="what-could-go-wrong">7. What Could Go Wrong?</h2>
-<h3 id="insufficient-training-data">Insufficient Training Data</h3>
+<hr>
+<h2 id="interpretation" class="anchored">6. Interpretation</h2>
+<h3 id="global-land-cover-mapping" class="anchored">Global Land Cover Mapping</h3>
+<p><strong>Products:</strong></p>
+<ul>
+<li><strong>MODIS Land Cover</strong> (500m, annual, 2001-present)</li>
+<li><strong>ESA CCI Land Cover</strong> (300m, annual, 1992-2020)</li>
+<li><strong>FROM-GLC</strong> (30m, Landsat-based)</li>
+</ul>
+<p><strong>Uses:</strong></p>
+<ul>
+<li>Climate modelling (surface albedo, roughness)</li>
+<li>Carbon cycle (vegetation biomass)</li>
+<li>Agriculture monitoring</li>
+<li>Urban growth tracking</li>
+</ul>
+<h3 id="crop-type-mapping" class="anchored">Crop Type Mapping</h3>
+<p><strong>USDA Cropland Data Layer</strong> (30m, annual, US): - Corn vs.&nbsp;soybeans vs.&nbsp;wheat - Training: Field surveys + farmer reports - Accuracy: &gt;90% for major crops</p>
+<p><strong>Applications:</strong></p>
+<ul>
+<li>Yield prediction</li>
+<li>Irrigation demand</li>
+<li>Crop insurance</li>
+<li>Policy planning</li>
+</ul>
+<h3 id="forest-mapping" class="anchored">Forest Mapping</h3>
+<p><strong>Forest/non-forest:</strong></p>
+<ul>
+<li>Binary classification (easier, higher accuracy)</li>
+<li>Global Forest Change product (Hansen et al.)</li>
+<li>30m resolution, 2000-2023</li>
+</ul>
+<p><strong>Forest type:</strong></p>
+<ul>
+<li>Deciduous vs.&nbsp;evergreen vs.&nbsp;mixed</li>
+<li>Requires phenology (time series)</li>
+</ul>
+<hr>
+<h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
+<h3 id="insufficient-training-data" class="anchored">Insufficient Training Data</h3>
 <p><strong>Small sample size</strong> → Poor class statistics → Misclassification</p>
-<p><strong>Solution:</strong> - Collect 50-100 pixels per class minimum - Ensure spatial distribution across scene - Include class variability (e.g., young vs. mature forest)</p>
-<h3 id="class-confusion">Class Confusion</h3>
-<p><strong>Spectrally similar classes:</strong> - Dry grass vs. bare soil - Urban vs. bare rock - Shallow water vs. wet sand</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Collect 50-100 pixels per class minimum</li>
+<li>Ensure spatial distribution across scene</li>
+<li>Include class variability (e.g., young vs.&nbsp;mature forest)</li>
+</ul>
+<h3 id="class-confusion" class="anchored">Class Confusion</h3>
+<p><strong>Spectrally similar classes:</strong></p>
+<ul>
+<li>Dry grass vs.&nbsp;bare soil</li>
+<li>Urban vs.&nbsp;bare rock</li>
+<li>Shallow water vs.&nbsp;wet sand</li>
+</ul>
 <p><strong>Separability analysis:</strong></p>
 <p><span class="math display">D_{ij} = \frac{||\boldsymbol{\mu}_i - \boldsymbol{\mu}_j||^2}{\sigma_i^2 + \sigma_j^2}</span></p>
 <p><strong>Low separability (&lt; 1.0):</strong> Consider merging classes or adding bands.</p>
-<h3 id="shadow-and-topography">Shadow and Topography</h3>
+<h3 id="shadow-and-topography" class="anchored">Shadow and Topography</h3>
 <p><strong>Terrain shadows</strong> reduce brightness → misclassified as water.</p>
-<p><strong>Solution:</strong> - Topographic correction (normalize for solar angle + slope) - Use indices less sensitive to illumination (e.g., NDVI)</p>
-<h3 id="mixed-pixels">Mixed Pixels</h3>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Topographic correction (normalize for solar angle + slope)</li>
+<li>Use indices less sensitive to illumination (e.g., NDVI)</li>
+</ul>
+<h3 id="mixed-pixels" class="anchored">Mixed Pixels</h3>
 <p><strong>30m Landsat pixel</strong> may contain multiple cover types: - Edge between forest and field - Urban with scattered vegetation</p>
-<p><strong>Sub-pixel classification:</strong> - Estimate fractional cover (30% forest, 70% grass) - Spectral unmixing algorithms</p>
-<hr />
-<h2 id="extension-random-forest-classification">8. Extension: Random Forest Classification</h2>
+<p><strong>Sub-pixel classification:</strong></p>
+<ul>
+<li>Estimate fractional cover (30% forest, 70% grass)</li>
+<li>Spectral unmixing algorithms</li>
+</ul>
+<hr>
+<h2 id="extension-random-forest-classification" class="anchored">8. Extension: Random Forest Classification</h2>
 <p><strong>Ensemble of decision trees.</strong></p>
 <p><strong>Algorithm:</strong></p>
 <pre><code>For each tree:
@@ -774,29 +876,43 @@ render();
 Classification:
     - Each tree votes
     - Assign majority class</code></pre>
-<p><strong>Advantages:</strong> - Handles non-linear relationships - Robust to outliers - Feature importance ranking - High accuracy</p>
-<p><strong>Disadvantages:</strong> - Black box (hard to interpret) - Computationally intensive</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Handles non-linear relationships</li>
+<li>Robust to outliers</li>
+<li>Feature importance ranking</li>
+<li>High accuracy</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Black box (hard to interpret)</li>
+<li>Computationally intensive</li>
+</ul>
 <p><strong>Widely used</strong> in operational land cover mapping.</p>
-<hr />
-<h2 id="math-refresher-multivariate-normal-distribution">9. Math Refresher: Multivariate Normal Distribution</h2>
-<h3 id="univariate-normal">Univariate Normal</h3>
+<hr>
+<h2 id="math-refresher-multivariate-normal-distribution" class="anchored">9. Math Refresher: Multivariate Normal Distribution</h2>
+<h3 id="univariate-normal" class="anchored">Univariate Normal</h3>
 <p><strong>1D Gaussian:</strong></p>
 <p><span class="math display">p(x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)</span></p>
 <p><strong>Parameters:</strong> Mean <span class="math inline">\mu</span>, variance <span class="math inline">\sigma^2</span></p>
 <p><strong>68-95-99.7 rule:</strong> 68% within 1σ, 95% within 2σ, 99.7% within 3σ</p>
-<h3 id="multivariate-normal">Multivariate Normal</h3>
+<h3 id="multivariate-normal" class="anchored">Multivariate Normal</h3>
 <p><strong>n-dimensional:</strong></p>
 <p><span class="math display">p(\mathbf{x} | \boldsymbol{\mu}, \boldsymbol{\Sigma}) = \frac{1}{(2\pi)^{n/2}|\boldsymbol{\Sigma}|^{1/2}} \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)</span></p>
-<p><strong>Parameters:</strong> - Mean vector <span class="math inline">\boldsymbol{\mu} = (\mu_1, \mu_2, \ldots, \mu_n)</span> - Covariance matrix <span class="math inline">\boldsymbol{\Sigma}</span> (n×n, symmetric, positive definite)</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li>Mean vector <span class="math inline">\boldsymbol{\mu} = (\mu_1, \mu_2, \ldots, \mu_n)</span></li>
+<li>Covariance matrix <span class="math inline">\boldsymbol{\Sigma}</span> (n×n, symmetric, positive definite)</li>
+</ul>
 <p><strong>Covariance:</strong></p>
 <p><span class="math display">\Sigma_{ij} = \text{Cov}(X_i, X_j) = E[(X_i - \mu_i)(X_j - \mu_j)]</span></p>
-<p><strong>Diagonal elements:</strong> Variances <span class="math inline">\sigma_i^2</span><br />
+<p><strong>Diagonal elements:</strong> Variances <span class="math inline">\sigma_i^2</span><br>
 <strong>Off-diagonal:</strong> Covariances (measure linear relationship)</p>
 <p><strong>Mahalanobis distance:</strong></p>
 <p><span class="math display">D^2 = (\mathbf{x}-\boldsymbol{\mu})^T\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})</span></p>
 <p>Generalizes Euclidean distance, accounting for variance and correlation.</p>
-<hr />
-<h2 id="summary">Summary</h2>
+<hr>
+<h2 id="summary" class="anchored">Summary</h2>
 <ul>
 <li><strong>Supervised classification</strong> uses training samples to learn class signatures</li>
 <li><strong>Feature space:</strong> Each pixel is a point in n-dimensional spectral space</li>
@@ -809,9 +925,7 @@ Classification:
 <li><strong>Random forest:</strong> Ensemble method with high accuracy for complex classifications</li>
 <li>Foundation of operational remote sensing land cover products</li>
 </ul>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGF0aXRsZQ=="><span class="chapter-title">Supervised Image Classification</span> – Computational Geography</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU="><span class="chapter-title">Supervised Image Classification</span> – Computational Geography</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZHRpdGxl"><span class="chapter-title">Supervised Image Classification</span> – Computational Geography</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW1ldGFzaXRlbmFtZQ==">Computational Geography</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==">How do you convert satellite imagery to land cover maps? Supervised classification uses training samples to learn spectral signatures of each class, then classifies every pixel. This model derives maximum likelihood classification, implements k-nearest neighbors, and shows how to assess accuracy with confusion matrices.</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW9nY2FyZGRkZXNj">How do you convert satellite imagery to land cover maps? Supervised classification uses training samples to learn spectral signatures of each class, then classifies every pixel. This model derives maximum likelihood classification, implements k-nearest neighbors, and shows how to assess accuracy with confusion matrices.</span></p>
-</div>
+
 
 <footer class="wayward-footer">
   <div class="wayward-footer__inner">
@@ -821,7 +935,7 @@ Classification:
     </div>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
-      <h2 id="footer-reading">Reading</h2>
+      <h2 id="footer-reading" class="anchored">Reading</h2>
       <a href="https://wayward.house/articles/">Articles</a>
       <a href="https://wayward.house/learn/">Library</a>
       <a href="https://wayward.house/archive.html">Archive</a>
@@ -829,14 +943,14 @@ Classification:
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
-      <h2 id="footer-site">Site</h2>
+      <h2 id="footer-site" class="anchored">Site</h2>
       <a href="https://wayward.house/start-here.html">Choose Your Path</a>
       <a href="https://wayward.house/about.html">About</a>
       <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
-      <h2 id="footer-resources">Resources</h2>
+      <h2 id="footer-resources" class="anchored">Resources</h2>
       <a href="https://wayward.house/topics/">All Topics</a>
       <a href="https://wayward.house/privacy.html">Privacy Policy</a>
       <a href="https://wayward.house/terms.html">Terms of Use</a>
@@ -844,9 +958,9 @@ Classification:
   </div>
 </footer>
 
-<script type="module" src="/assets/dist/main.js"></script>
-<script type="module" src="/assets/js/core.js"></script>
-<script id = "quarto-html-after-body" type="application/javascript">
+<script type="module" src="../assets/dist/main.js"></script>
+<script type="module" src="../assets/js/core.js"></script>
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
     tabsets.forEach(function(tabset) {
@@ -1251,6 +1365,7 @@ Classification:
   });
   </script>
 
-</body>
 
-</html>
+
+
+</body></html>

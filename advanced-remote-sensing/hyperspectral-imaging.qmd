@@ -60,11 +60,13 @@ Can we identify minerals from orbit using reflected sunlight?
 **Comparison:**
 
 **Multispectral (Landsat, Sentinel-2):**
+
 - 8-12 broad bands
 - Band width: 50-200 nm
 - Coarse spectral sampling
 
 **Hyperspectral (AVIRIS, EnMAP, PRISMA):**
+
 - 100-400+ narrow bands
 - Band width: 5-10 nm
 - Fine spectral sampling
@@ -79,6 +81,7 @@ Narrow bands capture diagnostic absorption features that reveal:
 - Urban materials (roof types, pavement)
 
 **Applications:**
+
 - Mineral exploration (ore deposits)
 - Precision agriculture (crop health, nutrient status)
 - Environmental monitoring (water quality, invasive species)
@@ -108,12 +111,14 @@ Materials absorb specific wavelengths due to:
 - Molecular vibrations (shortwave infrared, 1300-2500 nm)
 
 **Example - vegetation:**
+
 - 680 nm: Chlorophyll absorption (red)
 - 750-900 nm: High reflectance (near-infrared plateau)
 - 1400, 1900 nm: Water absorption
 - 2200 nm: Cellulose/lignin absorption
 
 **Example - minerals:**
+
 - Iron oxides: Absorption 400-700 nm
 - Hydroxyl minerals (clays): 1400, 2200 nm
 - Carbonates: 2300-2350 nm
@@ -123,6 +128,7 @@ Materials absorb specific wavelengths due to:
 **Reference spectra** measured in laboratory:
 
 **USGS Spectral Library:**
+
 - 1400+ materials
 - Minerals, rocks, soils
 - Vegetation, water
@@ -135,6 +141,7 @@ Materials absorb specific wavelengths due to:
 **Data structure:**
 
 **Hyperspectral cube:**
+
 - x dimension: spatial (pixels across)
 - y dimension: spatial (pixels down)
 - z dimension: spectral (wavelengths)
@@ -657,6 +664,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Green dashed line shows pure vegetation spectrum with strong NIR reflectance
 - Brown dashed line shows pure soil spectrum with more uniform response
 - Blue line with points is measured mixed spectrum
@@ -668,6 +676,7 @@ window.addEventListener('resize', () => chart.resize());
 - RMSE quantifies reconstruction quality
 
 **Key insights:**
+
 - Vegetation has distinctive spectral signature with red absorption and NIR reflectance
 - Mixed pixels can be decomposed into constituent materials
 - Narrow bands enable precise absorption feature measurement
@@ -703,18 +712,22 @@ Mapping alteration minerals indicates hydrothermal systems associated with ore d
 **Crop biochemistry from spectra:**
 
 **Chlorophyll content:**
+
 - Red edge position (700-750 nm)
 - Chlorophyll indices using 550, 670, 750 nm
 
 **Water stress:**
+
 - Water absorption at 1400, 1900 nm
 - Normalized difference water index
 
 **Nitrogen status:**
+
 - Correlation with chlorophyll
 - Red edge shifts with N availability
 
 **Disease detection:**
+
 - Early stress signatures before visual symptoms
 - Spectral changes in stressed tissue
 
@@ -727,14 +740,17 @@ Variable-rate fertilizer/pesticide application based on hyperspectral maps.
 **Optically active constituents:**
 
 **Chlorophyll-a (algae):**
+
 - Absorption at 440, 675 nm
 - Fluorescence peak at 685 nm
 
 **Suspended sediment:**
+
 - Scattering increases reflectance across all bands
 - Particularly strong in red/NIR
 
 **Dissolved organic matter (DOM):**
+
 - Absorption in blue/green
 - "Yellow substance"
 
@@ -760,6 +776,7 @@ Toxic cyanobacteria produce microcystin - early detection enables beach closures
 Atmosphere absorbs and scatters light.
 
 **Water vapor absorption bands:**
+
 - 1400 nm
 - 1900 nm
 - 2500+ nm
@@ -767,6 +784,7 @@ Atmosphere absorbs and scatters light.
 **In these bands:** Surface reflectance unmeasurable from aircraft/satellite.
 
 **Solution:**
+
 - Atmospheric correction (ATREM, FLAASH algorithms)
 - Use bands outside absorption features
 - Ground-based measurements for validation
@@ -776,6 +794,7 @@ Atmosphere absorbs and scatters light.
 **Assumption:** Pure endmembers have fixed spectra.
 
 **Reality:**
+
 - Vegetation spectra vary with species, health, phenology
 - Soil spectra vary with moisture, texture, mineralogy
 - Shadows, topography affect apparent spectra
@@ -785,6 +804,7 @@ Atmosphere absorbs and scatters light.
 Using library spectra from different location/time introduces error.
 
 **Solution:**
+
 - Image-derived endmembers (select from actual scene)
 - Multiple endmember spectral mixture analysis (MESMA)
 - Account for variability in library
@@ -794,14 +814,17 @@ Using library spectra from different location/time introduces error.
 **High dimensionality** (200+ bands) causes statistical problems:
 
 **Hughes phenomenon:**
+
 - Classification accuracy decreases with too many features
 - Need exponentially more training samples
 
 **Multicollinearity:**
+
 - Adjacent bands highly correlated
 - Redundant information
 
 **Solution:**
+
 - Dimensionality reduction (PCA, MNF)
 - Band selection (choose optimal subset)
 - Feature extraction (spectral indices)
@@ -813,6 +836,7 @@ Using library spectra from different location/time introduces error.
 Photons interact with one material before sensor.
 
 **Reality - multiple scattering:**
+
 - Canopy: Photons bounce between leaves, soil
 - Mineral mixtures: Intimate vs areal mixing behave differently
 
@@ -822,6 +846,7 @@ Photons interact with one material before sensor.
 - Multiple scattering media
 
 **Solution:**
+
 - Non-linear unmixing models
 - Radiative transfer modelling
 - Acknowledge limitation in interpretation
@@ -841,6 +866,7 @@ $$\frac{d\rho}{d\lambda} \approx \frac{\rho(\lambda_{i+1}) - \rho(\lambda_{i-1})
 $$\frac{d^2\rho}{d\lambda^2} \approx \frac{\rho(\lambda_{i+1}) - 2\rho(\lambda_i) + \rho(\lambda_{i-1})}{\Delta\lambda^2}$$
 
 **Advantages:**
+
 - Remove background (continuum)
 - Enhance narrow absorption features
 - Less sensitive to illumination variations

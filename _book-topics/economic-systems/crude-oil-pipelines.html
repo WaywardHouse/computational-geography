@@ -70,10 +70,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -142,6 +145,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-hydraulics-of-a-liquid-pipeline" id="toc-the-hydraulics-of-a-liquid-pipeline">The hydraulics of a liquid pipeline</a></li>
   <li><a href="#albertas-three-export-corridors" id="toc-albertas-three-export-corridors">Alberta’s three export corridors</a></li>
   <li><a href="#the-netback-price-model" id="toc-the-netback-price-model">The netback price model</a></li>
@@ -150,6 +154,15 @@ window.Quarto = {
   <li><a href="#where-next" id="toc-where-next">Where next?</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That moving oil through a pipe requires pressure, and that transport cost affects the price producers actually receive.</p>
+<p><strong>You will learn</strong><br>
+How crude-pipeline hydraulics, capacity, and route choice shape Alberta’s export economics.</p>
+<p><strong>Why this matters</strong><br>
+Pipeline physics is part of commodity pricing, not just an engineering detail.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The basic idea that friction and pressure determine how much oil can move.</p>
 <p>Every barrel of Alberta crude travels an average of 3,500 kilometres before it reaches a refinery — and the price the producer receives is determined as much by the physics of that journey as by the market at the other end.</p>
 <p>That physics begins with a deceptively simple question: what does it take to push a viscous fluid through 760 millimetres of steel pipe at two metres per second for 2,700 kilometres? The answer is pressure — and the equation that quantifies how much pressure is the Darcy-Weisbach formula. Everything else in this essay — the capacity of the Enbridge Mainline, the discount WCS crude trades at relative to WTI, the comparative economics of Keystone versus Trans Mountain — follows from understanding what that equation says and why.</p>
 <h2 id="the-hydraulics-of-a-liquid-pipeline" class="anchored">The hydraulics of a liquid pipeline</h2>
@@ -346,6 +359,78 @@ Hardisty → Cushing OK / Gulf Coast
 </tbody>
 </table>
 <p><em>Sources: CER Pipeline Profiles; company annual reports and investor disclosures. Tariffs are indicative — actual rates depend on contract type, volume commitment, and commodity.</em></p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Export Corridors
+</div>
+<h3 class="cg-ill__title anchored">
+Route Choice Changes Both Capacity And Netback
+</h3>
+<p class="cg-ill__lede">
+The same barrel can leave Alberta through different corridors, but each route trades off capacity, destination access, and tariff cost. That is why pipeline geography shows up directly in producer price.
+</p>
+<div class="cg-ill__corridor-grid">
+<div class="cg-ill__corridor-map">
+<div class="cg-ill__corridor-hub" style="left:12%;top:44%;">
+Hardisty
+</div>
+<div class="cg-ill__corridor-hub" style="left:68%;top:18%;">
+Burnaby
+</div>
+<div class="cg-ill__corridor-hub" style="left:72%;top:43%;">
+Superior
+</div>
+<div class="cg-ill__corridor-hub" style="left:72%;top:71%;">
+Cushing
+</div>
+<div class="cg-ill__corridor-link cg-ill__corridor-link--tmx" style="left:20%;top:33%;width:48%;transform:rotate(-18deg);">
+TMX ~890 kbpd | ~$11/bbl
+</div>
+<div class="cg-ill__corridor-link cg-ill__corridor-link--mainline" style="left:20%;top:46%;width:50%;transform:rotate(-1deg);">
+Mainline ~3,000 kbpd | ~$5/bbl
+</div>
+<div class="cg-ill__corridor-link cg-ill__corridor-link--keystone" style="left:22%;top:61%;width:48%;transform:rotate(14deg);">
+Keystone ~590 kbpd | ~$8/bbl
+</div>
+<div class="cg-ill__corridor-note" style="left:4%;top:10%;">
+origin hub
+</div>
+<div class="cg-ill__corridor-note" style="left:74%;top:10%;">
+Pacific market access
+</div>
+<div class="cg-ill__corridor-note" style="left:76%;top:35%;">
+Midwest / eastern routing
+</div>
+<div class="cg-ill__corridor-note" style="left:76%;top:80%;">
+WTI / Gulf routing
+</div>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+What the figure is teaching
+</h4>
+<ul>
+<li>
+Mainline is the biggest system, so it dominates Alberta export capacity.
+</li>
+<li>
+TMX is expensive per barrel, but it buys access to Pacific pricing optionality.
+</li>
+<li>
+Keystone is smaller and south-oriented, linking Alberta directly into the Cushing and Gulf pricing world.
+</li>
+<li>
+Netback is destination price minus tariff and other transport costs, so route economics matter even before refinery demand does.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>
+Pipeline corridors are not interchangeable. Each route carries a different combination of throughput, tariff burden, and market access, which is why transportation physics becomes price geography.
+</figcaption>
+</figure>
 <p>The <strong>Enbridge Mainline</strong> is the largest crude pipeline system in North America, consisting of multiple parallel lines (Lines 1–13) that move approximately 3 million bbl/day eastward to Superior, Wisconsin, where they connect to Flanagan South, Seaway, and the southern extension toward Gulf Coast refineries, as well as to Sarnia, Ontario, serving eastern Canadian refineries.</p>
 <p><strong>Trans Mountain</strong> (TMX, post-2024 expansion) is the only pipeline system with direct tidewater access on Canada’s Pacific coast. Its western terminus at the Burnaby Marine Terminal enables tanker loading for Asian markets, principally Japan, South Korea, and China. This geographic reach is economically significant because Pacific Basin refineries — particularly in Asia — are configured to process heavy sour crude, the category that includes Alberta’s diluted bitumen. The quality discount these buyers apply is typically smaller than the WCS-WTI discount in U.S. markets.</p>
 <p><strong>Keystone</strong> (TC Energy) provides 590,000 bbl/day of capacity to Cushing, Oklahoma — the delivery point for WTI futures contracts and the hub connecting to Gulf Coast refineries along the Cushing-to-Port Arthur corridor. The cancelled Keystone XL extension would have added 830,000 bbl/day of direct Hardisty-to-Gulf capacity.</p>
@@ -686,24 +771,24 @@ print(f"Netback at Hardisty  : ${netback:.2f}/bbl")
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

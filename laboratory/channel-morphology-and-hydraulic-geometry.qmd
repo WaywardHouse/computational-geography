@@ -200,6 +200,7 @@ Channels plotting above this line in slope-discharge space tend to be braided; t
 **Setting:** Two reaches of the Red Deer River, Alberta — an upstream mountain reach and a downstream plains reach. We want to predict channel dimensions and meander wavelength at each.
 
 **Given:**
+
 - Upstream: $Q_{bf} = 80$ m³ s⁻¹, $D_{50} = 45$ mm (gravel)
 - Downstream: $Q_{bf} = 350$ m³ s⁻¹, $D_{50} = 0.35$ mm (sand)
 

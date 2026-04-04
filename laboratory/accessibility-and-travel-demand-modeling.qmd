@@ -227,6 +227,7 @@ Braess's Paradox has been empirically documented in Seoul (after dismantling an 
 **Setting:** Estimate 2SFCA healthcare accessibility for two Edmonton zones — a dense inner-city neighbourhood (Zone I) and a suburban area (Zone S).
 
 **Given:**
+
 - Catchment threshold: $T^* = 30$ min by transit
 - Clinic A (downtown, 8 physicians) accessible from Zone I (1200 people, 20 min) and Zone S (500 people, 28 min); also from Zone X (800 people, 15 min)
 - Clinic B (suburban, 3 physicians) accessible from Zone S (500 people, 10 min) and Zone Y (300 people, 20 min) only

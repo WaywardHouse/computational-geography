@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -163,7 +166,7 @@ The key pattern is simple: more light helps a lot at low levels, but eventually 
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>How much carbon does a forest fix per day?</p>
 <p>Photosynthesis is the process where plants use light energy to convert CO₂ and water into sugars and oxygen:</p>
-<p><span class="math inline">&amp;#36;6\text{CO}_2 + 6\text{H}_2\text{O} + \text{light} \to \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2</span>$</p>
+<p><span class="math display">6\text{CO}_2 + 6\text{H}_2\text{O} + \text{light} \to \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2</span></p>
 <p>The rate depends on: - <strong>Light intensity</strong> (more light → more photosynthesis, up to a point) - <strong>CO₂ concentration</strong> (more CO₂ → more carbon fixed) - <strong>Temperature</strong> (warmer → faster enzymes, but too hot damages proteins) - <strong>Water availability</strong> (drought closes stomata, limiting CO₂ uptake)</p>
 <p>The mathematical question: How do we model the relationship between light intensity and photosynthesis rate?</p>
 <hr>
@@ -204,6 +207,45 @@ C4 plants: ~1500–2000 μmol/m²/s</p>
 Asymptotic rate at very high light (limited by enzyme capacity, not light).<br>
 C3 crops: ~20–30 μmol/m²/s<br>
 C4 crops: ~40–60 μmol/m²/s</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Response Curve
+</div>
+<h3 class="cg-ill__title anchored">
+Photosynthesis Rises Fast, Then Bends Toward Saturation
+</h3>
+<p class="cg-ill__lede">
+The light-response curve is easier to remember when it is broken into regions: a light-limited start, a bending transition, and a high-light plateau where more photons no longer help much.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 300" role="img" aria-label="Photosynthesis light-response curve with compensation point, linear region, and saturation">
+<rect x="0" y="0" width="560" height="300" rx="22" fill="#eef4ef"></rect> <rect x="58" y="40" width="452" height="206" rx="14" fill="#ffffff" stroke="#91a49a" stroke-width="3"></rect> <line x1="90" y1="214" x2="480" y2="214" stroke="#7d8ea0" stroke-width="2"></line> <line x1="90" y1="72" x2="90" y2="214" stroke="#7d8ea0" stroke-width="2"></line> <path d="M90 224 L90 214" stroke="#7d8ea0" stroke-width="2"></path> <path d="M190 224 L190 214" stroke="#7d8ea0" stroke-width="2"></path> <path d="M300 224 L300 214" stroke="#7d8ea0" stroke-width="2"></path> <path d="M410 224 L410 214" stroke="#7d8ea0" stroke-width="2"></path> <path d="M90 196 C142 150, 190 122, 246 106 C298 92, 352 88, 430 86" fill="none" stroke="#3c8d5b" stroke-width="6"></path> <line x1="118" y1="214" x2="118" y2="178" stroke="#a63d40" stroke-width="4" stroke-dasharray="8 6"></line> <text x="98" y="170" font-size="15" fill="#8c2f31">compensation point</text> <line x1="90" y1="196" x2="164" y2="144" stroke="#224f9c" stroke-width="4" stroke-dasharray="8 6"></line> <text x="166" y="140" font-size="15" fill="#224f9c">initial slope = quantum efficiency</text> <line x1="390" y1="86" x2="462" y2="86" stroke="#6d5ea8" stroke-width="4" stroke-dasharray="8 6"></line> <text x="318" y="70" font-size="15" fill="#5d4781">approaches Amax</text> <rect x="96" y="88" width="72" height="118" fill="#d7ebff" fill-opacity="0.45"></rect> <rect x="170" y="88" width="128" height="118" fill="#f7ecd0" fill-opacity="0.45"></rect> <rect x="300" y="88" width="172" height="118" fill="#e3f1dc" fill-opacity="0.5"></rect> <text x="102" y="102" font-size="14" fill="#35515f">light-limited</text> <text x="198" y="102" font-size="14" fill="#35515f">transition</text> <text x="350" y="102" font-size="14" fill="#35515f">saturation</text> <text x="96" y="246" font-size="15" fill="#35515f">low light</text> <text x="266" y="246" font-size="15" fill="#35515f">photon flux density</text> <text x="28" y="118" font-size="15" fill="#35515f" transform="rotate(-90 28 118)">photosynthesis rate</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+What each part of the curve means
+</h4>
+<ul>
+<li>
+At low light, extra photons produce nearly proportional extra photosynthesis.
+</li>
+<li>
+The compensation point is where photosynthesis exactly balances respiration.
+</li>
+<li>
+The bend in the curve marks a shift from light limitation toward biochemical limitation.
+</li>
+<li>
+At high light, the system saturates because enzymes and downstream processes become the bottleneck.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="rectangular-hyperbola" class="anchored">Rectangular Hyperbola</h3>
@@ -228,7 +270,7 @@ C4 crops: ~40–60 μmol/m²/s</p>
 <p><span class="math display">\frac{\phi I_c A_{\text{max}}}{\phi I_c + A_{\text{max}}} = R_d</span></p>
 <p>Solve for <span class="math inline">I_c</span>:</p>
 <p><span class="math display">I_c = \frac{R_d A_{\text{max}}}{\phi(A_{\text{max}} - R_d)}</span></p>
-<p><strong>Typical value:</strong> <span class="math inline">I_c \approx 20</span>–$50$ μmol/m²/s (dim indoor light).</p>
+<p><strong>Typical value:</strong> <span class="math inline">I_c \approx 20{-}50</span> μmol/m²/s (dim indoor light).</p>
 <h3 id="from-leaf-to-canopy" class="anchored">From Leaf to Canopy</h3>
 <p><strong>Leaf-level photosynthesis</strong> is measured in growth chambers under controlled light.</p>
 <p><strong>Canopy photosynthesis</strong> integrates over: - All leaves (sunlit and shaded) - Vertical light gradient (Beer’s law from Model 5) - Leaf area index (total leaf area per ground area)</p>
@@ -257,7 +299,12 @@ C4 crops: ~40–60 μmol/m²/s</p>
 <p><span class="math display">A_{\text{net}} = 23.1 - 2 = 21.1 \text{ μmol/m}^2\text{/s}</span></p>
 <p><strong>Light compensation point:</strong></p>
 <p><span class="math display">I_c = \frac{R_d A_{\text{max}}}{\phi(A_{\text{max}} - R_d)} = \frac{2 \times 30}{0.05 \times (30 - 2)} = \frac{60}{0.05 \times 28} = \frac{60}{1.4} = 42.9 \text{ μmol/m}^2\text{/s}</span></p>
-<p><strong>Interpretation:</strong> - At low light (100), photosynthesis is ~4× respiration → modest net gain - At moderate light (500), approaching half of maximum - At high light (2000), near saturation (~77% of max)</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>At low light (100), photosynthesis is ~4× respiration → modest net gain</li>
+<li>At moderate light (500), approaching half of maximum</li>
+<li>At high light (2000), near saturation (~77% of max)</li>
+</ul>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive photosynthesis simulator.</p>
@@ -266,10 +313,10 @@ C4 crops: ~40–60 μmol/m²/s</p>
 <label>
 Plant type:
 <select id="plant-type">
-  <option value="c3-crop" selected="">C3 Crop</option>
-  <option value="c4-crop">C4 Crop</option>
-  <option value="tree">Temperate Tree</option>
-  <option value="shade">Shade Plant</option>
+<option value="c3-crop" selected="">C3 Crop</option>
+<option value="c4-crop">C4 Crop</option>
+<option value="tree">Temperate Tree</option>
+<option value="shade">Shade Plant</option>
 </select>
 </label>
 <label>
@@ -383,85 +430,85 @@ const Anet_current = photosynthesisNet(currentLight, phi, Amax, Rd);
     
 const option = {
 title: {
-  text: 'Photosynthesis Light Response Curve',
-  left: 'center'
+text: 'Photosynthesis Light Response Curve',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  axisPointer: { type: 'cross' }
+trigger: 'axis',
+axisPointer: { type: 'cross' }
 },
 legend: {
-  data: ['Gross Photosynthesis', 'Net Photosynthesis'],
-  top: 30
+data: ['Gross Photosynthesis', 'Net Photosynthesis'],
+top: 30
 },
 grid: {
-  left: 80,
-  right: 40,
-  top: 80,
-  bottom: 60
+left: 80,
+right: 40,
+top: 80,
+bottom: 60
 },
 xAxis: {
-  type: 'value',
-  name: 'Light Intensity (μmol photons/m²/s)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: 0,
-  max: 2000
+type: 'value',
+name: 'Light Intensity (μmol photons/m²/s)',
+nameLocation: 'middle',
+nameGap: 30,
+min: 0,
+max: 2000
 },
 yAxis: {
-  type: 'value',
-  name: 'Photosynthesis (μmol CO₂/m²/s)',
-  nameLocation: 'middle',
-  nameGap: 50
+type: 'value',
+name: 'Photosynthesis (μmol CO₂/m²/s)',
+nameLocation: 'middle',
+nameGap: 50
 },
 series: [
-  {
-    name: 'Gross Photosynthesis',
-    type: 'line',
-    data: lightValues.map((I, i) => [I, grossValues[i]]),
-    lineStyle: { color: '#2ECC71', width: 2 },
-    showSymbol: false
-  },
-  {
-    name: 'Net Photosynthesis',
-    type: 'line',
-    data: lightValues.map((I, i) => [I, netValues[i]]),
-    lineStyle: { color: '#3498DB', width: 2 },
-    showSymbol: false,
-    markLine: {
-      silent: true,
-      symbol: 'none',
-      data: [
-        { yAxis: 0, lineStyle: { type: 'dashed', color: '#95A5A6' }, label: { formatter: 'Zero' } },
-        { yAxis: Amax - Rd, lineStyle: { type: 'dashed', color: '#E74C3C' }, label: { formatter: 'Max Net' } }
-      ]
-    },
-    markPoint: {
-      data: [
-        {
-          coord: [Ic, 0],
-          symbol: 'circle',
-          symbolSize: 8,
-          itemStyle: { color: '#F39C12' },
-          label: { show: true, formatter: 'Ic', position: 'top' }
-        },
-        {
-          coord: [Isat, 0.9 * (Amax - Rd)],
-          symbol: 'circle',
-          symbolSize: 8,
-          itemStyle: { color: '#9B59B6' },
-          label: { show: true, formatter: 'Isat', position: 'top' }
-        },
-        {
-          coord: [currentLight, Anet_current],
-          symbol: 'pin',
-          symbolSize: 50,
-          itemStyle: { color: '#E74C3C' },
-          label: { show: true, formatter: 'Current', position: 'top' }
-        }
-      ]
-    }
-  }
+{
+name: 'Gross Photosynthesis',
+type: 'line',
+data: lightValues.map((I, i) => [I, grossValues[i]]),
+lineStyle: { color: '#2ECC71', width: 2 },
+showSymbol: false
+},
+{
+name: 'Net Photosynthesis',
+type: 'line',
+data: lightValues.map((I, i) => [I, netValues[i]]),
+lineStyle: { color: '#3498DB', width: 2 },
+showSymbol: false,
+markLine: {
+silent: true,
+symbol: 'none',
+data: [
+{ yAxis: 0, lineStyle: { type: 'dashed', color: '#95A5A6' }, label: { formatter: 'Zero' } },
+{ yAxis: Amax - Rd, lineStyle: { type: 'dashed', color: '#E74C3C' }, label: { formatter: 'Max Net' } }
+]
+},
+markPoint: {
+data: [
+{
+coord: [Ic, 0],
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: { color: '#F39C12' },
+label: { show: true, formatter: 'Ic', position: 'top' }
+},
+{
+coord: [Isat, 0.9 * (Amax - Rd)],
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: { color: '#9B59B6' },
+label: { show: true, formatter: 'Isat', position: 'top' }
+},
+{
+coord: [currentLight, Anet_current],
+symbol: 'pin',
+symbolSize: 50,
+itemStyle: { color: '#E74C3C' },
+label: { show: true, formatter: 'Current', position: 'top' }
+}
+]
+}
+}
 ]
 };
     
@@ -514,7 +561,15 @@ updateCalculation();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Switch to C4 crop:</strong> Higher <span class="math inline">A_{\text{max}}</span> and light saturation → more productive - <strong>Switch to shade plant:</strong> Lower <span class="math inline">A_{\text{max}}</span> but higher <span class="math inline">\phi</span> → efficient at low light - <strong>Increase respiration:</strong> Light compensation point rises → need more light to break even - <strong>Move current light slider:</strong> Watch how net photosynthesis changes - <strong>Low light (&lt; 100):</strong> Linear increase (quantum-limited) - <strong>High light (&gt; 1000):</strong> Saturates (enzyme-limited)</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Switch to C4 crop:</strong> Higher <span class="math inline">A_{\text{max}}</span> and light saturation → more productive</li>
+<li><strong>Switch to shade plant:</strong> Lower <span class="math inline">A_{\text{max}}</span> but higher <span class="math inline">\phi</span> → efficient at low light</li>
+<li><strong>Increase respiration:</strong> Light compensation point rises → need more light to break even</li>
+<li><strong>Move current light slider:</strong> Watch how net photosynthesis changes</li>
+<li><strong>Low light (&lt; 100):</strong> Linear increase (quantum-limited)</li>
+<li><strong>High light (&gt; 1000):</strong> Saturates (enzyme-limited)</li>
+</ul>
 <p><strong>Key insight:</strong> The rectangular hyperbola captures the transition from light-limited to enzyme-limited photosynthesis.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -529,7 +584,14 @@ window.addEventListener('resize', () => chart.resize());
 <h3 id="gross-primary-productivity-gpp" class="anchored">Gross Primary Productivity (GPP)</h3>
 <p><strong>Daily GPP</strong> at canopy scale:</p>
 <p><span class="math display">\text{GPP} = \int_{\text{day}} \sum_{\text{leaves}} A_{\text{net}}(I, T, ...) \, dt</span></p>
-<p><strong>Typical values:</strong> - Tropical rainforest: 6–8 g C/m²/day - Temperate forest: 3–5 g C/m²/day - Cropland: 4–10 g C/m²/day (depends on irrigation, fertilizer) - Grassland: 2–4 g C/m²/day - Desert: &lt; 1 g C/m²/day</p>
+<p><strong>Typical values:</strong></p>
+<ul>
+<li>Tropical rainforest: 6–8 g C/m²/day</li>
+<li>Temperate forest: 3–5 g C/m²/day</li>
+<li>Cropland: 4–10 g C/m²/day (depends on irrigation, fertilizer)</li>
+<li>Grassland: 2–4 g C/m²/day</li>
+<li>Desert: &lt; 1 g C/m²/day</li>
+</ul>
 <p><strong>Annual global GPP:</strong> ~120 Pg C/year (120 billion tons of carbon fixed by photosynthesis annually).</p>
 <hr>
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
@@ -561,7 +623,11 @@ window.addEventListener('resize', () => chart.resize());
 <h2 id="math-refresher-the-rectangular-hyperbola" class="anchored">9. Math Refresher: The Rectangular Hyperbola</h2>
 <h3 id="form" class="anchored">Form</h3>
 <p><span class="math display">y = \frac{ax}{b + x}</span></p>
-<p><strong>Asymptotes:</strong> - As <span class="math inline">x \to 0</span>: <span class="math inline">y \to 0</span> (passes through origin) - As <span class="math inline">x \to \infty</span>: <span class="math inline">y \to a</span> (horizontal asymptote)</p>
+<p><strong>Asymptotes:</strong></p>
+<ul>
+<li>As <span class="math inline">x \to 0</span>: <span class="math inline">y \to 0</span> (passes through origin)</li>
+<li>As <span class="math inline">x \to \infty</span>: <span class="math inline">y \to a</span> (horizontal asymptote)</li>
+</ul>
 <p><strong>Initial slope:</strong></p>
 <p><span class="math display">\frac{dy}{dx}\bigg|_{x=0} = \frac{a}{b}</span></p>
 <h3 id="connection-to-enzyme-kinetics" class="anchored">Connection to Enzyme Kinetics</h3>
@@ -599,24 +665,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

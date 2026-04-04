@@ -74,12 +74,14 @@ The mathematical question: How do we model this? What does the solution look lik
 ### The Difference Between Linear and Exponential
 
 **Linear growth:**
+
 - Add a constant amount each period
 - $y = mx + b$
 - Graph is a straight line
 - Doubling time gets **longer** as you grow (because you're adding the same amount to a larger base)
 
 **Exponential growth:**
+
 - Multiply by a constant factor each period
 - $y = y_0 e^{rt}$ (we'll derive this)
 - Graph is a curve that gets steeper
@@ -241,6 +243,7 @@ If $y = e^x$, then $x = \ln y$.
 The logarithm **undoes** the exponential. It answers the question: "What power do I raise $e$ to in order to get $y$?"
 
 **Examples:**
+
 - $e^2 \approx 7.39$, so $\ln(7.39) = 2$
 - $e^0 = 1$, so $\ln(1) = 0$
 - $e^{-1} \approx 0.368$, so $\ln(0.368) = -1$
@@ -505,6 +508,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - Set $r = 0.1$ (10% growth). Watch the curve steepen.
 - Set $r = -0.1$ (decay). The curve drops toward zero but never quite reaches it.
 - Reduce Δt to 0.1. The numerical solution gets closer to the analytical curve.
@@ -551,6 +555,7 @@ The rule of 70 works because $\ln 2 \approx 0.693 \approx 70/100$.
 Because **the rate depends on the size**, exponential growth is self-reinforcing. A 5% increase when you're at 100 is small. A 5% increase when you're at 10,000 is enormous.
 
 **This is why:**
+
 - Pandemics spread rapidly before intervention
 - Compound interest outpaces simple interest
 - Invasive species are hard to eradicate once established

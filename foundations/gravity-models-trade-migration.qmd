@@ -163,6 +163,7 @@ Assume populations enter symmetrically ($\alpha = \beta = 1$) and distance decay
 $$I_{ij} = k \frac{P_i P_j}{d_{ij}^2}$$
 
 **Interpretation:**
+
 - **Numerator:** Larger populations → more interaction (more potential traders, migrants, commuters)
 - **Denominator:** Greater distance → less interaction (higher travel cost, time, uncertainty)
 
@@ -421,6 +422,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - Set $\gamma = 0.5$ (weak distance decay): Large distant cities dominate
 - Set $\gamma = 3.0$ (strong distance decay): Only nearby cities matter
 - Change origin city: See how interaction patterns shift
@@ -435,6 +437,7 @@ window.addEventListener('resize', () => chart.resize());
 ### Why Distance Decay Exists
 
 **Costs increase with distance:**
+
 - **Time:** Longer travel takes more hours (lost productivity, fatigue)
 - **Money:** Fuel, tickets, shipping fees scale with distance
 - **Uncertainty:** Information about distant places is less reliable
@@ -445,6 +448,7 @@ window.addEventListener('resize', () => chart.resize());
 ### Cultural and Technological Shifts
 
 **Historical change:**
+
 - **1800s:** $\gamma \approx 3{-}4$ (horse-drawn transport, poor roads)
 - **1950s:** $\gamma \approx 2$ (cars, highways, telephones)
 - **2020s:** $\gamma \approx 1{-}1.5$ (air travel, internet, remote work)
@@ -481,6 +485,7 @@ The model assumes $I_{ij} = I_{ji}$ (symmetric flows). In reality:
 **Euclidean distance** (straight-line) is simple but unrealistic.
 
 **Alternatives:**
+
 - **Road network distance** (actual travel routes)
 - **Travel time** (accounts for speed limits, congestion)
 - **Economic distance** (cost of transport)

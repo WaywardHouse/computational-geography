@@ -188,6 +188,7 @@ $$Az = \operatorname{atan2}(\rho_e, \rho_n)$$
 (Note: `atan2(y, x)` gives the angle from the positive x-axis; here we use `atan2(east, north)` to measure clockwise from north)
 
 **Converting to compass degrees:**
+
 - 0° = North
 - 90° = East
 - 180° = South
@@ -649,6 +650,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Animate Time:** Watch the satellite rise and set
 - **Find Next Pass:** Jump to the next time the satellite is above 10° elevation
 - Move the observer's location: Different latitudes see different passes
@@ -1033,6 +1035,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Change latitude:** Higher latitudes see more polar orbit passes (inclination 98°)
 - **Adjust swath width:** Set to 185 km (Landsat), 290 km (Sentinel-2), or 500 km (MODIS)
 - **Time window:** 24 hours shows daily coverage pattern; 48 hours reveals repeat geometry
@@ -1058,6 +1061,7 @@ The polar overpass diagram is a **local sky map** from the observer's viewpoint:
 **Swath coverage:** The dashed lines flanking each pass show the sensor's **ground coverage footprint**. Points on the ground within this swath are imaged during the pass.
 
 **Applications:**
+
 - **Mission planning:** Which passes provide coverage of a target area?
 - **Stereo imaging:** Passes from different azimuths enable 3D reconstruction
 - **Illumination analysis:** Morning passes (eastern azimuths) vs. evening passes (western azimuths) have different sun angles
@@ -1078,6 +1082,7 @@ The **sensor swath** is the width of the strip of Earth's surface imaged in a si
 - 16-day revisit cycle for exact repeat
 
 **Swath geometry depends on:**
+
 1. **Sensor field of view** (FOV): Angular width of detector array
 2. **Pointing capability:** Can the sensor look sideways (off-nadir)?
 3. **Altitude:** Higher satellites see wider swaths but with coarser resolution
@@ -1115,11 +1120,13 @@ The **highest point** in the sky the satellite reaches depends on:
 ### Visibility Duration
 
 **For LEO satellites:**
+
 - Typical pass duration: 5–10 minutes
 - Maximum elevation depends on orbital geometry
 - Number of visible passes per day: varies with inclination
 
 **For geostationary satellites:**
+
 - Continuously visible from the same location (if above horizon)
 - Elevation angle is constant
 - Only visible from latitudes within ~±81° of equator
@@ -1171,6 +1178,7 @@ Always use `atan2(east, north)` for compass azimuth, not `atan2(north, east)`.
 **Access time:** Total time per day a satellite is visible above a minimum elevation (e.g., 10°).
 
 **For a polar orbit at 800 km:**
+
 - Each pass: ~10 minutes above 10° elevation
 - Passes per day: ~14
 - Total access time: ~140 minutes/day (if all passes are visible)
@@ -1178,6 +1186,7 @@ Always use `atan2(east, north)` for compass azimuth, not `atan2(north, east)`.
 **Revisit frequency:** How often a satellite can image the same ground location.
 
 **Factors:**
+
 - Orbital period
 - Swath width (sensor coverage width)
 - Off-nadir pointing capability (can the satellite look sideways?)

@@ -196,6 +196,7 @@ Locations where EHI is most negative (most strongly erosional) after accounting 
 **Setting:** A 12 km stretch of open coastline on the British Columbia coast, facing southwest. We want to estimate annual longshore transport volume, the effect of a proposed harbour breakwater, and the nourishment volume required to compensate downdrift losses.
 
 **Given:**
+
 - Dominant wave climate: $H_b = 1.8$ m, $T = 10$ s, $\alpha_b = 15°$ from shore-normal
 - Closure depth $D_c = 8$ m
 - Native beach sand $D_{50} = 0.35$ mm (fine–medium sand)

@@ -115,6 +115,7 @@ Wait — the box model per unit street length: emission $Q$ [μg m⁻¹ s⁻¹] 
 $$C_{\text{canyon}} = \frac{Q}{u_c \cdot H} \quad [\mu\text{g m}^{-3}]$$
 
 **Key scaling relationships:**
+
 - $C \propto Q$ (doubling traffic → doubling concentration)
 - $C \propto 1/u_c \propto (H/W)^{0.5}$ (deeper canyons → higher concentration)
 - $C \propto 1/H$ (taller buildings → greater dilution volume)
@@ -211,6 +212,7 @@ At night, $J_{\text{NO}_2} = 0$ and all NO is eventually converted to NO₂, whi
 **Setting:** A downtown Calgary street canyon. $H = 35$ m, $W = 18$ m ($H/W = 1.94$, deep skimming flow). Morning peak hour traffic.
 
 **Given:**
+
 - Traffic: 1400 veh hr⁻¹; fleet mix 55% petrol car, 35% diesel car, 10% diesel bus
 - Speed: 25 km hr⁻¹
 - Wind at roof level: $U_H = 4$ m s⁻¹, $z_0 = 1$ m

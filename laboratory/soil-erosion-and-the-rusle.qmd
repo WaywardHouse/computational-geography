@@ -207,6 +207,7 @@ This is a rough approximation — SDR varies considerably with channel connectiv
 **Setting:** A cultivated field on the Alberta plains. We want to estimate current annual soil loss and the reduction achievable by switching to no-till with contour farming.
 
 **Given:**
+
 - R = 120 MJ mm ha⁻¹ h⁻¹ yr⁻¹ (central Alberta)
 - K = 0.038 t ha h ha⁻¹ MJ⁻¹ mm⁻¹ (silty loam)
 - Slope length λ = 120 m, slope angle θ = 4° (so $s = 7\%$, $m = 0.4$)

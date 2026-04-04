@@ -65,6 +65,7 @@ Where on Earth is a satellite at any given time?
 A satellite orbits in a fixed plane through space. But Earth rotates beneath it, so the **ground track** — the point directly below the satellite — traces a path across the surface.
 
 **Key observations:**
+
 - The satellite's orbital plane is fixed (relative to the stars)
 - Earth rotates eastward at 15.04°/hour
 - Each successive orbit crosses the equator farther **west** than the previous one
@@ -78,10 +79,12 @@ The mathematical question: Given a satellite's orbital parameters and the curren
 ### Orbital Plane vs. Rotating Earth
 
 **In an inertial (non-rotating) frame:**
+
 - The satellite orbits in a fixed plane
 - The orbital plane is defined by its **inclination** $i$ (angle relative to the equator)
 
 **In Earth's rotating frame:**
+
 - The satellite appears to trace a sinusoidal path across the surface
 - The maximum latitude reached is ±$i$ (the inclination)
 - The ground track shifts westward by $\Delta\lambda$ degrees per orbit
@@ -454,6 +457,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **ISS preset:** 51.6° inclination means it reaches ±51.6° latitude (no polar coverage)
 - **Polar preset:** 90° inclination gives global coverage, passes over both poles
 - **SSO preset:** 98° inclination (retrograde) — ground track repeats after ~14 orbits
@@ -581,6 +585,7 @@ $$\begin{pmatrix} x' \\ y' \\ z' \end{pmatrix} = \begin{pmatrix}
 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix}$$
 
 **Ground track calculations combine multiple rotations:**
+
 1. Position in orbital plane
 2. Rotate by inclination (tilt the plane)
 3. Rotate by longitude of ascending node (orient in space)

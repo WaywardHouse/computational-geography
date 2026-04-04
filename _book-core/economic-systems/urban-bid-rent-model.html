@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-core-idea" id="toc-the-core-idea">1. The Core Idea</a></li>
   <li><a href="#the-von-thünen-foundation" id="toc-the-von-thünen-foundation">2. The Von Thünen Foundation</a></li>
   <li><a href="#alonsos-urban-extension" id="toc-alonsos-urban-extension">3. Alonso’s Urban Extension</a></li>
@@ -126,6 +130,8 @@ window.Quarto = {
 </nav>
 <p>Stand at the corner of Bay Street and King Street in Toronto’s financial core and you are at one of the most expensive parcels of land in Canada. Walk thirty minutes north and the rent per square metre has fallen by more than half. Walk an hour further and you are in low-density residential suburbs where land is cheaper still. Continue into the exurban fringe and you reach farmland. The entire gradient — from glass towers to cornfields — follows from a single economic principle: each land user bids for each location based on what that location is worth to them, and the highest bidder wins.</p>
 <p>The bid-rent model formalises this intuition. It was first developed by Johann Heinrich von Thünen in 1826 to explain the concentric ring structure of agricultural land use around a central market town. William Alonso adapted it in 1964 to the modern city, and Richard Muth and Edwin Mills extended it to include housing consumption choices. Together they produced the canonical monocentric city model, which remains the workhorse of urban economics more than half a century later.</p>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p>This chapter is about willingness to pay for access. The key object is the bid-rent function <span class="math inline">R(d)</span>, which means the maximum rent a land user is willing to pay at distance <span class="math inline">d</span> from the centre. We will keep returning to one simple question: how quickly does that willingness to pay fall as distance increases? Once that slope is clear, the rest of the urban pattern becomes much easier to read.</p>
 <hr>
 <h2 id="the-core-idea" class="anchored">1. The Core Idea</h2>
 <p>Every potential land user — an office firm, a retailer, a household — values central locations more than peripheral ones. The reason is transport cost. Being close to the city centre (or to customers, or to other firms) reduces the cost of moving goods, workers, and information. A firm willing to pay more for centrality can outbid rivals and occupy the central location. Firms less sensitive to transport costs — those that do not depend on face-to-face contact or frequent delivery — are pushed outward by the bidding process.</p>
@@ -165,79 +171,120 @@ window.Quarto = {
 <hr>
 <h2 id="canadian-evidence-toronto-vancouver-calgary" class="anchored">5. Canadian Evidence: Toronto, Vancouver, Calgary</h2>
 <p>The bid-rent gradient is clearly visible in Canadian metropolitan areas, though each city has its own character.</p>
-<p><strong>Toronto</strong> has the steepest gradient of any Canadian city. Commercial rents in the Bay-King financial district exceed <span class="math inline">\&amp;#36;1{,}000</span> per square metre annually; class-A office rents in Scarborough or Mississauga are below <span class="math inline">\&amp;#36;300</span>. The gradient steepened after the 2000s as downtown employment concentrated in financial services and technology, increasing the value of central proximity.</p>
+<p><strong>Toronto</strong> has the steepest gradient of any Canadian city. Commercial rents in the Bay-King financial district exceed <span class="math inline">1{,}000</span> dollars per square metre annually; class-A office rents in Scarborough or Mississauga are below <span class="math inline">300</span> dollars per square metre. The gradient steepened after the 2000s as downtown employment concentrated in financial services and technology, increasing the value of central proximity.</p>
 <p><strong>Vancouver</strong> has a compressed spatial structure imposed by geography — mountains to the north, ocean to the west, the US border to the south. Land scarcity amplifies the bid-rent mechanism: even small differences in centrality are capitalised into large rent differences. Metro Vancouver’s rent gradient is steep and shows relatively little flattening at the fringe because the fringe is geographically constrained.</p>
 <p><strong>Calgary</strong> offers an instructive contrast. The CBD is smaller relative to the metropolitan area. The oil and gas sector’s preference for low-rise campuses and car-based commuting has produced a more dispersed employment pattern, flattening the residential rent gradient relative to eastern Canadian cities. Still, the downtown core premium is substantial: office rents in Calgary’s core run three to four times those in peripheral employment nodes like the Airport Business Park or Foothills.</p>
 <hr>
 <h2 id="visualisations" class="anchored">6. Visualisations</h2>
 <h3 id="bid-rent-curves-by-land-use" class="anchored">Bid-Rent Curves by Land Use</h3>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Bid-Rent Curves by Land Use Type&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Commercial&quot;, &quot;Residential&quot;, &quot;Agricultural&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Distance from CBD (km)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30, &quot;min&quot;: 0, &quot;max&quot;: 25},
-  &quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Annual Rent ($/m²)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;: 0, &quot;max&quot;: 1100},
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;Commercial&quot;,
-      &quot;type&quot;: &quot;line&quot;,
-      &quot;smooth&quot;: false,
-      &quot;data&quot;: [[0,1000],[2,780],[4,560],[6,340],[8,120],[10,0]],
-      &quot;lineStyle&quot;: {&quot;width&quot;: 3},
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;}
-    },
-    {
-      &quot;name&quot;: &quot;Residential&quot;,
-      &quot;type&quot;: &quot;line&quot;,
-      &quot;smooth&quot;: false,
-      &quot;data&quot;: [[0,600],[3,480],[6,360],[9,240],[12,120],[15,0]],
-      &quot;lineStyle&quot;: {&quot;width&quot;: 3},
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;}
-    },
-    {
-      &quot;name&quot;: &quot;Agricultural&quot;,
-      &quot;type&quot;: &quot;line&quot;,
-      &quot;smooth&quot;: false,
-      &quot;data&quot;: [[0,200],[5,160],[10,120],[15,80],[20,40],[25,0]],
-      &quot;lineStyle&quot;: {&quot;width&quot;: 3},
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#6dba6d&quot;}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Bid-Rent Curves by Land Use Type&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Commercial&quot;, &quot;Residential&quot;, &quot;Agricultural&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Distance from CBD (km)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30, &quot;min&quot;: 0, &quot;max&quot;: 25},
+&quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Annual Rent ($/m²)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;: 0, &quot;max&quot;: 1100},
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;Commercial&quot;,
+&quot;type&quot;: &quot;line&quot;,
+&quot;smooth&quot;: false,
+&quot;data&quot;: [[0,1000],[2,780],[4,560],[6,340],[8,120],[10,0]],
+&quot;lineStyle&quot;: {&quot;width&quot;: 3},
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;}
+},
+{
+&quot;name&quot;: &quot;Residential&quot;,
+&quot;type&quot;: &quot;line&quot;,
+&quot;smooth&quot;: false,
+&quot;data&quot;: [[0,600],[3,480],[6,360],[9,240],[12,120],[15,0]],
+&quot;lineStyle&quot;: {&quot;width&quot;: 3},
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;}
+},
+{
+&quot;name&quot;: &quot;Agricultural&quot;,
+&quot;type&quot;: &quot;line&quot;,
+&quot;smooth&quot;: false,
+&quot;data&quot;: [[0,200],[5,160],[10,120],[15,80],[20,40],[25,0]],
+&quot;lineStyle&quot;: {&quot;width&quot;: 3},
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#6dba6d&quot;}
+}
+]
+}"></div>
 <p>The chart shows the envelope logic: commercial use dominates from 0–8 km, residential from 8–15 km, and agricultural beyond 15 km. These crossover points are where land use transitions occur in a monocentric city.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Land-Use Envelope
+</div>
+<h3 class="cg-ill__title anchored">
+The Highest Bid At Each Distance Determines The Urban Ring Pattern
+</h3>
+<p class="cg-ill__lede">
+The bid-rent model clicks fastest when it is seen as a competition among land uses. Each group’s willingness to pay falls with distance, and the outer boundary of those curves produces the familiar city-to-farmland sequence.
+</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Commercial
+</div>
+<p>
+Starts highest and falls fastest because central access matters most.
+</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Residential
+</div>
+<p>
+Starts lower and falls more gradually because households trade access for space.
+</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Agricultural
+</div>
+<p>
+Starts lowest and falls least because urban centrality matters least.
+</p>
+</div>
+</div>
+<div class="cg-ill__route-note">
+<p><strong>Envelope rule:</strong> whichever use has the highest bid at a given distance occupies that land, which is why crossing points become land-use boundaries.</p>
+</div>
+</div>
+<figcaption>
+The urban land-use gradient is not arbitrary. It is the visible outcome of multiple bid-rent functions competing across distance from the centre.
+</figcaption>
+</figure>
 <h3 id="floor-space-rent-by-distance-band-canadian-city" class="anchored">Floor-Space Rent by Distance Band: Canadian City</h3>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Average Office Rent by Distance Band (Stylised Canadian CBD)&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;xAxis&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;data&quot;: [&quot;0–2 km&quot;, &quot;2–5 km&quot;, &quot;5–10 km&quot;, &quot;10–20 km&quot;],
-    &quot;name&quot;: &quot;Distance from CBD&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 30
-  },
-  &quot;yAxis&quot;: {
-    &quot;type&quot;: &quot;value&quot;,
-    &quot;name&quot;: &quot;Avg. Office Rent ($/m²/yr)&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 50,
-    &quot;min&quot;: 0,
-    &quot;max&quot;: 900
-  },
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;Office Rent&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;data&quot;: [850, 520, 310, 160],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;},
-      &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;top&quot;, &quot;formatter&quot;: &quot;${c}&quot;}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Average Office Rent by Distance Band (Stylised Canadian CBD)&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;xAxis&quot;: {
+&quot;type&quot;: &quot;category&quot;,
+&quot;data&quot;: [&quot;0–2 km&quot;, &quot;2–5 km&quot;, &quot;5–10 km&quot;, &quot;10–20 km&quot;],
+&quot;name&quot;: &quot;Distance from CBD&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 30
+},
+&quot;yAxis&quot;: {
+&quot;type&quot;: &quot;value&quot;,
+&quot;name&quot;: &quot;Avg. Office Rent ($/m²/yr)&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 50,
+&quot;min&quot;: 0,
+&quot;max&quot;: 900
+},
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;Office Rent&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [850, 520, 310, 160],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;},
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;top&quot;, &quot;formatter&quot;: &quot;${c}&quot;}
+}
+]
+}"></div>
 <p>The steep drop from the 0–2 km core to the 2–5 km ring captures the premium for highest-centrality locations. Beyond 5 km, rents still fall but more gradually — reflecting the flatter section of the residential bid-rent curve and the growing influence of suburban employment nodes.</p>
 <hr>
 <h2 id="the-density-gradient" class="anchored">7. The Density Gradient</h2>
@@ -271,24 +318,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

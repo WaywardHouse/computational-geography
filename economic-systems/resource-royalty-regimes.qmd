@@ -121,6 +121,35 @@ The contrast is stark enough to deserve its own analysis. Both Norway and Albert
 
 The divergence is almost entirely a policy difference. Norway reinvested; Alberta spent. Both had access to comparable oil wealth relative to their populations in the critical 1990–2010 period.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Fiscal Design</div>
+<h3 class="cg-ill__title">Royalty Regimes Differ In What They Tax And When They Collect</h3>
+<p class="cg-ill__lede">This chapter is clearer when the two fiscal logics are put side by side. Revenue royalties collect early and simply; rent-based systems try to wait for genuine surplus, then capture much more of it.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Gross Royalty</div>
+<p><strong>Base:</strong> revenue</p>
+<p><strong>Strength:</strong> simple, predictable, paid even before payout</p>
+<p><strong>Risk:</strong> can over-burden marginal or high-cost projects</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Rent Tax</div>
+<p><strong>Base:</strong> profit or economic rent</p>
+<p><strong>Strength:</strong> targets genuine surplus, lighter on marginal projects</p>
+<p><strong>Risk:</strong> depends on contested cost accounting and timing</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Alberta Hybrid</div>
+<p><strong>Base:</strong> low pre-payout, higher post-payout</p>
+<p><strong>Tradeoff:</strong> tries to balance early collection with rent capture</p>
+<p><strong>Weakness:</strong> payout timing creates incentives to defer the higher-rate phase</p>
+</div>
+</div>
+</div>
+<figcaption>Fiscal design is a choice about where to place the tax burden in the project life cycle. The key tradeoff is administrative simplicity versus precise capture of economic rent.</figcaption>
+</figure>
+
 ## Dutch Disease: When Resources Crowd Out the Economy
 
 The **Dutch disease** mechanism describes how a resource boom can harm a country's non-resource economy:

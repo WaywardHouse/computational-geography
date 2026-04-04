@@ -134,6 +134,7 @@ This is just the mean value of $\rho(\lambda)$ over the bandpass interval — th
 ## 4. Worked Example by Hand
 
 **Given:**
+
 - Vegetation fraction $f_v = 0.6$
 - At $\lambda = 670$ nm (red): $\rho_v = 0.05$, $\rho_s = 0.18$
 - At $\lambda = 800$ nm (NIR): $\rho_v = 0.45$, $\rho_s = 0.22$
@@ -442,6 +443,7 @@ ro.observe(el);
 ```
 
 **Things to try:**
+
 - Set the bandpass to 620–700 nm (Landsat Band 3, red). Note how vegetation reflectance is well below soil — strong contrast for vegetation detection.
 - Widen the band to 600–800 nm. The contrast shrinks as you average across the NIR rise.
 - Set the band to 750–900 nm (NIR). Vegetation reflectance now exceeds soil — the contrast reverses.

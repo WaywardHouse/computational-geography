@@ -293,6 +293,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - Set $m = 0$. What happens? (A horizontal line — no change with $x$)
 - Set $m = 1$ and $b = 0$. The line passes through the origin at 45°.
 - Set $m = -1$. The line tilts the other way.
@@ -399,6 +400,7 @@ If you're rusty on algebra, here's the pattern:
 **Given:** $y = mx + b$, and you know $y$, $m$, $b$ — solve for $x$.
 
 **Steps:**
+
 1. Subtract $b$ from both sides: $y - b = mx$
 2. Divide both sides by $m$: $x = \frac{y - b}{m}$
 

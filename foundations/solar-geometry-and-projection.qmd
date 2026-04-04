@@ -77,6 +77,7 @@ The **intensity** (energy per unit area) depends on the angle between the light 
 To describe surface orientation, we use the **normal vector** — a unit vector pointing **perpendicular** to the surface, away from it.
 
 **Examples:**
+
 - Horizontal surface: normal points straight up (0, 0, 1)
 - Vertical wall facing east: normal points east (1, 0, 0)
 - 30° south-facing slope: normal tilts south and up
@@ -106,6 +107,7 @@ $$S = S_0 \cos \theta$$
 Where $S_0$ is the incoming solar flux density (W/m² perpendicular to the sun's rays).
 
 **Special cases:**
+
 - $\theta = 0°$ (sun perpendicular to surface): $\cos 0° = 1$ → full intensity
 - $\theta = 45°$: $\cos 45° = 0.707$ → 70.7% of perpendicular intensity
 - $\theta = 90°$ (sun parallel to surface): $\cos 90° = 0$ → no energy received
@@ -398,6 +400,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - Default (30° south-facing slope, sun at 45° elevation due south): Near-optimal alignment, high flux
 - Change aspect to 0° (north-facing): Flux drops dramatically
 - Set slope to 0° (horizontal): See how flux varies only with sun angle, not aspect

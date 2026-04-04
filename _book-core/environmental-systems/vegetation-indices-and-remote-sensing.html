@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -173,30 +176,97 @@ The essential idea is that healthy vegetation reflects near-infrared strongly an
 <p><strong>Reflectance</strong> (<span class="math inline">\rho</span>) is the fraction of incident light reflected by a surface:</p>
 <p><span class="math display">\rho_{\lambda} = \frac{E_{\text{reflected}}(\lambda)}{E_{\text{incident}}(\lambda)}</span></p>
 <p>Where <span class="math inline">\lambda</span> is wavelength.</p>
-<p><strong>Typical vegetation reflectance:</strong> - <strong>Blue</strong> (450–500 nm): Low (~5%, absorbed by chlorophyll) - <strong>Green</strong> (500–580 nm): Moderate (~10%, why leaves look green) - <strong>Red</strong> (620–700 nm): Very low (~5%, strong chlorophyll absorption) - <strong>NIR</strong> (780–900 nm): High (~40–50%, internal leaf structure scattering) - <strong>SWIR</strong> (1550–1750 nm): Low (~10–20%, water absorption)</p>
+<p><strong>Typical vegetation reflectance:</strong></p>
+<ul>
+<li><strong>Blue</strong> (450–500 nm): Low (~5%, absorbed by chlorophyll)</li>
+<li><strong>Green</strong> (500–580 nm): Moderate (~10%, why leaves look green)</li>
+<li><strong>Red</strong> (620–700 nm): Very low (~5%, strong chlorophyll absorption)</li>
+<li><strong>NIR</strong> (780–900 nm): High (~40–50%, internal leaf structure scattering)</li>
+<li><strong>SWIR</strong> (1550–1750 nm): Low (~10–20%, water absorption)</li>
+</ul>
 <h3 id="why-nir-is-high-for-vegetation" class="anchored">Why NIR is High for Vegetation</h3>
 <p>Leaf internal structure: - <strong>Spongy mesophyll:</strong> Air-cell interfaces scatter light - <strong>Minimal absorption:</strong> No chlorophyll in NIR - Result: Multiple scattering → high reflectance</p>
 <p><strong>Senescent leaves</strong> (dying, autumn colors): - Chlorophyll breaks down - Red reflectance increases (~20–30%) - NIR decreases (~30–40%) - Red-NIR contrast weakens → lower vegetation index</p>
 <h3 id="soil-background" class="anchored">Soil Background</h3>
 <p><strong>Bare soil</strong> has: - Similar red and NIR (~15–25% both) - Low red-NIR contrast - Low vegetation index (as expected)</p>
 <p><strong>Partial cover:</strong> Mixture of vegetation and soil → intermediate index.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Spectral Contrast
+</div>
+<h3 class="cg-ill__title anchored">
+Vegetation Indices Work Because Red And NIR Behave Very Differently
+</h3>
+<p class="cg-ill__lede">
+Healthy vegetation is dark in red light because chlorophyll absorbs it, but bright in near-infrared because leaf structure scatters it. Bare soil does not show that same split.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 300" role="img" aria-label="Vegetation and soil reflectance comparison across red and near-infrared wavelengths">
+<rect x="0" y="0" width="560" height="300" rx="22" fill="#eef4ef"></rect> <rect x="60" y="42" width="440" height="190" rx="14" fill="#ffffff" stroke="#91a49a" stroke-width="3"></rect> <line x1="92" y1="202" x2="470" y2="202" stroke="#7d8ea0" stroke-width="2"></line> <line x1="92" y1="66" x2="92" y2="202" stroke="#7d8ea0" stroke-width="2"></line> <text x="110" y="228" font-size="15" fill="#35515f">blue</text> <text x="184" y="228" font-size="15" fill="#35515f">green</text> <text x="264" y="228" font-size="15" fill="#35515f">red</text> <text x="362" y="228" font-size="15" fill="#35515f">NIR</text> <text x="62" y="58" font-size="14" fill="#35515f">reflectance</text> <path d="M104 174 C136 170, 176 150, 214 152 C246 154, 266 190, 292 194 C320 196, 354 108, 414 92 C438 86, 456 88, 476 94" fill="none" stroke="#3c8d5b" stroke-width="5"></path> <path d="M104 160 C136 156, 176 150, 214 148 C250 146, 286 144, 326 138 C362 134, 410 128, 476 118" fill="none" stroke="#9b7d5a" stroke-width="5" stroke-dasharray="9 7"></path> <rect x="244" y="42" width="58" height="160" fill="#f7d6d6" fill-opacity="0.45"></rect> <rect x="338" y="42" width="92" height="160" fill="#d7ebff" fill-opacity="0.5"></rect> <text x="244" y="34" font-size="14" fill="#8c2f31" font-weight="700">red absorption</text> <text x="342" y="34" font-size="14" fill="#224f9c" font-weight="700">NIR scattering</text> <text x="406" y="84" font-size="15" fill="#2d6b45" font-weight="700">healthy vegetation</text> <text x="360" y="132" font-size="15" fill="#7a6044" font-weight="700">bare soil</text> <text x="86" y="266" font-size="16" fill="#35515f">NDVI gets large when NIR is high and red is low.</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+What the index is really measuring
+</h4>
+<ul>
+<li>
+Healthy leaves absorb red light strongly because of chlorophyll.
+</li>
+<li>
+Those same leaves reflect near-infrared strongly because of internal structure.
+</li>
+<li>
+Bare soil usually has much less separation between red and NIR reflectance.
+</li>
+<li>
+That is why the normalized difference is a useful vegetation detector rather than just an arbitrary formula.
+</li>
+</ul>
+<p>
+<strong>Memory aid:</strong> plants are dark in red, bright in NIR.
+</p>
+</div>
+</div>
+</div>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="normalized-difference-vegetation-index-ndvi" class="anchored">Normalized Difference Vegetation Index (NDVI)</h3>
 <p>The most widely used vegetation index:</p>
 <p><span class="math display">\text{NDVI} = \frac{\rho_{\text{NIR}} - \rho_{\text{red}}}{\rho_{\text{NIR}} + \rho_{\text{red}}}</span></p>
-<p><strong>Properties:</strong> - Range: −1 to +1 - <strong>Dense vegetation:</strong> NDVI ≈ 0.7–0.9 (high NIR, low red) - <strong>Sparse vegetation:</strong> NDVI ≈ 0.2–0.5 - <strong>Bare soil:</strong> NDVI ≈ 0.05–0.2 - <strong>Water:</strong> NDVI ≈ −0.1 to 0 (NIR absorbed by water) - <strong>Clouds/snow:</strong> NDVI ≈ 0 to 0.3 (both red and NIR high and similar)</p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Range: −1 to +1</li>
+<li><strong>Dense vegetation:</strong> NDVI ≈ 0.7–0.9 (high NIR, low red)</li>
+<li><strong>Sparse vegetation:</strong> NDVI ≈ 0.2–0.5</li>
+<li><strong>Bare soil:</strong> NDVI ≈ 0.05–0.2</li>
+<li><strong>Water:</strong> NDVI ≈ −0.1 to 0 (NIR absorbed by water)</li>
+<li><strong>Clouds/snow:</strong> NDVI ≈ 0 to 0.3 (both red and NIR high and similar)</li>
+</ul>
 <p><strong>Why normalize?</strong> - Reduces effects of illumination angle - Reduces atmospheric scattering - Makes values comparable across scenes</p>
 <h3 id="enhanced-vegetation-index-evi" class="anchored">Enhanced Vegetation Index (EVI)</h3>
 <p><strong>EVI</strong> reduces sensitivity to soil and atmosphere:</p>
 <p><span class="math display">\text{EVI} = G \frac{\rho_{\text{NIR}} - \rho_{\text{red}}}{\rho_{\text{NIR}} + C_1 \rho_{\text{red}} - C_2 \rho_{\text{blue}} + L}</span></p>
 <p>Where: - <span class="math inline">G = 2.5</span> (gain factor) - <span class="math inline">C_1 = 6</span>, <span class="math inline">C_2 = 7.5</span> (coefficients for atmospheric correction) - <span class="math inline">L = 1</span> (soil adjustment factor)</p>
-<p><strong>Advantages over NDVI:</strong> - Less saturated at high LAI - Better atmospheric correction - Improved sensitivity in dense canopies</p>
+<p><strong>Advantages over NDVI:</strong></p>
+<ul>
+<li>Less saturated at high LAI</li>
+<li>Better atmospheric correction</li>
+<li>Improved sensitivity in dense canopies</li>
+</ul>
 <p><strong>MODIS EVI</strong> uses these exact coefficients.</p>
 <h3 id="simple-ratio-sr" class="anchored">Simple Ratio (SR)</h3>
 <p>The <strong>simple ratio</strong> predates NDVI:</p>
 <p><span class="math display">\text{SR} = \frac{\rho_{\text{NIR}}}{\rho_{\text{red}}}</span></p>
-<p><strong>Properties:</strong> - Range: 0 to ~30 - Dense vegetation: SR ≈ 8–15 - Bare soil: SR ≈ 1–2</p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Range: 0 to ~30</li>
+<li>Dense vegetation: SR ≈ 8–15</li>
+<li>Bare soil: SR ≈ 1–2</li>
+</ul>
 <p><strong>Relationship to NDVI:</strong></p>
 <p><span class="math display">\text{NDVI} = \frac{\text{SR} - 1}{\text{SR} + 1}</span></p>
 <p>SR has larger dynamic range but is more sensitive to noise.</p>
@@ -245,12 +315,12 @@ The essential idea is that healthy vegetation reflects near-infrared strongly an
 <label>
 Land cover type:
 <select id="landcover-type">
-  <option value="dense-veg">Dense Vegetation</option>
-  <option value="moderate-veg" selected="">Moderate Vegetation</option>
-  <option value="sparse-veg">Sparse Vegetation</option>
-  <option value="bare-soil">Bare Soil</option>
-  <option value="water">Water</option>
-  <option value="snow">Snow</option>
+<option value="dense-veg">Dense Vegetation</option>
+<option value="moderate-veg" selected="">Moderate Vegetation</option>
+<option value="sparse-veg">Sparse Vegetation</option>
+<option value="bare-soil">Bare Soil</option>
+<option value="water">Water</option>
+<option value="snow">Snow</option>
 </select>
 </label>
 <label>
@@ -345,100 +415,100 @@ wavelengths.push(wl);
 // Linear interpolation between bands
 let refl = 0;
 for (let i = 0; i < bands.length - 1; i++) {
-  if (wl >= bands[i].wl && wl <= bands[i+1].wl) {
-    const t = (wl - bands[i].wl) / (bands[i+1].wl - bands[i].wl);
-    refl = bands[i].refl + t * (bands[i+1].refl - bands[i].refl);
-    break;
-  }
+if (wl >= bands[i].wl && wl <= bands[i+1].wl) {
+const t = (wl - bands[i].wl) / (bands[i+1].wl - bands[i].wl);
+refl = bands[i].refl + t * (bands[i+1].refl - bands[i].refl);
+break;
+}
 }
 reflectances.push(refl);
 }
     
 const option = {
 title: {
-  text: 'Spectral Reflectance Curve',
-  left: 'center'
+text: 'Spectral Reflectance Curve',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  formatter: (params) => {
-    return `Wavelength: ${params[0].value[0]} nm<br/>Reflectance: ${(params[0].value[1] * 100).toFixed(1)}%`;
-  }
+trigger: 'axis',
+formatter: (params) => {
+return `Wavelength: ${params[0].value[0]} nm<br/>Reflectance: ${(params[0].value[1] * 100).toFixed(1)}%`;
+}
 },
 grid: {
-  left: 80,
-  right: 40,
-  top: 60,
-  bottom: 100
+left: 80,
+right: 40,
+top: 60,
+bottom: 100
 },
 xAxis: {
-  type: 'value',
-  name: 'Wavelength (nm)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: 400,
-  max: 1700
+type: 'value',
+name: 'Wavelength (nm)',
+nameLocation: 'middle',
+nameGap: 30,
+min: 400,
+max: 1700
 },
 yAxis: {
-  type: 'value',
-  name: 'Reflectance',
-  nameLocation: 'middle',
-  nameGap: 50,
-  min: 0,
-  max: 1,
-  axisLabel: {
-    formatter: (val) => (val * 100).toFixed(0) + '%'
-  }
+type: 'value',
+name: 'Reflectance',
+nameLocation: 'middle',
+nameGap: 50,
+min: 0,
+max: 1,
+axisLabel: {
+formatter: (val) => (val * 100).toFixed(0) + '%'
+}
 },
 series: [
-  {
-    type: 'line',
-    data: wavelengths.map((wl, i) => [wl, reflectances[i]]),
-    lineStyle: { color: '#2ECC71', width: 3 },
-    showSymbol: false,
-    areaStyle: {
-      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-        { offset: 0, color: 'rgba(46, 204, 113, 0.3)' },
-        { offset: 1, color: 'rgba(46, 204, 113, 0)' }
-      ])
-    },
-    markArea: {
-      silent: true,
-      data: [
-        [
-          { name: 'Blue', xAxis: 450 },
-          { xAxis: 500 }
-        ],
-        [
-          { name: 'Red', xAxis: 620 },
-          { xAxis: 700 }
-        ],
-        [
-          { name: 'NIR', xAxis: 780 },
-          { xAxis: 900 }
-        ]
-      ],
-      itemStyle: {
-        color: 'rgba(52, 152, 219, 0.1)'
-      },
-      label: {
-        position: 'top'
-      }
-    },
-    markPoint: {
-      data: [
-        { coord: [450, blue], symbol: 'circle', symbolSize: 10, 
-          itemStyle: { color: '#3498DB' }, 
-          label: { show: true, formatter: 'Blue', position: 'top' } },
-        { coord: [670, red], symbol: 'circle', symbolSize: 10, 
-          itemStyle: { color: '#E74C3C' }, 
-          label: { show: true, formatter: 'Red', position: 'bottom' } },
-        { coord: [850, nir], symbol: 'circle', symbolSize: 10, 
-          itemStyle: { color: '#8B4513' }, 
-          label: { show: true, formatter: 'NIR', position: 'top' } }
-      ]
-    }
-  }
+{
+type: 'line',
+data: wavelengths.map((wl, i) => [wl, reflectances[i]]),
+lineStyle: { color: '#2ECC71', width: 3 },
+showSymbol: false,
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(46, 204, 113, 0.3)' },
+{ offset: 1, color: 'rgba(46, 204, 113, 0)' }
+])
+},
+markArea: {
+silent: true,
+data: [
+[
+{ name: 'Blue', xAxis: 450 },
+{ xAxis: 500 }
+],
+[
+{ name: 'Red', xAxis: 620 },
+{ xAxis: 700 }
+],
+[
+{ name: 'NIR', xAxis: 780 },
+{ xAxis: 900 }
+]
+],
+itemStyle: {
+color: 'rgba(52, 152, 219, 0.1)'
+},
+label: {
+position: 'top'
+}
+},
+markPoint: {
+data: [
+{ coord: [450, blue], symbol: 'circle', symbolSize: 10, 
+itemStyle: { color: '#3498DB' }, 
+label: { show: true, formatter: 'Blue', position: 'top' } },
+{ coord: [670, red], symbol: 'circle', symbolSize: 10, 
+itemStyle: { color: '#E74C3C' }, 
+label: { show: true, formatter: 'Red', position: 'bottom' } },
+{ coord: [850, nir], symbol: 'circle', symbolSize: 10, 
+itemStyle: { color: '#8B4513' }, 
+label: { show: true, formatter: 'NIR', position: 'top' } }
+]
+}
+}
 ]
 };
     
@@ -484,7 +554,14 @@ calculateIndices();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Dense vegetation:</strong> High NIR peak (~850 nm), low red trough → high NDVI - <strong>Bare soil:</strong> Similar red and NIR → low NDVI (~0.1–0.2) - <strong>Water:</strong> Very low NIR absorption → negative NDVI - <strong>Snow:</strong> High reflectance across all bands → NDVI near zero - Notice: The “red edge” (sharp increase 700–750 nm) is characteristic of vegetation</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Dense vegetation:</strong> High NIR peak (~850 nm), low red trough → high NDVI</li>
+<li><strong>Bare soil:</strong> Similar red and NIR → low NDVI (~0.1–0.2)</li>
+<li><strong>Water:</strong> Very low NIR absorption → negative NDVI</li>
+<li><strong>Snow:</strong> High reflectance across all bands → NDVI near zero</li>
+<li>Notice: The “red edge” (sharp increase 700–750 nm) is characteristic of vegetation</li>
+</ul>
 <p><strong>Key insight:</strong> The red-NIR contrast uniquely identifies photosynthetically active vegetation.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -502,7 +579,12 @@ window.addEventListener('resize', () => chart.resize());
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
 <h3 id="atmospheric-contamination" class="anchored">Atmospheric Contamination</h3>
 <p><strong>Aerosols and water vapor</strong> scatter blue/red more than NIR: - Increases apparent NIR - Decreases apparent red - Inflates NDVI</p>
-<p><strong>Mitigation:</strong> - Atmospheric correction (6S model, dark object subtraction) - EVI includes blue band for correction - Use imagery from clear days</p>
+<p><strong>Mitigation:</strong></p>
+<ul>
+<li>Atmospheric correction (6S model, dark object subtraction)</li>
+<li>EVI includes blue band for correction</li>
+<li>Use imagery from clear days</li>
+</ul>
 <h3 id="soil-background-1" class="anchored">Soil Background</h3>
 <p>In <strong>sparse vegetation</strong>, soil dominates signal: - Bright soil → high reflectance in all bands - Dark soil → low reflectance</p>
 <p><strong>Soil-Adjusted Vegetation Index (SAVI):</strong></p>
@@ -520,7 +602,11 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Normalized Difference Water Index (NDWI):</strong></p>
 <p><span class="math display">\text{NDWI} = \frac{\rho_{\text{NIR}} - \rho_{\text{SWIR}}}{\rho_{\text{NIR}} + \rho_{\text{SWIR}}}</span></p>
 <p>Sensitive to water content in vegetation (drought stress).</p>
-<p><strong>Chlorophyll Indices:</strong> - Use red edge (705–750 nm) for chlorophyll content - More sensitive to plant health than NDVI</p>
+<p><strong>Chlorophyll Indices:</strong></p>
+<ul>
+<li>Use red edge (705–750 nm) for chlorophyll content</li>
+<li>More sensitive to plant health than NDVI</li>
+</ul>
 <p><strong>Photochemical Reflectance Index (PRI):</strong></p>
 <p><span class="math display">\text{PRI} = \frac{\rho_{531} - \rho_{570}}{\rho_{531} + \rho_{570}}</span></p>
 <p>Tracks xanthophyll cycle → photosynthetic light use efficiency.</p>
@@ -531,7 +617,12 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Solution:</strong> Normalize by forming ratios.</p>
 <p><strong>Example:</strong> Instead of <span class="math inline">\rho_{\text{NIR}} - \rho_{\text{red}}</span>, use:</p>
 <p><span class="math display">\text{NDVI} = \frac{\rho_{\text{NIR}} - \rho_{\text{red}}}{\rho_{\text{NIR}} + \rho_{\text{red}}}</span></p>
-<p><strong>Effect:</strong> - Range: Always −1 to +1 - Insensitive to uniform brightness changes - Comparable across scenes</p>
+<p><strong>Effect:</strong></p>
+<ul>
+<li>Range: Always −1 to +1</li>
+<li>Insensitive to uniform brightness changes</li>
+<li>Comparable across scenes</li>
+</ul>
 <h3 id="index-properties" class="anchored">Index Properties</h3>
 <p><strong>Symmetric indices:</strong><br>
 <span class="math inline">f(a, b) = -f(b, a)</span></p>
@@ -566,24 +657,24 @@ Increases with target variable (e.g., NDVI increases with LAI)</p>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

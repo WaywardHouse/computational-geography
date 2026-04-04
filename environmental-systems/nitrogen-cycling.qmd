@@ -213,6 +213,7 @@ Where:
 $$M = \frac{1.0 \times 0.4}{50} = 0.008 \text{ kg N/m}^2\text{/year}$$
 
 **Net mineralization vs. immobilization:**
+
 - High C:N litter (> 25): Net immobilization (microbes consume more N than they release)
 - Low C:N litter (< 25): Net mineralization (excess N released)
 
@@ -227,6 +228,7 @@ Where:
 - $f(T)$, $f(W)$ are temperature and moisture factors (as in Model 26)
 
 **Inhibited by:**
+
 - Low pH (< 5.5)
 - Anaerobic conditions
 - Low temperature
@@ -244,10 +246,12 @@ Where:
 - $K_m$ = half-saturation constant (mg N/L)
 
 **Shape:**
+
 - Low [N]: Uptake proportional to [N] (linear)
 - High [N]: Uptake saturates at $U_{\max}$ (enzyme-limited)
 
 **Typical values:**
+
 - $U_{\max} \approx$ 0.02–0.05 kg N/m²/year (crops)
 - $K_m \approx$ 1–10 mg N/L
 
@@ -577,6 +581,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Add fertilizer:** Mineral N increases → uptake increases → NPP increases
 - **Natural forest:** Low decomposition → low mineralization → N-limited
 - **Fertilized crop:** High mineral N → near-maximum uptake → high NPP
@@ -599,6 +604,7 @@ window.addEventListener('resize', () => chart.resize());
 3. **Lightning:** Converts N₂ to NO₃⁻ (minor)
 
 **N losses:**
+
 - **Leaching:** NO₃⁻ washes to groundwater
 - **Denitrification:** Anaerobic bacteria convert NO₃⁻ → N₂, N₂O
 - **Volatilization:** NH₃ gas loss
@@ -613,6 +619,7 @@ window.addEventListener('resize', () => chart.resize());
 - **Dead zones:** Gulf of Mexico, Baltic Sea
 
 **Nitrous oxide (N₂O):**
+
 - Greenhouse gas (300× more potent than CO₂)
 - Produced by nitrification and denitrification
 - Agricultural soils are major source
@@ -624,11 +631,13 @@ window.addEventListener('resize', () => chart.resize());
 **Terrestrial plants:** C:N ≈ 20–50 (higher than aquatic)
 
 **Herbivore constraint:**
+
 - Plant C:N = 40
 - Herbivore C:N = 6
 - Must excrete excess C or retain N
 
 **Decomposer constraint:**
+
 - Microbe C:N = 8
 - High C:N litter → immobilize soil N
 - Low C:N litter → release N
@@ -678,6 +687,7 @@ Real plant C:N varies with:
 **Chronic N deposition** (from air pollution) can lead to **N saturation**:
 
 **Symptoms:**
+
 - Nitrate leaching increases
 - Soil acidification (nitrification produces H⁺)
 - Aluminum toxicity
@@ -706,6 +716,7 @@ Where:
 - $K_m = (k_{-1} + k_2)/k_1$ (half-saturation)
 
 **Same form for nutrient uptake:**
+
 - $S$ → nutrient concentration
 - $E$ → uptake transporters in roots
 

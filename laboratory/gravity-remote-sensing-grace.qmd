@@ -166,6 +166,7 @@ For ice sheet studies, GIA is the dominant systematic error — Greenland and An
 **Setting:** We want to estimate the order-of-magnitude gravitational perturbation from the loss of 1 km³ of water from an aquifer, and compare it to the GRACE detection threshold.
 
 **Given:**
+
 - Aquifer area: $A = 50{,}000$ km² = $5 \times 10^{10}$ m² (roughly the size of the Central Valley)
 - Volume loss: $\Delta V_w = 1$ km³ = $10^9$ m³
 - Water density: $\rho_w = 1000$ kg m⁻³

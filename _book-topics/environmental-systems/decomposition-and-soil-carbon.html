@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -149,6 +153,15 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That dead plant material enters soils gradually and that decomposition is not equally fast in all environments.</p>
+<p><strong>You will learn</strong><br>
+How litter, active soil organic matter, and slow soil carbon pools exchange material, and how temperature and moisture alter the pace of decomposition.</p>
+<p><strong>Why this matters</strong><br>
+Soil carbon storage is one of the largest moving pieces in the climate system, and it depends on rates rather than on inputs alone.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The simple idea that inputs build pools up while first-order decay drains them down.</p>
 <p>The peat bogs of the Hudson Bay Lowlands have been accumulating organic carbon for roughly 8,000 years since the last glaciation. The reason is simple and astonishing: decomposition in waterlogged, cold, anaerobic conditions is so slow that plant material accumulates faster than it decays. In some bogs, a buried leaf 1,000 years old is still recognisable. The same organic matter in a warm, well-drained agricultural soil in southern Ontario would decompose completely within a few decades. The carbon content of a soil is not determined by how much plant material falls into it; it is determined by the balance between inputs and the rate of decomposition — and that rate varies by four orders of magnitude across Earth’s environments.</p>
 <p>Soils hold roughly 1,500 billion tonnes of organic carbon — more than twice the amount in the atmosphere and three times the amount in all living vegetation. Small changes in decomposition rates, driven by warming temperatures or altered moisture, can therefore have large consequences for atmospheric CO₂. Modelling decomposition requires tracking carbon through multiple pools with different turnover times: fresh litter that breaks down in months, slower humus that persists for decades, and a passive fraction that can persist for centuries under the right conditions. This model builds that multi-pool structure, derives the temperature and moisture dependencies of decay rates, and calculates steady-state soil carbon storage for different climate regimes.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -207,10 +220,59 @@ W/W_{\text{opt}} &amp; \text{if } W &lt; W_{\text{opt}} \\
 <p><span class="math display">\text{NEP} = \text{NPP} - R_h</span></p>
 <p><strong>Positive NEP:</strong> Ecosystem is a carbon sink<br>
 <strong>Negative NEP:</strong> Ecosystem is a carbon source</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Soil Carbon Turnover
+</div>
+<h3 class="cg-ill__title anchored">
+Dead Carbon Moves Through Pools With Very Different Speeds
+</h3>
+<p class="cg-ill__lede">
+The critical idea is not just that litter decays. It is that some carbon is respired quickly, some moves into medium-lived soil organic matter, and a small fraction reaches very slow pools that dominate long-term storage.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 320" role="img" aria-label="Diagram showing soil carbon moving from litter to active soil organic matter to slow soil carbon, with respiration losses from each pool.">
+</svg><p><rect x="0" y="0" width="560" height="320" rx="22" fill="#f3f7ef"> <rect x="38" y="124" width="128" height="64" rx="16" fill="#bbf7d0" stroke="#16a34a" stroke-width="3"> <text x="77" y="152" font-size="18" fill="#166534" font-weight="700">litter</text> <text x="61" y="172" font-size="14" fill="#166534">fast pool</text></rect></rect></p>
+<p><rect x="214" y="112" width="138" height="76" rx="16" fill="#fde68a" stroke="#d97706" stroke-width="3"> <text x="234" y="144" font-size="18" fill="#92400e" font-weight="700">active SOM</text> <text x="234" y="166" font-size="14" fill="#92400e">medium turnover</text></rect></p>
+<p><rect x="398" y="100" width="126" height="88" rx="16" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="3"> <text x="422" y="136" font-size="18" fill="#6d28d9" font-weight="700">slow SOM</text> <text x="422" y="158" font-size="14" fill="#6d28d9">century-scale storage</text></rect></p>
+<p><line x1="166" y1="156" x2="214" y2="150" stroke="#64748b" stroke-width="4" marker-end="url(#soilc-arrow)"> <line x1="352" y1="146" x2="398" y2="144" stroke="#64748b" stroke-width="4" marker-end="url(#soilc-arrow)"> <text x="172" y="140" font-size="14" fill="#475569">fraction transferred</text> <text x="344" y="130" font-size="14" fill="#475569">smaller fraction transferred</text></line></line></p>
+<p><line x1="102" y1="124" x2="102" y2="70" stroke="#ef4444" stroke-width="5" marker-end="url(#soilc-red)"> <line x1="284" y1="112" x2="284" y2="58" stroke="#ef4444" stroke-width="5" marker-end="url(#soilc-red)"> <line x1="460" y1="100" x2="460" y2="46" stroke="#ef4444" stroke-width="5" marker-end="url(#soilc-red)"> <text x="70" y="52" font-size="14" fill="#991b1b">CO₂</text> <text x="252" y="40" font-size="14" fill="#991b1b">CO₂</text> <text x="428" y="28" font-size="14" fill="#991b1b">CO₂</text></line></line></line></p>
+<p><line x1="38" y1="156" x2="14" y2="156" stroke="#16a34a" stroke-width="4" marker-end="url(#soilc-green)"> <text x="10" y="142" font-size="14" fill="#166534">litter input</text></line></p>
+<p><rect x="88" y="232" width="380" height="50" rx="14" fill="#eef2ff" stroke="#c7d2fe"> <text x="114" y="260" font-size="16" fill="#334155">temperature and moisture speed up or slow down every decay pathway</text></rect></p>
+<defs> <marker id="soilc-arrow" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"> <path d="M0,0 L8,4 L0,8 z" fill="#64748b"> </path></marker> <marker id="soilc-red" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"> <path d="M0,0 L8,4 L0,8 z" fill="#ef4444"> </path></marker> <marker id="soilc-green" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"> <path d="M0,0 L8,4 L0,8 z" fill="#16a34a"> </path></marker> </defs>
+
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+Why old soil can hold so much carbon
+</h4>
+<p>
+<strong>Fast pools cycle quickly.</strong> Litter can be large seasonally, but it does not stay around for long in warm, active soils.
+</p>
+<p>
+<strong>Slow pools dominate storage.</strong> Even a small transfer into a very low-decay pool can accumulate into a large long-term stock.
+</p>
+<p>
+<strong>Climate shifts the rates.</strong> Warming or drying can change the balance between transfer and respiration enough to turn soils into stronger sources or sinks.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Decomposition is a cascade through pools. What matters for long-term storage is not only how much carbon enters soil, but how much reaches slowly turning pools before being respired back to the atmosphere.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="three-pool-decomposition-model" class="anchored">Three-Pool Decomposition Model</h3>
-<p><strong>State variables:</strong> - <span class="math inline">C_L</span> = litter carbon (kg C/m²) - <span class="math inline">C_A</span> = active SOM carbon (kg C/m²) - <span class="math inline">C_S</span> = slow SOM carbon (kg C/m²)</p>
+<p><strong>State variables:</strong></p>
+<ul>
+<li><span class="math inline">C_L</span> = litter carbon (kg C/m²)</li>
+<li><span class="math inline">C_A</span> = active SOM carbon (kg C/m²)</li>
+<li><span class="math inline">C_S</span> = slow SOM carbon (kg C/m²)</li>
+</ul>
 <p><strong>Litter dynamics:</strong></p>
 <p><span class="math display">\frac{dC_L}{dt} = I_L - k_L C_L</span></p>
 <p>Where <span class="math inline">I_L</span> is litterfall from vegetation (from Model 22: turnover of leaves/roots).</p>
@@ -248,7 +310,13 @@ W/W_{\text{opt}} &amp; \text{if } W &lt; W_{\text{opt}} \\
 </tr>
 </tbody>
 </table>
-<p><strong>Variation by climate:</strong> - Tropical: High <span class="math inline">k</span> (warm, wet) - Temperate: Moderate <span class="math inline">k</span> - Boreal: Low <span class="math inline">k</span> (cold) - Arid: Very low <span class="math inline">k</span> (dry, limited decomposers)</p>
+<p><strong>Variation by climate:</strong></p>
+<ul>
+<li>Tropical: High <span class="math inline">k</span> (warm, wet)</li>
+<li>Temperate: Moderate <span class="math inline">k</span></li>
+<li>Boreal: Low <span class="math inline">k</span> (cold)</li>
+<li>Arid: Very low <span class="math inline">k</span> (dry, limited decomposers)</li>
+</ul>
 <h3 id="steady-state" class="anchored">Steady State</h3>
 <p>At equilibrium:</p>
 <p><span class="math display">C_L^* = \frac{I_L}{k_L}</span></p>
@@ -279,7 +347,12 @@ W/W_{\text{opt}} &amp; \text{if } W &lt; W_{\text{opt}} \\
 <p><span class="math display">= \frac{0.048}{0.005} = 9.6 \text{ kg C/m}^2</span></p>
 <p><strong>Total soil carbon:</strong></p>
 <p><span class="math display">C_{\text{soil}}^* = 0.4 + 1.6 + 9.6 = 11.6 \text{ kg C/m}^2</span></p>
-<p><strong>Interpretation:</strong> - Slow SOM holds <strong>83%</strong> of total soil carbon (9.6 / 11.6) - This matches observations: most soil carbon is old, stable material - Total = 11.6 kg C/m² = 116 tonnes C/ha (typical for temperate forest soil)</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>Slow SOM holds <strong>83%</strong> of total soil carbon (9.6 / 11.6)</li>
+<li>This matches observations: most soil carbon is old, stable material</li>
+<li>Total = 11.6 kg C/m² = 116 tonnes C/ha (typical for temperate forest soil)</li>
+</ul>
 <p><strong>Heterotrophic respiration:</strong></p>
 <p>At steady state, <span class="math inline">R_h = I_L = 0.4</span> kg C/m²/year (all inputs eventually respired).</p>
 <hr>
@@ -536,22 +609,50 @@ runDecompSim();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Tropical forest:</strong> High temperature → fast decomposition → low soil carbon accumulation - <strong>Boreal forest:</strong> Low temperature → slow decomposition → huge soil carbon stores (peat) - <strong>Desert:</strong> Dry conditions (low moisture) → very slow decomposition - <strong>Increase temperature:</strong> Speeds all decay rates → reduces equilibrium carbon - <strong>Increase litterfall:</strong> More inputs → higher steady-state carbon - Notice: Slow SOM takes centuries to equilibrate, dominates total carbon</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Tropical forest:</strong> High temperature → fast decomposition → low soil carbon accumulation</li>
+<li><strong>Boreal forest:</strong> Low temperature → slow decomposition → huge soil carbon stores (peat)</li>
+<li><strong>Desert:</strong> Dry conditions (low moisture) → very slow decomposition</li>
+<li><strong>Increase temperature:</strong> Speeds all decay rates → reduces equilibrium carbon</li>
+<li><strong>Increase litterfall:</strong> More inputs → higher steady-state carbon</li>
+<li>Notice: Slow SOM takes centuries to equilibrate, dominates total carbon</li>
+</ul>
 <p><strong>Key insight:</strong> Cold/wet environments accumulate soil carbon because decomposition is slower than production. This is why peatlands and permafrost soils are massive carbon stores.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
 <h3 id="global-soil-carbon-distribution" class="anchored">Global Soil Carbon Distribution</h3>
-<p><strong>Largest soil carbon stores:</strong> 1. <strong>Boreal forests &amp; tundra:</strong> Cold → slow decomposition 2. <strong>Peatlands:</strong> Waterlogged → anaerobic, very slow decay 3. <strong>Grasslands:</strong> Deep roots, moderate climate</p>
-<p><strong>Smallest stores:</strong> 1. <strong>Tropical forests:</strong> Fast turnover (hot, wet) 2. <strong>Deserts:</strong> Low productivity + dry conditions</p>
+<p><strong>Largest soil carbon stores:</strong></p>
+<ol type="1">
+<li><strong>Boreal forests &amp; tundra:</strong> Cold → slow decomposition</li>
+<li><strong>Peatlands:</strong> Waterlogged → anaerobic, very slow decay</li>
+<li><strong>Grasslands:</strong> Deep roots, moderate climate</li>
+</ol>
+<p><strong>Smallest stores:</strong></p>
+<ol type="1">
+<li><strong>Tropical forests:</strong> Fast turnover (hot, wet)</li>
+<li><strong>Deserts:</strong> Low productivity + dry conditions</li>
+</ol>
 <p><strong>Paradox:</strong> Tropical forests have low soil C despite high productivity (fast decomposition balances high input).</p>
 <h3 id="climate-change-feedbacks" class="anchored">Climate Change Feedbacks</h3>
 <p><strong>Warming accelerates decomposition:</strong></p>
 <p>If temperature increases 5°C and Q₁₀ = 2:</p>
 <p><span class="math display">k_{\text{new}} = k_{\text{old}} \times 2^{5/10} = k_{\text{old}} \times 1.41</span></p>
 <p><strong>41% faster decomposition</strong> → releases soil carbon → positive feedback.</p>
-<p><strong>Permafrost thaw:</strong> - Frozen organic matter begins decomposing - Releases CO₂ and CH₄ - Major climate concern (~1000 Pg C in permafrost)</p>
+<p><strong>Permafrost thaw:</strong></p>
+<ul>
+<li>Frozen organic matter begins decomposing</li>
+<li>Releases CO₂ and CH₄</li>
+<li>Major climate concern (~1000 Pg C in permafrost)</li>
+</ul>
 <h3 id="soil-carbon-sequestration" class="anchored">Soil Carbon Sequestration</h3>
-<p><strong>Practices to increase soil C:</strong> 1. <strong>No-till agriculture:</strong> Reduces disturbance → less decomposition 2. <strong>Cover crops:</strong> More inputs to soil 3. <strong>Biochar:</strong> Very slow decay (<span class="math inline">k \approx 0.0001</span> year⁻¹) 4. <strong>Organic amendments:</strong> Compost, manure</p>
+<p><strong>Practices to increase soil C:</strong></p>
+<ol type="1">
+<li><strong>No-till agriculture:</strong> Reduces disturbance → less decomposition</li>
+<li><strong>Cover crops:</strong> More inputs to soil</li>
+<li><strong>Biochar:</strong> Very slow decay (<span class="math inline">k \approx 0.0001</span> year⁻¹)</li>
+<li><strong>Organic amendments:</strong> Compost, manure</li>
+</ol>
 <p><strong>Saturation:</strong> Soil can only hold so much carbon (determined by clay content, climate).</p>
 <hr>
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
@@ -572,9 +673,25 @@ window.addEventListener('resize', () => chart.resize());
 <hr>
 <h2 id="extension-century-model" class="anchored">8. Extension: Century Model</h2>
 <p>The <strong>Century model</strong> (Parton et al., 1987) is the classic soil C model:</p>
-<p><strong>Five pools:</strong> 1. Structural litter (slow decay) 2. Metabolic litter (fast decay) 3. Active SOM (fast) 4. Slow SOM (medium) 5. Passive SOM (very slow)</p>
-<p><strong>Climate modifiers:</strong> - Temperature (Q₁₀) - Moisture (optimal curve) - Soil texture (clay slows decay)</p>
-<p><strong>Lignin effects:</strong> - High lignin → more to structural litter - Affects decay rates</p>
+<p><strong>Five pools:</strong></p>
+<ol type="1">
+<li>Structural litter (slow decay)</li>
+<li>Metabolic litter (fast decay)</li>
+<li>Active SOM (fast)</li>
+<li>Slow SOM (medium)</li>
+<li>Passive SOM (very slow)</li>
+</ol>
+<p><strong>Climate modifiers:</strong></p>
+<ul>
+<li>Temperature (Q₁₀)</li>
+<li>Moisture (optimal curve)</li>
+<li>Soil texture (clay slows decay)</li>
+</ul>
+<p><strong>Lignin effects:</strong></p>
+<ul>
+<li>High lignin → more to structural litter</li>
+<li>Affects decay rates</li>
+</ul>
 <p><strong>Widely used</strong> in ecosystem models (CASA, TEM, BIOME-BGC).</p>
 <hr>
 <h2 id="math-refresher-first-order-decay" class="anchored">9. Math Refresher: First-Order Decay</h2>
@@ -619,24 +736,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

@@ -79,6 +79,7 @@ Average recurrence interval between events of given magnitude.
 **Rather:** "1% chance each year"
 
 **Applications:**
+
 - Storm sewer design (10-25 year typical)
 - Culvert sizing (25-50 year)
 - Dam spillway capacity (100-10,000 year)
@@ -105,6 +106,7 @@ Long-duration storms are moderate (multi-day rain).
 For each year, extract maximum rainfall intensity for given duration.
 
 **Example - 1-hour duration:**
+
 - 2010: 45 mm/hr
 - 2011: 32 mm/hr
 - 2012: 67 mm/hr (extreme event)
@@ -246,6 +248,7 @@ Units: $I$ in inches/hr, $D$ in minutes
 ### Confidence Intervals
 
 **Uncertainty sources:**
+
 - Sampling variability (limited record length)
 - Distribution choice (GEV vs Gumbel vs Log-Pearson III)
 - Non-stationarity (climate change)
@@ -277,15 +280,18 @@ $$I = \frac{1200 T^{0.2}}{(D+10)^{0.8}}$$
 Units: $I$ (mm/hr), $D$ (min), $T$ (years)
 
 **Design criteria:**
+
 - Return period: 10 years (urban standard)
 - Time of concentration: 15 minutes (computed from watershed)
 
 **Calculate:**
+
 1. Design rainfall intensity
 2. Total rainfall depth
 3. Peak runoff (rational method)
 
 **Watershed properties:**
+
 - Area: 5 hectares
 - Imperviousness: 70% (urban commercial)
 - Runoff coefficient: $C = 0.75$
@@ -581,6 +587,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Log-log plot shows power-law relationships
 - Curves decrease monotonically with duration
 - Higher return periods shift curves upward
@@ -589,6 +596,7 @@ window.addEventListener('resize', () => chart.resize());
 - Regional differences significant (Southeast vs Southwest)
 
 **Key insights:**
+
 - 5-minute cloudbursts extremely intense (150+ mm/hr)
 - 24-hour events moderate (5-15 mm/hr)
 - Doubling return period increases intensity ~15-20%
@@ -647,23 +655,27 @@ Based on PMP (Probable Maximum Precipitation), not statistical
 **Climate influences IDF curves:**
 
 **Southeast USA:**
+
 - High $K$ values (intense convection)
 - Frequent thunderstorms
 - 100-year, 1-hour: 100-130 mm/hr
 
 **Southwest USA (arid):**
+
 - Lower $K$ (less moisture)
 - But extreme events still severe
 - Monsoon-driven
 - 100-year, 1-hour: 60-80 mm/hr
 
 **Pacific Northwest:**
+
 - Frontal precipitation dominates
 - Less intense, more persistent
 - 100-year, 1-hour: 40-60 mm/hr
 - 100-year, 24-hour: 150-200 mm (high!)
 
 **Great Plains:**
+
 - Severe convection
 - Hail-producing storms
 - Flash flood potential
@@ -678,6 +690,7 @@ $$\frac{dP}{dT} \approx 7\%/°C$$
 **Warmer atmosphere** → more moisture → more intense precipitation
 
 **Observed trends:**
+
 - Extreme events intensifying 5-10%
 - Return periods shifting (100-year → 50-year)
 - IDF curves becoming outdated
@@ -719,6 +732,7 @@ Estimated 100-year rainfall: 100 mm/hr
 95% CI: 60-140 mm/hr
 
 **Solution:**
+
 - Regional frequency analysis (pool data from similar stations)
 - Longer records when available (>50 years better)
 - Bayesian methods (incorporate prior information)
@@ -743,6 +757,7 @@ Previous TP-40 (1961): 100-year, 24-hour = 13 inches
 Existing infrastructure underdesigned.
 
 **Solution:**
+
 - Update IDF curves regularly (10-20 year cycle)
 - Climate-adjusted design (add 20-30% safety margin)
 - Green infrastructure (adaptable)
@@ -768,6 +783,7 @@ ARF ≈ 0.85
 **Design intensity reduced** 15% from point value.
 
 **Solution:**
+
 - Apply ARF for large watersheds (>25 km²)
 - Radar-based IDF (spatial coverage)
 

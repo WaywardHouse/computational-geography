@@ -85,6 +85,7 @@ Learn relationship: Soil moisture = f(features)
 Predict all 10 million cells.
 
 **Applications:**
+
 - Digital elevation models (DEM from spectral features)
 - Soil property mapping (carbon, pH, texture)
 - Biomass estimation (forest carbon stocks)
@@ -97,6 +98,7 @@ Predict all 10 million cells.
 Physical relationships exist between observables and targets.
 
 **Examples:**
+
 - Higher NDVI → More biomass (vegetation absorbs carbon)
 - Lower thermal radiance → Higher soil moisture (evaporative cooling)
 - Steeper terrain → Lower soil depth (erosion)
@@ -155,6 +157,7 @@ $$\frac{\partial L}{\partial \boldsymbol{\beta}} = -\frac{2}{n}\mathbf{X}^T(\mat
 $$\boldsymbol{\beta}^* = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$$
 
 **Issues with Normal Equation:**
+
 - Requires matrix inversion ($O(p^3)$ computation)
 - Fails if $\mathbf{X}^T\mathbf{X}$ singular (correlated features)
 - Memory intensive for large datasets
@@ -194,6 +197,7 @@ for epoch in 1 to max_epochs:
 ```
 
 **Advantages:**
+
 - Scalable to large datasets
 - No matrix inversion
 - Works with regularization
@@ -223,6 +227,7 @@ Encourages sparsity (some coefficients exactly zero).
 $$L_{elastic}(\boldsymbol{\beta}) = \frac{1}{n}\|\mathbf{y} - \mathbf{X}\boldsymbol{\beta}\|^2 + \lambda_1 \|\boldsymbol{\beta}\|^2 + \lambda_2 \sum_{j=1}^p |\beta_j|$$
 
 **Hyperparameter $\lambda$:**
+
 - $\lambda = 0$: No regularization (ordinary least squares)
 - $\lambda \to \infty$: All coefficients → 0
 - Optimal $\lambda$: Found via cross-validation
@@ -294,6 +299,7 @@ Adding $\lambda\mathbf{I}$ ensures invertibility even with correlated features.
 3. Average: $CV_{error} = \frac{1}{K}\sum_{k=1}^K E_k$
 
 **Use for:**
+
 - Hyperparameter tuning ($\lambda$ selection)
 - Model selection (compare algorithms)
 - Performance estimation (unbiased error estimate)
@@ -607,10 +613,12 @@ for i, imp in enumerate(importance):
 Predict soil properties (carbon, pH, texture) globally at 90m resolution.
 
 **Training data:**
+
 - ~50,000 soil profile observations worldwide
 - Soil databases (ISRIC, USDA)
 
 **Features:**
+
 - Landsat spectral bands
 - Elevation, slope, curvature
 - Climate (temperature, precipitation)
@@ -622,6 +630,7 @@ Predict soil properties (carbon, pH, texture) globally at 90m resolution.
 **Model:** Random forest regression (ensemble of decision trees)
 
 **Performance:**
+
 - RMSE: 10-15 g C/kg soil
 - R²: 0.40-0.60 (moderate, high natural variability)
 
@@ -660,6 +669,7 @@ $I \approx 0$: No autocorrelation
 $I < 0$: Negative autocorrelation (dispersed errors)
 
 **Solutions:**
+
 1. Add spatial features (coordinates, distance to...)
 2. Use spatial regression models (SAR, CAR)
 3. Ensemble predictions with kriging residuals
@@ -701,11 +711,13 @@ Features highly correlated (e.g., NDVI and NIR: $r = 0.95$).
 Coefficient estimates unstable, variance inflated.
 
 **Symptoms:**
+
 - Coefficients change dramatically with small data changes
 - Large standard errors
 - Counterintuitive coefficient signs
 
 **Solution:**
+
 - Ridge regression (L2 penalty stabilizes)
 - Remove correlated features (keep one from each pair)
 - PCA to decorrelate features (Model 73)
@@ -725,6 +737,7 @@ Test location: 1500m (outside range)
 Prediction: May be wildly inaccurate
 
 **Solution:**
+
 - Flag predictions outside training range
 - Use domain knowledge constraints
 - Non-linear models (polynomial, splines)
@@ -746,6 +759,7 @@ Soil moisture vs precipitation: Saturates at high rainfall.
 Linear fails (needs logistic or power transform).
 
 **Solution:**
+
 - Feature engineering (polynomial terms, interactions)
 - Non-linear models (decision trees, neural networks)
 - Transform target (log, sqrt)
@@ -768,6 +782,7 @@ Violates regression assumptions.
 Plot residuals vs predictions. Funnel shape = heteroscedasticity.
 
 **Solution:**
+
 - Transform target (log, Box-Cox)
 - Weighted least squares
 - Robust regression (Huber loss)

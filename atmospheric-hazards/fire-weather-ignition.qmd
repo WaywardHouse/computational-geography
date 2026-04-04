@@ -66,16 +66,19 @@ Meteorological conditions controlling fire ignition and spread.
 **Precipitation:** Recent rain → wet fuels, low risk
 
 **Fire triangle:**
+
 1. Fuel (vegetation)
 2. Oxygen (atmosphere)
 3. Heat (ignition source)
 
 **Weather affects all three:**
+
 - Fuel moisture content
 - Wind supplies oxygen
 - Temperature affects ignition threshold
 
 **Applications:**
+
 - Fire danger rating systems
 - Red flag warnings
 - Prescribed burn planning
@@ -83,6 +86,7 @@ Meteorological conditions controlling fire ignition and spread.
 - Evacuation decisions
 
 **Indices:**
+
 - Fire Weather Index (FWI, Canada)
 - Keetch-Byram Drought Index (KBDI, USA)
 - Haines Index (atmospheric instability)
@@ -119,6 +123,7 @@ Where:
 - $T$ = temperature (°C)
 
 **Ignition thresholds:**
+
 - Dead fuels: MC < 15% (flammable)
 - Dead fuels: MC < 8% (extreme fire danger)
 - Live fuels: MC < 80% (drought-stressed, flammable)
@@ -160,6 +165,7 @@ Where:
 **Typical:** Wind doubles spread rate every 10 km/h increase
 
 **Critical wind speeds:**
+
 - 25 km/h: Moderate spread
 - 40 km/h: Fast spread, difficulty controlling
 - 60+ km/h: Extreme spread, spotting, ember storms
@@ -183,6 +189,7 @@ Where:
 - $\tau$ = time lag (hours)
 
 **Time lags:**
+
 - 1-hour: $\tau = 1$ h (fine fuels)
 - 10-hour: $\tau = 10$ h
 - 100-hour: $\tau = 100$ h
@@ -229,6 +236,7 @@ $$FWI = 0.05 \times ISI \times \sqrt{BUI}$$
 Where $BUI$ = buildup index (from DMC, DC).
 
 **Interpretation:**
+
 - FWI < 5: Low danger
 - FWI 5-10: Moderate
 - FWI 10-20: High
@@ -263,12 +271,14 @@ Where:
 **Problem:** Calculate fire danger indices for given weather.
 
 **Weather conditions:**
+
 - Temperature: 35°C
 - Relative humidity: 20%
 - Wind speed: 30 km/h
 - No precipitation last 7 days
 
 **Fuel state:**
+
 - Initial 1-hour fuel MC: 18%
 - Initial FFMC: 85
 
@@ -583,6 +593,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - VPD peaks in afternoon when temperature highest and humidity lowest
 - Fuel moisture content reaches minimum in afternoon
 - Fire danger typically greatest 2-4 PM
@@ -592,6 +603,7 @@ window.addEventListener('resize', () => chart.resize());
 - Green dashed: Peak danger period
 
 **Key insights:**
+
 - Hot, dry, windy conditions create extreme fire danger
 - Diurnal cycle important for fire behavior prediction
 - Multi-day drying cumulative effect critical
@@ -606,11 +618,13 @@ window.addEventListener('resize', () => chart.resize());
 **National Weather Service criteria (USA):**
 
 **Combination of:**
+
 - RH ≤ 15%
 - Wind ≥ 25 mph (40 km/h)
 - Unstable atmosphere (Haines Index)
 
 **During red flag:**
+
 - No outdoor burning
 - Heightened firefighting readiness
 - Public awareness campaigns

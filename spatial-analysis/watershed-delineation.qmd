@@ -66,6 +66,7 @@ If it rains on this mountain, where does the water eventually flow?
 **Watershed** (also called catchment or drainage basin): Area that drains to a common outlet.
 
 **Applications:**
+
 - **Flood prediction:** How much area contributes flow to this point?
 - **Water quality:** Which land uses drain into this stream?
 - **Reservoir planning:** What's the contributing area to a dam site?
@@ -110,6 +111,7 @@ Powers of 2 → single value encodes direction.
 **For each cell:** Count how many upstream cells drain through it.
 
 **Algorithm:**
+
 1. Start with cells having no upstream contributors (ridges)
 2. Process in topological order (high to low elevation)
 3. Each cell passes its accumulated flow to its downstream neighbor
@@ -143,23 +145,28 @@ $$\text{stream} = (\text{accumulation} > T)$$
 <p class="cg-ill__lede">A watershed boundary does not appear all at once. It emerges from a chain: shape the terrain, route the flow, count the contributors, identify channels, then trace everything feeding the outlet.</p>
 <div class="cg-ill__flow">
 <div class="cg-ill__flow-step">
-<h4>1. DEM</h4>
+<div class="cg-ill__label">Step 1</div>
+<h4>DEM</h4>
 <p>Start with elevation as a gridded surface.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>2. Flow Direction</h4>
+<div class="cg-ill__label">Step 2</div>
+<h4>Flow Direction</h4>
 <p>Each cell points to its steepest downslope neighbor.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>3. Accumulation</h4>
+<div class="cg-ill__label">Step 3</div>
+<h4>Accumulation</h4>
 <p>Count how many upstream cells pass through each location.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>4. Streams</h4>
+<div class="cg-ill__label">Step 4</div>
+<h4>Streams</h4>
 <p>High-accumulation cells become the channel network.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>5. Watershed</h4>
+<div class="cg-ill__label">Step 5</div>
+<h4>Watershed</h4>
 <p>Trace all cells that eventually drain to one pour point.</p>
 </div>
 </div>
@@ -821,6 +828,7 @@ render();
 ```
 
 **Try this:**
+
 - **Click right panel** to set pour point (red dot) and extract watershed (green overlay)
 - **Simple valley:** Water flows down center channel
 - **Ridge and valleys:** Divides drainage into separate basins
@@ -851,6 +859,7 @@ render();
 **Pollutant sources** within watershed affect downstream quality.
 
 **Non-point source pollution:**
+
 - Agricultural runoff (fertilizers, pesticides)
 - Urban stormwater (oil, sediment)
 - Septic systems
@@ -894,36 +903,44 @@ Where:
 **Solutions:**
 
 **1. Impose flow direction:**
+
 - Route to nearest definite flow (edge of flat)
 
 **2. D-infinity algorithm:**
+
 - Allow fractional flow to multiple neighbors
 - More realistic but more complex
 
 **3. Epsilon slope:**
+
 - Add tiny random elevation noise to break ties
 
 ### Depressions and Sinks
 
 **Natural depressions:**
+
 - Lakes (real features)
 - DEM artifacts (errors)
 
 **Consequences:**
+
 - Flow accumulation terminates
 - Watershed extraction incomplete
 
 **Solutions:**
 
 **Fill depressions:**
+
 - Raise elevation to spill point
 - Loses lake information
 
 **Breach depressions:**
+
 - Cut channel through lowest barrier
 - Preserves topography better
 
 **Hybrid:**
+
 - Fill small artifacts, preserve large lakes
 
 ### DEM Resolution
@@ -944,6 +961,7 @@ Where:
 Flow direction undefined at edges.
 
 **Solution:**
+
 - Use larger DEM extent
 - Or explicitly model boundary conditions
 

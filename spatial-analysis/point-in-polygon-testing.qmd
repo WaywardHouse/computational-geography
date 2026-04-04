@@ -69,6 +69,7 @@ This fundamental spatial query appears everywhere:
 The mathematical question: Given a point $(x, y)$ and a polygon defined by vertices, is the point inside the polygon?
 
 **Complications:**
+
 - Polygons can be concave (not just rectangles)
 - Polygons can have holes
 - Edge cases: What if the point is exactly on the boundary?
@@ -82,6 +83,7 @@ The mathematical question: Given a point $(x, y)$ and a polygon defined by verti
 **Method:** Cast a ray from the point to infinity. Count how many polygon edges the ray crosses.
 
 **Rule:**
+
 - **Odd number of crossings** → Point is **inside**
 - **Even number of crossings** → Point is **outside**
 
@@ -204,20 +206,24 @@ function pointInPolygon(point, polygon):
 ### Edge Cases
 
 **Point exactly on edge:**
+
 - Mathematically: On boundary, could define as inside or outside
 - Convention: Usually treated as **inside** for GIS applications
 - Implementation: Check distance to edge separately if exactness matters
 
 **Point on vertex:**
+
 - Same as edge case
 - Usually treated as inside
 
 **Horizontal edges:**
+
 - Edge with $y_1 = y_2$ (horizontal edge)
 - Our algorithm skips these (both inequalities fail)
 - Correct behavior: Horizontal edges don't affect inside/outside status
 
 **Degenerate polygons:**
+
 - Self-intersecting edges
 - Zero-area polygons
 - Require preprocessing or rejection
@@ -497,6 +503,7 @@ render();
 ```
 
 **Try this:**
+
 - **Click inside the polygon:** Ray crosses odd number of edges → Green point (INSIDE)
 - **Click outside:** Ray crosses even number (including 0) → Red point (OUTSIDE)
 - **Star shape:** Tests concave polygon handling
@@ -640,10 +647,12 @@ return (count % 2 == 1)
 ### Degenerate Cases
 
 **Zero-area polygons:**
+
 - All vertices collinear → no interior
 - Treat all points as outside
 
 **Duplicate vertices:**
+
 - Clean up polygon beforehand
 - Remove consecutive duplicate points
 
@@ -684,10 +693,12 @@ return (winding_number != 0)
 ```
 
 **Advantages:**
+
 - Handles self-intersecting polygons better
 - More geometrically meaningful
 
 **Disadvantages:**
+
 - Slower (requires trigonometric functions)
 - More complex implementation
 

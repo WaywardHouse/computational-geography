@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -153,12 +157,28 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That water tends to flow downhill, and that a DEM can represent the elevation patterns controlling that flow.</p>
+<p><strong>You will learn</strong><br>
+How flow direction, flow accumulation, stream extraction, and watershed boundaries are computed from terrain data.</p>
+<p><strong>Why this matters</strong><br>
+Watersheds are one of the most important organizing units in hydrology, ecology, water quality, and flood analysis.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The simplest chain in the chapter: water goes downhill, many cells feed a few channels, and all cells that drain to one outlet belong to one watershed.</p>
 <p>Water quality managers in the Athabasca River basin need to answer a question that seems simple but requires a surprising amount of spatial computation: which parcels of land — which farms, which industrial sites, which municipalities — drain into this reach of river? The answer determines whose effluent license applies, whose operations require monitoring, and whose land practices affect the downstream fishery. Before digital elevation models and flow-routing algorithms, watershed boundaries were traced by hand on topographic maps by experienced technicians. Today a GIS can delineate hundreds of nested watersheds in a large basin automatically from a DEM, consistently and reproducibly, in minutes.</p>
 <p>Watershed delineation is the automatic extraction of drainage basin boundaries from terrain data. The key insight is that every cell in a DEM can be assigned a flow direction to the steepest downslope neighbour; a complete map of flow directions is a directed graph; and the watershed of any outlet point is simply all the cells that eventually drain to it by following the graph. This is the same logic as the hydrological flow model in Series 1, now applied at the scale of complete basins and implemented with algorithms (D8 flow direction, breach filling of sinks, flow accumulation) that handle the practical complications of real terrain data. This model derives those algorithms, implements the watershed extraction procedure, and discusses the sensitivity of results to DEM resolution and sink-filling choices.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>If it rains on this mountain, where does the water eventually flow?</p>
 <p><strong>Watershed</strong> (also called catchment or drainage basin): Area that drains to a common outlet.</p>
-<p><strong>Applications:</strong> - <strong>Flood prediction:</strong> How much area contributes flow to this point? - <strong>Water quality:</strong> Which land uses drain into this stream? - <strong>Reservoir planning:</strong> What’s the contributing area to a dam site? - <strong>Erosion modelling:</strong> Where does sediment originate and accumulate? - <strong>Ecological assessment:</strong> Upstream impacts on downstream habitats</p>
+<p><strong>Applications:</strong></p>
+<ul>
+<li><strong>Flood prediction:</strong> How much area contributes flow to this point?</li>
+<li><strong>Water quality:</strong> Which land uses drain into this stream?</li>
+<li><strong>Reservoir planning:</strong> What’s the contributing area to a dam site?</li>
+<li><strong>Erosion modelling:</strong> Where does sediment originate and accumulate?</li>
+<li><strong>Ecological assessment:</strong> Upstream impacts on downstream habitats</li>
+</ul>
 <p>The mathematical question: Given a DEM, how do we automatically extract: 1. <strong>Flow direction</strong> from each cell 2. <strong>Flow accumulation</strong> (contributing area) 3. <strong>Stream network</strong> (where flow accumulates) 4. <strong>Watershed boundaries</strong> for any pour point</p>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
@@ -174,7 +194,12 @@ window.Quarto = {
 <p><strong>Example:</strong> Flow to east (right) → direction = 1</p>
 <h3 id="flow-accumulation" class="anchored">Flow Accumulation</h3>
 <p><strong>For each cell:</strong> Count how many upstream cells drain through it.</p>
-<p><strong>Algorithm:</strong> 1. Start with cells having no upstream contributors (ridges) 2. Process in topological order (high to low elevation) 3. Each cell passes its accumulated flow to its downstream neighbor</p>
+<p><strong>Algorithm:</strong></p>
+<ol type="1">
+<li>Start with cells having no upstream contributors (ridges)</li>
+<li>Process in topological order (high to low elevation)</li>
+<li>Each cell passes its accumulated flow to its downstream neighbor</li>
+</ol>
 <p><strong>Result:</strong> Raster where value = number of contributing cells.</p>
 <p><strong>High accumulation</strong> = stream channels (many cells drain here)</p>
 <h3 id="stream-network-extraction" class="anchored">Stream Network Extraction</h3>
@@ -186,6 +211,105 @@ window.Quarto = {
 <p><strong>Pour point:</strong> Outlet location where we want to define watershed.</p>
 <p><strong>Watershed:</strong> All cells that drain to (flow through) pour point.</p>
 <p><strong>Algorithm:</strong> Trace upslope from pour point, marking all contributing cells.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Hydrology Pipeline
+</div>
+<h3 class="cg-ill__title anchored">
+Watershed Delineation Is A Sequence Of Terrain Decisions
+</h3>
+<p class="cg-ill__lede">
+A watershed boundary does not appear all at once. It emerges from a chain: shape the terrain, route the flow, count the contributors, identify channels, then trace everything feeding the outlet.
+</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+Step 1
+</div>
+<h4 class="anchored">
+DEM
+</h4>
+<p>
+Start with elevation as a gridded surface.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+Step 2
+</div>
+<h4 class="anchored">
+Flow Direction
+</h4>
+<p>
+Each cell points to its steepest downslope neighbor.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+Step 3
+</div>
+<h4 class="anchored">
+Accumulation
+</h4>
+<p>
+Count how many upstream cells pass through each location.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+Step 4
+</div>
+<h4 class="anchored">
+Streams
+</h4>
+<p>
+High-accumulation cells become the channel network.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+Step 5
+</div>
+<h4 class="anchored">
+Watershed
+</h4>
+<p>
+Trace all cells that eventually drain to one pour point.
+</p>
+</div>
+</div>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 520 250" role="img" aria-label="Mini watershed workflow from terrain to outlet basin">
+<rect x="0" y="0" width="520" height="250" rx="22" fill="#eef4ef"></rect> <rect x="35" y="42" width="80" height="80" rx="12" fill="#c8d9b7" stroke="#587150" stroke-width="2"></rect> <path d="M43 106 C60 80, 78 84, 105 54" stroke="#6c835f" stroke-width="4" fill="none"></path> <text x="43" y="138" font-size="15" fill="#2f4632">terrain</text> <rect x="135" y="42" width="80" height="80" rx="12" fill="#dae6d6" stroke="#587150" stroke-width="2"></rect> <path d="M150 64 L170 64 L170 52" stroke="#1d5f7a" stroke-width="4" fill="none"></path> <path d="M174 86 L194 86 L194 74" stroke="#1d5f7a" stroke-width="4" fill="none"></path> <path d="M160 106 L180 106 L180 94" stroke="#1d5f7a" stroke-width="4" fill="none"></path> <text x="146" y="138" font-size="15" fill="#2f4632">directions</text> <rect x="235" y="42" width="80" height="80" rx="12" fill="#d9e6ef" stroke="#587150" stroke-width="2"></rect> <circle cx="250" cy="106" r="10" fill="#8ab2d1"></circle><circle cx="275" cy="90" r="14" fill="#6298c4"></circle><circle cx="298" cy="70" r="18" fill="#2a6f97"></circle> <text x="238" y="138" font-size="15" fill="#2f4632">accumulation</text> <rect x="335" y="42" width="80" height="80" rx="12" fill="#e7efdf" stroke="#587150" stroke-width="2"></rect> <path d="M350 108 C362 82, 380 90, 399 56" stroke="#256d85" stroke-width="6" fill="none"></path> <text x="355" y="138" font-size="15" fill="#2f4632">streams</text> <rect x="435" y="42" width="50" height="80" rx="12" fill="#f4e8c8" stroke="#587150" stroke-width="2"></rect> <path d="M440 54 C450 50, 468 58, 480 74 L480 100 C467 111, 448 109, 440 90 Z" fill="#d7c185" stroke="#8c7741" stroke-width="2"></path> <circle cx="477" cy="102" r="5" fill="#a64b2a"></circle> <text x="438" y="138" font-size="15" fill="#2f4632">basin</text> <line x1="115" y1="82" x2="135" y2="82" stroke="#6f7f73" stroke-width="3"></line> <polygon points="135,82 126,77 126,87" fill="#6f7f73"></polygon> <line x1="215" y1="82" x2="235" y2="82" stroke="#6f7f73" stroke-width="3"></line> <polygon points="235,82 226,77 226,87" fill="#6f7f73"></polygon> <line x1="315" y1="82" x2="335" y2="82" stroke="#6f7f73" stroke-width="3"></line> <polygon points="335,82 326,77 326,87" fill="#6f7f73"></polygon> <line x1="415" y1="82" x2="435" y2="82" stroke="#6f7f73" stroke-width="3"></line> <polygon points="435,82 426,77 426,87" fill="#6f7f73"></polygon> <text x="34" y="190" font-size="17" fill="#24424d" font-weight="700">Pour point logic</text> <text x="34" y="214" font-size="15" fill="#24424d">Choose one outlet, then work backward through the flow graph.</text> <text x="34" y="234" font-size="15" fill="#24424d">Every marked upstream cell belongs to the same watershed.</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+Why this sequence helps
+</h4>
+<ul>
+<li>
+You do not need to imagine the whole basin at once.
+</li>
+<li>
+Flow direction is the local decision.
+</li>
+<li>
+Flow accumulation reveals where many local decisions converge.
+</li>
+<li>
+Channel thresholds turn convergence into a visible network.
+</li>
+<li>
+The watershed is everything upstream of one chosen outlet.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="d8-flow-direction" class="anchored">D8 Flow Direction</h3>
@@ -297,9 +421,9 @@ i=3     1    2    3   16</code></pre>
 <label>
 Terrain type:
 <select id="terrain-type">
-  <option value="valley" selected="">Simple Valley</option>
-  <option value="ridge">Ridge and Valleys</option>
-  <option value="complex">Complex Terrain</option>
+<option value="valley" selected="">Simple Valley</option>
+<option value="ridge">Ridge and Valleys</option>
+<option value="complex">Complex Terrain</option>
 </select>
 </label>
 <label>
@@ -348,9 +472,9 @@ const dem = [];
 for (let i = 0; i < size; i++) {
 const row = [];
 for (let j = 0; j < size; j++) {
-  const centerDist = Math.abs(j - size/2);
-  const elevation = 100 - i * 1.5 + centerDist * 2;
-  row.push(elevation);
+const centerDist = Math.abs(j - size/2);
+const elevation = 100 - i * 1.5 + centerDist * 2;
+row.push(elevation);
 }
 dem.push(row);
 }
@@ -362,9 +486,9 @@ const dem = [];
 for (let i = 0; i < size; i++) {
 const row = [];
 for (let j = 0; j < size; j++) {
-  const ridge = Math.abs(j - size/2) < 5 ? 20 : 0;
-  const elevation = 100 - i * 1.2 + ridge;
-  row.push(elevation);
+const ridge = Math.abs(j - size/2) < 5 ? 20 : 0;
+const elevation = 100 - i * 1.2 + ridge;
+row.push(elevation);
 }
 dem.push(row);
 }
@@ -376,9 +500,9 @@ const dem = [];
 for (let i = 0; i < size; i++) {
 const row = [];
 for (let j = 0; j < size; j++) {
-  const noise = Math.sin(i / 8) * Math.cos(j / 8) * 10;
-  const elevation = 100 - i * 1.0 - j * 0.5 + noise;
-  row.push(elevation);
+const noise = Math.sin(i / 8) * Math.cos(j / 8) * 10;
+const elevation = 100 - i * 1.0 - j * 0.5 + noise;
+row.push(elevation);
 }
 dem.push(row);
 }
@@ -409,23 +533,23 @@ const neighbors = [
 for (let i = 0; i < size; i++) {
 const row = [];
 for (let j = 0; j < size; j++) {
-  let maxSlope = -Infinity;
-  let direction = 0;
+let maxSlope = -Infinity;
+let direction = 0;
         
-  for (let {di, dj, dist, code} of neighbors) {
-    const ni = i + di;
-    const nj = j + dj;
+for (let {di, dj, dist, code} of neighbors) {
+const ni = i + di;
+const nj = j + dj;
           
-    if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
-      const slope = (dem[i][j] - dem[ni][nj]) / dist;
-      if (slope > maxSlope) {
-        maxSlope = slope;
-        direction = code;
-      }
-    }
-  }
+if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
+const slope = (dem[i][j] - dem[ni][nj]) / dist;
+if (slope > maxSlope) {
+maxSlope = slope;
+direction = code;
+}
+}
+}
         
-  row.push(direction);
+row.push(direction);
 }
 flowDir.push(row);
 }
@@ -441,7 +565,7 @@ const dem = getDEM();
 const cells = [];
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  cells.push({i, j, elev: dem[i][j]});
+cells.push({i, j, elev: dem[i][j]});
 }
 }
 cells.sort((a, b) => b.elev - a.elev);
@@ -461,12 +585,12 @@ const dirMap = {
 for (let {i, j} of cells) {
 const dir = flowDir[i][j];
 if (dir > 0 && dirMap[dir]) {
-  const {di, dj} = dirMap[dir];
-  const ni = i + di;
-  const nj = j + dj;
-  if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
-    accum[ni][nj] += accum[i][j];
-  }
+const {di, dj} = dirMap[dir];
+const ni = i + di;
+const nj = j + dj;
+if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
+accum[ni][nj] += accum[i][j];
+}
 }
 }
     
@@ -499,15 +623,15 @@ const {i, j} = queue.shift();
       
 // Check all neighbors
 for (let [code, {di, dj}] of Object.entries(dirMap)) {
-  const ni = i + di;
-  const nj = j + dj;
+const ni = i + di;
+const nj = j + dj;
         
-  if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
-    if (!watershed[ni][nj] && flowDir[ni][nj] == reverseDir[code]) {
-      watershed[ni][nj] = true;
-      queue.push({i: ni, j: nj});
-    }
-  }
+if (ni >= 0 && ni < size && nj >= 0 && nj < size) {
+if (!watershed[ni][nj] && flowDir[ni][nj] == reverseDir[code]) {
+watershed[ni][nj] = true;
+queue.push({i: ni, j: nj});
+}
+}
 }
 }
     
@@ -518,18 +642,18 @@ function drawDEM(dem, x, y, width, height) {
 let min = Infinity, max = -Infinity;
 for (let row of dem) {
 for (let val of row) {
-  min = Math.min(min, val);
-  max = Math.max(max, val);
+min = Math.min(min, val);
+max = Math.max(max, val);
 }
 }
     
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  const norm = (dem[i][j] - min) / (max - min);
-  const gray = Math.floor(100 + 155 * norm);
+const norm = (dem[i][j] - min) / (max - min);
+const gray = Math.floor(100 + 155 * norm);
         
-  ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
-  ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
+ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
+ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
 }
 }
 }
@@ -539,11 +663,11 @@ const maxAccum = Math.max(...accum.flat());
     
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  const norm = Math.log(accum[i][j]) / Math.log(maxAccum);
-  const blue = Math.floor(255 * norm);
+const norm = Math.log(accum[i][j]) / Math.log(maxAccum);
+const blue = Math.floor(255 * norm);
         
-  ctx.fillStyle = `rgb(200, 200, ${200 + blue/4})`;
-  ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
+ctx.fillStyle = `rgb(200, 200, ${200 + blue/4})`;
+ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
 }
 }
     
@@ -556,10 +680,10 @@ ctx.lineWidth = 1;
     
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  if (accum[i][j] >= streamThreshold) {
-    ctx.fillStyle = '#3498DB';
-    ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
-  }
+if (accum[i][j] >= streamThreshold) {
+ctx.fillStyle = '#3498DB';
+ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
+}
 }
 }
 }
@@ -568,11 +692,11 @@ function drawWatershed(watershed, x, y) {
 let area = 0;
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  if (watershed[i][j]) {
-    area++;
-    ctx.fillStyle = 'rgba(46, 204, 113, 0.5)';
-    ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
-  }
+if (watershed[i][j]) {
+area++;
+ctx.fillStyle = 'rgba(46, 204, 113, 0.5)';
+ctx.fillRect(x + j * cellSize, y + i * cellSize, cellSize, cellSize);
+}
 }
 }
     
@@ -596,17 +720,17 @@ ctx.lineWidth = 1;
     
 for (let i = 0; i < size; i += 2) {
 for (let j = 0; j < size; j += 2) {
-  const dir = flowDir[i][j];
-  if (dir > 0 && dirMap[dir]) {
-    const {di, dj} = dirMap[dir];
-    const cx = x + j * cellSize + cellSize/2;
-    const cy = y + i * cellSize + cellSize/2;
+const dir = flowDir[i][j];
+if (dir > 0 && dirMap[dir]) {
+const {di, dj} = dirMap[dir];
+const cx = x + j * cellSize + cellSize/2;
+const cy = y + i * cellSize + cellSize/2;
           
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(cx + dj * cellSize/2, cy + di * cellSize/2);
-    ctx.stroke();
-  }
+ctx.beginPath();
+ctx.moveTo(cx, cy);
+ctx.lineTo(cx + dj * cellSize/2, cy + di * cellSize/2);
+ctx.stroke();
+}
 }
 }
 }
@@ -644,9 +768,9 @@ drawWatershed(watershed, 10 + size * cellSize + 10, 10);
 ctx.fillStyle = '#E74C3C';
 ctx.beginPath();
 ctx.arc(
-  10 + size * cellSize + 10 + pourPoint.j * cellSize + cellSize/2,
-  10 + pourPoint.i * cellSize + cellSize/2,
-  cellSize/2, 0, 2 * Math.PI
+10 + size * cellSize + 10 + pourPoint.j * cellSize + cellSize/2,
+10 + pourPoint.i * cellSize + cellSize/2,
+cellSize/2, 0, 2 * Math.PI
 );
 ctx.fill();
 }
@@ -660,7 +784,7 @@ const y = e.clientY - rect.top;
 // Check if click is in right panel
 const rightPanelX = 10 + size * cellSize + 10;
 if (x >= rightPanelX && x < rightPanelX + size * cellSize &&
-  y >= 10 && y < 10 + size * cellSize) {
+y >= 10 && y < 10 + size * cellSize) {
       
 const j = Math.floor((x - rightPanelX) / cellSize);
 const i = Math.floor((y - 10) / cellSize);
@@ -695,7 +819,17 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Click right panel</strong> to set pour point (red dot) and extract watershed (green overlay) - <strong>Simple valley:</strong> Water flows down center channel - <strong>Ridge and valleys:</strong> Divides drainage into separate basins - <strong>Complex terrain:</strong> Multiple drainage patterns - <strong>Stream threshold:</strong> Higher = only major streams shown (blue) - <strong>Show flow direction:</strong> Red arrows show where each cell drains - <strong>Left:</strong> Elevation (lighter = higher) - <strong>Right:</strong> Flow accumulation (darker blue = more contributing area)</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Click right panel</strong> to set pour point (red dot) and extract watershed (green overlay)</li>
+<li><strong>Simple valley:</strong> Water flows down center channel</li>
+<li><strong>Ridge and valleys:</strong> Divides drainage into separate basins</li>
+<li><strong>Complex terrain:</strong> Multiple drainage patterns</li>
+<li><strong>Stream threshold:</strong> Higher = only major streams shown (blue)</li>
+<li><strong>Show flow direction:</strong> Red arrows show where each cell drains</li>
+<li><strong>Left:</strong> Elevation (lighter = higher)</li>
+<li><strong>Right:</strong> Flow accumulation (darker blue = more contributing area)</li>
+</ul>
 <p><strong>Key insight:</strong> Watershed boundaries follow ridges—all rain inside the green area flows to the red pour point!</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -705,7 +839,12 @@ render();
 <p><strong>Example:</strong> Dam site with 500 km² watershed - Expected peak flow during storm - Reservoir sizing for flood control</p>
 <h3 id="water-quality-management" class="anchored">Water Quality Management</h3>
 <p><strong>Pollutant sources</strong> within watershed affect downstream quality.</p>
-<p><strong>Non-point source pollution:</strong> - Agricultural runoff (fertilizers, pesticides) - Urban stormwater (oil, sediment) - Septic systems</p>
+<p><strong>Non-point source pollution:</strong></p>
+<ul>
+<li>Agricultural runoff (fertilizers, pesticides)</li>
+<li>Urban stormwater (oil, sediment)</li>
+<li>Septic systems</li>
+</ul>
 <p><strong>Delineate watershed</strong> → identify all potential sources → prioritize management.</p>
 <h3 id="stream-order-classification" class="anchored">Stream Order Classification</h3>
 <p><strong>Strahler stream order:</strong></p>
@@ -726,16 +865,45 @@ render();
 <h3 id="flat-areas" class="anchored">Flat Areas</h3>
 <p><strong>D8 fails</strong> where no downslope neighbor exists.</p>
 <p><strong>Solutions:</strong></p>
-<p><strong>1. Impose flow direction:</strong> - Route to nearest definite flow (edge of flat)</p>
-<p><strong>2. D-infinity algorithm:</strong> - Allow fractional flow to multiple neighbors - More realistic but more complex</p>
-<p><strong>3. Epsilon slope:</strong> - Add tiny random elevation noise to break ties</p>
+<p><strong>1. Impose flow direction:</strong></p>
+<ul>
+<li>Route to nearest definite flow (edge of flat)</li>
+</ul>
+<p><strong>2. D-infinity algorithm:</strong></p>
+<ul>
+<li>Allow fractional flow to multiple neighbors</li>
+<li>More realistic but more complex</li>
+</ul>
+<p><strong>3. Epsilon slope:</strong></p>
+<ul>
+<li>Add tiny random elevation noise to break ties</li>
+</ul>
 <h3 id="depressions-and-sinks" class="anchored">Depressions and Sinks</h3>
-<p><strong>Natural depressions:</strong> - Lakes (real features) - DEM artifacts (errors)</p>
-<p><strong>Consequences:</strong> - Flow accumulation terminates - Watershed extraction incomplete</p>
+<p><strong>Natural depressions:</strong></p>
+<ul>
+<li>Lakes (real features)</li>
+<li>DEM artifacts (errors)</li>
+</ul>
+<p><strong>Consequences:</strong></p>
+<ul>
+<li>Flow accumulation terminates</li>
+<li>Watershed extraction incomplete</li>
+</ul>
 <p><strong>Solutions:</strong></p>
-<p><strong>Fill depressions:</strong> - Raise elevation to spill point - Loses lake information</p>
-<p><strong>Breach depressions:</strong> - Cut channel through lowest barrier - Preserves topography better</p>
-<p><strong>Hybrid:</strong> - Fill small artifacts, preserve large lakes</p>
+<p><strong>Fill depressions:</strong></p>
+<ul>
+<li>Raise elevation to spill point</li>
+<li>Loses lake information</li>
+</ul>
+<p><strong>Breach depressions:</strong></p>
+<ul>
+<li>Cut channel through lowest barrier</li>
+<li>Preserves topography better</li>
+</ul>
+<p><strong>Hybrid:</strong></p>
+<ul>
+<li>Fill small artifacts, preserve large lakes</li>
+</ul>
 <h3 id="dem-resolution" class="anchored">DEM Resolution</h3>
 <p><strong>Coarse DEM</strong> misses small drainage features: - Ditches - Culverts - Small channels</p>
 <p><strong>Result:</strong> Incorrectly routed flow</p>
@@ -743,7 +911,11 @@ render();
 <h3 id="edge-effects" class="anchored">Edge Effects</h3>
 <p><strong>Watershed extends beyond DEM boundary:</strong></p>
 <p>Flow direction undefined at edges.</p>
-<p><strong>Solution:</strong> - Use larger DEM extent - Or explicitly model boundary conditions</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Use larger DEM extent</li>
+<li>Or explicitly model boundary conditions</li>
+</ul>
 <hr>
 <h2 id="extension-d-infinity-algorithm" class="anchored">8. Extension: D-Infinity Algorithm</h2>
 <p><strong>D8 limitation:</strong> Flow restricted to 8 directions (multiples of 45°).</p>
@@ -809,24 +981,24 @@ while S not empty:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

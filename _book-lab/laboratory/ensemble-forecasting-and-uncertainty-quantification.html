@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,6 +132,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That a forecast can be expressed as a distribution of plausible outcomes rather than as one deterministic answer.</p>
+<p><strong>You will learn</strong><br>
+How ensembles represent uncertainty, how spread and skill are compared, and how probabilistic forecasts are verified and improved.</p>
+<p><strong>Why this matters</strong><br>
+Operational environmental forecasting depends on understanding not just what is likely, but how uncertain that judgment is.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The distinction between a single forecast value and a forecast distribution.</p>
 <p>On January 4, 1992, the European Centre for Medium-Range Weather Forecasts (ECMWF) ran its first operational ensemble forecast — 33 slightly perturbed versions of the same numerical weather prediction model, run simultaneously, producing a range of possible futures rather than a single prediction. In 2025, ECMWF’s operational ensemble contains 51 members and is run twice daily to 15 days; ensemble products from Environment and Climate Change Canada (ECCC) drive the forecasts on which Canadian flood warning systems, wildfire behaviour models, and agricultural advisories depend.</p>
 <p>The philosophical shift from deterministic to probabilistic forecasting is deeper than it appears. A deterministic forecast is falsifiable in a binary way: it was right or wrong. A probabilistic forecast — “70% probability of precipitation exceeding 10 mm” — is only falsifiable in a statistical sense: if you collect 1000 such forecasts, exactly 700 should verify. This is a fundamentally different epistemology, and it requires fundamentally different verification methods.</p>
 <hr>
@@ -216,11 +229,11 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> 10-member ensemble temperature forecast for Edmonton, verified against observations over 20 cases. Ensemble spread averages 2.4°C; RMSE of ensemble mean averages 3.1°C.</p>
-<p><strong>Spread-skill ratio:</strong> $3.1/2.4 = 1.29$ — ensemble is moderately under-dispersive (too confident). A spread-skill ratio of 1.29 means the ensemble needs to be inflated by about 29% to be calibrated.</p>
+<p><strong>Spread-skill ratio:</strong> <span class="math inline">3.1/2.4 = 1.29</span> — ensemble is moderately under-dispersive (too confident). A spread-skill ratio of 1.29 means the ensemble needs to be inflated by about 29% to be calibrated.</p>
 <p><strong>Rank histogram:</strong> In 20 cases, observed temperatures fall in these ranks (1 = below all members, 11 = above all members):</p>
 <p>Ranks: [11, 1, 9, 8, 11, 3, 10, 11, 2, 7, 11, 6, 10, 11, 4, 9, 11, 2, 8, 11]</p>
 <p>Count by rank: rank 1 → 2, rank 2 → 2, rank 3 → 1, rank 4 → 1, rank 5 → 0, rank 6 → 1, rank 7 → 1, rank 8 → 2, rank 9 → 2, rank 10 → 2, rank 11 → 6</p>
-<p>Expected count (uniform): $20/11 = 1.82$. Actual: rank 11 has 6 observations — far more than expected. This right-skewed, U-tailed histogram indicates the ensemble is both biased (too cold) and under-dispersive. The observation falls above all members 30% of the time — strong evidence of a warm bias or insufficient ensemble spread.</p>
+<p>Expected count (uniform): <span class="math inline">20/11 = 1.82</span>. Actual: rank 11 has 6 observations — far more than expected. This right-skewed, U-tailed histogram indicates the ensemble is both biased (too cold) and under-dispersive. The observation falls above all members 30% of the time — strong evidence of a warm bias or insufficient ensemble spread.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <pre><code>function rank_histogram(obs_array, ensemble_matrix):
@@ -315,23 +328,21 @@ print(f"Brier skill score: {bss:.3f}")</code></pre>
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Rank Histogram — Under-Dispersive Ensemble (U-shape = too confident)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Observed rank counts&quot;, &quot;Expected (uniform)&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Rank of observation among ensemble members&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [&quot;Below all&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;Above all&quot;]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Count&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 40},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Observed rank counts&quot;, &quot;type&quot;: &quot;bar&quot;,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [62, 30, 28, 26, 28, 27, 29, 31, 28, 27, 64]},
-    {&quot;name&quot;: &quot;Expected (uniform)&quot;, &quot;type&quot;: &quot;line&quot;,
-     &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Rank Histogram — Under-Dispersive Ensemble (U-shape = too confident)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Observed rank counts&quot;, &quot;Expected (uniform)&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Rank of observation among ensemble members&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [&quot;Below all&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;,&quot;6&quot;,&quot;7&quot;,&quot;8&quot;,&quot;9&quot;,&quot;10&quot;,&quot;Above all&quot;]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Count&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 40},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Observed rank counts&quot;, &quot;type&quot;: &quot;bar&quot;,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [62, 30, 28, 26, 28, 27, 29, 31, 28, 27, 64]},
+{&quot;name&quot;: &quot;Expected (uniform)&quot;, &quot;type&quot;: &quot;line&quot;,
+&quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5,45.5]}
+]
+}"></div>
 <p>The U-shape confirms under-dispersion: the observation falls outside the ensemble range (ranks 1 and 11) far more often than expected. A uniform histogram would indicate perfect calibration. This diagnostic directly informs post-processing: the ensemble spread needs to be inflated, or a BMA/EMOS model needs to be trained on recent cases to recalibrate.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -368,24 +379,24 @@ print(f"Brier skill score: {bss:.3f}")</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

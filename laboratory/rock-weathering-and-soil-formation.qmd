@@ -167,6 +167,7 @@ Measuring $N_{\text{surface}}$ in the laboratory gives us $\varepsilon$ — the 
 **Setting:** A granitic catchment in the Canadian Rockies. Mean annual temperature 4°C (277 K). Soil water pH 5.2. We want to estimate the feldspar dissolution rate and compare it to a tropical analogue at 26°C (299 K).
 
 **Given:**
+
 - $k_{\text{eff}}$ at 25°C (298 K) = $1.5 \times 10^{-10}$ mol m⁻² s⁻¹ (for K-feldspar at pH 5)
 - $n = 0.5$ (reaction order)
 - $E_a = 65{,}000$ J mol⁻¹

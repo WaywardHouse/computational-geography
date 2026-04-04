@@ -34,10 +34,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -77,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <a class="cta" href="./what-is-a-spatial-model.html">Start Part 1</a>
     </div>
     <div class="book-pill-row">
-      <span class="book-pill">8 core chapters</span>
+      <span class="book-pill">12 core chapters</span>
       <span class="book-pill">Best first part</span>
       <span class="book-pill">Part 1</span>
     </div>
@@ -107,13 +110,9 @@ ul.task-list li input[type="checkbox"] {
   </article>
   <article class="section-card">
     <span class="section-eyebrow">B</span>
-    <h3 class="anchored">Topic Library Links</h3>
+    <h3 class="anchored">Coordinates and Representation</h3>
     <ul>
-      <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
-      <li><a href="./spectral-mixing-and-sensor-response.html">Spectral Mixing and Sensor Response</a></li>
-      <li><a href="./solar-geometry-and-projection.html">Solar Geometry and Projection</a></li>
-      <li><a href="./hydrological-flow-as-optimization.html">Hydrological Flow as Optimization</a></li>
-      <li><a href="./earth-as-rotating-sphere.html">Earth as a Rotating Sphere</a></li>
+      <li><a href="./map-projections-and-coordinate-reference-systems.html">Map Projections and Coordinate Reference Systems</a></li>
     </ul>
   </article>
   <article class="section-card">
@@ -134,6 +133,26 @@ ul.task-list li input[type="checkbox"] {
   </article>
   <article class="section-card">
     <span class="section-eyebrow">E</span>
+    <h3 class="anchored">Remote Sensing Foundations</h3>
+    <ul>
+      <li><a href="./what-is-remote-sensing.html">What Is Remote Sensing?</a></li>
+      <li><a href="./spatial-spectral-temporal-and-radiometric-resolution.html">Spatial, Spectral, Temporal, and Radiometric Resolution</a></li>
+      <li><a href="./atmospheric-effects-and-surface-reflectance.html">Atmospheric Effects and Surface Reflectance</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">F</span>
+    <h3 class="anchored">Topic Library Links</h3>
+    <ul>
+      <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
+      <li><a href="./spectral-mixing-and-sensor-response.html">Spectral Mixing and Sensor Response</a></li>
+      <li><a href="./solar-geometry-and-projection.html">Solar Geometry and Projection</a></li>
+      <li><a href="./hydrological-flow-as-optimization.html">Hydrological Flow as Optimization</a></li>
+      <li><a href="./earth-as-rotating-sphere.html">Earth as a Rotating Sphere</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">G</span>
     <h3 class="anchored">Why This Part Matters</h3>
     <p>These chapters build the habits the rest of the project depends on: defining quantities carefully, noticing how they change, and turning geographic questions into models that can be tested.</p>
   </article>
@@ -149,24 +168,24 @@ ul.task-list li input[type="checkbox"] {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

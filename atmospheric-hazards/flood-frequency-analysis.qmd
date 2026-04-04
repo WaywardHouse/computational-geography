@@ -75,6 +75,7 @@ Statistical method estimating flood magnitude for given return period.
 Each year, record maximum instantaneous discharge.
 
 **Example - Allegheny River:**
+
 - 1950: 4,200 cms
 - 1951: 2,800 cms
 - 1952: 5,600 cms (major flood)
@@ -86,6 +87,7 @@ Each year, record maximum instantaneous discharge.
 **Extrapolate** to estimate rare events (100-year, 500-year).
 
 **Applications:**
+
 - Floodplain mapping (FEMA flood insurance rate maps)
 - Bridge design (scour protection)
 - Dam spillway sizing

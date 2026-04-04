@@ -495,12 +495,14 @@ phaseChart.resize();
 **Try this:**
 
 **Top panel (time series):**
+
 - Start with $N_0 = 50$, $K = 500$, $r = 0.4$. Watch the S-curve approach $K$.
 - Set $N_0 = 600$ (above carrying capacity). The population **declines** to $K$.
 - Increase $r$ to 0.8. The approach to equilibrium is faster.
 - Decrease $r$ to 0.2. The approach is slower.
 
 **Bottom panel (phase plot):**
+
 - The curve shows $\frac{dN}{dt}$ as a function of $N$.
 - Growth rate is **zero** at $N = 0$ and $N = K$ (the equilibria).
 - Growth rate is **maximum** at $N = K/2$ (halfway to carrying capacity).
@@ -624,6 +626,7 @@ For the logistic equation:
 - y-axis: $\frac{dN}{dt}$ (growth rate)
 
 **How to read it:**
+
 - Where the curve crosses the x-axis ($\frac{dN}{dt} = 0$), you have equilibria
 - Where the curve is **above** the x-axis, $N$ is **increasing**
 - Where the curve is **below** the x-axis, $N$ is **decreasing**

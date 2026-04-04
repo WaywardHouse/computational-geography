@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -127,6 +131,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That coastlines experience more than just mean sea level: tides, surge, waves, and long-term rise all stack together.</p>
+<p><strong>You will learn</strong><br>
+How total water level is decomposed, how storm surge and shoreline retreat are modeled, and how coastal vulnerability is assembled from measurable factors.</p>
+<p><strong>Why this matters</strong><br>
+Coastal risk comes from the combination of processes, not from sea level rise in isolation.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The superposition idea: several separate water-level components add up to the event a coast actually experiences.</p>
 <p>On October 29, 2012, Hurricane Sandy made landfall near Atlantic City, New Jersey. Storm surge of 2.7 m above normal tide level flooded lower Manhattan, devastated barrier island communities in New Jersey, and caused over USD 65 billion in damage. The surge was not primarily a wave phenomenon — it was a long, slow rise of the entire water level driven by the atmospheric pressure of the storm and, more importantly, by the wind pushing water toward the coast.</p>
 <p>Sandy’s surge sat on top of a tide. The tide sat on top of a slowly rising baseline sea level. The waves that destroyed beachfront structures sat on top of the surge. The total water level — the only thing a coastline actually experiences — is the sum of all these components. Understanding them separately is the prerequisite for predicting their combined effect.</p>
 <hr>
@@ -150,7 +163,7 @@ window.Quarto = {
 <p><strong>Relative sea level (RSL)</strong> is the sea surface elevation relative to a fixed point on land. It differs from <strong>eustatic sea level</strong> (the absolute volume of ocean water) by the rate of <strong>vertical land motion</strong> (VLM):</p>
 <p><span class="math display">\dot{\text{RSL}} = \dot{\text{SL}}_{\text{eustatic}} - \dot{h}_{\text{VLM}}</span></p>
 <p>where positive VLM means land rising (reducing RSL change) and negative VLM means land subsiding (amplifying RSL rise). Eustatic sea level rise is currently <span class="math inline">\approx 3.7</span> mm yr⁻¹ (2006–2018 satellite altimeter average). VLM ranges from +10 mm yr⁻¹ in Fennoscandia (post-glacial isostatic rebound) to -25 mm yr⁻¹ in parts of the Mississippi Delta (compaction + fluid withdrawal).</p>
-<p>For the Fraser Delta in British Columbia: eustatic rise <span class="math inline">\approx 3</span> mm yr⁻¹, VLM <span class="math inline">\approx -1</span> to <span class="math inline">-3</span> mm yr⁻¹ (slow deltaic subsidence), giving RSL rise <span class="math inline">\approx 4</span>–$6$ mm yr⁻¹.</p>
+<p>For the Fraser Delta in British Columbia: eustatic rise <span class="math inline">\approx 3</span> mm yr⁻¹, VLM <span class="math inline">\approx -1</span> to <span class="math inline">-3</span> mm yr⁻¹ (slow deltaic subsidence), giving RSL rise <span class="math inline">\approx 4</span>-<span class="math inline">6</span> mm yr⁻¹.</p>
 <h3 id="storm-surge-the-momentum-balance" class="anchored">3.2 Storm Surge: The Momentum Balance</h3>
 <p>Storm surge is driven by two mechanisms:</p>
 <p><strong>Inverse barometer effect:</strong> A 1 hPa decrease in atmospheric pressure <span class="math inline">p_a</span> raises sea surface by approximately 1 cm:</p>
@@ -179,7 +192,7 @@ window.Quarto = {
 <p>This is the Bruun Rule. The ratio <span class="math inline">L^* / (B + D_c)</span> is the inverse of the mean slope of the active profile — a gentle profile retreats more for the same sea level rise.</p>
 <p>For a typical low-energy beach: <span class="math inline">L^* = 500</span> m, <span class="math inline">B = 1.5</span> m, <span class="math inline">D_c = 6</span> m. For <span class="math inline">\Delta S = 0.5</span> m (plausible 21st century rise):</p>
 <p><span class="math display">R = \frac{500}{1.5 + 6} \times 0.5 = \frac{500}{7.5} \times 0.5 = 66.7 \times 0.5 = 33 \text{ m}</span></p>
-<p>A 33 m retreat for 0.5 m of sea level rise. The <strong>Bruun ratio</strong> <span class="math inline">R/\Delta S = L^*/(B+D_c) \approx 50</span>–$200$ for most beaches — typically cited as “50 to 200 m of retreat per metre of sea level rise.”</p>
+<p>A 33 m retreat for 0.5 m of sea level rise. The <strong>Bruun ratio</strong> <span class="math inline">R/\Delta S = L^*/(B+D_c) \approx 50</span>-<span class="math inline">200</span> for most beaches — typically cited as “50 to 200 m of retreat per metre of sea level rise.”</p>
 <p><strong>Important caveat:</strong> The Bruun Rule assumes that all eroded material is redistributed offshore within the active profile — no longshore transport, no net losses offshore. It is a geometric identity, not a physical model of the erosion process. On coasts with significant longshore transport gradients, the Bruun Rule underestimates actual retreat.</p>
 <h3 id="barrier-island-rollover" class="anchored">3.4 Barrier Island Rollover</h3>
 <p>Barrier islands — long, narrow islands of sand separated from the mainland by a lagoon — are particularly sensitive to sea level rise because they have a finite sand budget and can respond in three ways:</p>
@@ -275,10 +288,26 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> Two coastal segments of the British Columbia coast, one rocky headland and one sandy barrier spit, to illustrate the CVI contrast.</p>
-<p><strong>Rocky headland — Cape Scott area:</strong> - Geomorphology: rocky cliffs → 1 - Coastal slope: 2.1% → 1 - RSL change: +1.5 mm yr⁻¹ (isostatic uplift partially offsets eustasy) → 1 - Shoreline change: +0.3 m yr⁻¹ (slight accretion) → 3 - Mean tidal range: 3.2 m → 3 - Mean wave height: 2.1 m → 5</p>
+<p><strong>Rocky headland — Cape Scott area:</strong></p>
+<ul>
+<li>Geomorphology: rocky cliffs → 1</li>
+<li>Coastal slope: 2.1% → 1</li>
+<li>RSL change: +1.5 mm yr⁻¹ (isostatic uplift partially offsets eustasy) → 1</li>
+<li>Shoreline change: +0.3 m yr⁻¹ (slight accretion) → 3</li>
+<li>Mean tidal range: 3.2 m → 3</li>
+<li>Mean wave height: 2.1 m → 5</li>
+</ul>
 <p><span class="math display">\text{CVI} = \sqrt{\frac{1 \times 1 \times 1 \times 3 \times 3 \times 5}{6}} = \sqrt{\frac{45}{6}} = \sqrt{7.5} = 2.74</span></p>
 <p><strong>Very low vulnerability</strong> — despite high wave energy, the rocky coast and active uplift protect it.</p>
-<p><strong>Barrier spit — Boundary Bay, Delta, BC:</strong> - Geomorphology: barrier/beach → 5 - Coastal slope: 0.15% → 5 - RSL change: +5.0 mm yr⁻¹ (eustasy + deltaic subsidence) → 5 - Shoreline change: -1.8 m yr⁻¹ (chronic erosion) → 4 - Mean tidal range: 3.4 m → 3 - Mean wave height: 0.6 m → 2</p>
+<p><strong>Barrier spit — Boundary Bay, Delta, BC:</strong></p>
+<ul>
+<li>Geomorphology: barrier/beach → 5</li>
+<li>Coastal slope: 0.15% → 5</li>
+<li>RSL change: +5.0 mm yr⁻¹ (eustasy + deltaic subsidence) → 5</li>
+<li>Shoreline change: -1.8 m yr⁻¹ (chronic erosion) → 4</li>
+<li>Mean tidal range: 3.4 m → 3</li>
+<li>Mean wave height: 0.6 m → 2</li>
+</ul>
 <p><span class="math display">\text{CVI} = \sqrt{\frac{5 \times 5 \times 5 \times 4 \times 3 \times 2}{6}} = \sqrt{\frac{3000}{6}} = \sqrt{500} = 22.4</span></p>
 <p><strong>Moderate–high vulnerability</strong> — the deltaic setting, low slope, and rapid RSL rise dominate despite modest wave energy.</p>
 <p><strong>Bruun Rule for Boundary Bay:</strong></p>
@@ -334,23 +363,21 @@ print(f"\nSurge decay timescale: {tau/3600:.1f} hours")</code></pre>
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Bruun Rule: Shoreline Retreat vs Sea Level Rise for Varying Profile Types&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;formatter&quot;: &quot;{b}m SLR → {c}m retreat&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Steep (L*=100m, B=2m, Dc=4m)&quot;, &quot;Typical (L*=500m, B=1.5m, Dc=6m)&quot;, &quot;Low-gradient (L*=2000m, B=0.8m, Dc=5m)&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Sea Level Rise ΔS (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Shoreline Retreat R (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Steep (L*=100m, B=2m, Dc=4m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
-     &quot;data&quot;: [1.7, 3.3, 5.0, 6.7, 8.3, 10.0, 13.3, 16.7]},
-    {&quot;name&quot;: &quot;Typical (L*=500m, B=1.5m, Dc=6m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
-     &quot;data&quot;: [6.7, 13.3, 20.0, 26.7, 33.3, 40.0, 53.3, 66.7]},
-    {&quot;name&quot;: &quot;Low-gradient (L*=2000m, B=0.8m, Dc=5m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
-     &quot;data&quot;: [34.5, 68.9, 103.4, 137.9, 172.4, 206.9, 275.9, 344.8]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Bruun Rule: Shoreline Retreat vs Sea Level Rise for Varying Profile Types&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;formatter&quot;: &quot;{b}m SLR → {c}m retreat&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Steep (L*=100m, B=2m, Dc=4m)&quot;, &quot;Typical (L*=500m, B=1.5m, Dc=6m)&quot;, &quot;Low-gradient (L*=2000m, B=0.8m, Dc=5m)&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Sea Level Rise ΔS (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Shoreline Retreat R (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Steep (L*=100m, B=2m, Dc=4m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
+&quot;data&quot;: [1.7, 3.3, 5.0, 6.7, 8.3, 10.0, 13.3, 16.7]},
+{&quot;name&quot;: &quot;Typical (L*=500m, B=1.5m, Dc=6m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
+&quot;data&quot;: [6.7, 13.3, 20.0, 26.7, 33.3, 40.0, 53.3, 66.7]},
+{&quot;name&quot;: &quot;Low-gradient (L*=2000m, B=0.8m, Dc=5m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
+&quot;data&quot;: [34.5, 68.9, 103.4, 137.9, 172.4, 206.9, 275.9, 344.8]}
+]
+}"></div>
 <p>The three profiles diverge dramatically: a steep beach retreats less than 17 m per metre of sea level rise; a low-gradient spit retreats nearly 345 m per metre. The Bruun ratio <span class="math inline">R/\Delta S</span> is set entirely by the geometry of the active profile — gentle slopes magnify sea level rise into much larger horizontal retreats.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -377,7 +404,7 @@ print(f"\nSurge decay timescale: {tau/3600:.1f} hours")</code></pre>
 <h2 id="math-refresher" class="anchored">Math Refresher</h2>
 <p><strong>Linear superposition.</strong> The total water level equation <span class="math inline">\eta_{\text{total}} = \eta_{\text{MSL}} + \eta_{\text{tide}} + \eta_{\text{surge}} + \ldots</span> assumes the components add linearly without interaction. This is a useful approximation for small amplitudes; in reality, surge modifies the depth <span class="math inline">h</span> and therefore the tidal propagation speed, creating nonlinear tide-surge interaction. The superposition principle is exact for linear systems and a useful approximation for weakly nonlinear ones.</p>
 <p><strong>The geometric mean in CVI.</strong> The arithmetic mean <span class="math inline">(a+b+\ldots)/n</span> is appropriate when variables are independent and additive. The geometric mean <span class="math inline">(a \times b \times \ldots)^{1/n}</span> is appropriate when variables are multiplicative — when a very high score on one variable should significantly elevate the combined index regardless of others. The geometric mean is always less than or equal to the arithmetic mean (AM-GM inequality), and the two coincide only when all scores are equal.</p>
-<p><strong>Exponential decay.</strong> The surge decay formula <span class="math inline">\eta(t) = \eta_{\max} e^{-t/\tau}</span> has the same mathematical form as radioactive decay, first-order chemical reactions, and the RC circuit voltage discharge. In all these cases, the rate of decrease is proportional to the current value: <span class="math inline">d\eta/dt = -\eta/\tau</span>. The timescale <span class="math inline">\tau</span> is the time required for the quantity to fall to $1/e %$ of its initial value — equivalently, after $2$ it is at $14%<span class="math inline">, and after &amp;#36;3\tau</span> at $5%$.</p>
+<p><strong>Exponential decay.</strong> The surge decay formula <span class="math inline">\eta(t) = \eta_{\max} e^{-t/\tau}</span> has the same mathematical form as radioactive decay, first-order chemical reactions, and the RC circuit voltage discharge. In all these cases, the rate of decrease is proportional to the current value: <span class="math inline">d\eta/dt = -\eta/\tau</span>. The timescale <span class="math inline">\tau</span> is the time required for the quantity to fall to <span class="math inline">1/e \approx 37\%</span> of its initial value — equivalently, after <span class="math inline">2\tau</span> it is at <span class="math inline">14\%</span>, and after <span class="math inline">3\tau</span> at <span class="math inline">5\%</span>.</p>
 
 
 <footer class="wayward-footer">
@@ -389,24 +416,24 @@ print(f"\nSurge decay timescale: {tau/3600:.1f} hours")</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

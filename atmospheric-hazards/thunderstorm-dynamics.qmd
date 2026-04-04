@@ -77,11 +77,13 @@ Will today's atmospheric conditions produce tornadoes?
 **Supercell:** Rotating updraft, most severe (hours)
 
 **Severe criteria (USA):**
+
 - Hail ≥1 inch (2.5 cm)
 - Wind ≥58 mph (93 km/h, 50 kt)
 - Tornado (any intensity)
 
 **Applications:**
+
 - Severe weather forecasting
 - Warning lead time
 - Aviation safety
@@ -114,6 +116,7 @@ Where $q$ = mixing ratio (kg/kg)
 **Units:** J/kg (energy per unit mass)
 
 **Typical values:**
+
 - CAPE < 1000: Weak instability
 - CAPE = 1000-2500: Moderate
 - CAPE = 2500-4000: Strong
@@ -140,6 +143,7 @@ $$S = \sqrt{(u_6 - u_0)^2 + (v_6 - v_0)^2}$$
 Where $u, v$ = wind components at surface (0) and 6 km.
 
 **Critical thresholds:**
+
 - S < 10 m/s: Disorganized storms
 - S = 10-20 m/s: Organized multicells
 - S > 20 m/s: Supercells likely
@@ -324,6 +328,7 @@ Surface (1000 mb):
 **Environmental lapse rate:** 7°C/km (average)
 
 **Wind profile:**
+
 - Surface: 180°/10 kt
 - 6 km: 240°/40 kt
 
@@ -615,6 +620,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - CAPE increases with surface warmth and mid-level cooling
 - High moisture (small T-Td spread) increases CAPE
 - Shear determines storm organization and severity
@@ -623,6 +629,7 @@ window.addEventListener('resize', () => chart.resize());
 - Straight hodograph = less favorable for rotation
 
 **Key insights:**
+
 - Both instability (CAPE) and shear required for severe weather
 - Supercells need 2500+ J/kg CAPE and 20+ m/s shear
 - Maximum updraft velocity scales with square root of CAPE
@@ -649,6 +656,7 @@ $$STP = \frac{CAPE}{1500} \times \frac{SRH}{150} \times \frac{2000 - LCL}{1000} 
 **STP > 3:** Violent tornado possible
 
 **May 20, 2013 Moore, OK:**
+
 - CAPE: 3500 J/kg
 - SRH: 400 m²/s²
 - Shear: 25 m/s
@@ -662,6 +670,7 @@ $$STP = \frac{CAPE}{1500} \times \frac{SRH}{150} \times \frac{2000 - LCL}{1000} 
 Based on radar-derived maximum reflectivity and height.
 
 **Environmental indicators:**
+
 - CAPE > 2000 J/kg
 - Strong mid-level winds (advect hail)
 - Wet-bulb zero height ~2.5-3.5 km (growth zone)
@@ -714,6 +723,7 @@ Different dynamics than isolated supercells.
 **MCS:** Squall line, bow echo, derecho
 
 **Challenges:**
+
 - Evolving structure
 - Complex outflow interactions
 - Rapid changes
@@ -749,17 +759,21 @@ Storms orbit each other, merge.
 **Polarimetric variables:**
 
 **ZDR (differential reflectivity):**
+
 - Shape information
 - Large hail (ZDR < 0 dB, tumbling)
 
 **KDP (specific differential phase):**
+
 - Rain rate, hail discrimination
 
 **ρHV (correlation coefficient):**
+
 - Mixed hydrometeors
 - Debris (ρHV < 0.90)
 
 **Improved:**
+
 - Hail detection
 - Heavy rain estimation
 - Tornado warning (TDS)

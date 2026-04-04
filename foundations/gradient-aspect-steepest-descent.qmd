@@ -94,6 +94,7 @@ The **gradient** combines both partial derivatives into a vector:
 $$\nabla z = \left(\frac{\partial z}{\partial x}, \frac{\partial z}{\partial y}\right)$$
 
 **Properties:**
+
 - **Direction:** Points in the direction of steepest **ascent**
 - **Magnitude:** Rate of ascent in that direction (steepest slope)
 
@@ -233,6 +234,7 @@ Calculate slope and aspect at the center cell $(i=1, j=1)$ using central differe
 ### Solution
 
 **Cell values:**
+
 - $z_{0,0} = 100$, $z_{0,1} = 105$, $z_{0,2} = 110$
 - $z_{1,0} = 102$, $z_{1,1} = 107$, $z_{1,2} = 112$
 - $z_{2,0} = 105$, $z_{2,1} = 110$, $z_{2,2} = 115$
@@ -498,6 +500,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Plane:** Uniform slope and aspect (constant gradient everywhere)
 - **Cone:** Slope increases toward the peak; aspect radiates outward
 - **Ridge:** High slope along the ridge flanks; aspect points away from the ridgeline
@@ -519,6 +522,7 @@ window.addEventListener('resize', () => chart.resize());
 **Percent:** $0.1 \times 100 = 10\%$
 
 **Conversion:**
+
 - Gentle: <5° or <9%
 - Moderate: 5–15° or 9–27%
 - Steep: 15–30° or 27–58%
@@ -550,6 +554,7 @@ If $\nabla z = (0.5, 0.25)$ (pointing ENE uphill), then flow direction is $(-0.5
 Cells on the edge of a DEM have no neighbors beyond the boundary. Central differences require neighbors on both sides.
 
 **Solutions:**
+
 - Mark edge cells as "no data"
 - Use **forward/backward differences** at edges (less accurate)
 - Extend the DEM artificially (mirror, clamp values)
@@ -559,6 +564,7 @@ Cells on the edge of a DEM have no neighbors beyond the boundary. Central differ
 Real DEMs contain measurement errors. Small errors can produce large swings in slope when differencing nearby cells.
 
 **Solutions:**
+
 - **Smooth** the DEM first (e.g., Gaussian filter)
 - Use weighted finite differences (Horn's method)
 - Increase cell size (aggregate to coarser resolution)
@@ -588,6 +594,7 @@ The gradient $\nabla z$ assigns a **vector** to every point in the plane. This i
 - **Length:** Proportional to slope magnitude
 
 **Properties:**
+
 - Gradient vectors are **perpendicular to contour lines** (level curves of constant elevation)
 - Water flows along **streamlines** — curves tangent to the negative gradient
 

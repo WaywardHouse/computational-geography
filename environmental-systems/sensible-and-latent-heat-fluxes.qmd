@@ -92,10 +92,12 @@ Where (all in W/m²):
 - $S$ = **Storage** (warms/cools biomass, water bodies)
 
 **Sign convention:**
+
 - Positive: energy flows away from surface (surface loses energy)
 - Negative: energy flows toward surface (surface gains energy)
 
 **Typical daytime values:**
+
 - $R_n$ = +600 W/m² (surface gains energy)
 - $H$ = +100 W/m² (heats air)
 - $LE$ = +400 W/m² (evaporates water)
@@ -244,11 +246,13 @@ The **Bowen ratio** ($\beta$) is the ratio of sensible to latent heat:
 $$\beta = \frac{H}{LE}$$
 
 **Physical interpretation:**
+
 - $\beta > 1$: More energy heats air than evaporates water (dry conditions)
 - $\beta < 1$: More energy evaporates water than heats air (moist conditions)
 - $\beta \approx 0$: Nearly all energy goes to evaporation (wet surface, lake)
 
 **Typical values:**
+
 - Tropical rainforest: $\beta \approx 0.2$ (most energy → evaporation)
 - Irrigated cropland: $\beta \approx 0.4$
 - Temperate grassland: $\beta \approx 0.8$
@@ -567,6 +571,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Switch to desert:** Surface resistance skyrockets → LE drops → β > 1 → most energy heats air
 - **Switch to open water:** Surface resistance = 0 → LE dominates → β < 1 → evaporative cooling
 - **Increase humidity:** Vapor pressure deficit shrinks → less evaporation → higher β
@@ -686,10 +691,12 @@ Where:
 - $\gamma$ = psychrometric constant (~66 Pa/K)
 
 **This combines:**
+
 - Radiative term: $\Delta (R_n - G)$
 - Aerodynamic term: $\rho_a c_p (e_s - e_a) / r_a$
 
 **Advantages:**
+
 - Physically based (energy balance + vapor transport)
 - Widely validated for crops, forests, grasslands
 - Basis for FAO-56 reference evapotranspiration

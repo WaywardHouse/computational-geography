@@ -133,20 +133,24 @@ That kind of quick check is valuable because it is fast, and because it prevents
 <p class="cg-ill__lede">Before doing detailed mathematics, ask what the quantity measures, what scale it lives on, and whether a rough estimate puts it in the right ballpark.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
-<h4>1. Attach units</h4>
+<div class="cg-ill__label">Step 1</div>
+<h4>Attach units</h4>
 <p><strong>`20`</strong> means almost nothing alone.</p>
 <p><strong>`20 m`</strong>, <strong>`20 km`</strong>, and <strong>`20 °C`</strong> are completely different kinds of statement.</p>
 </div>
 <div class="cg-ill__card">
-<h4>2. Ask the scale</h4>
+<div class="cg-ill__label">Step 2</div>
+<h4>Ask the scale</h4>
 <p><strong>`5 mm`</strong> can be tiny rainfall, a major ground deformation signal, or irrelevant map noise depending on the context.</p>
 </div>
 <div class="cg-ill__card">
-<h4>3. Estimate quickly</h4>
+<div class="cg-ill__label">Step 3</div>
+<h4>Estimate quickly</h4>
 <p>Walking speed is roughly <strong>`5 km/h`</strong>, so a <strong>`2 km`</strong> trip should feel like about <strong>`24 minutes`</strong>, not <strong>`3 minutes`</strong>.</p>
 </div>
 <div class="cg-ill__card">
-<h4>4. Decide whether to trust the result</h4>
+<div class="cg-ill__label">Step 4</div>
+<h4>Decide whether to trust the result</h4>
 <p>If the order of magnitude is wrong, stop there. Better modelling begins by catching nonsense early.</p>
 </div>
 </div>

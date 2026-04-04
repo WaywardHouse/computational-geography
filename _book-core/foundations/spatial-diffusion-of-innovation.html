@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="dcterms.date" content="2026-02-26">
-<meta name="description" content="A new technology emerges in one city and spreads to others. A disease outbreak starts locally and radiates outward. Both follow spatial diffusion processes — they spread through contact, and contact depends on proximity. This model models diffusion as a discrete-time process on a spatial network.">
+<meta name="description" content="A new technology emerges in one city and spreads to others. A disease outbreak starts locally and radiates outward. Both follow spatial diffusion processes — they spread through contact, and contact depends on proximity. This chapter models diffusion as a discrete-time process on a spatial network.">
 
 <title>Spatial Diffusion of Innovation – Computational Geography</title>
 <style>
@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -176,6 +179,46 @@ Among those aware, adoption depends on: - <strong>Benefits</strong> (economic ad
 <h3 id="network-structure" class="anchored">Network Structure</h3>
 <p>Represent locations as <strong>nodes</strong> in a network: - <strong>Edges</strong> connect locations that can transmit the innovation - Edge <strong>weights</strong> represent transmission probability (function of distance, trade volume, etc.)</p>
 <p><strong>Adjacency matrix</strong> <span class="math inline">A</span>: - <span class="math inline">A_{ij} = 1</span> if locations <span class="math inline">i</span> and <span class="math inline">j</span> are connected (neighbors) - <span class="math inline">A_{ij} = 0</span> otherwise - For weighted networks: <span class="math inline">A_{ij} = w_{ij}</span> (transmission strength)</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Diffusion Pattern
+</div>
+<h3 class="cg-ill__title anchored">
+Spread Happens Across Space And Through Time At Once
+</h3>
+<p class="cg-ill__lede">
+The key picture is a network carrying the innovation outward while each location climbs its own local S-curve after the idea arrives.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 300" role="img" aria-label="Network diffusion diagram showing one city seeding adoption that spreads to connected nearby cities.">
+<rect x="0" y="0" width="560" height="300" rx="22" fill="#eef6ff"></rect> <line x1="126" y1="84" x2="258" y2="128" stroke="#94a3b8" stroke-width="4"></line> <line x1="258" y1="128" x2="418" y2="84" stroke="#94a3b8" stroke-width="4"></line> <line x1="258" y1="128" x2="208" y2="226" stroke="#94a3b8" stroke-width="4"></line> <line x1="258" y1="128" x2="372" y2="216" stroke="#94a3b8" stroke-width="4"></line> <circle cx="126" cy="84" r="34" fill="#bbf7d0" stroke="#16a34a" stroke-width="4"></circle> <circle cx="258" cy="128" r="42" fill="#86efac" stroke="#16a34a" stroke-width="4"></circle> <circle cx="418" cy="84" r="30" fill="#dbeafe" stroke="#60a5fa" stroke-width="4"></circle> <circle cx="208" cy="226" r="28" fill="#dbeafe" stroke="#60a5fa" stroke-width="4"></circle> <circle cx="372" cy="216" r="28" fill="#dbeafe" stroke="#60a5fa" stroke-width="4"></circle> <text x="237" y="133" font-size="18" fill="#166534" font-weight="700">seed</text> <text x="92" y="89" font-size="14" fill="#166534">early</text> <text x="395" y="89" font-size="14" fill="#1d4ed8">later</text> <text x="188" y="231" font-size="14" fill="#1d4ed8">later</text> <text x="352" y="221" font-size="14" fill="#1d4ed8">later</text> <path d="M226 106 C196 98, 164 92, 140 88" fill="none" stroke="#f59e0b" stroke-width="4" marker-end="url(#diff-arrow)"></path> <path d="M296 118 C336 106, 372 96, 394 90" fill="none" stroke="#f59e0b" stroke-width="4" marker-end="url(#diff-arrow)"></path> <path d="M244 162 C236 182, 226 198, 218 208" fill="none" stroke="#f59e0b" stroke-width="4" marker-end="url(#diff-arrow)"></path> <path d="M286 156 C310 176, 332 192, 352 204" fill="none" stroke="#f59e0b" stroke-width="4" marker-end="url(#diff-arrow)"></path> <text x="132" y="270" font-size="16" fill="#475569">network links decide where diffusion can travel</text> <defs> <marker id="diff-arrow" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"> <path d="M0,0 L8,4 L0,8 z" fill="#f59e0b"></path> </marker> </defs>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+Local adoption curve
+</h4>
+<p>
+<strong>Before arrival:</strong> almost no adopters.
+</p>
+<p>
+<strong>After arrival:</strong> adoption accelerates as people copy nearby adopters.
+</p>
+<p>
+<strong>Near saturation:</strong> growth slows because fewer non-adopters remain.
+</p>
+<p>
+The full geography is therefore a combination of <strong>where the idea can travel</strong> and <strong>how quickly each place fills in once reached</strong>.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Spatial diffusion combines two patterns: movement through a contact network and S-shaped uptake within each place after exposure begins.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="simple-contagion-model-sis-style" class="anchored">Simple Contagion Model (SIS-style)</h3>
@@ -257,7 +300,12 @@ The innovation spreads between locations via the network (contagion), and within
 <p>External diffusion (only neighbor is B with 0/500):</p>
 <p><span class="math display">\Delta I_{\text{ext}, C} = 0.2 \times 800 \times \left(1 \times \frac{0}{500}\right) = 0</span></p>
 <p><span class="math display">I_C(1) = 0</span></p>
-<p><strong>Summary after 1 year:</strong> - City A: 109 adopters - City B: 10 adopters (innovation has <strong>jumped</strong> to B) - City C: 0 adopters (still waiting)</p>
+<p><strong>Summary after 1 year:</strong></p>
+<ul>
+<li>City A: 109 adopters</li>
+<li>City B: 10 adopters (innovation has <strong>jumped</strong> to B)</li>
+<li>City C: 0 adopters (still waiting)</li>
+</ul>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive spatial diffusion simulation.</p>
@@ -266,10 +314,10 @@ The innovation spreads between locations via the network (contagion), and within
 <label>
 Network type:
 <select id="network-select">
-  <option value="grid">Grid (nearest neighbors)</option>
-  <option value="hub">Hub-and-spoke</option>
-  <option value="random">Random network</option>
-  <option value="distance">Distance-weighted</option>
+<option value="grid">Grid (nearest neighbors)</option>
+<option value="hub">Hub-and-spoke</option>
+<option value="random">Random network</option>
+<option value="distance">Distance-weighted</option>
 </select>
 </label>
 <label>
@@ -326,27 +374,27 @@ const adj = Array(n).fill(0).map(() => Array(n).fill(0));
 if (type === 'grid') {
 // 5x5 grid
 for (let i = 0; i < 5; i++) {
-  for (let j = 0; j < 5; j++) {
-    const idx = i * 5 + j;
-    nodeList.push({
-      name: `${idx}`,
-      x: j * 100 + 50,
-      y: i * 100 + 50,
-      pop: 100,
-      adopters: (i === 2 && j === 2) ? 50 : 0,
-      category: 0
-    });
+for (let j = 0; j < 5; j++) {
+const idx = i * 5 + j;
+nodeList.push({
+name: `${idx}`,
+x: j * 100 + 50,
+y: i * 100 + 50,
+pop: 100,
+adopters: (i === 2 && j === 2) ? 50 : 0,
+category: 0
+});
           
-    // Connect to neighbors
-    if (j < 4) { // Right
-      adj[idx][idx + 1] = 1;
-      adj[idx + 1][idx] = 1;
-    }
-    if (i < 4) { // Down
-      adj[idx][idx + 5] = 1;
-      adj[idx + 5][idx] = 1;
-    }
-  }
+// Connect to neighbors
+if (j < 4) { // Right
+adj[idx][idx + 1] = 1;
+adj[idx + 1][idx] = 1;
+}
+if (i < 4) { // Down
+adj[idx][idx + 5] = 1;
+adj[idx + 5][idx] = 1;
+}
+}
 }
       
 } else if (type === 'hub') {
@@ -354,70 +402,70 @@ for (let i = 0; i < 5; i++) {
 nodeList.push({name: '0', x: 250, y: 250, pop: 500, adopters: 250, category: 1});
       
 for (let i = 1; i < n; i++) {
-  const angle = (i - 1) * 2 * Math.PI / (n - 1);
-  nodeList.push({
-    name: `${i}`,
-    x: 250 + 180 * Math.cos(angle),
-    y: 250 + 180 * Math.sin(angle),
-    pop: 100,
-    adopters: 0,
-    category: 0
-  });
-  adj[0][i] = 1;
-  adj[i][0] = 1;
+const angle = (i - 1) * 2 * Math.PI / (n - 1);
+nodeList.push({
+name: `${i}`,
+x: 250 + 180 * Math.cos(angle),
+y: 250 + 180 * Math.sin(angle),
+pop: 100,
+adopters: 0,
+category: 0
+});
+adj[0][i] = 1;
+adj[i][0] = 1;
 }
       
 } else if (type === 'random') {
 for (let i = 0; i < n; i++) {
-  nodeList.push({
-    name: `${i}`,
-    x: Math.random() * 450 + 25,
-    y: Math.random() * 450 + 25,
-    pop: Math.floor(Math.random() * 200) + 50,
-    adopters: i === 0 ? 50 : 0,
-    category: 0
-  });
+nodeList.push({
+name: `${i}`,
+x: Math.random() * 450 + 25,
+y: Math.random() * 450 + 25,
+pop: Math.floor(Math.random() * 200) + 50,
+adopters: i === 0 ? 50 : 0,
+category: 0
+});
 }
 // Random edges
 for (let i = 0; i < n; i++) {
-  for (let j = i + 1; j < n; j++) {
-    if (Math.random() < 0.2) {
-      adj[i][j] = 1;
-      adj[j][i] = 1;
-    }
-  }
+for (let j = i + 1; j < n; j++) {
+if (Math.random() < 0.2) {
+adj[i][j] = 1;
+adj[j][i] = 1;
+}
+}
 }
       
 } else if (type === 'distance') {
 for (let i = 0; i < n; i++) {
-  nodeList.push({
-    name: `${i}`,
-    x: Math.random() * 450 + 25,
-    y: Math.random() * 450 + 25,
-    pop: Math.floor(Math.random() * 200) + 50,
-    adopters: i === 0 ? 50 : 0,
-    category: 0
-  });
+nodeList.push({
+name: `${i}`,
+x: Math.random() * 450 + 25,
+y: Math.random() * 450 + 25,
+pop: Math.floor(Math.random() * 200) + 50,
+adopters: i === 0 ? 50 : 0,
+category: 0
+});
 }
 // Distance-weighted edges
 for (let i = 0; i < n; i++) {
-  for (let j = i + 1; j < n; j++) {
-    const d = Math.sqrt((nodeList[i].x - nodeList[j].x)**2 + 
-                        (nodeList[i].y - nodeList[j].y)**2);
-    if (d < 150) {
-      adj[i][j] = Math.max(0.1, 1 - d / 150);
-      adj[j][i] = adj[i][j];
-    }
-  }
+for (let j = i + 1; j < n; j++) {
+const d = Math.sqrt((nodeList[i].x - nodeList[j].x)**2 + 
+(nodeList[i].y - nodeList[j].y)**2);
+if (d < 150) {
+adj[i][j] = Math.max(0.1, 1 - d / 150);
+adj[j][i] = adj[i][j];
+}
+}
 }
 }
     
 // Build edge list for visualization
 for (let i = 0; i < n; i++) {
 for (let j = i + 1; j < n; j++) {
-  if (adj[i][j] > 0) {
-    edgeList.push({source: `${i}`, target: `${j}`});
-  }
+if (adj[i][j] > 0) {
+edgeList.push({source: `${i}`, target: `${j}`});
+}
 }
 }
     
@@ -439,9 +487,9 @@ const deltaInternal = r * I * (1 - I / N);
 // External diffusion
 let externalPressure = 0;
 for (let j = 0; j < n; j++) {
-  if (adjacency[i][j] > 0) {
-    externalPressure += adjacency[i][j] * (nodes[j].adopters / nodes[j].pop);
-  }
+if (adjacency[i][j] > 0) {
+externalPressure += adjacency[i][j] * (nodes[j].adopters / nodes[j].pop);
+}
 }
 const deltaExternal = beta * S * externalPressure;
       
@@ -467,46 +515,46 @@ document.getElementById('diffusion-stats').innerHTML =
     
 const option = {
 title: {
-  text: `Spatial Diffusion (${networkType} network)`,
-  left: 'center'
+text: `Spatial Diffusion (${networkType} network)`,
+left: 'center'
 },
 tooltip: {
-  formatter: params => {
-    if (params.dataType === 'node') {
-      const node = nodes[parseInt(params.name)];
-      return `Node ${params.name}<br/>Adopters: ${Math.round(node.adopters)} / ${node.pop}<br/>Rate: ${(node.adopters/node.pop*100).toFixed(1)}%`;
-    }
-    return '';
-  }
+formatter: params => {
+if (params.dataType === 'node') {
+const node = nodes[parseInt(params.name)];
+return `Node ${params.name}<br/>Adopters: ${Math.round(node.adopters)} / ${node.pop}<br/>Rate: ${(node.adopters/node.pop*100).toFixed(1)}%`;
+}
+return '';
+}
 },
 series: [{
-  type: 'graph',
-  layout: 'none',
-  data: nodes.map((n, i) => ({
-    name: n.name,
-    x: n.x,
-    y: n.y,
-    symbolSize: Math.sqrt(n.pop) * 2,
-    value: n.adopters / n.pop,
-    itemStyle: {
-      color: `rgb(${255 * (1 - n.adopters/n.pop)}, ${100 + 155 * (n.adopters/n.pop)}, ${240 * (1 - n.adopters/n.pop)})`
-    }
-  })),
-  links: edges,
-  lineStyle: {
-    color: '#ccc',
-    width: 1,
-    curveness: 0
-  },
-  label: {
-    show: false
-  },
-  emphasis: {
-    focus: 'adjacency',
-    lineStyle: {
-      width: 3
-    }
-  }
+type: 'graph',
+layout: 'none',
+data: nodes.map((n, i) => ({
+name: n.name,
+x: n.x,
+y: n.y,
+symbolSize: Math.sqrt(n.pop) * 2,
+value: n.adopters / n.pop,
+itemStyle: {
+color: `rgb(${255 * (1 - n.adopters/n.pop)}, ${100 + 155 * (n.adopters/n.pop)}, ${240 * (1 - n.adopters/n.pop)})`
+}
+})),
+links: edges,
+lineStyle: {
+color: '#ccc',
+width: 1,
+curveness: 0
+},
+label: {
+show: false
+},
+emphasis: {
+focus: 'adjacency',
+lineStyle: {
+width: 3
+}
+}
 }]
 };
     
@@ -567,7 +615,15 @@ reset();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Grid network:</strong> Diffusion spreads outward in waves from the center - <strong>Hub network:</strong> Central city infects all spokes rapidly, then they spread internally - <strong>Random network:</strong> Irregular diffusion pattern, depends on network structure - <strong>Distance-weighted:</strong> Closer neighbors exert stronger influence - Increase β: Faster spatial spread - Increase r: Faster internal adoption once innovation arrives</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Grid network:</strong> Diffusion spreads outward in waves from the center</li>
+<li><strong>Hub network:</strong> Central city infects all spokes rapidly, then they spread internally</li>
+<li><strong>Random network:</strong> Irregular diffusion pattern, depends on network structure</li>
+<li><strong>Distance-weighted:</strong> Closer neighbors exert stronger influence</li>
+<li>Increase β: Faster spatial spread</li>
+<li>Increase r: Faster internal adoption once innovation arrives</li>
+</ul>
 <p><strong>Key insight:</strong> Network structure determines diffusion speed and pattern. A well-connected hub accelerates spread; isolated nodes lag behind.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -576,11 +632,30 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Late adopters</strong> (small towns, peripheral nodes): - Innovation arrives late - S-curve starts later - Low adoption by time T</p>
 <p><strong>Result:</strong> At any snapshot in time, locations are at <strong>different stages</strong> of the adoption curve.</p>
 <h3 id="barriers-to-diffusion" class="anchored">Barriers to Diffusion</h3>
-<p><strong>Physical barriers:</strong> - Mountains, oceans → low adjacency weights - Poor roads → slow transmission</p>
-<p><strong>Social barriers:</strong> - Language differences - Cultural resistance - Incompatible infrastructure (e.g., technology standards)</p>
-<p><strong>Economic barriers:</strong> - High cost → only wealthy locations adopt - Network externalities → need critical mass</p>
+<p><strong>Physical barriers:</strong></p>
+<ul>
+<li>Mountains, oceans → low adjacency weights</li>
+<li>Poor roads → slow transmission</li>
+</ul>
+<p><strong>Social barriers:</strong></p>
+<ul>
+<li>Language differences</li>
+<li>Cultural resistance</li>
+<li>Incompatible infrastructure (e.g., technology standards)</li>
+</ul>
+<p><strong>Economic barriers:</strong></p>
+<ul>
+<li>High cost → only wealthy locations adopt</li>
+<li>Network externalities → need critical mass</li>
+</ul>
 <h3 id="policy-implications" class="anchored">Policy Implications</h3>
-<p><strong>To accelerate diffusion:</strong> 1. <strong>Seed innovation in hubs</strong> (large, central cities) 2. <strong>Subsidize early adoption</strong> (reduce cost barrier) 3. <strong>Improve connectivity</strong> (roads, communication networks) 4. <strong>Demonstrate benefits</strong> (pilot programs in visible locations)</p>
+<p><strong>To accelerate diffusion:</strong></p>
+<ol type="1">
+<li><strong>Seed innovation in hubs</strong> (large, central cities)</li>
+<li><strong>Subsidize early adoption</strong> (reduce cost barrier)</li>
+<li><strong>Improve connectivity</strong> (roads, communication networks)</li>
+<li><strong>Demonstrate benefits</strong> (pilot programs in visible locations)</li>
+</ol>
 <hr>
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
 <h3 id="assuming-homogeneous-populations" class="anchored">Assuming Homogeneous Populations</h3>
@@ -645,24 +720,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

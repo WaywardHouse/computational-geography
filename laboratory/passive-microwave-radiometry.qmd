@@ -196,6 +196,7 @@ where $\tau_a$ is the atmospheric optical depth (typically $< 0.05$ at L-band). 
 **Setting:** SMAP (Soil Moisture Active Passive) L-band (1.41 GHz) radiometer observes a wheat field in the Canadian Prairies in late spring. We want to retrieve soil moisture from the brightness temperature measurement.
 
 **Given:**
+
 - Measured $T_{BH} = 255$ K, $T_{BV} = 275$ K at $\theta_i = 40°$
 - Soil physical temperature $T_s = 285$ K (from ancillary thermal data)
 - Soil texture: sandy loam, $\varepsilon_{\text{dry}} = 4.0$, $b = 160$

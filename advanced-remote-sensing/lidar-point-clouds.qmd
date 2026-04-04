@@ -58,6 +58,7 @@ What's the forest canopy height and how does ground elevation vary beneath it?
 **LiDAR** (Light Detection and Ranging) measures distance by timing laser pulse returns.
 
 **How it works:**
+
 1. Emit laser pulse (typically 905 or 1064 nm)
 2. Pulse reflects off surface
 3. Measure round-trip time
@@ -65,18 +66,21 @@ What's the forest canopy height and how does ground elevation vary beneath it?
 5. Combine with position (GPS) and orientation (IMU) to get 3D coordinates
 
 **Key advantages:**
+
 - Active sensor (day/night operation)
 - Penetrates vegetation canopy (multiple returns)
 - Centimeter-level vertical accuracy
 - Dense sampling (1-100 points/m²)
 
 **Platforms:**
+
 - Airborne (aircraft, helicopter): Large area mapping
 - UAV/drone: Flexible, lower cost
 - Mobile (vehicle-mounted): Corridor mapping
 - Terrestrial (tripod): Ultra-high density, limited extent
 
 **Applications:**
+
 - High-resolution DEMs (bare earth topography)
 - Forest structure (canopy height, biomass)
 - Urban 3D models (buildings, infrastructure)
@@ -113,6 +117,7 @@ $$t = \frac{2d}{c} = \frac{200}{3 \times 10^8} = 6.67 \times 10^{-7} \text{ s} =
 **Laser pulse encounters multiple surfaces:**
 
 **Example - forest:**
+
 1. Top of canopy (first return)
 2. Mid-canopy branches (intermediate returns)
 3. Ground (last return)
@@ -126,6 +131,7 @@ Record up to 4-7 returns per pulse.
 Record entire return signal, extract arbitrary number of returns.
 
 **Use:**
+
 - First return → canopy height map (DSM - Digital Surface Model)
 - Last return → ground elevation (DTM - Digital Terrain Model)
 - All returns → vegetation structure
@@ -133,6 +139,7 @@ Record entire return signal, extract arbitrary number of returns.
 ### Point Cloud Structure
 
 **Each point has:**
+
 - X, Y, Z coordinates (3D position)
 - Intensity (return signal strength)
 - Return number (1st, 2nd, ..., last)
@@ -144,6 +151,7 @@ Record entire return signal, extract arbitrary number of returns.
 1 km² at 10 points/m² = 10 million points
 
 **File formats:**
+
 - LAS/LAZ (binary, compressed)
 - ASCII (text, large files)
 
@@ -160,9 +168,51 @@ Where:
 **Result:** Height above ground for each location.
 
 **Applications:**
+
 - Forest inventory (tree height, volume, biomass)
 - Habitat mapping
 - Fire fuel load estimation
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">LiDAR Workflow</div>
+<h3 class="cg-ill__title">LiDAR Starts As Returns In 3D Space, Then Becomes Surfaces</h3>
+<p class="cg-ill__lede">The important transition is from raw returns to interpreted structure: first returns help define the upper surface, last and ground-classified returns define terrain, and their difference becomes canopy height.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewBox="0 0 560 320" role="img" aria-label="LiDAR concept diagram showing laser pulses producing canopy and ground returns, then generating DSM, DTM, and canopy height model.">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
+  <rect x="240" y="26" width="40" height="16" rx="8" fill="#334155"/>
+  <polygon points="280,34 306,22 306,46" fill="#64748b"/>
+  <text x="210" y="18" font-size="16" fill="#334155">sensor path</text>
+  <line x1="248" y1="42" x2="184" y2="126" stroke="#ef4444" stroke-width="4" stroke-dasharray="6 5"/>
+  <line x1="248" y1="42" x2="246" y2="208" stroke="#0f766e" stroke-width="4" stroke-dasharray="6 5"/>
+  <line x1="248" y1="42" x2="322" y2="146" stroke="#ef4444" stroke-width="4" stroke-dasharray="6 5"/>
+  <rect x="78" y="198" width="390" height="66" fill="#b08968"/>
+  <circle cx="182" cy="126" r="8" fill="#ef4444"/>
+  <circle cx="322" cy="146" r="8" fill="#ef4444"/>
+  <circle cx="246" cy="208" r="8" fill="#0f766e"/>
+  <path d="M122 198 C138 152, 154 120, 178 112 C202 104, 222 126, 238 166 C250 136, 266 108, 286 102 C306 96, 328 122, 350 154 C362 140, 376 132, 394 136 C414 140, 430 164, 442 198" fill="#6b8e23" stroke="#46601a" stroke-width="4"/>
+  <text x="94" y="286" font-size="16" fill="#475569">first returns mark canopy or rooftops</text>
+  <text x="94" y="306" font-size="16" fill="#475569">ground returns define terrain beneath</text>
+
+  <rect x="384" y="34" width="134" height="116" rx="16" fill="#fff8ef" stroke="#f1ddbc"/>
+  <text x="418" y="60" font-size="18" fill="#92400e">products</text>
+  <text x="406" y="88" font-size="15" fill="#475569">DSM = upper surface</text>
+  <text x="406" y="110" font-size="15" fill="#475569">DTM = bare earth</text>
+  <text x="406" y="132" font-size="15" fill="#475569">CHM = DSM - DTM</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4>Why point clouds are powerful</h4>
+<p><strong>One pulse can produce several returns.</strong> That is how LiDAR captures both vegetation structure and the ground below.</p>
+<p><strong>Classification matters.</strong> A point cloud is not yet a terrain model until ground points are separated from canopy, buildings, and noise.</p>
+<p><strong>Derived surfaces answer different questions.</strong> DSM is useful for what is on top, DTM for bare-earth shape, and CHM for structure above ground.</p>
+</div>
+</div>
+</div>
+<figcaption>LiDAR’s value comes from turning multiple return types into different spatial products. The same raw point cloud can support terrain mapping, canopy analysis, and 3D structure extraction.</figcaption>
+</figure>
 
 ---
 
@@ -173,6 +223,7 @@ Where:
 **Sensor-centric coordinates** → **ground coordinates**
 
 **Range and angles:**
+
 - $r$ = measured range
 - $\theta$ = scan angle
 - $\phi$ = roll angle
@@ -198,6 +249,7 @@ GPS error (~5 cm vertical), IMU error (~0.01°), range error (~1 cm) combine.
 **Progressive morphological filter:**
 
 **Algorithm:**
+
 1. Create initial grid at coarse resolution
 2. Find minimum elevation in each cell (likely ground)
 3. Fit surface to minima
@@ -234,6 +286,7 @@ For all points in area (e.g., 20m plot):
 - Extract percentiles (25th, 50th, 75th, 95th)
 
 **Example:**
+
 - 25th percentile = 5 m (understory)
 - 50th percentile = 12 m (mid-canopy)
 - 95th percentile = 25 m (canopy top)
@@ -333,6 +386,7 @@ Total points: 10
 $$\text{Cover} = \frac{5}{10} \times 100\% = 50\%$$
 
 **Summary:**
+
 - Ground elevation: ~338.8 m
 - Canopy height range: 4-7.7 m
 - Mean canopy height: 5.7 m
@@ -616,6 +670,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Green points show canopy/building tops (first returns)
 - Light green shows intermediate vegetation returns
 - Brown points show ground surface (last returns)
@@ -626,6 +681,7 @@ window.addEventListener('resize', () => chart.resize());
 - Multiple returns enable seeing through vegetation to ground
 
 **Key insights:**
+
 - LiDAR penetrates canopy to measure ground beneath forest
 - Multiple returns reveal 3D vegetation structure
 - Dense point clouds enable centimeter-scale terrain mapping
@@ -643,6 +699,7 @@ window.addEventListener('resize', () => chart.resize());
 Traditional field measurement: Labor-intensive, sample-based.
 
 **LiDAR approach:**
+
 - 100% coverage
 - Tree-level metrics automatically
 - Consistent, objective
@@ -666,16 +723,19 @@ Timber volume estimation without expensive field crews.
 **High-resolution DEMs** reveal subtle features:
 
 **Landslides:**
+
 - Scarps (elevation discontinuities)
 - Hummocky deposits
 - Lateral margins
 
 **Active faults:**
+
 - Offset streams
 - Scarps
 - Deformation patterns
 
 **Glacial features:**
+
 - Moraines
 - Drumlins
 - Meltwater channels
@@ -696,11 +756,13 @@ Traditional surveys miss features under dense vegetation.
 **LiDAR penetrates canopy:**
 
 **Example - Angkor, Cambodia:**
+
 - Massive urban complex revealed
 - Irrigation networks
 - Previously unknown temples
 
 **Example - Maya cities, Central America:**
+
 - Pyramids, platforms, causeways
 - Agricultural terraces
 - Entire city layouts
@@ -737,11 +799,13 @@ Levee heights measured to ±5cm enables failure risk assessment.
 No returns from water surface (appears as data gaps).
 
 **Impact:**
+
 - Rivers/lakes unmapped
 - Intertidal zones missing
 - Flooded areas invisible
 
 **Solution:**
+
 - Bathymetric LiDAR (green laser, 532 nm penetrates water)
 - Combine with other data sources
 - Mark as "no data" rather than incorrect elevation
@@ -759,6 +823,7 @@ No returns from water surface (appears as data gaps).
 **Impact:** DTM interpolation errors.
 
 **Solution:**
+
 - Higher pulse density
 - Multiple flight lines (different angles)
 - Acknowledge limitation in data gaps
@@ -773,6 +838,7 @@ No returns from water surface (appears as data gaps).
 **Typical maximum scan angle:** ±15-20° from nadir
 
 **Solution:**
+
 - Flight planning (adequate overlap)
 - Angle-dependent filtering
 
@@ -785,10 +851,12 @@ No returns from water surface (appears as data gaps).
 - Cars, boulders (classified as ground incorrectly)
 
 **Impact:**
+
 - DTM artifacts
 - Bridges included in terrain (should be excluded)
 
 **Solution:**
+
 - Manual editing for critical areas
 - Multiple classification algorithms
 - Validation against field data
@@ -804,6 +872,7 @@ No returns from water surface (appears as data gaps).
 **Advantages:**
 
 **More information:**
+
 - Weak returns detectable (undergrowth)
 - Return width (target roughness)
 - Multiple returns per object
@@ -819,6 +888,7 @@ Gaussian decomposition extracts ground return from composite signal.
 **Challenge:** Data volume (100× larger than discrete).
 
 **Research applications:**
+
 - Detailed forest structure
 - Biomass estimation
 - Snow depth (dual-wavelength)

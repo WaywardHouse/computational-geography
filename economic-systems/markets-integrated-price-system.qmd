@@ -109,6 +109,35 @@ $$\approx \$14 + (\$8 - \$3.50) + \$2 \approx \$20.50/\text{bbl}$$
 
 This $20.50/bbl penalty is the price of geography and geology. Of that total, roughly $14 is geology (quality penalty), $4.50 is geography (transport differential), and $2 is infrastructure constraint (excess basis). Policy can address the infrastructure component and partially the transport component (by adding alternative export routes). It cannot address the quality penalty — that is determined by the physics of the deposit.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Price Surface</div>
+<h3 class="cg-ill__title">Benchmark Price Gets Carved Down By Three Successive Penalties</h3>
+<p class="cg-ill__lede">The integrated system becomes much easier to read when it is shown as a stepwise descent from the benchmark to the Alberta wellhead. Each deduction has a different cause, which is why some are policy-sensitive and some are not.</p>
+<div class="cg-ill__price-grid">
+<div class="cg-ill__price-stack">
+<div class="cg-ill__price-step cg-ill__price-step--top">WTI benchmark</div>
+<div class="cg-ill__price-drop">quality discount</div>
+<div class="cg-ill__price-step cg-ill__price-step--mid">heavy-oil local price</div>
+<div class="cg-ill__price-drop">transport cost</div>
+<div class="cg-ill__price-step cg-ill__price-step--mid">delivered hub netback</div>
+<div class="cg-ill__price-drop">basis / constraint penalty</div>
+<div class="cg-ill__price-step cg-ill__price-step--low">Alberta wellhead netback</div>
+</div>
+<div class="cg-ill__card">
+<h4>Reading the surface</h4>
+<ul>
+<li><strong>Quality:</strong> geology-driven and hard to change.</li>
+<li><strong>Transport:</strong> geography-driven and partly reducible with route access.</li>
+<li><strong>Basis:</strong> market-structure and capacity-driven, often the most policy-sensitive piece.</li>
+<li>The full price surface is therefore a stack of deductions, not one single discount.</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>Commodity pricing in space is a layered deduction system. Alberta sits below the benchmark because quality, transport, and constraint effects all pull the netback downward.</figcaption>
+</figure>
+
 ## Scenario Analysis: Alberta's Wellhead Netback 2025–2030
 
 The scenario analysis varies two dimensions:

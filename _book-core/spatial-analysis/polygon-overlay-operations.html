@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -148,6 +152,15 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That polygons represent areas, and that set ideas like overlap, union, and exclusion can be applied to space.</p>
+<p><strong>You will learn</strong><br>
+How polygon intersection, union, and difference are built from line intersections, point inclusion, and careful traversal of boundaries.</p>
+<p><strong>Why this matters</strong><br>
+Overlay is one of the most powerful operations in GIS because it lets us ask compound where-questions across multiple layers at once.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The big picture first: overlay is just set logic applied to polygons.</p>
 <p>After the 2013 Alberta floods, the provincial government faced a spatial question that was simple to state and complex to compute: which properties were inside the floodway (where reconstruction was prohibited), which were in the flood fringe (where reconstruction was permitted with conditions), and which in each case were already developed versus vacant? The answer required intersecting four polygon layers: the floodway boundary, the flood fringe boundary, municipal parcel boundaries, and existing land-use zoning. The result of that intersection — a new set of polygons carrying attributes inherited from all four input layers — was the map that determined whether individual landowners would be bought out, required to elevate, or left undisturbed.</p>
 <p>Polygon overlay is the operation that combines two polygon layers to produce a third whose geometry is the intersection, union, or difference of the input geometries, and whose attribute table carries columns from both inputs. It is one of the most powerful and most computationally demanding operations in vector GIS. The challenge is that real polygon datasets have vertices that are numerically close but not identical, edges that nearly coincide, and topological configurations that require careful handling to avoid slivers and gaps in the output. This model derives the line-intersection test that underlies all polygon overlay, implements the Weiler-Atherton polygon clipping algorithm, and discusses the numerical precision issues that make robust implementations difficult.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -169,9 +182,104 @@ window.Quarto = {
 <p><strong>Result:</strong> New polygon(s) representing the combined area.</p>
 <h3 id="the-clipping-problem" class="anchored">The Clipping Problem</h3>
 <p><strong>Special case:</strong> Clip polygon <span class="math inline">A</span> to window <span class="math inline">B</span> (intersection).</p>
-<p><strong>Examples:</strong> - Clip state boundaries to study area rectangle - Clip satellite image to county boundary - Clip parcels to watershed boundary</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Clip state boundaries to study area rectangle</li>
+<li>Clip satellite image to county boundary</li>
+<li>Clip parcels to watershed boundary</li>
+</ul>
 <p><strong>Challenge:</strong> Find vertices of resulting polygon.</p>
-<p><strong>Required pieces:</strong> 1. Vertices from <span class="math inline">A</span> inside <span class="math inline">B</span> 2. Vertices from <span class="math inline">B</span> inside <span class="math inline">A</span> 3. Edge-edge intersection points 4. Correct traversal order</p>
+<p><strong>Required pieces:</strong></p>
+<ol type="1">
+<li>Vertices from <span class="math inline">A</span> inside <span class="math inline">B</span></li>
+<li>Vertices from <span class="math inline">B</span> inside <span class="math inline">A</span></li>
+<li>Edge-edge intersection points</li>
+<li>Correct traversal order</li>
+</ol>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Boolean Overlay
+</div>
+<h3 class="cg-ill__title anchored">
+Set Logic, But On Real Space
+</h3>
+<p class="cg-ill__lede">
+Overlay operations differ because each one keeps a different part of the same two polygons.
+</p>
+<div class="cg-ill__grid cg-ill__grid--3">
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Intersection
+</div>
+<div class="cg-ill__overlay-set">
+<div class="cg-ill__overlay-a">
+
+</div>
+<div class="cg-ill__overlay-b">
+
+</div>
+<div class="cg-ill__overlay-result cg-ill__overlay-result--intersection">
+
+</div>
+<div class="cg-ill__overlay-labels">
+<span>A</span><span>B</span>
+</div>
+</div>
+<p>
+Keep only the shared overlap.
+</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Union
+</div>
+<div class="cg-ill__overlay-set">
+<div class="cg-ill__overlay-a">
+
+</div>
+<div class="cg-ill__overlay-b">
+
+</div>
+<div class="cg-ill__overlay-result cg-ill__overlay-result--union">
+
+</div>
+<div class="cg-ill__overlay-labels">
+<span>A</span><span>B</span>
+</div>
+</div>
+<p>
+Keep everything covered by either polygon.
+</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Difference
+</div>
+<div class="cg-ill__overlay-set">
+<div class="cg-ill__overlay-a">
+
+</div>
+<div class="cg-ill__overlay-b">
+
+</div>
+<div class="cg-ill__overlay-result cg-ill__overlay-result--difference">
+
+</div>
+<div class="cg-ill__overlay-labels">
+<span>A kept</span><span>B removed</span>
+</div>
+</div>
+<p>
+Keep A, but cut away the part covered by B.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Intersection, union, and difference are the same two polygons viewed through different set rules.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="line-segment-intersection" class="anchored">Line Segment Intersection</h3>
@@ -193,7 +301,7 @@ window.Quarto = {
 <p><span class="math display">s = \frac{(Q_1 - P_1) \times (Q_2 - Q_1)}{(P_2 - P_1) \times (Q_2 - Q_1)}</span></p>
 <p><span class="math display">t = \frac{(Q_1 - P_1) \times (P_2 - P_1)}{(P_2 - P_1) \times (Q_2 - Q_1)}</span></p>
 <p>Where <span class="math inline">\times</span> is 2D cross product: <span class="math inline">(x_1, y_1) \times (x_2, y_2) = x_1 y_2 - y_1 x_2</span></p>
-<p><strong>Intersection exists if:</strong> $0 s $ AND $0 t $</p>
+<p><strong>Intersection exists if:</strong> <span class="math inline">0 \leq s \leq 1</span> AND <span class="math inline">0 \leq t \leq 1</span></p>
 <p><strong>Intersection point:</strong></p>
 <p><span class="math display">I = P_1 + s(P_2 - P_1)</span></p>
 <h3 id="weiler-atherton-algorithm" class="anchored">Weiler-Atherton Algorithm</h3>
@@ -249,10 +357,10 @@ window.Quarto = {
 <label>
 Operation:
 <select id="overlay-op">
-  <option value="intersection" selected="">Intersection (A ∩ B)</option>
-  <option value="union">Union (A ∪ B)</option>
-  <option value="difference">Difference (A \ B)</option>
-  <option value="sym-difference">Symmetric Difference (A ⊕ B)</option>
+<option value="intersection" selected="">Intersection (A ∩ B)</option>
+<option value="union">Union (A ∪ B)</option>
+<option value="difference">Difference (A \ B)</option>
+<option value="sym-difference">Symmetric Difference (A ⊕ B)</option>
 </select>
 </label>
 <label>
@@ -341,13 +449,13 @@ const p1 = poly1[i];
 const p2 = poly1[(i + 1) % poly1.length];
       
 for (let j = 0; j < poly2.length; j++) {
-  const q1 = poly2[j];
-  const q2 = poly2[(j + 1) % poly2.length];
+const q1 = poly2[j];
+const q2 = poly2[(j + 1) % poly2.length];
         
-  const intersection = segmentIntersection(p1, p2, q1, q2);
-  if (intersection) {
-    intersections.push(intersection);
-  }
+const intersection = segmentIntersection(p1, p2, q1, q2);
+if (intersection) {
+intersections.push(intersection);
+}
 }
 }
     
@@ -362,11 +470,11 @@ const v1 = polygon[i];
 const v2 = polygon[(i + 1) % polygon.length];
       
 if ((v1.y <= point.y && point.y < v2.y) ||
-    (v2.y <= point.y && point.y < v1.y)) {
-  const x_intersect = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
-  if (x_intersect > point.x) {
-    count++;
-  }
+(v2.y <= point.y && point.y < v1.y)) {
+const x_intersect = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
+if (x_intersect > point.x) {
+count++;
+}
 }
 }
     
@@ -390,14 +498,14 @@ const result = [];
 // Add vertices of A that are inside B
 for (let p of polyA) {
 if (pointInPolygon(p, polyB)) {
-  result.push(p);
+result.push(p);
 }
 }
     
 // Add vertices of B that are inside A
 for (let p of polyB) {
 if (pointInPolygon(p, polyA)) {
-  result.push(p);
+result.push(p);
 }
 }
     
@@ -427,14 +535,14 @@ const result = [];
 // Add vertices of A that are outside B
 for (let p of polyA) {
 if (!pointInPolygon(p, polyB)) {
-  result.push(p);
+result.push(p);
 }
 }
     
 // Add vertices of B that are outside A
 for (let p of polyB) {
 if (!pointInPolygon(p, polyA)) {
-  result.push(p);
+result.push(p);
 }
 }
     
@@ -517,9 +625,9 @@ if (showIntersections) {
 const intersections = findIntersections(polyA, polyB);
 ctx.fillStyle = '#E74C3C';
 for (let p of intersections) {
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, 6, 0, 2 * Math.PI);
-  ctx.fill();
+ctx.beginPath();
+ctx.arc(p.x, p.y, 6, 0, 2 * Math.PI);
+ctx.fill();
 }
       
 document.getElementById('intersection-count').textContent = intersections.length;
@@ -553,7 +661,15 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Intersection:</strong> Purple area where polygons overlap (A AND B) - <strong>Union:</strong> Yellow area covered by either polygon (A OR B) - <strong>Difference:</strong> Red area in A but not in B (A NOT B) - <strong>Show intersections:</strong> Red dots where edges cross - <strong>Hide inputs:</strong> See only the result polygon - Notice: Area(A ∩ B) + Area(A &nbsp;B) + Area(B &nbsp;A) = Area(A ∪ B)</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Intersection:</strong> Purple area where polygons overlap (A AND B)</li>
+<li><strong>Union:</strong> Yellow area covered by either polygon (A OR B)</li>
+<li><strong>Difference:</strong> Red area in A but not in B (A NOT B)</li>
+<li><strong>Show intersections:</strong> Red dots where edges cross</li>
+<li><strong>Hide inputs:</strong> See only the result polygon</li>
+<li>Notice: Area(A ∩ B) + Area(A &nbsp;B) + Area(B &nbsp;A) = Area(A ∪ B)</li>
+</ul>
 <p><strong>Key insight:</strong> Overlay operations are set operations on continuous space—the foundation of “What areas meet multiple criteria?”</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -592,7 +708,12 @@ patches = count_components(continuous)</code></pre>
 <pre><code>Intersection point calculated as (5.0000000001, 3.0)
 Expected: (5.0, 3.0)</code></pre>
 <p><strong>Result:</strong> Duplicate vertices, tiny slivers, self-intersecting polygons</p>
-<p><strong>Solution:</strong> - Round coordinates to tolerance (e.g., 6 decimal places) - Snap vertices within threshold - Use robust predicates (exact arithmetic for orientation tests)</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Round coordinates to tolerance (e.g., 6 decimal places)</li>
+<li>Snap vertices within threshold</li>
+<li>Use robust predicates (exact arithmetic for orientation tests)</li>
+</ul>
 <h3 id="sliver-polygons" class="anchored">Sliver Polygons</h3>
 <p><strong>Very thin polygons</strong> from near-parallel edges:</p>
 <pre><code>Edge of A at y = 10.00001
@@ -612,7 +733,13 @@ Edge of B at y = 10.00000</code></pre>
 <p><strong>MultiPolygon:</strong> Set of disjoint polygons treated as single feature.</p>
 <p><strong>Overlay operations:</strong></p>
 <p><span class="math display">\text{MultiPoly}_1 \cap \text{MultiPoly}_2 = \bigcup_{i,j} (P_{1i} \cap P_{2j})</span></p>
-<p><strong>Algorithm:</strong> 1. For each polygon in MultiPolygon1: 2. For each polygon in MultiPolygon2: 3. Compute pairwise intersection 4. Collect all non-empty results</p>
+<p><strong>Algorithm:</strong></p>
+<ol type="1">
+<li>For each polygon in MultiPolygon1:</li>
+<li>For each polygon in MultiPolygon2:</li>
+<li>Compute pairwise intersection</li>
+<li>Collect all non-empty results</li>
+</ol>
 <p><strong>Union similar:</strong> Collect all polygons, merge overlapping ones.</p>
 <p><strong>Complexity:</strong> <span class="math inline">O(nm)</span> where <span class="math inline">n</span>, <span class="math inline">m</span> are polygon counts.</p>
 <p><strong>Optimization:</strong> Spatial index (R-tree) to skip non-overlapping pairs.</p>
@@ -621,10 +748,20 @@ Edge of B at y = 10.00000</code></pre>
 <h3 id="set-operations" class="anchored">Set Operations</h3>
 <p><strong>Intersection (AND):</strong></p>
 <p><span class="math display">A \cap B = \{x : x \in A \text{ AND } x \in B\}</span></p>
-<p><strong>Properties:</strong> - Commutative: <span class="math inline">A \cap B = B \cap A</span> - Associative: <span class="math inline">(A \cap B) \cap C = A \cap (B \cap C)</span> - Identity: <span class="math inline">A \cap U = A</span> (where <span class="math inline">U</span> is universal set)</p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Commutative: <span class="math inline">A \cap B = B \cap A</span></li>
+<li>Associative: <span class="math inline">(A \cap B) \cap C = A \cap (B \cap C)</span></li>
+<li>Identity: <span class="math inline">A \cap U = A</span> (where <span class="math inline">U</span> is universal set)</li>
+</ul>
 <p><strong>Union (OR):</strong></p>
 <p><span class="math display">A \cup B = \{x : x \in A \text{ OR } x \in B\}</span></p>
-<p><strong>Properties:</strong> - Commutative: <span class="math inline">A \cup B = B \cup A</span> - Associative: <span class="math inline">(A \cup B) \cup C = A \cup (B \cup C)</span> - Identity: <span class="math inline">A \cup \emptyset = A</span></p>
+<p><strong>Properties:</strong></p>
+<ul>
+<li>Commutative: <span class="math inline">A \cup B = B \cup A</span></li>
+<li>Associative: <span class="math inline">(A \cup B) \cup C = A \cup (B \cup C)</span></li>
+<li>Identity: <span class="math inline">A \cup \emptyset = A</span></li>
+</ul>
 <p><strong>Difference (NOT):</strong></p>
 <p><span class="math display">A \setminus B = \{x : x \in A \text{ AND } x \notin B\}</span></p>
 <p><strong>NOT commutative:</strong> <span class="math inline">A \setminus B \neq B \setminus A</span> (generally)</p>
@@ -662,24 +799,24 @@ Edge of B at y = 10.00000</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

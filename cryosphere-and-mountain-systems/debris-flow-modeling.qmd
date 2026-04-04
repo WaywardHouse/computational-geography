@@ -56,23 +56,27 @@ A debris flow starts on this steep slope—where will it stop, and what will it 
 **Debris flow characteristics:**
 
 **Composition:**
+
 - 50-80% solids by volume (sediment + boulders)
 - 20-50% water
 - Non-Newtonian fluid (not like water!)
 
 **Behavior:**
+
 - Velocity: 1-20 m/s (typically 5-10 m/s)
 - Depth: 1-10 m
 - Volume: 100-1,000,000 m³
 - Highly destructive (can move house-sized boulders)
 
 **Triggers:**
+
 - Intense rainfall (landslide → debris flow)
 - Volcanic eruptions (lahars)
 - Dam break (sudden water + sediment)
 - Glacier outburst (GLOF → debris flow)
 
 **Recent examples:**
+
 - 2022: Montecito, California (23 deaths, $1.8 billion damage)
 - 2017: Sierra Leone (1,000+ deaths)
 - 2013: Uttarakhand, India (5,000+ deaths)
@@ -85,18 +89,21 @@ A debris flow starts on this steep slope—where will it stop, and what will it 
 ### Flow Regimes
 
 **Initiation zone:**
+
 - Steep slopes (>25°)
 - Shallow landslide mobilizes
 - Entrains channel sediment
 - Volume increases (bulking)
 
 **Transport zone:**
+
 - Moderate slopes (10-25°)
 - High velocity
 - Erosion or deposition depends on slope
 - Surging behavior (pulses)
 
 **Deposition zone:**
+
 - Gentle slopes (<10°)
 - Velocity decreases
 - Sediment deposits
@@ -117,6 +124,7 @@ Where:
 **Key:** Flow only if $\tau > \tau_y$ (plug flow when stress low)
 
 **Typical values:**
+
 - $\tau_y$ = 100-1000 Pa
 - $\mu$ = 10-100 Pa·s
 - Compare water: $\tau_y = 0$, $\mu = 0.001$ Pa·s
@@ -141,6 +149,93 @@ $$\alpha = \alpha_0 - k \log_{10}(V)$$
 
 Larger volumes → lower travel angle → longer runout
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Debris-Flow Pathway</div>
+<h3 class="cg-ill__title">Debris Flows Grow, Accelerate, Then Spread Out On The Fan</h3>
+<p class="cg-ill__lede">The hazard becomes easier to picture once the mountain path is split into initiation, transport, and deposition zones. Volume can grow during transport, which is why downstream impact can exceed the original slide size.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewBox="0 0 560 320" role="img" aria-label="Debris flow process diagram showing initiation on steep slopes, channelized transport with bulking, and deposition on an alluvial fan.">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef6fb"/>
+  <path d="M52 252 C120 210, 176 154, 232 112 C284 74, 330 66, 376 92 C426 120, 468 184, 510 252" fill="none" stroke="#7c8fa3" stroke-width="6"/>
+  <path d="M210 124 C184 144, 162 162, 144 178" fill="none" stroke="#8b5e34" stroke-width="9" stroke-linecap="round"/>
+  <path d="M220 132 C246 142, 278 160, 320 186 C358 210, 400 228, 458 244" fill="none" stroke="#8b5e34" stroke-width="12" stroke-linecap="round"/>
+  <ellipse cx="448" cy="248" rx="68" ry="22" fill="#caa472" stroke="#8b5e34" stroke-width="3"/>
+  <path d="M170 146 C196 132, 220 126, 244 130" fill="none" stroke="#ef4444" stroke-width="4" marker-end="url(#df-red)"/>
+  <path d="M286 156 C314 150, 344 154, 370 172" fill="none" stroke="#0f766e" stroke-width="4" marker-end="url(#df-green)"/>
+  <path d="M404 212 C422 220, 434 228, 444 238" fill="none" stroke="#f59e0b" stroke-width="4" marker-end="url(#df-amber)"/>
+  <circle cx="142" cy="176" r="16" fill="#fff8ef" stroke="#e8d5b7" stroke-width="2"/>
+  <text x="137" y="182" font-size="16" fill="#6f4e37" font-weight="700">1</text>
+  <circle cx="274" cy="170" r="16" fill="#fff8ef" stroke="#e8d5b7" stroke-width="2"/>
+  <text x="269" y="176" font-size="16" fill="#6f4e37" font-weight="700">2</text>
+  <circle cx="446" cy="256" r="16" fill="#fff8ef" stroke="#e8d5b7" stroke-width="2"/>
+  <text x="441" y="262" font-size="16" fill="#6f4e37" font-weight="700">3</text>
+  <circle cx="222" cy="128" r="16" fill="#fff" fill-opacity="0.95" stroke="#f4b4b4" stroke-width="2"/>
+  <text x="217" y="134" font-size="16" fill="#991b1b" font-weight="700">4</text>
+  <circle cx="356" cy="170" r="16" fill="#fff" fill-opacity="0.95" stroke="#a6ddd3" stroke-width="2"/>
+  <text x="351" y="176" font-size="16" fill="#0f766e" font-weight="700">5</text>
+  <circle cx="424" cy="226" r="16" fill="#fff" fill-opacity="0.95" stroke="#f0c98a" stroke-width="2"/>
+  <text x="419" y="232" font-size="16" fill="#b45309" font-weight="700">6</text>
+  <defs>
+    <marker id="df-red" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#ef4444"/>
+    </marker>
+    <marker id="df-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#0f766e"/>
+    </marker>
+    <marker id="df-amber" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4>What the path is telling you</h4>
+<p><strong>1.</strong> Initiation zone: steep slopes create the source area where failure begins.</p>
+<p><strong>2.</strong> Transport zone: channel confinement helps the mixture stay mobile and fast.</p>
+<p><strong>3.</strong> Deposition fan: once the slope decreases, the flow spreads and starts dropping sediment.</p>
+<p><strong>4.</strong> Trigger: intense runoff or a small landslide can start the first moving mass.</p>
+<p><strong>5.</strong> Bulking: the moving flow can entrain extra sediment and boulders as it travels.</p>
+<p><strong>6.</strong> Spreading: lower slopes reduce confinement and velocity, increasing deposition.</p>
+<p>This is why hazard mapping has to consider the whole pathway, not just the source area.</p>
+</div>
+</div>
+</div>
+<figcaption>Debris flows are pathway hazards. They may start from a small source, grow during transport, and then release their destructive load where the channel opens onto a fan.</figcaption>
+</figure>
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Runout Logic</div>
+<h3 class="cg-ill__title">Runout Depends On Volume, Slope Loss, And Where The Channel Opens</h3>
+<p class="cg-ill__lede">A second useful picture is the transition from confined flow to fan impact. The same debris flow can stay concentrated and fast in the channel, then suddenly spread and deposit when slope and confinement drop.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Steep source</div>
+<h4>Mobilization</h4>
+<p>Initiation on steep terrain gives the mixture its first momentum and sediment supply.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Confined channel</div>
+<h4>High-intensity transport</h4>
+<p>Confinement preserves depth and velocity, allowing bulking and boulder transport.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Fan break</div>
+<h4>Rapid spreading</h4>
+<p>Loss of slope and channel confinement lowers velocity and controls where deposition starts.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Hazard footprint</div>
+<h4>Impact zone</h4>
+<p>Runout distance and fan geometry determine which structures fall inside the destructive corridor.</p>
+</div>
+</div>
+</div>
+<figcaption>Runout modelling is about where high-energy channelized flow transitions into spreading and deposition. That transition controls the actual footprint of debris-flow damage on inhabited fans.</figcaption>
+</figure>
+
 ---
 
 ## 3. Building the Mathematical Model
@@ -160,6 +255,7 @@ Where:
 - $\rho$ = bulk density (kg/m³)
 
 **Terms:**
+
 1. Gravity driving force: $gh\sin\theta$
 2. Internal friction: $gh\cos\theta\tan\phi$
 3. Bed resistance: $\tau_b/\rho$
@@ -232,6 +328,7 @@ $$F = \frac{1}{2} \times 1.5 \times 2000 \times 100 \times 10 = 1,500,000 \text{
 **Problem:** Predict debris flow runout.
 
 **Initial conditions:**
+
 - Starting elevation: 2000 m
 - Channel slope: 30° (initiation), 15° (transport), 5° (deposition)
 - Volume: 10,000 m³
@@ -294,6 +391,7 @@ $$A = h \times w = 3 \times 5 = 15 \text{ m}^2$$
 $$F = \frac{1}{2} \times 1.5 \times 2000 \times 100 \times 15 = 2,250 \text{ kN}$$
 
 **Summary:**
+
 - Runout: ~3.8 km from source
 - Peak velocity: ~10 m/s (36 km/h)
 - Impact force: ~2250 kN (would destroy typical building)
@@ -547,6 +645,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Larger volume:** Lower travel angle, longer runout
 - **More vertical drop:** Longer runout (more energy)
 - **Steeper channel:** Higher velocity
@@ -587,6 +686,7 @@ window.addEventListener('resize', () => chart.resize());
 **Example:** 25 mm/hour for 2 hours → Warning
 
 **Real-time monitoring:**
+
 - Rain gauges
 - Ground vibration (geophones)
 - Infrasound sensors
@@ -597,6 +697,7 @@ window.addEventListener('resize', () => chart.resize());
 ### Mitigation Structures
 
 **Check dams:**
+
 - Trap sediment
 - Reduce volume
 - Reduce velocity
@@ -604,16 +705,19 @@ window.addEventListener('resize', () => chart.resize());
 **Spacing:** Every 50-100m vertical drop
 
 **Channel works:**
+
 - Concrete lining
 - Guide walls
 - Training dikes
 
 **Debris basins:**
+
 - Large retention basin at fan apex
 - Holds 20,000-200,000 m³
 - Must be cleaned out after events
 
 **Example - Los Angeles:**
+
 - 100+ debris basins
 - Protect communities below San Gabriel Mountains
 
@@ -690,6 +794,7 @@ $$\frac{\partial (hu)}{\partial t} + \frac{\partial (hu^2)}{\partial x} + \frac{
 **Resistance:** Manning or Voellmy
 
 **Output:**
+
 - Flow depth at each cell
 - Velocity vectors
 - Deposition thickness

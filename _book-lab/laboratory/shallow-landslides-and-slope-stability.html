@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -129,6 +133,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That slope stability is a balance between resisting forces and driving forces, and that water pressure can weaken soils dramatically.</p>
+<p><strong>You will learn</strong><br>
+How the infinite slope model works, how pore pressure changes factor of safety, and how root reinforcement affects failure risk.</p>
+<p><strong>Why this matters</strong><br>
+A simple force-balance model can explain why some slopes remain stable for decades and then fail during one wet period.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The main comparison between shear resistance and downslope driving stress.</p>
 <p>On the morning of January 9, 2005, a shallow landslide on a steep forested hillslope above La Conchita, California, travelled 150 metres in about 30 seconds, killing ten people. Aerial photographs taken after the slide showed a clean, planar failure surface roughly parallel to the slope surface — a textbook example of what geomorphologists call a <strong>translational</strong> or <strong>infinite-slope</strong> failure.</p>
 <p>The slide had been preceded by exceptionally heavy rainfall. The soil profile was saturated. Pore water pressure reduced the effective stress between soil particles, and a slope that had been stable for decades failed in minutes.</p>
 <p>Understanding why requires a precise analysis of forces — and that analysis turns out to be surprisingly tractable. The infinite slope model is one of the most elegant and practically useful results in applied geomorphology.</p>
@@ -171,19 +184,19 @@ window.Quarto = {
 <p><span class="math display">u_{\text{sat}} = \rho_w g z \cos\beta</span></p>
 <p>The factor of safety under full saturation becomes:</p>
 <p><span class="math display">FS_{\text{sat}} = \frac{c'}{\rho_s g z \sin\beta} + \frac{(\rho_s - \rho_w)\cos\beta \tan\phi'}{\rho_s \sin\beta}</span></p>
-<p>Defining the relative saturation <span class="math inline">m = h_w / z</span> (fraction of soil column that is saturated, $0 m $):</p>
+<p>Defining the relative saturation <span class="math inline">m = h_w / z</span> (fraction of soil column that is saturated, <span class="math inline">0 \leq m \leq 1</span>):</p>
 <p><span class="math display">FS(m) = \frac{c'}{\rho_s g z \sin\beta} + \frac{[1 - m(\rho_w/\rho_s)]\cos\beta \tan\phi'}{\sin\beta}</span></p>
 <p>This is the <strong>infinite slope model</strong> in its standard form. It predicts how FS declines as <span class="math inline">m</span> increases from 0 (dry) to 1 (fully saturated).</p>
 <h3 id="root-reinforcement" class="anchored">3.5 Root Reinforcement</h3>
 <p>Forest roots act as tensile reinforcement across the failure plane, adding an apparent cohesion <span class="math inline">c_r</span> [Pa] to the soil. The total effective cohesion becomes <span class="math inline">c' + c_r</span>, and the factor of safety is:</p>
 <p><span class="math display">FS_{\text{root}} = \frac{c' + c_r}{\rho_s g z \sin\beta} + \frac{[1-m(\rho_w/\rho_s)]\cos\beta \tan\phi'}{\sin\beta}</span></p>
-<p>Root reinforcement values depend on species and root density. Conifers in the Pacific Northwest typically contribute <span class="math inline">c_r = 2{,}000</span>–$10{,}000$ Pa; grasses contribute $500<span class="math inline">–&amp;#36;2{,}000</span> Pa; clearcut slopes within a few years of harvest have <span class="math inline">c_r \approx 0</span> (roots decay faster than new roots develop).</p>
+<p>Root reinforcement values depend on species and root density. Conifers in the Pacific Northwest typically contribute <span class="math inline">c_r = 2{,}000</span>-<span class="math inline">10{,}000</span> Pa; grasses contribute <span class="math inline">500</span>-<span class="math inline">2{,}000</span> Pa; clearcut slopes within a few years of harvest have <span class="math inline">c_r \approx 0</span> (roots decay faster than new roots develop).</p>
 <p>A 10,000 Pa root reinforcement on a slope with <span class="math inline">\rho_s = 1,500</span> kg m⁻³ and <span class="math inline">z = 1.5</span> m adds:</p>
 <p><span class="math display">\Delta FS = \frac{10000}{1500 \times 9.81 \times 1.5 \times \sin\beta} = \frac{10000}{22072 \sin\beta}</span></p>
 <p>At <span class="math inline">\beta = 30°</span>, <span class="math inline">\Delta FS = 10000 / 11036 = 0.91</span> — forest roots add nearly a full unit to the factor of safety. This is why logged slopes are dramatically more susceptible to shallow landslides during the critical period (roughly 5–15 years) when root strength has decayed but new roots have not yet developed.</p>
 <h3 id="critical-rainfall-threshold" class="anchored">3.6 Critical Rainfall Threshold</h3>
 <p>Setting FS = 1 and solving for the critical saturation <span class="math inline">m^*</span>:</p>
-<p><span class="math inline">&amp;#36;1 = \frac{c' + c_r}{\rho_s g z \sin\beta} + \frac{[1-m^*(\rho_w/\rho_s)]\cos\beta \tan\phi'}{\sin\beta}</span>$</p>
+<p><span class="math display">1 = \frac{c' + c_r}{\rho_s g z \sin\beta} + \frac{[1-m^*(\rho_w/\rho_s)]\cos\beta \tan\phi'}{\sin\beta}</span></p>
 <p>Rearranging:</p>
 <p><span class="math display">m^* = \frac{\rho_s}{\rho_w}\left[1 - \frac{\tan\beta}{\tan\phi'} + \frac{(c'+c_r)\tan\beta}{\rho_s g z \sin\beta \tan\phi'} \right] \cdot \frac{\tan\phi'}{\tan\beta} \cdot \frac{1}{\cos\beta}\ldots</span></p>
 <p>After careful algebra, the result simplifies to:</p>
@@ -204,7 +217,17 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> A forested hillslope above a rural road in the Coast Mountains of British Columbia. Recent clearcut logging. Soil properties measured in the field.</p>
-<p><strong>Given:</strong> - <span class="math inline">\beta = 32°</span> (slope angle) - <span class="math inline">z = 1.2</span> m (soil depth) - <span class="math inline">\rho_s = 1600</span> kg m⁻³ (bulk density) - <span class="math inline">\phi' = 34°</span> (friction angle from lab test) - <span class="math inline">c' = 500</span> Pa (low cohesion, disturbed soil) - <span class="math inline">c_r = 8{,}000</span> Pa (forested condition) - <span class="math inline">c_r = 0</span> Pa (clearcut condition, roots decayed) - <span class="math inline">m = 0.8</span> (80% saturation — after a heavy rain event)</p>
+<p><strong>Given:</strong></p>
+<ul>
+<li><span class="math inline">\beta = 32°</span> (slope angle)</li>
+<li><span class="math inline">z = 1.2</span> m (soil depth)</li>
+<li><span class="math inline">\rho_s = 1600</span> kg m⁻³ (bulk density)</li>
+<li><span class="math inline">\phi' = 34°</span> (friction angle from lab test)</li>
+<li><span class="math inline">c' = 500</span> Pa (low cohesion, disturbed soil)</li>
+<li><span class="math inline">c_r = 8{,}000</span> Pa (forested condition)</li>
+<li><span class="math inline">c_r = 0</span> Pa (clearcut condition, roots decayed)</li>
+<li><span class="math inline">m = 0.8</span> (80% saturation — after a heavy rain event)</li>
+</ul>
 <p><strong>Step 1: Common terms</strong></p>
 <p><span class="math display">\rho_s g z = 1600 \times 9.81 \times 1.2 = 18835 \text{ Pa}</span></p>
 <p><span class="math display">\sin 32° = 0.5299, \quad \cos 32° = 0.8480, \quad \tan 32° = 0.6249, \quad \tan 34° = 0.6745</span></p>
@@ -275,30 +298,28 @@ print(f"  m* ≈ {crosses[0]:.2f}" if crosses else "  Never stable")</code></pre
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Factor of Safety vs Relative Saturation&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;formatter&quot;: &quot;m = {b}: FS = {c}&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Forested (cr = 8000 Pa)&quot;, &quot;Clearcut (cr = 0 Pa)&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Relative Saturation m (h_w/z)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Factor of Safety (FS)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 40,
-    &quot;min&quot;: 0, &quot;max&quot;: 2.5,
-    &quot;axisLine&quot;: {},
-    &quot;splitLine&quot;: {}},
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;Forested (cr = 8000 Pa)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-      &quot;data&quot;: [2.21, 2.12, 2.03, 1.94, 1.85, 1.76, 1.57, 1.48, 1.39, 1.30, 1.21],
-      &quot;markLine&quot;: {&quot;data&quot;: [{&quot;yAxis&quot;: 1, &quot;label&quot;: {&quot;formatter&quot;: &quot;FS = 1 (failure threshold&quot;}}]}
-    },
-    {
-      &quot;name&quot;: &quot;Clearcut (cr = 0 Pa)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-      &quot;data&quot;: [1.13, 1.07, 1.01, 0.95, 0.89, 0.83, 0.77, 0.71, 0.59, 0.53, 0.47],
-      &quot;markLine&quot;: {&quot;data&quot;: [{&quot;yAxis&quot;: 1}]}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Factor of Safety vs Relative Saturation&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;formatter&quot;: &quot;m = {b}: FS = {c}&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Forested (cr = 8000 Pa)&quot;, &quot;Clearcut (cr = 0 Pa)&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Relative Saturation m (h_w/z)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Factor of Safety (FS)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 40,
+&quot;min&quot;: 0, &quot;max&quot;: 2.5,
+&quot;axisLine&quot;: {},
+&quot;splitLine&quot;: {}},
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;Forested (cr = 8000 Pa)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [2.21, 2.12, 2.03, 1.94, 1.85, 1.76, 1.57, 1.48, 1.39, 1.30, 1.21],
+&quot;markLine&quot;: {&quot;data&quot;: [{&quot;yAxis&quot;: 1, &quot;label&quot;: {&quot;formatter&quot;: &quot;FS = 1 (failure threshold&quot;}}]}
+},
+{
+&quot;name&quot;: &quot;Clearcut (cr = 0 Pa)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [1.13, 1.07, 1.01, 0.95, 0.89, 0.83, 0.77, 0.71, 0.59, 0.53, 0.47],
+&quot;markLine&quot;: {&quot;data&quot;: [{&quot;yAxis&quot;: 1}]}
+}
+]
+}"></div>
 <p>The forested curve remains above FS = 1 across the full saturation range under these conditions. The clearcut curve crosses FS = 1 at approximately m = 0.2 — 20% saturation. This means that even modest rainfall on the clearcut slope will produce failure conditions.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -339,24 +360,24 @@ print(f"  m* ≈ {crosses[0]:.2f}" if crosses else "  Never stable")</code></pre
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

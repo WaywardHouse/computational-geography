@@ -59,18 +59,21 @@ What's the depth and bottom topography of this shallow coastal bay?
 **Two technologies for underwater elevation:**
 
 **Bathymetric LiDAR (ALB - Airborne Lidar Bathymetry):**
+
 - Green laser (532 nm) penetrates water
 - Measures from aircraft
 - Shallow water (<50m, clear conditions)
 - Simultaneous topography (infrared) + bathymetry (green)
 
 **Sonar (Sound Navigation and Ranging):**
+
 - Acoustic pulses (10-500 kHz)
 - Boat/ship-mounted or autonomous underwater vehicles
 - Deep water (thousands of meters)
 - Works in turbid water
 
 **Applications:**
+
 - Nautical chart production
 - Coastal hazard assessment (tsunami inundation)
 - Habitat mapping (coral reefs, seagrass)
@@ -88,10 +91,12 @@ What's the depth and bottom topography of this shallow coastal bay?
 **Dual-wavelength system:**
 
 **Infrared (1064 nm):**
+
 - Reflects off water surface
 - Measures water surface elevation
 
 **Green (532 nm):**
+
 - Penetrates water column
 - Reflects off bottom
 - Return delayed by water travel time
@@ -173,6 +178,52 @@ $$\sin\theta_{\text{water}} = \frac{\sin\theta_{\text{air}}}{1.33}$$
 **Effect:** Horizontal position shifts inward.
 
 **Correction essential** for accurate positioning.
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Bathymetry Geometry</div>
+<h3 class="cg-ill__title">Both Bathymetric LiDAR And Sonar Turn Travel Time Into Underwater Position</h3>
+<p class="cg-ill__lede">The technologies differ in medium and range, but the conceptual job is the same: measure a return time, correct the geometry, and place the bottom point in the right underwater location.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewBox="0 0 560 320" role="img" aria-label="Comparison diagram showing bathymetric lidar in shallow clear water and multibeam sonar in deeper water.">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
+  <line x1="54" y1="114" x2="506" y2="114" stroke="#4aa3d6" stroke-width="4"/>
+  <text x="64" y="104" font-size="16" fill="#12608d">water surface</text>
+
+  <rect x="92" y="36" width="42" height="18" rx="8" fill="#334155"/>
+  <polygon points="134,45 160,32 160,58" fill="#64748b"/>
+  <text x="74" y="24" font-size="15" fill="#334155">aircraft lidar</text>
+  <line x1="112" y1="54" x2="140" y2="114" stroke="#ef4444" stroke-width="4"/>
+  <line x1="140" y1="114" x2="172" y2="238" stroke="#16a34a" stroke-width="4"/>
+  <line x1="172" y1="238" x2="154" y2="114" stroke="#16a34a" stroke-width="4" stroke-dasharray="6 5"/>
+  <text x="176" y="184" font-size="15" fill="#166534">green pulse in water</text>
+  <text x="122" y="88" font-size="15" fill="#991b1b">surface return</text>
+  <text x="110" y="258" font-size="15" fill="#166534">bottom return</text>
+
+  <rect x="358" y="64" width="86" height="18" rx="8" fill="#334155"/>
+  <text x="346" y="50" font-size="15" fill="#334155">boat sonar</text>
+  <path d="M404 82 L388 110 L420 110 Z" fill="#64748b"/>
+  <path d="M404 110 L346 236" stroke="#0f766e" stroke-width="4"/>
+  <path d="M404 110 L462 236" stroke="#0f766e" stroke-width="4"/>
+  <path d="M404 110 L404 246" stroke="#0f766e" stroke-width="4"/>
+  <path d="M404 246 L404 110" stroke="#0f766e" stroke-width="4" stroke-dasharray="6 5"/>
+  <text x="426" y="182" font-size="15" fill="#0f766e">multibeam swath</text>
+
+  <path d="M66 246 C124 228, 182 236, 252 224 C314 214, 382 252, 492 232" fill="none" stroke="#7c8fa3" stroke-width="5"/>
+  <text x="264" y="274" font-size="16" fill="#475569">bottom position depends on speed, angle, and refraction/sound-speed correction</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4>Choosing the tool</h4>
+<p><strong>Bathymetric LiDAR:</strong> ideal for clear, shallow water where green light can reach the bed and airborne coverage matters.</p>
+<p><strong>Sonar:</strong> preferred for deeper or more turbid water where sound travels farther and swath mapping from a vessel is practical.</p>
+<p><strong>Shared challenge:</strong> raw travel time is not enough. You still need the right velocity model and beam geometry to place the seafloor correctly.</p>
+</div>
+</div>
+</div>
+<figcaption>Bathymetric mapping always begins with a return path through a medium. The details differ for light and sound, but both methods are really geometric corrections built on travel time.</figcaption>
+</figure>
 
 ---
 
@@ -283,6 +334,7 @@ Tighter spacing → overlap for quality assurance
 **Problem:** Calculate bathymetric LiDAR depth measurement.
 
 **Data:**
+
 - Water surface elevation: $z_{\text{surface}} = 2.5$ m (above datum)
 - Infrared return time: $t_{\text{IR}} = 1000$ ns (round-trip to surface)
 - Green return time: $t_{\text{green}} = 1400$ ns (round-trip to bottom)
@@ -313,6 +365,7 @@ $$z_{\text{bottom}} = z_{\text{surface}} - d = 2.5 - 45.2 = -42.7 \text{ m}$$
 (Negative: below datum)
 
 **Summary:**
+
 - Water depth: 45.2 m
 - Bottom elevation: -42.7 m (relative to datum)
 
@@ -564,6 +617,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Blue area represents water column
 - Brown area shows measured seafloor
 - Orange dotted line marks maximum measurable depth
@@ -574,6 +628,7 @@ window.addEventListener('resize', () => chart.resize());
 - Data gaps occur where depth exceeds technology limits
 
 **Key findings:**
+
 - Bathymetric LiDAR optimal for shallow clear water (<50m)
 - Sonar required for deep or turbid conditions
 - Water clarity and bottom reflectance control maximum LiDAR depth
@@ -608,6 +663,7 @@ Post-storm bathymetric LiDAR:
 Complex 3D structure at fine spatial scale.
 
 **LiDAR advantages:**
+
 - Complete coverage (vs. transects)
 - Rugosity measurement (surface complexity)
 - Change detection (growth, bleaching, storm damage)
@@ -637,6 +693,7 @@ Maps entire river including:
 - Floodplain + channel in one dataset
 
 **Applications:**
+
 - Salmon habitat (pool-riffle structure)
 - Flood modelling (channel capacity)
 - Sediment transport (bedform mapping)
@@ -672,6 +729,7 @@ Sediment particles reflect laser/acoustic signal.
 **Worst case:** Impossible to detect true bottom.
 
 **Solution:**
+
 - Post-processing filters
 - Survey during low-turbidity conditions
 - Combined interpretation with water column imagery
@@ -687,6 +745,7 @@ Water surface moves during measurement.
 **Sonar:** Motion compensation systems on vessel.
 
 **Solution:**
+
 - Survey in calm conditions
 - Average multiple measurements
 - Motion reference unit (MRU) on aircraft
@@ -703,6 +762,7 @@ Snell's Law correction requires knowing:
 **Uncertainty propagates to horizontal position.**
 
 **Solution:**
+
 - Minimize scan angle
 - Measure water properties
 - Cross-line overlap for validation
@@ -710,6 +770,7 @@ Snell's Law correction requires knowing:
 ### Bottom Classification
 
 **Sonar backscatter varies with:**
+
 - Grain size (sand vs. mud)
 - Roughness
 - Biology (seagrass, coral)
@@ -717,6 +778,7 @@ Snell's Law correction requires knowing:
 **Challenge:** Distinguishing features from noise.
 
 **Solution:**
+
 - Backscatter mosaics
 - Ground-truth sampling
 - Multi-frequency analysis
@@ -734,16 +796,19 @@ Transducers aimed sideways (perpendicular to track).
 **Creates acoustic image** of seafloor.
 
 **Applications:**
+
 - Object detection (shipwrecks, boulders, debris)
 - Seafloor classification (sediment type, bedforms)
 - Pipeline/cable inspection
 - Search and recovery
 
 **Advantages:**
+
 - High-resolution imagery (cm-scale)
 - Wide swath coverage
 
 **Disadvantages:**
+
 - Doesn't directly measure depth
 - Geometric distortion
 - Interpretation requires expertise
@@ -794,6 +859,7 @@ Trade-off: Resolution vs range.
 ### Two-Way Attenuation
 
 **Laser/sonar pulse travels:**
+
 - Down to bottom: attenuated by $e^{-\alpha z}$
 - Back to sensor: attenuated again by $e^{-\alpha z}$
 

@@ -263,6 +263,7 @@ For **tall, dense vegetation** (forests, crops), wind appears to originate from 
 $$u(z) = \frac{u_*}{k} \ln\left(\frac{z - d}{z_0}\right)$$
 
 **Typical values:**
+
 - $d \approx 0.7h$ (where $h$ is canopy height)
 - $z_0 \approx 0.1h$
 
@@ -545,6 +546,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Switch to ocean:** Very smooth → wind increases rapidly with height
 - **Switch to forest:** Very rough → wind increases slowly, high z₀
 - **Toggle log scale:** On log-height axis, profile becomes a straight line (proof it's logarithmic)
@@ -623,6 +625,7 @@ Our log law assumes **neutral stability** (no buoyancy effects).
 The log law applies **above** vegetation, not within it.
 
 **Inside a canopy:**
+
 - Wind decreases exponentially with depth
 - Different profile shape
 - Multiple length scales

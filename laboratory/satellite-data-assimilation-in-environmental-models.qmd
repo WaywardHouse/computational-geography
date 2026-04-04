@@ -153,6 +153,7 @@ $$\nabla_{\mathbf{x}_0} J = \mathbf{B}^{-1}(\mathbf{x}_0 - \mathbf{x}_0^b) + \ma
 where $\mathcal{M}^*$ is the adjoint of the model. The adjoint propagates the sensitivity of $J$ with respect to the final state backwards in time to the initial state — the same mathematical operation as backpropagation in neural network training.
 
 **4D-Var advantages over 3D-Var:**
+
 - Uses information from the model dynamics to spread observational information in time
 - Implicitly provides a flow-dependent background error covariance (through the model trajectory)
 - Higher analysis quality, especially for observations between analysis times (aircraft, radiosondes)

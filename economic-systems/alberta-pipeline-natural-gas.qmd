@@ -141,6 +141,7 @@ across a vast geographic area.
 Gas leaving Alberta via NGTL exits through several border connections:
 
 **Westbound — Pacific exports:**
+
 - **Westcoast Energy / Spectra** pipeline runs south from northeastern BC
   through BC to the U.S. border near Huntingdon/Sumas, connecting to
   the U.S. Pacific Northwest and California markets
@@ -149,6 +150,7 @@ Gas leaving Alberta via NGTL exits through several border connections:
   approximately 1.6 Bcf/d in a single corridor
 
 **Southbound — U.S. Midwest and Rockies:**
+
 - **TC Energy's Canadian Mainline** (formerly TransCanada) runs east from
   Alberta, but historically also fed U.S. interconnects via the Northern
   Border and Great Lakes pipeline systems
@@ -156,6 +158,7 @@ Gas leaving Alberta via NGTL exits through several border connections:
   Alberta-Saskatchewan-U.S. borders serve local Midwest markets
 
 **Eastbound — Canadian markets:**
+
 - **TC Energy's Canadian Mainline** carries gas from Alberta east through
   Saskatchewan, Manitoba, Ontario, and Quebec — approximately 4,900 km
   to Montreal and connections to the Maritimes
@@ -268,6 +271,7 @@ approximately 1.6 Bcf/d through a 36-inch (914 mm) pipeline.
 Let us verify this with a simplified Weymouth calculation.
 
 **Given:**
+
 - $D = 36$ inches
 - $L = 200$ miles (representative segment between compressor stations)
 - $P_1 = 1,200$ psia (inlet, post-compression)

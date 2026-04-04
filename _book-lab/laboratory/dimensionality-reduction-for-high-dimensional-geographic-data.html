@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,7 +132,16 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
-<p>The Airborne Visible/Infrared Imaging Spectrometer (AVIRIS) generates 224 spectral bands for every pixel in its imagery — sampling reflected electromagnetic radiation from 400 to 2500 nanometres in 10 nm increments. For a 1000 × 1000 pixel scene, that is $10^6 = 2.24 ^8$ numbers. Storing, processing, and modelling this data naively would require working in a 224-dimensional feature space where all standard algorithms — nearest-neighbour search, regression, clustering — become slow, unreliable, or meaningless due to the <strong>curse of dimensionality</strong>: in high dimensions, all distances become similar, volume concentrates in thin shells near the surface of hyperspheres, and training data becomes exponentially sparse.</p>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That high-dimensional datasets often contain a lot of redundancy, and that projection into fewer dimensions can preserve useful structure.</p>
+<p><strong>You will learn</strong><br>
+How PCA, t-SNE, and UMAP reduce dimensionality for geographic data and what kind of structure each method preserves.</p>
+<p><strong>Why this matters</strong><br>
+Many modern geographic datasets are too large and too correlated to interpret directly in their raw feature space.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core question: what structure are we trying to preserve when we compress the data?</p>
+<p>The Airborne Visible/Infrared Imaging Spectrometer (AVIRIS) generates 224 spectral bands for every pixel in its imagery — sampling reflected electromagnetic radiation from 400 to 2500 nanometres in 10 nm increments. For a 1000 × 1000 pixel scene, that is <span class="math inline">10^6 \times 224 = 2.24 \times 10^8</span> numbers. Storing, processing, and modelling this data naively would require working in a 224-dimensional feature space where all standard algorithms — nearest-neighbour search, regression, clustering — become slow, unreliable, or meaningless due to the <strong>curse of dimensionality</strong>: in high dimensions, all distances become similar, volume concentrates in thin shells near the surface of hyperspheres, and training data becomes exponentially sparse.</p>
 <p>Dimensionality reduction solves this problem by finding a low-dimensional representation that preserves the structure of the data — either the variance structure (PCA), the local neighbourhood structure (t-SNE), or the global topological structure (UMAP).</p>
 <hr>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -172,7 +185,14 @@ window.Quarto = {
 <p><span class="math display">q_{ij} = \frac{(1 + \|y_i - y_j\|^2)^{-1}}{\sum_{k\neq l}(1 + \|y_k - y_l\|^2)^{-1}}</span></p>
 <p><strong>Step 3:</strong> Minimise the KL divergence between <span class="math inline">p</span> and <span class="math inline">q</span> by gradient descent on the 2D positions <span class="math inline">\{y_i\}</span>:</p>
 <p><span class="math display">\text{KL}(P\|Q) = \sum_{i\neq j} p_{ij}\ln\frac{p_{ij}}{q_{ij}}</span></p>
-<p><strong>What t-SNE preserves and what it does not:</strong> - ✓ Preserves local neighbourhood structure (nearby clusters in high-D appear nearby in 2D) - ✗ Distances between clusters are <strong>not</strong> meaningful - ✗ The axes of the 2D plot have no interpretation - ✗ Results depend on perplexity and random initialisation - ✗ New points cannot be projected without rerunning the algorithm</p>
+<p><strong>What t-SNE preserves and what it does not:</strong></p>
+<ul>
+<li>✓ Preserves local neighbourhood structure (nearby clusters in high-D appear nearby in 2D)</li>
+<li>✗ Distances between clusters are <strong>not</strong> meaningful</li>
+<li>✗ The axes of the 2D plot have no interpretation</li>
+<li>✗ Results depend on perplexity and random initialisation</li>
+<li>✗ New points cannot be projected without rerunning the algorithm</li>
+</ul>
 <h3 id="umap-topology-preservation" class="anchored">3.5 UMAP: Topology Preservation</h3>
 <p><strong>Uniform Manifold Approximation and Projection</strong> (McInnes et al.&nbsp;2018) constructs a topological representation of the high-dimensional data and finds a low-dimensional embedding that preserves it.</p>
 <p>UMAP models the high-dimensional data as a weighted fuzzy simplicial complex — a graph where edge weights <span class="math inline">w_{ij}</span> represent the probability that <span class="math inline">i</span> and <span class="math inline">j</span> are connected in the manifold:</p>
@@ -299,7 +319,7 @@ window.Quarto = {
 <p>Approximating from the data pattern: Blue, Green, and Red are highly correlated (all high for soil, all low for forest). NIR is anti-correlated with the visible bands (high for forest, low for soil). The covariance matrix has large positive values among visible bands and large negative values between visible and NIR.</p>
 <p><strong>Step 3: PC1</strong> captures the visible-NIR contrast (the dominant spectral axis). Its eigenvector loadings are approximately <span class="math inline">\mathbf{v}_1 = [0.40, 0.40, 0.45, -0.68]</span> — positive on visible, negative on NIR. <strong>PC2</strong> captures brightness variation orthogonal to the vegetation index — approximately <span class="math inline">[0.55, 0.55, 0.45, 0.42]</span> (uniformly positive, overall brightness).</p>
 <p><strong>PC1 scores:</strong> Large negative for bare soil pixels (high visible, low NIR → large positive loading × visible − negative loading × NIR = large value; but with the sign convention, bare soil gets positive PC1 scores). Forest pixels get negative PC1 scores (low visible, high NIR). PC1 ≈ NDVI inverted — the dominant spectral contrast.</p>
-<p><strong>Variance explained:</strong> If <span class="math inline">\lambda_1 = 0.021</span>, <span class="math inline">\lambda_2 = 0.003</span>, <span class="math inline">\lambda_3 = 0.001</span>, <span class="math inline">\lambda_4 = 0.0002</span>, then PC1 alone explains $0.021/0.0252 = 83%$ of total variance. Two components capture 95%.</p>
+<p><strong>Variance explained:</strong> If <span class="math inline">\lambda_1 = 0.021</span>, <span class="math inline">\lambda_2 = 0.003</span>, <span class="math inline">\lambda_3 = 0.001</span>, <span class="math inline">\lambda_4 = 0.0002</span>, then PC1 alone explains <span class="math inline">0.021/0.0252 = 83\%</span> of total variance. Two components capture 95%.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <pre><code>function pca(X_matrix):
@@ -371,27 +391,25 @@ for cls, name in enumerate(label_names):
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;PCA Scree Plot — Hyperspectral 20-Band Dataset&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Individual variance (%)&quot;, &quot;Cumulative variance (%)&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Principal component&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},
-  &quot;yAxis&quot;: [
-    {&quot;name&quot;: &quot;Individual variance (%)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;:0},
-    {&quot;name&quot;: &quot;Cumulative variance (%)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;:0, &quot;max&quot;:100, &quot;position&quot;:&quot;right&quot;}
-  ],
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Individual variance (%)&quot;, &quot;type&quot;: &quot;bar&quot;,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [68.2, 18.4, 6.1, 3.0, 1.5, 0.8, 0.5, 0.4, 0.3, 0.2, 0.15, 0.1, 0.08, 0.07, 0.06, 0.05, 0.04, 0.03, 0.02, 0.01]},
-    {&quot;name&quot;: &quot;Cumulative variance (%)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;yAxisIndex&quot;: 1,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [68.2,86.6,92.7,95.7,97.2,98.0,98.5,98.9,99.2,99.4,99.55,99.65,99.73,99.80,99.86,99.91,99.95,99.98,99.99,100.0]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;PCA Scree Plot — Hyperspectral 20-Band Dataset&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Individual variance (%)&quot;, &quot;Cumulative variance (%)&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Principal component&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]},
+&quot;yAxis&quot;: [
+{&quot;name&quot;: &quot;Individual variance (%)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;:0},
+{&quot;name&quot;: &quot;Cumulative variance (%)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;:0, &quot;max&quot;:100, &quot;position&quot;:&quot;right&quot;}
+],
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Individual variance (%)&quot;, &quot;type&quot;: &quot;bar&quot;,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [68.2, 18.4, 6.1, 3.0, 1.5, 0.8, 0.5, 0.4, 0.3, 0.2, 0.15, 0.1, 0.08, 0.07, 0.06, 0.05, 0.04, 0.03, 0.02, 0.01]},
+{&quot;name&quot;: &quot;Cumulative variance (%)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;yAxisIndex&quot;: 1,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [68.2,86.6,92.7,95.7,97.2,98.0,98.5,98.9,99.2,99.4,99.55,99.65,99.73,99.80,99.86,99.91,99.95,99.98,99.99,100.0]}
+]
+}"></div>
 <p>Four principal components capture 95.7% of total variance in this 20-band dataset. The steep drop after PC1 (68.2%) reflects the strong first spectral contrast (vegetation vs.&nbsp;non-vegetation); the second component (18.4%) captures brightness variation; subsequent components capture increasingly fine spectral distinctions. Working in 4-dimensional PC space instead of 20-band space loses less than 5% of information while reducing dimensionality by 5×.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -428,24 +446,24 @@ for cls, name in enumerate(label_names):
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

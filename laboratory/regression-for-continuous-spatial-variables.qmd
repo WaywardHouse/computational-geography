@@ -167,6 +167,7 @@ Raw raster pixels are rarely optimal predictors. Feature engineering extracts me
 **Terrain features from DEM** (Essay C8): slope, aspect, curvature, topographic wetness index $\text{TWI} = \ln(A_s/\tan\beta)$ where $A_s$ = upslope contributing area and $\beta$ = slope angle.
 
 **Spectral indices from multispectral imagery:**
+
 - $\text{NDVI} = (\rho_{\text{NIR}} - \rho_{\text{Red}})/(\rho_{\text{NIR}} + \rho_{\text{Red}})$
 - $\text{NDWI} = (\rho_{\text{Green}} - \rho_{\text{NIR}})/(\rho_{\text{Green}} + \rho_{\text{NIR}})$
 - $\text{EVI} = 2.5(\rho_{\text{NIR}} - \rho_{\text{Red}})/(\rho_{\text{NIR}} + 6\rho_{\text{Red}} - 7.5\rho_{\text{Blue}} + 1)$

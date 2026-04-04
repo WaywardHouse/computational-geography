@@ -75,6 +75,7 @@ Inter-satellite distance via microwave ranging.
 **Spatial resolution:** ~300-400 km
 
 **Applications:**
+
 - Ice sheet mass balance (Greenland, Antarctica)
 - Groundwater storage changes
 - Drought monitoring
@@ -357,6 +358,7 @@ $$V = A \times \Delta h = 1.26 \times 10^{11} \times (-1.91) = -2.4 \times 10^{1
 240 cubic kilometers of water lost in one year.
 
 **Causes:**
+
 - Groundwater extraction
 - Below-average precipitation
 - Snow deficit
@@ -559,6 +561,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Greenland shows strong negative trend (ice loss: -280 Gt/year)
 - Amazon shows large seasonal variations (wet/dry seasons)
 - California shows drought signal with seasonal variation
@@ -568,6 +571,7 @@ window.addEventListener('resize', () => chart.resize());
 - Seasonal variations evident as annual oscillations
 
 **Key findings:**
+
 - GRACE detects both long-term trends and seasonal cycles
 - Ice sheet mass loss clearly visible as negative trend
 - Groundwater depletion measurable in major aquifers
@@ -590,6 +594,7 @@ GRACE trend: -280 Gt/year average
 280 Gt/year ÷ (ocean area × density) = 0.8 mm/year
 
 **Regional patterns:**
+
 - Southeast: Largest losses
 - Northwest: Moderate losses
 - Interior: Slight gains (snow accumulation)
@@ -599,6 +604,7 @@ GRACE trend: -280 Gt/year average
 GRACE trend: -150 Gt/year
 
 **Variations:**
+
 - West Antarctica: -160 Gt/year (marine ice sheet collapse)
 - East Antarctica: +10 Gt/year (slight snow increase)
 - Antarctic Peninsula: -20 Gt/year
@@ -636,6 +642,7 @@ GRACE detected:
 - Early warning capability
 
 **Operational use:**
+
 - USDA drought monitor integrates GRACE
 - NASA FLDAS (Famine Early Warning System)
 - Water resource planning
@@ -697,6 +704,7 @@ Relative to crust surface.
 Not measured by GRACE (both satellites affected equally).
 
 **Estimate from:**
+
 - Ocean models
 - Station position networks
 - Combination solutions
@@ -730,6 +738,7 @@ Model earthquake, subtract before hydrology analysis.
 **GRACE-FO (launched 2018):**
 
 **Improvements:**
+
 - Laser ranging (addition to microwave)
 - Better accelerometers
 - Continuous from GRACE
@@ -747,11 +756,13 @@ Microwave for continuous tracking, laser for highest precision.
 **Future missions:**
 
 **Mass Change mission (2028+):**
+
 - Lower orbit (improve resolution)
 - Better instruments
 - Goal: 150 km resolution
 
 **Applications expansion:**
+
 - Smaller aquifers
 - Individual drainage basins
 - Urban water use
@@ -789,6 +800,7 @@ $$\lambda = \frac{2\pi a}{l}$$
 Where $a$ = Earth radius (6371 km)
 
 **Examples:**
+
 - $l = 2$: ~20,000 km (Earth's flattening)
 - $l = 10$: ~4,000 km (continents)
 - $l = 60$: ~670 km (GRACE resolution)

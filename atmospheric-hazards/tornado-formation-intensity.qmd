@@ -85,6 +85,7 @@ Violently rotating column of air in contact with ground and cloud base.
 **EF5:** >200 mph (>322 km/h) - Incredible
 
 **Statistics (USA):**
+
 - ~1200 tornadoes/year average
 - 80% EF0-EF1 (weak)
 - <1% EF5 (violent)
@@ -92,6 +93,7 @@ Violently rotating column of air in contact with ground and cloud base.
 - Peak time: 4-9 PM local
 
 **Applications:**
+
 - Tornado warning issuance
 - Building design standards
 - Risk assessment
@@ -325,6 +327,7 @@ STP > 4, low LCL (<800 m), strong low-level shear
 - Snapped at trunk
 
 **Radar data:**
+
 - TVS detected: $S = 0.025$ s⁻¹
 - Mesocyclone diameter: 4 km
 
@@ -596,6 +599,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Rankine vortex shows linear increase to RMW, then decay
 - Maximum winds at radius of maximum wind (RMW)
 - Modified profile more realistic with smoother peak
@@ -604,6 +608,7 @@ window.addEventListener('resize', () => chart.resize());
 - EF rating based on maximum wind speed
 
 **Key insights:**
+
 - Violent tornadoes (EF4-EF5) have extreme pressure deficits
 - Small RMW concentrates damage in narrow path
 - Vorticity in core reaches 0.1-0.5 s⁻¹
@@ -621,12 +626,14 @@ window.addEventListener('resize', () => chart.resize());
 **Dixie Alley:** Alabama, Mississippi, Tennessee
 
 **Seasonal variation:**
+
 - Spring: Peak activity (April-June)
 - Summer: Northern plains active
 - Fall: Secondary peak (October-November)
 - Winter: Minimal, Gulf Coast only
 
 **Diurnal:**
+
 - Peak: 4-9 PM local
 - Overnight tornadoes: More deadly (sleeping population)
 
@@ -643,6 +650,7 @@ Average ~15 minutes (2020s)
 Historical ~5 minutes (1990s)
 
 **Improvement from:**
+
 - Doppler radar (TVS detection)
 - Dual-polarization (TDS)
 - Spotter networks
@@ -665,16 +673,19 @@ Historical ~5 minutes (1990s)
 **Tornado-resistant construction:**
 
 **Safe rooms (FEMA):**
+
 - Withstand 250 mph winds
 - EF5-rated (3-second gust)
 - Reinforced concrete or steel
 
 **Residential:**
+
 - Interior room, lowest floor
 - No windows
 - Away from exterior walls
 
 **Critical infrastructure:**
+
 - Hospitals: Hardened patient areas
 - Schools: Gymnasiums as shelters
 - Data centers: EF3+ rated
@@ -704,6 +715,7 @@ $5,000-10,000 safe room vs potential lives saved.
 **Quasi-linear convective system** (squall line).
 
 **Different from supercell:**
+
 - Weaker (typically EF0-EF2)
 - Shorter-lived (minutes)
 - Minimal warning time (5-10 min)

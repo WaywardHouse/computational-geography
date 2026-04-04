@@ -59,12 +59,14 @@ Why does glacial meltwater look milky and taste mineral-rich?
 **Glacial meltwater characteristics:**
 
 **Physical:**
+
 - High turbidity (suspended sediment)
 - Cold temperature (0-4°C)
 - Variable discharge (diurnal, seasonal)
 - Milky appearance ("glacial flour")
 
 **Chemical:**
+
 - High total dissolved solids (TDS)
 - Elevated Ca²⁺, Mg²⁺, SO₄²⁻
 - Low organic carbon
@@ -110,18 +112,21 @@ $$2\text{FeS}_2 + 7\text{O}_2 + 2\text{H}_2\text{O} \rightarrow 2\text{Fe}^{2+} 
 ### Three Water Sources
 
 **Supraglacial (surface):**
+
 - Snowmelt, ice melt
 - Short residence time (hours)
 - Low solute concentration
 - Low turbidity
 
 **Englacial (within ice):**
+
 - Melt from crevasses, moulins
 - Moderate residence time (days)
 - Moderate solute concentration
 - Moderate turbidity
 
 **Subglacial (beneath ice):**
+
 - Melt at glacier bed
 - Long residence time (weeks-months)
 - **High solute concentration**
@@ -136,18 +141,105 @@ Where $f_i$ = fraction from each source, $\sum f_i = 1$
 ### Diurnal Cycle
 
 **Daytime (peak melt):**
+
 - High discharge
 - More supraglacial contribution
 - **Lower solute concentration** (dilution)
 - Higher turbidity (sediment flushing)
 
 **Nighttime (low melt):**
+
 - Low discharge
 - More subglacial contribution
 - **Higher solute concentration**
 - Lower turbidity (settling)
 
 **Hysteresis:** Concentration vs. discharge traces loop (not 1:1 relationship)
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Meltwater Sources</div>
+<h3 class="cg-ill__title">Glacial Stream Chemistry Is A Mixture Of Flow Paths And Reactions</h3>
+<p class="cg-ill__lede">The chemistry becomes easier to interpret when the glacier is split into fast, dilute surface pathways and slower, more reactive subglacial pathways that gain solutes and suspended sediment.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewBox="0 0 560 320" role="img" aria-label="Glacial hydrology and chemistry diagram showing supraglacial, englacial, and subglacial flow paths feeding a glacier-fed stream.">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
+  <path d="M64 246 C136 194, 200 146, 278 118 C336 98, 396 108, 494 146" fill="none" stroke="#8fa9bb" stroke-width="6"/>
+  <path d="M64 246 C138 214, 214 196, 286 178 C352 162, 418 160, 504 176" fill="none" stroke="#d9eef9" stroke-width="28" stroke-linecap="round"/>
+  <text x="312" y="88" font-size="18" fill="#35515f" font-weight="700">glacier</text>
+
+  <path d="M226 104 C236 126, 246 150, 254 176" fill="none" stroke="#0ea5a6" stroke-width="4" marker-end="url(#chem-teal)"/>
+  <text x="126" y="100" font-size="15" fill="#0f766e">supraglacial: quick, dilute</text>
+  <path d="M292 122 C286 144, 284 158, 280 176" fill="none" stroke="#3b82f6" stroke-width="4" marker-end="url(#chem-blue)"/>
+  <text x="306" y="118" font-size="15" fill="#1d4ed8">englacial: moderate residence</text>
+  <path d="M354 184 C336 196, 314 210, 286 228" fill="none" stroke="#8b5cf6" stroke-width="5" marker-end="url(#chem-purple)"/>
+  <text x="324" y="246" font-size="15" fill="#6d28d9">subglacial: long contact, high solutes</text>
+
+  <path d="M286 228 C330 238, 380 246, 506 252" fill="none" stroke="#64748b" stroke-width="6" marker-end="url(#chem-gray)"/>
+  <text x="410" y="274" font-size="16" fill="#475569">outlet stream</text>
+
+  <rect x="72" y="262" width="270" height="32" rx="12" fill="#fff8ef" stroke="#f1ddbc"/>
+  <text x="90" y="283" font-size="15" fill="#92400e">carbonate dissolution, silicate weathering, sulfide oxidation</text>
+  <text x="74" y="304" font-size="14" fill="#475569">more time at the bed usually means more dissolved ions and sediment</text>
+
+  <defs>
+    <marker id="chem-teal" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#0ea5a6"/>
+    </marker>
+    <marker id="chem-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="chem-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#8b5cf6"/>
+    </marker>
+    <marker id="chem-gray" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4>How to interpret the stream</h4>
+<p><strong>Fast surface water:</strong> tends to be colder, more dilute, and less chemically evolved.</p>
+<p><strong>Subglacial water:</strong> has more time to react with crushed bedrock, so it often carries higher Ca²⁺, Mg²⁺, SO₄²⁻, and suspended sediment.</p>
+<p><strong>The outlet chemistry is mixed.</strong> What you measure in the stream is a composite of several flow paths plus the weathering reactions they experienced.</p>
+</div>
+</div>
+</div>
+<figcaption>Glacial meltwater chemistry is a mixing problem layered on top of a reaction problem. Different flow paths contribute water with different residence times, sediment loads, and chemical signatures.</figcaption>
+</figure>
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Chemistry Reading</div>
+<h3 class="cg-ill__title">Stream Chemistry Works Like A Diagnostic For Flow Path And Residence Time</h3>
+<p class="cg-ill__lede">A second useful visual is the interpretation rule set. The stream sample is not just a list of ions; it is evidence about whether the water moved quickly over ice, slowly under ice, or spent enough time at the bed to weather minerals aggressively.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Low solutes</div>
+<h4>Fast pathways</h4>
+<p>Short residence time usually points to supraglacial or near-surface routing.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">High Ca / HCO₃</div>
+<h4>Carbonate weathering</h4>
+<p>Quick dissolution often dominates early or efficiently connected drainage.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">High SO₄ / metals</div>
+<h4>Sulfide or bed reaction</h4>
+<p>More chemically evolved subglacial contact can drive stronger mineral signatures.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">High turbidity + chemistry</div>
+<h4>Active bed access</h4>
+<p>Water likely interacted with freshly ground sediment and subglacial pathways.</p>
+</div>
+</div>
+</div>
+<figcaption>Meltwater chemistry is a process tracer. Ion patterns and turbidity help infer where the water travelled, how long it stayed in contact with rock, and which weathering reactions dominated.</figcaption>
+</figure>
 
 ---
 
@@ -172,6 +264,7 @@ $$E_{\text{chem}} = \frac{D_{\text{chem}}}{\rho_{\text{rock}}}$$
 Where $\rho_{\text{rock}} \approx 2700$ kg/m³
 
 **Typical glacial catchments:**
+
 - $D_{\text{chem}} = 50-200$ kg/m²/year
 - $E_{\text{chem}} = 0.02-0.08$ mm/year
 
@@ -238,10 +331,12 @@ Where:
 **Data:**
 
 **Catchment:**
+
 - Area: 10 km²
 - Annual runoff: 2000 mm/year
 
 **Stream chemistry (annual mean):**
+
 - Ca²⁺: 45 mg/L
 - Mg²⁺: 15 mg/L
 - Na⁺: 10 mg/L
@@ -250,6 +345,7 @@ Where:
 - **Total Dissolved Solids (TDS):** 300 mg/L
 
 **Endmembers:**
+
 - Supraglacial: TDS = 10 mg/L
 - Subglacial: TDS = 800 mg/L
 
@@ -280,6 +376,7 @@ $$f_{\text{sub}} = \frac{300 - 10}{800 - 10} = \frac{290}{790} = 0.37 = 37\%$$
 $$f_{\text{supra}} = 1 - 0.37 = 0.63 = 63\%$$
 
 **Interpretation:**
+
 - Annual average: 63% supraglacial, 37% subglacial
 - Chemical denudation: 0.6 kg/m²/year (moderate)
 - Bedrock erosion equivalent: 0.22 mm/year (slow compared to mechanical)
@@ -524,6 +621,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Slide through day:** See discharge peak at noon (blue), TDS minimum (green)
 - **Summer vs Fall:** Higher discharge in summer, more dilution
 - **Carbonate bedrock:** Very high TDS (limestone dissolves rapidly)
@@ -545,6 +643,7 @@ window.addEventListener('resize', () => chart.resize());
 **Global glacial runoff:** ~3000 km³/year
 
 **Chemical flux to oceans:**
+
 - Ca²⁺: ~50 × 10⁹ mol/year
 - HCO₃⁻: ~100 × 10⁹ mol/year
 - Silica: ~10 × 10⁹ mol/year
@@ -562,16 +661,19 @@ $$\text{CO}_2 + \text{CaSiO}_3 \rightarrow \text{CaCO}_3 + \text{SiO}_2$$
 **Downstream impacts:**
 
 **Positive:**
+
 - Nutrient delivery (Fe, P from rock flour)
 - Supports phytoplankton blooms in fjords
 - Cold water refugia for salmon
 
 **Negative:**
+
 - High turbidity limits light (reduces primary production)
 - Temperature stress (too cold for some species)
 - Variable flow regime (habitat instability)
 
 **Example - Gulf of Alaska:**
+
 - Glacial sediment plumes visible from space
 - Fe delivery supports productive fisheries
 - Climate change → changing timing and magnitude
@@ -579,15 +681,18 @@ $$\text{CO}_2 + \text{CaSiO}_3 \rightarrow \text{CaCO}_3 + \text{SiO}_2$$
 ### Water Resources
 
 **Drinking water:**
+
 - Low organic content (good)
 - High turbidity (expensive filtration)
 - Variable mineralization (treatment complexity)
 
 **Hydropower:**
+
 - Sediment abrasion of turbines (costly)
 - Variable flow (generation uncertainty)
 
 **Agriculture:**
+
 - Reliable summer irrigation
 - But declining as glaciers shrink
 
@@ -600,6 +705,7 @@ $$\text{CO}_2 + \text{CaSiO}_3 \rightarrow \text{CaCO}_3 + \text{SiO}_2$$
 **Reality:** Endmember composition varies:
 
 **Subglacial TDS varies with:**
+
 - Season (winter storage → more concentrated)
 - Flow path evolution (channelized vs distributed)
 - Bedrock heterogeneity
@@ -633,10 +739,12 @@ $$\text{CO}_2 + \text{CaSiO}_3 \rightarrow \text{CaCO}_3 + \text{SiO}_2$$
 ### Suspended vs Dissolved
 
 **Glacial flour (suspended):**
+
 - Not dissolved, but measured in "total" analyses
 - Settles out in reservoirs
 
 **Dissolved load:**
+
 - Truly in solution
 - Remains through settling
 

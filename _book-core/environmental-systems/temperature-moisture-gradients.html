@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -193,6 +196,14 @@ Rising saturated air cools slower because condensation releases latent heat.</p>
 - Environment cools slower than adiabatic (or warms with height) - Rising parcel becomes cooler than surroundings - Negatively buoyant → sinks back → stable</p>
 <p><strong>Inversion:</strong> <span class="math inline">\Gamma &lt; 0</span> (temperature increases with height)<br>
 - Extremely stable - Suppresses vertical mixing - Traps pollution</p>
+<div class="cg-ill" title="Vertical Structure of Temperature and Moisture">
+<svg viewbox="0 0 760 360" role="img" aria-label="Illustration of normal lapse rate and inversion, together with moisture and cloud-base structure in a vertical atmospheric profile.">
+</svg><p><rect x="0" y="0" width="760" height="360" fill="#f8fbff"> <rect x="0" y="292" width="760" height="68" fill="#d7c3a3"> <line x1="92" y1="55" x2="92" y2="292" stroke="#475569" stroke-width="2"> <text x="60" y="68" font-size="18" fill="#334155">height</text></line></rect></rect></p>
+<p><rect x="118" y="58" width="250" height="222" rx="18" fill="#eef6ff" stroke="#c7def5"> <text x="148" y="88" font-size="20" fill="#1e3a5f">temperature profile</text> <line x1="160" y1="110" x2="160" y2="252" stroke="#94a3b8" stroke-width="1.5"> <line x1="310" y1="110" x2="310" y2="252" stroke="#94a3b8" stroke-width="1.5"> <path d="M312 128 C292 144, 268 160, 250 182 C232 202, 204 224, 170 245" fill="none" stroke="#ef4444" stroke-width="5" stroke-linecap="round"> <text x="180" y="267" font-size="16" fill="#b91c1c">normal lapse rate</text> <path d="M198 234 C230 214, 252 208, 270 202 C292 196, 306 178, 318 154" fill="none" stroke="#7c3aed" stroke-width="5" stroke-linecap="round"> <text x="214" y="124" font-size="16" fill="#6d28d9">inversion near the surface</text> <line x1="138" y1="205" x2="348" y2="205" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="6 5"> <text x="144" y="198" font-size="14" fill="#6d28d9">warm lid blocks vertical mixing</text></line></path></path></line></line></rect></p>
+<rect x="398" y="58" width="292" height="222" rx="18" fill="#f0fbf9" stroke="#c8e8df"> <text x="434" y="88" font-size="20" fill="#14532d">moisture profile</text> <line x1="438" y1="110" x2="438" y2="252" stroke="#94a3b8" stroke-width="1.5"> <line x1="656" y1="110" x2="656" y2="252" stroke="#94a3b8" stroke-width="1.5"> <path d="M460 242 C500 226, 526 206, 552 184 C577 162, 612 142, 645 126" fill="none" stroke="#0ea5a6" stroke-width="5" stroke-linecap="round"> <text x="454" y="266" font-size="16" fill="#0f766e">relative humidity rises upward</text> <line x1="420" y1="165" x2="668" y2="165" stroke="#0ea5a6" stroke-width="1.5" stroke-dasharray="6 5"> <ellipse cx="545" cy="156" rx="62" ry="20" fill="#dbeafe" stroke="#93c5fd"> <ellipse cx="520" cy="163" rx="42" ry="16" fill="#e0f2fe" stroke="#93c5fd"> <ellipse cx="573" cy="164" rx="38" ry="15" fill="#e0f2fe" stroke="#93c5fd"> <text x="510" y="138" font-size="15" fill="#0369a1">cloud base / LCL</text> <text x="444" y="123" font-size="15" fill="#334155">drier, warmer air</text> <text x="602" y="114" font-size="15" fill="#334155">cooler air reaches saturation</text>
+
+<p>This chapter is really about two vertical stories happening at once. Temperature usually falls with height, but an inversion bends that profile the other way and creates stability. At the same time, rising air usually gets closer to saturation until it reaches the lifting condensation level, where cloud can begin.</p>
+</ellipse></ellipse></ellipse></line></path></line></line></rect></div>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="dry-adiabatic-process" class="anchored">Dry Adiabatic Process</h3>
@@ -252,8 +263,7 @@ At cold temperatures (-20°C): <span class="math inline">\Gamma_s \approx 7</spa
 <p><span class="math inline">\Gamma_d = 9.8</span> K/km (dry adiabatic)</p>
 <p>Compare: <span class="math inline">\Gamma = 7</span> K/km <span class="math inline">&lt; \Gamma_d</span></p>
 <p><strong>Environment cools slower than dry adiabatic → stable for dry air.</strong></p>
-<p>If air rises 1 km dry adiabatically: - Parcel temperature: $30 - 9.8 = 20.2°<span class="math inline">C
-- Environment temperature at 1 km: &amp;#36;22°</span>C - Parcel is <strong>cooler</strong> than environment → sinks back → stable</p>
+<p>If air rises 1 km dry adiabatically: - Parcel temperature: <span class="math inline">30 - 9.8 = 20.2^\circ\text{C}</span> - Environment temperature at 1 km: <span class="math inline">22^\circ\text{C}</span> - Parcel is <strong>cooler</strong> than environment → sinks back → stable</p>
 <p><strong>(c) Cloud base</strong></p>
 <p><span class="math display">h_{\text{LCL}} = 125(T - T_d) = 125(30 - 20) = 1250 \text{ m}</span></p>
 <p><strong>Cloud base at 1.25 km.</strong></p>
@@ -280,9 +290,9 @@ Environmental lapse rate (K/km):
 <label>
 Time of day:
 <select id="time-of-day">
-  <option value="day">Daytime (unstable)</option>
-  <option value="neutral" selected="">Neutral</option>
-  <option value="night">Night (inversion)</option>
+<option value="day">Daytime (unstable)</option>
+<option value="neutral" selected="">Neutral</option>
+<option value="night">Night (inversion)</option>
 </select>
 </label>
 </div>
@@ -347,11 +357,11 @@ dryAdiabat.push(Tdry);
       
 // Saturated adiabat from LCL
 if (z < lcl) {
-  satAdiabat.push(null);
+satAdiabat.push(null);
 } else {
-  const T_lcl = surfT - gamma_d * (lcl / 1000);
-  const Tsat = T_lcl - gamma_s * ((z - lcl) / 1000);
-  satAdiabat.push(Tsat);
+const T_lcl = surfT - gamma_d * (lcl / 1000);
+const Tsat = T_lcl - gamma_s * ((z - lcl) / 1000);
+satAdiabat.push(Tsat);
 }
       
 // Dew point (decreases with height, roughly 2 K/km)
@@ -383,79 +393,79 @@ updateChart(heights, envTemps, dryAdiabat, satAdiabat, dewPoints, lcl);
 function updateChart(heights, env, dry, sat, dew, lcl) {
 const option = {
 title: {
-  text: 'Atmospheric Temperature Profile',
-  left: 'center'
+text: 'Atmospheric Temperature Profile',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  axisPointer: { type: 'cross' }
+trigger: 'axis',
+axisPointer: { type: 'cross' }
 },
 legend: {
-  data: ['Environment', 'Dry Adiabat', 'Sat Adiabat', 'Dew Point'],
-  top: 30
+data: ['Environment', 'Dry Adiabat', 'Sat Adiabat', 'Dew Point'],
+top: 30
 },
 grid: {
-  left: 80,
-  right: 40,
-  top: 80,
-  bottom: 60
+left: 80,
+right: 40,
+top: 80,
+bottom: 60
 },
 xAxis: {
-  type: 'value',
-  name: 'Temperature (°C)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: -10,
-  max: 40
+type: 'value',
+name: 'Temperature (°C)',
+nameLocation: 'middle',
+nameGap: 30,
+min: -10,
+max: 40
 },
 yAxis: {
-  type: 'value',
-  name: 'Height (m)',
-  nameLocation: 'middle',
-  nameGap: 50,
-  min: 0,
-  max: 5000
+type: 'value',
+name: 'Height (m)',
+nameLocation: 'middle',
+nameGap: 50,
+min: 0,
+max: 5000
 },
 series: [
-  {
-    name: 'Environment',
-    type: 'line',
-    data: env.map((t, i) => [t, heights[i]]),
-    lineStyle: { color: '#E74C3C', width: 3 },
-    showSymbol: false
-  },
-  {
-    name: 'Dry Adiabat',
-    type: 'line',
-    data: dry.map((t, i) => [t, heights[i]]),
-    lineStyle: { color: '#3498DB', width: 2, type: 'dashed' },
-    showSymbol: false
-  },
-  {
-    name: 'Sat Adiabat',
-    type: 'line',
-    data: sat.map((t, i) => t !== null ? [t, heights[i]] : null).filter(x => x),
-    lineStyle: { color: '#2ECC71', width: 2, type: 'dashed' },
-    showSymbol: false
-  },
-  {
-    name: 'Dew Point',
-    type: 'line',
-    data: dew.map((t, i) => [t, heights[i]]),
-    lineStyle: { color: '#9B59B6', width: 2, type: 'dotted' },
-    showSymbol: false,
-    markLine: {
-      silent: true,
-      symbol: 'none',
-      data: lcl > 0 ? [
-        {
-          yAxis: lcl,
-          lineStyle: { type: 'solid', color: '#95A5A6' },
-          label: { formatter: 'LCL (cloud base)', position: 'end' }
-        }
-      ] : []
-    }
-  }
+{
+name: 'Environment',
+type: 'line',
+data: env.map((t, i) => [t, heights[i]]),
+lineStyle: { color: '#E74C3C', width: 3 },
+showSymbol: false
+},
+{
+name: 'Dry Adiabat',
+type: 'line',
+data: dry.map((t, i) => [t, heights[i]]),
+lineStyle: { color: '#3498DB', width: 2, type: 'dashed' },
+showSymbol: false
+},
+{
+name: 'Sat Adiabat',
+type: 'line',
+data: sat.map((t, i) => t !== null ? [t, heights[i]] : null).filter(x => x),
+lineStyle: { color: '#2ECC71', width: 2, type: 'dashed' },
+showSymbol: false
+},
+{
+name: 'Dew Point',
+type: 'line',
+data: dew.map((t, i) => [t, heights[i]]),
+lineStyle: { color: '#9B59B6', width: 2, type: 'dotted' },
+showSymbol: false,
+markLine: {
+silent: true,
+symbol: 'none',
+data: lcl > 0 ? [
+{
+yAxis: lcl,
+lineStyle: { type: 'solid', color: '#95A5A6' },
+label: { formatter: 'LCL (cloud base)', position: 'end' }
+}
+] : []
+}
+}
 ]
 };
     
@@ -490,16 +500,33 @@ updateCalculation();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Nighttime inversion:</strong> Temperature increases with height → extremely stable - <strong>Daytime unstable:</strong> High lapse rate (&gt; 10 K/km) → dry adiabat to left of environment → rising parcel stays warmer - <strong>Dew point spread:</strong> When temperature curve crosses dew point → cloud forms - <strong>LCL marker:</strong> Shows cloud base height - Notice: Saturated adiabat (green) has gentler slope than dry adiabat (latent heat release)</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Nighttime inversion:</strong> Temperature increases with height → extremely stable</li>
+<li><strong>Daytime unstable:</strong> High lapse rate (&gt; 10 K/km) → dry adiabat to left of environment → rising parcel stays warmer</li>
+<li><strong>Dew point spread:</strong> When temperature curve crosses dew point → cloud forms</li>
+<li><strong>LCL marker:</strong> Shows cloud base height</li>
+<li>Notice: Saturated adiabat (green) has gentler slope than dry adiabat (latent heat release)</li>
+</ul>
 <p><strong>Key insight:</strong> Stability depends on the <strong>slope</strong> of the environmental profile relative to adiabatic rates.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
 <h3 id="inversion-types" class="anchored">Inversion Types</h3>
 <p><strong>Radiation inversion</strong> (nighttime): - Surface cools by IR emission - Ground-based inversion (0–200 m) - Breaks up after sunrise</p>
 <p><strong>Subsidence inversion</strong> (high pressure): - Descending air warms adiabatically - Elevated inversion (500–2000 m) - Persistent (days) - Traps pollution</p>
-<p><strong>Frontal inversion:</strong> - Warm air overrides cold air - Associated with weather fronts</p>
+<p><strong>Frontal inversion:</strong></p>
+<ul>
+<li>Warm air overrides cold air</li>
+<li>Associated with weather fronts</li>
+</ul>
 <h3 id="convective-boundary-layer" class="anchored">Convective Boundary Layer</h3>
-<p><strong>Daytime over land:</strong> - Surface heated by sun - Lapse rate approaches dry adiabatic (<span class="math inline">\Gamma \approx \Gamma_d</span>) - <strong>Mixed layer:</strong> Well-mixed by convection (temperature nearly constant with height) - Inversion cap at top (typically 1–2 km)</p>
+<p><strong>Daytime over land:</strong></p>
+<ul>
+<li>Surface heated by sun</li>
+<li>Lapse rate approaches dry adiabatic (<span class="math inline">\Gamma \approx \Gamma_d</span>)</li>
+<li><strong>Mixed layer:</strong> Well-mixed by convection (temperature nearly constant with height)</li>
+<li>Inversion cap at top (typically 1–2 km)</li>
+</ul>
 <h3 id="cloud-formation" class="anchored">Cloud Formation</h3>
 <p>Clouds form when: 1. Air rises to LCL (cooling by expansion) 2. Reaches saturation 3. Continued lift produces condensation</p>
 <p><strong>Cumulus clouds:</strong> Thermal updrafts from warm surface<br>
@@ -508,7 +535,11 @@ window.addEventListener('resize', () => chart.resize());
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
 <h3 id="assuming-dry-adiabatic-always" class="anchored">Assuming Dry Adiabatic Always</h3>
 <p>Once air saturates, <strong>saturated adiabatic</strong> applies. The transition occurs at LCL.</p>
-<p><strong>Parcels rise:</strong> - Below LCL: Cool at <span class="math inline">\Gamma_d = 9.8</span> K/km - Above LCL: Cool at <span class="math inline">\Gamma_s \approx 6</span> K/km</p>
+<p><strong>Parcels rise:</strong></p>
+<ul>
+<li>Below LCL: Cool at <span class="math inline">\Gamma_d = 9.8</span> K/km</li>
+<li>Above LCL: Cool at <span class="math inline">\Gamma_s \approx 6</span> K/km</li>
+</ul>
 <h3 id="ignoring-moisture" class="anchored">Ignoring Moisture</h3>
 <p>Stability analysis without moisture misses <strong>conditional instability</strong>.</p>
 <p><strong>Example:</strong> <span class="math inline">\Gamma = 8</span> K/km - Dry air: Stable (<span class="math inline">\Gamma &lt; \Gamma_d</span>) - Saturated air: Unstable (<span class="math inline">\Gamma &gt; \Gamma_s</span>)</p>
@@ -525,7 +556,12 @@ window.addEventListener('resize', () => chart.resize());
 <p><span class="math display">\text{CAPE} = \int_{LFC}^{EL} g \frac{T_{\text{parcel}} - T_{\text{env}}}{T_{\text{env}}} dz</span></p>
 <p>Where: - LFC = Level of Free Convection (where parcel becomes warmer than environment) - EL = Equilibrium Level (where parcel becomes cooler again)</p>
 <p><strong>Units:</strong> J/kg (energy per unit mass)</p>
-<p><strong>Interpretation:</strong> - CAPE &lt; 1000 J/kg: Weak convection - 1000–2500 J/kg: Moderate storms - CAPE &gt; 2500 J/kg: Severe thunderstorms, tornadoes</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>CAPE &lt; 1000 J/kg: Weak convection</li>
+<li>1000–2500 J/kg: Moderate storms</li>
+<li>CAPE &gt; 2500 J/kg: Severe thunderstorms, tornadoes</li>
+</ul>
 <p><strong>Next model</strong> will connect atmospheric profiles to remote sensing—how satellites measure temperature and moisture from space using spectral absorption.</p>
 <hr>
 <h2 id="math-refresher-derivatives-and-gradients" class="anchored">9. Math Refresher: Derivatives and Gradients</h2>
@@ -570,24 +606,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

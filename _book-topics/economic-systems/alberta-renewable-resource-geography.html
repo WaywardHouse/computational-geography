@@ -70,10 +70,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -142,6 +145,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#reading-the-sun-albertas-solar-atlas" id="toc-reading-the-sun-albertas-solar-atlas">Reading the sun: Alberta’s solar atlas</a></li>
   <li><a href="#wind-from-the-mountains-albertas-wind-atlas" id="toc-wind-from-the-mountains-albertas-wind-atlas">Wind from the mountains: Alberta’s wind atlas</a></li>
   <li><a href="#where-the-resource-meets-the-grid" id="toc-where-the-resource-meets-the-grid">Where the resource meets the grid</a></li>
@@ -150,6 +154,15 @@ window.Quarto = {
   <li><a href="#the-resource-is-not-the-constraint" id="toc-the-resource-is-not-the-constraint">The resource is not the constraint</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That renewable energy resources vary geographically, and that solar and wind output depend on physical conditions rather than on fuel delivery.</p>
+<p><strong>You will learn</strong><br>
+How Alberta’s geography shapes solar irradiance, wind potential, and renewable project siting.</p>
+<p><strong>Why this matters</strong><br>
+The energy transition starts with resource geography: where strong solar and wind conditions actually exist.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The two governing ideas: sun angle for solar and wind speed for wind power.</p>
 <p>Alberta is, by Canadian standards, a sunbaked and wind-scoured province. The same geography that made it a fossil fuel province — the Rocky Mountain front, the vast treeless prairie, the continental climate — also makes it one of Canada’s best places to generate electricity from the sky.</p>
 <p>This is not a rhetorical observation. It follows directly from physics. Solar irradiance at the surface is highest where the atmosphere is thin and dry, and where the sun is not too low in the sky. Wind power is highest where terrain channels airflow and surface roughness is low. Alberta’s latitude, continental position, and topographic setting satisfy all of these conditions better than most of the country. Understanding the renewable energy transition in Alberta means first understanding the spatial structure of these resources — which the province’s geography concentrates, and which it spreads unevenly.</p>
 <p>That is the work of this essay: to map Alberta’s renewable resource in quantitative terms, using the physics of solar geometry and atmospheric irradiance on the solar side, and the boundary-layer wind statistics on the wind side. The mathematics is not complicated, but it rewards precision. The difference between a 7 m/s and an 8.5 m/s wind site is not 21% more energy — it is 73% more power, because wind power scales with the cube of speed. At the scale of a 300 MW project, that difference is decisive.</p>
@@ -377,157 +390,155 @@ Grande Prairie
 <p>A 20% efficient panel at Lethbridge, receiving 1,280 kWh/m²/year and measuring against the theoretical maximum if the sun delivered its full 1,361 W/m² continuously (which of course it does not), yields a capacity factor of roughly 26%. More practically, a 1 MW solar array at Lethbridge generates approximately 1,280 × 0.20 × 1,000 = 256,000 kWh per year — 256 MWh from 1 MW of nameplate capacity.</p>
 <p>The comparison to other regions is informative. Lethbridge’s 1,280 kWh/m²/year GHI exceeds many locations in southern Germany, where utility-scale solar has been deployed at scale since the early 2000s. Munich receives roughly 1,200 kWh/m²/year. The political and regulatory constraints on Alberta solar deployment are not, in other words, explained by inadequate resource.</p>
 <p>The Vulcan County cluster — where both Blackspring Ridge Wind (544 MW) and Travers Solar (465 MW, completed 2022–2023 and Canada’s largest solar farm at the time of construction) are located — sits at approximately 50.4°N. It captures a combination of high insolation, flat Class 1 agricultural land with low reflectivity losses, and proximity to the existing 240kV transmission corridor running north from Lethbridge. The geography dictated the economics before any project was proposed.</p>
-<div id="alberta-resource-map" data-leaflet="" style="height:520px;" data-lat="52.5" data-lng="-113.5" data-zoom="5" data-tiles="carto">
-
-</div>
+<div data-leaflet="" id="alberta-resource-map" style="height:520px;" data-lat="52.5" data-lng="-113.5" data-zoom="5" data-tiles="carto"></div>
 <p><em>Alberta renewable resource geography — wind resource zones (blue fill, darker = higher capacity factor) and annual solar irradiance at key stations (gold circles, sized by GHI). Click any zone or circle for data. Source: NRCan Solar Atlas; Environment Canada Wind Atlas.</em></p>
 <script>
 document.getElementById('alberta-resource-map').addEventListener('leaflet:ready', function(e) {
-  const map = e.detail.map;
-  const L   = window.L;
+const map = e.detail.map;
+const L   = window.L;
 
-  map.fitBounds([[49.0, -117.5], [57.0, -110.0]]);
+map.fitBounds([[49.0, -117.5], [57.0, -110.0]]);
 
-  // ── Wind resource zones ────────────────────────────────────────────────────
-  // Approximate rectangular zones based on Environment Canada Wind Atlas.
-  // Colours use the primary blue palette scaled by capacity factor.
-  const windZones = [
-    {
-      bounds: [[49.0, -115.0], [50.5, -113.2]],
-      color: '#1e5c99',
-      label: 'Crowsnest / Pincher Creek corridor',
-      speed: '8.0–9.5 m/s', cf: '38–45%',
-      note: 'Mountain front katabatic forcing. Castle Rock Ridge, Pincher Creek cluster.'
-    },
-    {
-      bounds: [[49.0, -113.2], [50.5, -111.0]],
-      color: '#2e7dd1',
-      label: 'Lethbridge foothills',
-      speed: '7.0–8.5 m/s', cf: '32–40%',
-      note: 'Blackspring Ridge Wind (544 MW), Forty Mile. Proximity to 240 kV corridor.'
-    },
-    {
-      bounds: [[50.2, -113.8], [51.5, -112.0]],
-      color: '#4e8ac4',
-      label: 'Vulcan County',
-      speed: '6.5–7.5 m/s', cf: '27–35%',
-      note: 'Travers Solar (465 MW) also in this zone. Sundial Wind and multiple co-located projects.'
-    },
-    {
-      bounds: [[50.5, -115.5], [52.2, -113.8]],
-      color: '#6baed6',
-      label: 'Calgary foothills',
-      speed: '6.0–7.5 m/s', cf: '22–35%',
-      note: 'Foothills lose mountain channelling effect north of Calgary. Various smaller projects.'
-    },
-    {
-      bounds: [[49.0, -111.0], [52.0, -110.0]],
-      color: '#9ecae1',
-      label: 'Eastern prairie',
-      speed: '5.5–7.0 m/s', cf: '18–28%',
-      note: 'Flat terrain, low roughness — adequate wind but not competitive with SW corridor at current costs.'
-    },
-    {
-      bounds: [[52.0, -117.5], [57.5, -110.0]],
-      color: '#c6dbef',
-      label: 'Central / North Alberta',
-      speed: '5.5–6.5 m/s', cf: '18–26%',
-      note: 'Northwestern boreal margin. Without Rocky Mountain forcing; CF well below SW corridor.'
-    },
-  ];
+// ── Wind resource zones ────────────────────────────────────────────────────
+// Approximate rectangular zones based on Environment Canada Wind Atlas.
+// Colours use the primary blue palette scaled by capacity factor.
+const windZones = [
+{
+bounds: [[49.0, -115.0], [50.5, -113.2]],
+color: '#1e5c99',
+label: 'Crowsnest / Pincher Creek corridor',
+speed: '8.0–9.5 m/s', cf: '38–45%',
+note: 'Mountain front katabatic forcing. Castle Rock Ridge, Pincher Creek cluster.'
+},
+{
+bounds: [[49.0, -113.2], [50.5, -111.0]],
+color: '#2e7dd1',
+label: 'Lethbridge foothills',
+speed: '7.0–8.5 m/s', cf: '32–40%',
+note: 'Blackspring Ridge Wind (544 MW), Forty Mile. Proximity to 240 kV corridor.'
+},
+{
+bounds: [[50.2, -113.8], [51.5, -112.0]],
+color: '#4e8ac4',
+label: 'Vulcan County',
+speed: '6.5–7.5 m/s', cf: '27–35%',
+note: 'Travers Solar (465 MW) also in this zone. Sundial Wind and multiple co-located projects.'
+},
+{
+bounds: [[50.5, -115.5], [52.2, -113.8]],
+color: '#6baed6',
+label: 'Calgary foothills',
+speed: '6.0–7.5 m/s', cf: '22–35%',
+note: 'Foothills lose mountain channelling effect north of Calgary. Various smaller projects.'
+},
+{
+bounds: [[49.0, -111.0], [52.0, -110.0]],
+color: '#9ecae1',
+label: 'Eastern prairie',
+speed: '5.5–7.0 m/s', cf: '18–28%',
+note: 'Flat terrain, low roughness — adequate wind but not competitive with SW corridor at current costs.'
+},
+{
+bounds: [[52.0, -117.5], [57.5, -110.0]],
+color: '#c6dbef',
+label: 'Central / North Alberta',
+speed: '5.5–6.5 m/s', cf: '18–26%',
+note: 'Northwestern boreal margin. Without Rocky Mountain forcing; CF well below SW corridor.'
+},
+];
 
-  windZones.forEach(z => {
-    L.rectangle(z.bounds, {
-      color: 'transparent',
-      fillColor: z.color,
-      fillOpacity: 0.42,
-      weight: 0,
-    })
-    .bindPopup(
-      `<strong>${z.label}</strong><br>` +
-      `Wind speed: ${z.speed}<br>` +
-      `Capacity factor: ${z.cf}<br>` +
-      `<em style="font-size:11px;">${z.note}</em>`
-    )
-    .addTo(map);
-  });
+windZones.forEach(z => {
+L.rectangle(z.bounds, {
+color: 'transparent',
+fillColor: z.color,
+fillOpacity: 0.42,
+weight: 0,
+})
+.bindPopup(
+`<strong>${z.label}</strong><br>` +
+`Wind speed: ${z.speed}<br>` +
+`Capacity factor: ${z.cf}<br>` +
+`<em style="font-size:11px;">${z.note}</em>`
+)
+.addTo(map);
+});
 
-  // ── Solar resource stations ────────────────────────────────────────────────
-  // Circle radius scales linearly with GHI. Gold fill (#e8cc6a = site secondary).
-  const solarStations = [
-    { name: 'Lethbridge',     lat: 49.70, lng: -112.83, ghi: 1280, cf: 26 },
-    { name: 'Medicine Hat',   lat: 50.05, lng: -110.68, ghi: 1260, cf: 26 },
-    { name: 'Calgary',        lat: 51.04, lng: -114.06, ghi: 1180, cf: 24 },
-    { name: 'Red Deer',       lat: 52.27, lng: -113.81, ghi: 1130, cf: 23 },
-    { name: 'Edmonton',       lat: 53.55, lng: -113.50, ghi: 1090, cf: 22 },
-    { name: 'Grande Prairie', lat: 55.17, lng: -118.80, ghi: 1020, cf: 21 },
-  ];
+// ── Solar resource stations ────────────────────────────────────────────────
+// Circle radius scales linearly with GHI. Gold fill (#e8cc6a = site secondary).
+const solarStations = [
+{ name: 'Lethbridge',     lat: 49.70, lng: -112.83, ghi: 1280, cf: 26 },
+{ name: 'Medicine Hat',   lat: 50.05, lng: -110.68, ghi: 1260, cf: 26 },
+{ name: 'Calgary',        lat: 51.04, lng: -114.06, ghi: 1180, cf: 24 },
+{ name: 'Red Deer',       lat: 52.27, lng: -113.81, ghi: 1130, cf: 23 },
+{ name: 'Edmonton',       lat: 53.55, lng: -113.50, ghi: 1090, cf: 22 },
+{ name: 'Grande Prairie', lat: 55.17, lng: -118.80, ghi: 1020, cf: 21 },
+];
 
-  const isDark = document.documentElement.dataset.theme === 'dark';
-  const ringColor = isDark ? '#ffffff' : '#5a4a10';
+const isDark = document.documentElement.dataset.theme === 'dark';
+const ringColor = isDark ? '#ffffff' : '#5a4a10';
 
-  solarStations.forEach(s => {
-    const r = 7 + (s.ghi - 1000) / 35;   // range ~7–17 px
-    L.circleMarker([s.lat, s.lng], {
-      radius: r,
-      fillColor: '#e8cc6a',
-      color: ringColor,
-      weight: 1.5,
-      fillOpacity: 0.9,
-    })
-    .bindPopup(
-      `<strong>${s.name}</strong><br>` +
-      `Annual GHI: ${s.ghi} kWh/m²/year<br>` +
-      `Solar CF (20% panel): ~${s.cf}%`
-    )
-    .addTo(map);
-  });
+solarStations.forEach(s => {
+const r = 7 + (s.ghi - 1000) / 35;   // range ~7–17 px
+L.circleMarker([s.lat, s.lng], {
+radius: r,
+fillColor: '#e8cc6a',
+color: ringColor,
+weight: 1.5,
+fillOpacity: 0.9,
+})
+.bindPopup(
+`<strong>${s.name}</strong><br>` +
+`Annual GHI: ${s.ghi} kWh/m²/year<br>` +
+`Solar CF (20% panel): ~${s.cf}%`
+)
+.addTo(map);
+});
 
-  // ── Key project markers ────────────────────────────────────────────────────
-  const projects = [
-    { name: 'Travers Solar',           mw: 465, lat: 50.35, lng: -113.18, type: 'solar' },
-    { name: 'Blackspring Ridge Wind',  mw: 544, lat: 50.08, lng: -112.87, type: 'wind'  },
-    { name: 'Pincher Creek cluster',   mw: 300, lat: 49.48, lng: -113.92, type: 'wind'  },
-  ];
+// ── Key project markers ────────────────────────────────────────────────────
+const projects = [
+{ name: 'Travers Solar',           mw: 465, lat: 50.35, lng: -113.18, type: 'solar' },
+{ name: 'Blackspring Ridge Wind',  mw: 544, lat: 50.08, lng: -112.87, type: 'wind'  },
+{ name: 'Pincher Creek cluster',   mw: 300, lat: 49.48, lng: -113.92, type: 'wind'  },
+];
 
-  projects.forEach(p => {
-    L.circleMarker([p.lat, p.lng], {
-      radius: 8,
-      fillColor: p.type === 'solar' ? '#e8cc6a' : '#4e8ac4',
-      color: isDark ? '#ffffff' : '#222222',
-      weight: 2.5,
-      fillOpacity: 1,
-    })
-    .bindPopup(`<strong>${p.name}</strong><br>${p.mw} MW · ${p.type}`)
-    .addTo(map);
-  });
+projects.forEach(p => {
+L.circleMarker([p.lat, p.lng], {
+radius: 8,
+fillColor: p.type === 'solar' ? '#e8cc6a' : '#4e8ac4',
+color: isDark ? '#ffffff' : '#222222',
+weight: 2.5,
+fillOpacity: 1,
+})
+.bindPopup(`<strong>${p.name}</strong><br>${p.mw} MW · ${p.type}`)
+.addTo(map);
+});
 
-  // ── Legend ────────────────────────────────────────────────────────────────
-  const legend = L.control({ position: 'bottomright' });
-  legend.onAdd = () => {
-    const bg   = isDark ? 'rgba(28,28,28,0.92)' : 'rgba(255,255,255,0.92)';
-    const text = isDark ? '#d4d4d4' : '#333333';
-    const div  = L.DomUtil.create('div');
-    div.style.cssText = `background:${bg};color:${text};padding:10px 14px;border-radius:4px;
-      font-size:11px;line-height:1.9;box-shadow:0 1px 5px rgba(0,0,0,0.25);max-width:215px;`;
-    div.innerHTML = `
-      <strong style="font-size:12px;display:block;margin-bottom:2px;">Wind capacity factor</strong>
-      <span style="background:#1e5c99;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>38–45% · Crowsnest / Pincher Creek<br>
-      <span style="background:#2e7dd1;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>32–40% · Lethbridge foothills<br>
-      <span style="background:#4e8ac4;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>27–35% · Vulcan County<br>
-      <span style="background:#6baed6;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>22–35% · Calgary foothills<br>
-      <span style="background:#9ecae1;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>18–28% · Prairies / north<br>
-      <br>
-      <strong style="font-size:12px;display:block;margin-bottom:2px;">Solar irradiance</strong>
-      <span style="background:#e8cc6a;border:1.5px solid #8a6800;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Annual GHI — circle size ∝ intensity<br>
-      <br>
-      <strong style="font-size:12px;display:block;margin-bottom:2px;">Projects</strong>
-      <span style="background:#e8cc6a;border:2px solid #222;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Solar<br>
-      <span style="background:#4e8ac4;border:2px solid #222;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Wind
-    `;
-    return div;
-  };
-  legend.addTo(map);
+// ── Legend ────────────────────────────────────────────────────────────────
+const legend = L.control({ position: 'bottomright' });
+legend.onAdd = () => {
+const bg   = isDark ? 'rgba(28,28,28,0.92)' : 'rgba(255,255,255,0.92)';
+const text = isDark ? '#d4d4d4' : '#333333';
+const div  = L.DomUtil.create('div');
+div.style.cssText = `background:${bg};color:${text};padding:10px 14px;border-radius:4px;
+font-size:11px;line-height:1.9;box-shadow:0 1px 5px rgba(0,0,0,0.25);max-width:215px;`;
+div.innerHTML = `
+<strong style="font-size:12px;display:block;margin-bottom:2px;">Wind capacity factor</strong>
+<span style="background:#1e5c99;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>38–45% · Crowsnest / Pincher Creek<br>
+<span style="background:#2e7dd1;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>32–40% · Lethbridge foothills<br>
+<span style="background:#4e8ac4;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>27–35% · Vulcan County<br>
+<span style="background:#6baed6;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>22–35% · Calgary foothills<br>
+<span style="background:#9ecae1;opacity:.7;display:inline-block;width:13px;height:9px;margin-right:5px;"></span>18–28% · Prairies / north<br>
+<br>
+<strong style="font-size:12px;display:block;margin-bottom:2px;">Solar irradiance</strong>
+<span style="background:#e8cc6a;border:1.5px solid #8a6800;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Annual GHI — circle size ∝ intensity<br>
+<br>
+<strong style="font-size:12px;display:block;margin-bottom:2px;">Projects</strong>
+<span style="background:#e8cc6a;border:2px solid #222;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Solar<br>
+<span style="background:#4e8ac4;border:2px solid #222;display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;"></span>Wind
+`;
+return div;
+};
+legend.addTo(map);
 });
 </script>
 <h2 id="wind-from-the-mountains-albertas-wind-atlas" class="anchored">Wind from the mountains: Alberta’s wind atlas</h2>
@@ -810,24 +821,24 @@ print(f"  Annual wind gen   : {cf_wind  * 8760 * 1000:,.0f} kWh/year  (1 MW wind
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

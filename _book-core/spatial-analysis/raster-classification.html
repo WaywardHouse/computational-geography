@@ -71,10 +71,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -143,6 +146,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -184,14 +188,34 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That raster values can be continuous, and that turning them into categories requires drawing boundaries that are not already present in the data.</p>
+<p><strong>You will learn</strong><br>
+How raster classification schemes work, what breakpoint choices imply, and why classification is always partly an analytical decision rather than a neutral conversion.</p>
+<p><strong>Why this matters</strong><br>
+Much of practical GIS depends on turning continuous measurements into actionable categories like slope classes, risk classes, and land-cover types.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The central question: where are we choosing to place the boundaries between classes, and why?</p>
 <p>Canada’s national land cover dataset — 30-metre resolution, updated roughly every five years from Landsat imagery — classifies every pixel in the country into one of seventeen categories: water, wetland, cropland, urban, treed upland, and so on. The classification is the product of a decision process applied to hundreds of millions of pixels, each represented by a stack of spectral reflectance values in multiple bands. The output — discrete categories on a continuous landscape — is what land managers, carbon accountants, and biodiversity assessors actually work with. But the categories are not in the data; they are imposed on it. And the choice of where to draw the boundaries between classes has a larger effect on the results than most users appreciate.</p>
 <p>Raster classification converts continuous fields — elevation, slope, temperature, spectral reflectance, vegetation index — into discrete categories. The conversion requires two decisions: how many classes to create, and where to place the breakpoints between them. Equal-interval classification (divide the range into equal steps) is intuitive but produces classes with very unequal numbers of pixels if the data is skewed. Quantile classification (equal numbers of pixels per class) preserves the count distribution but may split a cluster of very similar values. Natural breaks (Jenks optimisation) minimises within-class variance and often produces the most cartographically satisfying result, but the algorithm is quadratic in the number of classes and requires care on large datasets. This model derives and compares all three schemes, introduces the confusion matrix for evaluating classification accuracy, and discusses when each approach is appropriate.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>How do you convert a continuous elevation raster into slope classes: “flat”, “gentle”, “steep”, “very steep”?</p>
 <p><strong>Reclassification</strong> transforms raster values using decision rules:</p>
-<p><strong>Examples:</strong> - <strong>Slope categories:</strong> 0-5° = flat, 5-15° = gentle, 15-30° = steep, &gt;30° = very steep - <strong>Land cover from NDVI:</strong> &lt;0.2 = bare, 0.2-0.4 = sparse veg, 0.4-0.6 = moderate, &gt;0.6 = dense - <strong>Habitat suitability:</strong> Combine elevation + slope + aspect into “suitable” vs “unsuitable” - <strong>Fire risk zones:</strong> Temperature + humidity + vegetation → low/medium/high risk</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li><strong>Slope categories:</strong> 0-5° = flat, 5-15° = gentle, 15-30° = steep, &gt;30° = very steep</li>
+<li><strong>Land cover from NDVI:</strong> &lt;0.2 = bare, 0.2-0.4 = sparse veg, 0.4-0.6 = moderate, &gt;0.6 = dense</li>
+<li><strong>Habitat suitability:</strong> Combine elevation + slope + aspect into “suitable” vs “unsuitable”</li>
+<li><strong>Fire risk zones:</strong> Temperature + humidity + vegetation → low/medium/high risk</li>
+</ul>
 <p>The mathematical question: Given continuous input values, how do we assign them to discrete classes efficiently and meaningfully?</p>
-<p><strong>Key decisions:</strong> - <strong>Number of classes:</strong> Too few → information loss; too many → complexity - <strong>Breakpoints:</strong> Where to split? Equal intervals? Natural breaks? Quantiles? - <strong>Edge handling:</strong> Is 15.0° “gentle” or “steep”?</p>
+<p><strong>Key decisions:</strong></p>
+<ul>
+<li><strong>Number of classes:</strong> Too few → information loss; too many → complexity</li>
+<li><strong>Breakpoints:</strong> Where to split? Equal intervals? Natural breaks? Quantiles?</li>
+<li><strong>Edge handling:</strong> Is 15.0° “gentle” or “steep”?</li>
+</ul>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
 <h3 id="classification-vs.-reclassification" class="anchored">Classification vs.&nbsp;Reclassification</h3>
@@ -228,6 +252,99 @@ window.Quarto = {
 <p><strong>Example:</strong> Slope classes from geomorphology literature - 0-2°: Flat (flooding possible) - 2-5°: Gentle (easy to build on) - 5-15°: Moderate (erosion risk increases) - 15-30°: Steep (difficult access) - &gt;30°: Very steep (landslide risk)</p>
 <p><strong>Pros:</strong> Incorporates domain knowledge<br>
 <strong>Cons:</strong> Subjective, may not fit specific dataset</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Class Breaks
+</div>
+<h3 class="cg-ill__title anchored">
+The Same Raster Can Be Partitioned In Different Ways
+</h3>
+<p class="cg-ill__lede">
+Classification does not just label values. It chooses where to place boundaries in a distribution, and different schemes emphasize different stories in the same data.
+</p>
+<div class="cg-ill__hist-grid">
+<div class="cg-ill__hist-card">
+<div class="cg-ill__label">
+Equal interval
+</div>
+<h4 class="anchored">
+Same width bins
+</h4>
+<div class="cg-ill__hist">
+<div class="cg-ill__hist-bars">
+<p><span style="height:18%;"></span><span style="height:28%;"></span><span style="height:46%;"></span><span style="height:70%;"></span><span style="height:88%;"></span><span style="height:82%;"></span><span style="height:58%;"></span><span style="height:34%;"></span><span style="height:22%;"></span><span style="height:14%;"></span></p>
+</div>
+<div class="cg-ill__hist-break" style="left:31%;">
+
+</div>
+<div class="cg-ill__hist-break" style="left:51%;">
+
+</div>
+<div class="cg-ill__hist-break" style="left:71%;">
+
+</div>
+</div>
+<p>
+Easy to explain, but class sizes can become very unbalanced when values cluster.
+</p>
+</div>
+<div class="cg-ill__hist-card">
+<div class="cg-ill__label">
+Quantiles
+</div>
+<h4 class="anchored">
+Same count per class
+</h4>
+<div class="cg-ill__hist">
+<div class="cg-ill__hist-bars">
+<p><span style="height:18%;"></span><span style="height:28%;"></span><span style="height:46%;"></span><span style="height:70%;"></span><span style="height:88%;"></span><span style="height:82%;"></span><span style="height:58%;"></span><span style="height:34%;"></span><span style="height:22%;"></span><span style="height:14%;"></span></p>
+</div>
+<div class="cg-ill__hist-break" style="left:39%;">
+
+</div>
+<div class="cg-ill__hist-break" style="left:56%;">
+
+</div>
+<div class="cg-ill__hist-break" style="left:66%;">
+
+</div>
+</div>
+<p>
+Balances the number of pixels in each class, even if some breaks split visually similar values.
+</p>
+</div>
+<div class="cg-ill__hist-card">
+<div class="cg-ill__label">
+Natural breaks / expert
+</div>
+<h4 class="anchored">
+Break where the data changes
+</h4>
+<div class="cg-ill__hist">
+<div class="cg-ill__hist-bars">
+<p><span style="height:18%;"></span><span style="height:28%;"></span><span style="height:46%;"></span><span style="height:70%;"></span><span style="height:88%;"></span><span style="height:82%;"></span><span style="height:58%;"></span><span style="height:34%;"></span><span style="height:22%;"></span><span style="height:14%;"></span></p>
+</div>
+<div class="cg-ill__hist-break" style="left:34%;">
+
+</div>
+<div class="cg-ill__hist-break" style="left:61%;">
+
+</div>
+<div class="cg-ill__hist-break" style="left:78%;">
+
+</div>
+</div>
+<p>
+Often matches the data or domain logic better, but the breaks depend on judgment or optimization choices.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Classification schemes differ mainly in where they place breakpoints across the same value distribution.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="simple-threshold-classification" class="anchored">Simple Threshold Classification</h3>
@@ -309,7 +426,12 @@ i=0  10   15   20   25
 i=1  12   18   22   28
 i=2  14   16   24   30
 i=3  11   19   26   32</code></pre>
-<p><strong>Categories:</strong> - Cold (1) - Moderate (2) - Hot (3)</p>
+<p><strong>Categories:</strong></p>
+<ul>
+<li>Cold (1)</li>
+<li>Moderate (2)</li>
+<li>Hot (3)</li>
+</ul>
 <h3 id="solution" class="anchored">Solution</h3>
 <p><strong>Step 1: Find range</strong></p>
 <p><span class="math display">\min = 10°C, \quad \max = 32°C</span> <span class="math display">\text{range} = 32 - 10 = 22°C</span></p>
@@ -322,19 +444,44 @@ i=3  11   19   26   32</code></pre>
 <li><span class="math inline">b_2 = 17.33 + 7.33 = 24.67</span></li>
 <li><span class="math inline">b_3 = 32</span></li>
 </ul>
-<p><strong>Classes:</strong> - Cold (1): [10, 17.33) - Moderate (2): [17.33, 24.67) - Hot (3): [24.67, 32]</p>
+<p><strong>Classes:</strong></p>
+<ul>
+<li>Cold (1): [10, 17.33)</li>
+<li>Moderate (2): [17.33, 24.67)</li>
+<li>Hot (3): [24.67, 32]</li>
+</ul>
 <p><strong>Step 4: Classify each cell</strong></p>
-<p><strong>Row 0:</strong> - 10 &lt; 17.33 → 1 (Cold) - 15 &lt; 17.33 → 1 - 20 ∈ [17.33, 24.67) → 2 (Moderate) - 25 ≥ 24.67 → 3 (Hot)</p>
-<p><strong>Row 1:</strong> - 12 → 1, 18 → 2, 22 → 2, 28 → 3</p>
-<p><strong>Row 2:</strong> - 14 → 1, 16 → 1, 24 → 2, 30 → 3</p>
-<p><strong>Row 3:</strong> - 11 → 1, 19 → 2, 26 → 3, 32 → 3</p>
+<p><strong>Row 0:</strong></p>
+<ul>
+<li>10 &lt; 17.33 → 1 (Cold)</li>
+<li>15 &lt; 17.33 → 1</li>
+<li>20 ∈ [17.33, 24.67) → 2 (Moderate)</li>
+<li>25 ≥ 24.67 → 3 (Hot)</li>
+</ul>
+<p><strong>Row 1:</strong></p>
+<ul>
+<li>12 → 1, 18 → 2, 22 → 2, 28 → 3</li>
+</ul>
+<p><strong>Row 2:</strong></p>
+<ul>
+<li>14 → 1, 16 → 1, 24 → 2, 30 → 3</li>
+</ul>
+<p><strong>Row 3:</strong></p>
+<ul>
+<li>11 → 1, 19 → 2, 26 → 3, 32 → 3</li>
+</ul>
 <p><strong>Output:</strong></p>
 <pre><code>    j=0  j=1  j=2  j=3
 i=0   1    1    2    3
 i=1   1    2    2    3
 i=2   1    1    2    3
 i=3   1    2    3    3</code></pre>
-<p><strong>Class counts:</strong> - Cold (1): 6 cells - Moderate (2): 6 cells - Hot (3): 4 cells</p>
+<p><strong>Class counts:</strong></p>
+<ul>
+<li>Cold (1): 6 cells</li>
+<li>Moderate (2): 6 cells</li>
+<li>Hot (3): 4 cells</li>
+</ul>
 <p><strong>Not perfectly balanced</strong> (would be 5.33 each) because we used equal intervals, not quantiles.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
@@ -344,10 +491,10 @@ i=3   1    2    3    3</code></pre>
 <label>
 Classification method:
 <select id="class-method">
-  <option value="equal-interval" selected="">Equal Interval</option>
-  <option value="quantile">Quantile (Equal Count)</option>
-  <option value="std-dev">Standard Deviation</option>
-  <option value="manual">Manual Thresholds</option>
+<option value="equal-interval" selected="">Equal Interval</option>
+<option value="quantile">Quantile (Equal Count)</option>
+<option value="std-dev">Standard Deviation</option>
+<option value="manual">Manual Thresholds</option>
 </select>
 </label>
 <label>
@@ -357,14 +504,14 @@ Number of classes:
 </label>
 <div id="manual-controls" style="display:none;">
 <label>
-  Threshold 1:
-  <input type="range" id="manual-t1" min="0" max="100" step="5" value="30">
-  <span id="manual-t1-val">30</span>
+Threshold 1:
+<input type="range" id="manual-t1" min="0" max="100" step="5" value="30">
+<span id="manual-t1-val">30</span>
 </label>
 <label>
-  Threshold 2:
-  <input type="range" id="manual-t2" min="0" max="100" step="5" value="60">
-  <span id="manual-t2-val">60</span>
+Threshold 2:
+<input type="range" id="manual-t2" min="0" max="100" step="5" value="60">
+<span id="manual-t2-val">60</span>
 </label>
 </div>
 <label>
@@ -418,7 +565,7 @@ if (method === 'equal-interval') {
 const breaks = [min];
 const width = (max - min) / n;
 for (let i = 1; i < n; i++) {
-  breaks.push(min + i * width);
+breaks.push(min + i * width);
 }
 breaks.push(max + 1);
 return breaks;
@@ -426,8 +573,8 @@ return breaks;
 } else if (method === 'quantile') {
 const breaks = [min];
 for (let i = 1; i < n; i++) {
-  const idx = Math.floor(sorted.length * i / n);
-  breaks.push(sorted[idx]);
+const idx = Math.floor(sorted.length * i / n);
+breaks.push(sorted[idx]);
 }
 breaks.push(max + 1);
 return breaks;
@@ -439,7 +586,7 @@ const std = Math.sqrt(variance);
       
 const breaks = [];
 for (let i = -2; i <= 2; i++) {
-  breaks.push(mean + i * std);
+breaks.push(mean + i * std);
 }
 return breaks.sort((a, b) => a - b);
       
@@ -451,7 +598,7 @@ return [min, manualT1, manualT2, max + 1];
 function classify(value, breaks) {
 for (let i = 0; i < breaks.length - 1; i++) {
 if (value >= breaks[i] && value < breaks[i + 1]) {
-  return i;
+return i;
 }
 }
 return breaks.length - 2;
@@ -470,11 +617,11 @@ const classCounts = new Array(breaks.length - 1).fill(0);
     
 for (let i = 0; i < data.length; i++) {
 for (let j = 0; j < data[0].length; j++) {
-  const classId = classify(data[i][j], breaks);
-  classCounts[classId]++;
+const classId = classify(data[i][j], breaks);
+classCounts[classId]++;
         
-  ctx.fillStyle = colors[classId % colors.length];
-  ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
+ctx.fillStyle = colors[classId % colors.length];
+ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
 }
 }
     
@@ -507,10 +654,10 @@ ctx.fillStyle = '#BDC3C7';
 for (let i = 0; i < nBins; i++) {
 const barHeight = (bins[i] / maxCount) * height;
 ctx.fillRect(
-  x + i * barWidth,
-  y + height - barHeight,
-  barWidth - 1,
-  barHeight
+x + i * barWidth,
+y + height - barHeight,
+barWidth - 1,
+barHeight
 );
 }
     
@@ -588,7 +735,15 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Equal interval:</strong> Fixed-width bins (may be unbalanced) - <strong>Quantile:</strong> Balanced class sizes (breaks at data percentiles) - <strong>Standard deviation:</strong> Statistical bins (assumes normal distribution) - <strong>Manual:</strong> Set your own thresholds (red lines on histogram) - <strong>Adjust class count:</strong> See how distribution changes - <strong>Histogram:</strong> Red lines show where breaks occur in data</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Equal interval:</strong> Fixed-width bins (may be unbalanced)</li>
+<li><strong>Quantile:</strong> Balanced class sizes (breaks at data percentiles)</li>
+<li><strong>Standard deviation:</strong> Statistical bins (assumes normal distribution)</li>
+<li><strong>Manual:</strong> Set your own thresholds (red lines on histogram)</li>
+<li><strong>Adjust class count:</strong> See how distribution changes</li>
+<li><strong>Histogram:</strong> Red lines show where breaks occur in data</li>
+</ul>
 <p><strong>Key insight:</strong> Method choice dramatically affects results—no single “correct” classification.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -637,7 +792,12 @@ Equal intervals (4 classes):
 <p><strong>One extreme value shifts all breakpoints:</strong></p>
 <pre><code>Data: [10, 12, 14, 15, 16, 18, 20, 1000]
 Equal intervals with outlier → huge bins</code></pre>
-<p><strong>Solution:</strong> - Remove outliers before classification - Use robust statistics (median, IQR) - Clip extreme values</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Remove outliers before classification</li>
+<li>Use robust statistics (median, IQR)</li>
+<li>Clip extreme values</li>
+</ul>
 <h3 id="loss-of-information" class="anchored">Loss of Information</h3>
 <p><strong>Continuous to categorical loses detail:</strong></p>
 <pre><code>Original: 15.2°, 15.8° (0.6° difference)
@@ -713,24 +873,24 @@ distance = sqrt(sum((pixel - center)²))</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

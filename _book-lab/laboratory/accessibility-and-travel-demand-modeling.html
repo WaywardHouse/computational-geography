@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -129,6 +133,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That travel behavior depends on both opportunities and the cost of reaching them, not on distance alone.</p>
+<p><strong>You will learn</strong><br>
+How accessibility is modeled, how demand distributes across a network, and why individual route choices can produce surprising system outcomes like Braess’s paradox.</p>
+<p><strong>Why this matters</strong><br>
+Accessibility is one of the clearest ways to connect transport infrastructure to social outcomes.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core tradeoff between attractiveness and travel cost.</p>
 <p>In 2012, the city of Stuttgart closed the Sperrstraße — a central road that had been a key shortcut through the city — to reduce through traffic in residential areas. Congestion on the surrounding network did not worsen. In some measurements it improved. Commuters adapted, redistributed across parallel routes, and the system found a new equilibrium that was, on balance, no worse than the original.</p>
 <p>This was not a fluke. It was an instance of <strong>Braess’s Paradox</strong>: in a network at user equilibrium, removing a road can improve travel times for everyone. The reverse — adding a road — can make everyone worse off. The paradox is not a mathematical curiosity; it is a practical warning that infrastructure investment guided by naive shortest-path logic can produce the opposite of its intended effect.</p>
 <p>Understanding why requires a model of how individual route choices aggregate into network flows — which requires the gravity model of trip distribution, the logit model of mode choice, and the concept of user equilibrium. This essay builds that chain.</p>
@@ -237,7 +250,12 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> Estimate 2SFCA healthcare accessibility for two Edmonton zones — a dense inner-city neighbourhood (Zone I) and a suburban area (Zone S).</p>
-<p><strong>Given:</strong> - Catchment threshold: <span class="math inline">T^* = 30</span> min by transit - Clinic A (downtown, 8 physicians) accessible from Zone I (1200 people, 20 min) and Zone S (500 people, 28 min); also from Zone X (800 people, 15 min) - Clinic B (suburban, 3 physicians) accessible from Zone S (500 people, 10 min) and Zone Y (300 people, 20 min) only</p>
+<p><strong>Given:</strong></p>
+<ul>
+<li>Catchment threshold: <span class="math inline">T^* = 30</span> min by transit</li>
+<li>Clinic A (downtown, 8 physicians) accessible from Zone I (1200 people, 20 min) and Zone S (500 people, 28 min); also from Zone X (800 people, 15 min)</li>
+<li>Clinic B (suburban, 3 physicians) accessible from Zone S (500 people, 10 min) and Zone Y (300 people, 20 min) only</li>
+</ul>
 <p><strong>Step 1: Supply-demand ratios</strong></p>
 <p><span class="math display">R_A = \frac{8}{1200 + 500 + 800} = \frac{8}{2500} = 0.0032 \text{ physicians/person}</span></p>
 <p><span class="math display">R_B = \frac{3}{500 + 300} = \frac{3}{800} = 0.00375 \text{ physicians/person}</span></p>
@@ -319,25 +337,23 @@ print(f"  Social optimum:   {N/2/100 + 45:.0f} min (same as without edge)")</cod
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Gravity Model Distance Decay Functions (normalised)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Power β=1.5&quot;, &quot;Power β=2.0&quot;, &quot;Exponential β=0.04&quot;, &quot;Exponential β=0.08&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Travel time (minutes)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [5, 10, 15, 20, 25, 30, 40, 50, 60]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Deterrence f(c) — normalised to f(5)=1&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Power β=1.5&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [1.0, 0.354, 0.171, 0.099, 0.063, 0.043, 0.022, 0.013, 0.009]},
-    {&quot;name&quot;: &quot;Power β=2.0&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [1.0, 0.25, 0.111, 0.063, 0.04, 0.028, 0.016, 0.01, 0.007]},
-    {&quot;name&quot;: &quot;Exponential β=0.04&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [1.0, 0.819, 0.670, 0.549, 0.449, 0.368, 0.247, 0.165, 0.111]},
-    {&quot;name&quot;: &quot;Exponential β=0.08&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [1.0, 0.670, 0.449, 0.301, 0.202, 0.135, 0.061, 0.027, 0.012]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Gravity Model Distance Decay Functions (normalised)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Power β=1.5&quot;, &quot;Power β=2.0&quot;, &quot;Exponential β=0.04&quot;, &quot;Exponential β=0.08&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Travel time (minutes)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [5, 10, 15, 20, 25, 30, 40, 50, 60]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Deterrence f(c) — normalised to f(5)=1&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Power β=1.5&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [1.0, 0.354, 0.171, 0.099, 0.063, 0.043, 0.022, 0.013, 0.009]},
+{&quot;name&quot;: &quot;Power β=2.0&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [1.0, 0.25, 0.111, 0.063, 0.04, 0.028, 0.016, 0.01, 0.007]},
+{&quot;name&quot;: &quot;Exponential β=0.04&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [1.0, 0.819, 0.670, 0.549, 0.449, 0.368, 0.247, 0.165, 0.111]},
+{&quot;name&quot;: &quot;Exponential β=0.08&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [1.0, 0.670, 0.449, 0.301, 0.202, 0.135, 0.061, 0.027, 0.012]}
+]
+}"></div>
 <p>Power-law deterrence drops steeply for short trips (strongly penalising any distance) then levels off. Exponential decay falls at a constant proportional rate — every 10-minute increase in travel time multiplies the deterrence by the same factor (<span class="math inline">e^{-\beta \times 10}</span>). Choice of functional form changes the predicted spatial structure of trips: power-law calibration overpredicts local trips and underpredicts long-distance travel compared to exponential. Calibration to observed trip length distributions selects the form and parameter appropriate to each city and trip purpose.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -375,24 +391,24 @@ print(f"  Social optimum:   {N/2/100 + 45:.0f} min (same as without edge)")</cod
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

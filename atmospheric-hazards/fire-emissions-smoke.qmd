@@ -70,6 +70,7 @@ What is the air quality impact 50 km downwind from this wildfire?
 Pollutants released during combustion.
 
 **Major species:**
+
 - CO₂ (carbon dioxide): ~1650 g/kg fuel
 - CO (carbon monoxide): ~60-100 g/kg
 - PM₂.₅ (fine particles): ~10-20 g/kg
@@ -91,6 +92,7 @@ EPA: 35 μg/m³ (24-hour PM₂.₅)
 Wildfire smoke: 100-500 μg/m³ common, >1000 μg/m³ near fires
 
 **Applications:**
+
 - Air quality forecasting
 - Evacuation decisions
 - Health advisories
@@ -200,23 +202,28 @@ $$C(x,y,0) = \frac{Q}{\pi U \sigma_y \sigma_z} \exp\left(-\frac{y^2}{2\sigma_y^2
 <p class="cg-ill__lede">Smoke impacts come from a linked process: fuel burns, pollutants are emitted, heat lifts the plume, wind transports it, and turbulence controls how concentrated it becomes near the ground.</p>
 <div class="cg-ill__flow">
 <div class="cg-ill__flow-step">
-<h4>1. Fuel consumed</h4>
+<div class="cg-ill__label">Step 1</div>
+<h4>Fuel consumed</h4>
 <p>Area burned, fuel loading, and combustion completeness set the mass available.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>2. Emissions</h4>
+<div class="cg-ill__label">Step 2</div>
+<h4>Emissions</h4>
 <p>Emission factors convert burned fuel into PM2.5, CO, VOCs, and other species.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>3. Plume rise</h4>
+<div class="cg-ill__label">Step 3</div>
+<h4>Plume rise</h4>
 <p>Heat lifts smoke above the fire to an effective release height.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>4. Transport + mixing</h4>
+<div class="cg-ill__label">Step 4</div>
+<h4>Transport + mixing</h4>
 <p>Wind moves the plume while turbulence spreads it sideways and vertically.</p>
 </div>
 <div class="cg-ill__flow-step">
-<h4>5. Exposure</h4>
+<div class="cg-ill__label">Step 5</div>
+<h4>Exposure</h4>
 <p>Ground-level concentration determines visibility and health impact.</p>
 </div>
 </div>
@@ -339,6 +346,7 @@ Heat from fire creates instability → often class C-D even at night.
 **Problem:** Calculate PM₂.₅ emissions and downwind concentration.
 
 **Fire characteristics:**
+
 - Burned area: 500 ha
 - Fuel type: Conifer forest
 - Fuel loading: 2.0 kg/m²
@@ -346,11 +354,13 @@ Heat from fire creates instability → often class C-D even at night.
 - Burn duration: 8 hours
 
 **Meteorology:**
+
 - Wind speed: 5 m/s
 - Stability: Class C (slightly unstable)
 - Plume height: 800 m
 
 **Location of interest:**
+
 - Downwind distance: 20 km
 - Lateral offset: 2 km
 
@@ -634,6 +644,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Concentration decreases with distance as plume disperses
 - Higher plume rise reduces ground-level concentrations
 - Unstable atmosphere promotes mixing (lower peak concentrations)
@@ -642,6 +653,7 @@ window.addEventListener('resize', () => chart.resize());
 - Wind speed dilutes concentrations but transports farther
 
 **Key insights:**
+
 - Smoke impacts extend far beyond fire perimeter
 - Atmospheric stability critically affects dispersion
 - PM₂.₅ health risks significant at large distances
@@ -656,16 +668,19 @@ window.addEventListener('resize', () => chart.resize());
 **PM₂.₅ exposure effects:**
 
 **Short-term (hours-days):**
+
 - Respiratory irritation
 - Asthma attacks
 - Reduced lung function
 
 **Long-term (weeks-months):**
+
 - Cardiovascular events
 - Premature mortality
 - Chronic conditions
 
 **Vulnerable populations:**
+
 - Children
 - Elderly
 - Respiratory disease
@@ -691,6 +706,7 @@ Estimated 1200-3000 premature deaths from smoke exposure.
 NOAA Smoke Forecasting System (daily products).
 
 **Applications:**
+
 - Public health advisories
 - School closures
 - Outdoor event cancellations
@@ -739,6 +755,7 @@ Pyrocumulonimbus (fire-generated thunderstorm) injected smoke to 15 km (vs predi
 **Gaussian model assumes** flat terrain, uniform meteorology.
 
 **Mountains:**
+
 - Channeled flows (valleys)
 - Slope winds
 - Thermal circulations
@@ -799,11 +816,13 @@ $$E_i = FRP \times CE_i$$
 Where $CE_i$ = conversion efficiency (g/MJ).
 
 **Advantages:**
+
 - Near real-time
 - No fuel data needed
 - Global coverage
 
 **Sensors:**
+
 - MODIS: 1 km, 4× daily
 - VIIRS: 375 m, 2× daily
 - GOES: 2 km, 5-15 min
@@ -825,6 +844,7 @@ Where:
 - $\sigma$ = standard deviation
 
 **Properties:**
+
 - Symmetric around $\mu$
 - Total area = 1 (probability distribution)
 - 68% within ±σ, 95% within ±2σ

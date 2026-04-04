@@ -58,6 +58,7 @@ How much will this parking lot increase downstream flooding?
 Natural landscapes → impervious surfaces
 
 **Consequences:**
+
 - **Increased runoff volume:** 50-90% more water reaches streams
 - **Higher peak flows:** 2-5× pre-development magnitudes
 - **Faster response:** Time to peak reduced from hours to minutes
@@ -66,11 +67,13 @@ Natural landscapes → impervious surfaces
 - **Stream erosion:** Channel incision from increased energy
 
 **Before development (forest/grassland):**
+
 - Rainfall → Infiltration (60-80%)
 - Interception by vegetation (10-20%)
 - Runoff (10-30%)
 
 **After development (urban):**
+
 - Rainfall → Infiltration (5-15%)
 - Runoff (70-90%)
 - Direct conveyance to streams
@@ -85,6 +88,7 @@ Achieved through:
 - **Green infrastructure** (distributed controls)
 
 **Applications:**
+
 - Site development permits
 - Stormwater management plans
 - Municipal separate storm sewer systems (MS4)
@@ -157,6 +161,7 @@ Where:
 - $S$ = slope (m/m)
 
 **Limitations:**
+
 - Assumes uniform rainfall
 - Peak-only (no hydrograph)
 - Small watersheds (<80 ha typical)
@@ -209,6 +214,7 @@ Or: $S = \frac{1000}{CN} - 10$ (inches)
 $$CN_{composite} = \frac{\sum CN_i A_i}{\sum A_i}$$
 
 **Advantages over Rational:**
+
 - Runoff volume (not just peak)
 - Accounts for soil type
 - Antecedent moisture conditions
@@ -346,6 +352,7 @@ Where:
 **Site characteristics:**
 
 **Pre-development:**
+
 - Area: 5 hectares
 - Land use: Grass/pasture
 - Soil: Hydrologic group B (silty loam)
@@ -353,6 +360,7 @@ Where:
 - Longest flow path: 350 m
 
 **Post-development:**
+
 - Building: 1.5 ha (30%)
 - Parking: 2.5 ha (50%)
 - Landscaping: 1.0 ha (20%)
@@ -360,6 +368,7 @@ Where:
 **Design storm:** 10-year, IDF equation: $I = \frac{1200 T^{0.2}}{(D+10)^{0.8}}$ (mm/hr)
 
 **Calculate:**
+
 1. Pre-development peak discharge
 2. Post-development peak discharge
 3. Required detention volume
@@ -639,6 +648,7 @@ render();
 ```
 
 **Observations:**
+
 - Post-development hydrograph peaks higher and faster
 - Green area (pre-dev) shows gradual response
 - Red area (post-dev) shows flashy response
@@ -648,6 +658,7 @@ render();
 - Detention storage needs proportional to shaded area between curves
 
 **Key insights:**
+
 - Imperviousness directly controls runoff coefficient
 - Higher return periods amplify differences
 - Green infrastructure provides meaningful mitigation
@@ -664,6 +675,7 @@ render();
 **Effective discharge** (2-year flood) increased 2-5×.
 
 **Channel response:**
+
 - Incision (downcutting)
 - Bank erosion
 - Bed coarsening (fines washed out)
@@ -686,6 +698,7 @@ Traditional detention controls peaks but not duration.
 Regulatory limit on pollutant loading.
 
 **Urban runoff major contributor:**
+
 - Nutrients (N, P)
 - Sediment
 - Bacteria
@@ -695,12 +708,14 @@ Regulatory limit on pollutant loading.
 **Green infrastructure provides treatment:**
 
 **Bioretention removal:**
+
 - Suspended solids: 80-90%
 - Phosphorus: 50-80%
 - Nitrogen: 30-60%
 - Metals: 60-90%
 
 **Permeable pavement:**
+
 - Suspended solids: 70-95%
 - Metals: 50-80%
 
@@ -711,6 +726,7 @@ Bioretention: $200-400/m^2$
 Permeable pavement: $25-75/m^2$ premium over conventional
 
 **Benefits beyond storage:**
+
 - Water quality treatment
 - Groundwater recharge
 - Urban heat island reduction
@@ -725,6 +741,7 @@ Peak rate control only (Q_post ≤ Q_pre for design storm).
 **Modern approach (2010s+):**
 
 **Multi-objective:**
+
 1. Peak rate control (flooding)
 2. Volume reduction (stream protection)
 3. Water quality treatment (pollution)
@@ -755,6 +772,7 @@ Debris, sediment, ice block orifice.
 **Consequence:** Overtopping, dam failure
 
 **Solution:**
+
 - Trash racks
 - Multiple outlets (redundancy)
 - Regular maintenance
@@ -780,6 +798,7 @@ Bioretention media clogs over time (5-15 years).
 **Consequence:** Ponding, bypassing, failure
 
 **Solution:**
+
 - Pretreatment (grass filter, forebay)
 - Mulch replacement (annual)
 - Media replacement (every 10-20 years)
@@ -793,6 +812,7 @@ Snowmelt + frozen ground = maximum runoff.
 **Underdrains freeze.**
 
 **Solution:**
+
 - Deep frost-free outlets
 - Salt management (reduces freezing but damages plants)
 
@@ -805,6 +825,7 @@ Detention basins fill with sediment.
 **Volume reduced:** 20-50% after 10 years (if unmaintained)
 
 **Solution:**
+
 - Annual inspection
 - Sediment removal (5-10 year cycle)
 - Erosion control in watershed
@@ -814,6 +835,7 @@ Detention basins fill with sediment.
 Bioretention becomes overgrown, channelized.
 
 **Solution:**
+
 - Annual weeding
 - Mulch refreshing
 - Plant replacement
@@ -827,6 +849,7 @@ Bioretention becomes overgrown, channelized.
 From "manage runoff" to "prevent runoff generation"
 
 **Principles:**
+
 1. Minimize impervious area
 2. Maximize infiltration
 3. Distribute controls throughout site

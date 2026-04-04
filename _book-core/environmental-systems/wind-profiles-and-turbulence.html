@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -162,7 +165,7 @@ Wind controls fire behaviour, evapotranspiration, turbine performance, pollutant
 <p><strong>If this gets hard, focus on…</strong><br>
 Keep the physical picture in mind: surfaces drag on moving air, so wind is slower near the ground and faster higher up.</p>
 <p>Wind turbines in Alberta’s Pincher Creek area are mounted on towers 80–120 metres tall — not for scenic reasons but because wind speed at 100 metres is typically 25–40% higher than at 10 metres. That increase translates directly into energy: wind power scales as the cube of wind speed, so a 30% increase in speed nearly doubles the available power. The tower height is an economic optimisation grounded in atmospheric physics — specifically in the logarithmic wind profile that describes how wind speed increases with height in the lowest kilometre of the atmosphere.</p>
-<p>The logarithmic profile arises from a elegant piece of dimensional analysis. Near the ground, turbulent eddies are the dominant mechanism of momentum transfer. The relevant length scale for those eddies is simply the height above the surface; the relevant velocity scale is the friction velocity, a measure of the surface stress. Dimensional analysis then requires that wind speed increase logarithmically with height — and experimental measurements confirm this with remarkable precision over a wide range of surface types. The roughness length — the height at which the logarithmic profile theoretically reaches zero — encodes everything about the surface: it is an order of magnitude smaller over a smooth water surface than over a city, and that difference propagates through the entire profile. This model derives the log law from first principles, introduces the concept of stability corrections, and shows how surface roughness controls the wind resource at turbine height.</p>
+<p>The logarithmic profile arises from an elegant piece of dimensional analysis. Near the ground, turbulent eddies are the dominant mechanism of momentum transfer. The relevant length scale for those eddies is simply the height above the surface; the relevant velocity scale is the friction velocity, a measure of the surface stress. Dimensional analysis then requires that wind speed increase logarithmically with height — and experimental measurements confirm this with remarkable precision over a wide range of surface types. The roughness length — the height at which the logarithmic profile theoretically reaches zero — encodes everything about the surface: it is an order of magnitude smaller over a smooth water surface than over a city, and that difference propagates through the entire profile. This model derives the log law from first principles, introduces the concept of stability corrections, and shows how surface roughness controls the wind resource at turbine height.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>Why does wind speed increase with height, and why does the rate of increase depend on the surface?</p>
 <p>Measure wind speed at multiple heights: - <strong>At ground level:</strong> Nearly calm (friction with surface) - <strong>At 2 m:</strong> Light breeze - <strong>At 10 m:</strong> Moderate wind - <strong>At 100 m:</strong> Strong wind</p>
@@ -206,6 +209,48 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 <p><span class="math display">u(z) = \frac{u_*}{k} \ln\left(\frac{z}{z_0}\right)</span></p>
 <p>Where: - <span class="math inline">u(z)</span> = wind speed at height <span class="math inline">z</span> (m/s) - <span class="math inline">u_*</span> = friction velocity (m/s) - <span class="math inline">k = 0.41</span> = von Kármán constant (dimensionless) - <span class="math inline">z_0</span> = <strong>roughness length</strong> (m)</p>
 <p><strong>Roughness length</strong> (<span class="math inline">z_0</span>) is where the logarithmic profile extrapolates to zero wind speed.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Boundary-Layer Structure
+</div>
+<h3 class="cg-ill__title anchored">
+Surface Roughness Controls How Fast Wind Recovers With Height
+</h3>
+<p class="cg-ill__lede">
+The log-law is easier to remember when it is seen as a tug-of-war between friction near the ground and freer flow higher up. Rougher surfaces keep the near-surface wind slower for longer.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 320" role="img" aria-label="Wind profile comparison over smooth and rough surfaces with logarithmic increase in speed with height">
+<rect x="0" y="0" width="560" height="320" rx="22" fill="#eef3f8"></rect> <line x1="86" y1="44" x2="86" y2="264" stroke="#7d8ea0" stroke-width="2"></line> <line x1="86" y1="264" x2="500" y2="264" stroke="#7d8ea0" stroke-width="2"></line> <text x="44" y="58" font-size="15" fill="#35515f">height</text> <text x="434" y="292" font-size="15" fill="#35515f">wind speed</text> <path d="M96 264 C120 238, 150 218, 186 194 C232 164, 278 138, 338 110" fill="none" stroke="#1d5f7a" stroke-width="6"></path> <path d="M96 264 C108 244, 124 228, 144 214 C172 194, 206 176, 246 158" fill="none" stroke="#a63d40" stroke-width="6"></path> <text x="344" y="108" font-size="17" fill="#1d5f7a" font-weight="700">smooth surface</text> <text x="252" y="154" font-size="17" fill="#8c2f31" font-weight="700">rough surface</text> <path d="M86 264 L152 264 L160 250 L172 264 L188 242 L206 264 L220 248 L232 264" fill="none" stroke="#7d8f5c" stroke-width="6" stroke-linecap="round"></path> <path d="M280 264 L292 258 L304 264 L318 252 L334 264 L350 248 L370 264 L388 250 L408 264 L430 246 L452 264" fill="none" stroke="#6f5539" stroke-width="6" stroke-linecap="round"></path> <text x="112" y="286" font-size="15" fill="#35515f">short grass / snow / smooth soil</text> <text x="296" y="286" font-size="15" fill="#35515f">forest / shrubland / urban roughness</text> <line x1="196" y1="232" x2="252" y2="232" stroke="#6d5ea8" stroke-width="4" stroke-dasharray="8 6"></line> <text x="256" y="236" font-size="15" fill="#5d4781">more turbulence</text> <line x1="130" y1="104" x2="206" y2="88" stroke="#224f9c" stroke-width="5"></line> <polygon points="206,88 192,82 195,96" fill="#224f9c"></polygon> <text x="98" y="92" font-size="15" fill="#224f9c">momentum mixes downward</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+How to read the log profile
+</h4>
+<ul>
+<li>
+Close to the ground, friction slows the wind strongly.
+</li>
+<li>
+Higher up, the surface influence weakens and wind speed increases.
+</li>
+<li>
+Rougher surfaces generate more turbulence, so the low-speed zone extends higher.
+</li>
+<li>
+That is why the same 10 m wind speed can correspond to very different near-surface winds over snow, crops, forest, or city streets.
+</li>
+<li>
+The roughness length is not a real physical wall height; it is the extrapolated height where the profile would reach zero.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="derivation-from-mixing-length-theory" class="anchored">Derivation from Mixing Length Theory</h3>
@@ -223,7 +268,7 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 <p><strong>Integrate:</strong></p>
 <p><span class="math display">u(z) = \frac{u_*}{k} \ln(z) + C</span></p>
 <p><strong>Boundary condition:</strong> At <span class="math inline">z = z_0</span>, <span class="math inline">u = 0</span> (roughness length is where wind extrapolates to zero).</p>
-<p><span class="math inline">&amp;#36;0 = \frac{u_*}{k} \ln(z_0) + C \implies C = -\frac{u_*}{k}\ln(z_0)</span>$</p>
+<p><span class="math display">0 = \frac{u_*}{k} \ln(z_0) + C \implies C = -\frac{u_*}{k}\ln(z_0)</span></p>
 <p><strong>Final form:</strong></p>
 <p><span class="math display">u(z) = \frac{u_*}{k} \left[\ln(z) - \ln(z_0)\right] = \frac{u_*}{k} \ln\left(\frac{z}{z_0}\right)</span></p>
 <p>This is the <strong>logarithmic wind profile</strong> or <strong>log law</strong>.</p>
@@ -287,7 +332,11 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 <p>For <strong>tall, dense vegetation</strong> (forests, crops), wind appears to originate from a height <span class="math inline">d</span> above the ground (zero-plane displacement).</p>
 <p><strong>Modified log law:</strong></p>
 <p><span class="math display">u(z) = \frac{u_*}{k} \ln\left(\frac{z - d}{z_0}\right)</span></p>
-<p><strong>Typical values:</strong> - <span class="math inline">d \approx 0.7h</span> (where <span class="math inline">h</span> is canopy height) - <span class="math inline">z_0 \approx 0.1h</span></p>
+<p><strong>Typical values:</strong></p>
+<ul>
+<li><span class="math inline">d \approx 0.7h</span> (where <span class="math inline">h</span> is canopy height)</li>
+<li><span class="math inline">z_0 \approx 0.1h</span></li>
+</ul>
 <p><strong>Example:</strong> 20 m forest: - <span class="math inline">d = 14</span> m - <span class="math inline">z_0 = 2</span> m</p>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
@@ -303,17 +352,17 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 <p><strong>(a) Friction velocity</strong></p>
 <p>From log law:</p>
 <p><span class="math display">u(10) = \frac{u_*}{k} \ln\left(\frac{10}{z_0}\right)</span></p>
-<p><span class="math inline">&amp;#36;8 = \frac{u_*}{0.41} \ln\left(\frac{10}{0.03}\right)</span>$</p>
-<p><span class="math inline">&amp;#36;8 = \frac{u_*}{0.41} \ln(333.3)</span>$</p>
-<p><span class="math inline">&amp;#36;8 = \frac{u_*}{0.41} \times 5.81</span>$</p>
+<p><span class="math display">8 = \frac{u_*}{0.41} \ln\left(\frac{10}{0.03}\right)</span></p>
+<p><span class="math display">8 = \frac{u_*}{0.41} \ln(333.3)</span></p>
+<p><span class="math display">8 = \frac{u_*}{0.41} \times 5.81</span></p>
 <p><span class="math display">u_* = \frac{8 \times 0.41}{5.81} = 0.565 \text{ m/s}</span></p>
 <p><strong>(b) Wind speed at 2 m</strong></p>
 <p><span class="math display">u(2) = \frac{0.565}{0.41} \ln\left(\frac{2}{0.03}\right)</span></p>
 <p><span class="math display">= 1.378 \times \ln(66.7)</span></p>
 <p><span class="math display">= 1.378 \times 4.20 = 5.79 \text{ m/s}</span></p>
 <p><strong>(c) Height for 12 m/s</strong></p>
-<p><span class="math inline">&amp;#36;12 = \frac{0.565}{0.41} \ln\left(\frac{z}{0.03}\right)</span>$</p>
-<p><span class="math inline">&amp;#36;12 = 1.378 \ln\left(\frac{z}{0.03}\right)</span>$</p>
+<p><span class="math display">12 = \frac{0.565}{0.41} \ln\left(\frac{z}{0.03}\right)</span></p>
+<p><span class="math display">12 = 1.378 \ln\left(\frac{z}{0.03}\right)</span></p>
 <p><span class="math display">\ln\left(\frac{z}{0.03}\right) = \frac{12}{1.378} = 8.71</span></p>
 <p><span class="math display">\frac{z}{0.03} = e^{8.71} = 6063</span></p>
 <p><span class="math display">z = 0.03 \times 6063 = 182 \text{ m}</span></p>
@@ -326,11 +375,11 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 <label>
 Surface type:
 <select id="surface-type-wind">
-  <option value="ocean">Open Ocean (z₀=0.0002 m)</option>
-  <option value="snow">Snow (z₀=0.003 m)</option>
-  <option value="grass" selected="">Grassland (z₀=0.03 m)</option>
-  <option value="crops">Crops (z₀=0.10 m)</option>
-  <option value="forest">Forest (z₀=1.5 m)</option>
+<option value="ocean">Open Ocean (z₀=0.0002 m)</option>
+<option value="snow">Snow (z₀=0.003 m)</option>
+<option value="grass" selected="">Grassland (z₀=0.03 m)</option>
+<option value="crops">Crops (z₀=0.10 m)</option>
+<option value="forest">Forest (z₀=1.5 m)</option>
 </select>
 </label>
 <label>
@@ -423,85 +472,85 @@ winds.push(windSpeed(z, ustar, z0));
     
 const option = {
 title: {
-  text: 'Wind Profile (Logarithmic Law)',
-  left: 'center'
+text: 'Wind Profile (Logarithmic Law)',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  axisPointer: { type: 'cross' },
-  formatter: (params) => {
-    const z = params[0].value[1];
-    const u = params[0].value[0];
-    return `Height: ${z.toFixed(1)} m<br/>Wind: ${u.toFixed(2)} m/s`;
-  }
+trigger: 'axis',
+axisPointer: { type: 'cross' },
+formatter: (params) => {
+const z = params[0].value[1];
+const u = params[0].value[0];
+return `Height: ${z.toFixed(1)} m<br/>Wind: ${u.toFixed(2)} m/s`;
+}
 },
 grid: {
-  left: 80,
-  right: 40,
-  top: 60,
-  bottom: 60
+left: 80,
+right: 40,
+top: 60,
+bottom: 60
 },
 xAxis: {
-  type: 'value',
-  name: 'Wind Speed (m/s)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: 0
+type: 'value',
+name: 'Wind Speed (m/s)',
+nameLocation: 'middle',
+nameGap: 30,
+min: 0
 },
 yAxis: {
-  type: logScale ? 'log' : 'value',
-  name: 'Height (m)',
-  nameLocation: 'middle',
-  nameGap: 50,
-  min: logScale ? minHeight : 0,
-  max: maxHeight
+type: logScale ? 'log' : 'value',
+name: 'Height (m)',
+nameLocation: 'middle',
+nameGap: 50,
+min: logScale ? minHeight : 0,
+max: maxHeight
 },
 series: [
-  {
-    type: 'line',
-    data: winds.map((u, i) => [u, heights[i]]),
-    lineStyle: {
-      color: '#3498DB',
-      width: 3
-    },
-    showSymbol: false,
-    markPoint: {
-      data: [
-        {
-          coord: [u10, 10],
-          symbol: 'circle',
-          symbolSize: 10,
-          itemStyle: { color: '#E74C3C' },
-          label: { show: true, formatter: '10 m ref', position: 'right' }
-        },
-        {
-          coord: [windSpeed(2, ustar, z0), 2],
-          symbol: 'circle',
-          symbolSize: 8,
-          itemStyle: { color: '#F39C12' },
-          label: { show: true, formatter: '2 m', position: 'right' }
-        },
-        {
-          coord: [0, z0],
-          symbol: 'circle',
-          symbolSize: 8,
-          itemStyle: { color: '#2ECC71' },
-          label: { show: true, formatter: 'z₀', position: 'right' }
-        }
-      ]
-    },
-    markLine: {
-      silent: true,
-      symbol: 'none',
-      data: [
-        {
-          yAxis: z0,
-          lineStyle: { type: 'dashed', color: '#2ECC71' },
-          label: { formatter: 'Roughness length' }
-        }
-      ]
-    }
-  }
+{
+type: 'line',
+data: winds.map((u, i) => [u, heights[i]]),
+lineStyle: {
+color: '#3498DB',
+width: 3
+},
+showSymbol: false,
+markPoint: {
+data: [
+{
+coord: [u10, 10],
+symbol: 'circle',
+symbolSize: 10,
+itemStyle: { color: '#E74C3C' },
+label: { show: true, formatter: '10 m ref', position: 'right' }
+},
+{
+coord: [windSpeed(2, ustar, z0), 2],
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: { color: '#F39C12' },
+label: { show: true, formatter: '2 m', position: 'right' }
+},
+{
+coord: [0, z0],
+symbol: 'circle',
+symbolSize: 8,
+itemStyle: { color: '#2ECC71' },
+label: { show: true, formatter: 'z₀', position: 'right' }
+}
+]
+},
+markLine: {
+silent: true,
+symbol: 'none',
+data: [
+{
+yAxis: z0,
+lineStyle: { type: 'dashed', color: '#2ECC71' },
+label: { formatter: 'Roughness length' }
+}
+]
+}
+}
 ]
 };
     
@@ -538,7 +587,14 @@ updateCalculation();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Switch to ocean:</strong> Very smooth → wind increases rapidly with height - <strong>Switch to forest:</strong> Very rough → wind increases slowly, high z₀ - <strong>Toggle log scale:</strong> On log-height axis, profile becomes a straight line (proof it’s logarithmic) - <strong>Increase reference wind:</strong> Friction velocity increases proportionally - Notice: Rougher surfaces have lower wind speeds at all heights for same reference wind</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Switch to ocean:</strong> Very smooth → wind increases rapidly with height</li>
+<li><strong>Switch to forest:</strong> Very rough → wind increases slowly, high z₀</li>
+<li><strong>Toggle log scale:</strong> On log-height axis, profile becomes a straight line (proof it’s logarithmic)</li>
+<li><strong>Increase reference wind:</strong> Friction velocity increases proportionally</li>
+<li>Notice: Rougher surfaces have lower wind speeds at all heights for same reference wind</li>
+</ul>
 <p><strong>Key insight:</strong> The logarithmic profile is universal — only <span class="math inline">u_*</span> and <span class="math inline">z_0</span> change between surfaces.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -569,7 +625,12 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Monin-Obukhov similarity theory</strong> corrects for stability.</p>
 <h3 id="applying-below-canopy" class="anchored">Applying Below Canopy</h3>
 <p>The log law applies <strong>above</strong> vegetation, not within it.</p>
-<p><strong>Inside a canopy:</strong> - Wind decreases exponentially with depth - Different profile shape - Multiple length scales</p>
+<p><strong>Inside a canopy:</strong></p>
+<ul>
+<li>Wind decreases exponentially with depth</li>
+<li>Different profile shape</li>
+<li>Multiple length scales</li>
+</ul>
 <h3 id="ignoring-atmospheric-pressure-gradients" class="anchored">Ignoring Atmospheric Pressure Gradients</h3>
 <p>The log law assumes <strong>horizontally uniform</strong> flow.</p>
 <p>Real atmosphere has: - <strong>Pressure gradients</strong> → acceleration - <strong>Terrain variation</strong> → flow separation, channeling - <strong>Thermal effects</strong> → local circulations</p>
@@ -607,7 +668,7 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Integrate:</strong></p>
 <p><span class="math display">\int du = \int \frac{u_*}{k}\frac{dz}{z}</span></p>
 <p><span class="math display">u = \frac{u_*}{k}\ln(z) + C</span></p>
-<p>The $1/z$ term on the right forces a logarithm on the left.</p>
+<p>The <span class="math inline">1/z</span> term on the right forces a logarithm on the left.</p>
 <hr>
 <h2 id="summary" class="anchored">Summary</h2>
 <ul>
@@ -633,24 +694,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

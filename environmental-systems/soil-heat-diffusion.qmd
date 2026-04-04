@@ -165,6 +165,7 @@ $$\frac{\partial T}{\partial t} = \alpha \frac{\partial^2 T}{\partial z^2}$$
 Where $\alpha = k / (\rho c)$ is the **thermal diffusivity** (m²/s).
 
 **Physical interpretation:**
+
 - Left side: Rate of temperature change
 - Right side: Curvature of temperature profile (how "bent" the profile is)
 
@@ -208,6 +209,7 @@ Where $d$ is the **damping depth** (or e-folding depth):
 $$d = \sqrt{\frac{2\alpha}{\omega}}$$
 
 **Two key features:**
+
 1. **Amplitude decays exponentially:** $A(z) = A_0 e^{-z/d}$
 2. **Phase lags linearly:** Phase lag = $z/d$ radians
 
@@ -513,6 +515,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Animate the daily cycle:** Watch the temperature wave propagate downward
 - **Switch to peat:** Low diffusivity → shallow damping depth → surface insulation
 - **Switch to moist sand:** Higher diffusivity → deeper penetration

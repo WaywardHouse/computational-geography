@@ -31,6 +31,7 @@
  */
 
 import { REGISTRY } from './viz-registry.js';
+import { deriveTitleFromHref, getWayfindingForPath } from './book-wayfinding.js';
 
 // ── CDN loaders ───────────────────────────────────────────────────────────────
 
@@ -220,15 +221,6 @@ function isReadingPage() {
   return false;
 }
 
-function updateThemeMeta(theme) {
-  document.documentElement.dataset.theme = theme;
-  try {
-    localStorage.setItem('theme', theme);
-  } catch {
-    // Ignore storage failures in locked-down contexts.
-  }
-}
-
 function escapeHtml(text = '') {
   return text
     .replaceAll('&', '&amp;')
@@ -244,6 +236,84 @@ function slugify(text = '') {
     .trim()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function resolveNavTitle(href = '', explicit = '') {
+  return explicit || deriveTitleFromHref(href);
+}
+
+function renderTopWayfinding(pathname, chapterTitle) {
+  const state = getWayfindingForPath(pathname);
+  if (!state || state.isSectionHome) return '';
+
+  const sectionTitle = state.section.title;
+  const progress = state.chapterIndex >= 0
+    ? `Chapter ${state.chapterIndex + 1} of ${state.chapterCount}`
+    : `${state.chapterCount} chapters`;
+
+  return `
+    <div class="wayward-wayfinding">
+      <nav class="wayward-breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Computational Geography</a>
+        <span aria-hidden="true">/</span>
+        <a href="${escapeHtml(state.section.href)}">${escapeHtml(sectionTitle)}</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">${escapeHtml(chapterTitle)}</span>
+      </nav>
+      <div class="wayward-wayfinding__row">
+        <div class="wayward-wayfinding__identity">
+          <span class="wayward-wayfinding__eyebrow">Reading Path</span>
+          <div class="wayward-wayfinding__section">${escapeHtml(sectionTitle)}</div>
+          <div class="wayward-wayfinding__progress">${escapeHtml(progress)}</div>
+        </div>
+        <div class="wayward-wayfinding__actions">
+          <a class="wayward-wayfinding__action" href="${escapeHtml(state.section.href)}">Chapter index</a>
+          <a class="wayward-wayfinding__action" href="/">All parts</a>
+          ${document.querySelector('#TOC') ? '<a class="wayward-wayfinding__action" href="#TOC">Jump to contents</a>' : ''}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderPagerCard(kind, item, fallbackHref, fallbackLabel, description) {
+  if (!item) {
+    return `
+      <a class="wayward-pager-card wayward-pager-card--muted" href="${escapeHtml(fallbackHref)}">
+        <span class="wayward-pager-card__eyebrow">${escapeHtml(kind)}</span>
+        <strong>${escapeHtml(fallbackLabel)}</strong>
+        <p>${escapeHtml(description)}</p>
+      </a>
+    `;
+  }
+
+  return `
+    <a class="wayward-pager-card" href="${escapeHtml(item.href || fallbackHref)}">
+      <span class="wayward-pager-card__eyebrow">${escapeHtml(kind)}</span>
+      <strong>${escapeHtml(resolveNavTitle(item.href, item.title))}</strong>
+      <p>${escapeHtml(description)}</p>
+    </a>
+  `;
+}
+
+function renderBottomWayfinding(pathname) {
+  const state = getWayfindingForPath(pathname);
+  if (!state || state.isSectionHome) return null;
+
+  const nav = document.createElement('nav');
+  nav.className = 'wayward-reading-pager';
+  nav.setAttribute('aria-label', 'Chapter navigation');
+  nav.innerHTML = `
+    ${renderPagerCard('Previous', state.previous, state.section.href, 'Chapter index', 'Return to the chapter list for this section.')}
+    <a class="wayward-pager-card wayward-pager-card--section" href="${escapeHtml(state.section.href)}">
+      <span class="wayward-pager-card__eyebrow">Chapter index</span>
+      <strong>${escapeHtml(state.section.title)}</strong>
+      <p>Return to this section overview and choose your next chapter.</p>
+    </a>
+    ${renderPagerCard('Next', state.next, state.section.href, 'Section complete', 'You’ve reached the end of this section sequence.')}
+  `;
+
+  return nav;
 }
 
 function formatDisplayDate(value) {
@@ -276,7 +346,7 @@ function shareIcon(kind) {
     copy: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 7.75h7.25A1.75 1.75 0 0 1 19 9.5v8.75A1.75 1.75 0 0 1 17.25 20H8.5a1.75 1.75 0 0 1-1.75-1.75V11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.75 15H6A1.75 1.75 0 0 1 4.25 13.25V4.5A1.75 1.75 0 0 1 6 2.75h8.75A1.75 1.75 0 0 1 16.5 4.5v.75" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     github: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.75a8.25 8.25 0 0 0-2.61 16.07c.41.07.56-.18.56-.4 0-.2-.01-.86-.01-1.56-2.06.38-2.59-.5-2.75-.96-.09-.24-.47-.96-.81-1.15-.28-.15-.68-.53-.01-.54.63-.01 1.08.58 1.23.82.72 1.22 1.87.88 2.33.67.07-.52.28-.88.5-1.08-1.83-.21-3.74-.92-3.74-4.08 0-.9.32-1.64.84-2.22-.08-.21-.37-1.05.08-2.19 0 0 .69-.22 2.27.85a7.7 7.7 0 0 1 4.14 0c1.58-1.08 2.27-.85 2.27-.85.45 1.14.16 1.98.08 2.19.52.58.84 1.31.84 2.22 0 3.17-1.92 3.87-3.75 4.08.29.25.55.74.55 1.5 0 1.08-.01 1.95-.01 2.22 0 .22.15.48.56.4A8.25 8.25 0 0 0 12 3.75Z" fill="currentColor"/></svg>',
     x: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
-    facebook: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 20v-7h2.4l.4-3h-2.8V8.2c0-.9.3-1.5 1.6-1.5H16.5V4.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V10H8v3h2.4v7h3.1Z" fill="currentColor"/></svg>',
+    reddit: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.2 13.5c0-.8-.7-1.5-1.5-1.5-.4 0-.8.2-1.1.5-1.1-.7-2.5-1.1-4.1-1.2l.9-3 2.6.6a1.3 1.3 0 1 0 .2-1 1.3 1.3 0 0 0-.1.2l-2.9-.7a.6.6 0 0 0-.7.4l-1 3.4c-1.6.1-3 .5-4.1 1.2a1.5 1.5 0 1 0-1 2.5v.1c0 2.2 2.6 4 5.9 4s5.9-1.8 5.9-4v-.1c.6-.2 1-.8 1-1.4Zm-8.3 1.8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm4.2 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-5.1 2.5c.6.4 1.4.6 2.4.6s1.8-.2 2.4-.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.3 8.6a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6ZM4.9 10.2h2.8V19H4.9zM10.1 10.2h2.7v1.2h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 1.9 3.5 4.5V19h-2.8v-4c0-.9 0-2.2-1.4-2.2s-1.6 1-1.6 2.1V19h-2.8z" fill="currentColor"/></svg>',
   };
 
@@ -537,6 +607,7 @@ function enhanceReadingTitleBlock(main, title, toc) {
 
   title.classList.add('wayward-reading-head');
   title.innerHTML = `
+    ${renderTopWayfinding(currentPath(), titleText)}
     <div class="wayward-reading-head__meta-row">
       <div class="post-meta" aria-label="Article details">
         ${metaBits.map((bit, index) => `${index > 0 ? '<span class="post-meta-divider" aria-hidden="true">|</span>' : ''}${bit}`).join('')}
@@ -544,27 +615,18 @@ function enhanceReadingTitleBlock(main, title, toc) {
       <div class="post-share" aria-label="Share article">
         <a class="post-share-button" href="mailto:?subject=${encodeURIComponent(titleText)}&body=${encodeURIComponent(url)}" target="_blank" rel="noopener noreferrer" aria-label="Share by email">
           <span class="post-share-icon">${shareIcon('email')}</span>
-          <span class="post-share-text">Email</span>
         </a>
-        <button class="post-share-button post-share-button--copy" type="button" data-copy-url="${escapeHtml(url)}" aria-label="Copy link">
-          <span class="post-share-icon">${shareIcon('copy')}</span>
-          <span class="post-share-text">Copy link</span>
-        </button>
         <a class="post-share-button" href="https://x.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(titleText)}" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
           <span class="post-share-icon">${shareIcon('x')}</span>
-          <span class="post-share-text">X</span>
         </a>
-        <a class="post-share-button" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook">
-          <span class="post-share-icon">${shareIcon('facebook')}</span>
-          <span class="post-share-text">Facebook</span>
+        <a class="post-share-button" href="https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(titleText)}" target="_blank" rel="noopener noreferrer" aria-label="Share on Reddit">
+          <span class="post-share-icon">${shareIcon('reddit')}</span>
         </a>
         <a class="post-share-button" href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
           <span class="post-share-icon">${shareIcon('linkedin')}</span>
-          <span class="post-share-text">LinkedIn</span>
         </a>
         <a class="post-share-button" href="${githubIssueUrl}" target="_blank" rel="noopener noreferrer" aria-label="Open a GitHub issue for this article">
           <span class="post-share-icon">${shareIcon('github')}</span>
-          <span class="post-share-text">GitHub</span>
         </a>
       </div>
     </div>
@@ -572,24 +634,6 @@ function enhanceReadingTitleBlock(main, title, toc) {
     ${subtitle ? `<p class="subtitle">${escapeHtml(subtitle)}</p>` : ''}
   `;
   title.dataset.enhanced = 'true';
-
-  const copyButton = title.querySelector('.post-share-button--copy');
-
-  copyButton?.addEventListener('click', async () => {
-    const nextLabel = copyButton.querySelector('.post-share-text');
-    try {
-      await navigator.clipboard.writeText(url);
-      if (nextLabel) nextLabel.textContent = 'Copied';
-      window.setTimeout(() => {
-        if (nextLabel) nextLabel.textContent = 'Copy link';
-      }, 1800);
-    } catch {
-      if (nextLabel) nextLabel.textContent = 'Unavailable';
-      window.setTimeout(() => {
-        if (nextLabel) nextLabel.textContent = 'Copy link';
-      }, 1800);
-    }
-  });
 }
 
 function injectWaywardChrome() {
@@ -622,9 +666,6 @@ function injectWaywardChrome() {
           <span class="wayward-search-launch__label">Search the book</span>
           <span class="wayward-search-launch__hint" aria-hidden="true">/</span>
         </button>
-        <button class="wayward-theme-toggle" type="button" aria-label="Toggle theme">
-          <span aria-hidden="true">${document.documentElement.dataset.theme === 'dark' ? 'Light' : 'Dark'}</span>
-        </button>
       </div>
     </div>
   `;
@@ -637,15 +678,7 @@ function injectWaywardChrome() {
     }
   });
 
-  const toggle = header.querySelector('.wayward-theme-toggle');
   const searchLaunch = header.querySelector('.wayward-search-launch');
-  toggle?.addEventListener('click', () => {
-    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    updateThemeMeta(nextTheme);
-    const label = nextTheme === 'dark' ? 'Light' : 'Dark';
-    const span = toggle.querySelector('span');
-    if (span) span.textContent = label;
-  });
 
   searchLaunch?.addEventListener('click', () => {
     openSearchDialog();
@@ -692,6 +725,9 @@ function injectWaywardChrome() {
       Array.from(main.children).forEach((child) => {
         if (child !== toc) content.appendChild(child);
       });
+
+      const pager = renderBottomWayfinding(path);
+      if (pager) content.appendChild(pager);
 
       layout.appendChild(aside);
       layout.appendChild(content);

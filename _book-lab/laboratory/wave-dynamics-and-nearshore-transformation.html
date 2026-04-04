@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,6 +132,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That waves carry energy, that their speed depends on depth and period, and that coastal transformation begins offshore before breaking is visible.</p>
+<p><strong>You will learn</strong><br>
+How dispersion, shoaling, and breaking work, and how nearshore wave transformation sets up coastal forcing.</p>
+<p><strong>Why this matters</strong><br>
+Breaking waves are one of the main physical drivers of coastal erosion, transport, and flooding.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The sequence: deep-water wave, shoaling wave, then breaking wave.</p>
 <p>Watch a breaking wave carefully. It arrives from offshore as a smooth, rolling swell. As the water shallows, the crest rises, the trough deepens, and the wave steepens until, at a depth roughly equal to its own height, the crest pitches forward and the wave collapses. The energy that left a storm hundreds of kilometres away is dissipated in a few metres of white water.</p>
 <p>This transformation — from deep-water swell to breaking surf — is one of the most precisely understood processes in geomorphology. The governing physics is the linear wave theory, first formalised by Airy (1845), and it predicts the wave’s speed, wavelength, energy flux, and breaking depth from three inputs: wave period, wave height, and water depth. The predictive power is remarkable given the complexity of what we are actually watching.</p>
 <hr>
@@ -243,7 +256,7 @@ window.Quarto = {
 <p>At <span class="math inline">h = 2.8</span> m, shallow-water approximation: <span class="math inline">C_g \approx \sqrt{9.81 \times 2.8} = 5.24</span> m s⁻¹</p>
 <p><span class="math inline">K_s = \sqrt{9.37/5.24} \times (\text{correction}) \approx 1.34</span> (from full iteration)</p>
 <p><span class="math inline">H_b = 2.0 \times 1.34 = 2.68</span> m; Breaking criterion: <span class="math inline">H_b/h_b = 2.68/2.8 = 0.957 &gt; 0.78</span></p>
-<p>Try <span class="math inline">h_b = 3.5</span> m: <span class="math inline">K_s \approx 1.25</span>, <span class="math inline">H_b = 2.50</span> m; ratio = $2.50/3.5 = 0.71 &lt; 0.78$</p>
+<p>Try <span class="math inline">h_b = 3.5</span> m: <span class="math inline">K_s \approx 1.25</span>, <span class="math inline">H_b = 2.50</span> m; ratio = <span class="math inline">2.50/3.5 = 0.71 &lt; 0.78</span></p>
 <p>Breaking depth is between 2.8 and 3.5 m — approximately <span class="math inline">h_b \approx 3.1</span> m. At this depth, <span class="math inline">H_b \approx 0.78 \times 3.1 = 2.42</span> m.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
@@ -311,25 +324,23 @@ for h in np.linspace(1.0, 15.0, 500):
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Wave Shoaling: Height and Group Velocity vs Water Depth (T = 12s, H₀ = 2.0m)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 13}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Wave height H (m)&quot;, &quot;Group velocity Cg (m/s)&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Water Depth h (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [30, 25, 20, 15, 12, 10, 8, 6, 5, 4, 3.5, 3.1]},
-  &quot;yAxis&quot;: [
-    {&quot;name&quot;: &quot;Wave Height H (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 40},
-    {&quot;name&quot;: &quot;Group Velocity (m/s)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45}
-  ],
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Wave height H (m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [2.00, 2.00, 2.01, 2.03, 2.06, 2.09, 2.18, 2.27, 2.33, 2.40, 2.44, 2.42],
-     &quot;markPoint&quot;: {&quot;data&quot;: [{&quot;type&quot;: &quot;max&quot;, &quot;name&quot;: &quot;Breaking&quot;}]}},
-    {&quot;name&quot;: &quot;Group velocity Cg (m/s)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;yAxisIndex&quot;: 1,
-     &quot;data&quot;: [9.25, 9.33, 9.35, 9.27, 9.10, 8.91, 7.88, 6.72, 5.97, 5.09, 4.76, 4.50]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Wave Shoaling: Height and Group Velocity vs Water Depth (T = 12s, H₀ = 2.0m)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 13}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Wave height H (m)&quot;, &quot;Group velocity Cg (m/s)&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Water Depth h (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [30, 25, 20, 15, 12, 10, 8, 6, 5, 4, 3.5, 3.1]},
+&quot;yAxis&quot;: [
+{&quot;name&quot;: &quot;Wave Height H (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 40},
+{&quot;name&quot;: &quot;Group Velocity (m/s)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45}
+],
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Wave height H (m)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [2.00, 2.00, 2.01, 2.03, 2.06, 2.09, 2.18, 2.27, 2.33, 2.40, 2.44, 2.42],
+&quot;markPoint&quot;: {&quot;data&quot;: [{&quot;type&quot;: &quot;max&quot;, &quot;name&quot;: &quot;Breaking&quot;}]}},
+{&quot;name&quot;: &quot;Group velocity Cg (m/s)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;yAxisIndex&quot;: 1,
+&quot;data&quot;: [9.25, 9.33, 9.35, 9.27, 9.10, 8.91, 7.88, 6.72, 5.97, 5.09, 4.76, 4.50]}
+]
+}"></div>
 <p>Wave height is nearly constant in deep water (right side of plot), then rises as the wave shoals onto the shelf, reaches a maximum near breaking depth, and at <span class="math inline">h_b \approx 3.1</span> m the wave breaks. Group velocity decreases monotonically as depth decreases — this is the shoaling mechanism.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -367,24 +378,24 @@ for h in np.linspace(1.0, 15.0, 500):
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

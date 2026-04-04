@@ -97,12 +97,14 @@ $$R_n = \text{Net shortwave} + \text{Net longwave}$$
 ### Shortwave vs. Longwave
 
 **Shortwave (solar):**
+
 - Originates from the sun (temperature ~5,800 K)
 - Peak wavelength ~0.5 μm (green visible light)
 - Intensity varies with time of day, season, cloudiness
 - Measured in W/m² (watts per square meter)
 
 **Longwave (thermal infrared):**
+
 - Originates from Earth's surface and atmosphere (temperature ~200–300 K)
 - Peak wavelength ~10 μm (thermal infrared, invisible to the eye)
 - Present day and night (doesn't require sunlight)
@@ -220,6 +222,7 @@ $$L_{\uparrow} = \varepsilon \sigma T_s^4$$
 Where $T_s$ is the surface temperature.
 
 **Typical emissivities:**
+
 - Water: ε ≈ 0.95–0.98
 - Vegetation: ε ≈ 0.95–0.99
 - Soil: ε ≈ 0.90–0.95
@@ -251,11 +254,13 @@ Combining all four streams:
 $$R_n = S_{\downarrow}(1 - \alpha) + L_{\downarrow} - \varepsilon \sigma T_s^4$$
 
 **Interpretation:**
+
 - First term: absorbed solar radiation
 - Second term: atmospheric infrared warming
 - Third term: surface infrared cooling
 
 **Day vs. Night:**
+
 - **Daytime:** $S_{\downarrow}$ large → $R_n$ typically positive (surface gains energy)
 - **Nighttime:** $S_{\downarrow} = 0$ → $R_n = L_{\downarrow} - L_{\uparrow}$ typically negative (surface loses energy)
 
@@ -538,6 +543,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Switch to snow:** Albedo jumps to 0.85 → most solar radiation reflects → low net shortwave
 - **Set solar to 0 (nighttime):** Net radiation goes negative (surface cools by IR emission)
 - **Add clouds:** Incoming longwave increases → net radiation less negative at night

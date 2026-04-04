@@ -211,6 +211,7 @@ CVI values: <6 = very low vulnerability; 6–12 = low; 12–24 = moderate; 24–
 **Setting:** Two coastal segments of the British Columbia coast, one rocky headland and one sandy barrier spit, to illustrate the CVI contrast.
 
 **Rocky headland — Cape Scott area:**
+
 - Geomorphology: rocky cliffs → 1
 - Coastal slope: 2.1% → 1
 - RSL change: +1.5 mm yr⁻¹ (isostatic uplift partially offsets eustasy) → 1
@@ -223,6 +224,7 @@ $$\text{CVI} = \sqrt{\frac{1 \times 1 \times 1 \times 3 \times 3 \times 5}{6}} =
 **Very low vulnerability** — despite high wave energy, the rocky coast and active uplift protect it.
 
 **Barrier spit — Boundary Bay, Delta, BC:**
+
 - Geomorphology: barrier/beach → 5
 - Coastal slope: 0.15% → 5
 - RSL change: +5.0 mm yr⁻¹ (eustasy + deltaic subsidence) → 5

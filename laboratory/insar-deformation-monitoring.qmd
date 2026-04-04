@@ -189,6 +189,7 @@ The atmospheric delay contribution $\Delta\phi_{\text{atm}}$ has a spatial corre
 **Setting:** Sentinel-1 interferogram over a subsiding industrial area in the Po Valley, Italy. We observe 4.5 fringes (complete colour cycles) in the differential interferogram over a 6-month period between two acquisitions.
 
 **Given:**
+
 - $\lambda = 0.056$ m (C-band)
 - $\theta_i = 34°$ (incidence angle)
 - Number of fringes observed: $n = 4.5$

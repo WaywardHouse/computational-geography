@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,6 +132,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That storage changes through inflow, release, evaporation, and spill, and that reservoirs are fundamentally governed by conservation of mass.</p>
+<p><strong>You will learn</strong><br>
+How storage-yield analysis works, how the sequent peak algorithm estimates required capacity, and how competing reservoir objectives are balanced.</p>
+<p><strong>Why this matters</strong><br>
+Reservoir design is one of the clearest examples of a practical mass-balance problem with real tradeoffs.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core bookkeeping idea: storage next period equals storage now plus inflow minus losses and releases.</p>
 <p>The W.A.C. Bennett Dam on the Peace River in British Columbia impounds 74 km³ of water — one of the largest reservoirs in the world by volume. It took seven years to fill after completion in 1968. Since then it has generated 2,730 MW of hydroelectric power, regulated spring floods downstream, and supplied irrigation water to the Peace River valley. It has also been accumulating sediment at rates that are gradually reducing its storage capacity, and its downstream flow regime has transformed the Peace-Athabasca Delta in ways that continue to be debated.</p>
 <p>That package of outcomes — power, flood control, irrigation, ecological transformation, and eventual capacity loss — defines the multi-purpose reservoir problem. Understanding any one outcome quantitatively requires the mass balance framework that underlies all reservoir analysis.</p>
 <hr>
@@ -144,7 +157,7 @@ window.Quarto = {
 <p><span class="math display">\frac{dS}{dt} = Q_{\text{in}}(t) - Q_{\text{out}}(t) - E(t) - L(t)</span></p>
 <p>where <span class="math inline">Q_{\text{in}}</span> = inflow (natural streamflow), <span class="math inline">Q_{\text{out}}</span> = controlled release, <span class="math inline">E</span> = evaporation from reservoir surface, and <span class="math inline">L</span> = seepage losses. In discrete monthly form:</p>
 <p><span class="math display">S(t+1) = S(t) + Q_{\text{in}}(t)\Delta t - Q_{\text{out}}(t)\Delta t - E(t)\Delta t</span></p>
-<p>subject to $0 S(t) S_{}$. When <span class="math inline">S(t+1) &gt; S_{\max}</span>, the excess <strong>spills</strong>; when <span class="math inline">S(t+1) &lt; 0</span>, there is a <strong>shortage</strong> of magnitude <span class="math inline">|S(t+1)|</span>.</p>
+<p>subject to <span class="math inline">0 \leq S(t) \leq S_{\max}</span>. When <span class="math inline">S(t+1) &gt; S_{\max}</span>, the excess <strong>spills</strong>; when <span class="math inline">S(t+1) &lt; 0</span>, there is a <strong>shortage</strong> of magnitude <span class="math inline">|S(t+1)|</span>.</p>
 <h3 id="the-sequent-peak-algorithm" class="anchored">3.2 The Sequent Peak Algorithm</h3>
 <p>The <strong>sequent peak algorithm</strong> (Rippl 1882) determines the minimum storage capacity <span class="math inline">K</span> required to deliver a constant target yield <span class="math inline">D</span> from a given inflow sequence <span class="math inline">Q_1, Q_2, \ldots, Q_n</span>.</p>
 <p><strong>Step 1:</strong> Compute net surplus/deficit at each time step:</p>
@@ -155,7 +168,7 @@ window.Quarto = {
 <p><span class="math display">K_{t_1,t_2} = X_{t_1} - \min_{t_1 \le t \le t_2}(X_t)</span></p>
 <p><strong>Step 4:</strong> The required capacity is:</p>
 <p><span class="math display">K = \max_{t_1,t_2} K_{t_1,t_2}</span></p>
-<p>The algorithm is applied to the inflow sequence repeated twice (length $2n$) to handle droughts that straddle the record’s start/end boundary.</p>
+<p>The algorithm is applied to the inflow sequence repeated twice (length <span class="math inline">2n</span>) to handle droughts that straddle the record’s start/end boundary.</p>
 <p><strong>Intuition:</strong> <span class="math inline">X_t</span> rises during surplus periods (reservoir filling) and falls during deficits (reservoir draining). The maximum drop from any peak to its subsequent trough is exactly the storage needed to bridge that drought without running dry.</p>
 <h3 id="storage-yield-relationship" class="anchored">3.3 Storage-Yield Relationship</h3>
 <p>Running the sequent peak for a range of target yields <span class="math inline">D</span> produces the <strong>storage-yield curve</strong> <span class="math inline">K(D)</span> — the minimum capacity required to guarantee yield <span class="math inline">D</span> through the drought of record. This curve rises steeply near the mean annual flow: delivering near 100% of mean annual flow requires enormous storage to bridge multi-year droughts, while delivering 50–70% requires far less.</p>
@@ -411,23 +424,21 @@ print(f"\nCv={Cv:.2f}, η_T={eta:.3f}, ΔK={dK:.3f} Mm³/yr, T_50={T50:.0f} yr")
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Sequent Peak — Cumulative Departure and Required Storage&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Cumulative departure X(t)&quot;, &quot;Required storage K = 68&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;name&quot;: &quot;Month&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 28,
-    &quot;data&quot;: [&quot;J&quot;,&quot;F&quot;,&quot;M&quot;,&quot;A&quot;,&quot;M&quot;,&quot;J&quot;,&quot;J&quot;,&quot;A&quot;,&quot;S&quot;,&quot;O&quot;,&quot;N&quot;,&quot;D&quot;,&quot;J+1&quot;,&quot;F+1&quot;,&quot;M+1&quot;,&quot;A+1&quot;]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Departure from yield (Mm³)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Cumulative departure X(t)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [-7,-16,-21,-11,14,49,64,61,54,44,33,21,10,1,-4,3]},
-    {&quot;name&quot;: &quot;Required storage K = 68&quot;, &quot;type&quot;: &quot;line&quot;,
-     &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Sequent Peak — Cumulative Departure and Required Storage&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Cumulative departure X(t)&quot;, &quot;Required storage K = 68&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;name&quot;: &quot;Month&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 28,
+&quot;data&quot;: [&quot;J&quot;,&quot;F&quot;,&quot;M&quot;,&quot;A&quot;,&quot;M&quot;,&quot;J&quot;,&quot;J&quot;,&quot;A&quot;,&quot;S&quot;,&quot;O&quot;,&quot;N&quot;,&quot;D&quot;,&quot;J+1&quot;,&quot;F+1&quot;,&quot;M+1&quot;,&quot;A+1&quot;]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Departure from yield (Mm³)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Cumulative departure X(t)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [-7,-16,-21,-11,14,49,64,61,54,44,33,21,10,1,-4,3]},
+{&quot;name&quot;: &quot;Required storage K = 68&quot;, &quot;type&quot;: &quot;line&quot;,
+&quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68]}
+]
+}"></div>
 <p>The cumulative departure falls 68 Mm³ from the July peak (+64) to the March trough (−4). Any reservoir smaller than 68 Mm³ would run dry between July and the following spring. The recovery in April+1 represents the next snowmelt freshet that refills storage.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -464,24 +475,24 @@ print(f"\nCv={Cv:.2f}, η_T={eta:.3f}, ΔK={dK:.3f} Mm³/yr, T_50={T50:.0f} yr")
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

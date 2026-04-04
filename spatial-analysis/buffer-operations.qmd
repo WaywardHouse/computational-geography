@@ -72,6 +72,7 @@ Buffer zones appear everywhere in spatial analysis:
 The mathematical question: Given a geographic feature (point, line, or polygon), create a new polygon representing all locations within distance $d$.
 
 **Variations:**
+
 - Point buffer → circle
 - Line buffer → "stadium" shape (rounded rectangle)
 - Polygon buffer → offset boundary (larger or smaller)
@@ -227,6 +228,7 @@ For each edge:
 3. Handle intersections (offset edges may cross)
 
 **Challenges:**
+
 - **Convex vertices:** Circular arc expands outward
 - **Concave vertices:** May cause self-intersection → requires clipping
 - **Negative buffers:** May eliminate small features entirely
@@ -595,6 +597,7 @@ render();
 ```
 
 **Try this:**
+
 - **Point buffer:** Perfect circle around point
 - **Line buffer:** "Stadium" shape with semicircular caps
 - **Polygon buffer:** Offset boundary with rounded corners
@@ -635,6 +638,7 @@ for each cell (x, y):
 Buffer around rivers = union of all individual stream buffers.
 
 **Algorithm:**
+
 1. Buffer each feature independently
 2. Compute polygon union (overlay operation)
 3. Result: Single merged buffer polygon
@@ -646,6 +650,7 @@ Buffer around rivers = union of all individual stream buffers.
 **Erosion:** Shrink polygon by distance $d$.
 
 **Use cases:**
+
 - Create "core areas" (remove edge effects)
 - Model sea-level rise (coastline moves inland)
 - Setbacks (building must be 10m inside property line)
@@ -679,6 +684,7 @@ Offset edges may cross each other.
 **Example:** U-shaped polygon with buffer larger than gap width → buffer fills the gap.
 
 **Handling:**
+
 1. Detect self-intersections
 2. Remove invalid portions (keep outermost boundary)
 3. Use robust geometry libraries (GEOS, Shapely)
@@ -723,11 +729,13 @@ At 60°N, 1° longitude ≈ 55 km
 **Implementation:** Project to equal-area projection (e.g., Albers), buffer, project back.
 
 **When to use:**
+
 - Features spanning > 1° latitude/longitude
 - Polar regions (extreme distortion)
 - Global or continental analysis
 
 **When Euclidean is fine:**
+
 - Local analysis (< 100 km²)
 - Projected coordinates (UTM, State Plane)
 

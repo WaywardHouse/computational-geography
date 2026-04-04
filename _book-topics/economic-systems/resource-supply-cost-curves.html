@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-logic-of-the-supply-stack" id="toc-the-logic-of-the-supply-stack">The Logic of the Supply Stack</a></li>
   <li><a href="#the-global-cost-hierarchy" id="toc-the-global-cost-hierarchy">The Global Cost Hierarchy</a></li>
   <li><a href="#the-critical-distinction-opex-vs-full-cycle" id="toc-the-critical-distinction-opex-vs-full-cycle">The Critical Distinction: OPEX vs Full-Cycle</a></li>
@@ -117,6 +121,15 @@ window.Quarto = {
   <li><a href="#references" id="toc-references">References</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That producers face both operating costs and longer-run capital recovery costs, and that not all oil projects are equally expensive.</p>
+<p><strong>You will learn</strong><br>
+How supply stacks and break-even prices work, why projects can keep operating while losing money on a full-cycle basis, and where Alberta sits on the global cost curve.</p>
+<p><strong>Why this matters</strong><br>
+Cost position determines who survives a downturn, who earns rent in an upturn, and which projects are stranded first.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The distinction between operating cost and full-cycle break-even.</p>
 <p>When the oil price collapsed from $110 to $45 between June and December 2014, the immediate question in Calgary was: who keeps pumping? The answer depends entirely on where each producer sits on the global supply cost curve — the ranked list of every barrel of extractable oil in the world, ordered from cheapest to most expensive.</p>
 <p>This curve is not just an academic tool. It determines which projects get sanctioned, which shut in during downturns, which generate economic rents for governments and shareholders, and which are stranded when the energy transition reshapes demand. Understanding it is prerequisite to understanding Alberta’s place in the global energy economy.</p>
 <h2 id="the-logic-of-the-supply-stack" class="anchored">The Logic of the Supply Stack</h2>
@@ -141,65 +154,124 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td>Middle East conventional</td>
-<td>$2–5</td>
-<td>$10–25</td>
+<td>$2-$5</td>
+<td>$10-$25</td>
 </tr>
 <tr class="even">
 <td>Russia onshore conventional</td>
-<td>$5–10</td>
-<td>$20–35</td>
+<td>$5-$10</td>
+<td>$20-$35</td>
 </tr>
 <tr class="odd">
 <td>US shale (Permian core)</td>
-<td>$15–25</td>
-<td>$35–50</td>
+<td>$15-$25</td>
+<td>$35-$50</td>
 </tr>
 <tr class="even">
 <td>US shale (non-core)</td>
-<td>$25–35</td>
-<td>$45–60</td>
+<td>$25-$35</td>
+<td>$45-$60</td>
 </tr>
 <tr class="odd">
 <td>Alberta conventional</td>
-<td>$8–15</td>
-<td>$30–45</td>
+<td>$8-$15</td>
+<td>$30-$45</td>
 </tr>
 <tr class="even">
 <td>Alberta SAGD (in-situ bitumen)</td>
-<td>$20–30</td>
-<td>$45–65</td>
+<td>$20-$30</td>
+<td>$45-$65</td>
 </tr>
 <tr class="odd">
 <td>Deepwater (Gulf of Mexico, Brazil)</td>
-<td>$15–25</td>
-<td>$50–70</td>
+<td>$15-$25</td>
+<td>$50-$70</td>
 </tr>
 <tr class="even">
 <td>Alberta oil sands mining</td>
-<td>$35–50</td>
-<td>$65–85</td>
+<td>$35-$50</td>
+<td>$65-$85</td>
 </tr>
 <tr class="odd">
 <td>Arctic / ultra-deepwater</td>
-<td>$40–60</td>
-<td>$80–120</td>
+<td>$40-$60</td>
+<td>$80-$120</td>
 </tr>
 </tbody>
 </table>
 <p>Alberta spans a wide range — conventional oil is competitive with US shale, while oil sands mining sits near the top of the global cost curve. This heterogeneity within a single jurisdiction is unusual.</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{&quot;title&quot;: {&quot;text&quot;: &quot;Global Oil Supply Stack (Illustrative)&quot;, &quot;subtext&quot;: &quot;Cumulative capacity vs full-cycle break-even, 2024&quot;}, &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}, &quot;formatter&quot;: &quot;{b}: ${c}/bbl break-even&quot;}, &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;name&quot;: &quot;Cumulative Capacity (Mbd)&quot;, &quot;data&quot;: [&quot;ME Conv\n(20 Mbd)&quot;, &quot;Russia\n(10 Mbd)&quot;, &quot;Alta Conv\n(3 Mbd)&quot;, &quot;US Shale\nCore (8 Mbd)&quot;, &quot;Alta SAGD\n(2 Mbd)&quot;, &quot;Deepwater\n(5 Mbd)&quot;, &quot;US Shale\nNon-core (4 Mbd)&quot;, &quot;Alta Mining\n(1.5 Mbd)&quot;, &quot;Arctic\n(1 Mbd)&quot;]}, &quot;yAxis&quot;: [{&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Break-even (USD/bbl)&quot;, &quot;min&quot;: 0, &quot;max&quot;: 130}, {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Break-even Range&quot;, &quot;show&quot;: false}], &quot;series&quot;: [{&quot;name&quot;: &quot;Min Break-even&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;stack&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;transparent&quot;}, &quot;data&quot;: [10, 20, 30, 35, 45, 50, 45, 65, 80]}, {&quot;name&quot;: &quot;Break-even Range&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;stack&quot;, &quot;data&quot;: [15, 15, 15, 15, 20, 20, 15, 20, 40], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5470c6&quot;, &quot;opacity&quot;: 0.8}, &quot;label&quot;: {&quot;show&quot;: false}}, {&quot;name&quot;: &quot;WTI Price ($75)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;markLine&quot;: {&quot;data&quot;: [{&quot;yAxis&quot;: 75, &quot;label&quot;: {&quot;formatter&quot;: &quot;WTI $75&quot;, &quot;position&quot;: &quot;end&quot;}, &quot;lineStyle&quot;: {&quot;color&quot;: &quot;#ee6666&quot;, &quot;width&quot;: 2, &quot;type&quot;: &quot;dashed&quot;}}]}}]}">
-
 </div>
 <p>The supply stack chart shows break-even ranges (the bar spans minimum to maximum break-even within each category). At $75 WTI, Alberta SAGD operations are near break-even on a full-cycle basis, while Alberta mining and Arctic supply are underwater. Middle Eastern conventional producers earn enormous rents.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Supply Stack
+</div>
+<h3 class="cg-ill__title anchored">
+Who Survives Depends On Where Their Barrels Sit On The Cost Curve
+</h3>
+<p class="cg-ill__lede">
+The supply stack is easiest to read as a ranked staircase. Cheap barrels clear first, expensive barrels only survive when demand is strong enough and market price is high enough to reach them.
+</p>
+<div class="cg-ill__stack-grid">
+<div class="cg-ill__stack-chart">
+<div class="cg-ill__stack-step cg-ill__stack-step--low" style="height: 20%;">
+Middle East conventional
+</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--mid" style="height: 32%;">
+Russia / Alberta conventional
+</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--mid" style="height: 46%;">
+Permian / shale core
+</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--high" style="height: 62%;">
+SAGD / deepwater
+</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--high" style="height: 78%;">
+Oil sands mining
+</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--edge" style="height: 92%;">
+Arctic frontier
+</div>
+<div class="cg-ill__stack-price">
+market price
+</div>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+How to read the stack
+</h4>
+<ul>
+<li>
+Leftward producers are cheaper and usually keep selling through downturns.
+</li>
+<li>
+Projects near the right edge are first to lose sanctioning support in weaker markets.
+</li>
+<li>
+Existing projects may still operate below full-cycle break-even if they cover OPEX.
+</li>
+<li>
+Alberta spans multiple positions on the stack, which is why downturn impacts are uneven inside the province.
+</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>
+The market-clearing price intersects a ranked cost staircase. That intersection decides which categories earn rent, which merely keep operating, and which are stranded first.
+</figcaption>
+</figure>
 <h2 id="the-critical-distinction-opex-vs-full-cycle" class="anchored">The Critical Distinction: OPEX vs Full-Cycle</h2>
 <p>The difference between operating cost and full-cycle cost creates a well-known dynamic in commodity markets: producers keep pumping below their full-cycle break-even, because the capital is already sunk.</p>
 <p>Consider an Alberta SAGD operation that cost $2 billion to build. Its full-cycle break-even (including capital recovery) is $60/bbl. Its OPEX is $25/bbl. When WTI falls to $40:</p>
 <ul>
-<li>The project loses money on a full-cycle basis: $40 − $60 = −$20/bbl</li>
-<li>But it still generates positive cash flow net of operating costs: $40 − $25 = +$15/bbl</li>
+<li>The project loses money on a full-cycle basis: $40 - $60 = -$20/bbl</li>
+<li>But it still generates positive cash flow net of operating costs: $40 - $25 = +$15/bbl</li>
 <li>Rational decision: <strong>keep pumping</strong> — stopping would sacrifice $15/bbl of contribution to fixed and sunk costs</li>
 </ul>
-<p>This logic explains why oil production does not immediately collapse when prices fall. Producers shut in only when price falls below OPEX — the true floor. For SAGD operations, that floor is around $20–25/bbl; for oil sands mining, around $35–50/bbl (because energy costs, diluent, and processing are all higher).</p>
+<p>This logic explains why oil production does not immediately collapse when prices fall. Producers shut in only when price falls below OPEX — the true floor. For SAGD operations, that floor is around $20-$25/bbl; for oil sands mining, around $35-$50/bbl (because energy costs, diluent, and processing are all higher).</p>
 <p>The break-even condition for continuing to operate is:</p>
 <p><span class="math display">P \cdot (1 - \text{royalty rate}) - \text{OPEX} - \text{transport} &gt; 0</span></p>
 <p>Setting this to zero and solving for <span class="math inline">P</span> gives the <strong>operating break-even price</strong> — the true shut-in threshold.</p>
@@ -217,13 +289,12 @@ window.Quarto = {
 <h2 id="alberta-sagd-break-even-components-over-time" class="anchored">Alberta SAGD Break-Even Components Over Time</h2>
 <p>The break-even for Alberta SAGD operations is not static. Capital costs, energy prices, royalty rates, and transport costs have all shifted over the past fifteen years.</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{&quot;title&quot;: {&quot;text&quot;: &quot;Alberta SAGD Break-Even Components (2010–2024)&quot;, &quot;subtext&quot;: &quot;Full-cycle cost decomposition, USD/bbl&quot;}, &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}}, &quot;legend&quot;: {&quot;data&quot;: [&quot;Capital Cost Recovery&quot;, &quot;OPEX&quot;, &quot;Royalties&quot;, &quot;Transport / WCS Discount&quot;, &quot;Return on Capital&quot;], &quot;bottom&quot;: 0}, &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;2010&quot;,&quot;2012&quot;,&quot;2014&quot;,&quot;2016&quot;,&quot;2018&quot;,&quot;2020&quot;,&quot;2022&quot;,&quot;2024&quot;]}, &quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;USD/bbl&quot;, &quot;max&quot;: 80}, &quot;series&quot;: [{&quot;name&quot;: &quot;Capital Cost Recovery&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;data&quot;: [18, 22, 25, 20, 18, 15, 16, 17], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5470c6&quot;}}, {&quot;name&quot;: &quot;OPEX&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;data&quot;: [14, 16, 18, 18, 17, 16, 19, 22], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#91cc75&quot;}}, {&quot;name&quot;: &quot;Royalties&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;data&quot;: [6, 8, 10, 4, 5, 3, 8, 7], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#fac858&quot;}}, {&quot;name&quot;: &quot;Transport / WCS Discount&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;data&quot;: [8, 9, 10, 12, 18, 10, 11, 12], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#ee6666&quot;}}, {&quot;name&quot;: &quot;Return on Capital&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;data&quot;: [8, 9, 10, 8, 7, 6, 7, 8], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#73c0de&quot;}}]}">
-
 </div>
 <p>Several features stand out. Transport costs spiked in 2018 (the pipeline constraint crisis). Royalties dropped sharply in 2016 and 2020 (bust years, when the pre-payout royalty tiers kicked in). OPEX has risen post-2020, partly from energy cost inflation. Capital cost recovery peaked in the mid-2010s as the construction boom completed.</p>
 <h2 id="implications-for-policy-and-investment" class="anchored">Implications for Policy and Investment</h2>
 <p>The supply cost curve framework has direct implications for Alberta’s resource policy:</p>
 <p><strong>Investment sanctioning:</strong> New projects are only sanctioned when the long-run expected price exceeds the full-cycle LCOS, including a risk premium. At $65 WTI, no new oil sands mining project is economic on a full-cycle basis — which is why no major mining expansion has been sanctioned since 2014.</p>
-<p><strong>Price floor policy:</strong> The OPEX floor determines when the government faces a catastrophic revenue collapse (producers shut in) vs a gradual decline. Understanding the $20–25/bbl SAGD OPEX floor helps budget planners model downside scenarios.</p>
+<p><strong>Price floor policy:</strong> The OPEX floor determines when the government faces a catastrophic revenue collapse (producers shut in) vs a gradual decline. Understanding the $20-$25/bbl SAGD OPEX floor helps budget planners model downside scenarios.</p>
 <p><strong>Pipeline capacity:</strong> The WCS discount analysis shows that transport infrastructure is not a mere logistics issue — it is a direct determinant of whether Alberta’s oil is competitive on global markets. The differential between WTI and WCS can determine whether the entire tail of the supply stack is viable.</p>
 <p><strong>Energy transition exposure:</strong> As global demand falls with electrification, the demand curve shifts left — intersecting the supply stack at a lower price. High-cost Alberta supply is at the right end of the stack, meaning it is disproportionately exposed. The question is whether current producers can recover capital before the intersection moves past them.</p>
 <hr>
@@ -248,24 +319,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

@@ -539,6 +539,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Nighttime inversion:** Temperature increases with height → extremely stable
 - **Daytime unstable:** High lapse rate (> 10 K/km) → dry adiabat to left of environment → rising parcel stays warmer
 - **Dew point spread:** When temperature curve crosses dew point → cloud forms
@@ -565,12 +566,14 @@ window.addEventListener('resize', () => chart.resize());
 - Traps pollution
 
 **Frontal inversion:**
+
 - Warm air overrides cold air
 - Associated with weather fronts
 
 ### Convective Boundary Layer
 
 **Daytime over land:**
+
 - Surface heated by sun
 - Lapse rate approaches dry adiabatic ($\Gamma \approx \Gamma_d$)
 - **Mixed layer:** Well-mixed by convection (temperature nearly constant with height)
@@ -595,6 +598,7 @@ Clouds form when:
 Once air saturates, **saturated adiabatic** applies. The transition occurs at LCL.
 
 **Parcels rise:**
+
 - Below LCL: Cool at $\Gamma_d = 9.8$ K/km
 - Above LCL: Cool at $\Gamma_s \approx 6$ K/km
 
@@ -639,6 +643,7 @@ Where:
 **Units:** J/kg (energy per unit mass)
 
 **Interpretation:**
+
 - CAPE < 1000 J/kg: Weak convection
 - 1000–2500 J/kg: Moderate storms
 - CAPE > 2500 J/kg: Severe thunderstorms, tornadoes

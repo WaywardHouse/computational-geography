@@ -58,6 +58,7 @@ Why does snow melt faster on sunny spring days even when air temperature is belo
 **Snow is a dynamic system** that gains and loses energy through multiple pathways:
 
 **Energy inputs:**
+
 - ☀️ Shortwave radiation (solar)
 - 🌥️ Longwave radiation (atmospheric/cloud)
 - 🌡️ Sensible heat (warm air)
@@ -65,6 +66,7 @@ Why does snow melt faster on sunny spring days even when air temperature is belo
 - 🌍 Ground heat flux (from soil below)
 
 **Energy outputs:**
+
 - ❄️ Longwave emission (snow surface)
 - 🌡️ Sensible heat (to cold air)
 - 💨 Latent heat (sublimation/evaporation)
@@ -92,6 +94,7 @@ Where:
 - $Q_G$ = Ground heat flux (from soil)
 
 **Net energy determines:**
+
 - $Q_{\text{net}} < 0$: Snowpack cools (energy loss)
 - $Q_{\text{net}} > 0$ and $T_{\text{snow}} < 0°C$: Snowpack warms
 - $Q_{\text{net}} > 0$ and $T_{\text{snow}} = 0°C$: **Melt occurs**
@@ -119,6 +122,7 @@ Where:
 $$\alpha = \frac{Q_{\text{SW}}^{\uparrow}}{Q_{\text{SW}}^{\downarrow}}$$
 
 **Typical values:**
+
 - Fresh snow: $\alpha = 0.80-0.95$
 - Old snow: $\alpha = 0.60-0.75$
 - Dirty snow: $\alpha = 0.40-0.60$
@@ -291,6 +295,7 @@ Where $k_{\text{soil}} \approx 0.5-2$ W/(m·K).
 **Typical magnitude:** 5-20 W/m² (small compared to radiation).
 
 **Direction:**
+
 - Early winter: Warm soil → energy input to snowpack
 - Late winter: Cold soil → energy loss from base
 
@@ -301,6 +306,7 @@ Where $k_{\text{soil}} \approx 0.5-2$ W/(m·K).
 **Problem:** Calculate net energy balance for snowpack on sunny spring day.
 
 **Conditions:**
+
 - Solar radiation: $Q_{\text{SW}}^{\downarrow} = 600$ W/m²
 - Snow albedo: $\alpha = 0.75$ (old snow)
 - Air temperature: $T_{\text{air}} = 5°C = 278$ K
@@ -355,6 +361,7 @@ $$M = 5.6 \times 10^{-7} \times 3600 = 0.002 \text{ m/hour} = 2 \text{ mm/hour}$
 **Conclusion:** Snow **IS melting** at 2 mm/hour.
 
 **Energy breakdown:**
+
 - Absorbed solar: 150 W/m² (80% of total)
 - Sensible heat: 38 W/m² (20%)
 - Net longwave: -10 W/m² (radiative cooling)
@@ -651,6 +658,7 @@ render();
 ```
 
 **Try this:**
+
 - **High solar + low albedo:** Fast melt (dirty/old snow)
 - **High albedo:** Most solar reflected, slow melt (fresh snow)
 - **Increase clouds:** More longwave input → warmer conditions
@@ -670,12 +678,14 @@ render();
 **Energy balance controls melt onset:**
 
 **Early spring:**
+
 - Solar angle low → less SW radiation
 - Cold air → negative sensible heat
 - Clear nights → strong LW cooling
 - **Net:** Diurnal melt/refreeze cycles
 
 **Late spring:**
+
 - Solar angle high → strong SW radiation
 - Warm air → positive sensible heat
 - Albedo decreasing (aging snow)
@@ -703,12 +713,14 @@ $$Q_{\text{rain}} = 1000 \times 4186 \times 5 \times (10/3600000) = 58 \text{ W/
 ### Forest Canopy Effects
 
 **Under trees:**
+
 - Reduced SW↓ (40-60% intercepted by canopy)
 - Increased LW↓ (trees emit longwave)
 - Reduced wind → lower turbulent fluxes
 - Snow lasts longer in dense forest
 
 **Clearings:**
+
 - Full solar exposure
 - Higher wind
 - Earlier melt
@@ -718,6 +730,7 @@ $$Q_{\text{rain}} = 1000 \times 4186 \times 5 \times (10/3600000) = 58 \text{ W/
 **Lapse rate:** Temperature decreases ~6.5°C per 1000m.
 
 **Higher elevations:**
+
 - Colder air → less sensible heat input
 - More precipitation as snow
 - Longer snow cover duration
@@ -764,6 +777,7 @@ Where:
 ### Ignoring Snowpack Structure
 
 **Layering:**
+
 - Fresh snow on old snow
 - Ice layers from refreeze
 - Depth hoar (weak layer)
@@ -790,10 +804,12 @@ Where:
 $$M = 3 \times (5 - 0) = 15 \text{ mm/day}$$
 
 **Advantages:**
+
 - Simple (only needs air temperature)
 - Calibrate $f$ to observations
 
 **Disadvantages:**
+
 - No physics (black box)
 - Fails when: Sunny + cold air (still melts) or cloudy + warm (less melt)
 - No albedo effect

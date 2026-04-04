@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -171,7 +174,11 @@ Track three things only: water coming in, water leaving, and water stored in the
 <p><strong>Water balance equation:</strong></p>
 <p><span class="math display">\frac{dS}{dt} = P - ET - D - R</span></p>
 <p>Where (all in mm/day or mm/time): - <span class="math inline">S</span> = soil moisture storage (mm) - <span class="math inline">P</span> = precipitation (mm/day) - <span class="math inline">ET</span> = evapotranspiration (mm/day) - <span class="math inline">D</span> = drainage (deep percolation, mm/day) - <span class="math inline">R</span> = runoff (surface flow, mm/day)</p>
-<p><strong>Storage limits:</strong> - <strong>Maximum storage</strong> (field capacity): <span class="math inline">S_{\text{FC}}</span> - <strong>Minimum usable storage</strong> (wilting point): <span class="math inline">S_{\text{WP}}</span></p>
+<p><strong>Storage limits:</strong></p>
+<ul>
+<li><strong>Maximum storage</strong> (field capacity): <span class="math inline">S_{\text{FC}}</span></li>
+<li><strong>Minimum usable storage</strong> (wilting point): <span class="math inline">S_{\text{WP}}</span></li>
+</ul>
 <h3 id="key-soil-moisture-states" class="anchored">Key Soil Moisture States</h3>
 <p><strong>Saturation</strong> (<span class="math inline">S_{\text{sat}}</span>):<br>
 All pore space filled with water. Typical: 40–60% of soil volume.</p>
@@ -195,6 +202,48 @@ Below this, plants wilt permanently.</p>
 <p><strong>Actual evapotranspiration:</strong></p>
 <p><span class="math display">ET_{\text{actual}} = K_s \times ET_{\text{potential}}</span></p>
 <p>When stressed (<span class="math inline">K_s &lt; 1</span>), plants close stomata → transpiration decreases → photosynthesis decreases.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Root-Zone Water Balance
+</div>
+<h3 class="cg-ill__title anchored">
+Soil Moisture Is A Storage Box With Several Exits
+</h3>
+<p class="cg-ill__lede">
+The root zone acts like a reservoir with thresholds inside it. Rain fills storage, plants draw from it, gravity drains excess water, and any overflow can leave as runoff.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 320" role="img" aria-label="Root-zone soil moisture diagram showing precipitation, infiltration, storage, evapotranspiration, runoff, and drainage">
+<rect x="0" y="0" width="560" height="320" rx="22" fill="#eef4ef"></rect> <rect x="80" y="110" width="320" height="130" rx="18" fill="#b78f62" stroke="#6f5539" stroke-width="4"></rect> <rect x="80" y="110" width="320" height="26" rx="14" fill="#d7c39d"></rect> <rect x="102" y="146" width="276" height="70" rx="14" fill="#6ca8d6" fill-opacity="0.72" stroke="#2b6f97" stroke-width="3"></rect> <line x1="102" y1="175" x2="378" y2="175" stroke="#ffffff" stroke-width="3" stroke-dasharray="8 6"></line> <text x="390" y="179" font-size="15" fill="#28506a">field capacity</text> <line x1="102" y1="212" x2="378" y2="212" stroke="#f8f2df" stroke-width="3" stroke-dasharray="8 6"></line> <text x="390" y="216" font-size="15" fill="#6b5b31">wilting point</text> <text x="172" y="191" font-size="18" fill="#103d55" font-weight="700">soil moisture storage</text> <line x1="160" y1="30" x2="160" y2="104" stroke="#2a9d8f" stroke-width="8" stroke-linecap="round"></line> <polygon points="160,104 150,88 170,88" fill="#2a9d8f"></polygon> <text x="108" y="24" font-size="18" fill="#1f6f66" font-weight="700">precipitation</text> <text x="116" y="48" font-size="15" fill="#1f6f66">infiltration into root zone</text> <line x1="286" y1="144" x2="286" y2="58" stroke="#a63d40" stroke-width="8" stroke-linecap="round"></line> <polygon points="286,58 276,74 296,74" fill="#a63d40"></polygon> <text x="306" y="76" font-size="18" fill="#8c2f31" font-weight="700">ET + plant uptake</text> <line x1="236" y1="240" x2="236" y2="294" stroke="#7a5ea8" stroke-width="8" stroke-linecap="round"></line> <polygon points="236,294 226,278 246,278" fill="#7a5ea8"></polygon> <text x="256" y="292" font-size="18" fill="#5d4781" font-weight="700">drainage</text> <line x1="402" y1="132" x2="500" y2="132" stroke="#d89b00" stroke-width="8" stroke-linecap="round"></line> <polygon points="500,132 484,122 484,142" fill="#d89b00"></polygon> <text x="410" y="116" font-size="18" fill="#9b6d00" font-weight="700">runoff if full</text> <path d="M106 100 C126 80, 142 82, 160 100" fill="none" stroke="#2a9d8f" stroke-width="4"></path> <path d="M138 100 C158 80, 174 82, 192 100" fill="none" stroke="#2a9d8f" stroke-width="4"></path> <path d="M170 100 C190 80, 206 82, 224 100" fill="none" stroke="#2a9d8f" stroke-width="4"></path> <path d="M286 114 C300 96, 316 82, 330 72" fill="none" stroke="#5b8a3c" stroke-width="4"></path> <path d="M306 114 C320 96, 336 82, 350 72" fill="none" stroke="#5b8a3c" stroke-width="4"></path> <text x="76" y="276" font-size="16" fill="#35515f">Storage rises with rain and falls through ET, drainage, and runoff.</text> <text x="76" y="296" font-size="16" fill="#35515f">Stress begins before the bucket is empty.</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+How to use this mental model
+</h4>
+<ul>
+<li>
+Field capacity is the practical upper storage limit for many models.
+</li>
+<li>
+Wilting point is not zero water; it is the point where plants can no longer access enough of it.
+</li>
+<li>
+Drainage is loss through the bottom of the root zone.
+</li>
+<li>
+Runoff is overflow when the system cannot store or infiltrate more water.
+</li>
+<li>
+The stress coefficient tells you how strongly drying storage reduces actual ET.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="drainage" class="anchored">Drainage</h3>
@@ -215,7 +264,11 @@ P - I_{\text{max}} &amp; \text{if } P &gt; I_{\text{max}} \text{ and } S = S_{\t
 0 &amp; \text{otherwise}
 \end{cases}</span></p>
 <p>Where <span class="math inline">I_{\text{max}}</span> is infiltration capacity (mm/day, typically 10–100 mm/day).</p>
-<p><strong>For simplicity, assume:</strong> - Runoff occurs when <span class="math inline">S</span> would exceed <span class="math inline">S_{\text{sat}}</span> - Any excess precipitation becomes runoff</p>
+<p><strong>For simplicity, assume:</strong></p>
+<ul>
+<li>Runoff occurs when <span class="math inline">S</span> would exceed <span class="math inline">S_{\text{sat}}</span></li>
+<li>Any excess precipitation becomes runoff</li>
+</ul>
 <p><span class="math display">R = \max(0, S + P - S_{\text{sat}})</span></p>
 <h3 id="complete-water-balance" class="anchored">Complete Water Balance</h3>
 <p><strong>At each time step:</strong></p>
@@ -325,9 +378,9 @@ No stress: <span class="math inline">K_s = 1</span><br>
 <label>
 Soil type:
 <select id="soil-type-sm">
-  <option value="sand">Sandy Soil</option>
-  <option value="loam" selected="">Loam</option>
-  <option value="clay">Clay</option>
+<option value="sand">Sandy Soil</option>
+<option value="loam" selected="">Loam</option>
+<option value="clay">Clay</option>
 </select>
 </label>
 <label>
@@ -338,9 +391,9 @@ Root zone depth (m):
 <label>
 Growing season:
 <select id="season-select">
-  <option value="wet">Wet Season (frequent rain)</option>
-  <option value="normal" selected="">Normal Season</option>
-  <option value="dry">Dry Season (drought)</option>
+<option value="wet">Wet Season (frequent rain)</option>
+<option value="normal" selected="">Normal Season</option>
+<option value="dry">Dry Season (drought)</option>
 </select>
 </label>
 <div class="button-group">
@@ -422,7 +475,7 @@ const ET_pot = climate.etMean + (Math.random() - 0.5) * 2;
 // Water stress factor
 let Ks = 1;
 if (S < S_crit) {
-  Ks = Math.max(0, (S - S_wp) / (S_crit - S_wp));
+Ks = Math.max(0, (S - S_wp) / (S_crit - S_wp));
 }
       
 // Actual ET
@@ -433,13 +486,13 @@ S = S + P - ET_act;
       
 // Drainage
 if (S > S_fc) {
-  const D = soil.kd * (S - S_fc);
-  S = S - D;
+const D = soil.kd * (S - S_fc);
+S = S - D;
 }
       
 // Runoff (saturation excess)
 if (S > S_sat) {
-  S = S_sat;
+S = S_sat;
 }
       
 // Enforce lower bound
@@ -469,98 +522,98 @@ document.getElementById('paw-display').textContent = paw.toFixed(0);
 function updateChart() {
 const option = {
 title: {
-  text: 'Soil Moisture Dynamics (90 days)',
-  left: 'center'
+text: 'Soil Moisture Dynamics (90 days)',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  axisPointer: { type: 'cross' }
+trigger: 'axis',
+axisPointer: { type: 'cross' }
 },
 legend: {
-  data: ['Soil Moisture', 'Field Capacity', 'Critical Point', 'Wilting Point'],
-  top: 30
+data: ['Soil Moisture', 'Field Capacity', 'Critical Point', 'Wilting Point'],
+top: 30
 },
 grid: [
-  { left: 80, right: 40, top: 80, height: '50%' },
-  { left: 80, right: 40, top: '65%', height: '25%' }
+{ left: 80, right: 40, top: 80, height: '50%' },
+{ left: 80, right: 40, top: '65%', height: '25%' }
 ],
 xAxis: [
-  { type: 'value', name: 'Day', gridIndex: 0 },
-  { type: 'value', gridIndex: 1 }
+{ type: 'value', name: 'Day', gridIndex: 0 },
+{ type: 'value', gridIndex: 1 }
 ],
 yAxis: [
-  { 
-    type: 'value', 
-    name: 'Soil Moisture (mm)', 
-    nameLocation: 'middle',
-    nameGap: 50,
-    gridIndex: 0
-  },
-  {
-    type: 'value',
-    name: 'Stress (Ks)',
-    min: 0,
-    max: 1,
-    nameLocation: 'middle',
-    nameGap: 40,
-    gridIndex: 1
-  }
+{ 
+type: 'value', 
+name: 'Soil Moisture (mm)', 
+nameLocation: 'middle',
+nameGap: 50,
+gridIndex: 0
+},
+{
+type: 'value',
+name: 'Stress (Ks)',
+min: 0,
+max: 1,
+nameLocation: 'middle',
+nameGap: 40,
+gridIndex: 1
+}
 ],
 series: [
-  {
-    name: 'Soil Moisture',
-    type: 'line',
-    data: timeData.map((t, i) => [t, moistureData[i]]),
-    lineStyle: { color: '#3498DB', width: 2 },
-    showSymbol: false,
-    xAxisIndex: 0,
-    yAxisIndex: 0
-  },
-  {
-    name: 'Field Capacity',
-    type: 'line',
-    data: timeData.map((t, i) => [t, fcData[i]]),
-    lineStyle: { color: '#2ECC71', width: 1, type: 'dashed' },
-    showSymbol: false,
-    xAxisIndex: 0,
-    yAxisIndex: 0
-  },
-  {
-    name: 'Critical Point',
-    type: 'line',
-    data: timeData.map((t, i) => [t, critData[i]]),
-    lineStyle: { color: '#F39C12', width: 1, type: 'dashed' },
-    showSymbol: false,
-    xAxisIndex: 0,
-    yAxisIndex: 0
-  },
-  {
-    name: 'Wilting Point',
-    type: 'line',
-    data: timeData.map((t, i) => [t, wpData[i]]),
-    lineStyle: { color: '#E74C3C', width: 1, type: 'dashed' },
-    showSymbol: false,
-    xAxisIndex: 0,
-    yAxisIndex: 0,
-    areaStyle: {
-      color: 'rgba(231, 76, 60, 0.1)'
-    }
-  },
-  {
-    name: 'Water Stress',
-    type: 'line',
-    data: timeData.map((t, i) => [t, ksData[i]]),
-    lineStyle: { color: '#9B59B6', width: 2 },
-    showSymbol: false,
-    xAxisIndex: 1,
-    yAxisIndex: 1,
-    areaStyle: {
-      color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-        { offset: 0, color: 'rgba(155, 89, 182, 0.3)' },
-        { offset: 1, color: 'rgba(155, 89, 182, 0)' }
-      ])
-    }
-  }
+{
+name: 'Soil Moisture',
+type: 'line',
+data: timeData.map((t, i) => [t, moistureData[i]]),
+lineStyle: { color: '#3498DB', width: 2 },
+showSymbol: false,
+xAxisIndex: 0,
+yAxisIndex: 0
+},
+{
+name: 'Field Capacity',
+type: 'line',
+data: timeData.map((t, i) => [t, fcData[i]]),
+lineStyle: { color: '#2ECC71', width: 1, type: 'dashed' },
+showSymbol: false,
+xAxisIndex: 0,
+yAxisIndex: 0
+},
+{
+name: 'Critical Point',
+type: 'line',
+data: timeData.map((t, i) => [t, critData[i]]),
+lineStyle: { color: '#F39C12', width: 1, type: 'dashed' },
+showSymbol: false,
+xAxisIndex: 0,
+yAxisIndex: 0
+},
+{
+name: 'Wilting Point',
+type: 'line',
+data: timeData.map((t, i) => [t, wpData[i]]),
+lineStyle: { color: '#E74C3C', width: 1, type: 'dashed' },
+showSymbol: false,
+xAxisIndex: 0,
+yAxisIndex: 0,
+areaStyle: {
+color: 'rgba(231, 76, 60, 0.1)'
+}
+},
+{
+name: 'Water Stress',
+type: 'line',
+data: timeData.map((t, i) => [t, ksData[i]]),
+lineStyle: { color: '#9B59B6', width: 2 },
+showSymbol: false,
+xAxisIndex: 1,
+yAxisIndex: 1,
+areaStyle: {
+color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+{ offset: 0, color: 'rgba(155, 89, 182, 0.3)' },
+{ offset: 1, color: 'rgba(155, 89, 182, 0)' }
+])
+}
+}
 ]
 };
     
@@ -601,7 +654,15 @@ runSimulation();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Dry season:</strong> Watch moisture decline steadily, stress increases - <strong>Wet season:</strong> Frequent rain keeps moisture near field capacity - <strong>Sandy soil:</strong> Low water holding capacity, dries quickly - <strong>Clay soil:</strong> High capacity, but also higher wilting point - <strong>Add rain event:</strong> See immediate moisture spike - Notice: When moisture drops below critical point (orange line), stress factor (Ks) decreases</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Dry season:</strong> Watch moisture decline steadily, stress increases</li>
+<li><strong>Wet season:</strong> Frequent rain keeps moisture near field capacity</li>
+<li><strong>Sandy soil:</strong> Low water holding capacity, dries quickly</li>
+<li><strong>Clay soil:</strong> High capacity, but also higher wilting point</li>
+<li><strong>Add rain event:</strong> See immediate moisture spike</li>
+<li>Notice: When moisture drops below critical point (orange line), stress factor (Ks) decreases</li>
+</ul>
 <p><strong>Key insight:</strong> Plant-available water is the difference between field capacity and wilting point—not total moisture.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -646,7 +707,12 @@ If <span class="math inline">P = 200</span> mm/year, <span class="math inline">E
 <hr>
 <h2 id="extension-soil-water-potential" class="anchored">8. Extension: Soil Water Potential</h2>
 <p><strong>Water potential</strong> (<span class="math inline">\psi</span>, kPa or MPa) describes how tightly water is held.</p>
-<p><strong>Components:</strong> - <strong>Matric potential</strong> (<span class="math inline">\psi_m</span>): Tension from soil particles (negative) - <strong>Gravitational potential</strong> (<span class="math inline">\psi_g</span>): Elevation effect - <strong>Osmotic potential</strong> (<span class="math inline">\psi_o</span>): Dissolved salts</p>
+<p><strong>Components:</strong></p>
+<ul>
+<li><strong>Matric potential</strong> (<span class="math inline">\psi_m</span>): Tension from soil particles (negative)</li>
+<li><strong>Gravitational potential</strong> (<span class="math inline">\psi_g</span>): Elevation effect</li>
+<li><strong>Osmotic potential</strong> (<span class="math inline">\psi_o</span>): Dissolved salts</li>
+</ul>
 <p><strong>Total potential:</strong></p>
 <p><span class="math display">\psi = \psi_m + \psi_g + \psi_o</span></p>
 <p><strong>Water moves from high to low potential</strong> (like heat from hot to cold).</p>
@@ -664,7 +730,11 @@ If <span class="math inline">P = 200</span> mm/year, <span class="math inline">E
 <p><strong>Outflows:</strong> <span class="math inline">ET</span> (evapotranspiration), <span class="math inline">D</span> (drainage), <span class="math inline">R</span> (runoff)</p>
 <p><strong>Differential equation:</strong></p>
 <p><span class="math display">\frac{dS}{dt} = P - ET - D - R</span></p>
-<p><strong>Analogy:</strong> - Bank account: Stock = balance, inflows = deposits, outflows = withdrawals - Bathtub: Stock = water level, inflows = faucet, outflows = drain</p>
+<p><strong>Analogy:</strong></p>
+<ul>
+<li>Bank account: Stock = balance, inflows = deposits, outflows = withdrawals</li>
+<li>Bathtub: Stock = water level, inflows = faucet, outflows = drain</li>
+</ul>
 <h3 id="steady-state" class="anchored">Steady State</h3>
 <p>At <strong>equilibrium</strong> (long-term average):</p>
 <p><span class="math display">\frac{dS}{dt} = 0 \implies P = ET + D + R</span></p>
@@ -695,24 +765,24 @@ If <span class="math inline">P = 200</span> mm/year, <span class="math inline">E
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

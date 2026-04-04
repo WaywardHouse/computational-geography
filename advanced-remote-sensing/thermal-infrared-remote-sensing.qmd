@@ -59,15 +59,18 @@ How hot is that parking lot compared to the adjacent park?
 **Thermal infrared (TIR) remote sensing** measures emitted radiation from Earth's surface.
 
 **Wavelength range:**
+
 - Thermal infrared: 8-14 μm (micrometers)
 - Also called longwave infrared or far-infrared
 - Atmospheric window: Minimal atmospheric absorption
 
 **Key difference from visible/NIR:**
+
 - Visible/NIR: Reflected solar radiation (daytime only)
 - Thermal IR: Emitted thermal radiation (day or night)
 
 **Applications:**
+
 - Land surface temperature mapping
 - Urban heat island quantification
 - Evapotranspiration estimation
@@ -77,6 +80,7 @@ How hot is that parking lot compared to the adjacent park?
 - Sea surface temperature
 
 **Sensors:**
+
 - Landsat 8/9: TIRS (100m resolution)
 - MODIS: TIR bands (1km resolution)
 - ASTER: TIR (90m resolution)
@@ -114,6 +118,7 @@ $$\lambda_{max} = \frac{2898}{T}$$
 Where $T$ in Kelvin, $\lambda_{max}$ in μm.
 
 **Example:**
+
 - Sun (5800 K): $\lambda_{max} = 0.5$ μm (visible, green)
 - Earth (288 K): $\lambda_{max} = 10$ μm (thermal infrared)
 
@@ -126,6 +131,7 @@ Where $T$ in Kelvin, $\lambda_{max}$ in μm.
 $$\varepsilon_\lambda = \frac{L_\lambda^{actual}}{L_\lambda^{blackbody}}$$
 
 **Typical values (8-14 μm):**
+
 - Water: 0.98-0.99
 - Vegetation: 0.96-0.98
 - Soil (moist): 0.95-0.97
@@ -234,6 +240,7 @@ Where:
 - $(1-\varepsilon)$ = reflectance (Kirchhoff's law)
 
 **Three terms:**
+
 1. Surface emission attenuated by atmosphere
 2. Atmosphere emits upward
 3. Downwelling atmospheric radiation reflected off surface
@@ -243,6 +250,7 @@ Where:
 **Uses two TIR bands** to correct for atmospheric water vapor.
 
 **Landsat 8 TIRS:**
+
 - Band 10: 10.6-11.2 μm
 - Band 11: 11.5-12.5 μm
 
@@ -288,6 +296,7 @@ Where:
 **Large $T_s - T_a$** → large $H$ → low $LE$ → water stressed
 
 **Applications:**
+
 - Irrigation scheduling
 - Drought monitoring
 - Crop water stress detection
@@ -321,13 +330,16 @@ Where $\lambda$ = latent heat of vaporization (2.45 MJ/kg)
 **Problem:** Calculate land surface temperature from Landsat thermal data.
 
 **At-sensor brightness temperatures:**
+
 - Band 10: $T_{10} = 300$ K
 - Band 11: $T_{11} = 298$ K
 
 **Surface properties:**
+
 - Emissivity: $\varepsilon = 0.96$ (vegetation)
 
 **Atmospheric correction coefficients:**
+
 - $c_0 = 0.5$, $c_1 = 1.38$, $c_2 = 0$ (simplified)
 
 Calculate land surface temperature.
@@ -355,6 +367,7 @@ If not using split-window:
 $$T_s = \frac{T_B}{\varepsilon^{0.25}} = \frac{300}{0.96^{0.25}} = \frac{300}{0.990} = 303.0 \text{ K} = 29.8°\text{C}$$
 
 **Summary:**
+
 - Split-window LST: 28.1°C
 - Single-channel with emissivity correction: 29.8°C
 - Difference reflects atmospheric correction importance
@@ -614,6 +627,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Red line shows surface temperature varying through day
 - Blue dashed line shows constant air temperature for reference
 - Surface temperature peaks in afternoon, not at noon (thermal inertia)
@@ -624,6 +638,7 @@ window.addEventListener('resize', () => chart.resize());
 - Energy partitioning varies by surface type affecting local climate
 
 **Key findings:**
+
 - Different surfaces exhibit different thermal behaviors
 - Urban materials (asphalt, concrete) create heat islands
 - Vegetation moderates temperature through evapotranspiration
@@ -641,10 +656,12 @@ window.addEventListener('resize', () => chart.resize());
 Cities warmer than surrounding rural areas.
 
 **Magnitude:**
+
 - Daytime: 1-3°C warmer
 - Nighttime: 3-5°C warmer (sometimes 10°C)
 
 **Thermal remote sensing reveals:**
+
 - Hot spots: Parking lots, roofs, roads
 - Cool spots: Parks, water bodies, tree canopy
 - Spatial patterns: Correlate with land use
@@ -657,11 +674,13 @@ Landsat TIR shows:
 - **Difference: 30°C!**
 
 **Health impacts:**
+
 - Heat-related mortality
 - Air quality degradation
 - Energy demand for cooling
 
 **Mitigation strategies:**
+
 - Cool roofs (high albedo, high emissivity)
 - Urban tree canopy
 - Green roofs
@@ -699,6 +718,7 @@ Precision irrigation based on thermal data reduces water use 20-30% while mainta
 - Dome growth
 
 **MODIS thermal bands:**
+
 - Nightly global coverage
 - Detect temperature increases weeks before eruption
 - Track eruption intensity
@@ -712,11 +732,13 @@ Enabled evacuation planning and hazard assessment.
 ### Sea Surface Temperature
 
 **MODIS SST product:**
+
 - Daily global coverage
 - 1 km resolution
 - Accuracy: ±0.5°C
 
 **Applications:**
+
 - Ocean circulation mapping
 - El Niño monitoring
 - Coral bleaching prediction (thermal stress)
@@ -751,6 +773,7 @@ $$\Delta T_s \approx \frac{300}{0.95} \times 0.03 = 9.5 \text{ K}$$
 **Large uncertainty!**
 
 **Solution:**
+
 - Use emissivity databases (ASTER spectral library)
 - Estimate from NDVI (empirical relationships)
 - Temperature-emissivity separation algorithms
@@ -766,6 +789,7 @@ Can reduce apparent temperature by 5-10 K.
 Scatter and absorb, further complicating retrieval.
 
 **Solution:**
+
 - Split-window algorithms
 - Atmospheric correction with radiosonde data
 - In-situ calibration/validation
@@ -787,6 +811,7 @@ Pixel may contain:
 Crop stress detection needs pure vegetation pixels.
 
 **Solution:**
+
 - Unmix thermal signal (if know components)
 - Use higher resolution (ECOSTRESS 70m)
 - Aggregate to coarser resolution
@@ -796,6 +821,7 @@ Crop stress detection needs pure vegetation pixels.
 **Most satellites:** Fixed overpass time (e.g., Landsat ~10:30 AM)
 
 **Misses:**
+
 - Peak afternoon temperature
 - Nighttime cooling
 - Full diurnal cycle
@@ -805,6 +831,7 @@ Crop stress detection needs pure vegetation pixels.
 Can't distinguish thermal inertia differences.
 
 **Solution:**
+
 - Geostationary satellites (GOES, MSG) - hourly
 - ECOSTRESS - variable overpass times
 - Model diurnal cycle from limited observations
@@ -829,11 +856,13 @@ Can't distinguish thermal inertia differences.
 4. Iterate until convergence
 
 **Emissivity spectrum reveals:**
+
 - Quartz: Peak at 8.6 μm
 - Carbonates: Trough at 11.2 μm
 - Vegetation: Flat, high emissivity
 
 **Applications:**
+
 - Mineral mapping from emissivity
 - Surface composition without field work
 
@@ -861,6 +890,7 @@ Where:
 $$\lambda_{max} T = 2898 \text{ μm·K}$$
 
 **Explains why:**
+
 - Hot objects glow red (shorter wavelengths)
 - Room temperature objects emit in infrared (invisible)
 

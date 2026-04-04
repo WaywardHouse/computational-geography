@@ -73,6 +73,7 @@ Where:
 - $\dot{a}$ = ablation rate (melt, sublimation, calving)
 
 **Three scenarios:**
+
 - $\dot{b} > 0$: Glacier growing (positive balance)
 - $\dot{b} = 0$: Steady state (equilibrium)
 - $\dot{b} < 0$: Glacier shrinking (negative balance)
@@ -86,16 +87,19 @@ Where:
 ### Glacier Zones
 
 **Accumulation zone (upper glacier):**
+
 - Snowfall > melt
 - Net gain each year
 - Ice flows downward
 
 **Ablation zone (lower glacier):**
+
 - Melt > snowfall
 - Net loss each year
 - Ice flows in from above
 
 **Equilibrium Line Altitude (ELA):**
+
 - Where accumulation = ablation
 - Divides two zones
 - Typically 3000-4000m in mid-latitudes
@@ -105,6 +109,7 @@ Where:
 **Typical profile:**
 
 **With elevation:**
+
 - High elevation: Large positive balance (+2 m w.e./year)
 - ELA: Zero balance (0 m w.e./year)
 - Low elevation: Large negative balance (-4 m w.e./year)
@@ -118,11 +123,13 @@ $$\frac{d\dot{b}}{dz} \approx 0.005-0.010 \text{ year}^{-1}$$
 ### Seasonal Cycle
 
 **Winter (Oct-May):**
+
 - Accumulation dominates
 - Snow accumulates
 - Little/no melt (cold)
 
 **Summer (Jun-Sep):**
+
 - Ablation dominates
 - Snow and ice melt
 - Maximum mass loss
@@ -172,6 +179,7 @@ $$\bar{b} = \frac{B}{A}$$
 Units: m w.e./year
 
 **Typical values:**
+
 - Healthy glacier (equilibrium): $\bar{b} \approx 0$ m/year
 - Retreating glacier: $\bar{b} = -0.5$ to $-2$ m/year
 - Advancing glacier: $\bar{b} = +0.5$ to $+1$ m/year (rare today)
@@ -538,6 +546,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **ELA shift +100m:** Warmer climate, glacier retreats (red bars dominate)
 - **ELA shift -100m:** Cooler climate, glacier advances (blue bars dominate)
 - **Higher gradient:** Steeper mass balance profile (more sensitive)
@@ -559,12 +568,14 @@ window.addEventListener('resize', () => chart.resize());
 **Global average:** ELA rising ~150m since 1980
 
 **Causes:**
+
 - Temperature increase (+1°C globally)
 - Changes in precipitation patterns
 - Earlier melt onset
 - Longer melt season
 
 **Glacier response:**
+
 - 83% of glaciers retreating
 - Accelerating mass loss: -280 Gt/year (2000-2019)
 - Contributes ~0.7 mm/year to sea level rise
@@ -572,16 +583,19 @@ window.addEventListener('resize', () => chart.resize());
 ### Regional Variability
 
 **Maritime glaciers (Alaska, Patagonia, Iceland):**
+
 - High accumulation, high ablation
 - Large mass turnover
 - Fast response to climate (~10-20 years)
 
 **Continental glaciers (central Asia):**
+
 - Low accumulation, low ablation
 - Slow mass turnover
 - Slower response (~50-100 years)
 
 **Example - Jakobshavn Glacier (Greenland):**
+
 - 1985: $\bar{b} \approx 0$ m/year
 - 2000: $\bar{b} = -5$ m/year
 - 2015: $\bar{b} = -12$ m/year
@@ -592,12 +606,14 @@ window.addEventListener('resize', () => chart.resize());
 **Glaciers = frozen reservoirs:**
 
 **During warming:**
+
 - Increased melt → more summer flow (initially)
 - "Peak water" occurs when glacier contribution maximal
 - After peak → declining flow as glaciers shrink
 - Eventually → minimal glacial contribution
 
 **Central Asia:**
+
 - Peak water ~2020-2030
 - Major impacts on irrigation, hydropower
 
@@ -610,10 +626,12 @@ window.addEventListener('resize', () => chart.resize());
 **Rock debris on glacier surface:**
 
 **Thin debris (<5 cm):**
+
 - Darkens surface, lowers albedo
 - **Increases melt** (more absorbed solar)
 
 **Thick debris (>10 cm):**
+
 - Insulates ice
 - **Decreases melt** (less energy reaches ice)
 
@@ -674,17 +692,20 @@ Where:
 - $\rho_{\text{ice}} \approx 900$ kg/m³
 
 **Methods:**
+
 - Photogrammetry (aerial photos)
 - LiDAR (airborne laser)
 - InSAR (satellite radar)
 - ICESat (satellite laser altimetry)
 
 **Advantages:**
+
 - Glacier-wide, not point
 - Independent validation of glaciological method
 - Detects systematic biases
 
 **Disadvantages:**
+
 - Requires firn density assumption
 - Lower temporal resolution
 - Expensive

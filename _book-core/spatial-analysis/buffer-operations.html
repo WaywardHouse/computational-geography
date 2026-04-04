@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -147,13 +151,27 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+How distance is measured between points, and that many geographic rules are really proximity rules.</p>
+<p><strong>You will learn</strong><br>
+How buffers are defined around points, lines, and polygons, and why the same distance idea appears in both raster distance fields and vector offset geometry.</p>
+<p><strong>Why this matters</strong><br>
+Buffers support environmental setbacks, access analysis, service areas, exposure zones, and countless legal and planning workflows.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The simplest sentence in the chapter: a buffer is every location within distance <span class="math inline">d</span> of a feature.</p>
 <p>Alberta’s Water Act specifies a 30-metre setback from any permanent or intermittent watercourse for most development and land disturbance activities. BC’s Riparian Areas Regulation sets a 30-metre Streamside Protection and Enhancement Area around fish-bearing streams. These legal instruments work, at the level of individual permits, as polygon intersection problems: does the proposed development boundary overlap the 30-metre buffer polygon of any regulated watercourse? The buffer is not metaphorical — it is a precisely computed geometric object, and its computational properties determine whether the regulatory test is tractable for the thousands of permit applications processed annually.</p>
 <p>Buffer operations generate proximity zones: all locations within a specified distance of a geographic feature. The mathematics underlying them is Euclidean distance — the Pythagorean theorem applied cell by cell across a grid, or computed analytically as an offset to a polygon boundary. For point features, the buffer is a circle. For line features, it is a stadium shape (rectangle with semicircular ends). For polygon features, it is an inward or outward offset of the boundary. The computational challenge is that real boundary lines are not straight — they are sequences of vertices connected by line segments, and the offset of a polyline must handle inside corners (which close) and outside corners (which either round or miter). This model derives the distance geometry, builds both raster distance fields and vector offset operations, and shows how they are used in environmental setback analysis and service area mapping.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>How far is this location from the nearest protected stream?</p>
 <p>Buffer zones appear everywhere in spatial analysis: - <strong>Environmental:</strong> 100m riparian buffer along streams (no development) - <strong>Public safety:</strong> 1km evacuation zone around chemical plants - <strong>Urban planning:</strong> 400m walkable distance to transit stops - <strong>Epidemiology:</strong> 2km contact tracing radius from infection case - <strong>Retail:</strong> 5km delivery service area around store</p>
 <p>The mathematical question: Given a geographic feature (point, line, or polygon), create a new polygon representing all locations within distance <span class="math inline">d</span>.</p>
-<p><strong>Variations:</strong> - Point buffer → circle - Line buffer → “stadium” shape (rounded rectangle) - Polygon buffer → offset boundary (larger or smaller)</p>
+<p><strong>Variations:</strong></p>
+<ul>
+<li>Point buffer → circle</li>
+<li>Line buffer → “stadium” shape (rounded rectangle)</li>
+<li>Polygon buffer → offset boundary (larger or smaller)</li>
+</ul>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
 <h3 id="euclidean-distance" class="anchored">Euclidean Distance</h3>
@@ -173,6 +191,72 @@ window.Quarto = {
 <p><strong>Outward buffer (positive):</strong> Expand boundary by distance <span class="math inline">d</span><br>
 <strong>Inward buffer (negative):</strong> Shrink boundary by distance <span class="math inline">d</span></p>
 <p>Each edge moves perpendicular to itself, circular arcs at vertices.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Buffer Geometry
+</div>
+<h3 class="cg-ill__title anchored">
+The Same Distance Rule Around Different Features
+</h3>
+<p class="cg-ill__lede">
+A buffer is always “all locations within distance <em>d</em>,” but the shape depends on whether the source feature is a point, line, or polygon.
+</p>
+<div class="cg-ill__grid cg-ill__grid--3">
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Point buffer
+</div>
+<div class="cg-ill__geometry">
+<div class="cg-ill__buffer-ring cg-ill__buffer-ring--circle" style="left:28%; top:22%; width:44%; height:44%;">
+
+</div>
+<div class="cg-ill__coord-point" style="left:49%; top:43%;">
+
+</div>
+<div class="cg-ill__geometry-note" style="left:10%; bottom:10%;">
+Every direction is equally close to the point.
+</div>
+</div>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Line buffer
+</div>
+<div class="cg-ill__geometry">
+<div class="cg-ill__road">
+
+</div>
+<div class="cg-ill__buffer-band">
+
+</div>
+<div class="cg-ill__geometry-note" style="left:8%; bottom:10%;">
+Parallel offsets plus rounded end caps.
+</div>
+</div>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Polygon buffer
+</div>
+<div class="cg-ill__geometry">
+<div class="cg-ill__parcel">
+
+</div>
+<div class="cg-ill__buffer-ring" style="left:51%; top:19%; width:34%; height:36%;">
+
+</div>
+<div class="cg-ill__geometry-note" style="left:8%; bottom:10%;">
+The whole boundary moves outward or inward together.
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption>
+Point, line, and polygon buffers are all proximity zones, but each one turns the same distance rule into a different geometric shape.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="point-buffer-circle" class="anchored">Point Buffer (Circle)</h3>
@@ -187,7 +271,7 @@ window.Quarto = {
     x = cx + r * cos(theta)
     y = cy + r * sin(theta)
     add (x, y) to buffer polygon</code></pre>
-<p>Typically <span class="math inline">n = 32</span> or $64$ points for smooth circle.</p>
+<p>Typically <span class="math inline">n = 32</span> or <span class="math inline">64</span> points for a smooth circle.</p>
 <h3 id="line-segment-buffer" class="anchored">Line Segment Buffer</h3>
 <p><strong>For segment from <span class="math inline">A = (x_1, y_1)</span> to <span class="math inline">B = (x_2, y_2)</span> with buffer distance <span class="math inline">d</span>:</strong></p>
 <p><strong>Step 1: Calculate perpendicular direction</strong></p>
@@ -208,7 +292,12 @@ At <span class="math inline">B</span>: semicircle from <span class="math inline"
 <p><strong>Intuitive:</strong> Slide a disk of radius <span class="math inline">d</span> around the polygon boundary.</p>
 <p><strong>Implementation strategy:</strong></p>
 <p>For each edge: 1. Offset edge outward by <span class="math inline">d</span> (perpendicular direction) 2. At each vertex, add circular arc connecting adjacent offset edges 3. Handle intersections (offset edges may cross)</p>
-<p><strong>Challenges:</strong> - <strong>Convex vertices:</strong> Circular arc expands outward - <strong>Concave vertices:</strong> May cause self-intersection → requires clipping - <strong>Negative buffers:</strong> May eliminate small features entirely</p>
+<p><strong>Challenges:</strong></p>
+<ul>
+<li><strong>Convex vertices:</strong> Circular arc expands outward</li>
+<li><strong>Concave vertices:</strong> May cause self-intersection → requires clipping</li>
+<li><strong>Negative buffers:</strong> May eliminate small features entirely</li>
+</ul>
 <p><strong>Robust implementation:</strong> Use computational geometry libraries (GEOS, Clipper).</p>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
@@ -239,9 +328,9 @@ At <span class="math inline">B</span>: semicircle from <span class="math inline"
 <label>
 Feature type:
 <select id="feature-type">
-  <option value="point">Point</option>
-  <option value="line" selected="">Line</option>
-  <option value="polygon">Polygon</option>
+<option value="point">Point</option>
+<option value="line" selected="">Line</option>
+<option value="polygon">Polygon</option>
 </select>
 </label>
 <label>
@@ -256,8 +345,8 @@ Show construction:
 <label>
 Buffer style:
 <select id="buffer-style">
-  <option value="filled" selected="">Filled</option>
-  <option value="outline">Outline only</option>
+<option value="filled" selected="">Filled</option>
+<option value="outline">Outline only</option>
 </select>
 </label>
 </div>
@@ -307,8 +396,8 @@ const points = [];
 for (let i = 0; i <= segments; i++) {
 const theta = (2 * Math.PI * i) / segments;
 points.push({
-  x: center.x + radius * Math.cos(theta),
-  y: center.y + radius * Math.sin(theta)
+x: center.x + radius * Math.cos(theta),
+y: center.y + radius * Math.sin(theta)
 });
 }
 return points;
@@ -337,8 +426,8 @@ for (let i = 0; i <= segments / 2; i++) {
 const theta = Math.PI * i / (segments / 2);
 const angle = Math.atan2(perp.y, perp.x) + theta;
 buffer.push({
-  x: p2.x + dist * Math.cos(angle),
-  y: p2.y + dist * Math.sin(angle)
+x: p2.x + dist * Math.cos(angle),
+y: p2.y + dist * Math.sin(angle)
 });
 }
     
@@ -350,8 +439,8 @@ for (let i = 0; i <= segments / 2; i++) {
 const theta = Math.PI * i / (segments / 2);
 const angle = Math.atan2(-perp.y, -perp.x) + theta;
 buffer.push({
-  x: p1.x + dist * Math.cos(angle),
-  y: p1.y + dist * Math.sin(angle)
+x: p1.x + dist * Math.cos(angle),
+y: p1.y + dist * Math.sin(angle)
 });
 }
     
@@ -379,25 +468,25 @@ buffer.push(offset1);
       
 // Add arc at vertex
 if (i < polygon.length - 1) {
-  const nextP = polygon[(i + 2) % polygon.length];
-  const nextDir = {x: nextP.x - p2.x, y: nextP.y - p2.y};
-  const nextLen = Math.sqrt(nextDir.x ** 2 + nextDir.y ** 2);
-  const nextUnit = {x: nextDir.x / nextLen, y: nextDir.y / nextLen};
-  const nextPerp = {x: -nextUnit.y, y: nextUnit.x};
+const nextP = polygon[(i + 2) % polygon.length];
+const nextDir = {x: nextP.x - p2.x, y: nextP.y - p2.y};
+const nextLen = Math.sqrt(nextDir.x ** 2 + nextDir.y ** 2);
+const nextUnit = {x: nextDir.x / nextLen, y: nextDir.y / nextLen};
+const nextPerp = {x: -nextUnit.y, y: nextUnit.x};
         
-  const angle1 = Math.atan2(perp.y, perp.x);
-  const angle2 = Math.atan2(nextPerp.y, nextPerp.x);
-  let angleDiff = angle2 - angle1;
-  if (angleDiff < 0) angleDiff += 2 * Math.PI;
+const angle1 = Math.atan2(perp.y, perp.x);
+const angle2 = Math.atan2(nextPerp.y, nextPerp.x);
+let angleDiff = angle2 - angle1;
+if (angleDiff < 0) angleDiff += 2 * Math.PI;
         
-  for (let j = 1; j <= segments; j++) {
-    const t = j / segments;
-    const angle = angle1 + angleDiff * t;
-    buffer.push({
-      x: p2.x + dist * Math.cos(angle),
-      y: p2.y + dist * Math.sin(angle)
-    });
-  }
+for (let j = 1; j <= segments; j++) {
+const t = j / segments;
+const angle = angle1 + angleDiff * t;
+buffer.push({
+x: p2.x + dist * Math.cos(angle),
+y: p2.y + dist * Math.sin(angle)
+});
+}
 }
 }
     
@@ -424,24 +513,24 @@ ctx.stroke();
       
 // Draw endpoints
 for (let p of line) {
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
-  ctx.fill();
+ctx.beginPath();
+ctx.arc(p.x, p.y, 5, 0, 2 * Math.PI);
+ctx.fill();
 }
 } else {
 const poly = features.polygon;
 ctx.beginPath();
 ctx.moveTo(poly[0].x, poly[0].y);
 for (let i = 1; i < poly.length; i++) {
-  ctx.lineTo(poly[i].x, poly[i].y);
+ctx.lineTo(poly[i].x, poly[i].y);
 }
 ctx.closePath();
 ctx.stroke();
       
 for (let p of poly) {
-  ctx.beginPath();
-  ctx.arc(p.x, p.y, 4, 0, 2 * Math.PI);
-  ctx.fill();
+ctx.beginPath();
+ctx.arc(p.x, p.y, 4, 0, 2 * Math.PI);
+ctx.fill();
 }
 }
 }
@@ -542,7 +631,15 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Point buffer:</strong> Perfect circle around point - <strong>Line buffer:</strong> “Stadium” shape with semicircular caps - <strong>Polygon buffer:</strong> Offset boundary with rounded corners - <strong>Show construction:</strong> See the parallel edges and perpendicular offsets - <strong>Adjust distance:</strong> Watch buffer grow/shrink - Notice: Line buffer = rectangle + two semicircles (area formula confirms)</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Point buffer:</strong> Perfect circle around point</li>
+<li><strong>Line buffer:</strong> “Stadium” shape with semicircular caps</li>
+<li><strong>Polygon buffer:</strong> Offset boundary with rounded corners</li>
+<li><strong>Show construction:</strong> See the parallel edges and perpendicular offsets</li>
+<li><strong>Adjust distance:</strong> Watch buffer grow/shrink</li>
+<li>Notice: Line buffer = rectangle + two semicircles (area formula confirms)</li>
+</ul>
 <p><strong>Key insight:</strong> Buffer is the Minkowski sum of the feature and a disk—equivalent to sweeping a circle along the boundary.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -561,11 +658,21 @@ render();
 <h3 id="multiple-feature-buffers" class="anchored">Multiple Feature Buffers</h3>
 <p><strong>Union of buffers:</strong></p>
 <p>Buffer around rivers = union of all individual stream buffers.</p>
-<p><strong>Algorithm:</strong> 1. Buffer each feature independently 2. Compute polygon union (overlay operation) 3. Result: Single merged buffer polygon</p>
+<p><strong>Algorithm:</strong></p>
+<ol type="1">
+<li>Buffer each feature independently</li>
+<li>Compute polygon union (overlay operation)</li>
+<li>Result: Single merged buffer polygon</li>
+</ol>
 <p><strong>Example:</strong> 100m buffers around all streams in watershed → riparian protection zone.</p>
 <h3 id="negative-buffers-inward" class="anchored">Negative Buffers (Inward)</h3>
 <p><strong>Erosion:</strong> Shrink polygon by distance <span class="math inline">d</span>.</p>
-<p><strong>Use cases:</strong> - Create “core areas” (remove edge effects) - Model sea-level rise (coastline moves inland) - Setbacks (building must be 10m inside property line)</p>
+<p><strong>Use cases:</strong></p>
+<ul>
+<li>Create “core areas” (remove edge effects)</li>
+<li>Model sea-level rise (coastline moves inland)</li>
+<li>Setbacks (building must be 10m inside property line)</li>
+</ul>
 <p><strong>Challenge:</strong> Polygon may disappear entirely if <span class="math inline">d</span> exceeds half the minimum width.</p>
 <p><strong>Example:</strong> 50m buffer on 80m-wide forest strip → 80m - 2(50m) = <strong>-20m</strong> → vanishes!</p>
 <hr>
@@ -573,13 +680,18 @@ render();
 <h3 id="buffer-overlaps-and-gaps" class="anchored">Buffer Overlaps and Gaps</h3>
 <p><strong>Multiple features close together:</strong></p>
 <p>Buffers overlap → merged area may not be simple sum of individual buffers.</p>
-<p><strong>Example:</strong> Two points 60m apart, each with 50m buffer: - Individual areas: $2 (50^2) = 15,708$ m² - Merged area: &lt; 15,708 m² (overlap region counted once)</p>
+<p><strong>Example:</strong> Two points 60m apart, each with 50m buffer: - Individual areas: <span class="math inline">2 \times \pi(50^2) = 15{,}708</span> m² - Merged area: &lt; 15,708 m² (overlap region counted once)</p>
 <p><strong>Solution:</strong> Use union operation, calculate area from merged polygon.</p>
 <h3 id="self-intersecting-buffers" class="anchored">Self-Intersecting Buffers</h3>
 <p><strong>Concave polygon + large buffer:</strong></p>
 <p>Offset edges may cross each other.</p>
 <p><strong>Example:</strong> U-shaped polygon with buffer larger than gap width → buffer fills the gap.</p>
-<p><strong>Handling:</strong> 1. Detect self-intersections 2. Remove invalid portions (keep outermost boundary) 3. Use robust geometry libraries (GEOS, Shapely)</p>
+<p><strong>Handling:</strong></p>
+<ol type="1">
+<li>Detect self-intersections</li>
+<li>Remove invalid portions (keep outermost boundary)</li>
+<li>Use robust geometry libraries (GEOS, Shapely)</li>
+</ol>
 <h3 id="precision-issues" class="anchored">Precision Issues</h3>
 <p><strong>Very small buffers (&lt; 1 pixel):</strong></p>
 <p>May produce degenerate polygons or disappear entirely in raster representation.</p>
@@ -601,8 +713,17 @@ At 60°N, 1° longitude ≈ 55 km</p>
 <p><strong>Euclidean buffer at 60°N:</strong> Would be elliptical (stretched E-W)<br>
 <strong>Geodetic buffer:</strong> Remains circular in ground distance</p>
 <p><strong>Implementation:</strong> Project to equal-area projection (e.g., Albers), buffer, project back.</p>
-<p><strong>When to use:</strong> - Features spanning &gt; 1° latitude/longitude - Polar regions (extreme distortion) - Global or continental analysis</p>
-<p><strong>When Euclidean is fine:</strong> - Local analysis (&lt; 100 km²) - Projected coordinates (UTM, State Plane)</p>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Features spanning &gt; 1° latitude/longitude</li>
+<li>Polar regions (extreme distortion)</li>
+<li>Global or continental analysis</li>
+</ul>
+<p><strong>When Euclidean is fine:</strong></p>
+<ul>
+<li>Local analysis (&lt; 100 km²)</li>
+<li>Projected coordinates (UTM, State Plane)</li>
+</ul>
 <hr>
 <h2 id="math-refresher-perpendicular-vectors" class="anchored">9. Math Refresher: Perpendicular Vectors</h2>
 <h3 id="d-rotation" class="anchored">2D Rotation</h3>
@@ -646,24 +767,24 @@ At 60°N, 1° longitude ≈ 55 km</p>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

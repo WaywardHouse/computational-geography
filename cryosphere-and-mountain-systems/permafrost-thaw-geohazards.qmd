@@ -61,16 +61,19 @@ How deep will permafrost thaw this century, and what will collapse?
 Ground remaining below 0°C for two or more consecutive years.
 
 **Global extent:**
+
 - 24% of Northern Hemisphere land
 - 14 million km² in Arctic regions
 - Thickness: 1-1000+ meters
 
 **Characteristics:**
+
 - Contains massive ground ice (10-90% by volume)
 - Stores 1600 Gt of organic carbon
 - Underlies critical infrastructure (buildings, pipelines, roads)
 
 **Thaw consequences:**
+
 - Ground subsidence (thermokarst)
 - Slope instability (active layer detachment slides)
 - Infrastructure damage (buildings tilt, pipelines rupture)
@@ -88,20 +91,24 @@ Arctic warming at 2-3× global rate drives rapid permafrost degradation.
 ### Permafrost Structure
 
 **Active layer:**
+
 - Surface layer that thaws each summer, refreezes each winter
 - Depth: 0.3-3 m (varies with climate, vegetation, soil)
 - Maximum thaw depth = active layer thickness (ALT)
 
 **Permafrost table:**
+
 - Top of permanently frozen ground
 - Depth = ALT (end of summer)
 
 **Permafrost body:**
+
 - Continuously frozen ground below permafrost table
 - May contain massive ice (pure ice lenses, wedges)
 - Temperature: -10°C to 0°C
 
 **Talik:**
+
 - Unfrozen zone within permafrost
 - Occurs under lakes, rivers (thermal disturbance)
 
@@ -110,11 +117,13 @@ Arctic warming at 2-3× global rate drives rapid permafrost degradation.
 **Temperature profile with depth:**
 
 **Summer:**
+
 - Surface: +10 to +20°C (diurnal variation)
 - Active layer: +5 to 0°C (seasonal thaw)
 - Permafrost: Below 0°C (stable)
 
 **Winter:**
+
 - Surface: -30 to -40°C
 - Active layer: -10 to 0°C (seasonal freeze)
 - Permafrost: Below 0°C (warming from below)
@@ -130,6 +139,7 @@ MAGT increasing 0.3-0.5°C per decade in Arctic regions.
 ### Ice Content
 
 **Massive ice:**
+
 - Ice wedges (polygonal patterns)
 - Ice lenses (horizontal layers)
 - Pore ice (filling voids)
@@ -139,6 +149,7 @@ MAGT increasing 0.3-0.5°C per decade in Arctic regions.
 $$\theta_i = \frac{V_{\text{ice}}}{V_{\text{total}}}$$
 
 **Typical values:**
+
 - Sandy soils: 20-40%
 - Silty soils: 40-70%
 - Organic-rich: 60-90%
@@ -191,6 +202,37 @@ $$\theta_{\text{excess}} = \theta_i - \theta_{\text{porosity}}$$
 <figcaption>Permafrost thaw matters mechanically because warming deepens the thaw front into ice-rich material. The resulting meltwater and volume loss can drive settlement, slope failure, and infrastructure deformation.</figcaption>
 </figure>
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Hazard Sequence</div>
+<h3 class="cg-ill__title">Permafrost Damage Is A Process Chain, Not A Single Event</h3>
+<p class="cg-ill__lede">A second useful picture is the progression from warming to infrastructure loss. The hazard is easiest to understand as a cascade: deeper thaw, settlement, structural distortion, then secondary slope and drainage failures.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">1</div>
+<h4>Warmer ground</h4>
+<p>Mean annual ground temperature rises and the active layer deepens.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2</div>
+<h4>Ice melts</h4>
+<p>Excess ground ice turns to water and the ground loses structural volume.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">3</div>
+<h4>Settlement and drainage change</h4>
+<p>Surface deformation creates ponding, cracking, and unstable foundations.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">4</div>
+<h4>Geohazards compound</h4>
+<p>Roads deform, buildings tilt, and thaw-weakened slopes become more failure-prone.</p>
+</div>
+</div>
+</div>
+<figcaption>Permafrost thaw is hazardous because the thermal shift propagates into geomorphic and engineering failures. Once the process starts, surface water and settlement often accelerate the next step.</figcaption>
+</figure>
+
 ---
 
 ## 3. Building the Mathematical Model
@@ -200,6 +242,7 @@ $$\theta_{\text{excess}} = \theta_i - \theta_{\text{porosity}}$$
 **One-dimensional heat conduction with phase change:**
 
 **Assumptions:**
+
 - Uniform soil properties
 - Step change in surface temperature
 - Semi-infinite domain
@@ -313,6 +356,7 @@ Very low friction when ice-rich: $\phi \approx 5-15°$
 $$\tau_f = c + \gamma z \cos^2\theta \tan\phi$$
 
 **Failure common when:**
+
 - ALT increases rapidly (climate warming)
 - Heavy rainfall (increases weight, pore pressure)
 - Slopes > 5° (even gentle slopes!)
@@ -324,15 +368,18 @@ $$\tau_f = c + \gamma z \cos^2\theta \tan\phi$$
 **Problem:** Calculate active layer thickness increase and settlement under warming scenario.
 
 **Site conditions:**
+
 - Current MAGT: -2°C
 - Current ALT: 0.8 m
 - Soil: Silty with 55% ice content, 35% porosity
 - Thaw index coefficient: k = 0.025 m/(°C·day)^{0.5}
 
 **Current climate:**
+
 - Thawing degree days: 900 °C·days
 
 **Warming scenario (+3°C summer):**
+
 - Increased TDD: 1350 °C·days
 
 Calculate new ALT and settlement if permafrost thaws to new depth.
@@ -366,6 +413,7 @@ Additional thaw depth: 0.12 m
 $$S = 0.12 \times 0.25 = 0.03 \text{ m} = 30 \text{ mm}$$
 
 **Summary:**
+
 - ALT increases from 0.80 m to 0.92 m
 - Additional 12 cm of permafrost thaws
 - Ground surface subsides 30 mm
@@ -622,6 +670,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Higher summer temperature increases active layer thickness
 - RCP 8.5 scenario shows accelerating thaw over century
 - High ice content produces greater settlement
@@ -630,6 +679,7 @@ window.addEventListener('resize', () => chart.resize());
 - Settlement proportional to excess ice volume
 
 **Key findings:**
+
 - Temperature increases directly drive active layer deepening
 - Ice-rich permafrost experiences massive settlement upon thaw
 - Climate warming scenarios project multi-meter thaw by 2100
@@ -642,24 +692,28 @@ window.addEventListener('resize', () => chart.resize());
 ### Infrastructure Impacts
 
 **Trans-Alaska Pipeline:**
+
 - 1300 km crosses permafrost
 - Elevated on vertical support members
 - Thermosyphons prevent thaw
 - Maintenance cost: $100s millions annually
 
 **Arctic communities:**
+
 - Buildings tilting, cracking
 - Roads buckling
 - Airport runways settling
 - Water/sewer systems rupturing
 
 **Mitigation strategies:**
+
 - Thermosyphons (passive cooling)
 - Insulation layers
 - Ventilated foundations
 - Geotextile reinforcement
 
 **Cost:**
+
 - Permafrost-safe design: 2-5× normal construction
 - Repair/replacement: Billions USD across Arctic
 
@@ -672,11 +726,13 @@ Permafrost stabilizes coastal bluffs.
 Thaw → bluff collapse → rapid erosion
 
 **Alaska North Slope:**
+
 - Erosion rate: 1-2 m/year historically
 - Accelerating to 10-20 m/year at some sites
 - Villages relocating (Kivalina, Shishmaref)
 
 **Driver combination:**
+
 - Permafrost thaw (weakens bluffs)
 - Sea ice decline (longer wave action season)
 - Storm intensity increase
@@ -684,19 +740,23 @@ Thaw → bluff collapse → rapid erosion
 ### Carbon Feedback
 
 **Permafrost carbon pool:**
+
 - 1600 Gt organic carbon stored
 - 2× atmospheric carbon
 
 **Thaw release mechanisms:**
+
 - Microbial decomposition (CO₂, CH₄)
 - Thermokarst lake formation (CH₄ hotspots)
 - Wildfire in newly thawed terrain
 
 **Emission estimates:**
+
 - RCP 8.5: 150-200 Gt C release by 2100
 - Positive feedback (warming → thaw → emissions → warming)
 
 **Methane particularly concerning:**
+
 - 25× warming potential vs CO₂
 - Anaerobic decomposition in wet thaw areas
 
@@ -709,6 +769,7 @@ Thaw → bluff collapse → rapid erosion
 **Reality:** Highly variable spatially
 
 **Factors causing variation:**
+
 - Vegetation (insulates)
 - Snow depth (insulates)
 - Soil moisture (latent heat)
@@ -718,6 +779,7 @@ Thaw → bluff collapse → rapid erosion
 **Result:** Differential settlement
 
 **Example:**
+
 - North side of building: 2 cm settlement
 - South side: 15 cm settlement
 - Building rotates, cracks
@@ -734,6 +796,7 @@ Forms under:
 - Disturbed areas (cleared vegetation)
 
 **Consequence:**
+
 - Throughflow of groundwater
 - Accelerated lateral thaw
 - Sudden drainage (catastrophic lake loss)
@@ -745,6 +808,7 @@ Forms under:
 **Difficult to characterize without drilling**
 
 **Geophysical methods:**
+
 - Ground-penetrating radar (GPR)
 - Electrical resistivity tomography (ERT)
 - Seismic surveys
@@ -758,11 +822,13 @@ Forms under:
 ### Abrupt Thaw Not Captured
 
 **Gradual thaw models miss:**
+
 - Thermokarst collapse (sudden subsidence)
 - Retrogressive thaw slumps (headwall retreat 10s m/year)
 - Active layer detachments (slope failures)
 
 **These processes:**
+
 - Localized but severe
 - Triggered by extreme events
 - Difficult to predict
@@ -800,6 +866,7 @@ $$E_{\text{CH}_4} = k_{\text{anaerobic}} C_{\text{wet}}$$
 $$\Delta T_{\text{feedback}} = \lambda (E_{\text{CO}_2} + 25 E_{\text{CH}_4})$$
 
 **Integrated models:**
+
 - Community Land Model (CLM)
 - Permafrost Carbon Network models
 - Earth System Models with permafrost

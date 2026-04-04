@@ -280,6 +280,7 @@ $$A_{\text{net}} = 23.1 - 2 = 21.1 \text{ μmol/m}^2\text{/s}$$
 $$I_c = \frac{R_d A_{\text{max}}}{\phi(A_{\text{max}} - R_d)} = \frac{2 \times 30}{0.05 \times (30 - 2)} = \frac{60}{0.05 \times 28} = \frac{60}{1.4} = 42.9 \text{ μmol/m}^2\text{/s}$$
 
 **Interpretation:**
+
 - At low light (100), photosynthesis is ~4× respiration → modest net gain
 - At moderate light (500), approaching half of maximum
 - At high light (2000), near saturation (~77% of max)
@@ -547,6 +548,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Switch to C4 crop:** Higher $A_{\text{max}}$ and light saturation → more productive
 - **Switch to shade plant:** Lower $A_{\text{max}}$ but higher $\phi$ → efficient at low light
 - **Increase respiration:** Light compensation point rises → need more light to break even
@@ -597,6 +599,7 @@ window.addEventListener('resize', () => chart.resize());
 $$\text{GPP} = \int_{\text{day}} \sum_{\text{leaves}} A_{\text{net}}(I, T, ...) \, dt$$
 
 **Typical values:**
+
 - Tropical rainforest: 6–8 g C/m²/day
 - Temperate forest: 3–5 g C/m²/day
 - Cropland: 4–10 g C/m²/day (depends on irrigation, fertilizer)
@@ -675,6 +678,7 @@ Where $R_{\text{hetero}}$ is **heterotrophic respiration** (decomposers breaking
 $$y = \frac{ax}{b + x}$$
 
 **Asymptotes:**
+
 - As $x \to 0$: $y \to 0$ (passes through origin)
 - As $x \to \infty$: $y \to a$ (horizontal asymptote)
 

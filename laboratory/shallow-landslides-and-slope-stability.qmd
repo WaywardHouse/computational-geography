@@ -207,6 +207,7 @@ This fraction is the estimated probability of failure — the basis for probabil
 **Setting:** A forested hillslope above a rural road in the Coast Mountains of British Columbia. Recent clearcut logging. Soil properties measured in the field.
 
 **Given:**
+
 - $\beta = 32°$ (slope angle)
 - $z = 1.2$ m (soil depth)
 - $\rho_s = 1600$ kg m⁻³ (bulk density)

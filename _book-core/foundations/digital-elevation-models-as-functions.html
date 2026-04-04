@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -172,6 +175,7 @@ The simple idea that every grid cell stores one height value. The rest of the ch
 <p>Imagine standing at a point with coordinates <span class="math inline">(x, y)</span> measured in meters east and north from some origin. The elevation at that point is <span class="math inline">z</span>.</p>
 <p><strong>Mathematically:</strong></p>
 <p><span class="math display">z = f(x, y)</span></p>
+<p>Read that aloud as: “elevation <span class="math inline">z</span> equals some function of horizontal position <span class="math inline">(x, y)</span>.” That verbal reading matters, because it keeps the notation tied to the landscape instead of turning it into abstraction too early.</p>
 <p>This is a <strong>function of two variables</strong>: - <strong>Input:</strong> A position <span class="math inline">(x, y)</span> in the horizontal plane - <strong>Output:</strong> Elevation <span class="math inline">z</span> at that position</p>
 <p><strong>Examples of terrain functions:</strong></p>
 <ol type="1">
@@ -184,7 +188,12 @@ The simple idea that every grid cell stores one height value. The rest of the ch
 <h3 id="from-continuous-to-discrete" class="anchored">From Continuous to Discrete</h3>
 <p>In reality, we can’t write down a simple algebraic formula for real terrain. Instead, we <strong>measure</strong> elevation at many points and store the values in a grid.</p>
 <p><strong>Digital Elevation Model (DEM):</strong> A raster grid where each cell contains the elevation of the terrain at that location.</p>
-<p><strong>Grid structure:</strong> - Rows and columns define positions - Cell size (resolution) determines how finely we sample the terrain (e.g., 10 m × 10 m cells) - Elevation values are stored as numbers (integers or floating point)</p>
+<p><strong>Grid structure:</strong></p>
+<ul>
+<li>Rows and columns define positions</li>
+<li>Cell size (resolution) determines how finely we sample the terrain (e.g., 10 m × 10 m cells)</li>
+<li>Elevation values are stored as numbers (integers or floating point)</li>
+</ul>
 <p><strong>Example:</strong> A 5×5 DEM (rows from north to south, columns from west to east):</p>
 <pre><code>110  115  120  125  130
 108  112  118  124  129
@@ -192,11 +201,25 @@ The simple idea that every grid cell stores one height value. The rest of the ch
 103  108  113  118  123
 100  105  110  115  120</code></pre>
 <p>Each number is the elevation (in meters) at the center of that cell.</p>
+<div class="cg-ill" title="From Landscape to Grid">
+<svg viewbox="0 0 760 360" role="img" aria-label="Illustration showing a continuous terrain surface, a sampled raster grid, and the idea that each cell stores one elevation value.">
+</svg><p><rect x="0" y="0" width="760" height="360" fill="#fbfcfe"> <rect x="46" y="58" width="292" height="226" rx="18" fill="#f3f8ec" stroke="#d4e2bf"> <text x="126" y="88" font-size="20" fill="#3f6212">continuous terrain</text> <path d="M78 236 C110 210, 130 196, 160 176 C192 154, 214 142, 246 152 C278 162, 300 192, 320 218" fill="none" stroke="#4d7c0f" stroke-width="6" stroke-linecap="round"> <path d="M74 248 C108 220, 138 202, 170 190 C205 176, 234 176, 264 188 C292 200, 310 214, 326 232" fill="none" stroke="#84cc16" stroke-width="5" stroke-linecap="round" opacity="0.85"> <circle cx="162" cy="176" r="7" fill="#b45309"> <circle cx="246" cy="152" r="7" fill="#b45309"> <circle cx="292" cy="200" r="7" fill="#b45309"> <text x="88" y="271" font-size="16" fill="#3f6212">elevation changes smoothly across space</text></circle></circle></circle></path></path></rect></rect></p>
+<p><path d="M362 172 L406 172" stroke="#64748b" stroke-width="4" marker-end="url(#arrow-dem)"> <text x="350" y="156" font-size="15" fill="#475569">sample and store</text></path></p>
+<p><rect x="430" y="58" width="284" height="226" rx="18" fill="#f5f7fb" stroke="#d8dfec"> <text x="520" y="88" font-size="20" fill="#1e3a5f">digital elevation model</text> <g stroke="#94a3b8" stroke-width="2"> <line x1="474" y1="110" x2="474" y2="254"> <line x1="522" y1="110" x2="522" y2="254"> <line x1="570" y1="110" x2="570" y2="254"> <line x1="618" y1="110" x2="618" y2="254"> <line x1="666" y1="110" x2="666" y2="254"> <line x1="474" y1="110" x2="666" y2="110"> <line x1="474" y1="146" x2="666" y2="146"> <line x1="474" y1="182" x2="666" y2="182"> <line x1="474" y1="218" x2="666" y2="218"> <line x1="474" y1="254" x2="666" y2="254"> </line></line></line></line></line></line></line></line></line></line></g> <rect x="570" y="146" width="48" height="36" fill="#bfdbfe" stroke="#60a5fa" stroke-width="3"> <text x="582" y="170" font-size="17" fill="#1d4ed8">115</text> <text x="486" y="132" font-size="14" fill="#475569">110</text> <text x="534" y="132" font-size="14" fill="#475569">115</text> <text x="582" y="132" font-size="14" fill="#475569">120</text> <text x="630" y="132" font-size="14" fill="#475569">125</text> <text x="486" y="168" font-size="14" fill="#475569">108</text> <text x="534" y="168" font-size="14" fill="#475569">112</text> <text x="630" y="168" font-size="14" fill="#475569">124</text> <text x="486" y="204" font-size="14" fill="#475569">105</text> <text x="534" y="204" font-size="14" fill="#475569">110</text> <text x="582" y="204" font-size="14" fill="#475569">115</text> <text x="630" y="204" font-size="14" fill="#475569">121</text> <text x="486" y="240" font-size="14" fill="#475569">103</text> <text x="534" y="240" font-size="14" fill="#475569">108</text> <text x="582" y="240" font-size="14" fill="#475569">113</text> <text x="630" y="240" font-size="14" fill="#475569">118</text> <text x="470" y="279" font-size="16" fill="#334155">each cell stores one representative elevation value</text></rect></rect></p>
+<defs> <marker id="arrow-dem" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"> <path d="M0,0 L8,4 L0,8 z" fill="#64748b"> </path></marker> </defs>
+
+<p>This is the bridge the chapter needs readers to feel. Real terrain is continuous, but computation needs samples. A DEM turns the surface into a regular grid of stored heights, which is why later operations like slope, flow, and shading can be computed cell by cell.</p>
+</div>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="defining-the-coordinate-system" class="anchored">Defining the Coordinate System</h3>
 <p>To turn a grid into a function, we need to define: 1. <strong>Origin:</strong> Where is <span class="math inline">(x, y) = (0, 0)</span>? 2. <strong>Cell size:</strong> <span class="math inline">\Delta x</span> (east-west), <span class="math inline">\Delta y</span> (north-south) 3. <strong>Grid extent:</strong> How many rows and columns?</p>
-<p><strong>Standard convention:</strong> - x increases <strong>eastward</strong> - y increases <strong>northward</strong> - Origin is typically the <strong>southwest corner</strong> of the grid</p>
+<p><strong>Standard convention:</strong></p>
+<ul>
+<li>x increases <strong>eastward</strong></li>
+<li>y increases <strong>northward</strong></li>
+<li>Origin is typically the <strong>southwest corner</strong> of the grid</li>
+</ul>
 <p>If the grid has <span class="math inline">m</span> rows and <span class="math inline">n</span> columns, with cell size <span class="math inline">\Delta x = \Delta y = d</span>:</p>
 <p><span class="math display">x_j = x_0 + j \cdot d, \quad j = 0, 1, \ldots, n-1</span> <span class="math display">y_i = y_0 + i \cdot d, \quad i = 0, 1, \ldots, m-1</span></p>
 <p>The elevation at grid cell <span class="math inline">(i, j)</span> is <span class="math inline">z_{i,j}</span>.</p>
@@ -262,11 +285,11 @@ z(15, 5) &amp;= (1 - 0.5)(1 - 0.5)(105) + (0.5)(1 - 0.5)(110) \\
 <label>
 Terrain type:
 <select id="terrain-select">
-  <option value="cone">Cone (radial peak)</option>
-  <option value="saddle">Saddle point</option>
-  <option value="plane">Tilted plane</option>
-  <option value="ridge">Ridge</option>
-  <option value="valley">Valley</option>
+<option value="cone">Cone (radial peak)</option>
+<option value="saddle">Saddle point</option>
+<option value="plane">Tilted plane</option>
+<option value="ridge">Ridge</option>
+<option value="valley">Valley</option>
 </select>
 </label>
 <label>
@@ -301,11 +324,11 @@ const y = (i - res / 2) * step;
 let z;
 
 switch (type) {
-  case 'cone':   z = 50 - Math.sqrt(x * x + y * y) * 0.5; break;
-  case 'saddle': z = (x * x - y * y) * 0.01; break;
-  case 'plane':  z = 10 + x * 0.3 + y * 0.2; break;
-  case 'ridge':  z = 30 - Math.abs(x) * 0.3 + y * 0.1; break;
-  case 'valley': z = Math.abs(y) * 0.3 - 20 + x * 0.1; break;
+case 'cone':   z = 50 - Math.sqrt(x * x + y * y) * 0.5; break;
+case 'saddle': z = (x * x - y * y) * 0.01; break;
+case 'plane':  z = 10 + x * 0.3 + y * 0.2; break;
+case 'ridge':  z = 30 - Math.abs(x) * 0.3 + y * 0.1; break;
+case 'valley': z = Math.abs(y) * 0.3 - 20 + x * 0.1; break;
 }
 
 data.push([j, i, +z.toFixed(2)]);
@@ -330,8 +353,8 @@ left: 'center'
 tooltip: {
 trigger: 'item',
 formatter: params => {
-  const [col, row, z] = params.value;
-  return `Col ${col} (East), Row ${row} (North)<br/>Elevation: ${z} m`;
+const [col, row, z] = params.value;
+return `Col ${col} (East), Row ${row} (North)<br/>Elevation: ${z} m`;
 }
 },
 visualMap: {
@@ -343,8 +366,8 @@ orient: 'horizontal',
 left: 'center',
 bottom: '2%',
 inRange: {
-  color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8',
-          '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8',
+'#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
 }
 },
 grid: { top: 60, bottom: 90, left: 50, right: 20 },
@@ -368,7 +391,7 @@ series: [{
 type: 'heatmap',
 data: data,
 emphasis: {
-  itemStyle: { shadowBlur: 5, shadowColor: 'rgba(0,0,0,0.4)' }
+itemStyle: { shadowBlur: 5, shadowColor: 'rgba(0,0,0,0.4)' }
 }
 }]
 };
@@ -390,7 +413,16 @@ updateChart();
 updateChart();
 window.addEventListener('resize', () => chart.resize());
 </script>
-<p><strong>Try this:</strong> - <strong>Cone:</strong> Radial symmetry, single peak - <strong>Saddle:</strong> Up in one direction, down in perpendicular direction (mountain pass) - <strong>Plane:</strong> Uniform slope (no curvature) - <strong>Ridge:</strong> Linear high feature - <strong>Valley:</strong> Linear low feature - Increase resolution: Smoother surface, more cells, same terrain shape - Decrease resolution: Coarser surface, blockier appearance</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Cone:</strong> Radial symmetry, single peak</li>
+<li><strong>Saddle:</strong> Up in one direction, down in perpendicular direction (mountain pass)</li>
+<li><strong>Plane:</strong> Uniform slope (no curvature)</li>
+<li><strong>Ridge:</strong> Linear high feature</li>
+<li><strong>Valley:</strong> Linear low feature</li>
+<li>Increase resolution: Smoother surface, more cells, same terrain shape</li>
+<li>Decrease resolution: Coarser surface, blockier appearance</li>
+</ul>
 <p><strong>Key insight:</strong> The mathematical function is continuous, but the DEM is discrete. Higher resolution approximates the continuous surface better.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -407,7 +439,11 @@ window.addEventListener('resize', () => chart.resize());
 <h2 id="what-could-go-wrong" class="anchored">7. What Could Go Wrong?</h2>
 <h3 id="confusing-rowcolumn-with-xy" class="anchored">Confusing Row/Column with X/Y</h3>
 <p><strong>Common error:</strong> Treating row index as x-coordinate.</p>
-<p><strong>Correct:</strong> - Row index <span class="math inline">i</span> corresponds to <strong>y-coordinate</strong> (north-south) - Column index <span class="math inline">j</span> corresponds to <strong>x-coordinate</strong> (east-west)</p>
+<p><strong>Correct:</strong></p>
+<ul>
+<li>Row index <span class="math inline">i</span> corresponds to <strong>y-coordinate</strong> (north-south)</li>
+<li>Column index <span class="math inline">j</span> corresponds to <strong>x-coordinate</strong> (east-west)</li>
+</ul>
 <p>Always check your coordinate system convention.</p>
 <h3 id="assuming-regular-grids" class="anchored">Assuming Regular Grids</h3>
 <p>Not all DEMs are regular grids: - <strong>Triangulated Irregular Networks (TINs):</strong> Points connected by triangles (better for sparse data) - <strong>Irregular point clouds:</strong> Lidar before gridding</p>
@@ -433,7 +469,12 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>Read as:</strong> “z is a function of x and y.”</p>
 <h3 id="example" class="anchored">Example</h3>
 <p><span class="math display">f(x, y) = x^2 + y^2</span></p>
-<p><strong>Evaluation:</strong> - <span class="math inline">f(3, 4) = 3^2 + 4^2 = 9 + 16 = 25</span> - <span class="math inline">f(0, 0) = 0</span> - <span class="math inline">f(-1, 2) = 1 + 4 = 5</span></p>
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li><span class="math inline">f(3, 4) = 3^2 + 4^2 = 9 + 16 = 25</span></li>
+<li><span class="math inline">f(0, 0) = 0</span></li>
+<li><span class="math inline">f(-1, 2) = 1 + 4 = 5</span></li>
+</ul>
 <h3 id="level-curves-contour-lines" class="anchored">Level Curves (Contour Lines)</h3>
 <p>A <strong>level curve</strong> is the set of all <span class="math inline">(x, y)</span> points where <span class="math inline">f(x, y)</span> equals a constant.</p>
 <p><strong>Example:</strong> For <span class="math inline">z = x^2 + y^2</span>, the level curve <span class="math inline">z = 25</span> is the circle <span class="math inline">x^2 + y^2 = 25</span> (radius 5).</p>
@@ -460,24 +501,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

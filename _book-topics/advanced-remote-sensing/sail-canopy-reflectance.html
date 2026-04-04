@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -127,13 +131,14 @@ window.Quarto = {
   <li><a href="#stress-detection" id="toc-stress-detection">Stress detection</a></li>
   </ul></li>
   <li><a href="#what-could-go-wrong" id="toc-what-could-go-wrong">7. What Could Go Wrong?</a></li>
-  <li><a href="#where-next" id="toc-where-next">Where Next?</a></li>
   <li><a href="#references" id="toc-references">References</a></li>
   </ul>
 </nav>
 <p>PROSPECT tells us what a single leaf reflects and transmits at each wavelength. It does not tell us what a satellite sees above a wheat field. Between the leaf and the satellite lies the canopy — a turbid medium of scattering elements (leaves, stems, fruit) distributed in three-dimensional space, intercepting direct sunlight from one direction, receiving diffuse skylight from all directions, and scattering radiation toward a sensor that looks from a third direction.</p>
 <p>The <strong>SAIL model</strong> (Scattering by Arbitrarily Inclined Leaves, Verhoef 1984)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is the standard radiative transfer framework for this geometry. It extends Beer-Lambert from a column of water molecules to a canopy of finite-sized, arbitrarily oriented leaves. SAIL is used operationally in satellite data processing chains for Sentinel-2, MODIS, and Landsat; it underpins the LAI and FAPAR products used in climate models and crop monitoring; and it is the reason that NDVI, despite its simplicity, can be approximately inverted for leaf area index under known conditions.</p>
 <p>Together with PROSPECT as the leaf optical property model, the coupled <strong>PROSAIL</strong> (PROSPECT + SAIL) model is the workhorse forward model in optical remote sensing of vegetation.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p>This chapter asks you to shift scales. PROSPECT explained a single leaf; SAIL explains what happens when millions of leaves interact with sunlight, shadow, soil background, and sensor geometry together. If the formal model feels heavy, keep asking what changes when the canopy gets denser, more erect, or more strongly backlit.</p>
 <hr>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>Why does a dense, closed canopy of vegetation look different to a sparse, open canopy — even when every individual leaf in both canopies has identical optical properties?</p>
@@ -169,6 +174,46 @@ window.Quarto = {
 <p>The two-stream solution describes hemispherical reflectance (averaged over all viewing directions). Real satellite sensors observe from a specific view angle <span class="math inline">\theta_v</span> with an azimuth relative to the sun of <span class="math inline">\phi</span>. SAIL includes a <strong>bidirectional</strong> correction.</p>
 <p>The most striking bidirectional effect is the <strong>hotspot</strong>: when the sensor looks directly back along the sun direction (<span class="math inline">\theta_v = \theta_s</span>, <span class="math inline">\phi = 180°</span>), the observed reflectance is sharply elevated. This happens because in the exact backscattering direction, the sensor cannot see any shadows — every leaf visible to the sensor is also illuminated by the sun. The hotspot is a pure geometry effect; it occurs in every canopy and on every rough surface, including the Moon (the cause of the lunar opposition surge).</p>
 <p>SAIL parameterises the hotspot with a single parameter <span class="math inline">s = s_l / h</span> — the ratio of the leaf size to canopy height. Larger leaves relative to canopy height produce a stronger, broader hotspot.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Canopy Geometry
+</div>
+<h3 class="cg-ill__title anchored">
+SAIL Tracks How Light Meets Leaves, Soil, And Viewing Direction Together
+</h3>
+<p class="cg-ill__lede">
+The canopy signal is a geometry problem layered on top of leaf optics: sunlight enters from one direction, some is intercepted by leaves, some reaches soil, and the observed reflectance depends on where the sensor sits relative to the shadows.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 320" role="img" aria-label="Canopy reflectance diagram showing solar beam, canopy layer, soil background, multiple scattering, and hotspot geometry.">
+<rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"></rect> <rect x="86" y="78" width="334" height="146" rx="18" fill="#dcfce7" stroke="#86efac"></rect> <rect x="86" y="224" width="334" height="38" fill="#caa472"></rect> <text x="222" y="100" font-size="18" fill="#166534" font-weight="700">canopy layer</text> <text x="218" y="248" font-size="16" fill="#6f4e37" font-weight="700">soil background</text> <line x1="44" y1="44" x2="150" y2="112" stroke="#f59e0b" stroke-width="5" marker-end="url(#sail-sun)"></line> <text x="32" y="34" font-size="16" fill="#b45309">sun beam</text> <line x1="488" y1="54" x2="350" y2="120" stroke="#334155" stroke-width="5" marker-end="url(#sail-view)"></line> <text x="436" y="38" font-size="16" fill="#334155">sensor view</text> <line x1="184" y1="112" x2="184" y2="224" stroke="#94a3b8" stroke-width="3" stroke-dasharray="6 5"></line> <ellipse cx="188" cy="144" rx="22" ry="8" fill="#22c55e" transform="rotate(55 188 144)"></ellipse> <ellipse cx="248" cy="168" rx="22" ry="8" fill="#22c55e" transform="rotate(20 248 168)"></ellipse> <ellipse cx="308" cy="132" rx="22" ry="8" fill="#22c55e" transform="rotate(70 308 132)"></ellipse> <ellipse cx="352" cy="182" rx="22" ry="8" fill="#22c55e" transform="rotate(35 352 182)"></ellipse> <path d="M168 120 C214 142, 252 156, 302 164" fill="none" stroke="#7c3aed" stroke-width="4" stroke-dasharray="6 5"></path> <path d="M256 222 C258 198, 270 184, 296 170" fill="none" stroke="#0ea5a6" stroke-width="4" stroke-dasharray="6 5"></path> <text x="302" y="156" font-size="14" fill="#6d28d9">multiple scattering</text> <text x="262" y="206" font-size="14" fill="#0f766e">soil contribution</text> <path d="M438 92 C404 96, 378 106, 358 120" fill="none" stroke="#ef4444" stroke-width="4"></path> <text x="404" y="118" font-size="14" fill="#991b1b">hotspot when view aligns with sun</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+What changes the canopy signal
+</h4>
+<p>
+<strong>LAI:</strong> higher LAI closes gaps and reduces the soil contribution.
+</p>
+<p>
+<strong>Leaf angle distribution:</strong> erect and horizontal canopies intercept light differently even with the same LAI.
+</p>
+<p>
+<strong>Multiple scattering:</strong> especially important in the near-infrared, where leaves reflect and transmit strongly.
+</p>
+<p>
+<strong>Hotspot geometry:</strong> reflectance spikes when the sensor sees the canopy from nearly the same direction as incoming sunlight, minimizing visible shadows.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+SAIL adds canopy geometry to leaf optics. What the satellite sees depends not only on the leaves themselves, but on canopy density, leaf angles, soil background, and the alignment of sun and sensor.
+</figcaption>
+</figure>
 <hr>
 <h2 id="the-prosail-forward-chain" class="anchored">3. The PROSAIL Forward Chain</h2>
 <p>The complete PROSAIL model runs as follows:</p>
@@ -246,19 +291,41 @@ window.Quarto = {
 <p>Key things to explore: - <strong>LAI:</strong> increases NIR reflectance rapidly at first (NDVI saturates above LAI ~3), barely affects red (already mostly absorbed) - <strong>ALA:</strong> erectophile canopies (high ALA) transmit more light to soil, reducing NIR reflectance at a given LAI - <strong>Sun angle:</strong> higher <span class="math inline">\theta_s</span> (lower sun) increases path length through canopy, deepening the red absorption - <strong>View angle / hotspot:</strong> set <span class="math inline">\theta_v = \theta_s</span> and <span class="math inline">\phi = 180°</span> to see the hotspot brighten - <strong>Soil:</strong> dry bare soil has higher reflectance than wet soil; the soil signal dominates at low LAI</p>
 <div class="model-controls">
 <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
-<legend style="font-weight:600;">Leaf (PROSPECT)</legend> <label>Chlorophyll C<sub>ab</sub>: <strong id="s-cab-val">40</strong> µg cm⁻² <input type="range" id="s-cab" min="5" max="80" step="1" value="40"></label> <label>Water C<sub>w</sub>: <strong id="s-cw-val">0.013</strong> cm <input type="range" id="s-cw" min="0.002" max="0.05" step="0.001" value="0.013"></label> <label>Structure N: <strong id="s-n-val">1.5</strong> <input type="range" id="s-n" min="1.0" max="3.5" step="0.1" value="1.5"></label>
+<legend style="font-weight:600;">Leaf (PROSPECT)</legend>
+<label>Chlorophyll C<sub>ab</sub>: <strong id="s-cab-val">40</strong> µg cm⁻²
+<input type="range" id="s-cab" min="5" max="80" step="1" value="40"></label>
+<label>Water C<sub>w</sub>: <strong id="s-cw-val">0.013</strong> cm
+<input type="range" id="s-cw" min="0.002" max="0.05" step="0.001" value="0.013"></label>
+<label>Structure N: <strong id="s-n-val">1.5</strong>
+<input type="range" id="s-n" min="1.0" max="3.5" step="0.1" value="1.5"></label>
 </fieldset>
 <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
-<legend style="font-weight:600;">Canopy (SAIL)</legend> <label>LAI: <strong id="s-lai-val">3.0</strong> m² m⁻² <input type="range" id="s-lai" min="0.2" max="8" step="0.1" value="3.0"></label> <label>Mean leaf angle: <strong id="s-ala-val">57</strong>° <input type="range" id="s-ala" min="10" max="80" step="1" value="57"></label> <label>Hotspot s: <strong id="s-hot-val">0.10</strong> <input type="range" id="s-hot" min="0.01" max="0.50" step="0.01" value="0.10"></label> <label>Soil reflectance factor: <strong id="s-soil-val">0.15</strong> <input type="range" id="s-soil" min="0.02" max="0.40" step="0.01" value="0.15"></label> <label>Diffuse fraction: <strong id="s-diff-val">0.10</strong> <input type="range" id="s-diff" min="0.0" max="0.50" step="0.01" value="0.10"></label>
+<legend style="font-weight:600;">Canopy (SAIL)</legend>
+<label>LAI: <strong id="s-lai-val">3.0</strong> m² m⁻²
+<input type="range" id="s-lai" min="0.2" max="8" step="0.1" value="3.0"></label>
+<label>Mean leaf angle: <strong id="s-ala-val">57</strong>°
+<input type="range" id="s-ala" min="10" max="80" step="1" value="57"></label>
+<label>Hotspot s: <strong id="s-hot-val">0.10</strong>
+<input type="range" id="s-hot" min="0.01" max="0.50" step="0.01" value="0.10"></label>
+<label>Soil reflectance factor: <strong id="s-soil-val">0.15</strong>
+<input type="range" id="s-soil" min="0.02" max="0.40" step="0.01" value="0.15"></label>
+<label>Diffuse fraction: <strong id="s-diff-val">0.10</strong>
+<input type="range" id="s-diff" min="0.0" max="0.50" step="0.01" value="0.10"></label>
 </fieldset>
 <fieldset style="border:1px solid var(--border,#ccc);border-radius:4px;padding:0.5rem 1rem;margin-bottom:0.5rem;">
-<legend style="font-weight:600;">Geometry</legend> <label>Solar zenith θ<sub>s</sub>: <strong id="s-ts-val">30</strong>° <input type="range" id="s-ts" min="0" max="70" step="1" value="30"></label> <label>View zenith θ<sub>v</sub>: <strong id="s-tv-val">0</strong>° <input type="range" id="s-tv" min="0" max="60" step="1" value="0"></label> <label>Relative azimuth φ: <strong id="s-phi-val">0</strong>° <input type="range" id="s-phi" min="0" max="180" step="5" value="0"></label>
+<legend style="font-weight:600;">Geometry</legend>
+<label>Solar zenith θ<sub>s</sub>: <strong id="s-ts-val">30</strong>°
+<input type="range" id="s-ts" min="0" max="70" step="1" value="30"></label>
+<label>View zenith θ<sub>v</sub>: <strong id="s-tv-val">0</strong>°
+<input type="range" id="s-tv" min="0" max="60" step="1" value="0"></label>
+<label>Relative azimuth φ: <strong id="s-phi-val">0</strong>°
+<input type="range" id="s-phi" min="0" max="180" step="5" value="0"></label>
 </fieldset>
 <div class="flood-info" style="margin-top:0.5rem;">
-<pre><code>&lt;p&gt;&lt;strong&gt;NDVI:&lt;/strong&gt; &lt;span id="s-ndvi"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NIR (800 nm):&lt;/strong&gt; &lt;span id="s-nir"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Red (670 nm):&lt;/strong&gt; &lt;span id="s-red"&gt;--&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Gap fraction:&lt;/strong&gt; &lt;span id="s-gap"&gt;--&lt;/span&gt;&lt;/p&gt;</code></pre>
+<p><strong>NDVI:</strong> <span id="s-ndvi">--</span></p>
+<p><strong>NIR (800 nm):</strong> <span id="s-nir">--</span></p>
+<p><strong>Red (670 nm):</strong> <span id="s-red">--</span></p>
+<p><strong>Gap fraction:</strong> <span id="s-gap">--</span></p>
 </div>
 </div>
 <div id="sail-chart" style="height:460px;"></div>
@@ -400,10 +467,10 @@ legend: {data:['Canopy BRF (PROSAIL)', 'Leaf reflectance (PROSPECT)'], textStyle
 tooltip: {
 trigger:'axis',
 formatter: p => {
- const wl = WL[p[0].dataIndex];
- return `<b>${wl} nm</b><br/>`+p.map(s =>
-   `${s.marker}${s.seriesName}: ${(s.value*100).toFixed(1)}%`
- ).join('<br/>');
+const wl = WL[p[0].dataIndex];
+return `<b>${wl} nm</b><br/>`+p.map(s =>
+`${s.marker}${s.seriesName}: ${(s.value*100).toFixed(1)}%`
+).join('<br/>');
 },
 },
 xAxis: {type:'category', data:WL.map(String), name:'Wavelength (nm)', nameLocation:'middle', nameGap:30,
@@ -489,10 +556,6 @@ ro.observe(el);
 <p><strong>Homogeneous layer assumption.</strong> SAIL assumes the canopy is horizontally homogeneous — every point on the ground has the same LAI above it. In fragmented landscapes (fields, forest edges, urban trees), sub-pixel heterogeneity means that a satellite pixel contains a mixture of canopy types, each with different optical properties. The SAIL output for the “average” canopy does not equal the average of SAIL outputs for each component (Jensen’s inequality for a nonlinear model).</p>
 <p><strong>Lambertian soil.</strong> SAIL uses a Lambertian soil reflectance (equal reflection in all directions). Real soil has directional reflectance properties, particularly for smooth or crusted surfaces. Using the wrong soil model introduces directional artefacts in the retrieved canopy reflectance, particularly at high view and solar zenith angles.</p>
 <hr>
-<h2 id="where-next" class="anchored">Where Next?</h2>
-<p>PROSAIL is a forward model: given leaf and canopy parameters, it predicts the satellite measurement. The practical problem is the <strong>inverse</strong>: given a satellite measurement, estimate the leaf and canopy parameters. This inversion is ill-posed (the degeneracy described in §6), and solving it requires either look-up tables, machine learning regression, or Bayesian inversion with prior constraints on plausible parameter ranges. The next model in this series — Hyperspectral Imaging and Spectral Unmixing — addresses the spectral dimension of this inversion problem.</p>
-<p><strong>In this series:</strong> - ← <a href="#">Leaf Optical Properties — PROSPECT</a> <em>(previous)</em> - → <a href="#">Hyperspectral Imaging and Spectral Unmixing</a> <em>(next)</em></p>
-<hr>
 <h2 id="references" class="anchored">References</h2>
 
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
@@ -512,24 +575,24 @@ ro.observe(el);
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

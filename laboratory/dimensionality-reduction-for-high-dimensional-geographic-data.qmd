@@ -154,6 +154,7 @@ $$q_{ij} = \frac{(1 + \|y_i - y_j\|^2)^{-1}}{\sum_{k\neq l}(1 + \|y_k - y_l\|^2)
 $$\text{KL}(P\|Q) = \sum_{i\neq j} p_{ij}\ln\frac{p_{ij}}{q_{ij}}$$
 
 **What t-SNE preserves and what it does not:**
+
 - ✓ Preserves local neighbourhood structure (nearby clusters in high-D appear nearby in 2D)
 - ✗ Distances between clusters are **not** meaningful
 - ✗ The axes of the 2D plot have no interpretation

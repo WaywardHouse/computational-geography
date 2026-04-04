@@ -88,6 +88,7 @@ $$\rho_{\lambda} = \frac{E_{\text{reflected}}(\lambda)}{E_{\text{incident}}(\lam
 Where $\lambda$ is wavelength.
 
 **Typical vegetation reflectance:**
+
 - **Blue** (450–500 nm): Low (~5%, absorbed by chlorophyll)
 - **Green** (500–580 nm): Moderate (~10%, why leaves look green)
 - **Red** (620–700 nm): Very low (~5%, strong chlorophyll absorption)
@@ -169,6 +170,7 @@ The most widely used vegetation index:
 $$\text{NDVI} = \frac{\rho_{\text{NIR}} - \rho_{\text{red}}}{\rho_{\text{NIR}} + \rho_{\text{red}}}$$
 
 **Properties:**
+
 - Range: −1 to +1
 - **Dense vegetation:** NDVI ≈ 0.7–0.9 (high NIR, low red)
 - **Sparse vegetation:** NDVI ≈ 0.2–0.5
@@ -193,6 +195,7 @@ Where:
 - $L = 1$ (soil adjustment factor)
 
 **Advantages over NDVI:**
+
 - Less saturated at high LAI
 - Better atmospheric correction
 - Improved sensitivity in dense canopies
@@ -206,6 +209,7 @@ The **simple ratio** predates NDVI:
 $$\text{SR} = \frac{\rho_{\text{NIR}}}{\rho_{\text{red}}}$$
 
 **Properties:**
+
 - Range: 0 to ~30
 - Dense vegetation: SR ≈ 8–15
 - Bare soil: SR ≈ 1–2
@@ -545,6 +549,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Dense vegetation:** High NIR peak (~850 nm), low red trough → high NDVI
 - **Bare soil:** Similar red and NIR → low NDVI (~0.1–0.2)
 - **Water:** Very low NIR absorption → negative NDVI
@@ -603,6 +608,7 @@ window.addEventListener('resize', () => chart.resize());
 - Inflates NDVI
 
 **Mitigation:**
+
 - Atmospheric correction (6S model, dark object subtraction)
 - EVI includes blue band for correction
 - Use imagery from clear days
@@ -646,6 +652,7 @@ $$\text{NDWI} = \frac{\rho_{\text{NIR}} - \rho_{\text{SWIR}}}{\rho_{\text{NIR}} 
 Sensitive to water content in vegetation (drought stress).
 
 **Chlorophyll Indices:**
+
 - Use red edge (705–750 nm) for chlorophyll content
 - More sensitive to plant health than NDVI
 
@@ -673,6 +680,7 @@ Tracks xanthophyll cycle → photosynthetic light use efficiency.
 $$\text{NDVI} = \frac{\rho_{\text{NIR}} - \rho_{\text{red}}}{\rho_{\text{NIR}} + \rho_{\text{red}}}$$
 
 **Effect:**
+
 - Range: Always −1 to +1
 - Insensitive to uniform brightness changes
 - Comparable across scenes

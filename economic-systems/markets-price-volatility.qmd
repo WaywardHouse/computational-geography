@@ -106,6 +106,35 @@ At $\alpha + \beta = 0.97$, the denominator is only 0.03 — small shocks to $\o
 
 The chart makes volatility clustering visible: the 2015–16 period (OPEC supply war), the April 2020 COVID collapse (peak at over 100%), and the 2022 Ukraine shock all produced persistent elevated volatility — not single spikes but sustained periods of high conditional variance. The GARCH model tracks these clusters closely because it builds in the persistence structure.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Double Jeopardy</div>
+<h3 class="cg-ill__title">Alberta Netbacks Move More Violently Than The Benchmark Itself</h3>
+<p class="cg-ill__lede">Price volatility becomes a regional shock because Alberta does not just inherit benchmark moves. WTI falls can arrive together with a widening WCS differential, which means the local netback is hit twice.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Benchmark</div>
+<h4>WTI falls</h4>
+<p>Global crude demand or supply shock pushes the headline benchmark lower.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Local spread</div>
+<h4>Differential widens</h4>
+<p>Heavy-oil and transport constraints deepen the local discount at the same time.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Regional result</div>
+<h4>Netback drops faster</h4>
+<p>Producer revenue, royalties, and investment all inherit the amplified swing.</p>
+</div>
+</div>
+<div class="cg-ill__route-note">
+<strong>Key implication:</strong> Alberta’s fiscal and employment volatility is structurally larger than what headline WTI volatility alone would suggest.
+</div>
+</div>
+<figcaption>Commodity volatility is geographic when benchmark moves and local basis moves reinforce each other. That amplification is why Alberta experiences a larger economic shock than the benchmark chart implies.</figcaption>
+</figure>
+
 ## Transmission to Regional Economies
 
 Price volatility does not stop at the commodity market. It transmits through a chain to regional economies, amplifying or dampening at each step.

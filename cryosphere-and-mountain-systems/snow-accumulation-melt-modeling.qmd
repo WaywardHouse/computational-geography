@@ -72,6 +72,7 @@ $$\text{SWE} = \frac{300 \times 1.0}{1000} = 0.30 \text{ m} = 300 \text{ mm}$$
 **This means:** If all snow melted instantly → 300 mm of water runoff!
 
 **Applications:**
+
 - **Water supply forecasting:** How much water in reservoir?
 - **Flood prediction:** Peak flow timing and magnitude
 - **Irrigation planning:** Allocate water to farmers
@@ -97,10 +98,12 @@ Where:
 - $E$ = sublimation/evaporation (mm/day)
 
 **Accumulation season (winter):**
+
 - $P_{\text{snow}} > 0$, $M = 0$ → SWE increases
 - Peak SWE typically late March-April (mid-latitudes)
 
 **Melt season (spring):**
+
 - $P_{\text{snow}} = 0$, $M > 0$ → SWE decreases
 - SWE → 0 by May-June (lower elevations)
 
@@ -194,6 +197,7 @@ Where:
 - $T_{\text{melt}}$ = melt threshold (typically 0°C)
 
 **Typical values:**
+
 - $a = 3$ mm/(°C·day) for open sites
 - $a = 2$ mm/(°C·day) for forest
 - $a = 4-6$ mm/(°C·day) for glaciers
@@ -238,6 +242,7 @@ Where:
 $$M = \frac{Q_{\text{net}}}{L_f \rho_w}$$
 
 **Requires:**
+
 - Solar radiation
 - Longwave radiation
 - Air temperature
@@ -288,6 +293,7 @@ $$\rho(t) = \rho_0 + (\rho_{\max} - \rho_0)(1 - e^{-kt})$$
 | May   | 30          | +10       | 31   |
 
 **Assumptions:**
+
 - All precipitation falls as snow when T < 0°C
 - Degree-day factor: $a = 3$ mm/(°C·day)
 - No sublimation
@@ -295,37 +301,44 @@ $$\rho(t) = \rho_0 + (\rho_{\max} - \rho_0)(1 - e^{-kt})$$
 ### Solution
 
 **November:**
+
 - $T_{\text{mean}} = -2°C < 0$ → No melt
 - Snowfall: 50 mm SWE
 - **SWE = 0 + 50 = 50 mm**
 
 **December:**
+
 - $T_{\text{mean}} = -5°C$ → No melt
 - Snowfall: 80 mm
 - **SWE = 50 + 80 = 130 mm**
 
 **January:**
+
 - $T_{\text{mean}} = -8°C$ → No melt
 - Snowfall: 100 mm
 - **SWE = 130 + 100 = 230 mm**
 
 **February:**
+
 - $T_{\text{mean}} = -6°C$ → No melt
 - Snowfall: 90 mm
 - **SWE = 230 + 90 = 320 mm**
 
 **March:**
+
 - $T_{\text{mean}} = -1°C$ → No melt
 - Snowfall: 70 mm
 - **SWE = 320 + 70 = 390 mm** ← **Peak SWE**
 
 **April:**
+
 - $T_{\text{mean}} = +4°C$ → Melt!
 - Melt: $M = 3 \times 4 \times 30 = 360$ mm
 - Precip: 40 mm (rain, T > 0)
 - **SWE = 390 - 360 = 30 mm**
 
 **May:**
+
 - $T_{\text{mean}} = +10°C$ → Strong melt
 - Melt: $M = 3 \times 10 \times 31 = 930$ mm
 - Available SWE: 30 mm
@@ -333,6 +346,7 @@ $$\rho(t) = \rho_0 + (\rho_{\max} - \rho_0)(1 - e^{-kt})$$
 - **SWE = 0 mm** (snow gone by mid-May)
 
 **Summary:**
+
 - Peak SWE: 390 mm (end of March)
 - Melt onset: April
 - Snow-free: Mid-May
@@ -645,6 +659,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Higher elevation:** Colder temps, later melt, more peak SWE
 - **Lower elevation:** Earlier melt, less accumulation
 - **Higher DDF:** Faster melt (more sensitive to temperature)
@@ -705,12 +720,14 @@ $$Q = \frac{50 \times 10^{-3} \times 100 \times 10^6}{86400} = 57.9 \text{ m}^3\
 ### Climate Change Impacts
 
 **Observed trends:**
+
 - Earlier snowmelt (1-2 weeks)
 - Lower peak SWE (20-30% reduction in some regions)
 - Shorter snow-covered season
 - More rain vs. snow (elevation threshold rising)
 
 **Implications:**
+
 - Earlier peak flows (March vs. April)
 - Less summer baseflow (less storage)
 - Increased winter flooding
@@ -737,6 +754,7 @@ $$A = \frac{\text{SWE}_{\text{current}} - \text{SWE}_{\text{climatology}}}{\sigm
 **Degree-day limitation:** Ignores radiation, wind, humidity.
 
 **Fails when:**
+
 - Clear cold nights: Strong radiation cooling, no melt despite positive Tmean
 - Cloudy warm days: Less solar, slower melt than predicted
 - Shaded vs. sunny slopes: Same temperature, different melt
@@ -780,17 +798,20 @@ Within-basin variation:
 **Physically-based multi-layer model:**
 
 **Layers:**
+
 1. Surface layer (energy exchange)
 2. Upper layer (recent snow)
 3. Lower layer (old snow)
 
 **Each layer tracks:**
+
 - Temperature
 - Density
 - Liquid water content
 - Ice content
 
 **Energy balance at surface:**
+
 - Shortwave radiation (with penetration)
 - Longwave radiation
 - Sensible heat
@@ -799,11 +820,13 @@ Within-basin variation:
 - Advected heat (rain)
 
 **Internal processes:**
+
 - Percolation (liquid water movement)
 - Refreezing (cold content)
 - Compaction (density change)
 
 **Output:**
+
 - SWE evolution
 - Runoff timing and magnitude
 - Internal energy state

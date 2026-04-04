@@ -106,6 +106,7 @@ In reality, we can't write down a simple algebraic formula for real terrain. Ins
 **Digital Elevation Model (DEM):** A raster grid where each cell contains the elevation of the terrain at that location.
 
 **Grid structure:**
+
 - Rows and columns define positions
 - Cell size (resolution) determines how finely we sample the terrain (e.g., 10 m × 10 m cells)
 - Elevation values are stored as numbers (integers or floating point)
@@ -194,6 +195,7 @@ To turn a grid into a function, we need to define:
 3. **Grid extent:** How many rows and columns?
 
 **Standard convention:**
+
 - x increases **eastward**
 - y increases **northward**
 - Origin is typically the **southwest corner** of the grid
@@ -443,6 +445,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Cone:** Radial symmetry, single peak
 - **Saddle:** Up in one direction, down in perpendicular direction (mountain pass)
 - **Plane:** Uniform slope (no curvature)
@@ -492,6 +495,7 @@ At the edge of a DEM, there are no neighboring cells beyond the boundary. Calcul
 **Common error:** Treating row index as x-coordinate.
 
 **Correct:**
+
 - Row index $i$ corresponds to **y-coordinate** (north-south)
 - Column index $j$ corresponds to **x-coordinate** (east-west)
 
@@ -552,6 +556,7 @@ $$z = f(x, y)$$
 $$f(x, y) = x^2 + y^2$$
 
 **Evaluation:**
+
 - $f(3, 4) = 3^2 + 4^2 = 9 + 16 = 25$
 - $f(0, 0) = 0$
 - $f(-1, 2) = 1 + 4 = 5$

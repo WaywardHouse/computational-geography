@@ -66,6 +66,7 @@ From the top of this mountain, which valleys can you see?
 **Viewshed** (also called "intervisibility") determines visible areas from an observer location:
 
 **Applications:**
+
 - **Fire towers:** Where can rangers see smoke?
 - **Cell towers:** Which areas have signal coverage?
 - **Wind turbines:** Where will they be visible (visual impact)?
@@ -107,6 +108,7 @@ Where:
 $$z_{\text{observer}} = z_{\text{ground}} + h_{\text{observer}}$$
 
 **Examples:**
+
 - Person: $h = 1.7$ m (eye level)
 - Fire tower: $h = 20$ m (platform height)
 - Cell antenna: $h = 30$ m (tower height)
@@ -177,6 +179,7 @@ Counts how many observers can see each location.
 ### Naive Algorithm (Too Slow)
 
 **For each target cell:**
+
 1. Sample points along line from observer to target
 2. Interpolate terrain elevation at each sample point
 3. Check if sightline passes above terrain
@@ -201,6 +204,7 @@ Where $d(x,y) = \sqrt{(x - x_0)^2 + (y - y_0)^2}$ is horizontal distance.
 Point is visible if its elevation angle **exceeds** maximum angle seen so far along that ray.
 
 **Algorithm:**
+
 1. For each radial direction from observer
 2. March outward along ray
 3. Track maximum elevation angle seen
@@ -245,6 +249,7 @@ For each azimuth angle θ from 0° to 360°:
 ...
 
 **For each cell in ring $k$:**
+
 - Compute elevation angle to cell
 - Compare to maximum angle seen in that direction
 - Update visibility and max angle
@@ -587,6 +592,7 @@ render();
 ```
 
 **Try this:**
+
 - **Increase observer height:** See more terrain (taller tower = bigger viewshed)
 - **Increase target height:** People standing visible farther than ground
 - **Show 3D profile:** See elevation cross-section with sightlines
@@ -711,6 +717,7 @@ $$z_{\text{adjusted}} = z_{\text{DEM}} - \frac{d^2}{2R}$$
 **Each test:** ~100 samples → 100 million operations
 
 **Solution:**
+
 - Limit search radius
 - Use hierarchical algorithms
 - GPU acceleration
@@ -723,6 +730,7 @@ $$z_{\text{adjusted}} = z_{\text{DEM}} - \frac{d^2}{2R}$$
 **Multiple observers:** Which areas are visible from ≥ k observers?
 
 **Applications:**
+
 - **Surveillance networks:** Ensure double coverage
 - **Tourism:** Scenic viewpoints (visible from multiple spots)
 - **Privacy:** Areas visible from many locations (lack privacy)

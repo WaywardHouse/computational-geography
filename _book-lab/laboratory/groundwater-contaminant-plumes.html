@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,6 +132,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That groundwater moves slowly through porous media, and that contaminants can migrate differently from the water itself because of sorption and phase behavior.</p>
+<p><strong>You will learn</strong><br>
+How groundwater plumes advect, disperse, retard, and persist, and how those processes determine plume geometry and monitoring design.</p>
+<p><strong>Why this matters</strong><br>
+Groundwater contamination is hard to see directly, so the conceptual model has to carry much of the practical decision-making.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The main contrast between groundwater velocity and contaminant velocity.</p>
 <p>On a single block of industrial land in Calgary’s Nose Creek watershed, 47 underground storage tanks have been decommissioned over the past 30 years — each one a potential source of petroleum hydrocarbon contamination to the shallow sand and gravel aquifer beneath. The plumes from these leaks have reached Nose Creek in at least three documented cases, contributing dissolved benzene and toluene to a system that serves as habitat for the endangered Athabasca rainbow trout downstream.</p>
 <p>Every province in Canada has hundreds or thousands of similar sites — leaking gas stations, dry cleaners, and industrial facilities where organic solvents and fuels have migrated from the surface through the soil, encountered the water table, and begun migrating downgradient as dissolved or separate-phase contaminant plumes. Understanding the geometry and behaviour of these plumes is the prerequisite for designing effective monitoring and remediation.</p>
 <hr>
@@ -153,7 +166,7 @@ window.Quarto = {
 <p><span class="math display">\frac{\partial C}{\partial t} = D_L \frac{\partial^2 C}{\partial x^2} - v_s \frac{\partial C}{\partial x}</span></p>
 <p>The <strong>hydrodynamic dispersion coefficient</strong> <span class="math inline">D_h</span> [m² s⁻¹] combines: 1. <strong>Mechanical dispersion:</strong> <span class="math inline">\alpha_L v_s</span> (mixing due to velocity variations at pore scale) 2. <strong>Molecular diffusion:</strong> <span class="math inline">D^*/\tau</span> (molecular diffusion through the porous medium, with tortuosity <span class="math inline">\tau</span>)</p>
 <p><span class="math display">D_L = \alpha_L v_s + D^*/\tau</span></p>
-<p>The <strong>longitudinal dispersivity</strong> <span class="math inline">\alpha_L</span> [m] scales with travel distance: - Laboratory columns: <span class="math inline">\alpha_L \approx 0.01</span>–$0.1$ m - Field scale (10s of metres): <span class="math inline">\alpha_L \approx 0.1</span>–$1$ m - Regional scale (100s of metres): <span class="math inline">\alpha_L \approx 1</span>–$10$ m</p>
+<p>The <strong>longitudinal dispersivity</strong> <span class="math inline">\alpha_L</span> [m] scales with travel distance: - Laboratory columns: <span class="math inline">\alpha_L \approx 0.01</span>-<span class="math inline">0.1</span> m - Field scale (10s of metres): <span class="math inline">\alpha_L \approx 0.1</span>-<span class="math inline">1</span> m - Regional scale (100s of metres): <span class="math inline">\alpha_L \approx 1</span>-<span class="math inline">10</span> m</p>
 <p>This <strong>scale dependence of dispersivity</strong> (Gelhar 1986) arises because heterogeneity at larger scales introduces additional velocity variations. Using a laboratory-scale dispersivity at field scale underestimates spreading; using a regional-scale dispersivity for a small-scale problem overestimates it.</p>
 <p>Transverse dispersivities: <span class="math inline">\alpha_T \approx \alpha_L/10</span> (horizontal transverse) and <span class="math inline">\alpha_{TV} \approx \alpha_L/100</span> (vertical transverse).</p>
 <h3 id="retardation-factor" class="anchored">3.3 Retardation Factor</h3>
@@ -240,7 +253,7 @@ window.Quarto = {
 </table>
 <p>For a multi-component NAPL (e.g., gasoline with many compounds), the <strong>effective solubility</strong> of each component is reduced by its mole fraction in the NAPL mixture:</p>
 <p><span class="math display">C_{\text{eff},i} = x_i \cdot C_{s,i} \cdot \gamma_i</span></p>
-<p>where <span class="math inline">x_i</span> is mole fraction and <span class="math inline">\gamma_i \approx 1</span>–$2$ is the activity coefficient. Benzene constitutes ~1% of gasoline by mole fraction, giving <span class="math inline">C_{\text{eff,benzene}} = 0.01 \times 1790 \times 1 = 17.9</span> mg/L — still far above the drinking water MCL of 0.005 mg/L.</p>
+<p>where <span class="math inline">x_i</span> is mole fraction and <span class="math inline">\gamma_i \approx 1</span>-<span class="math inline">2</span> is the activity coefficient. Benzene constitutes ~1% of gasoline by mole fraction, giving <span class="math inline">C_{\text{eff,benzene}} = 0.01 \times 1790 \times 1 = 17.9</span> mg/L — still far above the drinking water MCL of 0.005 mg/L.</p>
 <h3 id="plume-length-at-steady-state" class="anchored">3.5 Plume Length at Steady State</h3>
 <p>A NAPL source zone continues dissolving until either the NAPL is exhausted or a steady-state plume is established. At steady state, the rate of contaminant input at the source equals the rate of loss within the plume (by biodegradation, dilution, or sorption-assisted retardation):</p>
 <p>For a first-order biodegradation rate <span class="math inline">\lambda</span> [day⁻¹] along the plume:</p>
@@ -339,29 +352,27 @@ for compound, vs_c, Rf in [("Benzene", vs/Rf_benz, Rf_benz), ("PCE", vs/Rf_pce, 
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Contaminant Plume Relative Concentration vs Distance — Conservative vs Retarded&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Conservative tracer (Rf=1)&quot;, &quot;Benzene (Rf=1.2)&quot;, &quot;PCE (Rf=5)&quot;, &quot;MCL threshold&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Distance downgradient (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [0,20,40,60,80,100,120,140,160,180,200,250,300]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Relative concentration C/C₀&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55, &quot;min&quot;: 0, &quot;max&quot;: 1},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Conservative tracer (Rf=1)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [1.0,0.92,0.80,0.65,0.50,0.38,0.28,0.20,0.14,0.10,0.07,0.03,0.01]},
-    {&quot;name&quot;: &quot;Benzene (Rf=1.2)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F57F17&quot;},
-     &quot;data&quot;: [1.0,0.88,0.73,0.57,0.42,0.30,0.21,0.14,0.09,0.06,0.04,0.01,0.005]},
-    {&quot;name&quot;: &quot;PCE (Rf=5)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [1.0,0.72,0.50,0.34,0.22,0.14,0.09,0.06,0.035,0.022,0.014,0.004,0.001]},
-    {&quot;name&quot;: &quot;MCL threshold&quot;, &quot;type&quot;: &quot;line&quot;,
-     &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#555&quot;},
-     &quot;data&quot;: [0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Contaminant Plume Relative Concentration vs Distance — Conservative vs Retarded&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Conservative tracer (Rf=1)&quot;, &quot;Benzene (Rf=1.2)&quot;, &quot;PCE (Rf=5)&quot;, &quot;MCL threshold&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Distance downgradient (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [0,20,40,60,80,100,120,140,160,180,200,250,300]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Relative concentration C/C₀&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55, &quot;min&quot;: 0, &quot;max&quot;: 1},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Conservative tracer (Rf=1)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [1.0,0.92,0.80,0.65,0.50,0.38,0.28,0.20,0.14,0.10,0.07,0.03,0.01]},
+{&quot;name&quot;: &quot;Benzene (Rf=1.2)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F57F17&quot;},
+&quot;data&quot;: [1.0,0.88,0.73,0.57,0.42,0.30,0.21,0.14,0.09,0.06,0.04,0.01,0.005]},
+{&quot;name&quot;: &quot;PCE (Rf=5)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [1.0,0.72,0.50,0.34,0.22,0.14,0.09,0.06,0.035,0.022,0.014,0.004,0.001]},
+{&quot;name&quot;: &quot;MCL threshold&quot;, &quot;type&quot;: &quot;line&quot;,
+&quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#555&quot;},
+&quot;data&quot;: [0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003,0.0003]}
+]
+}"></div>
 <p>PCE concentrations decline more steeply with distance than benzene because its higher retardation factor (Rf=5) gives attenuation mechanisms more time to act per unit of downgradient travel. However, both compounds remain well above the MCL (0.03% of source concentration) for hundreds of metres — confirming why groundwater contamination from NAPL source zones requires active remediation rather than passive monitoring alone in many settings.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -396,24 +407,24 @@ for compound, vs_c, Rf in [("Benzene", vs/Rf_benz, Rf_benz), ("PCE", vs/Rf_pce, 
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

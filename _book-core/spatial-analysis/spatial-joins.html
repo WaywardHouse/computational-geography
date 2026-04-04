@@ -71,10 +71,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -143,6 +146,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -183,6 +187,15 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That ordinary joins match records by an ID, and that spatial data can also be matched by containment, intersection, or distance.</p>
+<p><strong>You will learn</strong><br>
+How spatial joins work, why proximity queries and containment queries differ, and how spatial indexing makes large joins tractable.</p>
+<p><strong>Why this matters</strong><br>
+Spatial joins are one of the main ways separate layers become one analysis-ready dataset.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core idea that a spatial join asks “which feature is related to this one by location?”</p>
 <p>When epidemiologists investigated the outbreak of cholera in London’s Soho district in 1854, the key analytical step was linking two datasets that had no shared identifier: the locations of cholera deaths and the locations of water pumps. John Snow’s famous dot map accomplished this visually — placing dots where people died and observing their spatial clustering around the Broad Street pump. A modern GIS would do it computationally, joining each death location to the nearest pump (a nearest-neighbour spatial join) and computing summary statistics by pump service area. Snow’s map is celebrated as the birth of epidemiology; the underlying operation is a spatial join.</p>
 <p>A spatial join links records from two datasets based on their geographic relationship rather than a shared attribute. Traditional database joins match on a key — customer ID, parcel number, census tract code. Spatial joins match on location: this point is within that polygon, this address is within 500 metres of that facility, this census tract shares a boundary with those neighbouring tracts. The spatial predicates (contains, intersects, within, nearest) map to different geometric tests, each with different computational cost. Naive implementations test every pair of features — O(n²) for n features on each side — which becomes unworkable for large datasets. Spatial indexing structures, particularly R-trees and k-d trees, reduce this to O(n log n) by allowing fast elimination of features that cannot possibly match. This model derives the geometric tests, builds the most common spatial join types, and introduces spatial indexing.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -193,7 +206,13 @@ window.Quarto = {
 <p><strong>Spatial joins use location:</strong></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> addresses</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> census_tracts <span class="kw">ON</span> ST_Contains(census_tracts.geom, addresses.point)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Key operations:</strong> - <strong>Contains:</strong> Which polygon contains each point? - <strong>Intersects:</strong> Which features overlap? - <strong>Within distance:</strong> Which features are near each other? - <strong>Nearest neighbor:</strong> What’s the closest feature?</p>
+<p><strong>Key operations:</strong></p>
+<ul>
+<li><strong>Contains:</strong> Which polygon contains each point?</li>
+<li><strong>Intersects:</strong> Which features overlap?</li>
+<li><strong>Within distance:</strong> Which features are near each other?</li>
+<li><strong>Nearest neighbor:</strong> What’s the closest feature?</li>
+</ul>
 <p>The mathematical question: How do we efficiently find spatial relationships between thousands or millions of features?</p>
 <p><strong>The challenge:</strong> Naive approach tests every pair → <span class="math inline">O(n \times m)</span> complexity → too slow!</p>
 <hr>
@@ -211,6 +230,105 @@ window.Quarto = {
 <p><strong>4. Nearest Neighbor Join</strong></p>
 <p>For each feature in A, find closest feature in B.</p>
 <p><strong>Example:</strong> Nearest hospital to each emergency call - Input A: 10,000 emergency calls - Input B: 50 hospitals - Output: Each call assigned to nearest hospital</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Spatial Join Types
+</div>
+<h3 class="cg-ill__title anchored">
+Different Joins Ask Different Location Questions
+</h3>
+<p class="cg-ill__lede">
+The geometry changes with the predicate: containment tags points to polygons, while nearest-neighbour draws a link to the closest feature. Indexing matters because these tests scale badly if you compare everything to everything.
+</p>
+<div class="cg-ill__join-grid">
+<div class="cg-ill__join-card">
+<div class="cg-ill__label">
+Containment join
+</div>
+<h4 class="anchored">
+Which polygon contains this point?
+</h4>
+<div class="cg-ill__join-map">
+<div class="cg-ill__join-block" style="left:12%; top:18%; width:30%; height:32%;">
+
+</div>
+<div class="cg-ill__join-block" style="left:54%; top:22%; width:28%; height:40%;">
+
+</div>
+<div class="cg-ill__join-point" style="left:24%; top:31%;">
+
+</div>
+<div class="cg-ill__join-point" style="left:66%; top:44%;">
+
+</div>
+<div class="cg-ill__join-point" style="left:39%; top:67%;">
+
+</div>
+</div>
+<p>
+Points inherit the ID or attributes of the polygon they fall inside.
+</p>
+</div>
+<div class="cg-ill__join-card">
+<div class="cg-ill__label">
+Nearest-neighbour join
+</div>
+<h4 class="anchored">
+Which feature is closest?
+</h4>
+<div class="cg-ill__join-map">
+<div class="cg-ill__join-point" style="left:22%; top:29%;">
+
+</div>
+<div class="cg-ill__join-point" style="left:34%; top:66%;">
+
+</div>
+<div class="cg-ill__join-point" style="left:72%; top:41%; background: var(--accent);">
+
+</div>
+<div class="cg-ill__join-point" style="left:68%; top:19%; background: var(--accent);">
+
+</div>
+<div class="cg-ill__join-link" style="left:23%; top:32%; width:47%; transform: rotate(8deg);">
+
+</div>
+<div class="cg-ill__join-link" style="left:35%; top:69%; width:38%; transform: rotate(-18deg);">
+
+</div>
+</div>
+<p>
+Each source feature gets linked to the closest target feature instead of a containing area.
+</p>
+</div>
+<div class="cg-ill__join-card">
+<div class="cg-ill__label">
+Why indexing matters
+</div>
+<h4 class="anchored">
+Prune before the expensive test
+</h4>
+<div class="cg-ill__index-tree">
+<div class="cg-ill__index-node">
+Root box: all candidate features
+</div>
+<div class="cg-ill__index-node">
+Branch boxes: only nearby groups survive
+</div>
+<div class="cg-ill__index-node">
+Leaf features: run exact geometry tests on this much smaller set
+</div>
+</div>
+<p>
+R-trees and k-d trees reduce the number of true geometry checks by ruling out impossible matches early.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+Spatial joins are a family of predicates, not one operation. The visual relationship tells you what question is being asked.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="naive-algorithm-too-slow" class="anchored">Naive Algorithm (Too Slow)</h3>
@@ -226,7 +344,12 @@ window.Quarto = {
 <p><strong>Problem:</strong> Unacceptably slow for large datasets.</p>
 <h3 id="spatial-indexing-r-tree" class="anchored">Spatial Indexing: R-tree</h3>
 <p><strong>Idea:</strong> Organize spatial data into hierarchical bounding boxes.</p>
-<p><strong>R-tree structure:</strong> - Each node: Minimum Bounding Rectangle (MBR) containing child nodes - Leaf nodes: Actual geometries - Internal nodes: MBRs that bound groups of features</p>
+<p><strong>R-tree structure:</strong></p>
+<ul>
+<li>Each node: Minimum Bounding Rectangle (MBR) containing child nodes</li>
+<li>Leaf nodes: Actual geometries</li>
+<li>Internal nodes: MBRs that bound groups of features</li>
+</ul>
 <p><strong>Minimum Bounding Rectangle (MBR):</strong></p>
 <p>For geometry with vertices <span class="math inline">(x_i, y_i)</span>:</p>
 <p><span class="math display">\text{MBR} = [\min(x_i), \min(y_i), \max(x_i), \max(y_i)]</span></p>
@@ -248,7 +371,13 @@ window.Quarto = {
 <h3 id="k-d-tree-for-nearest-neighbor" class="anchored">K-d Tree for Nearest Neighbor</h3>
 <p><strong>Problem:</strong> Find nearest point in set B to query point <span class="math inline">q</span>.</p>
 <p><strong>K-d tree:</strong> Binary tree that partitions k-dimensional space.</p>
-<p><strong>For 2D (k=2):</strong> - Root level: split by x-coordinate (median) - Level 1: split by y-coordinate - Level 2: split by x-coordinate - Alternates…</p>
+<p><strong>For 2D (k=2):</strong></p>
+<ul>
+<li>Root level: split by x-coordinate (median)</li>
+<li>Level 1: split by y-coordinate</li>
+<li>Level 2: split by x-coordinate</li>
+<li>Alternates…</li>
+</ul>
 <p><strong>Construction:</strong></p>
 <pre><code>function buildKDTree(points, depth):
     if points is empty: return null
@@ -294,8 +423,19 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Problem:</strong> Find which census tract contains each address.</p>
-<p><strong>Addresses (points):</strong> - A1: (2, 3) - A2: (7, 8) - A3: (5, 2)</p>
-<p><strong>Census tracts (polygons):</strong> - T1: Square from (0,0) to (5,5) - T2: Square from (5,0) to (10,5) - T3: Square from (0,5) to (5,10) - T4: Square from (5,5) to (10,10)</p>
+<p><strong>Addresses (points):</strong></p>
+<ul>
+<li>A1: (2, 3)</li>
+<li>A2: (7, 8)</li>
+<li>A3: (5, 2)</li>
+</ul>
+<p><strong>Census tracts (polygons):</strong></p>
+<ul>
+<li>T1: Square from (0,0) to (5,5)</li>
+<li>T2: Square from (5,0) to (10,5)</li>
+<li>T3: Square from (0,5) to (5,10)</li>
+<li>T4: Square from (5,5) to (10,10)</li>
+</ul>
 <h3 id="solution" class="anchored">Solution</h3>
 <p><strong>Step 1: Build spatial index (manually)</strong></p>
 <p>MBRs for tracts: - T1: [0, 0, 5, 5] - T2: [5, 0, 10, 5] - T3: [0, 5, 5, 10] - T4: [5, 5, 10, 10]</p>
@@ -313,7 +453,12 @@ window.Quarto = {
 <p><strong>Edge case!</strong> Point is exactly on boundary between T1 and T2.</p>
 <p>Point-in-polygon tests: - T1: (5,2) on right edge → convention: <strong>Not inside</strong> (use &lt; not ≤) - T2: (5,2) on left edge → convention: <strong>Inside</strong> (use ≤)</p>
 <p><strong>Result:</strong> A3 → T2</p>
-<p><strong>Final join results:</strong> - A1 (2,3) → T1 - A2 (7,8) → T4 - A3 (5,2) → T2</p>
+<p><strong>Final join results:</strong></p>
+<ul>
+<li>A1 (2,3) → T1</li>
+<li>A2 (7,8) → T4</li>
+<li>A3 (5,2) → T2</li>
+</ul>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive spatial join demonstration.</p>
@@ -322,9 +467,9 @@ window.Quarto = {
 <label>
 Join type:
 <select id="join-type">
-  <option value="point-in-polygon" selected="">Point-in-Polygon</option>
-  <option value="nearest-neighbor">Nearest Neighbor</option>
-  <option value="within-distance">Within Distance</option>
+<option value="point-in-polygon" selected="">Point-in-Polygon</option>
+<option value="nearest-neighbor">Nearest Neighbor</option>
+<option value="within-distance">Within Distance</option>
 </select>
 </label>
 <label>
@@ -374,19 +519,19 @@ for (let col = 0; col < 3; col++) {
 const x = 100 + col * 150;
 const y = 100 + row * 200;
 polygons.push({
-  vertices: [
-    {x: x, y: y},
-    {x: x + 120, y: y},
-    {x: x + 120, y: y + 150},
-    {x: x, y: y + 150}
-  ],
-  id: row * 3 + col,
-  mbr: {
-    xmin: x,
-    ymin: y,
-    xmax: x + 120,
-    ymax: y + 150
-  }
+vertices: [
+{x: x, y: y},
+{x: x + 120, y: y},
+{x: x + 120, y: y + 150},
+{x: x, y: y + 150}
+],
+id: row * 3 + col,
+mbr: {
+xmin: x,
+ymin: y,
+xmax: x + 120,
+ymax: y + 150
+}
 });
 }
 }
@@ -400,11 +545,11 @@ const v1 = vertices[i];
 const v2 = vertices[(i + 1) % vertices.length];
       
 if ((v1.y <= point.y && point.y < v2.y) ||
-    (v2.y <= point.y && point.y < v1.y)) {
-  const x_intersect = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
-  if (x_intersect > point.x) {
-    count++;
-  }
+(v2.y <= point.y && point.y < v1.y)) {
+const x_intersect = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
+if (x_intersect > point.x) {
+count++;
+}
 }
 }
     
@@ -413,7 +558,7 @@ return (count % 2 === 1);
   
 function mbrContains(mbr, point) {
 return point.x >= mbr.xmin && point.x <= mbr.xmax &&
-     point.y >= mbr.ymin && point.y <= mbr.ymax;
+point.y >= mbr.ymin && point.y <= mbr.ymax;
 }
   
 function distance(p1, p2) {
@@ -427,57 +572,57 @@ let testCount = 0;
 if (joinType === 'point-in-polygon') {
 // Point-in-polygon join with spatial index
 for (let point of points) {
-  // First filter with MBR
-  const candidates = polygons.filter(poly => {
-    testCount++;
-    return mbrContains(poly.mbr, point);
-  });
+// First filter with MBR
+const candidates = polygons.filter(poly => {
+testCount++;
+return mbrContains(poly.mbr, point);
+});
         
-  // Then test actual containment
-  for (let poly of candidates) {
-    testCount++;
-    if (pointInPolygon(point, poly)) {
-      results.push({point, poly});
-      break; // Point can only be in one polygon
-    }
-  }
+// Then test actual containment
+for (let poly of candidates) {
+testCount++;
+if (pointInPolygon(point, poly)) {
+results.push({point, poly});
+break; // Point can only be in one polygon
+}
+}
 }
 } else if (joinType === 'nearest-neighbor') {
 // Nearest polygon to each point
 for (let point of points) {
-  let nearest = null;
-  let minDist = Infinity;
+let nearest = null;
+let minDist = Infinity;
         
-  for (let poly of polygons) {
-    testCount++;
-    // Distance to polygon center (simplified)
-    const cx = (poly.mbr.xmin + poly.mbr.xmax) / 2;
-    const cy = (poly.mbr.ymin + poly.mbr.ymax) / 2;
-    const dist = distance(point, {x: cx, y: cy});
+for (let poly of polygons) {
+testCount++;
+// Distance to polygon center (simplified)
+const cx = (poly.mbr.xmin + poly.mbr.xmax) / 2;
+const cy = (poly.mbr.ymin + poly.mbr.ymax) / 2;
+const dist = distance(point, {x: cx, y: cy});
           
-    if (dist < minDist) {
-      minDist = dist;
-      nearest = poly;
-    }
-  }
+if (dist < minDist) {
+minDist = dist;
+nearest = poly;
+}
+}
         
-  if (nearest) {
-    results.push({point, poly: nearest, distance: minDist});
-  }
+if (nearest) {
+results.push({point, poly: nearest, distance: minDist});
+}
 }
 } else if (joinType === 'within-distance') {
 // All point-polygon pairs within threshold
 for (let point of points) {
-  for (let poly of polygons) {
-    testCount++;
-    const cx = (poly.mbr.xmin + poly.mbr.xmax) / 2;
-    const cy = (poly.mbr.ymin + poly.mbr.ymax) / 2;
-    const dist = distance(point, {x: cx, y: cy});
+for (let poly of polygons) {
+testCount++;
+const cx = (poly.mbr.xmin + poly.mbr.xmax) / 2;
+const cy = (poly.mbr.ymin + poly.mbr.ymax) / 2;
+const dist = distance(point, {x: cx, y: cy});
           
-    if (dist <= distThreshold) {
-      results.push({point, poly, distance: dist});
-    }
-  }
+if (dist <= distThreshold) {
+results.push({point, poly, distance: dist});
+}
+}
 }
 }
     
@@ -495,11 +640,11 @@ ctx.strokeStyle = '#BDC3C7';
 ctx.lineWidth = 1;
 ctx.setLineDash([3, 3]);
 for (let poly of polygons) {
-  ctx.strokeRect(
-    poly.mbr.xmin, poly.mbr.ymin,
-    poly.mbr.xmax - poly.mbr.xmin,
-    poly.mbr.ymax - poly.mbr.ymin
-  );
+ctx.strokeRect(
+poly.mbr.xmin, poly.mbr.ymin,
+poly.mbr.xmax - poly.mbr.xmin,
+poly.mbr.ymax - poly.mbr.ymin
+);
 }
 ctx.setLineDash([]);
 }
@@ -513,7 +658,7 @@ for (let poly of polygons) {
 ctx.beginPath();
 ctx.moveTo(poly.vertices[0].x, poly.vertices[0].y);
 for (let i = 1; i < poly.vertices.length; i++) {
-  ctx.lineTo(poly.vertices[i].x, poly.vertices[i].y);
+ctx.lineTo(poly.vertices[i].x, poly.vertices[i].y);
 }
 ctx.closePath();
 ctx.fill();
@@ -532,46 +677,46 @@ ctx.fillText(`P${poly.id}`, cx, cy);
 if (joinType === 'point-in-polygon') {
 // Highlight matching polygons
 for (let result of results) {
-  ctx.fillStyle = 'rgba(46, 204, 113, 0.3)';
-  ctx.beginPath();
-  ctx.moveTo(result.poly.vertices[0].x, result.poly.vertices[0].y);
-  for (let v of result.poly.vertices) {
-    ctx.lineTo(v.x, v.y);
-  }
-  ctx.closePath();
-  ctx.fill();
+ctx.fillStyle = 'rgba(46, 204, 113, 0.3)';
+ctx.beginPath();
+ctx.moveTo(result.poly.vertices[0].x, result.poly.vertices[0].y);
+for (let v of result.poly.vertices) {
+ctx.lineTo(v.x, v.y);
+}
+ctx.closePath();
+ctx.fill();
 }
 } else if (joinType === 'nearest-neighbor') {
 // Draw lines to nearest
 ctx.strokeStyle = '#3498DB';
 ctx.lineWidth = 1;
 for (let result of results) {
-  const cx = (result.poly.mbr.xmin + result.poly.mbr.xmax) / 2;
-  const cy = (result.poly.mbr.ymin + result.poly.mbr.ymax) / 2;
-  ctx.beginPath();
-  ctx.moveTo(result.point.x, result.point.y);
-  ctx.lineTo(cx, cy);
-  ctx.stroke();
+const cx = (result.poly.mbr.xmin + result.poly.mbr.xmax) / 2;
+const cy = (result.poly.mbr.ymin + result.poly.mbr.ymax) / 2;
+ctx.beginPath();
+ctx.moveTo(result.point.x, result.point.y);
+ctx.lineTo(cx, cy);
+ctx.stroke();
 }
 } else if (joinType === 'within-distance') {
 // Draw circles showing threshold
 ctx.strokeStyle = 'rgba(155, 89, 182, 0.3)';
 ctx.lineWidth = 1;
 for (let point of points) {
-  ctx.beginPath();
-  ctx.arc(point.x, point.y, distThreshold, 0, 2 * Math.PI);
-  ctx.stroke();
+ctx.beginPath();
+ctx.arc(point.x, point.y, distThreshold, 0, 2 * Math.PI);
+ctx.stroke();
 }
       
 // Draw connections
 ctx.strokeStyle = '#9B59B6';
 for (let result of results) {
-  const cx = (result.poly.mbr.xmin + result.poly.mbr.xmax) / 2;
-  const cy = (result.poly.mbr.ymin + result.poly.mbr.ymax) / 2;
-  ctx.beginPath();
-  ctx.moveTo(result.point.x, result.point.y);
-  ctx.lineTo(cx, cy);
-  ctx.stroke();
+const cx = (result.poly.mbr.xmin + result.poly.mbr.xmax) / 2;
+const cy = (result.poly.mbr.ymin + result.poly.mbr.ymax) / 2;
+ctx.beginPath();
+ctx.moveTo(result.point.x, result.point.y);
+ctx.lineTo(cx, cy);
+ctx.stroke();
 }
 }
     
@@ -614,13 +759,29 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Point-in-polygon:</strong> Green polygons contain red points - <strong>Nearest neighbor:</strong> Blue lines connect each point to nearest polygon - <strong>Within distance:</strong> Purple circles show search radius, lines show matches - <strong>Show spatial index:</strong> See MBR bounding boxes (dashed) - <strong>Adjust distance:</strong> Watch connections appear/disappear - Notice: Test count stays low because spatial index filters candidates</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Point-in-polygon:</strong> Green polygons contain red points</li>
+<li><strong>Nearest neighbor:</strong> Blue lines connect each point to nearest polygon</li>
+<li><strong>Within distance:</strong> Purple circles show search radius, lines show matches</li>
+<li><strong>Show spatial index:</strong> See MBR bounding boxes (dashed)</li>
+<li><strong>Adjust distance:</strong> Watch connections appear/disappear</li>
+<li>Notice: Test count stays low because spatial index filters candidates</li>
+</ul>
 <p><strong>Key insight:</strong> Spatial indexing makes spatial joins practical—without it, large datasets would be impossibly slow.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
 <h3 id="real-world-performance" class="anchored">Real-World Performance</h3>
-<p><strong>Without spatial index:</strong> - 1 million addresses × 50,000 census tracts = 50 billion tests - At 1 μs per test: 50,000 seconds = 13.9 hours</p>
-<p><strong>With R-tree index:</strong> - 1 million addresses × log₂(50,000) ≈ 16 million tests - At 1 μs per test: 16 seconds</p>
+<p><strong>Without spatial index:</strong></p>
+<ul>
+<li>1 million addresses × 50,000 census tracts = 50 billion tests</li>
+<li>At 1 μs per test: 50,000 seconds = 13.9 hours</li>
+</ul>
+<p><strong>With R-tree index:</strong></p>
+<ul>
+<li>1 million addresses × log₂(50,000) ≈ 16 million tests</li>
+<li>At 1 μs per test: 16 seconds</li>
+</ul>
 <p><strong>Speedup: 3,000×</strong></p>
 <p><strong>This is why GIS software creates spatial indexes automatically.</strong></p>
 <h3 id="geocoding" class="anchored">Geocoding</h3>
@@ -666,7 +827,12 @@ Polygons in UTM Zone 10 (meters)</code></pre>
 <p><strong>Spatial operations fail</strong> (comparing apples to oranges).</p>
 <p><strong>Solution:</strong> Reproject to common coordinate system before joining.</p>
 <h3 id="topology-errors" class="anchored">Topology Errors</h3>
-<p><strong>Invalid polygons:</strong> - Self-intersecting boundaries - Holes not properly encoded - Duplicate vertices</p>
+<p><strong>Invalid polygons:</strong></p>
+<ul>
+<li>Self-intersecting boundaries</li>
+<li>Holes not properly encoded</li>
+<li>Duplicate vertices</li>
+</ul>
 <p><strong>Result:</strong> Point-in-polygon tests give wrong results.</p>
 <p><strong>Solution:</strong> Validate and repair geometries before join.</p>
 <hr>
@@ -712,14 +878,23 @@ Rectangle 2: <span class="math inline">[x_2^{\min}, x_2^{\max}] \times [y_2^{\mi
 <h3 id="binary-search-trees" class="anchored">Binary Search Trees</h3>
 <p><strong>Property:</strong> For each node with value <span class="math inline">v</span>: - Left subtree: all values &lt; <span class="math inline">v</span> - Right subtree: all values ≥ <span class="math inline">v</span></p>
 <p><strong>Search complexity:</strong> <span class="math inline">O(\log n)</span> for balanced tree</p>
-<p><strong>K-d tree extends this to k dimensions:</strong> - Each level splits on one dimension - Alternates dimensions: x, y, x, y, …</p>
+<p><strong>K-d tree extends this to k dimensions:</strong></p>
+<ul>
+<li>Each level splits on one dimension</li>
+<li>Alternates dimensions: x, y, x, y, …</li>
+</ul>
 <p><strong>Median selection ensures balance.</strong></p>
 <h3 id="voronoi-diagrams" class="anchored">Voronoi Diagrams</h3>
 <p><strong>Definition:</strong> Partition of space into regions, each containing all points closest to one site.</p>
 <p><strong>Voronoi cell for site <span class="math inline">s_i</span>:</strong></p>
 <p><span class="math display">V(s_i) = \{p : d(p, s_i) \leq d(p, s_j) \text{ for all } j \neq i\}</span></p>
 <p><strong>Construction:</strong> Nearest neighbor join creates Voronoi assignment.</p>
-<p><strong>Applications:</strong> - Service territories - Catchment areas - Thiessen polygons (rainfall interpolation)</p>
+<p><strong>Applications:</strong></p>
+<ul>
+<li>Service territories</li>
+<li>Catchment areas</li>
+<li>Thiessen polygons (rainfall interpolation)</li>
+</ul>
 <hr>
 <h2 id="summary" class="anchored">Summary</h2>
 <ul>
@@ -744,24 +919,24 @@ Rectangle 2: <span class="math inline">[x_2^{\min}, x_2^{\max}] \times [y_2^{\mi
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

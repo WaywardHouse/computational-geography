@@ -80,6 +80,7 @@ Ice particles ≥5 mm diameter (pea-sized or larger).
 **Annual losses (USA):** ~$1-2 billion
 
 **Applications:**
+
 - Agriculture (crop insurance)
 - Aviation safety
 - Severe weather warnings
@@ -303,6 +304,7 @@ Where:
 **Problem:** Predict maximum hail size and swath location.
 
 **Storm parameters:**
+
 - Maximum updraft: 45 m/s
 - Updraft top: 12 km
 - Freezing level: 4 km
@@ -310,6 +312,7 @@ Where:
 - Environmental wind at 6 km: 270° at 20 m/s
 
 **Radar:**
+
 - Peak reflectivity: 65 dBZ
 - Reflectivity top: 14 km
 - SHI: 150
@@ -580,6 +583,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Observations:**
+
 - Hail growth accelerates (larger stones collect more droplets)
 - Updraft strength limits maximum size
 - High liquid water content accelerates growth
@@ -588,6 +592,7 @@ window.addEventListener('resize', () => chart.resize());
 - Severe threshold (25mm) reached in strong updrafts
 
 **Key insights:**
+
 - Extreme updrafts (>60 m/s) required for softball hail
 - Growth rate nonlinear (larger stones grow faster)
 - Minutes in updraft sufficient for destructive hail
@@ -602,14 +607,17 @@ window.addEventListener('resize', () => chart.resize());
 **Hail impact on agriculture:**
 
 **Pea-sized (6-13 mm):**
+
 - Leaf damage, some defoliation
 - 10-30% yield loss
 
 **Dime-quarter (13-25 mm):**
+
 - Stem breakage, severe defoliation
 - 30-60% loss
 
 **Golf ball+ (>44 mm):**
+
 - Total crop destruction
 - 80-100% loss
 
@@ -646,11 +654,13 @@ Recent studies: No significant effect detected
 $1-2 billion annually
 
 **Golf ball hail:**
+
 - Car windshields: $300-800 replacement
 - Body damage: $1,000-5,000 repair
 - Total vehicle loss: Possible with repeated impacts
 
 **Roof damage:**
+
 - Asphalt shingles: Severe damage >44 mm
 - Metal roofs: Denting >25 mm
 - Solar panels: Crack/break risk
@@ -668,6 +678,7 @@ Some regions require hail-resistant roofing (impact-rated).
 **Radar MESH underestimates** largest stones.
 
 **Reasons:**
+
 - Hail concentration in small area
 - Beam averaging
 - Attenuation
@@ -697,10 +708,12 @@ Some regions require hail-resistant roofing (impact-rated).
 **Dual-polarization:** ZDR, ρHV differentiate
 
 **ZDR:**
+
 - Rain: +2 to +4 dB (oblate drops)
 - Hail: 0 to -2 dB (tumbling, irregular)
 
 **ρHV:**
+
 - Rain: >0.98
 - Hail: 0.90-0.95 (mixed shapes)
 
@@ -730,6 +743,7 @@ High (4+ km): Melts before impact
 **Northern India:** Large hail events
 
 **Factors:**
+
 - High terrain (orographic lift)
 - Strong CAPE
 - Dry air aloft (promotes supercells)

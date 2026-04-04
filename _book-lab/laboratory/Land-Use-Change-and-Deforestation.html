@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -127,6 +131,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That land conversion releases carbon from several pools, not just from the visible clearing or burning event.</p>
+<p><strong>You will learn</strong><br>
+How the stock-change method works, how different carbon pools respond on different timescales, and what the IPCC tier system is trying to capture.</p>
+<p><strong>Why this matters</strong><br>
+Deforestation accounting is one of the clearest examples of why timing and pool structure matter in environmental modeling.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The simple inventory idea: emissions are the difference between what the system stored before and after conversion.</p>
 <p>When a hectare of tropical forest is cleared for cattle pasture in Brazil, how much carbon is released and over what timescale? The answer depends on more than the fire. Even without burning, the roots decay over months to years, the soil organic carbon (SOC) mineralises over decades, and the dead wood decomposes over years to centuries. Only 30–50% of the forest carbon is typically released in the clearing event; the remainder is released slowly over the following years and decades.</p>
 <p>National greenhouse gas inventories must account for all of these pools and timescales. The IPCC provides a hierarchical framework — Tier 1 through Tier 3 — that scales from simple default factors (Tier 1) to comprehensive model simulations (Tier 3), with accuracy increasing at each tier.</p>
 <hr>
@@ -440,23 +453,21 @@ for yr in [0, 1, 5, 10, 20, 30, 50]:
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Cumulative Fraction of Deforestation Emissions Realised Over Time&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Tropical forest conversion&quot;,&quot;Boreal forest conversion&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Years after conversion&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [0,1,2,3,5,7,10,15,20,25,30,40,50]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;% of total emissions realised&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;: 0, &quot;max&quot;: 100},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Tropical forest conversion&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2E7D32&quot;},
-     &quot;data&quot;: [42, 52, 59, 64, 72, 77, 82, 88, 91, 93, 95, 97, 98]},
-    {&quot;name&quot;: &quot;Boreal forest conversion&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [32, 38, 43, 47, 54, 60, 66, 73, 78, 82, 85, 89, 92]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Cumulative Fraction of Deforestation Emissions Realised Over Time&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Tropical forest conversion&quot;,&quot;Boreal forest conversion&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Years after conversion&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [0,1,2,3,5,7,10,15,20,25,30,40,50]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;% of total emissions realised&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 50, &quot;min&quot;: 0, &quot;max&quot;: 100},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Tropical forest conversion&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#2E7D32&quot;},
+&quot;data&quot;: [42, 52, 59, 64, 72, 77, 82, 88, 91, 93, 95, 97, 98]},
+{&quot;name&quot;: &quot;Boreal forest conversion&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [32, 38, 43, 47, 54, 60, 66, 73, 78, 82, 85, 89, 92]}
+]
+}"></div>
 <p>Tropical deforestation releases emissions faster — higher soil temperatures accelerate decomposition, root systems are shallower, and burning is more complete. Boreal conversion shows a slower release pattern, particularly from cold, waterlogged soils with slow microbial decomposition. For carbon accounting, a boreal-to-cropland conversion today will not realise its full emissions until 2050 and beyond.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -478,7 +489,7 @@ for yr in [0, 1, 5, 10, 20, 30, 50]:
 <p><span class="math display">F(t) = 1 - \sum_i w_i e^{-k_i t} \quad\text{[cumulative emission fraction]}</span></p>
 <hr>
 <h2 id="math-refresher" class="anchored">Math Refresher</h2>
-<p><strong>Exponential decay for carbon pools.</strong> If a carbon pool contains <span class="math inline">C_0</span> tonnes of carbon at time zero and decays at rate <span class="math inline">k</span> yr⁻¹, then <span class="math inline">C(t) = C_0 e^{-kt}</span> and the annual emission is <span class="math inline">-dC/dt = C_0 k e^{-kt}</span>. The mean residence time is <span class="math inline">\tau = 1/k</span>: the time it takes for the pool to fall to <span class="math inline">C_0/e \approx 37\%</span> of its initial value. A pool with <span class="math inline">k = 0.10</span> yr⁻¹ has a mean residence time of 10 years; <span class="math inline">k = 0.005</span> yr⁻¹ gives <span class="math inline">\tau = 200</span> years (passive SOC). The cumulative fraction released by time <span class="math inline">t</span> is $1 - e^{-kt}$. For a system with multiple pools, the total release is a sum of these exponentials, each weighted by its initial mass fraction — producing the curves in the visualization above.</p>
+<p><strong>Exponential decay for carbon pools.</strong> If a carbon pool contains <span class="math inline">C_0</span> tonnes of carbon at time zero and decays at rate <span class="math inline">k</span> yr⁻¹, then <span class="math inline">C(t) = C_0 e^{-kt}</span> and the annual emission is <span class="math inline">-dC/dt = C_0 k e^{-kt}</span>. The mean residence time is <span class="math inline">\tau = 1/k</span>: the time it takes for the pool to fall to <span class="math inline">C_0/e \approx 37\%</span> of its initial value. A pool with <span class="math inline">k = 0.10</span> yr⁻¹ has a mean residence time of 10 years; <span class="math inline">k = 0.005</span> yr⁻¹ gives <span class="math inline">\tau = 200</span> years (passive SOC). The cumulative fraction released by time <span class="math inline">t</span> is <span class="math inline">1 - e^{-kt}</span>. For a system with multiple pools, the total release is a sum of these exponentials, each weighted by its initial mass fraction — producing the curves in the visualization above.</p>
 
 
 <footer class="wayward-footer">
@@ -490,24 +501,24 @@ for yr in [0, 1, 5, 10, 20, 30, 50]:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

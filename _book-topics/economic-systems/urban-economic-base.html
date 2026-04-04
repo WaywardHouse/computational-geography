@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-core-framework" id="toc-the-core-framework">1. The Core Framework</a></li>
   <li><a href="#the-multiplier-derivation" id="toc-the-multiplier-derivation">2. The Multiplier Derivation</a></li>
   <li><a href="#identifying-the-basic-sector-the-location-quotient-method" id="toc-identifying-the-basic-sector-the-location-quotient-method">3. Identifying the Basic Sector: The Location Quotient Method</a></li>
@@ -118,6 +122,15 @@ window.Quarto = {
   <li><a href="#references" id="toc-references">References</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That some city jobs sell to outside markets while others mostly serve local residents.</p>
+<p><strong>You will learn</strong><br>
+How the economic base multiplier works, how location quotients identify export-oriented sectors, and why Calgary is so sensitive to commodity shocks.</p>
+<p><strong>Why this matters</strong><br>
+Urban downturns and recoveries are often amplified versions of changes in the city’s export base.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The main distinction between basic jobs that bring income in and local jobs that recirculate it.</p>
 <p>In late 2015, as the oil price shock worked its way through the Calgary economy, the city’s food banks reported a 25% increase in usage. Coffee shops in the Beltline closed. Fitness studios in Eau Claire emptied out. Real estate listings multiplied. None of this was caused directly by oil — most of these businesses had nothing to do with petroleum. They were casualties of the economic base multiplier: the amplification mechanism that turns a contraction in one sector into a citywide recession.</p>
 <p>Economic base theory offers a simple but powerful framework for understanding this dynamic. It divides urban employment into two categories: <strong>basic</strong> (or export-oriented) employment that serves markets outside the city, and <strong>non-basic</strong> (or local service) employment that serves the city’s own residents. Basic employment is the engine. Non-basic employment is the drivetrain that translates engine output into wheel motion — and amplifies it.</p>
 <p>The insight is old. Harold Hoyt formalised it in the 1930s, building on earlier work by Frederick Law Olmsted Jr.&nbsp;But it remains the starting point for any analysis of how urban economies respond to external shocks.</p>
@@ -137,9 +150,71 @@ window.Quarto = {
 <p>The multiplier can also be derived as an infinite geometric series. Suppose basic employment increases by <span class="math inline">\Delta B</span>. This generates income for basic workers, who spend a fraction <span class="math inline">k</span> locally, creating non-basic employment. Those non-basic workers also spend a fraction <span class="math inline">k</span> locally, creating a second round of employment, and so on.</p>
 <p><span class="math display">\Delta E = \Delta B + k\Delta B + k^2 \Delta B + k^3 \Delta B + \cdots</span></p>
 <p><span class="math display">\Delta E = \Delta B \cdot \sum_{n=0}^{\infty} k^n = \Delta B \cdot \frac{1}{1-k}</span></p>
-<p>This is the same multiplier <span class="math inline">m = 1/(1-k)</span>. The series converges provided $0 &lt; k &lt; 1$, which is satisfied as long as some fraction of income leaks out of the local economy (into savings, imports, and taxes).</p>
+<p>This is the same multiplier <span class="math inline">m = 1/(1-k)</span>. The series converges provided <span class="math inline">0 &lt; k &lt; 1</span>, which is satisfied as long as some fraction of income leaks out of the local economy (into savings, imports, and taxes).</p>
 <p>The larger the leakage, the smaller the multiplier. Small cities with limited local economic diversity have high leakage — residents must import many goods and services from outside — producing low multipliers. Large, diversified metros like Toronto have more local spending opportunities and less leakage, producing higher multipliers.</p>
 <p>Calgary’s multiplier is elevated above what its size alone would predict because the energy sector generates very high average wages, which in turn support disproportionate local spending on housing, professional services, and retail. High average income means each basic worker generates more local spending than the national average.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Multiplier Chain
+</div>
+<h3 class="cg-ill__title anchored">
+Export Jobs Start The Chain, Local Spending Amplifies It
+</h3>
+<p class="cg-ill__lede">
+Economic base theory is easiest to retain as a sequence. Income arrives through export sectors, circulates through local services, and gradually leaks out through imports, savings, and taxes.
+</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+1
+</div>
+<h4 class="anchored">
+Basic employment
+</h4>
+<p>
+Export-oriented jobs bring new income into the city.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+2
+</div>
+<h4 class="anchored">
+Local spending
+</h4>
+<p>
+Workers spend on housing, food, transport, and everyday services.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+3
+</div>
+<h4 class="anchored">
+Non-basic jobs
+</h4>
+<p>
+Local-serving employment expands to meet that spending.
+</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">
+4
+</div>
+<h4 class="anchored">
+Leakage
+</h4>
+<p>
+Imports, savings, and taxes stop the multiplier from running forever.
+</p>
+</div>
+</div>
+</div>
+<figcaption>
+The urban multiplier is a recirculation process. A citywide downturn or boom is often a magnified version of what happened first in the export base.
+</figcaption>
+</figure>
 <hr>
 <h2 id="identifying-the-basic-sector-the-location-quotient-method" class="anchored">3. Identifying the Basic Sector: The Location Quotient Method</h2>
 <p>The critical empirical challenge is identifying which employment is basic and which is non-basic. The most widely used method is the Location Quotient, introduced in Model 12:</p>
@@ -151,96 +226,92 @@ window.Quarto = {
 <hr>
 <h2 id="calgarys-location-quotients" class="anchored">4. Calgary’s Location Quotients</h2>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Location Quotients: Calgary by Industry&quot;, &quot;left&quot;: &quot;center&quot;, &quot;subtext&quot;: &quot;LQ > 1 = export-oriented; LQ < 1 = import-dependent&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
-  &quot;xAxis&quot;: {
-    &quot;type&quot;: &quot;value&quot;,
-    &quot;name&quot;: &quot;Location Quotient&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 30,
-    &quot;min&quot;: 0,
-    &quot;max&quot;: 6
-  },
-  &quot;yAxis&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;data&quot;: [
-      &quot;Education&quot;,
-      &quot;Health &amp; Social&quot;,
-      &quot;Retail Trade&quot;,
-      &quot;Government&quot;,
-      &quot;Construction&quot;,
-      &quot;Transport &amp; Warehousing&quot;,
-      &quot;Prof. &amp; Scientific Services&quot;,
-      &quot;Finance &amp; Insurance&quot;,
-      &quot;Energy, Mining &amp; Oil &amp; Gas&quot;
-    ],
-    &quot;axisLabel&quot;: {&quot;fontSize&quot;: 11}
-  },
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;LQ&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;data&quot;: [0.72, 0.81, 0.95, 0.68, 1.35, 1.12, 1.48, 1.58, 4.85],
-      &quot;itemStyle&quot;: {
-        &quot;color&quot;: {
-          &quot;type&quot;: &quot;linear&quot;,
-          &quot;x&quot;: 0, &quot;y&quot;: 0, &quot;x2&quot;: 1, &quot;y2&quot;: 0,
-          &quot;colorStops&quot;: [
-            {&quot;offset&quot;: 0, &quot;color&quot;: &quot;#5c8ee0&quot;},
-            {&quot;offset&quot;: 1, &quot;color&quot;: &quot;#e05c5c&quot;}
-          ]
-        }
-      },
-      &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;right&quot;, &quot;formatter&quot;: &quot;{c}&quot;}
-    }
-  ],
-  &quot;markLine&quot;: {
-    &quot;data&quot;: [{&quot;xAxis&quot;: 1, &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#888&quot;}}]
-  }
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Location Quotients: Calgary by Industry&quot;, &quot;left&quot;: &quot;center&quot;, &quot;subtext&quot;: &quot;LQ > 1 = export-oriented; LQ < 1 = import-dependent&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
+&quot;xAxis&quot;: {
+&quot;type&quot;: &quot;value&quot;,
+&quot;name&quot;: &quot;Location Quotient&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 30,
+&quot;min&quot;: 0,
+&quot;max&quot;: 6
+},
+&quot;yAxis&quot;: {
+&quot;type&quot;: &quot;category&quot;,
+&quot;data&quot;: [
+&quot;Education&quot;,
+&quot;Health &amp; Social&quot;,
+&quot;Retail Trade&quot;,
+&quot;Government&quot;,
+&quot;Construction&quot;,
+&quot;Transport &amp; Warehousing&quot;,
+&quot;Prof. &amp; Scientific Services&quot;,
+&quot;Finance &amp; Insurance&quot;,
+&quot;Energy, Mining &amp; Oil &amp; Gas&quot;
+],
+&quot;axisLabel&quot;: {&quot;fontSize&quot;: 11}
+},
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;LQ&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;data&quot;: [0.72, 0.81, 0.95, 0.68, 1.35, 1.12, 1.48, 1.58, 4.85],
+&quot;itemStyle&quot;: {
+&quot;color&quot;: {
+&quot;type&quot;: &quot;linear&quot;,
+&quot;x&quot;: 0, &quot;y&quot;: 0, &quot;x2&quot;: 1, &quot;y2&quot;: 0,
+&quot;colorStops&quot;: [
+{&quot;offset&quot;: 0, &quot;color&quot;: &quot;#5c8ee0&quot;},
+{&quot;offset&quot;: 1, &quot;color&quot;: &quot;#e05c5c&quot;}
+]
+}
+},
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;right&quot;, &quot;formatter&quot;: &quot;{c}&quot;}
+}
+],
+&quot;markLine&quot;: {
+&quot;data&quot;: [{&quot;xAxis&quot;: 1, &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#888&quot;}}]
+}
+}"></div>
 <p>Energy, Mining and Oil &amp; Gas has an LQ of nearly 5: Calgary’s concentration is almost five times the national average, meaning roughly 80% of energy employment serves export markets. Finance and Insurance (LQ ~1.58) and Professional &amp; Scientific Services (LQ ~1.48) are also export-oriented — Calgary’s financial sector largely serves the energy industry, and its professional services sector (engineering consultancies, legal firms, environmental assessors) similarly derives much of its revenue from outside the city.</p>
 <p>Government, Health, and Education all have LQs below 1, confirming that Calgary under-provides public services relative to its size — reflecting Alberta’s historically lean public sector and the fact that Edmonton hosts most provincial government functions.</p>
 <hr>
 <h2 id="edmonton-vs-calgary-complementary-base-structures" class="anchored">5. Edmonton vs Calgary: Complementary Base Structures</h2>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Basic vs Non-Basic Employment Share: Calgary, Edmonton, Toronto&quot;, &quot;left&quot;: &quot;center&quot;},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Basic Employment&quot;, &quot;Non-Basic Employment&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;data&quot;: [&quot;Calgary&quot;, &quot;Edmonton&quot;, &quot;Toronto&quot;]
-  },
-  &quot;yAxis&quot;: {
-    &quot;type&quot;: &quot;value&quot;,
-    &quot;name&quot;: &quot;Share of Total Employment (%)&quot;,
-    &quot;nameLocation&quot;: &quot;middle&quot;,
-    &quot;nameGap&quot;: 45,
-    &quot;min&quot;: 0,
-    &quot;max&quot;: 100
-  },
-  &quot;series&quot;: [
-    {
-      &quot;name&quot;: &quot;Basic Employment&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;stack&quot;: &quot;total&quot;,
-      &quot;data&quot;: [42, 35, 31],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;},
-      &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;inside&quot;, &quot;formatter&quot;: &quot;{c}%&quot;}
-    },
-    {
-      &quot;name&quot;: &quot;Non-Basic Employment&quot;,
-      &quot;type&quot;: &quot;bar&quot;,
-      &quot;stack&quot;: &quot;total&quot;,
-      &quot;data&quot;: [58, 65, 69],
-      &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;},
-      &quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;inside&quot;, &quot;formatter&quot;: &quot;{c}%&quot;}
-    }
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Basic vs Non-Basic Employment Share: Calgary, Edmonton, Toronto&quot;, &quot;left&quot;: &quot;center&quot;},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Basic Employment&quot;, &quot;Non-Basic Employment&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {
+&quot;type&quot;: &quot;category&quot;,
+&quot;data&quot;: [&quot;Calgary&quot;, &quot;Edmonton&quot;, &quot;Toronto&quot;]
+},
+&quot;yAxis&quot;: {
+&quot;type&quot;: &quot;value&quot;,
+&quot;name&quot;: &quot;Share of Total Employment (%)&quot;,
+&quot;nameLocation&quot;: &quot;middle&quot;,
+&quot;nameGap&quot;: 45,
+&quot;min&quot;: 0,
+&quot;max&quot;: 100
+},
+&quot;series&quot;: [
+{
+&quot;name&quot;: &quot;Basic Employment&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;stack&quot;: &quot;total&quot;,
+&quot;data&quot;: [42, 35, 31],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#e05c5c&quot;},
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;inside&quot;, &quot;formatter&quot;: &quot;{c}%&quot;}
+},
+{
+&quot;name&quot;: &quot;Non-Basic Employment&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;stack&quot;: &quot;total&quot;,
+&quot;data&quot;: [58, 65, 69],
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5c8ee0&quot;},
+&quot;label&quot;: {&quot;show&quot;: true, &quot;position&quot;: &quot;inside&quot;, &quot;formatter&quot;: &quot;{c}%&quot;}
+}
+]
+}"></div>
 <p>Calgary has a higher share of basic employment than Edmonton or Toronto. This is consistent with its narrow export specialisation: energy employment is strongly basic (high LQ), and Calgary’s economy is dominated by it. Edmonton’s basic share is intermediate — government and education are less export-oriented than energy, pulling down the basic fraction. Toronto has the smallest basic share; its large non-basic sector reflects its role as a service hub for its own dense metropolitan population.</p>
 <p>The multiplier calculation follows:</p>
 <ul>
@@ -282,24 +353,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,11 +132,20 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That assimilation means combining a model state with observations, and that satellite measurements usually observe the system indirectly rather than measuring the state variable directly.</p>
+<p><strong>You will learn</strong><br>
+How variational assimilation is framed as an optimization problem, how observation operators connect model space to sensor space, and why background covariance matters.</p>
+<p><strong>Why this matters</strong><br>
+Modern environmental forecasting depends on turning huge streams of remote-sensing data into better model states.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core idea that assimilation is a weighted compromise between prior model knowledge and new evidence.</p>
 <p>At 00:00 UTC every day, the ECMWF data assimilation system begins ingesting observations that have arrived in the previous 12 hours from: 3,000 radiosonde balloon soundings, 300,000 aircraft reports, 500,000 surface station observations, and approximately 40 million satellite observations from polar-orbiting and geostationary platforms. Six hours later, an analysis of the global atmosphere at 9 km horizontal resolution and 137 vertical levels is available as the initial condition for the forecast. The system that fuses these heterogeneous, asynchronous, uncertain data streams is variational data assimilation — one of the most computationally intensive mathematical procedures run routinely on Earth.</p>
 <p>The core insight is that finding the “best” initial condition is equivalent to minimising a cost function that measures the distance from a background state (the model’s prior estimate), penalised by the distances from all available observations, each weighted by the inverse of its error covariance.</p>
 <hr>
 <h2 id="the-question" class="anchored">1. The Question</h2>
-<p>How do we assimilate a billion observations per day into a model with $10^7$ state variables? How are satellite radiances connected to model state variables through observation operators? How do background error covariances control the spatial spreading of observational information? And how does the 4D-Var method extend assimilation to use observations over a time window to constrain the initial state?</p>
+<p>How do we assimilate a billion observations per day into a model with <span class="math inline">10^7</span> state variables? How are satellite radiances connected to model state variables through observation operators? How do background error covariances control the spatial spreading of observational information? And how does the 4D-Var method extend assimilation to use observations over a time window to constrain the initial state?</p>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
 <p>Variational data assimilation frames the analysis problem as minimisation of a quadratic cost function:</p>
@@ -149,7 +162,7 @@ window.Quarto = {
 <p><span class="math display">\mathbf{x}^a = \mathbf{x}^b + (\mathbf{B}^{-1} + H^\top\mathbf{R}^{-1}H)^{-1}H^\top\mathbf{R}^{-1}(\mathbf{y}^o - H\mathbf{x}^b)</span></p>
 <p><span class="math display">= \mathbf{x}^b + \mathbf{B}H^\top(H\mathbf{B}H^\top + \mathbf{R})^{-1}(\mathbf{y}^o - H\mathbf{x}^b)</span></p>
 <p>The <span class="math inline">\mathbf{B}</span> matrix (background error covariance) in 3D-Var plays the role of <span class="math inline">\mathbf{P}^b</span> in the Kalman filter. Unlike the Kalman filter where <span class="math inline">\mathbf{P}^b</span> is updated at each cycle, in 3D-Var <span class="math inline">\mathbf{B}</span> is fixed — it is estimated statistically from an ensemble of forecast error pairs and is held constant throughout the operational cycle.</p>
-<p><strong>Why not just solve the linear system directly?</strong> Because <span class="math inline">\mathbf{B}</span> is <span class="math inline">n \times n</span> with <span class="math inline">n = 10^7</span> — it cannot be stored explicitly (requires $10^{14}$ elements). Instead, <span class="math inline">\mathbf{B}</span> is implicitly represented through a sequence of operators: spectral transforms, recursive filters, and balance operators that collectively produce the same effect as multiplying by <span class="math inline">\mathbf{B}^{1/2}</span>. The cost function is minimised using an iterative gradient descent algorithm (L-BFGS or conjugate gradient) that only requires evaluating <span class="math inline">J</span> and <span class="math inline">\nabla J</span>, not forming <span class="math inline">\mathbf{B}</span> explicitly.</p>
+<p><strong>Why not just solve the linear system directly?</strong> Because <span class="math inline">\mathbf{B}</span> is <span class="math inline">n \times n</span> with <span class="math inline">n = 10^7</span> — it cannot be stored explicitly (requires <span class="math inline">10^{14}</span> elements). Instead, <span class="math inline">\mathbf{B}</span> is implicitly represented through a sequence of operators: spectral transforms, recursive filters, and balance operators that collectively produce the same effect as multiplying by <span class="math inline">\mathbf{B}^{1/2}</span>. The cost function is minimised using an iterative gradient descent algorithm (L-BFGS or conjugate gradient) that only requires evaluating <span class="math inline">J</span> and <span class="math inline">\nabla J</span>, not forming <span class="math inline">\mathbf{B}</span> explicitly.</p>
 <h3 id="background-error-covariance-mathbfb" class="anchored">3.2 Background Error Covariance <span class="math inline">\mathbf{B}</span></h3>
 <p>The background error covariance <span class="math inline">\mathbf{B}_{ij} = \text{Cov}(\varepsilon_i^b, \varepsilon_j^b)</span> specifies the spatial structure of expected background errors. Its key properties:</p>
 <p><strong>Spatial correlations:</strong> <span class="math inline">\mathbf{B}</span> encodes how far observational information should spread. A temperature observation at one grid point should influence temperatures at nearby points (through <span class="math inline">\mathbf{B}</span> off-diagonal elements) but not at remote points.</p>
@@ -159,7 +172,7 @@ window.Quarto = {
 <h3 id="observation-error-characterisation" class="anchored">3.3 Observation Error Characterisation</h3>
 <p>The observation error <span class="math inline">\boldsymbol{\epsilon}^o = \mathbf{y}^o - h(\mathbf{x}^t)</span> (difference between observation and truth-equivalent) has three components:</p>
 <ol type="1">
-<li><strong>Instrument error:</strong> Measurement noise intrinsic to the sensor ($$0.1–1 K for infrared sounders)</li>
+<li><strong>Instrument error:</strong> Measurement noise intrinsic to the sensor (<span class="math inline">\sim 0.1</span>-1 K for infrared sounders)</li>
 <li><strong>Representativeness error:</strong> The observation represents a sub-grid scale process that the model cannot resolve (most important for precipitation and surface observations)</li>
 <li><strong>Forward model error:</strong> Error in the observation operator <span class="math inline">h</span> (e.g., radiative transfer model approximations)</li>
 </ol>
@@ -179,7 +192,12 @@ window.Quarto = {
 <p>The cost function is minimised over the initial state <span class="math inline">\mathbf{x}_0</span>. Its gradient requires backpropagating observation residuals through the model using the <strong>adjoint</strong> (transpose of the tangent linear model):</p>
 <p><span class="math display">\nabla_{\mathbf{x}_0} J = \mathbf{B}^{-1}(\mathbf{x}_0 - \mathbf{x}_0^b) + \mathcal{M}_{0\to N}^*\left[H_N^\top\mathbf{R}_N^{-1}(h(\mathbf{x}_N) - \mathbf{y}_N^o)\right] + \ldots</span></p>
 <p>where <span class="math inline">\mathcal{M}^*</span> is the adjoint of the model. The adjoint propagates the sensitivity of <span class="math inline">J</span> with respect to the final state backwards in time to the initial state — the same mathematical operation as backpropagation in neural network training.</p>
-<p><strong>4D-Var advantages over 3D-Var:</strong> - Uses information from the model dynamics to spread observational information in time - Implicitly provides a flow-dependent background error covariance (through the model trajectory) - Higher analysis quality, especially for observations between analysis times (aircraft, radiosondes)</p>
+<p><strong>4D-Var advantages over 3D-Var:</strong></p>
+<ul>
+<li>Uses information from the model dynamics to spread observational information in time</li>
+<li>Implicitly provides a flow-dependent background error covariance (through the model trajectory)</li>
+<li>Higher analysis quality, especially for observations between analysis times (aircraft, radiosondes)</li>
+</ul>
 <p><strong>4D-Var computational cost:</strong> Two full model integrations per outer loop iteration: one forward (to compute <span class="math inline">J</span>) and one adjoint (to compute <span class="math inline">\nabla J</span>). ECMWF uses 4D-Var with 12-hour windows; the minimisation requires ~100 iterations, totalling ~200 model integrations per analysis cycle.</p>
 <h3 id="land-surface-data-assimilation" class="anchored">3.6 Land Surface Data Assimilation</h3>
 <p>Land surface data assimilation (LDAS) applies the same framework to constrain catchment and land surface models with satellite retrievals. Key examples:</p>
@@ -199,9 +217,9 @@ window.Quarto = {
 <p><span class="math display">J(x) = \frac{(x - 0.28)^2}{2 \times 0.0025} + \frac{(x - 0.25)^2}{2 \times 0.0004} + \frac{(x - 0.22)^2}{2 \times 0.0025}</span></p>
 <p><span class="math display">= 200(x-0.28)^2 + 1250(x-0.25)^2 + 200(x-0.22)^2</span></p>
 <p><strong>Gradient:</strong> <span class="math inline">\nabla J = 400(x-0.28) + 2500(x-0.25) + 400(x-0.22) = 0</span></p>
-<p><span class="math inline">&amp;#36;3300x = 400(0.28) + 2500(0.25) + 400(0.22) = 112 + 625 + 88 = 825</span>$</p>
+<p><span class="math display">3300x = 400(0.28) + 2500(0.25) + 400(0.22) = 112 + 625 + 88 = 825</span></p>
 <p><span class="math display">x^a = 825/3300 = 0.250 \text{ m}^3/\text{m}^3</span></p>
-<p><strong>Analysis uncertainty:</strong> $1/P^a = 1/B + 1/R_1 + 1/R_2 = 400 + 2500 + 400 = 3300 P^a = 0.000303$, <span class="math inline">\sigma^a = 0.0174</span> m³/m³.</p>
+<p><strong>Analysis uncertainty:</strong> <span class="math inline">1/P^a = 1/B + 1/R_1 + 1/R_2 = 400 + 2500 + 400 = 3300 \Rightarrow P^a = 0.000303</span>, <span class="math inline">\sigma^a = 0.0174</span> m³/m³.</p>
 <p>The in-situ probe carries the most weight (precision 2500 vs.&nbsp;400 each for background and satellite) and pulls the analysis toward 0.25. The analysis is the precision-weighted average, and the analysis variance is smaller than any individual component.</p>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
@@ -287,30 +305,28 @@ for sigma_sat in [0.01, 0.03, 0.05, 0.08, 0.12]:
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;3D-Var Cost Function — Analysis as Minimum of Background + Observation Terms&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Background term J_b&quot;, &quot;Observation term J_o&quot;, &quot;Total cost J&quot;, &quot;Analysis x_a&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Soil moisture x (m³/m³)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [&quot;0.18&quot;,&quot;0.20&quot;,&quot;0.22&quot;,&quot;0.24&quot;,&quot;0.25&quot;,&quot;0.26&quot;,&quot;0.27&quot;,&quot;0.28&quot;,&quot;0.30&quot;,&quot;0.32&quot;,&quot;0.35&quot;]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Cost J(x)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45, &quot;min&quot;: 0},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Background term J_b&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#90A4AE&quot;},
-     &quot;data&quot;: [4.0, 2.88, 1.92, 0.88, 0.45, 0.18, 0.05, 0.0, 0.18, 0.72, 2.45]},
-    {&quot;name&quot;: &quot;Observation term J_o&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
-     &quot;data&quot;: [6.32, 3.87, 2.15, 0.88, 0.45, 0.30, 0.40, 0.72, 1.85, 3.85, 8.35]},
-    {&quot;name&quot;: &quot;Total cost J&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;lineStyle&quot;: {&quot;width&quot;: 3},
-     &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
-     &quot;data&quot;: [10.32, 6.75, 4.07, 1.76, 0.90, 0.48, 0.45, 0.72, 2.03, 4.57, 10.80]},
-    {&quot;name&quot;: &quot;Analysis x_a&quot;, &quot;type&quot;: &quot;line&quot;,
-     &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#2E7D32&quot;},
-     &quot;data&quot;: [null,null,null,null,null,0.48,null,null,null,null,null],
-     &quot;markPoint&quot;: {&quot;data&quot;: [{&quot;name&quot;:&quot;min&quot;, &quot;coord&quot;:[&quot;0.26&quot;,&quot;0.45&quot;]}]}}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;3D-Var Cost Function — Analysis as Minimum of Background + Observation Terms&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Background term J_b&quot;, &quot;Observation term J_o&quot;, &quot;Total cost J&quot;, &quot;Analysis x_a&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Soil moisture x (m³/m³)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [&quot;0.18&quot;,&quot;0.20&quot;,&quot;0.22&quot;,&quot;0.24&quot;,&quot;0.25&quot;,&quot;0.26&quot;,&quot;0.27&quot;,&quot;0.28&quot;,&quot;0.30&quot;,&quot;0.32&quot;,&quot;0.35&quot;]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Cost J(x)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45, &quot;min&quot;: 0},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Background term J_b&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#90A4AE&quot;},
+&quot;data&quot;: [4.0, 2.88, 1.92, 0.88, 0.45, 0.18, 0.05, 0.0, 0.18, 0.72, 2.45]},
+{&quot;name&quot;: &quot;Observation term J_o&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#1565C0&quot;},
+&quot;data&quot;: [6.32, 3.87, 2.15, 0.88, 0.45, 0.30, 0.40, 0.72, 1.85, 3.85, 8.35]},
+{&quot;name&quot;: &quot;Total cost J&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;lineStyle&quot;: {&quot;width&quot;: 3},
+&quot;itemStyle&quot;: {&quot;color&quot;: &quot;#C62828&quot;},
+&quot;data&quot;: [10.32, 6.75, 4.07, 1.76, 0.90, 0.48, 0.45, 0.72, 2.03, 4.57, 10.80]},
+{&quot;name&quot;: &quot;Analysis x_a&quot;, &quot;type&quot;: &quot;line&quot;,
+&quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;, &quot;color&quot;: &quot;#2E7D32&quot;},
+&quot;data&quot;: [null,null,null,null,null,0.48,null,null,null,null,null],
+&quot;markPoint&quot;: {&quot;data&quot;: [{&quot;name&quot;:&quot;min&quot;, &quot;coord&quot;:[&quot;0.26&quot;,&quot;0.45&quot;]}]}}
+]
+}"></div>
 <p>The background term (grey) is minimised at <span class="math inline">x^b = 0.28</span>; the observation term (blue) is minimised at the precision-weighted mean of the two observations (~0.245). The total cost (red) achieves its minimum at the analysis <span class="math inline">x^a = 0.250</span> — slightly below the background, close to the precise in-situ observation, and less influenced by the noisier satellite retrieval. The parabolic shape of the cost function reflects the Gaussian error assumptions.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -331,11 +347,11 @@ for sigma_sat in [0.01, 0.03, 0.05, 0.08, 0.12]:
 <p><span class="math display">J(\mathbf{x}) = \tfrac{1}{2}(\mathbf{x}-\mathbf{x}^b)^\top\mathbf{B}^{-1}(\mathbf{x}-\mathbf{x}^b) + \tfrac{1}{2}(\mathbf{y}^o-H\mathbf{x})^\top\mathbf{R}^{-1}(\mathbf{y}^o-H\mathbf{x})</span></p>
 <p><span class="math display">\mathbf{x}^a = \mathbf{x}^b + \mathbf{B}H^\top(H\mathbf{B}H^\top + \mathbf{R})^{-1}(\mathbf{y}^o - H\mathbf{x}^b)</span></p>
 <p><span class="math display">\nabla J = \mathbf{B}^{-1}(\mathbf{x}-\mathbf{x}^b) - H^\top\mathbf{R}^{-1}(\mathbf{y}^o - H\mathbf{x})</span></p>
-<p><span class="math inline">&amp;#36;1/P^a = 1/B + \sum_i H_i^2/R_i \quad\text{[scalar, multiple obs]}</span>$</p>
+<p><span class="math display">1/P^a = 1/B + \sum_i H_i^2/R_i \quad\text{[scalar, multiple obs]}</span></p>
 <hr>
 <h2 id="math-refresher" class="anchored">Math Refresher</h2>
 <p><strong>The adjoint operator.</strong> For a linear operator <span class="math inline">H: \mathbb{R}^n \to \mathbb{R}^p</span> (a matrix), the adjoint is its transpose <span class="math inline">H^\top: \mathbb{R}^p \to \mathbb{R}^n</span>. In 4D-Var, the adjoint of the full model <span class="math inline">\mathcal{M}_{0\to N}</span> maps a sensitivity at time <span class="math inline">N</span> (gradient of <span class="math inline">J</span> with respect to the final state) back to time 0 (gradient with respect to the initial state). This is computed by running the model backwards in time, propagating sensitivity rather than state. The computational cost of one adjoint run equals approximately one forward run — the reason 4D-Var is expensive is not that the adjoint is hard to run, but that many forward-adjoint cycles are needed to converge the minimisation.</p>
-<p><strong>Quadratic minimisation.</strong> The 3D-Var cost function <span class="math inline">J(\mathbf{x})</span> is a quadratic form — a bowl-shaped surface in <span class="math inline">n</span>-dimensional space with exactly one minimum. Gradient descent on a quadratic function converges exactly in <span class="math inline">n</span> steps using the conjugate gradient method. In practice, the effective dimensionality is much smaller (the leading eigenvectors of <span class="math inline">\mathbf{B}</span> and <span class="math inline">H^\top\mathbf{R}^{-1}H</span> span only a few hundred to a few thousand directions), so convergence is achieved in 50–100 iterations rather than $10^7$. The structure of <span class="math inline">\mathbf{B}</span> (smooth, large-scale covariances) is what allows such rapid convergence — a poorly conditioned <span class="math inline">\mathbf{B}</span> would require many more iterations.</p>
+<p><strong>Quadratic minimisation.</strong> The 3D-Var cost function <span class="math inline">J(\mathbf{x})</span> is a quadratic form — a bowl-shaped surface in <span class="math inline">n</span>-dimensional space with exactly one minimum. Gradient descent on a quadratic function converges exactly in <span class="math inline">n</span> steps using the conjugate gradient method. In practice, the effective dimensionality is much smaller (the leading eigenvectors of <span class="math inline">\mathbf{B}</span> and <span class="math inline">H^\top\mathbf{R}^{-1}H</span> span only a few hundred to a few thousand directions), so convergence is achieved in 50–100 iterations rather than <span class="math inline">10^7</span>. The structure of <span class="math inline">\mathbf{B}</span> (smooth, large-scale covariances) is what allows such rapid convergence — a poorly conditioned <span class="math inline">\mathbf{B}</span> would require many more iterations.</p>
 
 
 <footer class="wayward-footer">
@@ -347,24 +363,24 @@ for sigma_sat in [0.01, 0.03, 0.05, 0.08, 0.12]:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

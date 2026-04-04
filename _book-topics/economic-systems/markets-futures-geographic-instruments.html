@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-cost-of-carry-model" id="toc-the-cost-of-carry-model">The Cost-of-Carry Model</a></li>
   <li><a href="#contango-when-storage-is-plentiful" id="toc-contango-when-storage-is-plentiful">Contango: When Storage Is Plentiful</a></li>
   <li><a href="#backwardation-when-scarcity-bites" id="toc-backwardation-when-scarcity-bites">Backwardation: When Scarcity Bites</a></li>
@@ -119,6 +123,15 @@ window.Quarto = {
   <li><a href="#references" id="toc-references">References</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That futures prices are linked to spot prices through storage, financing, and delivery obligations, and that delivery locations matter.</p>
+<p><strong>You will learn</strong><br>
+How the cost-of-carry model generates contango and backwardation, why negative oil prices were possible in April 2020, and how basis differentials encode infrastructure constraints.</p>
+<p><strong>Why this matters</strong><br>
+Forward curves are not just financial charts. They are geographic signals about storage scarcity, transport bottlenecks, and the timing of supply stress.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The single equation that futures price equals spot price plus carrying cost minus convenience yield.</p>
 <p>A futures contract is, on its surface, a straightforward instrument: an agreement to buy or sell a specific quantity of a commodity at a specific price on a specific future date. But the price of that contract encodes something far richer than a simple forecast of where spot prices will be. It encodes the cost of holding inventory, the value of having physical supply on hand during uncertain times, the geographic specificity of delivery obligations, and the market’s collective assessment of how supply and demand will balance at a specific location on a specific date.</p>
 <p>This model unpacks that structure. We start with the cost-of-carry model — the theoretical foundation — then work through contango, backwardation, and convenience yield as economic phenomena, before arriving at the geographic application: how basis differentials between delivery points encode spatial information that can be read as an infrastructure signal.</p>
 <h2 id="the-cost-of-carry-model" class="anchored">The Cost-of-Carry Model</h2>
@@ -155,9 +168,68 @@ window.Quarto = {
 <p>When the slope is positive (contango): <span class="math inline">(r + u) &gt; y</span>, storage is plentiful, no urgency. When the slope is negative (backwardation): <span class="math inline">y &gt; (r + u)</span>, physical supply is tight.</p>
 <p>The term structure across all maturities encodes the market’s expectation of how the supply-demand balance evolves over time. A curve that is backwardated at the front but switches to contango at 12 months is saying: “The market is tight now, but we expect it to ease within a year.”</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{&quot;title&quot;: {&quot;text&quot;: &quot;WTI Futures Curve Shape: Three Market States&quot;, &quot;subtext&quot;: &quot;Spot to 24 months forward — contango (2020 surplus), backwardation (2022 post-Ukraine), flat (2023 normalisation)&quot;}, &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;}, &quot;legend&quot;: {&quot;data&quot;: [&quot;Contango (Apr 2020)&quot;, &quot;Backwardation (Jul 2022)&quot;, &quot;Flat (Sep 2023)&quot;], &quot;bottom&quot;: 0}, &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;Spot&quot;,&quot;1M&quot;,&quot;2M&quot;,&quot;3M&quot;,&quot;6M&quot;,&quot;9M&quot;,&quot;12M&quot;,&quot;18M&quot;,&quot;24M&quot;]}, &quot;yAxis&quot;: {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;USD/bbl&quot;, &quot;min&quot;: 0, &quot;max&quot;: 130}, &quot;series&quot;: [{&quot;name&quot;: &quot;Contango (Apr 2020)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;data&quot;: [15, 22, 25, 27, 30, 32, 33, 35, 36], &quot;lineStyle&quot;: {&quot;width&quot;: 2}, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5470c6&quot;}, &quot;markPoint&quot;: {&quot;data&quot;: [{&quot;type&quot;: &quot;min&quot;, &quot;name&quot;: &quot;Spot low&quot;}]}}, {&quot;name&quot;: &quot;Backwardation (Jul 2022)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;data&quot;: [105, 100, 96, 93, 87, 83, 80, 76, 73], &quot;lineStyle&quot;: {&quot;width&quot;: 2}, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#ee6666&quot;}}, {&quot;name&quot;: &quot;Flat (Sep 2023)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true, &quot;data&quot;: [88, 87, 86, 85, 83, 82, 81, 80, 79], &quot;lineStyle&quot;: {&quot;width&quot;: 2}, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#91cc75&quot;}}]}">
-
 </div>
 <p>The three curves tell three different stories about the world. The 2020 contango curve has an enormous slope — storing oil for 24 months at the April 2020 spot price and delivering it into a futures contract was worth $21/bbl, reflecting the extraordinary cost of storage. The 2022 backwardation curve falls steeply — the market in July 2022 was pricing in supply relief over time, as LNG and non-Russian sources ramped up. The 2023 flat curve reflects relative market equilibrium: carrying costs and convenience yields roughly balanced.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Forward Curve Reading
+</div>
+<h3 class="cg-ill__title anchored">
+Curve Shape Reports Whether Storage Or Scarcity Is Winning
+</h3>
+<p class="cg-ill__lede">
+The cost-of-carry equation becomes easier to remember when the two regimes are placed side by side. Storage and financing push futures above spot; convenience yield and prompt scarcity pull spot above futures.
+</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Contango
+</div>
+<p>
+<strong>Condition:</strong> <code>r + u &gt; y</code>
+</p>
+<p>
+Storage is available, inventories are comfortable, and later delivery needs a premium.
+</p>
+<div class="cg-ill__mini-chart">
+<p><span style="height:30%"></span><span style="height:42%"></span><span style="height:54%"></span><span style="height:66%"></span></p>
+</div>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+Backwardation
+</div>
+<p>
+<strong>Condition:</strong> <code>y &gt; r + u</code>
+</p>
+<p>
+Prompt physical supply is scarce, so the market pays more for barrels now than later.
+</p>
+<div class="cg-ill__mini-chart">
+<p><span style="height:68%"></span><span style="height:56%"></span><span style="height:44%"></span><span style="height:32%"></span></p>
+</div>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">
+April 2020
+</div>
+<p>
+<strong>Extreme case:</strong> storage at Cushing became the binding variable.
+</p>
+<p>
+The negative front-month price was a geographic storage price, not a claim that oil had no long-run value.
+</p>
+<div class="cg-ill__mini-chart">
+<p><span style="height:12%"></span><span style="height:34%"></span><span style="height:52%"></span><span style="height:70%"></span></p>
+</div>
+</div>
+</div>
+</div>
+<figcaption>
+Forward curves are physical-market diagnostics. Their slope reports whether financing and storage dominate, or whether immediate access to the commodity is worth more than carrying it forward.
+</figcaption>
+</figure>
 <h2 id="geographic-basis-two-delivery-points-one-forward-curve" class="anchored">Geographic Basis: Two Delivery Points, One Forward Curve</h2>
 <p>The futures market for WTI settles at Cushing. The spot market for AECO gas settles at the Alberta-Saskatchewan border. The futures market for Henry Hub settles in Louisiana. Each is a distinct market with its own forward curve, and the relationship between their curves encodes both spatial information (transport cost between the locations) and temporal information (storage and carrying costs).</p>
 <p><strong>The basis</strong> between two delivery points at the same delivery date is:</p>
@@ -172,7 +244,6 @@ window.Quarto = {
 <p><span class="math display">\text{WCS Price} = \text{WTI Price} - \text{Differential}</span> <span class="math display">\text{WCS Price Risk} = \text{WTI Price Risk} + \text{Differential Risk}</span></p>
 <p>A WTI futures hedge eliminates WTI price risk. It does not touch differential risk. The differential itself must be separately hedged — using WCS-specific derivative instruments that have historically been less liquid and more expensive than WTI futures.</p>
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options="{&quot;title&quot;: {&quot;text&quot;: &quot;WCS-WTI Differential vs Trans Mountain Utilisation 2016–2024&quot;, &quot;subtext&quot;: &quot;Showing that pipeline utilisation rate is the primary driver of differential widening&quot;}, &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;cross&quot;}}, &quot;legend&quot;: {&quot;data&quot;: [&quot;WCS-WTI Differential (USD/bbl)&quot;, &quot;Trans Mountain Utilisation (%)&quot;], &quot;bottom&quot;: 0}, &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;, &quot;data&quot;: [&quot;Q1 2016&quot;,&quot;Q3 2016&quot;,&quot;Q1 2017&quot;,&quot;Q3 2017&quot;,&quot;Q1 2018&quot;,&quot;Q3 2018&quot;,&quot;Q4 2018&quot;,&quot;Q1 2019&quot;,&quot;Q3 2019&quot;,&quot;Q1 2020&quot;,&quot;Q3 2020&quot;,&quot;Q1 2021&quot;,&quot;Q3 2021&quot;,&quot;Q1 2022&quot;,&quot;Q3 2022&quot;,&quot;Q1 2023&quot;,&quot;Q3 2023&quot;,&quot;Q1 2024&quot;]}, &quot;yAxis&quot;: [{&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;USD/bbl Differential&quot;, &quot;min&quot;: 0, &quot;max&quot;: 55, &quot;inverse&quot;: false}, {&quot;type&quot;: &quot;value&quot;, &quot;name&quot;: &quot;Pipeline Utilisation (%)&quot;, &quot;min&quot;: 50, &quot;max&quot;: 105, &quot;position&quot;: &quot;right&quot;}], &quot;series&quot;: [{&quot;name&quot;: &quot;WCS-WTI Differential (USD/bbl)&quot;, &quot;type&quot;: &quot;bar&quot;, &quot;data&quot;: [18, 15, 14, 16, 22, 35, 49, 20, 15, 18, 12, 14, 16, 14, 13, 15, 17, 14], &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#ee6666&quot;, &quot;opacity&quot;: 0.8}}, {&quot;name&quot;: &quot;Trans Mountain Utilisation (%)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;yAxisIndex&quot;: 1, &quot;smooth&quot;: true, &quot;data&quot;: [88, 85, 90, 92, 95, 98, 100, 92, 87, 82, 75, 80, 85, 88, 86, 84, 86, 78], &quot;lineStyle&quot;: {&quot;width&quot;: 2}, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#5470c6&quot;}}]}">
-
 </div>
 <p>The relationship is visible: when Trans Mountain operates near 100% utilisation, the WCS-WTI differential widens significantly — because there is no capacity margin to absorb additional production, and the market cannot arbitrage the differential through additional pipeline shipments. The Q4 2018 spike to nearly $50/bbl occurred when Trans Mountain was simultaneously at capacity and regulatory uncertainty about the expansion project was at its peak, eliminating the expectation of new capacity.</p>
 <h2 id="the-forward-curve-as-an-infrastructure-signal" class="anchored">The Forward Curve as an Infrastructure Signal</h2>
@@ -203,24 +274,24 @@ window.Quarto = {
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

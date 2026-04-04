@@ -62,6 +62,7 @@ A glacial lake grows behind a moraine dam—when will it fail, and how big will 
 Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 
 **Triggering mechanisms:**
+
 - Ice dam flotation (buoyancy exceeds ice strength)
 - Moraine dam overtopping (lake level rises)
 - Earthquake (dam failure)
@@ -69,12 +70,14 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 - Piping through dam (internal erosion)
 
 **Characteristics:**
+
 - Peak discharge: 100-100,000 m³/s (compared to normal flow 1-10 m³/s)
 - Duration: Hours to days
 - Sediment content: 30-70% by volume (hyperconcentrated flow)
 - Highly destructive: Infrastructure, agriculture, lives
 
 **Recent examples:**
+
 - 2023: South Lhonak Lake, Sikkim (India) - 40+ deaths
 - 2021: Chamoli disaster, India - 200+ deaths (rock avalanche → lake)
 - 2013: Kedarnath, India - 5,000+ deaths
@@ -87,18 +90,21 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 ### Lake Types
 
 **1. Ice-dammed lakes:**
+
 - Glacier blocks valley (tributary or main valley)
 - Lake impounded against ice
 - Drainage often subglacial (tunnel beneath ice)
 - **Mechanism:** Ice dam floats when water pressure exceeds ice overburden
 
 **2. Moraine-dammed lakes:**
+
 - Terminal or lateral moraine forms natural dam
 - Lake behind unconsolidated sediment/rock debris
 - Drainage by overtopping or piping
 - **Mechanism:** Dam overtops or erodes internally
 
 **3. Bedrock-dammed lakes:**
+
 - Stable, rarely fail
 - GLOF only if overtopped by displacement wave
 
@@ -107,39 +113,48 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 **Ice dam:**
 
 **Phase 1 - Tunnel initiation:**
+
 - Water pressure forces open cracks in ice
 - Small tunnel grows by melt (frictional heat)
 
 **Phase 2 - Tunnel enlargement:**
+
 - Positive feedback: larger tunnel → more flow → more melt → larger tunnel
 - Exponential growth
 
 **Phase 3 - Peak discharge:**
+
 - Tunnel diameter = 10s of meters
 - Discharge peaks when lake lowered to tunnel level
 
 **Phase 4 - Recession:**
+
 - Lake empties, discharge declines
 - Ice dam may re-seal for next cycle
 
 **Moraine dam:**
 
 **Phase 1 - Overtopping:**
+
 - Water flows over dam crest
 - Erosion begins
 
 **Phase 2 - Breach initiation:**
+
 - Channel incises into dam
 - Headward erosion
 
 **Phase 3 - Breach widening:**
+
 - Rapid enlargement
 - Dam material highly erodible
 
 **Phase 4 - Peak discharge:**
+
 - Full breach, maximum outflow
 
 **Phase 5 - Stabilization:**
+
 - Bedrock or resistant layer reached
 - Discharge declines as lake drains
 
@@ -148,15 +163,18 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 **Wave travels downstream:**
 
 **Attenuation:**
+
 - Peak discharge decreases with distance
 - Flood duration increases (spreading)
 
 **Channel effects:**
+
 - Narrow valleys: Higher velocity, less attenuation
 - Wide valleys: Lower velocity, more spreading
 - Constrictions: Backwater, temporary storage
 
 **Sediment bulking:**
+
 - GLOF erodes channel
 - Sediment concentration increases
 - Transforms to debris flow in steep terrain
@@ -204,6 +222,37 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 </div>
 </div>
 <figcaption>A GLOF is a cascade rather than a single event: long-term lake growth creates stored potential, and a short trigger-breach-release sequence converts it into a fast downstream flood hazard.</figcaption>
+</figure>
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Monitoring Workflow</div>
+<h3 class="cg-ill__title">GLOF Risk Assessment Combines Lake Growth, Dam Type, And Downstream Exposure</h3>
+<p class="cg-ill__lede">A second useful visual is the assessment sequence. Analysts are not only asking whether a lake exists; they are combining remote sensing, dam characteristics, trigger likelihood, and valley exposure into one hazard judgement.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">1</div>
+<h4>Map the lake</h4>
+<p>Track lake area, growth rate, and upstream glacier retreat from imagery and DEMs.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2</div>
+<h4>Classify the dam</h4>
+<p>Identify whether the barrier is moraine, ice, or bedrock and estimate its breach sensitivity.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">3</div>
+<h4>Model the release</h4>
+<p>Estimate breach growth, peak discharge, and downstream attenuation.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">4</div>
+<h4>Overlay exposure</h4>
+<p>Locate settlements, bridges, hydropower, and valley-floor infrastructure in the flood path.</p>
+</div>
+</div>
+</div>
+<figcaption>GLOF hazard assessment is a workflow, not a single threshold: the relevant question is how lake growth, dam vulnerability, breach hydraulics, and downstream exposure combine into risk.</figcaption>
 </figure>
 
 ---
@@ -315,6 +364,7 @@ Where $\alpha$ = attenuation coefficient (depends on channel geometry, roughness
 **Problem:** Estimate GLOF peak discharge and travel time.
 
 **Glacial lake:**
+
 - Surface area: 0.5 km² = 500,000 m²
 - Average depth: 50 m
 - Volume: $V = 0.5 \times 10^6 \times 50 = 25 \times 10^6$ m³
@@ -322,6 +372,7 @@ Where $\alpha$ = attenuation coefficient (depends on channel geometry, roughness
 - Water depth at dam: 75 m
 
 **Downstream:**
+
 - Village 15 km downstream
 - Channel slope: 0.05 (5%)
 - Manning's n: 0.045 (boulder bed)
@@ -365,6 +416,7 @@ Assume $\alpha = 0.03$ km⁻¹:
 $$Q_{15\text{km}} = 641 \times e^{-0.03 \times 15} = 641 \times e^{-0.45} = 641 \times 0.64 = 410 \text{ m}^3\text{/s}$$
 
 **Summary:**
+
 - Peak discharge at source: **641 m³/s**
 - Peak discharge at village: **410 m³/s** (36% reduction)
 - Travel time: **10 minutes** (very little warning!)
@@ -607,6 +659,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Increase water depth:** Safety factor drops below 1.0 → dam fails!
 - **Larger lake:** Higher peak discharge (exponential relationship)
 - **Increase distance:** Peak attenuates, delayed arrival
@@ -627,15 +680,18 @@ window.addEventListener('resize', () => chart.resize());
 **Remote sensing monitoring:**
 
 **Satellite optical (Landsat, Sentinel-2):**
+
 - Lake area change (monthly)
 - Ice dam position
 - Freeboard (water to dam crest)
 
 **SAR (Sentinel-1, ALOS-2):**
+
 - All-weather monitoring
 - Dam deformation (InSAR)
 
 **On-site monitoring:**
+
 - Water level sensors
 - Seismometers (ice cracking, dam failure)
 - Discharge gauges downstream
@@ -646,6 +702,7 @@ window.addEventListener('resize', () => chart.resize());
 Lake level rising + dam deformation → evacuate!
 
 **Case study - Tsho Rolpa, Nepal:**
+
 - 1990s: Lake expanded rapidly
 - 2000: Dam lowering project (-3m lake level)
 - Ongoing monitoring
@@ -656,21 +713,25 @@ Lake level rising + dam deformation → evacuate!
 **Engineering solutions:**
 
 **1. Lake lowering:**
+
 - Pump water out
 - Construct outlet channel
 - Reduces volume → reduces potential discharge
 
 **2. Dam reinforcement:**
+
 - Add rock fill
 - Armoring (concrete blocks)
 - Improve drainage
 
 **3. Early warning:**
+
 - Sensor networks
 - Sirens
 - Communication systems
 
 **Cost-benefit:**
+
 - Lake lowering: $1-10 million
 - Lives saved: 100s-1000s
 - Infrastructure protected: $10s-100s millions
@@ -678,15 +739,18 @@ Lake level rising + dam deformation → evacuate!
 ### Climate Change Impacts
 
 **Glacier retreat:**
+
 - More lakes forming (number increased 50% since 1990)
 - Larger lakes (less ice to stabilize)
 - Higher lakes (closer to steep terrain)
 
 **Permafrost thaw:**
+
 - Moraine dams less stable
 - Increased piping potential
 
 **Extreme precipitation:**
+
 - Overtopping events more frequent
 - Displacement waves from landslides
 
@@ -729,6 +793,7 @@ In steep channels (>10% slope), GLOF becomes debris flow:
 **GLOF triggers downstream GLOFs:**
 
 **Example - Chamoli 2021:**
+
 1. Rock avalanche into lake
 2. GLOF released
 3. Eroded valley
@@ -756,6 +821,7 @@ Seasonal melt, rainfall
 **Combine:**
 
 **1. Lake inventory:**
+
 - Satellite mapping of all glacial lakes
 - Size, growth rate, dam type
 

@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -128,6 +132,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That channels adjust their dimensions over time in response to flow and sediment supply.</p>
+<p><strong>You will learn</strong><br>
+How hydraulic geometry power laws work, what regime theory means, and why channel size and meander pattern scale predictably with discharge.</p>
+<p><strong>Why this matters</strong><br>
+River form is one of the clearest examples of a self-organising geomorphic system.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The recurring pattern that width, depth, and velocity each scale as powers of discharge.</p>
 <p>Stand at the bank of any river and you are looking at a self-portrait. The channel’s width, depth, and planform are not accidents of history — they are the outcome of a long conversation between the flow and the boundary it is cutting through. Change the flow and the channel eventually changes its dimensions to match. Change the sediment supply and the channel responds in kind. The river is, in a precise sense, a system in dynamic equilibrium.</p>
 <p>This equilibrium has mathematical content. In 1953, Luna Leopold and Thomas Maddock published their landmark study of hydraulic geometry — the empirical finding that channel dimensions scale as power laws with discharge, with exponents that are remarkably consistent across rivers worldwide. Explaining why those exponents take the values they do is one of the more elegant problems in geomorphology.</p>
 <hr>
@@ -197,7 +210,11 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> Two reaches of the Red Deer River, Alberta — an upstream mountain reach and a downstream plains reach. We want to predict channel dimensions and meander wavelength at each.</p>
-<p><strong>Given:</strong> - Upstream: <span class="math inline">Q_{bf} = 80</span> m³ s⁻¹, <span class="math inline">D_{50} = 45</span> mm (gravel) - Downstream: <span class="math inline">Q_{bf} = 350</span> m³ s⁻¹, <span class="math inline">D_{50} = 0.35</span> mm (sand)</p>
+<p><strong>Given:</strong></p>
+<ul>
+<li>Upstream: <span class="math inline">Q_{bf} = 80</span> m³ s⁻¹, <span class="math inline">D_{50} = 45</span> mm (gravel)</li>
+<li>Downstream: <span class="math inline">Q_{bf} = 350</span> m³ s⁻¹, <span class="math inline">D_{50} = 0.35</span> mm (sand)</li>
+</ul>
 <p><strong>Using Bray (1982) gravel relations for upstream:</strong></p>
 <p><span class="math display">W_{bf} = 3.8 \times 80^{0.50} = 3.8 \times 8.944 = 34.0 \text{ m}</span></p>
 <p><span class="math display">d_{bf} = 0.33 \times 80^{0.37} = 0.33 \times 5.762 = 1.90 \text{ m}</span></p>
@@ -254,23 +271,21 @@ print(f"Downstream (sand, Q=350): W={W_dn:.1f}m  Rh={Rh_dn:.2f}m  S={S_dn:.2e}  
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Bankfull Width vs Discharge — Downstream Hydraulic Geometry&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;Gravel-bed (Bray 1982)&quot;, &quot;Sand-bed (Lacey)&quot;, &quot;Braiding threshold width&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;log&quot;, &quot;name&quot;: &quot;Bankfull Discharge Q (m³ s⁻¹)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 35,
-    &quot;data&quot;: [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]},
-  &quot;yAxis&quot;: {&quot;type&quot;: &quot;log&quot;, &quot;name&quot;: &quot;Width W (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;Gravel-bed (Bray 1982)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
-     &quot;data&quot;: [3.8, 8.5, 12.0, 26.9, 38.0, 85.0, 120.2, 268.7, 380.0]},
-    {&quot;name&quot;: &quot;Sand-bed (Lacey)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
-     &quot;data&quot;: [4.75, 10.6, 15.0, 33.6, 47.5, 106.2, 150.2, 335.7, 475.0]},
-    {&quot;name&quot;: &quot;Braiding threshold width&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false, &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;},
-     &quot;data&quot;: [null, null, null, null, null, null, null, null, null]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Bankfull Width vs Discharge — Downstream Hydraulic Geometry&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;Gravel-bed (Bray 1982)&quot;, &quot;Sand-bed (Lacey)&quot;, &quot;Braiding threshold width&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;log&quot;, &quot;name&quot;: &quot;Bankfull Discharge Q (m³ s⁻¹)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 35,
+&quot;data&quot;: [1, 5, 10, 50, 100, 500, 1000, 5000, 10000]},
+&quot;yAxis&quot;: {&quot;type&quot;: &quot;log&quot;, &quot;name&quot;: &quot;Width W (m)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;Gravel-bed (Bray 1982)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
+&quot;data&quot;: [3.8, 8.5, 12.0, 26.9, 38.0, 85.0, 120.2, 268.7, 380.0]},
+{&quot;name&quot;: &quot;Sand-bed (Lacey)&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false,
+&quot;data&quot;: [4.75, 10.6, 15.0, 33.6, 47.5, 106.2, 150.2, 335.7, 475.0]},
+{&quot;name&quot;: &quot;Braiding threshold width&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: false, &quot;lineStyle&quot;: {&quot;type&quot;: &quot;dashed&quot;},
+&quot;data&quot;: [null, null, null, null, null, null, null, null, null]}
+]
+}"></div>
 <p>On a log-log plot, both power laws plot as straight lines — the signature of a power-law relationship. The sand-bed curve plots above the gravel-bed curve at every discharge, reflecting the fact that cohesionless sand banks erode more easily and produce wider, shallower channels than gravel banks.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -307,24 +322,24 @@ print(f"Downstream (sand, Q=350): W={W_dn:.1f}m  Rh={Rh_dn:.2f}m  S={S_dn:.2e}  
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

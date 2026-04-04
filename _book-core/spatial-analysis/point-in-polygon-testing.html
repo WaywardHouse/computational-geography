@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -147,18 +151,36 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+What coordinates are, and that polygons represent bounded areas made from connected edges.</p>
+<p><strong>You will learn</strong><br>
+How point-in-polygon testing works, why ray casting solves the problem, and which edge cases make seemingly simple spatial queries harder than they first appear.</p>
+<p><strong>Why this matters</strong><br>
+This operation sits underneath delivery zones, electoral districts, habitat boundaries, parcel assignment, and many spatial joins. It is one of the core membership tests in vector GIS.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The parity idea: each time a ray crosses a boundary, you switch between outside and inside.</p>
 <p>Every time you ask a mapping application whether a location is within a delivery zone, a ward boundary, or a protected area, it executes a point-in-polygon test. Every time a GPS track is intersected with a land-use map to compute time spent in each zone, point-in-polygon tests run for every logged coordinate. The operation is so fundamental to GIS that it is easy to take for granted — but the algorithm that makes it work is not obvious, and getting the edge cases right (what happens when the point is exactly on the boundary?) requires careful thinking.</p>
 <p>The ray casting algorithm provides the answer. Cast an infinite ray in any direction from the test point. Count how many times the ray crosses the polygon boundary. If the count is odd, the point is inside; if even, it is outside. The intuition: starting inside the polygon, each boundary crossing takes you outside and then back in, so an odd number of crossings means you are still inside. This topological argument — parity of crossing number — works for any polygon, however convoluted, as long as it does not self-intersect. It is one of the most elegant results in computational geometry, and implementing it robustly requires confronting exactly the kinds of degenerate cases — the ray passing through a vertex, the point on an edge — that separate working code from correct code.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>Is this GPS coordinate inside the national park boundary?</p>
 <p>This fundamental spatial query appears everywhere: - <strong>Wildlife ecology:</strong> Is this animal location inside its territory? - <strong>Demographics:</strong> Which census tract contains this address? - <strong>Politics:</strong> Which congressional district is this voter in? - <strong>Emergency services:</strong> Which fire station’s coverage area is closest? - <strong>Retail:</strong> Is this customer inside our delivery zone?</p>
 <p>The mathematical question: Given a point <span class="math inline">(x, y)</span> and a polygon defined by vertices, is the point inside the polygon?</p>
-<p><strong>Complications:</strong> - Polygons can be concave (not just rectangles) - Polygons can have holes - Edge cases: What if the point is exactly on the boundary?</p>
+<p><strong>Complications:</strong></p>
+<ul>
+<li>Polygons can be concave (not just rectangles)</li>
+<li>Polygons can have holes</li>
+<li>Edge cases: What if the point is exactly on the boundary?</li>
+</ul>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
 <h3 id="intuitive-approach" class="anchored">Intuitive Approach</h3>
 <p><strong>Method:</strong> Cast a ray from the point to infinity. Count how many polygon edges the ray crosses.</p>
-<p><strong>Rule:</strong> - <strong>Odd number of crossings</strong> → Point is <strong>inside</strong> - <strong>Even number of crossings</strong> → Point is <strong>outside</strong></p>
+<p><strong>Rule:</strong></p>
+<ul>
+<li><strong>Odd number of crossings</strong> → Point is <strong>inside</strong></li>
+<li><strong>Even number of crossings</strong> → Point is <strong>outside</strong></li>
+</ul>
 <p><strong>Why it works:</strong></p>
 <p>Imagine walking from far outside the polygon toward the point: - Each time you cross a polygon edge, you alternate between inside and outside - If you cross an odd number of edges, you end up inside - If you cross an even number, you end up outside</p>
 <p><strong>Example:</strong></p>
@@ -176,6 +198,79 @@ Point C: Ray crosses 3 edges → inside
 <p><strong>Simplification:</strong> Cast ray horizontally to the right (positive x-direction).</p>
 <p><strong>Why horizontal?</strong> - Reduces 2D problem to 1D (only need to check y-coordinates) - Easier to implement - Standard convention</p>
 <p><strong>The test becomes:</strong> Does the horizontal ray from <span class="math inline">(x, y)</span> cross each edge?</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Ray Casting
+</div>
+<h3 class="cg-ill__title anchored">
+Count Boundary Crossings, Then Check Parity
+</h3>
+<p class="cg-ill__lede">
+A point is inside when the ray crosses the boundary an odd number of times. Each crossing flips you from outside to inside, or back again.
+</p>
+<div class="cg-ill__pip">
+<div class="cg-ill__plane">
+<div class="cg-ill__polygon">
+
+</div>
+<div class="cg-ill__coord-point" style="left:18%; top:48%;">
+
+</div>
+<div class="cg-ill__ray" style="top:51%;">
+
+</div>
+<div class="cg-ill__crossing" style="left:30%; top:48%;">
+
+</div>
+<div class="cg-ill__crossing" style="left:62%; top:48%;">
+
+</div>
+<div class="cg-ill__geometry-note" style="left:7%; top:40%;">
+test point
+</div>
+<div class="cg-ill__geometry-note" style="left:24%; top:58%;">
+crossing 1
+</div>
+<div class="cg-ill__geometry-note" style="left:56%; top:58%;">
+crossing 2
+</div>
+</div>
+<div class="cg-ill__legend">
+<div class="cg-ill__legend-item">
+<div class="cg-ill__legend-swatch cg-ill__legend-swatch--blocked">
+
+</div>
+<div>
+Cast a ray to the right from the test point.
+</div>
+</div>
+<div class="cg-ill__legend-item">
+<div class="cg-ill__legend-swatch cg-ill__legend-swatch--clear">
+
+</div>
+<div>
+Every boundary crossing flips your inside/outside state.
+</div>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Parity rule
+</div>
+<h4 class="anchored">
+Odd = Inside
+</h4>
+<p>
+1 crossing, 3 crossings, 5 crossings: inside. 0, 2, 4: outside.
+</p>
+</div>
+</div>
+</div>
+</div>
+<figcaption>
+The ray-casting test turns a geometric membership question into a simple parity count.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="edge-crossing-test" class="anchored">Edge Crossing Test</h3>
@@ -208,31 +303,50 @@ Point C: Ray crosses 3 edges → inside
     
     return (count % 2 == 1)  # Odd = inside, Even = outside</code></pre>
 <h3 id="edge-cases" class="anchored">Edge Cases</h3>
-<p><strong>Point exactly on edge:</strong> - Mathematically: On boundary, could define as inside or outside - Convention: Usually treated as <strong>inside</strong> for GIS applications - Implementation: Check distance to edge separately if exactness matters</p>
-<p><strong>Point on vertex:</strong> - Same as edge case - Usually treated as inside</p>
-<p><strong>Horizontal edges:</strong> - Edge with <span class="math inline">y_1 = y_2</span> (horizontal edge) - Our algorithm skips these (both inequalities fail) - Correct behavior: Horizontal edges don’t affect inside/outside status</p>
-<p><strong>Degenerate polygons:</strong> - Self-intersecting edges - Zero-area polygons - Require preprocessing or rejection</p>
+<p><strong>Point exactly on edge:</strong></p>
+<ul>
+<li>Mathematically: On boundary, could define as inside or outside</li>
+<li>Convention: Usually treated as <strong>inside</strong> for GIS applications</li>
+<li>Implementation: Check distance to edge separately if exactness matters</li>
+</ul>
+<p><strong>Point on vertex:</strong></p>
+<ul>
+<li>Same as edge case</li>
+<li>Usually treated as inside</li>
+</ul>
+<p><strong>Horizontal edges:</strong></p>
+<ul>
+<li>Edge with <span class="math inline">y_1 = y_2</span> (horizontal edge)</li>
+<li>Our algorithm skips these (both inequalities fail)</li>
+<li>Correct behavior: Horizontal edges don’t affect inside/outside status</li>
+</ul>
+<p><strong>Degenerate polygons:</strong></p>
+<ul>
+<li>Self-intersecting edges</li>
+<li>Zero-area polygons</li>
+<li>Require preprocessing or rejection</li>
+</ul>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Problem:</strong> Is point <span class="math inline">P = (3, 3)</span> inside the quadrilateral with vertices: - <span class="math inline">A = (1, 1)</span> - <span class="math inline">B = (5, 2)</span> - <span class="math inline">C = (4, 5)</span> - <span class="math inline">D = (2, 4)</span></p>
 <p>Polygon edges: <span class="math inline">A \to B \to C \to D \to A</span></p>
 <h3 id="solution" class="anchored">Solution</h3>
 <p><strong>Edge 1: <span class="math inline">A(1,1) \to B(5,2)</span></strong></p>
-<p>Y-check: Is $1 &lt; 2$? <strong>No</strong> (3 is not less than 2)<br>
+<p>Y-check: Is <span class="math inline">1 \leq 3 &lt; 2</span>? <strong>No</strong> (3 is not less than 2)<br>
 Skip this edge.</p>
 <p><strong>Edge 2: <span class="math inline">B(5,2) \to C(4,5)</span></strong></p>
-<p>Y-check: Is $2 &lt; 5$? <strong>Yes</strong></p>
+<p>Y-check: Is <span class="math inline">2 \leq 3 &lt; 5</span>? <strong>Yes</strong></p>
 <p>X-intersection:</p>
 <p><span class="math display">x = 5 + \frac{(3-2)(4-5)}{5-2} = 5 + \frac{1 \times (-1)}{3} = 5 - 0.33 = 4.67</span></p>
-<p>Is $4.67 &gt; 3$? <strong>Yes</strong> → Count = 1</p>
+<p>Is <span class="math inline">4.67 &gt; 3</span>? <strong>Yes</strong> → Count = 1</p>
 <p><strong>Edge 3: <span class="math inline">C(4,5) \to D(2,4)</span></strong></p>
-<p>Y-check: Is $4 &lt; 5$? <strong>No</strong> (3 is not ≥ 4)<br>
+<p>Y-check: Is <span class="math inline">4 \leq 3 &lt; 5</span>? <strong>No</strong> (3 is not ≥ 4)<br>
 Skip this edge.</p>
 <p><strong>Edge 4: <span class="math inline">D(2,4) \to A(1,1)</span></strong></p>
-<p>Y-check: Is $1 &lt; 4$? <strong>Yes</strong></p>
+<p>Y-check: Is <span class="math inline">1 \leq 3 &lt; 4</span>? <strong>Yes</strong></p>
 <p>X-intersection:</p>
 <p><span class="math display">x = 2 + \frac{(3-4)(1-2)}{1-4} = 2 + \frac{(-1)(-1)}{-3} = 2 + \frac{1}{-3} = 2 - 0.33 = 1.67</span></p>
-<p>Is $1.67 &gt; 3$? <strong>No</strong> (intersection is to the left)<br>
+<p>Is <span class="math inline">1.67 &gt; 3</span>? <strong>No</strong> (intersection is to the left)<br>
 Don’t count.</p>
 <p><strong>Final count: 1 (odd) → Point is INSIDE</strong></p>
 <hr>
@@ -243,11 +357,11 @@ Don’t count.</p>
 <label>
 Test shape:
 <select id="shape-select">
-  <option value="square">Square</option>
-  <option value="triangle">Triangle</option>
-  <option value="concave" selected="">Concave Polygon</option>
-  <option value="star">Star (Concave)</option>
-  <option value="complex">Complex Shape</option>
+<option value="square">Square</option>
+<option value="triangle">Triangle</option>
+<option value="concave" selected="">Concave Polygon</option>
+<option value="star">Star (Concave)</option>
+<option value="complex">Complex Shape</option>
 </select>
 </label>
 <label>
@@ -316,15 +430,15 @@ const v2 = polygon[(i + 1) % polygon.length];
       
 // Check if edge straddles horizontal ray
 if ((v1.y <= point.y && point.y < v2.y) ||
-    (v2.y <= point.y && point.y < v1.y)) {
+(v2.y <= point.y && point.y < v1.y)) {
         
-  // Calculate x-coordinate of intersection
-  const x_intersect = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
+// Calculate x-coordinate of intersection
+const x_intersect = v1.x + (point.y - v1.y) * (v2.x - v1.x) / (v2.y - v1.y);
         
-  if (x_intersect > point.x) {
-    count++;
-    intersections.push({x: x_intersect, y: point.y});
-  }
+if (x_intersect > point.x) {
+count++;
+intersections.push({x: x_intersect, y: point.y});
+}
 }
 }
     
@@ -375,19 +489,19 @@ ctx.setLineDash([]);
 if (showIntersections) {
 ctx.fillStyle = '#F39C12';
 for (let inter of result.intersections) {
-  ctx.beginPath();
-  ctx.arc(inter.x, inter.y, 6, 0, 2 * Math.PI);
-  ctx.fill();
+ctx.beginPath();
+ctx.arc(inter.x, inter.y, 6, 0, 2 * Math.PI);
+ctx.fill();
         
-  // Draw X mark
-  ctx.strokeStyle = '#FFF';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(inter.x - 4, inter.y - 4);
-  ctx.lineTo(inter.x + 4, inter.y + 4);
-  ctx.moveTo(inter.x + 4, inter.y - 4);
-  ctx.lineTo(inter.x - 4, inter.y + 4);
-  ctx.stroke();
+// Draw X mark
+ctx.strokeStyle = '#FFF';
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(inter.x - 4, inter.y - 4);
+ctx.lineTo(inter.x + 4, inter.y + 4);
+ctx.moveTo(inter.x + 4, inter.y - 4);
+ctx.lineTo(inter.x - 4, inter.y + 4);
+ctx.stroke();
 }
 }
     
@@ -415,12 +529,12 @@ const result = pointInPolygon(testPoint, polygon);
 drawTestPoint(testPoint, result);
       
 document.getElementById('point-coords').textContent = 
-  `(${testPoint.x}, ${testPoint.y})`;
+`(${testPoint.x}, ${testPoint.y})`;
 document.getElementById('crossing-count').textContent = result.crossings;
 document.getElementById('pip-result').textContent = 
-  result.inside ? 'INSIDE' : 'OUTSIDE';
+result.inside ? 'INSIDE' : 'OUTSIDE';
 document.getElementById('pip-result').style.color = 
-  result.inside ? '#27AE60' : '#E74C3C';
+result.inside ? '#27AE60' : '#E74C3C';
 document.getElementById('pip-result').style.fontWeight = 'bold';
 }
 }
@@ -456,7 +570,15 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Click inside the polygon:</strong> Ray crosses odd number of edges → Green point (INSIDE) - <strong>Click outside:</strong> Ray crosses even number (including 0) → Red point (OUTSIDE) - <strong>Star shape:</strong> Tests concave polygon handling - <strong>Complex shape:</strong> Shows algorithm works for any simple polygon - <strong>Count crossings:</strong> Orange X marks show where ray intersects edges - Notice: Algorithm works regardless of polygon complexity</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Click inside the polygon:</strong> Ray crosses odd number of edges → Green point (INSIDE)</li>
+<li><strong>Click outside:</strong> Ray crosses even number (including 0) → Red point (OUTSIDE)</li>
+<li><strong>Star shape:</strong> Tests concave polygon handling</li>
+<li><strong>Complex shape:</strong> Shows algorithm works for any simple polygon</li>
+<li><strong>Count crossings:</strong> Orange X marks show where ray intersects edges</li>
+<li>Notice: Algorithm works regardless of polygon complexity</li>
+</ul>
 <p><strong>Key insight:</strong> The parity (odd/even) of crossings determines inside/outside, making the test robust for any polygon shape.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -534,8 +656,16 @@ return (count % 2 == 1)</code></pre>
 <p><strong>Typical behavior:</strong> Uses <strong>winding number</strong> (how many times polygon winds around point).</p>
 <p><strong>Our algorithm:</strong> Treats each crossing independently (may not match visual intuition for complex self-intersections).</p>
 <h3 id="degenerate-cases" class="anchored">Degenerate Cases</h3>
-<p><strong>Zero-area polygons:</strong> - All vertices collinear → no interior - Treat all points as outside</p>
-<p><strong>Duplicate vertices:</strong> - Clean up polygon beforehand - Remove consecutive duplicate points</p>
+<p><strong>Zero-area polygons:</strong></p>
+<ul>
+<li>All vertices collinear → no interior</li>
+<li>Treat all points as outside</li>
+</ul>
+<p><strong>Duplicate vertices:</strong></p>
+<ul>
+<li>Clean up polygon beforehand</li>
+<li>Remove consecutive duplicate points</li>
+</ul>
 <p><strong>Nearly-horizontal edges:</strong></p>
 <p>If edge has <span class="math inline">y_1 \approx y_2</span>:</p>
 <p><span class="math display">\frac{(x_2 - x_1)}{(y_2 - y_1)} \to \text{very large or undefined}</span></p>
@@ -556,8 +686,16 @@ for each edge (v1, v2):
     winding_number += angle_difference(angle1, angle2)
 
 return (winding_number != 0)</code></pre>
-<p><strong>Advantages:</strong> - Handles self-intersecting polygons better - More geometrically meaningful</p>
-<p><strong>Disadvantages:</strong> - Slower (requires trigonometric functions) - More complex implementation</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Handles self-intersecting polygons better</li>
+<li>More geometrically meaningful</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Slower (requires trigonometric functions)</li>
+<li>More complex implementation</li>
+</ul>
 <p><strong>Ray casting is standard</strong> for simple polygons (faster, simpler).</p>
 <hr>
 <h2 id="math-refresher-line-intersection" class="anchored">9. Math Refresher: Line Intersection</h2>
@@ -575,7 +713,7 @@ return (winding_number != 0)</code></pre>
 <h3 id="why-use-instead-of-leq" class="anchored">Why Use <span class="math inline">&lt;</span> Instead of <span class="math inline">\leq</span>?</h3>
 <p><strong>Edge from <span class="math inline">(0, 0)</span> to <span class="math inline">(0, 10)</span>:</strong></p>
 <p>Two edges meet at <span class="math inline">(0, 10)</span>.</p>
-<p>If we use <span class="math inline">\leq</span> for both endpoints: - First edge: $0 y_p $ → counts crossing at <span class="math inline">y_p = 10</span> - Second edge: $10 y_p $ → counts crossing at <span class="math inline">y_p = 10</span></p>
+<p>If we use <span class="math inline">\leq</span> for both endpoints: - First edge: <span class="math inline">0 \leq y_p \leq 10</span> → counts crossing at <span class="math inline">y_p = 10</span> - Second edge: <span class="math inline">10 \leq y_p \leq 20</span> → counts crossing at <span class="math inline">y_p = 10</span></p>
 <p><strong>Double counting!</strong> Same vertex counted twice.</p>
 <p><strong>Solution:</strong> Use <span class="math inline">y_1 \leq y_p &lt; y_2</span> (include lower, exclude upper).</p>
 <p><strong>Result:</strong> Shared vertices counted exactly once.</p>
@@ -604,24 +742,24 @@ return (winding_number != 0)</code></pre>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

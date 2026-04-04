@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -147,18 +151,41 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That a satellite follows an orbit in space while Earth rotates beneath it.</p>
+<p><strong>You will learn</strong><br>
+How orbital position becomes latitude and longitude on a rotating Earth, why ground tracks shift westward, and how inclination controls what latitudes a satellite can reach.</p>
+<p><strong>Why this matters</strong><br>
+Repeat coverage, revisit time, and map interpretation all depend on understanding how an orbit projects onto the surface.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The main idea that the orbit stays simple in space, but the surface path changes because Earth is rotating underneath it.</p>
 <p>Landsat 8, launched in February 2013, orbits at 705 km altitude in a near-polar, sun-synchronous orbit with a period of 98.9 minutes. In 16 days, its 185-kilometre-wide sensor swath covers every point on Earth’s land surface. The coverage pattern is not random: each successive pass is shifted 2,752 km west of the previous one at the equator, and after exactly 233 orbits the ground track repeats. This precise dance between orbital mechanics and Earth’s rotation is what makes systematic, repeatable Earth observation possible — and what makes it possible to task the satellite to be over a specific location at a specific time.</p>
 <p>A satellite orbits in a plane fixed relative to the stars. Earth rotates beneath it. The ground track — the satellite’s path projected onto the surface — therefore shifts westward with each orbit, tracing a sinusoidal curve on a map. Predicting where any satellite will be at any moment is a coordinate transformation problem: convert from the orbital frame (position along the orbit, inclination, longitude of the ascending node) to Earth’s rotating frame (latitude, longitude). This model works through that transformation step by step, explains why ground tracks take their characteristic sinusoidal shape on a Mercator projection, and derives the repeat period from the relationship between orbital period and Earth’s rotation rate.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>Where on Earth is a satellite at any given time?</p>
 <p>A satellite orbits in a fixed plane through space. But Earth rotates beneath it, so the <strong>ground track</strong> — the point directly below the satellite — traces a path across the surface.</p>
-<p><strong>Key observations:</strong> - The satellite’s orbital plane is fixed (relative to the stars) - Earth rotates eastward at 15.04°/hour - Each successive orbit crosses the equator farther <strong>west</strong> than the previous one</p>
+<p><strong>Key observations:</strong></p>
+<ul>
+<li>The satellite’s orbital plane is fixed (relative to the stars)</li>
+<li>Earth rotates eastward at 15.04°/hour</li>
+<li>Each successive orbit crosses the equator farther <strong>west</strong> than the previous one</li>
+</ul>
 <p>The mathematical question: Given a satellite’s orbital parameters and the current time, where is the sub-satellite point on Earth’s surface?</p>
 <hr>
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
 <h3 id="orbital-plane-vs.-rotating-earth" class="anchored">Orbital Plane vs.&nbsp;Rotating Earth</h3>
-<p><strong>In an inertial (non-rotating) frame:</strong> - The satellite orbits in a fixed plane - The orbital plane is defined by its <strong>inclination</strong> <span class="math inline">i</span> (angle relative to the equator)</p>
-<p><strong>In Earth’s rotating frame:</strong> - The satellite appears to trace a sinusoidal path across the surface - The maximum latitude reached is ±<span class="math inline">i</span> (the inclination) - The ground track shifts westward by <span class="math inline">\Delta\lambda</span> degrees per orbit</p>
+<p><strong>In an inertial (non-rotating) frame:</strong></p>
+<ul>
+<li>The satellite orbits in a fixed plane</li>
+<li>The orbital plane is defined by its <strong>inclination</strong> <span class="math inline">i</span> (angle relative to the equator)</li>
+</ul>
+<p><strong>In Earth’s rotating frame:</strong></p>
+<ul>
+<li>The satellite appears to trace a sinusoidal path across the surface</li>
+<li>The maximum latitude reached is ±<span class="math inline">i</span> (the inclination)</li>
+<li>The ground track shifts westward by <span class="math inline">\Delta\lambda</span> degrees per orbit</li>
+</ul>
 <h3 id="westward-shift-per-orbit" class="anchored">Westward Shift Per Orbit</h3>
 <p>During one orbital period <span class="math inline">T</span>, Earth rotates through angle:</p>
 <p><span class="math display">\Delta\lambda = 360° \times \frac{T}{T_{\text{Earth}}}</span></p>
@@ -446,7 +473,14 @@ updateChart();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>ISS preset:</strong> 51.6° inclination means it reaches ±51.6° latitude (no polar coverage) - <strong>Polar preset:</strong> 90° inclination gives global coverage, passes over both poles - <strong>SSO preset:</strong> 98° inclination (retrograde) — ground track repeats after ~14 orbits - Increase number of orbits: See the westward shift accumulate - Notice: Lower inclinations create tighter sinusoidal patterns</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>ISS preset:</strong> 51.6° inclination means it reaches ±51.6° latitude (no polar coverage)</li>
+<li><strong>Polar preset:</strong> 90° inclination gives global coverage, passes over both poles</li>
+<li><strong>SSO preset:</strong> 98° inclination (retrograde) — ground track repeats after ~14 orbits</li>
+<li>Increase number of orbits: See the westward shift accumulate</li>
+<li>Notice: Lower inclinations create tighter sinusoidal patterns</li>
+</ul>
 <p><strong>Key insight:</strong> The westward shift per orbit combined with the sinusoidal path creates the characteristic ground track pattern.</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -506,12 +540,18 @@ window.addEventListener('resize', () => chart.resize());
 0 &amp; \cos i &amp; -\sin i \\
 0 &amp; \sin i &amp; \cos i
 \end{pmatrix} \begin{pmatrix} x \\ y \\ z \end{pmatrix}</span></p>
-<p><strong>Ground track calculations combine multiple rotations:</strong> 1. Position in orbital plane 2. Rotate by inclination (tilt the plane) 3. Rotate by longitude of ascending node (orient in space) 4. Rotate by Earth’s rotation (convert to Earth-fixed frame)</p>
+<p><strong>Ground track calculations combine multiple rotations:</strong></p>
+<ol type="1">
+<li>Position in orbital plane</li>
+<li>Rotate by inclination (tilt the plane)</li>
+<li>Rotate by longitude of ascending node (orient in space)</li>
+<li>Rotate by Earth’s rotation (convert to Earth-fixed frame)</li>
+</ol>
 <hr>
 <h2 id="summary" class="anchored">Summary</h2>
 <ul>
 <li><strong>Ground track:</strong> Path traced by the sub-satellite point on Earth’s surface</li>
-<li><strong>Westward shift:</strong> Each orbit crosses the equator ~$360° T/86164$ west of the previous</li>
+<li><strong>Westward shift:</strong> Each orbit crosses the equator by about <span class="math inline">360^\circ \times T/86164</span> west of the previous one</li>
 <li><strong>Inclination</strong> determines maximum latitude reached (±<span class="math inline">i</span>)</li>
 <li><strong>Polar orbits</strong> (<span class="math inline">i = 90°</span>) provide global coverage</li>
 <li><strong>Sun-synchronous orbits</strong> (<span class="math inline">i \approx 98°</span>) maintain constant local solar time</li>
@@ -529,24 +569,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

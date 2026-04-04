@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -154,6 +158,15 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That gravity pulls inward, and that circular motion requires a continuous inward acceleration.</p>
+<p><strong>You will learn</strong><br>
+Why an orbit is a controlled free fall, how orbital speed depends on radius, and how Kepler’s Third Law follows from Newton’s laws.</p>
+<p><strong>Why this matters</strong><br>
+Nearly every satellite-based measurement in computational geography begins with orbital mechanics, even if the final product looks like a simple map.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The core balance that gravity provides the centripetal force needed to keep the satellite moving around Earth.</p>
 <p>On 4 October 1957, the Soviet Union launched Sputnik 1 into an orbit of 227 km × 941 km. The spacecraft completed one revolution in 96.2 minutes. Every number in that sentence follows from two equations: Newton’s law of gravity and the requirement that centripetal acceleration equal gravitational acceleration. Sputnik’s engineers did not need to measure orbital periods experimentally — they calculated them. The mathematics had been published in Newton’s <em>Principia</em> in 1687.</p>
 <p>The essential insight is that an orbit is not a special condition requiring the suspension of physics. It is the natural outcome of falling sideways fast enough. A satellite at 400 km altitude moves at 7.7 km/s. Move slower and gravity wins — the satellite descends. Move faster and it rises. At exactly the right speed, it falls continuously and continuously misses the ground: a perpetual balance between falling and forward motion. From this balance, three things follow directly: the required orbital velocity at any altitude, the orbital period (and thus Kepler’s Third Law, that period squared is proportional to orbital radius cubed), and the altitude at which the orbital period equals Earth’s rotation period — the geostationary orbit used by communications and weather satellites. The derivation is undergraduate algebra; the result governs the placement of every spacecraft ever launched.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
@@ -196,7 +209,7 @@ window.Quarto = {
 <p><span class="math display">v = \sqrt{\frac{GM}{r}}</span></p>
 <p><strong>Key result:</strong> Orbital velocity depends only on Earth’s mass and the orbital radius — <strong>not</strong> on the satellite’s mass.</p>
 <h3 id="orbital-period" class="anchored">Orbital Period</h3>
-<p>The satellite travels a circular path of circumference $2r$ at velocity <span class="math inline">v</span>.</p>
+<p>The satellite travels a circular path of circumference <span class="math inline">2\pi r</span> at velocity <span class="math inline">v</span>.</p>
 <p><strong>Period</strong> (time for one orbit):</p>
 <p><span class="math display">T = \frac{2\pi r}{v}</span></p>
 <p>Substitute <span class="math inline">v = \sqrt{GM/r}</span>:</p>
@@ -417,9 +430,9 @@ data: [[orbit.r, 0]],
 symbolSize: 12,
 itemStyle: { color: '#F0177A' },
 label: {
-  show: true,
-  formatter: `${altitude} km`,
-  position: 'right'
+show: true,
+formatter: `${altitude} km`,
+position: 'right'
 }
 }
 ]
@@ -460,14 +473,26 @@ updateDisplay();
 window.addEventListener('resize', () => chart.resize());
 })();
 </script>
-<p><strong>Try this:</strong> - Slide to LEO altitudes (200–800 km): High velocity, short periods, many orbits/day - Click “GEO”: The magic altitude where period = 24 hours - Notice: Velocity <strong>decreases</strong> with altitude (gravity weakens faster than radius increases) - The dashed gray circle shows GEO for reference</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li>Slide to LEO altitudes (200–800 km): High velocity, short periods, many orbits/day</li>
+<li>Click “GEO”: The magic altitude where period = 24 hours</li>
+<li>Notice: Velocity <strong>decreases</strong> with altitude (gravity weakens faster than radius increases)</li>
+<li>The dashed gray circle shows GEO for reference</li>
+</ul>
 <p><strong>Key insight:</strong> Lower orbits are faster but have shorter periods. Higher orbits are slower but take longer to complete.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
 <h3 id="why-satellites-dont-need-fuel-to-stay-up" class="anchored">Why Satellites Don’t Need Fuel to Stay Up</h3>
 <p>Once in orbit, a satellite <strong>coasts</strong>. Gravity provides exactly the centripetal force needed for circular motion.</p>
 <p><strong>No fuel required</strong> to maintain altitude (in the absence of drag).</p>
-<p><strong>Fuel is needed for:</strong> - Reaching orbit initially (launch) - Correcting for atmospheric drag (LEO only) - Changing orbits (maneuvers) - De-orbiting at end of life</p>
+<p><strong>Fuel is needed for:</strong></p>
+<ul>
+<li>Reaching orbit initially (launch)</li>
+<li>Correcting for atmospheric drag (LEO only)</li>
+<li>Changing orbits (maneuvers)</li>
+<li>De-orbiting at end of life</li>
+</ul>
 <h3 id="atmospheric-drag-in-leo" class="anchored">Atmospheric Drag in LEO</h3>
 <p>Below ~800 km, Earth’s atmosphere still has measurable density.</p>
 <p><strong>Drag force:</strong></p>
@@ -477,7 +502,12 @@ window.addEventListener('resize', () => chart.resize());
 <p><strong>ISS altitude maintenance:</strong> Requires periodic “reboost” maneuvers (small thruster burns to raise orbit). Without these, it would de-orbit in ~2 years.</p>
 <h3 id="the-kessler-syndrome" class="anchored">The Kessler Syndrome</h3>
 <p><strong>Problem:</strong> Debris from dead satellites and collisions creates more collisions in a cascading effect.</p>
-<p><strong>LEO is already crowded:</strong> - ~5000 active satellites - ~30,000 tracked debris objects &gt;10 cm - ~1 million objects 1–10 cm (too small to track, large enough to damage)</p>
+<p><strong>LEO is already crowded:</strong></p>
+<ul>
+<li>~5000 active satellites</li>
+<li>~30,000 tracked debris objects &gt;10 cm</li>
+<li>~1 million objects 1–10 cm (too small to track, large enough to damage)</li>
+</ul>
 <p><strong>Mitigation:</strong> Satellites are designed to de-orbit within 25 years after end of mission (drag in LEO, controlled burns for higher orbits).</p>
 <hr>
 <h2 id="what-could-go-wrong" class="anchored">8. What Could Go Wrong?</h2>
@@ -545,24 +575,24 @@ window.addEventListener('resize', () => chart.resize());
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

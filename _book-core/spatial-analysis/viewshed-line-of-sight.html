@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a>
   <ul>
@@ -151,12 +155,29 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary">Summary</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That terrain can block sight lines, and that a DEM can represent the elevations needed to test visibility.</p>
+<p><strong>You will learn</strong><br>
+How line-of-sight is tested across terrain, why observer and target height matter, and how a viewshed turns many visibility tests into one map.</p>
+<p><strong>Why this matters</strong><br>
+Viewshed analysis supports fire detection, communications planning, surveillance, landscape assessment, and many terrain-based design questions.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The physical picture first: draw a straight line from observer to target and ask whether terrain rises above it anywhere in between.</p>
 <p>The fire lookout towers that dot the ridges of western North America were placed, before any of them were built, by surveyors who climbed candidate peaks and looked. They were searching for locations that could see the greatest area of forested slope with the fewest blind spots — natural terrain convexities or intervening ridges that would hide a smoke column from view until it was too large to suppress. That process of visual survey, repeated at hundreds of sites across BC, Alberta, Montana, and Idaho, is now done in an afternoon using a DEM and a viewshed algorithm. The mathematics is the same; the speed is not.</p>
 <p>Viewshed analysis answers a question that appears in an surprisingly large number of practical contexts: from a given observer location at a given height, which cells in the surrounding terrain are visible and which are hidden by intervening topography? The calculation is fundamentally a ray-tracing problem — cast a line from the observer to each target cell, sample the DEM along the ray, and check whether any intervening point is higher than the line of sight. Efficiency matters because a single viewshed for a 10-metre DEM of a typical mountain region involves testing line-of-sight to millions of cells. This model derives the geometry of the problem, implements the reference-height comparison algorithm, and extends it to cumulative viewshed (which observers can see a given cell?) and visual impact assessment for towers and turbines.</p>
 <h2 id="the-question" class="anchored">1. The Question</h2>
 <p>From the top of this mountain, which valleys can you see?</p>
 <p><strong>Viewshed</strong> (also called “intervisibility”) determines visible areas from an observer location:</p>
-<p><strong>Applications:</strong> - <strong>Fire towers:</strong> Where can rangers see smoke? - <strong>Cell towers:</strong> Which areas have signal coverage? - <strong>Wind turbines:</strong> Where will they be visible (visual impact)? - <strong>Real estate:</strong> Which properties have ocean/mountain views? - <strong>Military:</strong> Where can this position provide surveillance? - <strong>Solar farms:</strong> Where will there be shadow/glint?</p>
+<p><strong>Applications:</strong></p>
+<ul>
+<li><strong>Fire towers:</strong> Where can rangers see smoke?</li>
+<li><strong>Cell towers:</strong> Which areas have signal coverage?</li>
+<li><strong>Wind turbines:</strong> Where will they be visible (visual impact)?</li>
+<li><strong>Real estate:</strong> Which properties have ocean/mountain views?</li>
+<li><strong>Military:</strong> Where can this position provide surveillance?</li>
+<li><strong>Solar farms:</strong> Where will there be shadow/glint?</li>
+</ul>
 <p>The mathematical question: Given an observer at position <span class="math inline">(x_0, y_0, z_0)</span> on a terrain, which cells in the DEM are visible (not blocked by intervening terrain)?</p>
 <p><strong>Challenge:</strong> Must test line-of-sight to potentially millions of cells efficiently.</p>
 <hr>
@@ -173,7 +194,12 @@ window.Quarto = {
 <h3 id="observer-height" class="anchored">Observer Height</h3>
 <p><strong>Total observer elevation:</strong></p>
 <p><span class="math display">z_{\text{observer}} = z_{\text{ground}} + h_{\text{observer}}</span></p>
-<p><strong>Examples:</strong> - Person: <span class="math inline">h = 1.7</span> m (eye level) - Fire tower: <span class="math inline">h = 20</span> m (platform height) - Cell antenna: <span class="math inline">h = 30</span> m (tower height)</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Person: <span class="math inline">h = 1.7</span> m (eye level)</li>
+<li>Fire tower: <span class="math inline">h = 20</span> m (platform height)</li>
+<li>Cell antenna: <span class="math inline">h = 30</span> m (tower height)</li>
+</ul>
 <p><strong>Similarly, target height:</strong></p>
 <p><span class="math display">z_{\text{target}} = z_{\text{ground}} + h_{\text{target}}</span></p>
 <p><strong>Person standing:</strong> <span class="math inline">h_{\text{target}} = 1.7</span> m<br>
@@ -187,10 +213,92 @@ window.Quarto = {
 <p><strong>Cumulative viewshed</strong> (multiple observers):</p>
 <p><span class="math display">V_{\text{total}}(x, y) = \sum_{i=1}^{n} V_i(x, y)</span></p>
 <p>Counts how many observers can see each location.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Line Of Sight
+</div>
+<h3 class="cg-ill__title anchored">
+Visibility Depends On The Profile Between Two Points
+</h3>
+<p class="cg-ill__lede">
+A target is visible only if the straight sight line stays above the terrain profile all the way across.
+</p>
+<div class="cg-ill__visibility">
+<div class="cg-ill__terrain">
+<div class="cg-ill__ridge">
+
+</div>
+<div class="cg-ill__observer" style="left:14%; top:28%;">
+
+</div>
+<div class="cg-ill__target" style="left:77%; top:33%;">
+
+</div>
+<div class="cg-ill__target" style="left:66%; top:57%;">
+
+</div>
+<div class="cg-ill__los cg-ill__los--clear" style="left:15%; top:31%; width:64%; transform: rotate(3deg);">
+
+</div>
+<div class="cg-ill__los cg-ill__los--blocked" style="left:15%; top:31%; width:54%; transform: rotate(18deg);">
+
+</div>
+<div class="cg-ill__geometry-note" style="left:9%; top:16%;">
+observer
+</div>
+<div class="cg-ill__geometry-note" style="right:8%; top:20%;">
+visible target
+</div>
+<div class="cg-ill__geometry-note" style="right:11%; bottom:12%;">
+blocked target
+</div>
+</div>
+<div class="cg-ill__legend">
+<div class="cg-ill__legend-item">
+<div class="cg-ill__legend-swatch cg-ill__legend-swatch--clear">
+
+</div>
+<div>
+Clear line of sight: sight line stays above all intervening terrain.
+</div>
+</div>
+<div class="cg-ill__legend-item">
+<div class="cg-ill__legend-swatch cg-ill__legend-swatch--blocked">
+
+</div>
+<div>
+Blocked line of sight: a ridge or convex slope rises above the sight line.
+</div>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">
+Viewshed intuition
+</div>
+<h4 class="anchored">
+Map Plus Profile
+</h4>
+<p>
+A viewshed map is really many profile checks repeated in every direction around the observer.
+</p>
+</div>
+</div>
+</div>
+</div>
+<figcaption>
+Viewshed analysis reduces to repeated profile tests: if terrain overtops the sight line anywhere in between, the target is hidden.
+</figcaption>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="naive-algorithm-too-slow" class="anchored">Naive Algorithm (Too Slow)</h3>
-<p><strong>For each target cell:</strong> 1. Sample points along line from observer to target 2. Interpolate terrain elevation at each sample point 3. Check if sightline passes above terrain 4. If all samples clear → visible</p>
+<p><strong>For each target cell:</strong></p>
+<ol type="1">
+<li>Sample points along line from observer to target</li>
+<li>Interpolate terrain elevation at each sample point</li>
+<li>Check if sightline passes above terrain</li>
+<li>If all samples clear → visible</li>
+</ol>
 <p><strong>Problem:</strong> For <span class="math inline">n \times n</span> DEM, testing <span class="math inline">n^2</span> cells × <span class="math inline">k</span> samples per line = <span class="math inline">O(n^2 k)</span> complexity.</p>
 <p><strong>Example:</strong> 1000×1000 DEM, 100 samples per line = 100 million tests!</p>
 <h3 id="efficient-algorithm-reference-plane" class="anchored">Efficient Algorithm: Reference Plane</h3>
@@ -200,7 +308,14 @@ window.Quarto = {
 <p>Where <span class="math inline">d(x,y) = \sqrt{(x - x_0)^2 + (y - y_0)^2}</span> is horizontal distance.</p>
 <p><strong>Visibility rule:</strong></p>
 <p>Point is visible if its elevation angle <strong>exceeds</strong> maximum angle seen so far along that ray.</p>
-<p><strong>Algorithm:</strong> 1. For each radial direction from observer 2. March outward along ray 3. Track maximum elevation angle seen 4. If current point’s angle &gt; max → visible, update max 5. If current point’s angle ≤ max → blocked</p>
+<p><strong>Algorithm:</strong></p>
+<ol type="1">
+<li>For each radial direction from observer</li>
+<li>March outward along ray</li>
+<li>Track maximum elevation angle seen</li>
+<li>If current point’s angle &gt; max → visible, update max</li>
+<li>If current point’s angle ≤ max → blocked</li>
+</ol>
 <p><strong>Complexity:</strong> <span class="math inline">O(n^2)</span> but with much lower constant (single pass per cell).</p>
 <h3 id="radial-sweep-algorithm" class="anchored">Radial Sweep Algorithm</h3>
 <p><strong>Pseudocode:</strong></p>
@@ -228,7 +343,12 @@ window.Quarto = {
 <strong>Ring 1:</strong> 8 neighbors<br>
 <strong>Ring 2:</strong> 16 cells at distance 2<br>
 …</p>
-<p><strong>For each cell in ring <span class="math inline">k</span>:</strong> - Compute elevation angle to cell - Compare to maximum angle seen in that direction - Update visibility and max angle</p>
+<p><strong>For each cell in ring <span class="math inline">k</span>:</strong></p>
+<ul>
+<li>Compute elevation angle to cell</li>
+<li>Compare to maximum angle seen in that direction</li>
+<li>Update visibility and max angle</li>
+</ul>
 <p><strong>Advantage:</strong> Processes each cell exactly once, cache-friendly.</p>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
@@ -246,23 +366,23 @@ i=4    10   12   14   16   18</code></pre>
 <p><strong>Cell (2,3):</strong> 1 cell east</p>
 <p>Ground elevation: 20m<br>
 Horizontal distance: <span class="math inline">d = 1</span> cell = 30m (assume 30m cell size)<br>
-Elevation difference: $20 - 20 = 0$ m<br>
+Elevation difference: <span class="math inline">20 - 20 = 0</span> m<br>
 Angle: <span class="math inline">\alpha = \arctan(0/30) = 0°</span></p>
 <p><strong>Visible</strong> (no obstruction yet)<br>
-Max angle: $0°$</p>
+Max angle: <span class="math inline">0^\circ</span></p>
 <p><strong>Cell (2,4):</strong> 2 cells east</p>
 <p>Ground elevation: 22m<br>
 Distance: <span class="math inline">d = 2 \times 30 = 60</span> m<br>
-Elevation difference: $22 - 20 = 2$ m<br>
+Elevation difference: <span class="math inline">22 - 20 = 2</span> m<br>
 Angle: <span class="math inline">\alpha = \arctan(2/60) = 1.91°</span></p>
-<p><strong>Compare to max angle:</strong> $1.91° &gt; 0°$ → <strong>Visible</strong><br>
-Update max angle: $1.91°$</p>
+<p><strong>Compare to max angle:</strong> <span class="math inline">1.91^\circ &gt; 0^\circ</span> → <strong>Visible</strong><br>
+Update max angle: <span class="math inline">1.91^\circ</span></p>
 <p><strong>Cell (3,3):</strong> 1 cell southeast</p>
 <p>Ground elevation: 18m<br>
 Distance: <span class="math inline">d = \sqrt{30^2 + 30^2} = 42.4</span> m<br>
-Elevation difference: $18 - 20 = -2$ m<br>
+Elevation difference: <span class="math inline">18 - 20 = -2</span> m<br>
 Angle: <span class="math inline">\alpha = \arctan(-2/42.4) = -2.70°</span></p>
-<p><strong>Compare to max in SE direction:</strong> Assume max was $0°$ (flat)<br>
+<p><strong>Compare to max in SE direction:</strong> Assume max was <span class="math inline">0^\circ</span> (flat)<br>
 <span class="math inline">-2.70° &lt; 0°</span> → <strong>Not visible</strong> (below horizon)</p>
 <p><strong>Continue for all cells…</strong></p>
 <p><strong>Result:</strong> Cells at same or higher elevation with positive angles are visible. Lower cells may be blocked.</p>
@@ -347,7 +467,7 @@ const zLine = z0 + t * (z1 - z0);
 const zTerrain = terrain[i][j];
       
 if (zLine < zTerrain) {
-  return false; // Blocked
+return false; // Blocked
 }
 }
     
@@ -363,10 +483,10 @@ let visibleCount = 0;
 for (let i = 0; i < size; i++) {
 const row = [];
 for (let j = 0; j < size; j++) {
-  const zTarget = terrain[i][j] + targetHeight;
-  const visible = lineOfSight(obsI, obsJ, zObs, i, j, zTarget);
-  row.push(visible);
-  if (visible) visibleCount++;
+const zTarget = terrain[i][j] + targetHeight;
+const visible = lineOfSight(obsI, obsJ, zObs, i, j, zTarget);
+row.push(visible);
+if (visible) visibleCount++;
 }
 viewshed.push(row);
 }
@@ -381,18 +501,18 @@ const cellH = height / size;
 let min = Infinity, max = -Infinity;
 for (let row of terrain) {
 for (let val of row) {
-  min = Math.min(min, val);
-  max = Math.max(max, val);
+min = Math.min(min, val);
+max = Math.max(max, val);
 }
 }
     
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  const normalized = (terrain[i][j] - min) / (max - min);
-  const gray = Math.floor(100 + 155 * normalized);
+const normalized = (terrain[i][j] - min) / (max - min);
+const gray = Math.floor(100 + 155 * normalized);
         
-  ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
-  ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
+ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
+ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
 }
 }
 }
@@ -403,26 +523,26 @@ const cellH = height / size;
     
 for (let i = 0; i < size; i++) {
 for (let j = 0; j < size; j++) {
-  if (i === obsI && j === obsJ) {
-    // Observer location
-    ctx.fillStyle = '#E74C3C';
-    ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
+if (i === obsI && j === obsJ) {
+// Observer location
+ctx.fillStyle = '#E74C3C';
+ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
           
-    // Observer marker
-    ctx.fillStyle = '#FFF';
-    ctx.beginPath();
-    ctx.arc(
-      x + j * cellW + cellW/2,
-      y + i * cellH + cellH/2,
-      cellW/3, 0, 2 * Math.PI
-    );
-    ctx.fill();
-  } else {
-    const alpha = viewshed[i][j] ? 0.6 : 0.1;
-    const color = viewshed[i][j] ? '46, 204, 113' : '52, 73, 94';
-    ctx.fillStyle = `rgba(${color}, ${alpha})`;
-    ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
-  }
+// Observer marker
+ctx.fillStyle = '#FFF';
+ctx.beginPath();
+ctx.arc(
+x + j * cellW + cellW/2,
+y + i * cellH + cellH/2,
+cellW/3, 0, 2 * Math.PI
+);
+ctx.fill();
+} else {
+const alpha = viewshed[i][j] ? 0.6 : 0.1;
+const color = viewshed[i][j] ? '46, 204, 113' : '52, 73, 94';
+ctx.fillStyle = `rgba(${color}, ${alpha})`;
+ctx.fillRect(x + j * cellW, y + i * cellH, cellW, cellH);
+}
 }
 }
 }
@@ -434,8 +554,8 @@ const zObs = terrain[obsI][obsJ] + obsHeight;
     
 for (let j = 0; j < size; j++) {
 profile.push({
-  terrain: terrain[obsI][j],
-  target: terrain[obsI][j] + targetHeight
+terrain: terrain[obsI][j],
+target: terrain[obsI][j] + targetHeight
 });
 }
     
@@ -538,7 +658,15 @@ render();
 render();
 })();
 </script>
-<p><strong>Try this:</strong> - <strong>Increase observer height:</strong> See more terrain (taller tower = bigger viewshed) - <strong>Increase target height:</strong> People standing visible farther than ground - <strong>Show 3D profile:</strong> See elevation cross-section with sightlines - <strong>Green areas:</strong> Visible from observer (red dot) - <strong>Dark areas:</strong> Blocked by intervening terrain - Notice: Higher observer = exponentially more visibility</p>
+<p><strong>Try this:</strong></p>
+<ul>
+<li><strong>Increase observer height:</strong> See more terrain (taller tower = bigger viewshed)</li>
+<li><strong>Increase target height:</strong> People standing visible farther than ground</li>
+<li><strong>Show 3D profile:</strong> See elevation cross-section with sightlines</li>
+<li><strong>Green areas:</strong> Visible from observer (red dot)</li>
+<li><strong>Dark areas:</strong> Blocked by intervening terrain</li>
+<li>Notice: Higher observer = exponentially more visibility</li>
+</ul>
 <p><strong>Key insight:</strong> Small height changes dramatically affect viewshed—why towers are tall!</p>
 <hr>
 <h2 id="interpretation" class="anchored">6. Interpretation</h2>
@@ -605,11 +733,22 @@ render();
 <p><strong>Full viewshed for large DEM:</strong></p>
 <p>1000×1000 DEM → 1 million line-of-sight tests</p>
 <p><strong>Each test:</strong> ~100 samples → 100 million operations</p>
-<p><strong>Solution:</strong> - Limit search radius - Use hierarchical algorithms - GPU acceleration - Approximate methods (sector-based)</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Limit search radius</li>
+<li>Use hierarchical algorithms</li>
+<li>GPU acceleration</li>
+<li>Approximate methods (sector-based)</li>
+</ul>
 <hr>
 <h2 id="extension-cumulative-viewshed" class="anchored">8. Extension: Cumulative Viewshed</h2>
 <p><strong>Multiple observers:</strong> Which areas are visible from ≥ k observers?</p>
-<p><strong>Applications:</strong> - <strong>Surveillance networks:</strong> Ensure double coverage - <strong>Tourism:</strong> Scenic viewpoints (visible from multiple spots) - <strong>Privacy:</strong> Areas visible from many locations (lack privacy)</p>
+<p><strong>Applications:</strong></p>
+<ul>
+<li><strong>Surveillance networks:</strong> Ensure double coverage</li>
+<li><strong>Tourism:</strong> Scenic viewpoints (visible from multiple spots)</li>
+<li><strong>Privacy:</strong> Areas visible from many locations (lack privacy)</li>
+</ul>
 <p><strong>Algorithm:</strong></p>
 <pre><code>cumulative_viewshed = zeros(rows, cols)
 
@@ -633,7 +772,7 @@ for each observer location:
 <p><strong>For simple case (linear terrain segment):</strong></p>
 <p><span class="math display">z_0 + t(z_1 - z_0) = z_{\text{terrain}}</span></p>
 <p><span class="math display">t = \frac{z_{\text{terrain}} - z_0}{z_1 - z_0}</span></p>
-<p><strong>If $0 &lt; t &lt; 1$:</strong> Ray intersects terrain → blocked<br>
+<p><strong>If <span class="math inline">0 &lt; t &lt; 1</span>:</strong> Ray intersects terrain → blocked<br>
 <strong>If <span class="math inline">t &lt; 0</span> or <span class="math inline">t &gt; 1</span>:</strong> No intersection → clear</p>
 <h3 id="elevation-angle" class="anchored">Elevation Angle</h3>
 <p><strong>From observer <span class="math inline">O</span> at height <span class="math inline">z_0</span> to target at distance <span class="math inline">d</span> and height <span class="math inline">z_1</span>:</strong></p>
@@ -667,24 +806,24 @@ for each observer location:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

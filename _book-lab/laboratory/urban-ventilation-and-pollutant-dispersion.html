@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -129,6 +133,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That wind flow changes when it meets buildings, and that geometry can strongly influence how quickly pollutants are diluted.</p>
+<p><strong>You will learn</strong><br>
+How street-canyon flow regimes work, how emissions translate into roadside concentration, and why some urban geometries trap pollution much more effectively than others.</p>
+<p><strong>Why this matters</strong><br>
+Urban air quality is shaped not just by how much pollution is emitted, but by how the city is built.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The aspect-ratio idea: taller walls and narrower streets make ventilation harder.</p>
 <p>On a winter morning on Marylebone Road in London, NO₂ concentrations routinely reach 300–400 μg m⁻³ — three to four times the World Health Organization annual guideline of 40 μg m⁻³. A few hundred metres away in Regent’s Park, the concentration is below 30 μg m⁻³. Traffic volumes are comparable in both locations. The difference is geometry: Marylebone Road is flanked by tall buildings that trap exhaust at street level; the park disperses it into the full depth of the boundary layer.</p>
 <p>Street canyon geometry is the dominant control on near-road air quality in dense urban environments. Understanding it requires fluid mechanics — specifically, how a turbulent flow separates and reattaches when it encounters a repeated obstacle array.</p>
 <hr>
@@ -138,7 +151,7 @@ window.Quarto = {
 <h2 id="the-conceptual-model" class="anchored">2. The Conceptual Model</h2>
 <p>A street canyon is two parallel rows of buildings with a street between them. The <strong>aspect ratio</strong> <span class="math inline">H/W</span> (building height divided by street width) determines which of three flow regimes applies when wind blows perpendicular to the street axis:</p>
 <p><strong>Isolated roughness flow</strong> (<span class="math inline">H/W &lt; 0.3</span>): buildings are spaced far enough apart that flow reattaches to the ground between them; each building behaves independently.</p>
-<p><strong>Wake interference flow</strong> ($0.3 &lt; H/W &lt; 0.7$): building wakes interact; flow is complex and highly three-dimensional.</p>
+<p><strong>Wake interference flow</strong> (<span class="math inline">0.3 &lt; H/W &lt; 0.7</span>): building wakes interact; flow is complex and highly three-dimensional.</p>
 <p><strong>Skimming flow</strong> (<span class="math inline">H/W &gt; 0.7</span>): the flow above rooftop level skims over the canyon; a stable, nearly two-dimensional recirculating vortex forms inside. Most traffic pollution is trapped in this vortex rather than ventilated upward.</p>
 <p>The skimming regime is ubiquitous in dense city centres — a <span class="math inline">H/W</span> of 1.0–2.5 corresponds to a typical downtown canyon. It is in skimming flow that the worst air quality problems occur.</p>
 <hr>
@@ -157,14 +170,20 @@ window.Quarto = {
 <p><span class="math display">\boxed{C_{\text{canyon}} = \frac{Q \cdot W}{H \cdot u_c \cdot W} = \frac{Q}{H \cdot u_c}}</span></p>
 <p>Wait — the box model per unit street length: emission <span class="math inline">Q</span> [μg m⁻¹ s⁻¹] enters a box of cross-section <span class="math inline">H \times W</span> [m²] and is ventilated at rate <span class="math inline">u_c H</span> [m² s⁻¹]:</p>
 <p><span class="math display">C_{\text{canyon}} = \frac{Q}{u_c \cdot H} \quad [\mu\text{g m}^{-3}]</span></p>
-<p><strong>Key scaling relationships:</strong> - <span class="math inline">C \propto Q</span> (doubling traffic → doubling concentration) - <span class="math inline">C \propto 1/u_c \propto (H/W)^{0.5}</span> (deeper canyons → higher concentration) - <span class="math inline">C \propto 1/H</span> (taller buildings → greater dilution volume) - <span class="math inline">C \propto 1/U_H</span> (stronger wind → better ventilation)</p>
+<p><strong>Key scaling relationships:</strong></p>
+<ul>
+<li><span class="math inline">C \propto Q</span> (doubling traffic → doubling concentration)</li>
+<li><span class="math inline">C \propto 1/u_c \propto (H/W)^{0.5}</span> (deeper canyons → higher concentration)</li>
+<li><span class="math inline">C \propto 1/H</span> (taller buildings → greater dilution volume)</li>
+<li><span class="math inline">C \propto 1/U_H</span> (stronger wind → better ventilation)</li>
+</ul>
 <h3 id="leeward-vs.-windward-wall-asymmetry" class="anchored">3.3 Leeward vs.&nbsp;Windward Wall Asymmetry</h3>
 <p>The recirculating vortex in skimming flow creates a systematic asymmetry: the <strong>leeward wall</strong> (on the upwind side of the canyon, where the vortex brings air downward from rooftop level to street) has higher concentrations than the <strong>windward wall</strong> (where the vortex moves air upward). For a road centred in the canyon, the leeward wall concentration is approximately 1.5–2× the canyon-average value.</p>
 <p>This asymmetry matters for receptor placement: a school or hospital on the leeward side of a major road canyon experiences significantly worse air quality than the same building on the windward side — a consideration that has been neglected in most planning regulations.</p>
 <h3 id="traffic-emission-factors" class="anchored">3.4 Traffic Emission Factors</h3>
 <p>The emission rate <span class="math inline">Q</span> from a road segment is computed from traffic volume, emission factors, and vehicle speed:</p>
 <p><span class="math display">Q = \frac{N}{3600} \cdot \text{EF} \cdot v \cdot \frac{1}{1000} \quad [\text{g s}^{-1}\text{m}^{-1}]</span></p>
-<p>where <span class="math inline">N</span> [veh hr⁻¹] is hourly traffic count, EF [g km⁻¹ veh⁻¹] is the emission factor, and <span class="math inline">v</span> [km hr⁻¹] is speed. Converting g s⁻¹ m⁻¹ to μg s⁻¹ m⁻¹, multiply by $10^6$.</p>
+<p>where <span class="math inline">N</span> [veh hr⁻¹] is hourly traffic count, EF [g km⁻¹ veh⁻¹] is the emission factor, and <span class="math inline">v</span> [km hr⁻¹] is speed. Converting g s⁻¹ m⁻¹ to μg s⁻¹ m⁻¹, multiply by <span class="math inline">10^6</span>.</p>
 <p>Representative Euro 6 real-world emission factors for NO<span class="math inline">_x</span>:</p>
 <table class="caption-top">
 <thead>
@@ -234,7 +253,13 @@ window.Quarto = {
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">4. Worked Example by Hand</h2>
 <p><strong>Setting:</strong> A downtown Calgary street canyon. <span class="math inline">H = 35</span> m, <span class="math inline">W = 18</span> m (<span class="math inline">H/W = 1.94</span>, deep skimming flow). Morning peak hour traffic.</p>
-<p><strong>Given:</strong> - Traffic: 1400 veh hr⁻¹; fleet mix 55% petrol car, 35% diesel car, 10% diesel bus - Speed: 25 km hr⁻¹ - Wind at roof level: <span class="math inline">U_H = 4</span> m s⁻¹, <span class="math inline">z_0 = 1</span> m - Background NO₂: 20 μg m⁻³</p>
+<p><strong>Given:</strong></p>
+<ul>
+<li>Traffic: 1400 veh hr⁻¹; fleet mix 55% petrol car, 35% diesel car, 10% diesel bus</li>
+<li>Speed: 25 km hr⁻¹</li>
+<li>Wind at roof level: <span class="math inline">U_H = 4</span> m s⁻¹, <span class="math inline">z_0 = 1</span> m</li>
+<li>Background NO₂: 20 μg m⁻³</li>
+</ul>
 <p><strong>Step 1: Fleet-averaged NO<span class="math inline">_x</span> emission factor</strong></p>
 <p><span class="math display">\text{EF}_{\text{fleet}} = 0.55(0.06) + 0.35(0.50) + 0.10(3.0) = 0.033 + 0.175 + 0.300 = 0.508 \text{ g km}^{-1}</span></p>
 <p><strong>Step 2: Emission rate per metre of road</strong></p>
@@ -304,23 +329,21 @@ for x in [50, 100, 200, 500, 1000, 2000]:
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Canyon NO₂ Concentration vs Aspect Ratio and Wind Speed&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;U_H = 2 m/s&quot;, &quot;U_H = 4 m/s&quot;, &quot;U_H = 6 m/s&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;name&quot;: &quot;Aspect ratio H/W&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
-    &quot;data&quot;: [0.3, 0.5, 0.7, 1.0, 1.5, 2.0, 2.5, 3.0]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;Canyon NO₂ (μg m⁻³, above background)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;U_H = 2 m/s&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [28, 42, 55, 75, 105, 135, 162, 188]},
-    {&quot;name&quot;: &quot;U_H = 4 m/s&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [14, 21, 27, 37, 52, 67, 81, 94]},
-    {&quot;name&quot;: &quot;U_H = 6 m/s&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
-     &quot;data&quot;: [9, 14, 18, 25, 35, 45, 54, 63]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Canyon NO₂ Concentration vs Aspect Ratio and Wind Speed&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;U_H = 2 m/s&quot;, &quot;U_H = 4 m/s&quot;, &quot;U_H = 6 m/s&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;name&quot;: &quot;Aspect ratio H/W&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 30,
+&quot;data&quot;: [0.3, 0.5, 0.7, 1.0, 1.5, 2.0, 2.5, 3.0]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;Canyon NO₂ (μg m⁻³, above background)&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 55},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;U_H = 2 m/s&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [28, 42, 55, 75, 105, 135, 162, 188]},
+{&quot;name&quot;: &quot;U_H = 4 m/s&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [14, 21, 27, 37, 52, 67, 81, 94]},
+{&quot;name&quot;: &quot;U_H = 6 m/s&quot;, &quot;type&quot;: &quot;line&quot;, &quot;smooth&quot;: true,
+&quot;data&quot;: [9, 14, 18, 25, 35, 45, 54, 63]}
+]
+}"></div>
 <p>Both deeper canyons (higher <span class="math inline">H/W</span>) and lower wind speeds increase canyon concentrations. The <span class="math inline">H/W</span> effect is the square-root of the ratio — going from <span class="math inline">H/W = 0.3</span> (wide street) to <span class="math inline">H/W = 3.0</span> (deep canyon) increases concentration by <span class="math inline">\sqrt{3.0/0.3} = \sqrt{10} = 3.16\times</span>. The wind speed effect is linear: halving wind speed doubles concentration. On calm days, both effects compound to produce the most severe air quality episodes.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -358,24 +381,24 @@ for x in [50, 100, 200, 500, 1000, 2000]:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

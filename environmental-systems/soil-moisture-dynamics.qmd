@@ -90,6 +90,7 @@ Where (all in mm/day or mm/time):
 - $R$ = runoff (surface flow, mm/day)
 
 **Storage limits:**
+
 - **Maximum storage** (field capacity): $S_{\text{FC}}$
 - **Minimum usable storage** (wilting point): $S_{\text{WP}}$
 
@@ -222,6 +223,7 @@ P - I_{\text{max}} & \text{if } P > I_{\text{max}} \text{ and } S = S_{\text{sat
 Where $I_{\text{max}}$ is infiltration capacity (mm/day, typically 10–100 mm/day).
 
 **For simplicity, assume:**
+
 - Runoff occurs when $S$ would exceed $S_{\text{sat}}$
 - Any excess precipitation becomes runoff
 
@@ -602,6 +604,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Dry season:** Watch moisture decline steadily, stress increases
 - **Wet season:** Frequent rain keeps moisture near field capacity
 - **Sandy soil:** Low water holding capacity, dries quickly
@@ -702,6 +705,7 @@ Real $ET_{\text{pot}}$ varies with weather (solar radiation, humidity, wind from
 **Water potential** ($\psi$, kPa or MPa) describes how tightly water is held.
 
 **Components:**
+
 - **Matric potential** ($\psi_m$): Tension from soil particles (negative)
 - **Gravitational potential** ($\psi_g$): Elevation effect
 - **Osmotic potential** ($\psi_o$): Dissolved salts
@@ -743,6 +747,7 @@ Where:
 $$\frac{dS}{dt} = P - ET - D - R$$
 
 **Analogy:**
+
 - Bank account: Stock = balance, inflows = deposits, outflows = withdrawals
 - Bathtub: Stock = water level, inflows = faucet, outflows = drain
 

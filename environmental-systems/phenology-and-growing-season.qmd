@@ -179,6 +179,7 @@ Where $r_s$ is senescence rate (day⁻¹).
 $$\text{GSL} = \text{EOS} - \text{SOS}$$
 
 **Typical values:**
+
 - Tropics: GSL = 365 days (year-round)
 - Temperate: GSL = 150–200 days
 - Boreal: GSL = 90–120 days
@@ -550,6 +551,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - **Higher latitude:** Later bud break (cooler spring), shorter growing season
 - **Warming scenarios:** Earlier bud break, longer growing season, higher annual GPP
 - **Early species:** Lower GDD requirement → earlier green-up
@@ -565,11 +567,13 @@ window.addEventListener('resize', () => chart.resize());
 ### Climate Change Impacts
 
 **Observations:**
+
 - **Earlier spring:** Bud break 2–3 weeks earlier than 50 years ago
 - **Later autumn:** Leaf fall 1–2 weeks later
 - **Longer growing season:** +10 to +20 days in temperate zones
 
 **Consequences:**
+
 - **Increased NPP:** Longer photosynthesis season
 - **Water demand:** Earlier spring → earlier drought stress
 - **Frost risk:** Early bud break → vulnerable to late frosts
@@ -586,10 +590,12 @@ $$\text{Days to maturity} = \frac{\text{GDD}_{\text{required}}}{\text{Daily GDD 
 $$\text{Days} = \frac{1400}{12} = 117 \text{ days}$$
 
 **Planting date optimization:**
+
 - Too early → frost risk
 - Too late → insufficient GDD before first fall frost
 
 **Variety selection:**
+
 - Short-season varieties for high latitudes
 - Long-season varieties for warm climates
 
@@ -601,6 +607,7 @@ $$\text{Days} = \frac{1400}{12} = 117 \text{ days}$$
 - **Brown-down date:** When NDVI decreases
 
 **Applications:**
+
 - Crop monitoring (planting, harvest dates)
 - Forest health
 - Climate change detection
@@ -621,6 +628,7 @@ $$\text{Days} = \frac{1400}{12} = 117 \text{ days}$$
 ### Ignoring Chilling Requirement
 
 **Insufficient winter chill:**
+
 - Delays or prevents bud break
 - Problem in warming climates (California cherries, wine grapes)
 - May require "chill hours" below 7°C, not just cumulative cold
@@ -635,6 +643,7 @@ Real plants have **dynamic thresholds:**
 ### Assuming Instantaneous Response
 
 **Actual phenology:**
+
 - Bud break takes days to weeks
 - LAI increases gradually (not step function)
 - Senescence is progressive, not sudden

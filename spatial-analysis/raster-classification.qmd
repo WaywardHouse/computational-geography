@@ -65,6 +65,7 @@ How do you convert a continuous elevation raster into slope classes: "flat", "ge
 **Reclassification** transforms raster values using decision rules:
 
 **Examples:**
+
 - **Slope categories:** 0-5° = flat, 5-15° = gentle, 15-30° = steep, >30° = very steep
 - **Land cover from NDVI:** <0.2 = bare, 0.2-0.4 = sparse veg, 0.4-0.6 = moderate, >0.6 = dense
 - **Habitat suitability:** Combine elevation + slope + aspect into "suitable" vs "unsuitable"
@@ -73,6 +74,7 @@ How do you convert a continuous elevation raster into slope classes: "flat", "ge
 The mathematical question: Given continuous input values, how do we assign them to discrete classes efficiently and meaningfully?
 
 **Key decisions:**
+
 - **Number of classes:** Too few → information loss; too many → complexity
 - **Breakpoints:** Where to split? Equal intervals? Natural breaks? Quantiles?
 - **Edge handling:** Is 15.0° "gentle" or "steep"?
@@ -298,6 +300,7 @@ i=3  11   19   26   32
 ```
 
 **Categories:**
+
 - Cold (1)
 - Moderate (2)
 - Hot (3)
@@ -321,6 +324,7 @@ $$\text{width} = \frac{22}{3} = 7.33°C$$
 - $b_3 = 32$
 
 **Classes:**
+
 - Cold (1): [10, 17.33)
 - Moderate (2): [17.33, 24.67)
 - Hot (3): [24.67, 32]
@@ -328,18 +332,22 @@ $$\text{width} = \frac{22}{3} = 7.33°C$$
 **Step 4: Classify each cell**
 
 **Row 0:**
+
 - 10 < 17.33 → 1 (Cold)
 - 15 < 17.33 → 1
 - 20 ∈ [17.33, 24.67) → 2 (Moderate)
 - 25 ≥ 24.67 → 3 (Hot)
 
 **Row 1:**
+
 - 12 → 1, 18 → 2, 22 → 2, 28 → 3
 
 **Row 2:**
+
 - 14 → 1, 16 → 1, 24 → 2, 30 → 3
 
 **Row 3:**
+
 - 11 → 1, 19 → 2, 26 → 3, 32 → 3
 
 **Output:**
@@ -353,6 +361,7 @@ i=3   1    2    3    3
 ```
 
 **Class counts:**
+
 - Cold (1): 6 cells
 - Moderate (2): 6 cells
 - Hot (3): 4 cells
@@ -618,6 +627,7 @@ render();
 ```
 
 **Try this:**
+
 - **Equal interval:** Fixed-width bins (may be unbalanced)
 - **Quantile:** Balanced class sizes (breaks at data percentiles)
 - **Standard deviation:** Statistical bins (assumes normal distribution)
@@ -709,6 +719,7 @@ Equal intervals with outlier → huge bins
 ```
 
 **Solution:**
+
 - Remove outliers before classification
 - Use robust statistics (median, IQR)
 - Clip extreme values

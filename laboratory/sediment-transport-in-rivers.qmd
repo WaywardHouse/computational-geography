@@ -218,6 +218,7 @@ A river with $R_h = 1.5$ m and $S = 0.001$ has competence $D_{\max} = 0.0194$ m 
 **Setting:** A gravel-bed reach of the Oldman River, Alberta, during a moderate flood event.
 
 **Given:**
+
 - Mean depth $h = 1.8$ m, width $W = 45$ m
 - Channel slope $S = 0.0018$
 - Median bed grain size $D_{50} = 32$ mm (0.032 m), $D_{90} = 65$ mm

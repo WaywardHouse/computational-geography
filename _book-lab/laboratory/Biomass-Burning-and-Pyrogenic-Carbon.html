@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -108,6 +111,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
+  <li><a href="#before-you-start" id="toc-before-you-start">Before You Start</a></li>
   <li><a href="#the-question" id="toc-the-question">1. The Question</a></li>
   <li><a href="#the-conceptual-model" id="toc-the-conceptual-model">2. The Conceptual Model</a></li>
   <li><a href="#building-the-mathematical-model" id="toc-building-the-mathematical-model">3. Building the Mathematical Model</a>
@@ -127,6 +131,15 @@ window.Quarto = {
   <li><a href="#math-refresher" id="toc-math-refresher">Math Refresher</a></li>
   </ul>
 </nav>
+<h2 id="before-you-start" class="anchored">Before You Start</h2>
+<p><strong>You should know</strong><br>
+That biomass burning moves recently stored carbon back into the atmosphere, but not all of that carbon becomes CO2 immediately.</p>
+<p><strong>You will learn</strong><br>
+How fire emissions are partitioned among gases and char, how combustion completeness changes totals, and how carbon neutrality depends on regrowth timescales.</p>
+<p><strong>Why this matters</strong><br>
+Wildfire and prescribed-fire carbon accounting depends on both chemistry and ecology.</p>
+<p><strong>If this gets hard, focus on…</strong><br>
+The mass-balance idea that all burned carbon has to be assigned somewhere.</p>
 <p>On May 3, 2016, a wildfire ignited southwest of Fort McMurray, Alberta. Over the following two weeks it burned 590,000 hectares, releasing an estimated 570 million tonnes of CO₂ — more than the annual emissions of the entire United Kingdom. Yet this carbon had been drawn from the atmosphere over the preceding decades by boreal forest photosynthesis. In the long view, fire is part of the boreal carbon cycle, not an addition to it. Whether any particular fire represents a net carbon source depends on factors that span centuries: How much carbon was burned? How much char was produced and how long will it persist? When will the forest regrow to re-absorb the released carbon?</p>
 <p>This essay provides the tools to answer these questions quantitatively.</p>
 <hr>
@@ -222,7 +235,7 @@ window.Quarto = {
 <p>The burned carbon <span class="math inline">M_C^{\text{burned}}</span> is distributed among four fate categories:</p>
 <p><span class="math display">M_C^{\text{burned}} = M_C^{\text{CO}_2} + M_C^{\text{CO}} + M_C^{\text{CH}_4} + M_C^{\text{NMHC}} + M_C^{\text{BC}}</span></p>
 <p>Expressing as fractions of burned carbon:</p>
-<p><span class="math inline">&amp;#36;1 = \alpha_{\text{CO}_2} + \alpha_{\text{CO}} + \alpha_{\text{CH}_4} + \alpha_{\text{NMHC}} + \alpha_{\text{BC}}</span>$</p>
+<p><span class="math display">1 = \alpha_{\text{CO}_2} + \alpha_{\text{CO}} + \alpha_{\text{CH}_4} + \alpha_{\text{NMHC}} + \alpha_{\text{BC}}</span></p>
 <p><strong>Emission factors relative to CO₂ (molar ratios, from plume measurements):</strong></p>
 <p>Emission ratios ER = <span class="math inline">\Delta X / \Delta\text{CO}_2</span> (mol/mol). Converting to mass fractions using molecular weights:</p>
 <p>For CO: <span class="math inline">\alpha_{\text{CO}} = \text{ER}_{\text{CO}} \times \frac{M_{\text{CO}}}{M_{\text{CO}_2}} \times \frac{M_C^{\text{CO}}}{M_C^{\text{CO}_2}}</span></p>
@@ -272,7 +285,7 @@ window.Quarto = {
 <h3 id="emissions-calculation" class="anchored">3.4 Emissions Calculation</h3>
 <p>Total CO₂ from a fire:</p>
 <p><span class="math display">E_{\text{CO}_2} = A \times \beta \times \phi \times \text{EF}_{\text{CO}_2} \times 10^{-3}</span></p>
-<p>where <span class="math inline">\text{EF}_{\text{CO}_2}</span> is in g/kg and the factor $10^{-3}$ converts g to kg. In practice, emission factors are often expressed in t CO₂ per ha:</p>
+<p>where <span class="math inline">\text{EF}_{\text{CO}_2}</span> is in g/kg and the factor <span class="math inline">10^{-3}</span> converts g to kg. In practice, emission factors are often expressed in t CO₂ per ha:</p>
 <p><span class="math display">E_{\text{CO}_2} = A \times \beta \times \phi \times f_C \times \alpha_{\text{CO}_2} \times \frac{44}{12}</span></p>
 <p><strong>CH₄ CO₂-equivalent:</strong></p>
 <p><span class="math display">E_{\text{CH}_4,\,\text{CO}_2\text{-eq}} = A \times \beta \times \phi \times f_C \times \alpha_{\text{CH}_4} \times \frac{16}{12} \times \text{GWP}_{\text{CH}_4}</span></p>
@@ -302,7 +315,7 @@ window.Quarto = {
 <p><span class="math display">E_{\text{CH}_4} = 2000 \times 12 \times 0.80 \times 5.8 \times 10^{-6} = 111.4 \text{ t CH}_4 \times 30 = 3,342 \text{ t CO}_2\text{-eq}</span></p>
 <p><strong>Step 5: Total CO₂-eq</strong></p>
 <p><span class="math display">E_{\text{total}} \approx 31,296 + 3,342 = 34,638 \text{ t CO}_2\text{-eq}</span></p>
-<p><strong>Carbon neutrality check:</strong> Boreal forest NPP ≈ 2 t C ha⁻¹ yr⁻¹. Time to re-sequester $9,024$ t C:</p>
+<p><strong>Carbon neutrality check:</strong> Boreal forest NPP ≈ 2 t C ha⁻¹ yr⁻¹. Time to re-sequester <span class="math inline">9,024</span> t C:</p>
 <p><span class="math display">t_{\text{reseq}} = \frac{9,024}{2000 \times 2} = 2.3 \text{ years} \quad \text{(for surface fuels)}</span></p>
 <p>For the full ecosystem recovery (including soil carbon): 50–100 years. Prescribed fire every 10–20 years = carbon-neutral at the surface fuel level.</p>
 <hr>
@@ -367,22 +380,20 @@ for MCE in [0.75, 0.80, 0.85, 0.90, 0.93, 0.96, 0.99]:
 <hr>
 <h2 id="visualization" class="anchored">6. Visualization</h2>
 <div data-viz="echarts" style="height:420px" data-options="{
-  &quot;title&quot;: {&quot;text&quot;: &quot;Pyrogenic Carbon Partition by Fire Type (%  of burned carbon by fate)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
-  &quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
-  &quot;legend&quot;: {&quot;data&quot;: [&quot;CO₂&quot;,&quot;CO&quot;,&quot;CH₄&quot;,&quot;NMHC + other&quot;,&quot;BC/char&quot;], &quot;bottom&quot;: 0},
-  &quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;,
-    &quot;data&quot;: [&quot;Tropical forest&quot;, &quot;Savanna&quot;, &quot;Boreal forest&quot;, &quot;Prescribed burn&quot;, &quot;Smouldering peat&quot;]},
-  &quot;yAxis&quot;: {&quot;name&quot;: &quot;% of burned carbon&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45, &quot;max&quot;: 100},
-  &quot;series&quot;: [
-    {&quot;name&quot;: &quot;CO₂&quot;,        &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#B71C1C&quot;}, &quot;data&quot;: [92.5,91.5,88.0,86.0,70.0]},
-    {&quot;name&quot;: &quot;CO&quot;,         &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F57F17&quot;}, &quot;data&quot;: [4.0, 5.5, 7.5, 9.0, 20.0]},
-    {&quot;name&quot;: &quot;CH₄&quot;,        &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F9A825&quot;}, &quot;data&quot;: [0.8, 0.8, 1.2, 1.5, 4.5]},
-    {&quot;name&quot;: &quot;NMHC + other&quot;,&quot;type&quot;:&quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#90A4AE&quot;}, &quot;data&quot;: [2.2, 1.7, 2.3, 2.5, 4.5]},
-    {&quot;name&quot;: &quot;BC/char&quot;,    &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#212121&quot;}, &quot;data&quot;: [0.5, 0.5, 1.0, 1.0, 1.0]}
-  ]
-}">
-
-</div>
+&quot;title&quot;: {&quot;text&quot;: &quot;Pyrogenic Carbon Partition by Fire Type (%  of burned carbon by fate)&quot;, &quot;textStyle&quot;: {&quot;fontSize&quot;: 14}},
+&quot;tooltip&quot;: {&quot;trigger&quot;: &quot;axis&quot;, &quot;axisPointer&quot;: {&quot;type&quot;: &quot;shadow&quot;}},
+&quot;legend&quot;: {&quot;data&quot;: [&quot;CO₂&quot;,&quot;CO&quot;,&quot;CH₄&quot;,&quot;NMHC + other&quot;,&quot;BC/char&quot;], &quot;bottom&quot;: 0},
+&quot;xAxis&quot;: {&quot;type&quot;: &quot;category&quot;,
+&quot;data&quot;: [&quot;Tropical forest&quot;, &quot;Savanna&quot;, &quot;Boreal forest&quot;, &quot;Prescribed burn&quot;, &quot;Smouldering peat&quot;]},
+&quot;yAxis&quot;: {&quot;name&quot;: &quot;% of burned carbon&quot;, &quot;nameLocation&quot;: &quot;middle&quot;, &quot;nameGap&quot;: 45, &quot;max&quot;: 100},
+&quot;series&quot;: [
+{&quot;name&quot;: &quot;CO₂&quot;,        &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#B71C1C&quot;}, &quot;data&quot;: [92.5,91.5,88.0,86.0,70.0]},
+{&quot;name&quot;: &quot;CO&quot;,         &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F57F17&quot;}, &quot;data&quot;: [4.0, 5.5, 7.5, 9.0, 20.0]},
+{&quot;name&quot;: &quot;CH₄&quot;,        &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#F9A825&quot;}, &quot;data&quot;: [0.8, 0.8, 1.2, 1.5, 4.5]},
+{&quot;name&quot;: &quot;NMHC + other&quot;,&quot;type&quot;:&quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#90A4AE&quot;}, &quot;data&quot;: [2.2, 1.7, 2.3, 2.5, 4.5]},
+{&quot;name&quot;: &quot;BC/char&quot;,    &quot;type&quot;: &quot;bar&quot;, &quot;stack&quot;: &quot;total&quot;, &quot;itemStyle&quot;: {&quot;color&quot;: &quot;#212121&quot;}, &quot;data&quot;: [0.5, 0.5, 1.0, 1.0, 1.0]}
+]
+}"></div>
 <p>CO₂ dominates in flaming combustion (&gt;88%); CO rises sharply as combustion efficiency falls (smouldering peat reaches 20% CO). The BC/char fraction (~0.5–1%) appears small but represents a persistent soil carbon addition — one of the few cases where fire may contribute to long-term carbon storage.</p>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
@@ -412,24 +423,24 @@ for MCE in [0.75, 0.80, 0.85, 0.90, 0.93, 0.96, 0.99]:
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

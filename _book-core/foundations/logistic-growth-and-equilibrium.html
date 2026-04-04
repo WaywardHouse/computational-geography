@@ -36,10 +36,13 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script>
   (function () {
-    var s = localStorage.getItem('theme');
-    var dark = s !== null ? s === 'dark' : false;
-    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    document.documentElement.dataset.theme = 'light';
     document.documentElement.dataset.brand = 'wayward';
+    try {
+      localStorage.removeItem('theme');
+    } catch (err) {
+      void err;
+    }
   })();
 </script>
 
@@ -183,7 +186,7 @@ The story of fast growth early on, slower growth later, and a ceiling the system
 <tr class="header">
 <th>Population</th>
 <th><span class="math inline">N/K</span></th>
-<th>$1 - N/K$</th>
+<th><span class="math inline">1 - N/K</span></th>
 <th>Growth</th>
 </tr>
 </thead>
@@ -214,9 +217,48 @@ The story of fast growth early on, slower growth later, and a ceiling the system
 </tr>
 </tbody>
 </table>
-<p>When <span class="math inline">N</span> is small, $1 - N/K $, and we recover exponential growth.<br>
+<p>When <span class="math inline">N</span> is small, <span class="math inline">1 - N/K \approx 1</span>, and we recover exponential growth.<br>
 When <span class="math inline">N = K</span>, the brake term becomes zero — growth stops.<br>
 When <span class="math inline">N &gt; K</span> (overshoot), the brake term is negative — the population declines back toward <span class="math inline">K</span>.</p>
+<figure class="cg-ill">
+<div class="cg-ill__frame" data-markdown="1">
+<div class="cg-ill__eyebrow">
+Negative Feedback
+</div>
+<h3 class="cg-ill__title anchored">
+Logistic Growth Is Exponential Growth With A Built-In Brake
+</h3>
+<p class="cg-ill__lede">
+The logistic model is easiest to understand as two forces multiplied together: one pushes growth up when the population is present, and the other pushes growth down as the population approaches carrying capacity.
+</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewbox="0 0 560 300" role="img" aria-label="Logistic growth concept showing early growth, midpoint fastest growth, and flattening near carrying capacity">
+<rect x="0" y="0" width="560" height="300" rx="22" fill="#eef4ef"></rect> <rect x="58" y="40" width="452" height="206" rx="14" fill="#ffffff" stroke="#91a49a" stroke-width="3"></rect> <line x1="90" y1="214" x2="480" y2="214" stroke="#7d8ea0" stroke-width="2"></line> <line x1="90" y1="72" x2="90" y2="214" stroke="#7d8ea0" stroke-width="2"></line> <path d="M90 206 C126 204, 154 194, 182 170 C214 142, 244 110, 286 96 C322 84, 372 82, 458 82" fill="none" stroke="#3c8d5b" stroke-width="6"></path> <line x1="90" y1="82" x2="476" y2="82" stroke="#6d5ea8" stroke-width="4" stroke-dasharray="8 6"></line> <text x="410" y="70" font-size="16" fill="#5d4781">carrying capacity K</text> <line x1="286" y1="214" x2="286" y2="96" stroke="#d89b00" stroke-width="4" stroke-dasharray="8 6"></line> <text x="236" y="236" font-size="15" fill="#9b6d00">fastest growth near K/2</text> <text x="104" y="190" font-size="15" fill="#35515f">almost exponential</text> <text x="352" y="108" font-size="15" fill="#35515f">growth slows as brake strengthens</text> <text x="106" y="246" font-size="15" fill="#35515f">time</text> <text x="24" y="126" font-size="15" fill="#35515f" transform="rotate(-90 24 126)">population N</text> <path d="M102 270 C156 256, 218 258, 284 270" fill="none" stroke="#224f9c" stroke-width="4"></path> <text x="96" y="292" font-size="15" fill="#224f9c">growth term rN</text> <path d="M308 270 C360 258, 420 256, 470 270" fill="none" stroke="#a63d40" stroke-width="4"></path> <text x="310" y="292" font-size="15" fill="#a63d40">brake term (1 - N/K)</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4 class="anchored">
+How to think with the model
+</h4>
+<ul>
+<li>
+When the population is small, the brake term is close to 1, so growth behaves almost exponentially.
+</li>
+<li>
+As population grows, crowding or resource pressure reduces the effective growth rate.
+</li>
+<li>
+At carrying capacity, births and deaths balance in this simplified model.
+</li>
+<li>
+If the system overshoots, the brake term becomes negative and pulls the population back down.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</figure>
 <hr>
 <h2 id="building-the-mathematical-model" class="anchored">3. Building the Mathematical Model</h2>
 <h3 id="the-logistic-differential-equation" class="anchored">The Logistic Differential Equation</h3>
@@ -241,7 +283,7 @@ When <span class="math inline">N &gt; K</span> (overshoot), the brake term is ne
 <p>An <strong>equilibrium</strong> is a state where <span class="math inline">\frac{dN}{dt} = 0</span> — the population doesn’t change.</p>
 <p>Set the right side to zero:</p>
 <p><span class="math display">rN\left(1 - \frac{N}{K}\right) = 0</span></p>
-<p>This is zero when: 1. <span class="math inline">N = 0</span> (extinction equilibrium) 2. $1 - N/K = 0 N = K$ (carrying capacity equilibrium)</p>
+<p>This is zero when: 1. <span class="math inline">N = 0</span> (extinction equilibrium) 2. <span class="math inline">1 - N/K = 0 \Rightarrow N = K</span> (carrying capacity equilibrium)</p>
 <p><strong>Two equilibrium points:</strong> <span class="math inline">N^* = 0</span> and <span class="math inline">N^* = K</span>.</p>
 <h3 id="stability-analysis-conceptual" class="anchored">Stability Analysis (Conceptual)</h3>
 <p>An equilibrium is <strong>stable</strong> if small perturbations return to it.<br>
@@ -249,7 +291,7 @@ An equilibrium is <strong>unstable</strong> if small perturbations grow away fro
 <p><strong>At <span class="math inline">N^* = 0</span>:</strong><br>
 - If you add a small population (<span class="math inline">N &gt; 0</span>), does it grow or shrink? - When <span class="math inline">N</span> is small, <span class="math inline">\frac{dN}{dt} = rN(1 - N/K) \approx rN &gt; 0</span> - The population <strong>grows away</strong> from zero - <strong><span class="math inline">N = 0</span> is unstable</strong></p>
 <p><strong>At <span class="math inline">N^* = K</span>:</strong><br>
-- If <span class="math inline">N</span> is slightly below <span class="math inline">K</span>, then $1 - N/K &gt; 0$, so <span class="math inline">\frac{dN}{dt} &gt; 0</span> → population increases toward <span class="math inline">K</span> - If <span class="math inline">N</span> is slightly above <span class="math inline">K</span>, then $1 - N/K &lt; 0$, so <span class="math inline">\frac{dN}{dt} &lt; 0</span> → population decreases toward <span class="math inline">K</span> - <strong><span class="math inline">N = K</span> is stable</strong></p>
+- If <span class="math inline">N</span> is slightly below <span class="math inline">K</span>, then <span class="math inline">1 - N/K &gt; 0</span>, so <span class="math inline">\frac{dN}{dt} &gt; 0</span> and population increases toward <span class="math inline">K</span> - If <span class="math inline">N</span> is slightly above <span class="math inline">K</span>, then <span class="math inline">1 - N/K &lt; 0</span>, so <span class="math inline">\frac{dN}{dt} &lt; 0</span> and population decreases toward <span class="math inline">K</span> - <strong><span class="math inline">N = K</span> is stable</strong></p>
 <p>This is <strong>negative feedback</strong> — deviations from the equilibrium are self-correcting.</p>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">5. Worked Example by Hand</h2>
@@ -285,29 +327,34 @@ An equilibrium is <strong>unstable</strong> if small perturbations grow away fro
 <tr class="odd">
 <td>0</td>
 <td>50</td>
-<td>$0.4(50)(1 - 50/500) = 19.0$</td>
+<td><span class="math inline">0.4(50)(1 - 50/500) = 19.0</span></td>
 <td>69.0</td>
 </tr>
 <tr class="even">
 <td>1</td>
 <td>69</td>
-<td>$0.4(69)(1 - 69/500) = 23.7$</td>
+<td><span class="math inline">0.4(69)(1 - 69/500) = 23.7</span></td>
 <td>92.7</td>
 </tr>
 <tr class="odd">
 <td>2</td>
 <td>92.7</td>
-<td>$0.4(92.7)(1 - 92.7/500) = 30.2<span class="math inline">| 122.9                       |
-| 3    | 122.9| &amp;#36;0.4(122.9)(1 - 122.9/500) = 37.1</span></td>
-<td>160.0</td>
+<td><span class="math inline">0.4(92.7)(1 - 92.7/500) = 30.2</span></td>
+<td>122.9</td>
 </tr>
 <tr class="even">
-<td>4</td>
+<td>3</td>
+<td>122.9</td>
+<td><span class="math inline">0.4(122.9)(1 - 122.9/500) = 37.1</span></td>
 <td>160.0</td>
-<td>$0.4(160.0)(1 - 160.0/500) = 43.5$</td>
-<td>203.5</td>
 </tr>
 <tr class="odd">
+<td>4</td>
+<td>160.0</td>
+<td><span class="math inline">0.4(160.0)(1 - 160.0/500) = 43.5</span></td>
+<td>203.5</td>
+</tr>
+<tr class="even">
 <td>5</td>
 <td>203.5</td>
 <td>—</td>
@@ -381,7 +428,7 @@ N = N + dNdt * dt;
 t += dt;
       
 if (t % 1 < dt) { // Store every 1 year
-  result.push({t: Math.round(t), N});
+result.push({t: Math.round(t), N});
 }
 }
     
@@ -395,59 +442,59 @@ const timeData = timeSeries.map(pt => [pt.t, pt.N]);
     
 const timeOption = {
 title: {
-  text: `Logistic Growth: N₀ = ${N0}, K = ${K}, r = ${r.toFixed(2)}`,
-  left: 'center'
+text: `Logistic Growth: N₀ = ${N0}, K = ${K}, r = ${r.toFixed(2)}`,
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  formatter: params => {
-    return `Year ${params[0].value[0]}<br/>N = ${params[0].value[1].toFixed(1)}`;
-  }
+trigger: 'axis',
+formatter: params => {
+return `Year ${params[0].value[0]}<br/>N = ${params[0].value[1].toFixed(1)}`;
+}
 },
 grid: {
-  left: 60,
-  right: 40,
-  top: 60,
-  bottom: 60
+left: 60,
+right: 40,
+top: 60,
+bottom: 60
 },
 xAxis: {
-  type: 'value',
-  name: 'Time (years)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: 0,
-  max: tMax
+type: 'value',
+name: 'Time (years)',
+nameLocation: 'middle',
+nameGap: 30,
+min: 0,
+max: tMax
 },
 yAxis: {
-  type: 'value',
-  name: 'Population N(t)',
-  nameLocation: 'middle',
-  nameGap: 50,
-  min: 0,
-  max: Math.max(K * 1.2, N0 * 1.2)
+type: 'value',
+name: 'Population N(t)',
+nameLocation: 'middle',
+nameGap: 50,
+min: 0,
+max: Math.max(K * 1.2, N0 * 1.2)
 },
 series: [
-  {
-    data: timeData,
-    type: 'line',
-    smooth: true,
-    lineStyle: {
-      color: '#F0177A',
-      width: 3
-    },
-    showSymbol: false,
-    markLine: {
-      silent: true,
-      symbol: 'none',
-      lineStyle: {
-        color: '#666',
-        type: 'dashed'
-      },
-      data: [
-        {yAxis: K, label: {formatter: 'K = ' + K, position: 'end'}}
-      ]
-    }
-  }
+{
+data: timeData,
+type: 'line',
+smooth: true,
+lineStyle: {
+color: '#F0177A',
+width: 3
+},
+showSymbol: false,
+markLine: {
+silent: true,
+symbol: 'none',
+lineStyle: {
+color: '#666',
+type: 'dashed'
+},
+data: [
+{yAxis: K, label: {formatter: 'K = ' + K, position: 'end'}}
+]
+}
+}
 ]
 };
     
@@ -462,69 +509,69 @@ const currentRate = logisticDerivative(N0, r, K);
     
 const phaseOption = {
 title: {
-  text: 'Phase Plot: Growth Rate vs. Population',
-  left: 'center'
+text: 'Phase Plot: Growth Rate vs. Population',
+left: 'center'
 },
 tooltip: {
-  trigger: 'axis',
-  formatter: params => {
-    return `N = ${params[0].value[0].toFixed(0)}<br/>dN/dt = ${params[0].value[1].toFixed(2)}`;
-  }
+trigger: 'axis',
+formatter: params => {
+return `N = ${params[0].value[0].toFixed(0)}<br/>dN/dt = ${params[0].value[1].toFixed(2)}`;
+}
 },
 grid: {
-  left: 60,
-  right: 40,
-  top: 60,
-  bottom: 80
+left: 60,
+right: 40,
+top: 60,
+bottom: 80
 },
 xAxis: {
-  type: 'value',
-  name: 'Population (N)',
-  nameLocation: 'middle',
-  nameGap: 30,
-  min: 0,
-  max: K * 1.2
+type: 'value',
+name: 'Population (N)',
+nameLocation: 'middle',
+nameGap: 30,
+min: 0,
+max: K * 1.2
 },
 yAxis: {
-  type: 'value',
-  name: 'Growth Rate (dN/dt)',
-  nameLocation: 'middle',
-  nameGap: 50
+type: 'value',
+name: 'Growth Rate (dN/dt)',
+nameLocation: 'middle',
+nameGap: 50
 },
 series: [
-  {
-    data: phaseData,
-    type: 'line',
-    smooth: false,
-    lineStyle: {
-      color: '#00A8E8',
-      width: 3
-    },
-    showSymbol: false,
-    markPoint: {
-      symbol: 'circle',
-      symbolSize: 10,
-      itemStyle: {
-        color: '#F0177A'
-      },
-      data: [
-        {coord: [N0, currentRate], label: {formatter: 'N₀', position: 'top'}}
-      ]
-    },
-    markLine: {
-      silent: true,
-      symbol: 'none',
-      lineStyle: {
-        color: '#666',
-        type: 'dashed'
-      },
-      data: [
-        {xAxis: K, label: {formatter: 'K', position: 'end'}},
-        {xAxis: 0, label: {formatter: 'N=0', position: 'start'}},
-        {yAxis: 0}
-      ]
-    }
-  }
+{
+data: phaseData,
+type: 'line',
+smooth: false,
+lineStyle: {
+color: '#00A8E8',
+width: 3
+},
+showSymbol: false,
+markPoint: {
+symbol: 'circle',
+symbolSize: 10,
+itemStyle: {
+color: '#F0177A'
+},
+data: [
+{coord: [N0, currentRate], label: {formatter: 'N₀', position: 'top'}}
+]
+},
+markLine: {
+silent: true,
+symbol: 'none',
+lineStyle: {
+color: '#666',
+type: 'dashed'
+},
+data: [
+{xAxis: K, label: {formatter: 'K', position: 'end'}},
+{xAxis: 0, label: {formatter: 'N=0', position: 'start'}},
+{yAxis: 0}
+]
+}
+}
 ]
 };
     
@@ -559,8 +606,20 @@ phaseChart.resize();
 })();
 </script>
 <p><strong>Try this:</strong></p>
-<p><strong>Top panel (time series):</strong> - Start with <span class="math inline">N_0 = 50</span>, <span class="math inline">K = 500</span>, <span class="math inline">r = 0.4</span>. Watch the S-curve approach <span class="math inline">K</span>. - Set <span class="math inline">N_0 = 600</span> (above carrying capacity). The population <strong>declines</strong> to <span class="math inline">K</span>. - Increase <span class="math inline">r</span> to 0.8. The approach to equilibrium is faster. - Decrease <span class="math inline">r</span> to 0.2. The approach is slower.</p>
-<p><strong>Bottom panel (phase plot):</strong> - The curve shows <span class="math inline">\frac{dN}{dt}</span> as a function of <span class="math inline">N</span>. - Growth rate is <strong>zero</strong> at <span class="math inline">N = 0</span> and <span class="math inline">N = K</span> (the equilibria). - Growth rate is <strong>maximum</strong> at <span class="math inline">N = K/2</span> (halfway to carrying capacity). - The pink dot shows where the current <span class="math inline">N_0</span> sits on this curve.</p>
+<p><strong>Top panel (time series):</strong></p>
+<ul>
+<li>Start with <span class="math inline">N_0 = 50</span>, <span class="math inline">K = 500</span>, <span class="math inline">r = 0.4</span>. Watch the S-curve approach <span class="math inline">K</span>.</li>
+<li>Set <span class="math inline">N_0 = 600</span> (above carrying capacity). The population <strong>declines</strong> to <span class="math inline">K</span>.</li>
+<li>Increase <span class="math inline">r</span> to 0.8. The approach to equilibrium is faster.</li>
+<li>Decrease <span class="math inline">r</span> to 0.2. The approach is slower.</li>
+</ul>
+<p><strong>Bottom panel (phase plot):</strong></p>
+<ul>
+<li>The curve shows <span class="math inline">\frac{dN}{dt}</span> as a function of <span class="math inline">N</span>.</li>
+<li>Growth rate is <strong>zero</strong> at <span class="math inline">N = 0</span> and <span class="math inline">N = K</span> (the equilibria).</li>
+<li>Growth rate is <strong>maximum</strong> at <span class="math inline">N = K/2</span> (halfway to carrying capacity).</li>
+<li>The pink dot shows where the current <span class="math inline">N_0</span> sits on this curve.</li>
+</ul>
 <hr>
 <h2 id="interpretation" class="anchored">7. Interpretation</h2>
 <h3 id="the-s-curve-sigmoid-growth" class="anchored">The S-Curve (Sigmoid Growth)</h3>
@@ -570,12 +629,12 @@ phaseChart.resize();
 <p>The growth rate <span class="math inline">\frac{dN}{dt} = rN(1 - N/K)</span> is a parabola when plotted against <span class="math inline">N</span>.</p>
 <p>To find the maximum, take the derivative with respect to <span class="math inline">N</span> and set it to zero:</p>
 <p><span class="math display">\frac{d}{dN}\left[rN\left(1 - \frac{N}{K}\right)\right] = r\left(1 - \frac{2N}{K}\right) = 0</span></p>
-<p><span class="math inline">&amp;#36;1 - \frac{2N}{K} = 0 \Rightarrow N = \frac{K}{2}</span>$</p>
+<p><span class="math display">1 - \frac{2N}{K} = 0 \Rightarrow N = \frac{K}{2}</span></p>
 <p>The population grows <strong>fastest</strong> at half the carrying capacity.</p>
 <p><strong>Ecological interpretation:</strong> When the population is small, there are few individuals to reproduce. When the population is large, competition slows things down. Maximum growth happens at the sweet spot in between.</p>
 <h3 id="overshoot-and-correction" class="anchored">Overshoot and Correction</h3>
 <p>If <span class="math inline">N &gt; K</span> (overshoot), then:</p>
-<p><span class="math inline">&amp;#36;1 - \frac{N}{K} &lt; 0 \Rightarrow \frac{dN}{dt} &lt; 0</span>$</p>
+<p><span class="math display">1 - \frac{N}{K} &lt; 0 \Rightarrow \frac{dN}{dt} &lt; 0</span></p>
 <p>The population <strong>declines</strong> back toward <span class="math inline">K</span>. This is the stabilizing feedback.</p>
 <hr>
 <h2 id="what-could-go-wrong" class="anchored">8. What Could Go Wrong?</h2>
@@ -612,7 +671,13 @@ phaseChart.resize();
 <h2 id="math-refresher-phase-plots" class="anchored">10. Math Refresher: Phase Plots</h2>
 <p>A <strong>phase plot</strong> shows the rate of change on the y-axis and the state variable on the x-axis.</p>
 <p>For the logistic equation: - x-axis: <span class="math inline">N</span> (population) - y-axis: <span class="math inline">\frac{dN}{dt}</span> (growth rate)</p>
-<p><strong>How to read it:</strong> - Where the curve crosses the x-axis (<span class="math inline">\frac{dN}{dt} = 0</span>), you have equilibria - Where the curve is <strong>above</strong> the x-axis, <span class="math inline">N</span> is <strong>increasing</strong> - Where the curve is <strong>below</strong> the x-axis, <span class="math inline">N</span> is <strong>decreasing</strong> - The slope of the curve tells you how the growth rate responds to changes in <span class="math inline">N</span></p>
+<p><strong>How to read it:</strong></p>
+<ul>
+<li>Where the curve crosses the x-axis (<span class="math inline">\frac{dN}{dt} = 0</span>), you have equilibria</li>
+<li>Where the curve is <strong>above</strong> the x-axis, <span class="math inline">N</span> is <strong>increasing</strong></li>
+<li>Where the curve is <strong>below</strong> the x-axis, <span class="math inline">N</span> is <strong>decreasing</strong></li>
+<li>The slope of the curve tells you how the growth rate responds to changes in <span class="math inline">N</span></li>
+</ul>
 <p>Phase plots are powerful tools for understanding dynamical systems without solving equations analytically.</p>
 <hr>
 <h2 id="summary" class="anchored">Summary</h2>
@@ -637,24 +702,24 @@ phaseChart.resize();
 
     <nav class="wayward-footer__group" aria-labelledby="footer-reading">
       <h2 id="footer-reading" class="anchored">Reading</h2>
-      <a href="../articles/">Articles</a>
-      <a href="../learn/">Learn</a>
-      <a href="../archive.html">Archive</a>
-      <a href="../start-here.html">Start Here</a>
+      <a href="https://wayward.house/articles/">Articles</a>
+      <a href="https://wayward.house/learn/">Library</a>
+      <a href="https://wayward.house/archive.html">Archive</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-site">
       <h2 id="footer-site" class="anchored">Site</h2>
-      <a href="../start-here.html">Start Here</a>
-      <a href="../about.html">About</a>
-      <a href="../contact.html">Contact</a>
+      <a href="https://wayward.house/start-here.html">Choose Your Path</a>
+      <a href="https://wayward.house/about.html">About</a>
+      <a href="https://wayward.house/contact.html">Contact</a>
     </nav>
 
     <nav class="wayward-footer__group" aria-labelledby="footer-resources">
       <h2 id="footer-resources" class="anchored">Resources</h2>
-      <a href="../topics/">All Topics</a>
-      <a href="../privacy.html">Privacy Policy</a>
-      <a href="../terms.html">Terms of Use</a>
+      <a href="https://wayward.house/topics/">All Topics</a>
+      <a href="https://wayward.house/privacy.html">Privacy Policy</a>
+      <a href="https://wayward.house/terms.html">Terms of Use</a>
     </nav>
   </div>
 </footer>

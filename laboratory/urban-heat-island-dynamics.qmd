@@ -229,6 +229,7 @@ where $\Delta T_{\max} \approx 1$-$4^\circ$C at the park edge and $d_0 \approx 1
 **Setting:** Edmonton, Alberta (pop. ~1 million). Estimate maximum nocturnal UHI intensity and evaluate a cool roof programme covering 25% of plan area.
 
 **Given:**
+
 - $f_i = 0.55$, $\psi_s = 0.55$, $Q_F = 55$ W m⁻² (winter average)
 - $K_\downarrow = 130$ W m⁻² (winter average), $Q^* \approx 70$ W m⁻² (winter net radiation)
 - Population: 1,000,000

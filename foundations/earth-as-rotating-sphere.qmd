@@ -69,10 +69,12 @@ The mathematical question: How do we model the Earth as a geometric object and w
 **Reality:** Earth is an **oblate spheroid** — slightly flattened at the poles (equatorial radius 6378 km, polar radius 6357 km). The difference is small (~0.3%) for many applications.
 
 **Geographic coordinates:**
+
 - **Latitude** (φ or lat): Angle north or south of the equator (−90° to +90°)
 - **Longitude** (λ or lon): Angle east or west of the prime meridian (−180° to +180° or 0° to 360°)
 
 **Convention:**
+
 - North latitude is positive, south is negative
 - East longitude is positive (0° to 180°), west is negative (0° to −180°)
 - The prime meridian (0° longitude) passes through Greenwich, England
@@ -107,6 +109,7 @@ $$y = R \cos(\text{lat}) \sin(\text{lon})$$
 $$z = R \sin(\text{lat})$$
 
 **Coordinate system:**
+
 - **x-axis:** Points from Earth's center through (lat=0°, lon=0°) — equator at prime meridian
 - **y-axis:** Points from Earth's center through (lat=0°, lon=90°E) — equator at 90°E
 - **z-axis:** Points from Earth's center through the North Pole (lat=90°)
@@ -166,6 +169,7 @@ $$r_{\phi} = R \cos(\phi)$$
 $$v(\phi) = \omega R \cos(\phi)$$
 
 **Examples:**
+
 - Equator (φ = 0°): $v = 465$ m/s
 - 45° latitude: $v = 465 \times \cos(45°) = 329$ m/s
 - North Pole (φ = 90°): $v = 0$ (just spins in place)
@@ -475,6 +479,7 @@ window.addEventListener('resize', () => chart.resize());
 ```
 
 **Try this:**
+
 - Watch the pink marker move as Earth rotates
 - Change latitude: See how the z-coordinate changes
 - Change longitude: Initial position in the x-y plane
@@ -492,6 +497,7 @@ window.addEventListener('resize', () => chart.resize());
 The **shortest path** between two points on a sphere is along a **great circle** — a circle whose center coincides with Earth's center.
 
 **Examples:**
+
 - All meridians (lines of longitude) are great circles
 - The equator is a great circle
 - Parallels (lines of latitude) are NOT great circles (except the equator)
@@ -577,6 +583,7 @@ If $|\Delta lon| > 180°$, subtract 360° to get the short way around.
 A satellite in orbit traces a **ground track** — the path of the point directly below it on Earth's surface.
 
 **For a satellite at altitude $h$ above the equator:**
+
 - Orbital period: $T_{\text{orbit}}$
 - Earth rotation period: $T_{\text{Earth}} = 86164$ s
 

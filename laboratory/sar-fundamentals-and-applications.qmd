@@ -208,6 +208,7 @@ where $\mu_{\text{bg}}$ and $\sigma_{\text{bg}}$ are the mean and standard devia
 **Setting:** Sentinel-1 C-band SAR overpass of a coastal area suspected to contain flood inundation. We want to calculate ground-range resolution and assess whether a 50 m wide flooded field is detectable.
 
 **Given:**
+
 - Wavelength $\lambda = 0.056$ m (C-band, 5.405 GHz)
 - Chirp bandwidth $B = 100$ MHz
 - Incidence angle $\theta_i = 38°$
