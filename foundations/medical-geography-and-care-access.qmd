@@ -1,0 +1,263 @@
+---
+title: Medical Geography and Care Access
+subtitle: How distance, capacity, and competition shape unequal access to healthcare
+date: 2026-04-04
+type: chapter
+image: /assets/images/trade-corridors.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 13
+section-code: D
+section-title: Human Systems as Mathematical Systems
+tags:
+- computational-geography
+- human-geography
+- medical-geography
+- healthcare-access
+- catchments
+- spatial-inequality
+difficulty: 3
+description: 'Medical geography asks how health, care, and access vary across space. This chapter introduces catchments, provider competition, and simple care-access metrics to show why central cities and rural margins can both be underserved for different reasons.
+
+  '
+learning:
+  concepts:
+  - medical-geography
+  - catchments
+  - provider-capacity
+  - competition-for-care
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Accessibility (Model 12). Comfortable with weighted sums and the idea that proximity alone is not enough when many people compete for the same service.
+
+  '
+---
+
+## Before You Start
+
+**You should know**  
+That services can be nearby but still hard to use if travel is difficult or capacity is limited.
+
+**You will learn**  
+How medical geography turns care access into a spatial model, why provider competition matters, and how underserved areas can arise in both dense cities and sparse rural regions.
+
+**Why this matters**  
+Health inequality is often geographic before it is clinical. Where people live affects whether care is reachable, timely, and realistically available.
+
+**If this gets hard, focus on...**  
+The core idea that care access depends on three things together: distance, provider supply, and competing demand.
+
+
+Two neighborhoods can sit at the same distance from a clinic and still experience very different healthcare access. One may face heavy competition for appointments because thousands of residents rely on the same facility. The other may have fewer nearby providers but also a smaller catchment population. A remote community may be underserved because distance dominates; an inner-city neighborhood may be underserved because capacity is overwhelmed. Medical geography exists to make those differences visible.
+
+This matters because healthcare systems are spatial systems as much as institutional ones. Clinics, hospitals, pharmacies, specialists, ambulances, and transit routes are distributed unevenly. Patients move through those systems with unequal travel budgets, unequal car access, unequal time flexibility, and unequal exposure to congestion or weather disruption. A geography of care therefore asks a practical question: not just where the providers are, but who can realistically use them.
+
+## 1. The Question
+
+How do we measure whether people can actually access healthcare?
+
+Raw facility counts are not enough.
+
+A place may have:
+
+- many doctors nearby but too many competing patients
+- one nearby clinic but no specialist access
+- acceptable straight-line distance but poor travel time
+- strong hospital access but weak primary-care access
+
+Medical geography turns these into quantitative questions about supply, demand, travel cost, and catchment structure.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Care Access</div>
+<h3 class="cg-ill__title">Healthcare Access Is A Balance Of Provider Supply, Travel Friction, And Competing Demand</h3>
+<p class="cg-ill__lede">A clinic on the map is not the same thing as care capacity in people’s lives. Medical geography asks how much usable care supply remains once travel time and competition are counted.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Rural shortfall</span>
+<h4>Distance Dominates</h4>
+<p>Facilities are sparse and long travel times make basic care, emergency access, and specialist referrals harder even when provider competition is low.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Urban shortfall</span>
+<h4>Competition Dominates</h4>
+<p>Facilities may be geographically close, but overloaded catchments reduce effective access because many residents depend on the same limited supply.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Planning implication</span>
+<h4>Underserved Does Not Mean The Same Thing Everywhere</h4>
+<p>One area needs shorter travel times; another needs more provider capacity. The metric should tell us which problem we actually have.</p>
+</div>
+</div>
+<figcaption>Medical geography is not just “mapping clinics.” It is measuring the spatial fit between health need, service capacity, and the effort required to connect the two.</figcaption>
+</div>
+</figure>
+
+### Catchments and competition
+
+The simplest care-access idea is a catchment:
+
+- define a travel threshold such as 30 minutes
+- identify providers reachable within that threshold
+- compare total provider supply with total population in the same catchment
+
+In words:
+
+$$\text{care access} \approx \frac{\text{reachable provider capacity}}{\text{competing reachable population}}$$
+
+This is why facility density alone is misleading. Ten nearby physicians can still imply poor access if the local catchment contains tens of thousands of residents.
+
+### A simple ratio view
+
+If clinic $j$ has supply $S_j$ and serves a catchment population $P_j$, then a first-order service ratio is:
+
+$$R_j = \frac{S_j}{P_j}$$
+
+An origin’s accessibility can then be approximated by summing the ratios of reachable providers:
+
+$$A_i = \sum_j R_j \cdot \mathbf{1}(c_{ij} \leq T^*)$$
+
+This is a simple way to combine:
+
+- travel threshold
+- provider capacity
+- competition
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose two neighborhoods can each reach one clinic within 20 minutes.
+
+| Clinic | Physicians $S_j$ | Catchment population $P_j$ |
+|---|---:|---:|
+| A | 4 | 8000 |
+| B | 3 | 2400 |
+
+### Step 1: compute provider ratios
+
+For clinic A:
+
+$$R_A = \frac{4}{8000} = 0.0005$$
+
+For clinic B:
+
+$$R_B = \frac{3}{2400} = 0.00125$$
+
+### Step 2: compare neighborhoods
+
+If Neighborhood 1 can only reach clinic A, its access score is:
+
+$$A_1 = 0.0005$$
+
+If Neighborhood 2 can only reach clinic B, its access score is:
+
+$$A_2 = 0.00125$$
+
+Even though both neighborhoods have “a clinic within 20 minutes,” Neighborhood 2 has 2.5 times better effective access because the competing demand is much lower.
+
+### Step 3: interpret
+
+This is the medical-geography lesson:
+
+- proximity alone can overstate access
+- supply alone can overstate access
+- the ratio of reachable supply to competing population is often the more relevant quantity
+
+---
+
+## 4. Why This Is A Health-Inequality Model
+
+Care access is not randomly distributed.
+
+It is shaped by:
+
+- settlement patterns
+- provider location decisions
+- transit and road networks
+- aging populations
+- insurance, income, and time budgets
+
+That means medical geography is one way to model structural inequality. It asks whether health systems are spatially aligned with need or whether geography itself creates avoidable barriers.
+
+### Access is not outcome
+
+Poor care access raises risk, but it does not determine health outcome by itself.
+
+Outcomes also depend on:
+
+- quality of care
+- income and housing
+- environmental exposure
+- public health conditions
+
+Still, access is one of the clearest measurable spatial mechanisms in the chain.
+
+---
+
+## 5. Computational Implementation
+
+```python
+clinics = [
+    {"name": "A", "physicians": 4, "catchment_pop": 8000},
+    {"name": "B", "physicians": 3, "catchment_pop": 2400},
+]
+
+for clinic in clinics:
+    clinic["ratio"] = clinic["physicians"] / clinic["catchment_pop"]
+
+print("Clinic ratios:")
+for clinic in clinics:
+    print(clinic["name"], round(clinic["ratio"], 6))
+
+# Neighborhood 1 reaches clinic A only; Neighborhood 2 reaches clinic B only
+A1 = clinics[0]["ratio"]
+A2 = clinics[1]["ratio"]
+
+print("Neighborhood 1 access:", round(A1, 6))
+print("Neighborhood 2 access:", round(A2, 6))
+print("Relative advantage:", round(A2 / A1, 2), "times")
+```
+
+This same structure scales to:
+
+- primary care access
+- emergency department access
+- pharmacy deserts
+- specialist care distribution
+
+---
+
+## 6. What Could Go Wrong?
+
+### Counting facilities instead of capacity
+
+A hospital and a small clinic are not interchangeable units of supply.
+
+### Ignoring competition
+
+Nearby providers may be effectively scarce if the catchment population is large.
+
+### Ignoring travel mode
+
+Walking, transit, ambulance travel, and private vehicles produce different care geographies.
+
+### Confusing care access with health status
+
+Access is one major determinant, but not the whole health system.
+
+---
+
+## Summary
+
+- Medical geography studies how care and health opportunity vary across space.
+- Effective care access depends on distance, provider capacity, and competing demand.
+- Rural and urban underservice can arise for different reasons.
+- Healthcare geography is one of the clearest ways to model spatial inequality directly.
+- This chapter turns care access into a quantitative human-geography model rather than just a policy description.

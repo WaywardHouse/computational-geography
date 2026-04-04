@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/spatial-diffusion.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 12
+chapter-number: 14
 section-code: D
 section-title: Human Systems as Mathematical Systems
 tags:

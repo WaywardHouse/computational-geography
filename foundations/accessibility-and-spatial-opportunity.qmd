@@ -1,0 +1,267 @@
+---
+title: Accessibility and Spatial Opportunity
+subtitle: How distance, travel cost, and competition shape access to jobs, services, and daily life
+date: 2026-04-04
+type: chapter
+image: /assets/images/trade-corridors.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 12
+section-code: D
+section-title: Human Systems as Mathematical Systems
+tags:
+- computational-geography
+- human-geography
+- accessibility
+- travel-cost
+- spatial-mismatch
+- opportunity
+difficulty: 3
+description: 'Accessibility is the ease with which people can reach opportunities like jobs, healthcare, schools, and shops. This chapter introduces cumulative-opportunity and gravity-style accessibility measures, and shows why central locations are not always the most accessible once competition and travel constraints are counted.
+
+  '
+learning:
+  concepts:
+  - accessibility
+  - distance-decay
+  - cumulative-opportunities
+  - spatial-mismatch
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Gravity models (Model 11). Comfortable with distance decay and weighted sums. We''ll add the idea that opportunities are not equal if they are harder to reach or more contested.
+
+  '
+---
+
+## Before You Start
+
+**You should know**  
+That distance and travel cost reduce interaction, and that nearby opportunities are usually easier to use than distant ones.
+
+**You will learn**  
+How accessibility differs from simple proximity, how to measure access to jobs or services, and why socially central places can still be underserved.
+
+**Why this matters**  
+Accessibility is one of the clearest bridges between geographic structure and everyday inequality.
+
+**If this gets hard, focus on...**  
+The simple idea that opportunity is not just “what exists nearby,” but “what can realistically be reached.”
+
+
+A clinic can sit in the middle of a city and still be hard to access. A worker can live only ten kilometres from thousands of jobs and still face poor opportunity if those jobs are across a congested river crossing, outside the transit network, or heavily contested by many other workers. Accessibility is about this difference between nominal nearness and usable opportunity. It converts geography into lived possibility.
+
+This matters because a huge share of social inequality is spatially organized. Schools, hospitals, food stores, parks, and jobs are distributed unevenly. Transport networks reduce some of those inequalities and deepen others. A model of accessibility is therefore not just a transport model. It is a human-geography model of who can reach what, at what cost, and in competition with whom.
+
+## 1. The Question
+
+How do we measure whether people can actually reach opportunities?
+
+There are at least three increasingly better ways to think about access:
+
+1. **Straight-line distance:** how far away something is
+2. **Travel cost:** how long or difficult it is to reach
+3. **Accessibility:** how much useful opportunity is reachable, after travel friction and sometimes after competition are counted
+
+That third idea is the real target.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Accessibility Logic</div>
+<h3 class="cg-ill__title">Accessibility Is Opportunity Discounted By Travel Cost And Sometimes By Competition</h3>
+<p class="cg-ill__lede">The key teaching move is from “how close is the destination?” to “how much usable opportunity can be reached from here?” Distance matters, but so do travel time, network structure, and the number of other people trying to use the same service.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Proximity</span>
+<h4>Nearest Is Close</h4>
+<p>A destination may be geographically near, but that alone says little about the number of alternatives, the travel mode, or the actual effort required to reach it.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Travel cost</span>
+<h4>Friction Changes Reachability</h4>
+<p>Bridges, transit lines, congestion, slope, and mode choice all change how much opportunity lies inside a realistic travel budget.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Competition</span>
+<h4>Nearby Supply Can Still Be Thin</h4>
+<p>A clinic or job centre may be nearby but effectively scarce if many people depend on the same destination.</p>
+</div>
+</div>
+<figcaption>Accessibility is a better human-geography quantity than raw distance because it measures what a person can plausibly use, not just what exists on the map.</figcaption>
+</div>
+</figure>
+
+### Cumulative opportunities
+
+The simplest accessibility measure counts the number of destinations reachable within a threshold travel cost $T^*$:
+
+$$A_i = \sum_j O_j \cdot \mathbf{1}(c_{ij} \leq T^*)$$
+
+where:
+
+- $A_i$ is accessibility from origin $i$
+- $O_j$ is the amount of opportunity at destination $j$
+- $c_{ij}$ is the travel cost between origin and destination
+- $\mathbf{1}(\cdot)$ is an indicator that equals 1 if the destination is reachable and 0 otherwise
+
+This is easy to interpret: count what lies within 30 minutes, 5 km, or another practical threshold.
+
+### Gravity-style accessibility
+
+A smoother measure weights all opportunities by travel cost:
+
+$$A_i = \sum_j O_j f(c_{ij})$$
+
+where $f(c_{ij})$ declines with cost. A common form is exponential decay:
+
+$$f(c_{ij}) = e^{-\beta c_{ij}}$$
+
+This captures the idea that faraway opportunities still matter, just less than nearby ones.
+
+### Spatial mismatch
+
+Accessibility becomes especially important when jobs and households are separated in space. This is the **spatial mismatch** idea:
+
+- opportunities may exist in the region
+- but not in forms or locations that are reasonably reachable from where people live
+
+That makes accessibility a bridge between transport geography and social inequality.
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose a neighborhood can reach three job centres:
+
+| Job centre | Jobs $O_j$ | Travel time $c_{ij}$ (min) |
+|---|---:|---:|
+| A | 1000 | 10 |
+| B | 800 | 25 |
+| C | 600 | 45 |
+
+### Step 1: cumulative opportunities
+
+If we use a 30-minute threshold:
+
+- A counts
+- B counts
+- C does not
+
+So:
+
+$$A_i = 1000 + 800 = 1800$$
+
+### Step 2: gravity-style accessibility
+
+Now use:
+
+$$A_i = \sum_j O_j e^{-0.05c_{ij}}$$
+
+Compute each term:
+
+- A: $1000e^{-0.5} \approx 607$
+- B: $800e^{-1.25} \approx 229$
+- C: $600e^{-2.25} \approx 63$
+
+Total:
+
+$$A_i \approx 607 + 229 + 63 = 899$$
+
+This gives a more graded answer. The distant job centre still matters, but not very much.
+
+### Step 3: interpret the difference
+
+The threshold measure says “1800 jobs are reachable.”
+
+The gravity-style measure says “the effective accessibility is much lower once distance decay is counted.”
+
+Both are useful, but they answer slightly different questions.
+
+---
+
+## 4. Why Central Places Can Still Be Underserved
+
+A common mistake is to assume that inner-city or central locations must always be highly accessible. That is often false.
+
+Reasons:
+
+- congestion increases travel cost
+- service competition is high
+- direct routes may not exist
+- barriers like rivers, rail corridors, or highways distort the network
+
+This is why accessibility is better measured on networks and catchments than by eyeballing map centrality.
+
+### Accessibility is not the same as equity
+
+High accessibility does not automatically mean fair outcomes.
+
+A place can have:
+
+- good job accessibility but poor housing affordability
+- good healthcare proximity but overloaded providers
+- good transit access but unsafe walking conditions
+
+Accessibility is one major part of equity, not the whole of it.
+
+---
+
+## 5. Computational Implementation
+
+```python
+import math
+
+jobs = [1000, 800, 600]
+times = [10, 25, 45]
+
+def cumulative_access(opportunities, costs, threshold):
+    return sum(o for o, c in zip(opportunities, costs) if c <= threshold)
+
+def gravity_access(opportunities, costs, beta):
+    return sum(o * math.exp(-beta * c) for o, c in zip(opportunities, costs))
+
+print("Cumulative access (30 min):", cumulative_access(jobs, times, 30))
+print("Gravity-style access:", round(gravity_access(jobs, times, 0.05), 1))
+```
+
+This basic pattern scales directly to:
+
+- jobs reachable by transit
+- clinics reachable within a drive time
+- schools reachable on foot
+- grocery access in underserved neighborhoods
+
+---
+
+## 6. What Could Go Wrong?
+
+### Using straight-line distance instead of travel cost
+
+Two places equally far away may be very unequal in access once bridges, congestion, or transit gaps are counted.
+
+### Choosing arbitrary thresholds carelessly
+
+A 30-minute boundary may be useful, but it can create sharp edge effects where a destination at 31 minutes vanishes completely from the measure.
+
+### Ignoring competition
+
+Nearby services are not equally available if everyone in the catchment relies on the same destination.
+
+### Confusing accessibility with behavior
+
+High accessibility makes an option possible; it does not guarantee people will choose it.
+
+---
+
+## Summary
+
+- Accessibility measures reachable opportunity, not just raw distance.
+- Threshold and gravity-style measures are both useful, but answer different questions.
+- Travel cost and competition matter as much as simple proximity.
+- Accessibility is one of the cleanest quantitative links between geography and inequality.
+- This is a foundational human-geography model, not just a transport metric.

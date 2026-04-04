@@ -35,6 +35,8 @@ book:
     - foundations/digital-elevation-models-as-functions.qmd
     - foundations/gradient-aspect-steepest-descent.qmd
     - foundations/gravity-models-trade-migration.qmd
+    - foundations/accessibility-and-spatial-opportunity.qmd
+    - foundations/medical-geography-and-care-access.qmd
     - foundations/spatial-diffusion-of-innovation.qmd
     - foundations/what-is-remote-sensing.qmd
     - foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd
