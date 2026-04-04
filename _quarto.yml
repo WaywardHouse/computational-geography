@@ -26,6 +26,8 @@ book:
     - methods-and-tools/uncertainty-propagation-and-ensembles.qmd
     - methods-and-tools/simulation-paradigms.qmd
     - methods-and-tools/decision-models-and-optimization.qmd
+    - methods-and-tools/bayesian-updating-and-geographic-inference.qmd
+    - methods-and-tools/causal-inference-for-geographic-questions.qmd
     - foundations/index.qmd
     - foundations/what-is-a-spatial-model.qmd
     - foundations/linear-change-and-rate.qmd
@@ -37,6 +39,11 @@ book:
     - foundations/gravity-models-trade-migration.qmd
     - foundations/accessibility-and-spatial-opportunity.qmd
     - foundations/medical-geography-and-care-access.qmd
+    - foundations/social-vulnerability-and-exposure.qmd
+    - foundations/public-health-and-environmental-exposure.qmd
+    - foundations/migration-systems-and-selective-mobility.qmd
+    - foundations/segregation-and-neighborhood-inequality.qmd
+    - foundations/demographic-structure-and-population-change.qmd
     - foundations/spatial-diffusion-of-innovation.qmd
     - foundations/what-is-remote-sensing.qmd
     - foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd
@@ -64,6 +71,7 @@ book:
     - environmental-systems/decomposition-and-soil-carbon.qmd
     - environmental-systems/nitrogen-cycling.qmd
     - environmental-systems/phenology-and-growing-season.qmd
+    - environmental-systems/land-atmosphere-coupling-and-feedbacks.qmd
     - spatial-analysis/index.qmd
     - spatial-analysis/point-in-polygon-testing.qmd
     - spatial-analysis/buffer-operations.qmd
@@ -90,6 +98,7 @@ book:
     - atmospheric-hazards/hail-formation-forecasting.qmd
     - atmospheric-hazards/boundary-layer-turbulence.qmd
     - atmospheric-hazards/extreme-wind-events.qmd
+    - atmospheric-hazards/compound-hazards-and-cascading-risk.qmd
     - economic-systems/index.qmd
     - economic-systems/canada-trade-gravity-model.qmd
     - economic-systems/urban-bid-rent-model.qmd

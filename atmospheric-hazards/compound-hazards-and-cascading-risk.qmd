@@ -1,0 +1,343 @@
+---
+title: Compound Hazards and Cascading Risk
+subtitle: How heat, smoke, fire, rainfall, wind, and flooding interact across one evolving event system
+date: 2026-04-04
+type: chapter
+image: /assets/images/atmospheric-and-hazards.webp
+book-part: atmospheric-hazards
+book-part-title: Atmospheric Hazards and Dynamics
+chapter-number: 12
+section-code: Z
+section-title: Compound Events and Risk
+tags:
+- computational-geography
+- modelling
+- hazards
+- compound-events
+- cascading-risk
+- wildfire
+- flooding
+difficulty: 4
+description: 'Real disasters are often compound rather than isolated. Heat can dry fuels, fire can create smoke and hydrophobic soils, and later rainfall can trigger flooding or debris flows. This chapter introduces compound hazards and cascading risk as a systems way to think about evolving environmental danger.
+
+  '
+learning:
+  concepts:
+  - compound-hazard
+  - cascading-risk
+  - event-sequence
+  - interacting-drivers
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: Fire weather, fire spread, smoke, rainfall intensity, flood frequency, and urban flood modelling from earlier in Part 4. This chapter is about connecting them into one evolving event system.
+hide-description: true
+---
+
+## Before You Start
+
+**You should know**  
+That weather can influence ignition, spread, rainfall intensity, runoff, and smoke transport, and that hazard impacts depend on exposure as well as physical magnitude.
+
+**You will learn**  
+How multiple hazards interact across time, why one event can increase the probability or impact of another, and how to think about evolving risk as a chain rather than a single snapshot.
+
+**Why this matters**  
+Emergency management rarely faces clean textbook hazards one at a time. Planning improves when we model chains, overlaps, and compounding stress on people and infrastructure.
+
+**If this gets hard, focus on...**  
+Ask three questions in order: what happened first, what did it change, and what new hazard became more likely because of that change?
+
+
+The 2023 wildfire season in Canada made a hard lesson visible across a continental scale. A prolonged warm and dry period increased fire weather and helped create large fires. Those fires generated smoke plumes that degraded air quality hundreds and sometimes thousands of kilometres away. In burn scars, vegetation loss and altered soils changed later runoff response. Communities were not dealing with one hazard but with a sequence: heat and drought, ignition, fire spread, smoke exposure, infrastructure disruption, evacuation, and in some places later erosion or flooding. The emergency was a system, not an isolated incident.
+
+This chapter introduces that systems view. A **compound hazard** occurs when multiple drivers or hazards happen together or in close sequence and produce larger impacts than any one would alone. A **cascading risk** occurs when one event changes physical conditions, infrastructure, or social vulnerability in ways that increase downstream consequences. The mathematics can remain simple at first. What matters is tracking states, transitions, and conditional probability: once one event has happened, what changed in the system, and how did that change alter the next stage of risk?
+
+## 1. The Question
+
+Why do some disasters escalate through stages instead of ending with the first impact?
+
+Examples:
+
+- heat and drought raise fire danger
+- fire creates smoke and damage to vegetation cover
+- smoke creates health stress far from the fire line
+- burned soil and reduced canopy can increase post-fire runoff
+- heavy rain after a fire can create flash flooding or debris flows
+
+The mathematical question: How do we model a hazard chain in which one state changes the probability, magnitude, or impact of the next?
+
+---
+
+## 2. The Systems View
+
+### A compound event is not just “many bad things”
+
+There are at least three common structures:
+
+1. **Multiple drivers at once**  
+   Example: heat, low humidity, and wind acting together on fire behavior.
+
+2. **Sequential hazards**  
+   Example: wildfire followed by smoke transport, then post-fire flooding.
+
+3. **Cascading impacts**  
+   Example: power failure causing communications failure, evacuation difficulty, and care disruption.
+
+### State changes matter
+
+After the first event, the system is not the same as it was before:
+
+- fuels are drier
+- vegetation cover is lower
+- soils may be more water-repellent
+- people may already be stressed, displaced, or medically vulnerable
+- infrastructure may already be damaged
+
+That means later hazards must be modelled on the updated system, not the original one.
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Event Chains</div>
+<h3 class="cg-ill__title">Compound Hazard Thinking Tracks What Each Event Leaves Behind</h3>
+<p class="cg-ill__lede">The main shift is from single-event forecasting to sequence reasoning. Each stage alters fuels, soils, air quality, infrastructure, or vulnerability, so the next hazard starts from a different baseline than the first.</p>
+```{=html}
+<svg viewBox="0 0 760 360" role="img" aria-label="Compound hazard diagram linking heat and drought to wildfire, smoke, burn scar change, heavy rain, flooding, and downstream impacts.">
+  <rect x="0" y="0" width="760" height="360" rx="24" fill="#f8f5ef"/>
+
+  <rect x="42" y="120" width="138" height="84" rx="18" fill="#fde2c7" stroke="#dca066" stroke-width="3"/>
+  <text x="70" y="154" font-size="22" fill="#8f4b12" font-weight="700">heat + drought</text>
+  <text x="82" y="180" font-size="17" fill="#5b4a3a">dry fuels, stress</text>
+
+  <rect x="218" y="120" width="120" height="84" rx="18" fill="#f9d4c8" stroke="#d48d7e" stroke-width="3"/>
+  <text x="248" y="154" font-size="22" fill="#8c2f31" font-weight="700">wildfire</text>
+  <text x="238" y="180" font-size="17" fill="#5b4a3a">spread and burn</text>
+
+  <rect x="380" y="56" width="138" height="84" rx="18" fill="#dce8f5" stroke="#8ba6c2" stroke-width="3"/>
+  <text x="430" y="90" font-size="22" fill="#244c73" font-weight="700">smoke</text>
+  <text x="396" y="116" font-size="17" fill="#5b4a3a">air-quality exposure</text>
+
+  <rect x="382" y="198" width="140" height="92" rx="18" fill="#e7f1df" stroke="#9fba8a" stroke-width="3"/>
+  <text x="404" y="234" font-size="22" fill="#3f6a2c" font-weight="700">burn scar</text>
+  <text x="402" y="260" font-size="17" fill="#5b4a3a">cover loss, soil change</text>
+
+  <rect x="568" y="198" width="136" height="92" rx="18" fill="#dbeefe" stroke="#87afd0" stroke-width="3"/>
+  <text x="596" y="234" font-size="22" fill="#135b86" font-weight="700">heavy rain</text>
+  <text x="594" y="260" font-size="17" fill="#5b4a3a">high runoff response</text>
+
+  <rect x="560" y="56" width="150" height="84" rx="18" fill="#efe4fb" stroke="#b59bd7" stroke-width="3"/>
+  <text x="586" y="90" font-size="22" fill="#5d4781" font-weight="700">health + services</text>
+  <text x="582" y="116" font-size="17" fill="#5b4a3a">care strain, disruption</text>
+
+  <path d="M180 162 C194 162, 205 162, 218 162" fill="none" stroke="#c35b2d" stroke-width="6" marker-end="url(#haz-arrow)"/>
+  <path d="M338 146 C354 130, 364 116, 380 102" fill="none" stroke="#8c2f31" stroke-width="6" marker-end="url(#haz-arrow)"/>
+  <path d="M338 178 C356 196, 366 210, 382 228" fill="none" stroke="#8c2f31" stroke-width="6" marker-end="url(#haz-arrow)"/>
+  <path d="M518 98 C534 98, 546 98, 560 98" fill="none" stroke="#586b86" stroke-width="6" marker-end="url(#haz-arrow)"/>
+  <path d="M522 244 C540 244, 550 244, 568 244" fill="none" stroke="#3f6a2c" stroke-width="6" marker-end="url(#haz-arrow)"/>
+
+  <line x1="636" y1="140" x2="636" y2="198" stroke="#7a5ea8" stroke-width="5" stroke-dasharray="8 6" marker-end="url(#haz-arrow-purple)"/>
+  <text x="644" y="174" font-size="15" fill="#5d4781">stress compounds</text>
+
+  <rect x="54" y="286" width="312" height="42" rx="12" fill="#ffffff" stroke="#d9d1c5"/>
+  <text x="72" y="312" font-size="17" fill="#35515f">One event changes the baseline for the next event.</text>
+
+  <defs>
+    <marker id="haz-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#5b4a3a"/>
+    </marker>
+    <marker id="haz-arrow-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7a5ea8"/>
+    </marker>
+  </defs>
+</svg>
+```
+<p class="cg-ill__caption">The same event can branch into physical, infrastructural, and health consequences at once. Compound-risk modelling keeps those branches visible instead of compressing them into one hazard label.</p>
+</div>
+</figure>
+
+---
+
+## 3. A Minimal Mathematical Framework
+
+### Conditional event logic
+
+Let:
+
+- $H_1$ = first hazard state
+- $H_2$ = second hazard state
+- $I$ = impact
+
+Instead of asking only for $P(H_2)$, compound-risk thinking asks for:
+
+$$P(H_2 \mid H_1)$$
+
+The second event may become more likely once the first event has changed the system.
+
+### State-updating idea
+
+Let the system state at time $t$ be:
+
+$$X_t = (F_t, S_t, V_t, E_t)$$
+
+Where:
+
+- $F_t$ = fuel condition
+- $S_t$ = soil or surface condition
+- $V_t$ = vulnerability or exposed population state
+- $E_t$ = infrastructure or service condition
+
+Hazards update that state:
+
+$$X_{t+1} = g(X_t, H_t)$$
+
+The next hazard depends on the updated state:
+
+$$P(H_{t+1}) = f(X_{t+1}, W_{t+1})$$
+
+Where $W_{t+1}$ is the new weather forcing.
+
+This is deliberately general. The point is that the same rainfall, wind, or smoke forcing can produce different outcomes depending on what earlier hazards already changed.
+
+### Compound impact
+
+A simple way to write impact is:
+
+$$I_t = \text{hazard magnitude} \times \text{exposure} \times \text{vulnerability}
+$$
+
+In cascade problems, all three terms may change through time.
+
+---
+
+## 4. Worked Example By Hand
+
+Suppose a community faces two linked hazards:
+
+1. wildfire smoke
+2. post-fire flash flooding after intense rain
+
+### Step 1: Smoke exposure
+
+Assume:
+
+- 20,000 people exposed
+- smoke concentration reaches a “high-risk” threshold
+- 15% of the population has elevated respiratory vulnerability
+
+A rough burden score:
+
+$$I_{\text{smoke}} = 1.0 \times 20{,}000 \times 0.15 = 3{,}000
+$$
+
+This is not “3,000 injuries.” It is a relative impact score useful for comparing scenarios.
+
+### Step 2: Burn-scar flooding
+
+Later, after the fire:
+
+- infiltration capacity is reduced
+- canopy interception is reduced
+- one storm of the same intensity now produces much more runoff
+
+If the flood-hazard multiplier after the fire is 2.5 relative to pre-fire conditions:
+
+$$P(\text{flash flood} \mid \text{burn scar}) = 2.5 \times P(\text{flash flood} \mid \text{unburned})
+$$
+
+If a pre-fire threshold exceedance probability was 0.08 for a given storm type, the post-fire probability becomes:
+
+$$0.08 \times 2.5 = 0.20
+$$
+
+The storm did not change. The landscape did.
+
+### Step 3: Cascading vulnerability
+
+If shelters, roads, or clinics are already strained by smoke and evacuation, flood impact can rise further because effective response capacity is lower.
+
+This is why disaster planning needs timelines and state updates, not just independent hazard maps.
+
+---
+
+## 5. A Minimal Computational Recipe
+
+At each stage:
+
+1. represent the current environmental and social state
+2. apply the current hazard and update that state
+3. compute how the updated state changes the next hazard probability or impact
+4. repeat for the event chain
+
+In pseudocode:
+
+```text
+state = initial_conditions
+for event in sequence:
+    hazard = hazard_model(event.weather, state)
+    impact = impact_model(hazard, state.exposure, state.vulnerability)
+    state = update_state(state, hazard, impact)
+```
+
+That pattern is enough to support:
+
+- fire to smoke to health burden chains
+- drought to fire to post-fire flood chains
+- storm to power outage to care-access disruption chains
+
+---
+
+## 6. Why This Matters For Geographic Modelling
+
+### Hazard maps are not enough
+
+A static hazard map usually assumes the background system stays fixed. Compound events violate that assumption.
+
+### Timing matters
+
+Two hazards a month apart may be manageable. Two hazards two days apart may overwhelm response.
+
+### Cross-domain thinking matters
+
+Fire science, hydrology, smoke dispersion, health geography, and infrastructure planning should not be treated as entirely separate if the real event links them.
+
+### The same forcing can produce different disasters
+
+A moderate storm over an intact forest and the same storm over a fresh burn scar are not the same event in impact terms.
+
+---
+
+## 7. What This Chapter Leaves Out
+
+This chapter is a framework, not a full operational risk model. Real systems may need:
+
+- network models for outages and transport failure
+- health-capacity models for hospitals and clinics
+- agent-based evacuation models
+- dynamic hydrology for post-fire sediment and debris
+- explicit uncertainty propagation across the event chain
+
+But even before those are added, the systems frame already improves how we ask the question.
+
+---
+
+## 8. Summary
+
+Compound hazards and cascading risk shift the modelling task from “what is the next hazard?” to “what changed in the system, and how does that change the next hazard and its impact?”
+
+- hazards can occur together or in sequence
+- one event can change physical and social baseline conditions
+- later probabilities and impacts should be conditioned on those changes
+- planning improves when we model event chains rather than isolated snapshots
+
+---
+
+## 9. Try It Yourself
+
+Sketch one of these chains:
+
+1. heatwave -> wildfire smoke -> respiratory strain -> care-access stress
+2. prolonged rain -> saturated soil -> landslide or urban flood -> road closures
+3. drought -> crop stress -> wildfire risk -> evacuation and supply disruption
+
+Label what changes after each step. That update logic is the heart of compound-risk modelling.

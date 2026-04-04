@@ -1,0 +1,205 @@
+---
+title: Migration Systems and Selective Mobility
+subtitle: How people move through opportunity networks, constraints, and chain migration
+date: 2026-04-04
+type: chapter
+image: /assets/images/trade-corridors.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 16
+section-code: D
+section-title: Human Systems as Mathematical Systems
+tags:
+- computational-geography
+- human-geography
+- migration
+- mobility
+- networks
+- selective-migration
+difficulty: 3
+description: 'Migration is not random movement. It is structured by distance, networks, opportunity, and unequal mobility constraints. This chapter introduces migration systems, selective mobility, and chain migration as geographic models of how populations redistribute through space.
+
+  '
+learning:
+  concepts:
+  - migration-systems
+  - selective-mobility
+  - chain-migration
+  - push-pull
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Gravity models and accessibility (Models 11-12). Comfortable with the idea that opportunity and travel friction shape movement, but that not everyone faces those frictions equally.
+
+  '
+---
+
+## Before You Start
+
+**You should know**  
+That migration responds to opportunity and distance, and that some places attract more people than others.
+
+**You will learn**  
+How migration systems link origins and destinations, why mobility is selective rather than uniform, and how past migration changes future migration.
+
+**Why this matters**  
+Population movement reshapes labour markets, housing demand, school systems, politics, and regional inequality.
+
+**If this gets hard, focus on...**  
+The simple idea that people move along structured pathways, not across a blank map.
+
+
+Migration is often described as if people simply choose the “best” place and go there. Real migration is more structured than that. Information about destinations is uneven. Housing costs, legal status, transport, family obligations, and social networks all shape who can move, where they can go, and how risky the move feels. As a result, migration forms systems: recurring origin-destination links that strengthen over time as each wave lowers the cost of movement for the next.
+
+This chapter gives foundations-level shape to that idea. It builds on gravity and accessibility, but adds two crucial complications: not everyone is equally mobile, and movement itself changes the geography of future movement.
+
+## 1. The Question
+
+Why do some places exchange large numbers of migrants while others do not?
+
+Because migration depends on more than distance and destination size.
+
+It also depends on:
+
+- job and income opportunity
+- housing costs
+- legal and administrative barriers
+- migration networks
+- who has the resources to move
+
+That makes migration a selective system rather than a simple flow field.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Migration System</div>
+<h3 class="cg-ill__title">Migration Flows Follow Opportunity, But They Are Stabilized By Networks And Unequal Ability To Move</h3>
+<p class="cg-ill__lede">A destination does not attract migrants only because it is larger or richer. It also attracts more effectively once earlier migrants have already created information channels, family links, and support networks.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Opportunity</span>
+<h4>Pull Toward Wages, Safety, And Services</h4>
+<p>Jobs, education, care, and political stability create strong destination pull, but only for people who can realistically respond.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Constraint</span>
+<h4>Not Everyone Can Move Equally</h4>
+<p>Money, legal status, family obligations, health, and information all affect who can take advantage of the same destination opportunity.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Network</span>
+<h4>Past Migration Lowers Future Migration Cost</h4>
+<p>Earlier migrants create knowledge, housing, contacts, and social support that make the same route easier for later migrants.</p>
+</div>
+</div>
+<figcaption>Migration systems are path-dependent. Once a corridor forms, it often persists because the movement itself reduces the friction of future movement.</figcaption>
+</div>
+</figure>
+
+### Push, pull, and network effects
+
+A simple migration story includes:
+
+- **push** from the origin
+- **pull** from the destination
+- **friction** from distance and cost
+- **network reinforcement** from earlier movers
+
+This is why migration systems can become highly uneven. Two destinations with similar wages may attract very different flows if one already has a strong migrant network.
+
+### Selective mobility
+
+Migration is selective because populations are not equally able to move.
+
+People with:
+
+- more savings
+- better education
+- stronger health
+- safer legal status
+
+often have wider migration options.
+
+This means migration redistributes populations unevenly by age, skill, and income.
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose a town can send migrants to two cities.
+
+| City | Opportunity score | Travel friction | Existing network |
+|---|---:|---:|---:|
+| A | 9 | 5 | 4 |
+| B | 8 | 3 | 1 |
+
+Let a simple migration-attraction score be:
+
+$$M = \text{opportunity} + \text{network} - \text{friction}$$
+
+Then:
+
+- City A: $9 + 4 - 5 = 8$
+- City B: $8 + 1 - 3 = 6$
+
+Even though City B is easier to reach, City A attracts more movement because the stronger existing network compensates for higher travel friction.
+
+This is not a full migration model. It is a way to see the structure:
+
+- opportunity matters
+- friction matters
+- networks can change the ranking
+
+---
+
+## 4. Why Migration Reshapes Regions
+
+Selective migration changes both origin and destination.
+
+Origins may lose:
+
+- young adults
+- skilled workers
+- future births
+
+Destinations may gain:
+
+- labour supply
+- cultural diversity
+- housing pressure
+- service demand
+
+This is why migration is not just a result of regional inequality. It also reproduces or amplifies that inequality through time.
+
+---
+
+## 5. Computational Implementation
+
+```python
+destinations = [
+    {"name": "A", "opportunity": 9, "friction": 5, "network": 4},
+    {"name": "B", "opportunity": 8, "friction": 3, "network": 1},
+]
+
+for d in destinations:
+    d["score"] = d["opportunity"] + d["network"] - d["friction"]
+
+for d in destinations:
+    print(d["name"], d["score"])
+```
+
+Real migration models are more careful, but this already captures the point that migration corridors are shaped by more than straight-line attractiveness.
+
+---
+
+## Summary
+
+- Migration systems are structured origin-destination links, not random movement.
+- Opportunity, friction, and social networks all shape migration.
+- Mobility is selective, so migration redistributes age, skill, and income unevenly.
+- Past migration changes future migration by lowering route-specific friction.
+- Migration is a core human-geography process that reshapes both origin and destination regions.

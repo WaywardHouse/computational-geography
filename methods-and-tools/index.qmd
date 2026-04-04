@@ -45,7 +45,7 @@ Cross-Cutting Support
 <div class="cg-ill__frame" markdown="1">
 <div class="cg-ill__eyebrow">Methods Route</div>
 <h3 class="cg-ill__title">This Section Should Teach How To Judge Models, Not Just How To Build Them</h3>
-<p class="cg-ill__lede">The strongest cross-cutting gap in the book is evaluation. Readers already build models in many branches. This section is where they should learn how to test those models honestly and report uncertainty without bluffing.</p>
+<p class="cg-ill__lede">This section is where the book's cross-cutting discipline lives: testing models honestly, choosing the right model family, carrying uncertainty forward, and making cleaner inferential claims instead of bluffing confidence.</p>
 <div class="cg-ill__flow">
 <div class="cg-ill__flow-step">
 <div class="cg-ill__label">1</div>
@@ -74,8 +74,8 @@ Cross-Cutting Support
 </div>
 <div class="cg-ill__flow-step">
 <div class="cg-ill__label">6</div>
-<h4>Extend</h4>
-<p>Later chapters here can grow into inference, simulation, and decision methods that support the whole project.</p>
+<h4>Infer</h4>
+<p>Learn to update beliefs with evidence and distinguish predictive association from causal claims.</p>
 </div>
 </div>
 </div>
@@ -113,6 +113,18 @@ Cross-Cutting Support
     <h3>Decision Models and Optimization</h3>
     <p>Objectives, constraints, tradeoffs, and how to support choices under geographic limits.</p>
     <p><a href="./decision-models-and-optimization.html">Open the chapter</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Inference</span>
+    <h3>Bayesian Updating and Geographic Inference</h3>
+    <p>Priors, likelihoods, posteriors, and why updated uncertainty is often more honest than one fixed estimate.</p>
+    <p><a href="./bayesian-updating-and-geographic-inference.html">Open the chapter</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Causality</span>
+    <h3>Causal Inference for Geographic Questions</h3>
+    <p>Confounding, counterfactuals, and research design for place-based claims that aim to explain rather than merely predict.</p>
+    <p><a href="./causal-inference-for-geographic-questions.html">Open the chapter</a></p>
   </article>
   <article class="section-card">
     <span class="section-eyebrow">Setup</span>
@@ -157,3 +169,4 @@ Over time, this section can grow into the place for:
 - software and setup guides
 - quantitative method explainers
 - reusable practical notes that should not be trapped inside one branch
+- inference and research-design chapters that support causal and probabilistic reasoning across the whole project

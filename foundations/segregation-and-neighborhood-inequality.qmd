@@ -1,0 +1,199 @@
+---
+title: Segregation and Neighborhood Inequality
+subtitle: How uneven urban sorting creates unequal access, exposure, and life chances across the city
+date: 2026-04-04
+type: chapter
+image: /assets/images/trade-corridors.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 17
+section-code: D
+section-title: Human Systems as Mathematical Systems
+tags:
+- computational-geography
+- human-geography
+- segregation
+- neighborhood-inequality
+- urban-geography
+- spatial-mismatch
+difficulty: 3
+description: 'Segregation is the uneven spatial sorting of social groups across neighborhoods. This chapter introduces segregation as a geographic structure that shapes accessibility, care access, and vulnerability through everyday urban space.
+
+  '
+learning:
+  concepts:
+  - segregation
+  - neighborhood-effects
+  - spatial-mismatch
+  - uneven-distribution
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Accessibility, care access, and social vulnerability (Models 12-14). Comfortable with the idea that urban geography shapes opportunity unequally across neighborhoods.
+
+  '
+---
+
+## Before You Start
+
+**You should know**  
+That cities are not socially mixed in a uniform way, and that neighborhoods can differ sharply in income, race, age, and service quality.
+
+**You will learn**  
+How segregation can be thought of as a spatial pattern, why it matters for opportunity and risk, and how neighborhood inequality becomes durable through everyday geography.
+
+**Why this matters**  
+Many urban inequalities are not just about personal income. They are about where people are sorted in relation to jobs, schools, transit, pollution, and care.
+
+**If this gets hard, focus on...**  
+The core idea that segregation changes what people can reach, what they are exposed to, and which institutions they live alongside.
+
+
+Segregation is often discussed as a moral or political issue, but it is also a geographic structure. It determines who shares a neighborhood, who competes for the same schools or clinics, who bears the highest pollution burden, and who lives closest to jobs, parks, or transit. Once populations are unevenly sorted across urban space, many other forms of inequality become spatially reinforced rather than randomly distributed.
+
+This chapter treats segregation as a foundational human-geography model. The goal is not to build a full statistical index toolkit. The goal is to make the spatial logic visible: unequal sorting changes accessibility, care access, exposure, and social vulnerability all at once.
+
+## 1. The Question
+
+Why do neighborhood inequalities persist even when a city is economically integrated at the regional scale?
+
+Because regional opportunity does not automatically translate into neighborhood-level access.
+
+Segregation shapes:
+
+- who lives near jobs
+- who lives near pollution or heat exposure
+- who shares schools and clinics
+- who faces long or expensive daily travel
+
+So even when a city looks prosperous overall, life chances can remain sharply uneven across neighborhoods.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Neighborhood Sorting</div>
+<h3 class="cg-ill__title">Segregation Changes Opportunity By Sorting People Into Different Everyday Geographies</h3>
+<p class="cg-ill__lede">The same metropolitan region can contain very different daily worlds. Neighborhood sorting changes job access, school quality, pollution exposure, care capacity, and travel burden all at once.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Opportunity geography</span>
+<h4>Access To Jobs, Schools, And Transit</h4>
+<p>Where households are located changes what they can reach routinely and at what time cost.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Exposure geography</span>
+<h4>Exposure To Heat, Pollution, And Risk</h4>
+<p>Neighborhood sorting often overlaps with uneven environmental burdens rather than spreading them evenly across the city.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Institutional geography</span>
+<h4>Competition For Shared Services</h4>
+<p>Schools, clinics, parks, and care systems are experienced differently when some neighborhoods are overcrowded and others are buffered by wealth or low demand.</p>
+</div>
+</div>
+<figcaption>Segregation is a multiplier of other spatial inequalities because it sorts exposure, opportunity, and institutional access together rather than independently.</figcaption>
+</div>
+</figure>
+
+### Segregation as uneven distribution
+
+At a simple level, segregation means one group is distributed unevenly across neighborhoods instead of being mixed proportionally across the whole city.
+
+That unevenness matters because neighborhoods are not interchangeable containers. They differ in:
+
+- service quality
+- environmental conditions
+- transport access
+- housing cost
+- public investment
+
+### Neighborhood effects
+
+Once sorting occurs, the neighborhood itself can shape outcomes:
+
+- commute burden
+- school quality
+- care access
+- exposure to violence or pollution
+- social networks and information
+
+This is why segregation is not just a map of residence. It is a map of unequal daily possibility.
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose a city has two neighborhoods and one low-income population group.
+
+| Neighborhood | Total residents | Low-income residents |
+|---|---:|---:|
+| North | 1000 | 700 |
+| South | 1000 | 100 |
+
+Citywide:
+
+- total residents = 2000
+- low-income residents = 800
+- citywide low-income share = 40%
+
+### Compare local shares with citywide share
+
+- North share = $700/1000 = 70\%$
+- South share = $100/1000 = 10\%$
+- Citywide share = $40\%$
+
+If the population were evenly mixed, each neighborhood would be near 40%.
+
+Instead:
+
+- North is heavily concentrated
+- South is heavily underrepresented
+
+That is the basic segregation pattern.
+
+### Why it matters
+
+If jobs, high-performing schools, tree cover, or clinics are concentrated in South, then the uneven residential pattern becomes unequal opportunity rather than just unequal composition.
+
+---
+
+## 4. Why Segregation Connects The Earlier Chapters
+
+Segregation is a bridge concept because it ties together the new human-geography run:
+
+- **accessibility:** people are sorted into different opportunity fields
+- **medical geography:** neighborhoods compete for care unevenly
+- **social vulnerability:** hazard consequences differ by neighborhood conditions
+- **migration:** selective movement can intensify or relieve segregation over time
+
+This makes segregation a core geometric pattern behind many urban inequalities.
+
+---
+
+## 5. Computational Implementation
+
+```python
+citywide_share = 800 / 2000
+north_share = 700 / 1000
+south_share = 100 / 1000
+
+print("Citywide share:", round(citywide_share, 2))
+print("North deviation:", round(north_share - citywide_share, 2))
+print("South deviation:", round(south_share - citywide_share, 2))
+```
+
+This does not yet compute a formal segregation index, but it does show the basic pattern: compare neighborhood composition with the citywide baseline.
+
+---
+
+## Summary
+
+- Segregation is the uneven spatial sorting of groups across neighborhoods.
+- It matters because neighborhoods differ in access, exposure, and institutional quality.
+- Segregation amplifies inequalities in jobs, care, environment, and risk.
+- Neighborhood inequality is therefore partly a spatial structure problem, not only an income problem.
+- This chapter gives the book a way to connect urban inequality to geography directly.

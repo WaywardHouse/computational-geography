@@ -7,7 +7,7 @@ type: chapter
 image: /assets/images/remote-sensing.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 6
+chapter-number: 24
 section-code: B
 section-title: Energy and Attenuation
 tags:

@@ -7,7 +7,7 @@ type: chapter
 image: /assets/images/orbital-mechanics.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 13
+chapter-number: 27
 section-code: E
 section-title: Observing the Earth
 tags:

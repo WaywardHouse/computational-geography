@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/remote-sensing.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 15
+chapter-number: 21
 section-code: E
 section-title: Remote Sensing Foundations
 tags:

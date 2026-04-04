@@ -1,0 +1,196 @@
+---
+title: Demographic Structure and Population Change
+subtitle: Age structure, migration, and why populations can grow, age, or shrink unevenly across space
+date: 2026-04-04
+type: chapter
+image: /assets/images/trade-corridors.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 18
+section-code: D
+section-title: Human Systems as Mathematical Systems
+tags:
+- computational-geography
+- human-geography
+- demography
+- population-change
+- age-structure
+- migration
+difficulty: 3
+description: 'Population is not just a total count. This chapter introduces age structure, natural change, and migration as the core ingredients of demographic geography, and shows why growing, aging, and shrinking places follow different spatial trajectories.
+
+  '
+learning:
+  concepts:
+  - age-structure
+  - natural-increase
+  - migration-balance
+  - demographic-momentum
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Migration systems (Model 15). Comfortable with rates and the idea that a population can change through births, deaths, and movement.
+
+  '
+---
+
+## Before You Start
+
+**You should know**  
+That populations change through births, deaths, and migration.
+
+**You will learn**  
+Why age structure matters, how demographic momentum works, and why different regions can grow, age, or decline even inside the same country.
+
+**Why this matters**  
+Demographic structure shapes schools, labour supply, housing demand, care demand, and fiscal pressure.
+
+**If this gets hard, focus on...**  
+The simple accounting identity: population next year equals population now plus births minus deaths plus net migration.
+
+
+A population can have sub-replacement fertility and still keep growing for years. Another can have modest immigration and still keep shrinking because its age structure is already too old. These outcomes seem contradictory only if population is treated as one total number. Demography becomes more intelligible once we see that age structure has momentum. A place with many young adults carries a different future inside it than a place with many retirees, even before any new migration or policy change occurs.
+
+This chapter gives the book a foundational demographic model that fits naturally after migration and segregation. The aim is not to replicate a full demographic methods text. The aim is to teach why population structure matters geographically.
+
+## 1. The Question
+
+Why do some places grow, some age, and some shrink even under the same national economy?
+
+Because population change has three distinct components:
+
+- births
+- deaths
+- net migration
+
+And because these components act on populations with different age structures.
+
+That means demographic change is not just a rate. It is a structure moving through time.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Demographic Change</div>
+<h3 class="cg-ill__title">Population Change Depends On More Than Growth Rate; It Depends On Who Is In The Population Already</h3>
+<p class="cg-ill__lede">A young age structure can keep a place growing even after fertility falls. An old age structure can lock in decline even before services have adjusted. Demography is a moving composition, not just a headcount.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Young structure</span>
+<h4>Momentum Supports Continued Growth</h4>
+<p>Many people are entering working and childbearing ages, so natural increase can stay positive even if fertility is already falling.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Old structure</span>
+<h4>Ageing Raises Service Demand And Shrinks Renewal</h4>
+<p>Deaths rise, labour supply tightens, and care demand grows even before out-migration is considered.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Migration effect</span>
+<h4>Movement Redistributes Structure Unevenly</h4>
+<p>Young adults often move selectively, leaving some regions older and more fragile while rapidly expanding others.</p>
+</div>
+</div>
+<figcaption>Demographic geography is about composition and redistribution, not only net totals.</figcaption>
+</div>
+</figure>
+
+### The accounting identity
+
+A basic population change equation is:
+
+$$P_{t+1} = P_t + B - D + M$$
+
+where:
+
+- $P_t$ is population at time $t$
+- $B$ is births
+- $D$ is deaths
+- $M$ is net migration
+
+This is simple, but it hides structure. Births and deaths are not drawn uniformly from the whole population; they depend strongly on age composition.
+
+### Demographic momentum
+
+Demographic momentum means a population can keep growing or keep shrinking because of its age structure, even if the underlying fertility rate has already changed.
+
+This is why:
+
+- a young immigrant-receiving metro may keep growing strongly
+- an aging rural region may keep declining even with small inflows
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose a small region begins with:
+
+- current population $P_t = 10{,}000$
+- births $B = 120$
+- deaths $D = 80$
+- net migration $M = -60$
+
+Then:
+
+$$P_{t+1} = 10{,}000 + 120 - 80 - 60 = 9{,}980$$
+
+So the region shrinks by 20 people overall.
+
+### But what if the migrants are mostly young adults?
+
+The immediate loss is only 60 people, but the longer-run effect is larger because:
+
+- the labour force shrinks
+- future births decline
+- the age structure gets older
+
+This is why selective migration matters more than the raw net total alone.
+
+---
+
+## 4. Why Demography Is Geographic
+
+Demographic change is spatial because:
+
+- migration is spatially selective
+- fertility and mortality vary regionally
+- ageing concentrates differently across urban and rural space
+- housing, care, and school demand all follow these patterns
+
+That means demographic structure is one of the main hidden engines behind:
+
+- shrinking towns
+- fast-growing suburbs
+- aging rural regions
+- care-system strain
+
+---
+
+## 5. Computational Implementation
+
+```python
+P_t = 10000
+B = 120
+D = 80
+M = -60
+
+P_next = P_t + B - D + M
+
+print("Next-year population:", P_next)
+print("Net change:", P_next - P_t)
+```
+
+This simple update becomes much more realistic once the population is broken into age groups, but the basic accounting logic stays the same.
+
+---
+
+## Summary
+
+- Population change depends on births, deaths, and migration.
+- Age structure matters because it shapes future births, deaths, labour supply, and care demand.
+- Demographic momentum means populations can keep growing or shrinking after underlying rates change.
+- Migration redistributes demographic structure unevenly across space.
+- Demographic geography helps explain why places face very different futures even inside the same wider economy.

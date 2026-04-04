@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/cryosphere-and-hydrology.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 10
+chapter-number: 26
 section-code: C
 section-title: Terrain and Spatial Derivatives
 tags:

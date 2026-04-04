@@ -1,0 +1,300 @@
+---
+title: Bayesian Updating and Geographic Inference
+subtitle: Priors, likelihoods, and how new evidence should change what we believe about geographic systems
+date: 2026-04-04
+type: chapter
+image: /assets/images/foundations-and-math.webp
+book-part: methods-and-tools
+book-part-title: Methods and Tools
+chapter-number: 6
+section-code: N
+section-title: Inference and Causal Reasoning
+tags:
+- computational-geography
+- bayesian
+- probability
+- inference
+- uncertainty
+- updating
+difficulty: 3
+description: 'Bayesian inference treats modelling as disciplined belief revision. This chapter introduces priors, likelihoods, posteriors, and posterior prediction in a geographic context so readers can update estimates honestly as new data arrives.
+
+  '
+learning:
+  concepts:
+  - prior
+  - likelihood
+  - posterior
+  - predictive-distribution
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: Basic probability language and comfort with uncertainty ranges. This chapter focuses on intuitive updating before formal Bayesian computation.
+hide-description: true
+---
+
+## Before You Start
+
+**You should know**  
+That models often begin with imperfect knowledge and then improve as more evidence becomes available.
+
+**You will learn**  
+How Bayesian updating combines prior knowledge with new data, why posterior distributions are often more honest than single best guesses, and how this matters for geographic modelling.
+
+**Why this matters**  
+Geographic problems often start data-poor and decision-rich. Bayesian thinking gives us a principled way to update beliefs without pretending certainty we do not have.
+
+**If this gets hard, focus on...**  
+Keep one sentence in mind: posterior belief equals prior belief updated by how compatible the new data is with each possibility.
+
+
+A hydrologist trying to estimate the flood risk of a poorly gauged mountain basin rarely begins from zero. Nearby basins, regional climate knowledge, geology, and older field notes all provide partial prior information. Then a few years of new streamflow observations arrive. Bayesian inference is the language for combining those two sources of information honestly. It does not force us to ignore prior knowledge, and it does not force us to cling to it when the data points elsewhere. It formalizes the update.
+
+This chapter introduces Bayesian inference as disciplined belief revision for geographic models. The aim is not to turn every reader into a specialist in Markov chain Monte Carlo. The aim is to make the underlying logic legible: start with a prior, use a likelihood to score how compatible the data is with each hypothesis, and produce a posterior that reflects both. Once that logic is clear, later Bayesian methods in the laboratory and advanced investigations stop looking like magic.
+
+## 1. The Question
+
+How should we update a geographic estimate when we already know something before the new data arrives?
+
+Examples:
+
+- estimate wildfire ignition probability before and after a week of new fire-weather observations
+- estimate flood magnitude in a sparsely gauged basin using regional knowledge plus local measurements
+- estimate the true mean PM2.5 exposure in a city using both sensor data and known instrument uncertainty
+
+The mathematical question: How do we combine prior information and new evidence into one updated distribution of belief?
+
+---
+
+## 2. The Core Bayesian Idea
+
+Bayes' rule is:
+
+$$P(\theta \mid y) = \frac{P(y \mid \theta)P(\theta)}{P(y)}$$
+
+Where:
+
+- $\theta$ = unknown quantity or parameter
+- $y$ = observed data
+- $P(\theta)$ = **prior**
+- $P(y \mid \theta)$ = **likelihood**
+- $P(\theta \mid y)$ = **posterior**
+- $P(y)$ = normalizing constant
+
+In words:
+
+> posterior = prior × evidence from data, renormalized
+
+### What each part means
+
+- **Prior:** what was plausible before seeing the new data
+- **Likelihood:** how compatible the observed data is with each possible value
+- **Posterior:** what is plausible after seeing the data
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Belief Updating</div>
+<h3 class="cg-ill__title">Bayesian Inference Is A Controlled Revision Of What We Believe</h3>
+<p class="cg-ill__lede">The visual habit to build is simple: start with a prior range, use data to favor some values and disfavor others, then read the posterior as your updated uncertainty rather than as one fixed answer.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">1</div>
+<h4>Prior</h4>
+<p>Use previous studies, regional knowledge, physics, or cautious assumptions to describe what was plausible before the new data.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2</div>
+<h4>Likelihood</h4>
+<p>Ask which parameter values would have made the observed data more or less probable.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">3</div>
+<h4>Posterior</h4>
+<p>Update the plausible range and carry that uncertainty forward into prediction and decision-making.</p>
+</div>
+</div>
+<div class="cg-ill__compare" style="margin-top: 1rem;">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Before data</div>
+<h4>Wide uncertainty</h4>
+<p>Many values remain plausible because evidence is limited.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">After data</div>
+<h4>Updated uncertainty</h4>
+<p>The range may narrow or shift depending on how strongly the observations speak.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Good habit</div>
+<h4>Keep the distribution</h4>
+<p>Use posterior intervals and predictive ranges, not only one point estimate.</p>
+</div>
+</div>
+<figcaption>Bayesian inference does not remove uncertainty. It updates it.</figcaption>
+</div>
+</figure>
+
+---
+
+## 3. A Simple Worked Example
+
+Suppose we want to estimate the probability that a dry lightning day produces at least one ignition in a district.
+
+Before the new season, we think the probability is probably around 0.20, but we are uncertain. Call that our prior belief.
+
+Now suppose we observe 10 dry lightning days and see 4 ignition days.
+
+### Likelihood idea
+
+If the true ignition probability were:
+
+- 0.05, then 4 ignitions in 10 days would look surprisingly high
+- 0.40, then 4 ignitions in 10 days would look quite compatible
+- 0.80, then 4 ignitions in 10 days would look surprisingly low
+
+The likelihood rewards parameter values that make the observed data look plausible.
+
+### Posterior intuition
+
+The posterior should:
+
+- move upward from the prior center of 0.20 because the new evidence suggests more ignition than expected
+- still retain uncertainty because 10 days is not a large sample
+
+That is the whole Bayesian idea in miniature.
+
+---
+
+## 4. Conjugate Example: Beta-Binomial Updating
+
+For a probability parameter $p$ with binary outcomes, a common choice is:
+
+$$p \sim \text{Beta}(\alpha, \beta)$$
+
+If we then observe $k$ successes in $n$ trials:
+
+$$k \mid p \sim \text{Binomial}(n, p)$$
+
+The posterior is:
+
+$$p \mid k \sim \text{Beta}(\alpha + k, \beta + n - k)$$
+
+### Worked example
+
+Let the prior be:
+
+$$p \sim \text{Beta}(2, 8)$$
+
+This prior has mean:
+
+$$\frac{2}{2+8} = 0.20
+$$
+
+Now observe:
+
+- $n = 10$ dry lightning days
+- $k = 4$ ignition days
+
+Posterior:
+
+$$p \mid k \sim \text{Beta}(2+4, 8+6) = \text{Beta}(6,14)
+$$
+
+Posterior mean:
+
+$$\frac{6}{6+14} = 0.30
+$$
+
+So our updated estimate rises from 0.20 to 0.30, but it remains uncertain.
+
+---
+
+## 5. Posterior Prediction
+
+Bayesian thinking becomes most useful when we predict future outcomes.
+
+Instead of saying:
+
+- “the next-season ignition probability is exactly 0.30”
+
+we say:
+
+- “our current posterior for the ignition probability is centered near 0.30, with meaningful uncertainty around that value”
+
+Then future quantities are predicted by averaging over that uncertainty:
+
+$$P(\tilde{y} \mid y) = \int P(\tilde{y} \mid \theta)P(\theta \mid y)\,d\theta
+$$
+
+This is the **posterior predictive distribution**.
+
+It matters because:
+
+- sparse data should not produce overconfident predictions
+- uncertainty in parameters should appear in uncertainty about outcomes
+
+---
+
+## 6. Geographic Uses
+
+### Sparse environmental monitoring
+
+Use regional information as a prior when local data is limited.
+
+### Sequential updating
+
+As new monitoring data arrives, update the posterior instead of rebuilding the whole belief structure from scratch conceptually.
+
+### Measurement uncertainty
+
+Bayesian models can include sensor error directly instead of pretending measurements are exact.
+
+### Hierarchical geography
+
+Regions, watersheds, cities, or ecological zones often share partial similarity. Bayesian hierarchical models allow partial pooling rather than treating every place as fully separate.
+
+---
+
+## 7. Common Mistakes
+
+### Confusing a prior with bias
+
+A prior is not automatically bad practice. Hidden priors are often worse than explicit ones.
+
+### Treating the posterior mean as the whole answer
+
+The real product is usually the distribution or interval, not one single number.
+
+### Using a prior that overwhelms weak data without admitting it
+
+Priors should be inspectable, defensible, and sensitivity-tested when they matter.
+
+### Believing Bayesian means “subjective” while frequentist means “objective”
+
+All inference frameworks make assumptions. Bayesian methods simply expose one class of them more directly.
+
+---
+
+## 8. Summary
+
+Bayesian inference is a formal way to update uncertain geographic beliefs with new evidence.
+
+- prior = what was plausible before seeing data
+- likelihood = how compatible the data is with each possibility
+- posterior = updated uncertainty after seeing data
+- posterior prediction = future outcomes averaged over that updated uncertainty
+
+This makes Bayesian thinking especially useful when data is sparse, uncertainty matters, and prior geographic knowledge should not be ignored.
+
+---
+
+## 9. Try It Yourself
+
+Imagine a basin where regional studies suggest flood exceedance probability is around 0.10, but local observations from the last 8 years include 2 exceedances.
+
+1. Does the posterior likely move up or down?
+2. Would you trust the local data alone more than the regional prior, or neither on its own?
+3. What decision would change if the posterior interval remained wide?
+
+Those are the right Bayesian questions even before you compute anything.

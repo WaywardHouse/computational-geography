@@ -7,7 +7,7 @@ type: chapter
 image: /assets/images/solar-geometry.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 7
+chapter-number: 25
 section-code: B
 section-title: Energy and Attenuation
 tags:

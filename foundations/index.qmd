@@ -19,7 +19,7 @@ Textbook Part
       <a class="cta" href="./what-is-a-spatial-model.html">Start Part 1</a>
     </div>
     <div class="book-pill-row">
-      <span class="book-pill">14 core chapters</span>
+      <span class="book-pill">19 core chapters</span>
       <span class="book-pill">Best first part</span>
       <span class="book-pill">Part 1</span>
     </div>
@@ -41,7 +41,7 @@ Textbook Part
 <div class="cg-ill__frame" markdown="1">
 <div class="cg-ill__eyebrow">Part Route</div>
 <h3 class="cg-ill__title">This Part Builds From Simple Change To Full Spatial Systems</h3>
-<p class="cg-ill__lede">The foundations part is easier to enter when it feels like a progression instead of a list. Readers start with change and growth, move into coordinates and terrain, then use that maths to think about human systems, care access, diffusion, and sensing.</p>
+<p class="cg-ill__lede">The foundations part is easier to enter when it feels like a progression instead of a list. Readers start with change and growth, move into coordinates and terrain, then use that maths to think about human systems, accessibility, care, vulnerability, public health, migration, inequality, demography, diffusion, and sensing.</p>
 <div class="cg-ill__route-map">
 <div class="cg-ill__route-stage">
 <span class="cg-ill__route-kicker">Start</span>
@@ -58,7 +58,7 @@ Textbook Part
 <div class="cg-ill__route-stage">
 <span class="cg-ill__route-kicker">Then Apply</span>
 <h4>Human and sensing systems</h4>
-<p>Use the same mathematical habits to reason about trade, accessibility, care, diffusion, and remote sensing.</p>
+<p>Use the same mathematical habits to reason about trade, accessibility, care, vulnerability, public health, migration, inequality, demography, diffusion, and remote sensing.</p>
 </div>
 </div>
 </div>
@@ -101,6 +101,11 @@ Textbook Part
       <li><a href="./gravity-models-trade-migration.html">Gravity Models of Trade and Migration</a></li>
       <li><a href="./accessibility-and-spatial-opportunity.html">Accessibility and Spatial Opportunity</a></li>
       <li><a href="./medical-geography-and-care-access.html">Medical Geography and Care Access</a></li>
+      <li><a href="./social-vulnerability-and-exposure.html">Social Vulnerability and Exposure</a></li>
+      <li><a href="./public-health-and-environmental-exposure.html">Public Health and Environmental Exposure</a></li>
+      <li><a href="./migration-systems-and-selective-mobility.html">Migration Systems and Selective Mobility</a></li>
+      <li><a href="./segregation-and-neighborhood-inequality.html">Segregation and Neighborhood Inequality</a></li>
+      <li><a href="./demographic-structure-and-population-change.html">Demographic Structure and Population Change</a></li>
       <li><a href="./spatial-diffusion-of-innovation.html">Spatial Diffusion of Innovation</a></li>
     </ul>
   </article>
@@ -123,7 +128,7 @@ Textbook Part
       <li>Hydrological Flow as Optimization</li>
       <li>Earth as a Rotating Sphere</li>
     </ul>
-    <p>These extension chapters live in the topic-libraries volume and are best read after the core foundations route.</p>
+    <p>These are extension chapters for a second pass through the part, after the core foundations route is comfortable.</p>
   </article>
   <article class="section-card">
     <span class="section-eyebrow">G</span>

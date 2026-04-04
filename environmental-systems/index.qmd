@@ -19,7 +19,7 @@ Textbook Part
       <a class="cta" href="./net-radiation-and-albedo.html">Start Part 2</a>
     </div>
     <div class="book-pill-row">
-      <span class="book-pill">9 core chapters</span>
+      <span class="book-pill">10 core chapters</span>
       <span class="book-pill">Environmental systems</span>
       <span class="book-pill">Part 2</span>
     </div>
@@ -31,7 +31,7 @@ Textbook Part
     </div>
     <div class="book-meta-card">
       <strong>Sequence</strong>
-      <span>Start with the process chapters. Return to orbits, visibility, GPS, and biogeochemical depth when you want more observational detail.</span>
+      <span>Start with the process chapters, then use the coupling chapter to connect water, energy, vegetation, and atmosphere into one system. Return to the orbital and deeper biogeochemical material on a second pass.</span>
     </div>
   </aside>
 </section>
@@ -50,7 +50,7 @@ Textbook Part
       <li>Satellite Overpasses and Visibility</li>
       <li>How GPS Works</li>
     </ul>
-    <p>These chapters live in the topic-libraries volume once you want more orbital and positioning depth.</p>
+    <p>These are second-pass depth chapters once you want more orbital and positioning detail than the main environmental route requires.</p>
   </article>
   <article class="section-card">
     <span class="section-eyebrow">G</span>
@@ -67,7 +67,7 @@ Textbook Part
     <ul>
       <li><a href="./photosynthesis-light-response.html">Photosynthesis and Light Response</a></li>
       <li><a href="./soil-moisture-dynamics.html">Soil Moisture Dynamics</a></li>
-      <li>Carbon allocation and long-term ecosystem budgeting come later in the topic-libraries volume.</li>
+      <li>Carbon allocation and longer-term ecosystem budgeting fit naturally as the next layer once the core process chapters feel comfortable.</li>
     </ul>
   </article>
   <article class="section-card">
@@ -89,7 +89,15 @@ Textbook Part
       <li>Nitrogen Cycling and Limitation</li>
       <li>Phenology and Growing Season Dynamics</li>
     </ul>
-    <p>Use these after the core path. They belong to the topic-libraries volume rather than the core-book build.</p>
+    <p>Use these after the core path when you want a fuller biogeochemical and seasonal-systems pass through Part 2.</p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">K</span>
+    <h3>Coupled System Feedbacks</h3>
+    <ul>
+      <li><a href="./land-atmosphere-coupling-and-feedbacks.html">Land-Atmosphere Coupling and Feedbacks</a></li>
+    </ul>
+    <p>This chapter ties the part together by showing how water balance, evaporative cooling, vegetation stress, and atmospheric demand reinforce or damp one another.</p>
   </article>
 </div>
 ```

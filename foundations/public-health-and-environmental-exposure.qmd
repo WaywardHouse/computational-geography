@@ -1,0 +1,243 @@
+---
+title: Public Health and Environmental Exposure
+subtitle: How heat, smoke, pollution, and the built environment become unequal health outcomes across space
+date: 2026-04-04
+type: chapter
+image: /assets/images/trade-corridors.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 15
+section-code: D
+section-title: Human Systems as Mathematical Systems
+tags:
+- computational-geography
+- human-geography
+- public-health
+- environmental-exposure
+- smoke
+- heat
+difficulty: 3
+description: 'Environmental conditions become health outcomes through exposure, vulnerability, and care access. This chapter introduces public health geography as the bridge between environmental burden and unequal human consequence.
+
+  '
+learning:
+  concepts:
+  - environmental-exposure
+  - dose-and-burden
+  - public-health-geography
+  - uneven-risk
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: 'Social vulnerability and care access (Models 13-14). Comfortable with the idea that equal physical exposure does not produce equal health impact once baseline conditions and access to care differ.
+
+  '
+---
+
+## Before You Start
+
+**You should know**  
+That air pollution, smoke, heat, and other environmental conditions affect health, and that those conditions are distributed unevenly across places.
+
+**You will learn**  
+How environmental exposure becomes a public-health geography problem, why burden is not distributed evenly, and how exposure, vulnerability, and care interact.
+
+**Why this matters**  
+Many of the most important health inequalities are environmental before they are clinical.
+
+**If this gets hard, focus on...**  
+The simple chain: environmental condition, human exposure, unequal vulnerability, unequal health outcome.
+
+
+When smoke covers a city, everyone beneath the plume is not equally at risk. Some people are indoors with filtration and flexible work. Others are outside for long shifts, in overcrowded housing, or already living with respiratory disease. The same is true for urban heat, traffic pollution, mold, flood contamination, and industrial emissions. Public health geography studies that translation from environmental burden to unequal health consequence. It asks not only where exposure occurs, but whose bodies and daily routines are most affected by it.
+
+This chapter gives the foundations part a direct public-health bridge. It connects the earlier chapters on care access and social vulnerability to environmental systems and hazard chapters later in the book. The point is not to turn the reader into an epidemiologist. The point is to make visible how geographic patterns of air, heat, water, housing, and mobility become patterned health outcomes.
+
+## 1. The Question
+
+How do environmental conditions become unequal health outcomes across space?
+
+A useful first answer is:
+
+- the hazard or pollutant must exist
+- people must be exposed to it
+- their sensitivity and baseline health must shape the impact
+- care access and adaptive capacity must influence whether the burden deepens or is reduced
+
+That means public-health geography is inherently multi-layered.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Health Burden</div>
+<h3 class="cg-ill__title">Environmental Exposure Becomes Health Burden Through Daily Contact, Baseline Vulnerability, And Unequal Protection</h3>
+<p class="cg-ill__lede">The same pollutant concentration or heat level can produce different harm depending on who is exposed, for how long, with what baseline health, and with what ability to avoid or treat the exposure.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Environmental field</span>
+<h4>Where The Burden Exists</h4>
+<p>Smoke, heat, ozone, road pollution, noise, or contaminated water all have uneven spatial footprints that may overlap only partly with population.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Exposure pattern</span>
+<h4>Who Actually Encounters It</h4>
+<p>Time outdoors, housing quality, work conditions, and mobility determine how much of the environmental burden becomes real human exposure.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Health consequence</span>
+<h4>Who Suffers More From The Same Exposure</h4>
+<p>Age, asthma, poverty, stress, and weak care access can all convert the same environmental field into much higher health risk.</p>
+</div>
+</div>
+<figcaption>Public-health geography links environmental maps to unequal human outcomes. The environmental field matters, but so do daily routines, baseline health, and social protection.</figcaption>
+</div>
+</figure>
+
+### Exposure is not concentration alone
+
+A pollutant map or heat map is only the start.
+
+Real exposure depends on:
+
+- where people spend time
+- how long they remain in the exposed environment
+- whether buildings, behavior, or infrastructure reduce contact
+
+This is why public-health geography often cares as much about work, housing, and mobility as about the hazard field itself.
+
+### Vulnerability modifies the outcome
+
+Once exposed, different people face different health consequences.
+
+The same smoke concentration may produce:
+
+- mild irritation for one person
+- hospitalization for another
+
+because vulnerability is uneven across age, disease burden, housing quality, and care access.
+
+### A simple burden expression
+
+In compact form, a relative health-burden idea is:
+
+$$B \propto E \times V$$
+
+where:
+
+- $E$ is exposure intensity or duration
+- $V$ is vulnerability or susceptibility
+
+This is simplified, but it captures the core logic: a place can have moderate exposure and still high burden if vulnerability is high.
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose two neighborhoods experience the same smoke concentration index of 6.
+
+Define:
+
+- exposure intensity $E = 6$
+- vulnerability multiplier $V$
+
+Neighborhood A:
+
+- stronger housing protection
+- lower asthma prevalence
+- better care access
+
+Let $V_A = 0.8$
+
+Neighborhood B:
+
+- weaker housing protection
+- higher asthma prevalence
+- poorer care access
+
+Let $V_B = 1.5$
+
+Then a relative burden score is:
+
+$$B_A = 6 \times 0.8 = 4.8$$
+
+$$B_B = 6 \times 1.5 = 9.0$$
+
+The same environmental field produces nearly double the health burden in Neighborhood B.
+
+That is the main public-health-geography lesson:
+
+- equal exposure does not imply equal burden
+
+---
+
+## 4. Why This Chapter Sits Here
+
+This chapter links several foundations ideas that are now in place:
+
+- **accessibility:** affects the ability to reach healthier environments and services
+- **medical geography:** affects treatment access once harm occurs
+- **social vulnerability:** shapes who is most susceptible
+- **migration and segregation:** shape who lives near environmental burdens in the first place
+
+It also prepares the reader for later branches:
+
+- smoke and air quality
+- urban heat
+- flood contamination
+- hazard-risk planning
+
+---
+
+## 5. Computational Implementation
+
+```python
+def burden(exposure, vulnerability):
+    return exposure * vulnerability
+
+A = burden(6, 0.8)
+B = burden(6, 1.5)
+
+print("Neighborhood A burden:", A)
+print("Neighborhood B burden:", B)
+print("Relative burden ratio:", round(B / A, 2))
+```
+
+This toy calculation is simple, but the structure scales to more realistic work:
+
+- map the environmental field
+- estimate who is exposed
+- weight by health vulnerability and protection capacity
+
+---
+
+## 6. What Could Go Wrong?
+
+### Confusing hazard maps with health-burden maps
+
+An air-quality or heat map is not yet a health-risk map unless population and vulnerability are added.
+
+### Ignoring time and routine
+
+Daytime workers, night-shift workers, children, and the elderly do not occupy the same environments in the same way.
+
+### Treating vulnerability as fixed
+
+Cooling access, filtration, work protections, and public-health action can all change the burden rapidly.
+
+### Collapsing all health impacts into one score
+
+Respiratory burden, heat illness, chronic stress, and care disruption may require different outcome models.
+
+---
+
+## Summary
+
+- Public-health geography links environmental conditions to unequal health outcomes.
+- Exposure is not just concentration; it is real contact through everyday space and time.
+- Vulnerability and care access shape how strongly exposure becomes harm.
+- Environmental inequality is therefore a spatial health problem, not just an environmental one.
+- This chapter gives the foundations run a direct bridge from social vulnerability to health burden.
