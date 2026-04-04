@@ -119,6 +119,7 @@ $$R_n = \text{Net shortwave} + \text{Net longwave}$$
 <p class="cg-ill__lede">Surface heating becomes much easier to track once the shortwave and longwave streams are seen as one bookkeeping picture instead of four separate paragraphs.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Surface energy budget showing incoming and outgoing shortwave and longwave arrows">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#f7f1e3"/>
   <rect x="50" y="204" width="460" height="46" rx="14" fill="#8a6d4b"/>
@@ -141,6 +142,7 @@ $$R_n = \text{Net shortwave} + \text{Net longwave}$$
   <text x="64" y="274" font-size="16" fill="#4b4235">Net radiation = shortwave gain + longwave gain/loss</text>
   <text x="64" y="294" font-size="16" fill="#4b4235">Albedo mainly changes reflection; temperature mainly changes emission.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Use the figure as a checklist</h4>

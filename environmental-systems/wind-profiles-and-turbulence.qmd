@@ -145,6 +145,7 @@ Where:
 <p class="cg-ill__lede">The log-law is easier to remember when it is seen as a tug-of-war between friction near the ground and freer flow higher up. Rougher surfaces keep the near-surface wind slower for longer.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Wind profile comparison over smooth and rough surfaces with logarithmic increase in speed with height">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef3f8"/>
   <line x1="86" y1="44" x2="86" y2="264" stroke="#7d8ea0" stroke-width="2"/>
@@ -165,6 +166,7 @@ Where:
   <polygon points="206,88 192,82 195,96" fill="#224f9c"/>
   <text x="98" y="92" font-size="15" fill="#224f9c">momentum mixes downward</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to read the log profile</h4>

@@ -149,6 +149,7 @@ $$\theta_{\text{start}} = 30-45°$$
 <p class="cg-ill__lede">Avalanche exposure becomes easier to reason about when the slope is split into the places where avalanches begin, where they accelerate, where they stop, and where consequences increase.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Mountain slope showing avalanche start zone, track, runout, terrain trap, and a safer route">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef3f8"/>
   <path d="M30 252 C120 230, 172 170, 230 118 C284 70, 346 86, 418 132 C466 163, 505 208, 530 250 L30 250 Z" fill="#d9e3ea" stroke="#6f8795" stroke-width="3"/>
@@ -169,6 +170,7 @@ $$\theta_{\text{start}} = 30-45°$$
   <text x="74" y="270" font-size="16" fill="#35515f">Yellow = likely release terrain</text>
   <text x="270" y="270" font-size="16" fill="#35515f">Green = where debris spreads and slows</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Read the slope like a hazard map</h4>

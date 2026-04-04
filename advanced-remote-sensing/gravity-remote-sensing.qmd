@@ -181,6 +181,7 @@ Where $k_l$ = load Love number (elastic deformation).
 <p class="cg-ill__lede">The mission does not image groundwater directly. It infers mass anomalies from tiny changes in the spacing of a leading and trailing satellite as they pass over stronger or weaker gravity.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Diagram of twin GRACE satellites passing over a mass anomaly and changing their separation.">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef6ff"/>
   <path d="M44 222 C138 194, 224 212, 306 190 C380 170, 430 142, 516 154" fill="none" stroke="#5b7c99" stroke-width="5"/>
@@ -206,6 +207,7 @@ Where $k_l$ = load Love number (elastic deformation).
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What the monthly product really means</h4>

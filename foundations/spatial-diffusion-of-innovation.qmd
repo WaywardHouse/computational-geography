@@ -108,6 +108,7 @@ Represent locations as **nodes** in a network:
 <p class="cg-ill__lede">The key picture is a network carrying the innovation outward while each location climbs its own local S-curve after the idea arrives.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Network diffusion diagram showing one city seeding adoption that spreads to connected nearby cities.">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef6ff"/>
   <line x1="126" y1="84" x2="258" y2="128" stroke="#94a3b8" stroke-width="4"/>
@@ -135,6 +136,7 @@ Represent locations as **nodes** in a network:
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Local adoption curve</h4>

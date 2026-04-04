@@ -135,6 +135,7 @@ $$S(t) = \sum_{k=1}^{n} \left[a_k \cos(2\pi k t / P) + b_k \sin(2\pi k t / P)\ri
 <p class="cg-ill__lede">The main analytical move is to separate the repeating seasonal wave from the slower long-term drift and the short-lived anomalies riding on top of both.</p>
 <div class="cg-ill__series-grid">
 <div class="cg-ill__chart">
+```{=html}
 <svg viewBox="0 0 520 260" role="img" aria-label="NDVI time series showing noisy observations, seasonal fit, long-term trend, and phenology markers">
   <polyline points="30,194 65,188 100,172 135,136 170,92 205,66 240,74 275,88 310,132 345,170 380,188 415,196 450,182 485,176"
             fill="none" stroke="#2f4f4f" stroke-width="3"/>
@@ -151,6 +152,7 @@ $$S(t) = \sum_{k=1}^{n} \left[a_k \cos(2\pi k t / P) + b_k \sin(2\pi k t / P)\ri
   <text x="214" y="228" font-size="14" fill="#5a5a56">Year 2</text>
   <text x="394" y="228" font-size="14" fill="#5a5a56">Year 3</text>
 </svg>
+```
 </div>
 <div class="cg-ill__legend">
 <div class="cg-ill__legend-item">

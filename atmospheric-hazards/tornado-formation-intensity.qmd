@@ -190,6 +190,7 @@ $$\Delta p = \frac{1.2 \times 100^2}{2} = 6000 \text{ Pa} = 60 \text{ mb}$$
 <p class="cg-ill__lede">A tornado does not appear from nowhere. Environmental shear creates horizontal spin, the storm updraft tilts that spin upright, and convergence stretches it into a tighter, faster vortex.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Tornado formation concept showing horizontal vorticity tilted vertical and stretched into a tighter vortex">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#edf3f7"/>
   <rect x="36" y="228" width="488" height="28" rx="12" fill="#7d8f5c"/>
@@ -212,6 +213,7 @@ $$\Delta p = \frac{1.2 \times 100^2}{2} = 6000 \text{ Pa} = 60 \text{ mb}$$
   <text x="58" y="52" font-size="17" fill="#224f9c" font-weight="700">wind shear with height</text>
   <text x="74" y="280" font-size="16" fill="#35515f">Stronger stretching means faster spin for the same rotating air column.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What to hold onto</h4>

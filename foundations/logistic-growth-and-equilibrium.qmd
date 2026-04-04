@@ -110,6 +110,7 @@ When $N > K$ (overshoot), the brake term is negative — the population declines
 <p class="cg-ill__lede">The logistic model is easiest to understand as two forces multiplied together: one pushes growth up when the population is present, and the other pushes growth down as the population approaches carrying capacity.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Logistic growth concept showing early growth, midpoint fastest growth, and flattening near carrying capacity">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef4ef"/>
   <rect x="58" y="40" width="452" height="206" rx="14" fill="#ffffff" stroke="#91a49a" stroke-width="3"/>
@@ -129,6 +130,7 @@ When $N > K$ (overshoot), the brake term is negative — the population declines
   <path d="M308 270 C360 258, 420 256, 470 270" fill="none" stroke="#a63d40" stroke-width="4"/>
   <text x="310" y="292" font-size="15" fill="#a63d40">brake term (1 - N/K)</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to think with the model</h4>

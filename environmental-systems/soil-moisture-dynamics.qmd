@@ -141,6 +141,7 @@ When stressed ($K_s < 1$), plants close stomata → transpiration decreases → 
 <p class="cg-ill__lede">The root zone acts like a reservoir with thresholds inside it. Rain fills storage, plants draw from it, gravity drains excess water, and any overflow can leave as runoff.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Root-zone soil moisture diagram showing precipitation, infiltration, storage, evapotranspiration, runoff, and drainage">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef4ef"/>
   <rect x="80" y="110" width="320" height="130" rx="18" fill="#b78f62" stroke="#6f5539" stroke-width="4"/>
@@ -172,6 +173,7 @@ When stressed ($K_s < 1$), plants close stomata → transpiration decreases → 
   <text x="76" y="276" font-size="16" fill="#35515f">Storage rises with rain and falls through ET, drainage, and runoff.</text>
   <text x="76" y="296" font-size="16" fill="#35515f">Stress begins before the bucket is empty.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to use this mental model</h4>

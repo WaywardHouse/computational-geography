@@ -147,6 +147,7 @@ distances are greater than for Pacific Gateway routing to the same Prairie origi
 <p class="cg-ill__lede">The Pacific, Windsor-Detroit, and Atlantic corridors do not just move different volumes. They serve different market geographies, commodity mixes, and vulnerability structures.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Stylized Canada trade corridor map showing Pacific, Windsor-Detroit, and Atlantic gateways">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef3f8"/>
   <path d="M74 92 C126 64, 206 56, 300 66 C384 76, 444 86, 500 110 L480 184 C432 192, 386 202, 334 212 C260 226, 194 220, 142 206 C108 198, 88 180, 74 162 Z" fill="#dfe7ef" stroke="#7d8ea0" stroke-width="3"/>
@@ -167,6 +168,7 @@ distances are greater than for Pacific Gateway routing to the same Prairie origi
   <text x="68" y="268" font-size="16" fill="#35515f">Windsor-Detroit: dense manufacturing corridor tied to just-in-time trade.</text>
   <text x="68" y="290" font-size="16" fill="#35515f">Atlantic: Europe-facing alternative with different inland distance tradeoffs.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to compare the corridors</h4>

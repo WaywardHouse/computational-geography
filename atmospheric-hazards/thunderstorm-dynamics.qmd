@@ -186,6 +186,7 @@ Updraft tilts → vertical vorticity (rotation)
 <p class="cg-ill__lede">CAPE alone can produce vigorous rising air, but shear is what organizes that rising air into a longer-lived, rotating storm rather than a short-lived pulse cell.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Conceptual supercell diagram showing buoyant updraft, tilted storm structure, wind shear, and downdrafts">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#edf3f7"/>
   <rect x="40" y="228" width="480" height="30" rx="12" fill="#7d8f5c"/>
@@ -209,6 +210,7 @@ Updraft tilts → vertical vorticity (rotation)
   <text x="66" y="62" font-size="17" fill="#224f9c" font-weight="700">winds strengthen and turn with height</text>
   <text x="78" y="280" font-size="16" fill="#35515f">No shear: updraft falls back into itself. With shear: storm tilts and survives longer.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What the picture is doing for you</h4>

@@ -163,6 +163,7 @@ Where $f_i$ = fraction from each source, $\sum f_i = 1$
 <p class="cg-ill__lede">The chemistry becomes easier to interpret when the glacier is split into fast, dilute surface pathways and slower, more reactive subglacial pathways that gain solutes and suspended sediment.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Glacial hydrology and chemistry diagram showing supraglacial, englacial, and subglacial flow paths feeding a glacier-fed stream.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
   <path d="M64 246 C136 194, 200 146, 278 118 C336 98, 396 108, 494 146" fill="none" stroke="#8fa9bb" stroke-width="6"/>
@@ -198,6 +199,7 @@ Where $f_i$ = fraction from each source, $\sum f_i = 1$
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to interpret the stream</h4>

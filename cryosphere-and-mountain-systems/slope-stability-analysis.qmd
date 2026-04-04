@@ -142,6 +142,7 @@ $$FS = \frac{\text{Resisting Forces}}{\text{Driving Forces}} = \frac{\tau_f}{\ta
 <p class="cg-ill__lede">The factor of safety is easier to remember when the hillside is drawn as a force problem. Gravity pulls downslope, normal stress and friction resist, and pore water pressure weakens the contact with the underlying plane.</p>
 <div class="cg-ill__slope-grid">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Slope stability diagram showing failure plane, driving force, resisting friction, and pore water pressure">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef3ef"/>
   <polygon points="60,252 262,130 500,252" fill="#ceb28d" stroke="#8b7456" stroke-width="3"/>
@@ -162,6 +163,7 @@ $$FS = \frac{\text{Resisting Forces}}{\text{Driving Forces}} = \frac{\tau_f}{\ta
   <text x="292" y="118" font-size="16" fill="#3f4c56">weight</text>
   <text x="78" y="286" font-size="16" fill="#35515f">Rainfall raises pore pressure, which lowers effective stress and weakens resistance.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What changes stability fastest</h4>

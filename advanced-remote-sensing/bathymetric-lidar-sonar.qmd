@@ -186,6 +186,7 @@ $$\sin\theta_{\text{water}} = \frac{\sin\theta_{\text{air}}}{1.33}$$
 <p class="cg-ill__lede">The technologies differ in medium and range, but the conceptual job is the same: measure a return time, correct the geometry, and place the bottom point in the right underwater location.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Comparison diagram showing bathymetric lidar in shallow clear water and multibeam sonar in deeper water.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
   <line x1="54" y1="114" x2="506" y2="114" stroke="#4aa3d6" stroke-width="4"/>
@@ -213,6 +214,7 @@ $$\sin\theta_{\text{water}} = \frac{\sin\theta_{\text{air}}}{1.33}$$
   <path d="M66 246 C124 228, 182 236, 252 224 C314 214, 382 252, 492 232" fill="none" stroke="#7c8fa3" stroke-width="5"/>
   <text x="264" y="274" font-size="16" fill="#475569">bottom position depends on speed, angle, and refraction/sound-speed correction</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Choosing the tool</h4>

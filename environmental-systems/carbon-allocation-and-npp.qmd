@@ -136,6 +136,7 @@ $$R_a = \frac{R_m + r_g \cdot \text{GPP}}{1 + r_g}$$
 <p class="cg-ill__lede">The big idea is flow accounting: gross carbon enters through photosynthesis, some leaves through respiration, and the remainder is split among pools with very different turnover times.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Diagram showing carbon flow from GPP to respiration and then to leaf, stem, and root carbon pools.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eff7ef"/>
   <rect x="188" y="34" width="184" height="52" rx="16" fill="#d9f99d" stroke="#65a30d" stroke-width="3"/>
@@ -175,6 +176,7 @@ $$R_a = \frac{R_m + r_g \cdot \text{GPP}}{1 + r_g}$$
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Why this matters</h4>

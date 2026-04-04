@@ -156,6 +156,7 @@ Larger volumes → lower travel angle → longer runout
 <p class="cg-ill__lede">The hazard becomes easier to picture once the mountain path is split into initiation, transport, and deposition zones. Volume can grow during transport, which is why downstream impact can exceed the original slide size.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Debris flow process diagram showing initiation on steep slopes, channelized transport with bulking, and deposition on an alluvial fan.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef6fb"/>
   <path d="M52 252 C120 210, 176 154, 232 112 C284 74, 330 66, 376 92 C426 120, 468 184, 510 252" fill="none" stroke="#7c8fa3" stroke-width="6"/>
@@ -189,6 +190,7 @@ Larger volumes → lower travel angle → longer runout
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What the path is telling you</h4>

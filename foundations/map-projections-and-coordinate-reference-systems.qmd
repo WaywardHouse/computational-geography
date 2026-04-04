@@ -387,6 +387,7 @@ Some projection names appear so often that they are worth recognizing directly.
 </div>
 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; align-items:start;">
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Mercator graticule">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <line x1="45" y1="20" x2="45" y2="130" stroke="#94a3b8"/>
@@ -401,9 +402,11 @@ Some projection names appear so often that they are worth recognizing directly.
 <line x1="20" y1="122" x2="200" y2="122" stroke="#94a3b8"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Mercator</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">Straight meridians and straight parallels make it visually tidy, but spacing expands strongly toward the poles. Greenland looks much too large.</figcaption>
 </figure>
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Sinusoidal graticule">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <path d="M110 20 L110 130" stroke="#334155" stroke-width="1.5" fill="none"/>
@@ -418,9 +421,11 @@ Some projection names appear so often that they are worth recognizing directly.
 <line x1="20" y1="118" x2="200" y2="118" stroke="#94a3b8"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Sinusoidal</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">Parallels stay straight, but meridians curve. The result preserves area well, which is why it is popular for global raster products and land accounting.</figcaption>
 </figure>
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Albers conic graticule">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <path d="M28 118 Q110 18 192 118" stroke="#94a3b8" fill="none"/>
@@ -432,9 +437,11 @@ Some projection names appear so often that they are worth recognizing directly.
 <path d="M148 24 Q132 82 144 130" stroke="#94a3b8" fill="none"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Albers equal-area conic</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">A classic area-preserving choice for broad mid-latitude regions. This is the kind of logic behind many Canada-scale thematic maps.</figcaption>
 </figure>
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Lambert conformal conic graticule">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <path d="M30 120 Q110 24 190 120" stroke="#94a3b8" fill="none"/>
@@ -446,9 +453,11 @@ Some projection names appear so often that they are worth recognizing directly.
 <path d="M150 24 Q136 78 146 130" stroke="#94a3b8" fill="none"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Lambert conformal conic</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">Another conic family, but with a different promise: better local shape and angle, not equal area.</figcaption>
 </figure>
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized local projected grid">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <line x1="40" y1="20" x2="40" y2="130" stroke="#94a3b8"/>
@@ -463,9 +472,11 @@ Some projection names appear so often that they are worth recognizing directly.
 <circle cx="118" cy="77" r="18" fill="rgba(37,99,235,0.12)" stroke="#2563eb" stroke-width="1.5"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Local projected grid (for example UTM)</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">The key idea here is not world appearance but usable local geometry. Inside a limited zone, metre-based coordinates behave much more like the flat geometry your calculations assume.</figcaption>
 </figure>
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized polar stereographic graticule">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <circle cx="110" cy="75" r="42" fill="none" stroke="#334155" stroke-width="1.5"/>
@@ -477,9 +488,11 @@ Some projection names appear so often that they are worth recognizing directly.
 <line x1="144" y1="41" x2="76" y2="109" stroke="#94a3b8"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Polar stereographic</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">A pole-centered view is often much more honest for Arctic geography than a familiar equatorial world map.</figcaption>
 </figure>
 <figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+```{=html}
 <svg viewBox="0 0 220 150" width="100%" aria-label="Stylized azimuthal equidistant graticule">
 <rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
 <circle cx="110" cy="75" r="46" fill="none" stroke="#94a3b8"/>
@@ -491,6 +504,7 @@ Some projection names appear so often that they are worth recognizing directly.
 <circle cx="110" cy="75" r="3" fill="#dc2626"/>
 <text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Azimuthal equidistant</text>
 </svg>
+```
 <figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">This kind of map is organized around one chosen center. It is valuable when distance from that center is the point of the analysis.</figcaption>
 </figure>
 </div>

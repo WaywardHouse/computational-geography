@@ -169,6 +169,7 @@ $$\theta_{\text{excess}} = \theta_i - \theta_{\text{porosity}}$$
 <p class="cg-ill__lede">The essential picture is a shallow active layer over ice-rich permafrost. As warming deepens thaw, more excess ice melts, ground loses volume, and the surface settles unevenly.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Cross-section of active layer and permafrost showing deeper thaw and settlement over ice-rich ground.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
   <rect x="54" y="70" width="452" height="40" fill="#8ecae6"/>
@@ -190,6 +191,7 @@ $$\theta_{\text{excess}} = \theta_i - \theta_{\text{porosity}}$$
   <text x="310" y="44" font-size="15" fill="#475569">stable frozen surface</text>
   <text x="308" y="90" font-size="15" fill="#0f766e">after thaw settlement</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Why thaw becomes a geohazard</h4>

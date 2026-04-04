@@ -119,6 +119,7 @@ This is the same geometric series logic as the non-linear mixing correction in M
 <p class="cg-ill__lede">The key picture is a layered leaf where pigments absorb strongly in the visible, water and dry matter shape longer wavelengths, and air-cell interfaces scatter light repeatedly through the mesophyll.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Leaf optics diagram showing layered anatomy, pigment absorption, internal scattering, and reflected and transmitted light.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#f4f8ef"/>
   <rect x="96" y="68" width="308" height="180" rx="20" fill="#d9f99d" stroke="#65a30d" stroke-width="3"/>
@@ -163,6 +164,7 @@ This is the same geometric series logic as the non-linear mixing correction in M
     <marker id="prospect-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c3aed"/></marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What PROSPECT is simplifying</h4>

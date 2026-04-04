@@ -127,6 +127,7 @@ The image is called "false colour" not because it is fake, but because the displ
 <p><strong>screen blue</strong> ← green band</p>
 </div>
 </div>
+```{=html}
 <svg viewBox="0 0 760 230" role="img" aria-label="Illustration showing a common false-colour composite where NIR is assigned to red, red is assigned to green, and green is assigned to blue.">
   <rect x="64" y="54" width="182" height="120" rx="16" fill="#eef6ff" stroke="#d7e5f4"/>
   <text x="114" y="82" font-size="20" fill="#1e3a5f">measured bands</text>
@@ -151,6 +152,7 @@ The image is called "false colour" not because it is fake, but because the displ
     </marker>
   </defs>
 </svg>
+```
 </div>
 <figcaption>False colour is a remapping of measured bands into display channels so that physically meaningful contrast becomes visually obvious.</figcaption>
 </figure>

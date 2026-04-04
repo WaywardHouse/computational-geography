@@ -218,6 +218,7 @@ $$\text{AAR} = \frac{A_{\text{accumulation}}}{A_{\text{total}}}$$
 <p class="cg-ill__lede">The glacier-wide balance becomes intuitive once the glacier is split into accumulation and ablation zones around the equilibrium line altitude. Warming pushes that dividing line upward and shrinks the area still gaining mass.</p>
 <div class="cg-ill__glacier-grid">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Glacier profile showing accumulation zone above the equilibrium line and ablation zone below it">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#edf5fb"/>
   <path d="M52 270 C108 220, 180 170, 252 150 C312 132, 374 142, 430 178 C474 206, 502 236, 516 270 L52 270 Z" fill="#d9e7f2"/>
@@ -235,6 +236,7 @@ $$\text{AAR} = \frac{A_{\text{accumulation}}}{A_{\text{total}}}$$
   <polygon points="208,238 194,238 202,251" fill="#8f5632"/>
   <text x="68" y="294" font-size="16" fill="#8f5632">melt loss and runoff</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to read the glacier</h4>

@@ -124,6 +124,7 @@ Leaf internal structure:
 <p class="cg-ill__lede">Healthy vegetation is dark in red light because chlorophyll absorbs it, but bright in near-infrared because leaf structure scatters it. Bare soil does not show that same split.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Vegetation and soil reflectance comparison across red and near-infrared wavelengths">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef4ef"/>
   <rect x="60" y="42" width="440" height="190" rx="14" fill="#ffffff" stroke="#91a49a" stroke-width="3"/>
@@ -144,6 +145,7 @@ Leaf internal structure:
   <text x="360" y="132" font-size="15" fill="#7a6044" font-weight="700">bare soil</text>
   <text x="86" y="266" font-size="16" fill="#35515f">NDVI gets large when NIR is high and red is low.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What the index is really measuring</h4>

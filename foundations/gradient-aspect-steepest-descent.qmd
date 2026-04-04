@@ -123,6 +123,7 @@ Measured clockwise from north (geographic convention):
 <p class="cg-ill__lede">One hillside gives three linked answers at once: which way is uphill fastest, which way is downhill fastest, and which compass direction the slope faces.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 520 280" role="img" aria-label="A tilted terrain patch with an uphill gradient arrow and downhill steepest-descent arrow">
   <rect x="0" y="0" width="520" height="280" rx="22" fill="#f6f1e8"/>
   <polygon points="70,220 245,120 455,165 280,255" fill="#b7c49a" stroke="#4e6a4f" stroke-width="3"/>
@@ -142,6 +143,7 @@ Measured clockwise from north (geographic convention):
   <text x="245" y="200" font-size="16" fill="#3a3a3a">cell</text>
   <text x="90" y="106" font-size="16" fill="#4e6a4f">terrain surface</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Read the picture in this order</h4>

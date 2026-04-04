@@ -148,6 +148,7 @@ Jun: Snowpack depleted (lower elevations)
 <p class="cg-ill__lede">The chapter’s equations become easier to remember when they are tied to the seasonal snowpack cycle. Accumulation dominates first, then positive degree days flip the system into melt and runoff.</p>
 <div class="cg-ill__season-grid">
 <div class="cg-ill__season-chart">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Seasonal snow water equivalent curve rising through winter and dropping through spring melt">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#f4f8fb"/>
   <line x1="74" y1="248" x2="510" y2="248" stroke="#7f8d99" stroke-width="3"/>
@@ -163,6 +164,7 @@ Jun: Snowpack depleted (lower elevations)
   <text x="118" y="136" font-size="16" fill="#557b58">accumulation</text>
   <text x="370" y="164" font-size="16" fill="#8f5632">melt and runoff</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How the model maps onto the curve</h4>

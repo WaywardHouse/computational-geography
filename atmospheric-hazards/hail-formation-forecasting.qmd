@@ -188,6 +188,7 @@ $$\Delta m = 0.091 \times 300 = 27.3 \text{ g}$$
 <p class="cg-ill__lede">Large hail needs strong updrafts because the stone must be lifted, coated with supercooled water, frozen again, and recycled through the storm multiple times before it finally falls out.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Conceptual hail growth loop through updraft and freezing layers">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#edf3f7"/>
   <rect x="44" y="222" width="472" height="32" rx="12" fill="#7d8f5c"/>
@@ -209,6 +210,7 @@ $$\Delta m = 0.091 \times 300 = 27.3 \text{ g}$$
   <text x="338" y="62" font-size="15" fill="#35515f">layered hailstone</text>
   <text x="64" y="278" font-size="16" fill="#35515f">If the updraft stays stronger than terminal fall speed, the hailstone keeps cycling and growing.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What controls final hail size</h4>

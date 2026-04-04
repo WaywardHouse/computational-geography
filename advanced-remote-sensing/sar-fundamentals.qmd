@@ -170,6 +170,7 @@ For $L = 10$ m: $\delta_a = 5$ m
 <p class="cg-ill__lede">SAR works because the same ground target is viewed from many nearby platform positions. The processor combines those repeated looks into one much longer synthetic aperture.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Synthetic aperture radar geometry with multiple pulse positions viewing the same target patch">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#edf2f6"/>
   <line x1="65" y1="68" x2="485" y2="68" stroke="#6b8191" stroke-width="5"/>
@@ -200,6 +201,7 @@ For $L = 10$ m: $\delta_a = 5$ m
   <text x="54" y="260" font-size="16" fill="#294657">Range = across-track distance to target</text>
   <text x="54" y="282" font-size="16" fill="#294657">Azimuth = along-track direction built from motion</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What the diagram is teaching</h4>

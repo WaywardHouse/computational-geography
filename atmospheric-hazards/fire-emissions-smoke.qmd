@@ -229,6 +229,7 @@ $$C(x,y,0) = \frac{Q}{\pi U \sigma_y \sigma_z} \exp\left(-\frac{y^2}{2\sigma_y^2
 </div>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Wildfire smoke modeling sequence from fire to plume rise to downwind concentration">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#f4efe8"/>
   <rect x="34" y="220" width="492" height="34" rx="12" fill="#8a6d4b"/>
@@ -255,6 +256,7 @@ $$C(x,y,0) = \frac{Q}{\pi U \sigma_y \sigma_z} \exp\left(-\frac{y^2}{2\sigma_y^2
   <text x="46" y="278" font-size="16" fill="#4b4235">Higher plume rise can push peak concentration farther downwind.</text>
   <text x="46" y="296" font-size="16" fill="#4b4235">More turbulence spreads the plume; more emissions intensify it.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What each model component controls</h4>

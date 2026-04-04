@@ -118,6 +118,7 @@ As distance increases, interaction **decreases** rapidly:
 <p class="cg-ill__lede">The gravity model becomes intuitive when you can see size and distance competing in the same picture. Bigger destinations attract more interaction, but longer distances rapidly weaken that pull.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 280" role="img" aria-label="Gravity-model diagram with one origin and two destination cities of different size and distance">
   <rect x="0" y="0" width="560" height="280" rx="22" fill="#f3efe7"/>
   <circle cx="96" cy="144" r="26" fill="#5f8f7a" stroke="#35594a" stroke-width="4"/>
@@ -137,6 +138,7 @@ As distance increases, interaction **decreases** rapidly:
   <text x="46" y="232" font-size="16" fill="#35515f">B is closer but smaller.</text>
   <text x="46" y="252" font-size="16" fill="#35515f">C is farther but larger. The model weighs both effects together.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What the model is balancing</h4>

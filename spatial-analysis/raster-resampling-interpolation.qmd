@@ -204,6 +204,7 @@ Weighted average of 16 nearest pixels using cubic polynomials.
 <p>The output raster stores a new estimate at each new pixel centre.</p>
 </div>
 </div>
+```{=html}
 <svg viewBox="0 0 760 250" role="img" aria-label="Illustration of raster resampling from a coarse grid to a finer grid with one query point drawing from neighboring source cells.">
   <rect x="28" y="36" width="220" height="160" rx="16" fill="#f4f7fb" stroke="#dbe3ee"/>
   <text x="94" y="62" font-size="20" fill="#1e3a5f">old grid</text>
@@ -238,6 +239,7 @@ Weighted average of 16 nearest pixels using cubic polynomials.
     </marker>
   </defs>
 </svg>
+```
 </div>
 <figcaption>Resampling works by laying a new grid over the old one and estimating values at the new pixel centres from a chosen neighborhood rule.</figcaption>
 </figure>

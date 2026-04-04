@@ -131,6 +131,7 @@ NO₃⁻ → N₂, N₂O (anaerobic, waterlogged soils)
 <p class="cg-ill__lede">The core story is a chain of transformations: organic nitrogen is mineralized, ammonium can be nitrified, plants and microbes compete for mineral nitrogen, and some nitrate is lost to water or the atmosphere.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 330" role="img" aria-label="Diagram of nitrogen cycling among atmospheric nitrogen, organic nitrogen, ammonium, nitrate, plant uptake, leaching, and denitrification.">
   <rect x="0" y="0" width="560" height="330" rx="22" fill="#eef7fb"/>
   <rect x="210" y="24" width="136" height="46" rx="14" fill="#dbeafe" stroke="#3b82f6" stroke-width="3"/>
@@ -181,6 +182,7 @@ NO₃⁻ → N₂, N₂O (anaerobic, waterlogged soils)
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to read the cycle</h4>

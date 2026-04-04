@@ -172,6 +172,7 @@ $$\text{stream} = (\text{accumulation} > T)$$
 </div>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 520 250" role="img" aria-label="Mini watershed workflow from terrain to outlet basin">
   <rect x="0" y="0" width="520" height="250" rx="22" fill="#eef4ef"/>
   <rect x="35" y="42" width="80" height="80" rx="12" fill="#c8d9b7" stroke="#587150" stroke-width="2"/>
@@ -204,6 +205,7 @@ $$\text{stream} = (\text{accumulation} > T)$$
   <text x="34" y="214" font-size="15" fill="#24424d">Choose one outlet, then work backward through the flow graph.</text>
   <text x="34" y="234" font-size="15" fill="#24424d">Every marked upstream cell belongs to the same watershed.</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Why this sequence helps</h4>

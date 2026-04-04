@@ -180,6 +180,7 @@ Where:
 <p class="cg-ill__lede">The important transition is from raw returns to interpreted structure: first returns help define the upper surface, last and ground-classified returns define terrain, and their difference becomes canopy height.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="LiDAR concept diagram showing laser pulses producing canopy and ground returns, then generating DSM, DTM, and canopy height model.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
   <rect x="240" y="26" width="40" height="16" rx="8" fill="#334155"/>
@@ -202,6 +203,7 @@ Where:
   <text x="406" y="110" font-size="15" fill="#475569">DTM = bare earth</text>
   <text x="406" y="132" font-size="15" fill="#475569">CHM = DSM - DTM</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Why point clouds are powerful</h4>

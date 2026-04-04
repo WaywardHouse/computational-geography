@@ -173,6 +173,7 @@ $$T_s = \frac{300}{0.90^{0.25}} = \frac{300}{0.974} = 308 \text{ K}$$
 <p class="cg-ill__lede">The chapter gets easier when you separate the retrieval into stages: surface emission, atmospheric modification, sensor radiance, brightness temperature, then corrected land surface temperature.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Thermal infrared sensing chain from surface emission through atmosphere to sensor and retrieved land surface temperature.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#f8fbff"/>
   <rect x="62" y="214" width="182" height="44" rx="14" fill="#c08457"/>
@@ -209,6 +210,7 @@ $$T_s = \frac{300}{0.90^{0.25}} = \frac{300}{0.974} = 308 \text{ K}$$
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Reading the retrieval correctly</h4>

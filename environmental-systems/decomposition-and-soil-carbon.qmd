@@ -156,6 +156,7 @@ $$\text{NEP} = \text{NPP} - R_h$$
 <p class="cg-ill__lede">The critical idea is not just that litter decays. It is that some carbon is respired quickly, some moves into medium-lived soil organic matter, and a small fraction reaches very slow pools that dominate long-term storage.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Diagram showing soil carbon moving from litter to active soil organic matter to slow soil carbon, with respiration losses from each pool.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#f3f7ef"/>
   <rect x="38" y="124" width="128" height="64" rx="16" fill="#bbf7d0" stroke="#16a34a" stroke-width="3"/>
@@ -200,6 +201,7 @@ $$\text{NEP} = \text{NPP} - R_h$$
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>Why old soil can hold so much carbon</h4>

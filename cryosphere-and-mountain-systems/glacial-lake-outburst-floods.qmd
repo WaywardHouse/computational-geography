@@ -186,6 +186,7 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
 <p class="cg-ill__lede">The critical intuition is the time-scale collapse: lake growth is slow, but triggering, breach enlargement, and downstream flood routing can all unfold in hours.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 320" role="img" aria-label="Conceptual diagram of a glacial lake outburst flood showing lake impoundment, breach, and downstream flood wave.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef6fb"/>
   <path d="M36 238 C118 170, 164 110, 232 126 C286 138, 314 190, 360 212 C414 238, 470 246, 524 252" fill="none" stroke="#7c8fa3" stroke-width="6"/>
@@ -211,6 +212,7 @@ Sudden release of water from ice-dammed or moraine-dammed glacial lakes.
     </marker>
   </defs>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>How to read the hazard</h4>

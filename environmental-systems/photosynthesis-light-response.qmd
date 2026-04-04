@@ -125,6 +125,7 @@ C4 crops: ~40–60 μmol/m²/s
 <p class="cg-ill__lede">The light-response curve is easier to remember when it is broken into regions: a light-limited start, a bending transition, and a high-light plateau where more photons no longer help much.</p>
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
+```{=html}
 <svg viewBox="0 0 560 300" role="img" aria-label="Photosynthesis light-response curve with compensation point, linear region, and saturation">
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef4ef"/>
   <rect x="58" y="40" width="452" height="206" rx="14" fill="#ffffff" stroke="#91a49a" stroke-width="3"/>
@@ -151,6 +152,7 @@ C4 crops: ~40–60 μmol/m²/s
   <text x="266" y="246" font-size="15" fill="#35515f">photon flux density</text>
   <text x="28" y="118" font-size="15" fill="#35515f" transform="rotate(-90 28 118)">photosynthesis rate</text>
 </svg>
+```
 </div>
 <div class="cg-ill__card">
 <h4>What each part of the curve means</h4>
