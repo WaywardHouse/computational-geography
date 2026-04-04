@@ -39,6 +39,20 @@ math-prerequisites-note: Seasonal cycles conceptually. Integration/accumulation 
   introduce thermal time from first principles.
 ---
 
+## Before You Start
+
+**You should know**  
+That seasonal biological events respond to temperature and day length rather than to calendar dates alone.
+
+**You will learn**  
+How growing degree days, photoperiod, and chilling requirements combine to predict bud break, senescence, and growing season length.
+
+**Why this matters**  
+Phenology controls agricultural timing, ecosystem productivity, and one of the clearest biological signals of climate change.
+
+**If this gets hard, focus on...**  
+The core idea that plants accumulate environmental cues until a threshold event is triggered.
+
 
 Since 1736, volunteers have recorded the date each year when cherry trees bloom along the shores of Suwa Lake in Japan. The record is the longest continuous phenological dataset in the world, and it shows something remarkable: peak bloom now occurs roughly three to four weeks earlier than it did three centuries ago, with the rate of advance accelerating sharply since the 1950s. The cherry blossoms are a biological thermometer, integrating winter and spring temperatures in a way that instruments alone cannot replicate.
 

@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Resolution is one of the first remote-sensing ideas readers need, but the series did not yet have a single foundational chapter that explains the four main resolution types together or shows why each one matters for modelling.",
+    "issues": [
+      "Spatial, spectral, temporal, and radiometric resolution were not yet unified in one beginner-facing explanation.",
+      "Readers needed help seeing resolution as a modelling tradeoff rather than as isolated jargon.",
+      "Later chapters benefited from a direct reference point for why sensors cannot optimize every dimension at once."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added a new chapter that defines the four main resolution dimensions on first use, compares their tradeoffs, and links them to practical modelling choices such as wildfire monitoring, crop mapping, and flood response.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Presented each type of resolution with a concrete intuition before the formal label.",
+      "Used task-based examples so the chapter reads as a decision guide instead of a glossary.",
+      "Kept the mathematics light while still making tradeoffs precise."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter gives readers a coherent remote-sensing tradeoff framework and keeps the abstraction level appropriate for the core-book volume.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The remote-sensing foundations were repaired by adding a dedicated resolution chapter immediately after the general introduction.",
+    "actions_taken": [
+      "Added a new chapter on spatial, spectral, temporal, and radiometric resolution.",
+      "Integrated the chapter into the foundations part and book configuration.",
+      "Used it to establish a common vocabulary for later imagery chapters."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses tradeoff visuals and interpretation guidance effectively, so readers can compare sensor strengths without getting lost in terminology.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added a comparison graphic that shows how the four resolution dimensions compete with one another.",
+      "Included task-linked examples so readers can interpret the visual in terms of modelling needs.",
+      "Used a Before You Start block and explicit reading guidance to reduce cognitive load."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

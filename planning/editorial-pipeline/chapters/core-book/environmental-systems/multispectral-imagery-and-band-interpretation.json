@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The core book needed a practical image-reading bridge between the remote-sensing foundations and the existing vegetation-index chapter, so readers could learn to interpret bands before combining them into indices.",
+    "issues": [
+      "There was no dedicated beginner chapter on multispectral imagery interpretation.",
+      "Readers needed help connecting spectral concepts to actual band combinations and false-colour views.",
+      "Vegetation-index work benefited from a clearer lead-in on what different bands reveal."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added a new environmental-systems chapter that explains how multispectral bands are read, how false-colour composites work, and how to think from band response to land-surface interpretation.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Kept the focus on practical interpretation before moving to derived indices.",
+      "Used land-cover examples to make the bands memorable.",
+      "Positioned the chapter as the immediate precursor to vegetation-index modelling."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter provides the missing interpretation step cleanly and sets up later remote-sensing modelling in a way that is accessible to first-time readers.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The remote-sensing modelling sequence was repaired by inserting a practical multispectral interpretation chapter ahead of vegetation indices.",
+    "actions_taken": [
+      "Added a new environmental-systems chapter on multispectral imagery and band interpretation.",
+      "Inserted the chapter before vegetation indices in the book configuration and environmental-systems index.",
+      "Renumbered later environmental chapters to preserve sequence coherence."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses band-comparison visuals and reading guidance effectively, which helps learners connect colour composites to physical land-surface differences.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added a beginner-facing Before You Start block.",
+      "Used a band-interpretation visual to compare visible, near-infrared, and shortwave infrared sensitivity.",
+      "Explained how to read false-colour imagery rather than only naming the bands."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

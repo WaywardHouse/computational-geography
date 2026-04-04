@@ -152,18 +152,18 @@ Higher radiometric resolution helps when the surface differences are subtle and 
 "radar": {
 "radius": "60%",
 "indicator": [
-  {"name": "Spatial detail", "max": 5},
-  {"name": "Spectral detail", "max": 5},
-  {"name": "Temporal frequency", "max": 5},
-  {"name": "Radiometric sensitivity", "max": 5}
+{"name": "Spatial detail", "max": 5},
+{"name": "Spectral detail", "max": 5},
+{"name": "Temporal frequency", "max": 5},
+{"name": "Radiometric sensitivity", "max": 5}
 ]
 },
 "series": [{
 "type": "radar",
 "data": [
-  {"name": "High-detail imaging", "value": [5, 2, 2, 3], "areaStyle": {"opacity": 0.08}},
-  {"name": "Regional monitoring", "value": [3, 3, 5, 4], "areaStyle": {"opacity": 0.08}},
-  {"name": "Hyperspectral system", "value": [2, 5, 2, 5], "areaStyle": {"opacity": 0.08}}
+{"name": "High-detail imaging", "value": [5, 2, 2, 3], "areaStyle": {"opacity": 0.08}},
+{"name": "Regional monitoring", "value": [3, 3, 5, 4], "areaStyle": {"opacity": 0.08}},
+{"name": "Hyperspectral system", "value": [2, 5, 2, 5], "areaStyle": {"opacity": 0.08}}
 ]
 }]
 }'></div>

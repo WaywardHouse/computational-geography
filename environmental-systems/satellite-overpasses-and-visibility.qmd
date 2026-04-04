@@ -39,6 +39,20 @@ math-prerequisites-note: Orbital mechanics (Models 13-14). Spherical coordinates
   visibility.
 ---
 
+## Before You Start
+
+**You should know**  
+That satellite position can be written as a point in 3D space, and that an observer on Earth has a local horizon.
+
+**You will learn**  
+How to convert a satellite and observer position into elevation and azimuth angles, and how to decide whether Earth blocks the line of sight.
+
+**Why this matters**  
+Overpass prediction connects orbital geometry to actual observation opportunities on the ground.
+
+**If this gets hard, focus on...**  
+The simple geometric question: draw a line from observer to satellite and ask whether it points above the local horizon.
+
 
 On 12 April 1961, Yuri Gagarin became the first human to orbit Earth, and within hours observers around the world were trying to spot his Vostok capsule crossing the night sky. They needed two things: a prediction of when it would be overhead, and knowledge of which direction to look. Both questions are solved by the same geometry. The ISS is visible to the naked eye on clear nights from most populated latitudes — a magnitude −4 point of light moving at about 1° per second across the sky. Thousands of amateur observers track it nightly using apps that apply, under the hood, exactly the calculation this model derives.
 

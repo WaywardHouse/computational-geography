@@ -3,12 +3,12 @@
   "metadata": {
     "volume_id": "core-book",
     "volume_title": "Computational Geography: Core Book",
-    "chapter_count": 41
+    "chapter_count": 45
   },
   "consistency_review": {
     "status": "completed",
     "outcome": "pass",
-    "summary": "The full core-book volume now reads as a coherent beginner-to-intermediate progression. The openings were normalized, notation is consistently introduced before heavy use, and the added projections chapter closes an important conceptual gap between basic coordinates and later spatial analysis.",
+    "summary": "The full core-book volume now reads as a coherent beginner-to-intermediate progression. The openings were normalized, notation is consistently introduced before heavy use, the added projections chapter closes an important conceptual gap between basic coordinates and later spatial analysis, and the new remote-sensing ladder now gives beginners a fair path from observation basics to imagery interpretation and vegetation indices.",
     "checks": {
       "language_band_consistency": "pass",
       "pedagogical_consistency": "pass",
@@ -20,7 +20,8 @@
       "Normalized learner-facing onboarding across the volume.",
       "Repaired malformed math and currency expressions that interrupted reading flow.",
       "Aligned later technical chapters with the same intuition-before-formalism pattern used in the opening units.",
-      "Added a dedicated CRS and map-projections bridge chapter to support later measurement-heavy modelling."
+      "Added a dedicated CRS and map-projections bridge chapter to support later measurement-heavy modelling.",
+      "Added a four-chapter remote-sensing ladder covering field overview, resolution tradeoffs, atmospheric effects, and multispectral interpretation."
     ]
   },
   "completion": {

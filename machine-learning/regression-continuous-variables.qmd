@@ -41,6 +41,20 @@ math-prerequisites-note: 'Linear algebra basics (vectors, matrices). Derivatives
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That regression learns a relationship from examples, and that matrices can be used to organize many predictors at once.
+
+**You will learn**  
+How linear regression predicts continuous variables, why gradient descent finds the coefficients, and why geographic validation has to respect spatial dependence.
+
+**Why this matters**  
+A large share of geographic machine learning is really structured prediction of things like elevation, soil moisture, fire severity, yield, or biomass.
+
+**If this gets hard, focus on...**  
+The central idea that we fit a function from features to a numeric target, then check whether that function generalizes to new places.
+
 
 After the 2019–20 Australian Black Summer fires burned 18.6 million hectares — an area larger than Cambodia — ecologists needed rapid estimates of fire severity across landscapes too vast and too dangerous to survey on foot. The solution was regression. Spectral indices from Landsat and Sentinel-2 satellites, calibrated against 5,000 field plots where trained observers had recorded char depth, crown scorch height, and tree mortality, were used to predict a continuous fire severity score for every 10-metre pixel across the fire perimeter. The result was a map that would have taken a decade to produce in the field, delivered in weeks from a laptop.
 
@@ -246,7 +260,7 @@ $$\boldsymbol{\beta}^{(t+1)} = \boldsymbol{\beta}^{(t)} - \frac{2\alpha}{n}\math
 Too small: Slow convergence  
 Too large: Divergence (overshoots minimum)
 
-Typical: $\alpha = 0.01$ to &#36;0.1$, or adaptive (decrease over time)
+Typical: $\alpha = 0.01$ to $0.1$, or adaptive (decrease over time)
 
 ### Ridge Regression Gradient
 
@@ -272,7 +286,7 @@ Adding $\lambda\mathbf{I}$ ensures invertibility even with correlated features.
 
 **K-Fold Cross-Validation:**
 
-1. Split data into $K$ folds (typical: $K=5$ or &#36;10$)
+1. Split data into $K$ folds (typical: $K=5$ or $10$)
 2. For each fold $k$:
    - Train on $K-1$ folds
    - Test on fold $k$

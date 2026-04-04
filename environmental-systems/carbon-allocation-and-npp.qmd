@@ -39,6 +39,20 @@ math-prerequisites-note: Exponential growth/decay (Models 3-4). Photosynthesis (
   carbon model.
 ---
 
+## Before You Start
+
+**You should know**  
+That photosynthesis fixes carbon, but that living plants also respire and lose biomass through turnover.
+
+**You will learn**  
+How GPP becomes NPP, how plants divide carbon among leaves, stems, and roots, and why turnover strongly shapes stored biomass.
+
+**Why this matters**  
+Carbon accounting in ecosystems depends not just on how much is fixed, but on where that carbon goes and how long each pool keeps it.
+
+**If this gets hard, focus on...**  
+The flow sequence: photosynthesis in, respiration out, then the remainder allocated among plant pools.
+
 
 A mature Douglas fir in the Pacific Northwest might fix 30 kg of carbon per year through photosynthesis. But it retains perhaps 15 kg as new biomass — the rest is burned in respiration, the metabolic cost of maintaining millions of living cells. Of that 15 kg, roughly half goes into new wood (the rings visible in the cross-section), a quarter into fine roots that turn over within a year, and the remainder into needles that will be shed over the next three years. The proportions are not fixed — they shift with drought, nutrient availability, and light, as the tree adjusts its investment strategy to maximise survival.
 

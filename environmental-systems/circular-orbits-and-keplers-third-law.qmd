@@ -41,6 +41,20 @@ math-prerequisites-note: 'Circular motion conceptually. Newton''s laws (F=ma, gr
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That gravity pulls inward, and that circular motion requires a continuous inward acceleration.
+
+**You will learn**  
+Why an orbit is a controlled free fall, how orbital speed depends on radius, and how Kepler's Third Law follows from Newton's laws.
+
+**Why this matters**  
+Nearly every satellite-based measurement in computational geography begins with orbital mechanics, even if the final product looks like a simple map.
+
+**If this gets hard, focus on...**  
+The core balance that gravity provides the centripetal force needed to keep the satellite moving around Earth.
+
 
 On 4 October 1957, the Soviet Union launched Sputnik 1 into an orbit of 227 km × 941 km. The spacecraft completed one revolution in 96.2 minutes. Every number in that sentence follows from two equations: Newton's law of gravity and the requirement that centripetal acceleration equal gravitational acceleration. Sputnik's engineers did not need to measure orbital periods experimentally — they calculated them. The mathematics had been published in Newton's *Principia* in 1687.
 
@@ -135,7 +149,7 @@ $$v = \sqrt{\frac{GM}{r}}$$
 
 ### Orbital Period
 
-The satellite travels a circular path of circumference &#36;2\pi r$ at velocity $v$.
+The satellite travels a circular path of circumference $2\pi r$ at velocity $v$.
 
 **Period** (time for one orbit):
 

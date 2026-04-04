@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The series needed a beginner-safe bridge between raw sensor measurements and physically meaningful surface information, especially before vegetation-index and advanced optical chapters.",
+    "issues": [
+      "Readers needed an explanation of why the atmosphere changes the signal recorded by a sensor.",
+      "The difference between top-of-atmosphere measurement and surface reflectance was not yet introduced in the core sequence.",
+      "A simple atmospheric-correction concept was needed before more advanced remote-sensing modelling."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added a new foundations chapter that explains scattering, absorption, and surface reflectance in plain language, then ties those ideas to why corrected imagery is better for comparison and modelling.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Used a signal-path narrative so readers can follow energy from Sun to surface to sensor.",
+      "Avoided overloading the chapter with full radiative-transfer formalism.",
+      "Positioned atmospheric correction as a practical modelling step rather than a specialist detour."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter gives a fair introduction to atmospheric effects without overshooting the core-book difficulty target and prepares readers well for later imagery work.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The remote-sensing ladder was repaired by adding a chapter that turns raw-signal questions into a readable explanation of corrected surface information.",
+    "actions_taken": [
+      "Added a chapter on atmospheric effects and surface reflectance to the foundations sequence.",
+      "Connected the chapter to downstream work on imagery interpretation and vegetation indices.",
+      "Explained the purpose of correction steps in task-focused language."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses a simple signal-path visualization and explanatory framing well, which helps readers picture where distortion enters the measurement chain.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added a signal-path visual showing how atmosphere and surface both shape what the sensor receives.",
+      "Used interpretive guidance to explain what the figure means physically.",
+      "Framed surface reflectance as a cleaner modelling input rather than an abstract processing product."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

@@ -42,6 +42,20 @@ math-prerequisites-note: 3D distance formula. Solving systems of equations. Basi
   converge to a solution.
 ---
 
+## Before You Start
+
+**You should know**  
+That distance can be computed from travel time if speed is known, and that spheres can intersect to identify a location.
+
+**You will learn**  
+How GPS turns signal timing into pseudoranges, why clock bias forces a fourth unknown into the system, and how iterative least-squares solves the position.
+
+**Why this matters**  
+Positioning is one of the quiet foundations of modern geographic work, from field surveys to phones to autonomous systems.
+
+**If this gets hard, focus on...**  
+The basic picture of intersecting distance spheres, with one extra correction term for the receiver clock.
+
 
 On 2 May 2000, the United States government switched off Selective Availability — the deliberate degradation of GPS accuracy that had been limiting civilian receivers to about 100 metres. Overnight, accuracy improved to roughly 20 metres. Within two years, GPS receivers were in cars, boats, and hiking packs across the world, and within fifteen years they were in every smartphone. The underlying technology — announced by the Department of Defense in the 1970s, operationally complete by 1995 — is one of the most consequential engineering achievements of the twentieth century, and it rests on a piece of mathematics you can derive in an afternoon.
 

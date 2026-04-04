@@ -39,6 +39,20 @@ math-prerequisites-note: Decomposition (Model 26). Photosynthesis and NPP (Model
   20).
 ---
 
+## Before You Start
+
+**You should know**  
+That plant growth depends on nutrients as well as light and water, and that soil nitrogen exists in several chemical forms.
+
+**You will learn**  
+How nitrogen moves among organic matter, ammonium, nitrate, and plants, and how limited nitrogen supply constrains productivity.
+
+**Why this matters**  
+Nitrogen links biogeochemistry to food systems, fertilizer use, water pollution, and ecosystem growth.
+
+**If this gets hard, focus on...**  
+The key chain: decomposition releases mineral nitrogen, plants and microbes compete for it, and that competition limits carbon gain.
+
 
 The Haber-Bosch process, developed in Germany in the early twentieth century, converts atmospheric nitrogen into ammonia using high temperature, high pressure, and an iron catalyst. It is the industrial foundation of synthetic fertiliser. It is also one of the most consequential technologies in human history: by making reactive nitrogen cheap and abundant, it enabled agricultural yields that now feed roughly half the world's population. It also created one of the largest environmental perturbations of the nitrogen cycle since the evolution of nitrogen-fixing bacteria — excess nitrogen running off into rivers and coastal seas, driving the hypoxic dead zones in the Gulf of Mexico, the Baltic, and hundreds of other water bodies.
 

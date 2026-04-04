@@ -41,6 +41,20 @@ math-prerequisites-note: 'Linear algebra (eigenvectors, matrix multiplication). 
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That datasets can have many features at once, and that correlated variables often carry overlapping information.
+
+**You will learn**  
+How PCA compresses variance into a few orthogonal directions, and why t-SNE and UMAP are useful for visualization even though they answer different geometric questions.
+
+**Why this matters**  
+High-dimensional geographic data becomes much easier to interpret when we can compress, visualize, and compare structure without throwing away the main signal.
+
+**If this gets hard, focus on...**  
+The simple goal of replacing many partially redundant dimensions with a smaller number of more useful ones.
+
 
 In 1991, geologists flying the Airborne Visible/Infrared Imaging Spectrometer (AVIRIS) over the Cuprite mining district of Nevada were able to distinguish 22 separate mineral assemblages in a single overflight pass — a mapping task that had previously required weeks of field crews on foot. The capability came from hyperspectral imaging: instead of capturing three colour channels as a camera does, AVIRIS recorded 224 spectral bands simultaneously, each 10 nm wide. Different minerals — alunite, kaolinite, calcite, muscovite — absorb infrared energy at subtly different wavelengths, and those absorption features became their spectral fingerprints.
 

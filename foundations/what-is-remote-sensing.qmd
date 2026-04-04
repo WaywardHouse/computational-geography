@@ -84,11 +84,11 @@ Remote sensing works through a chain of transformations:
 ```{=html}
 <div class="viz-container" style="margin-top:1rem;">
 <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.9rem;">
-  <div class="info-panel"><strong>1. Source</strong><p>Sunlight, thermal emission, laser pulse, radar pulse, or acoustic pulse.</p></div>
-  <div class="info-panel"><strong>2. Atmosphere</strong><p>Scattering, absorption, and emission change the signal before and after surface contact.</p></div>
-  <div class="info-panel"><strong>3. Surface</strong><p>The surface reflects, emits, absorbs, or scatters energy depending on material and geometry.</p></div>
-  <div class="info-panel"><strong>4. Sensor</strong><p>The instrument samples the signal with finite spatial, spectral, and radiometric limits.</p></div>
-  <div class="info-panel"><strong>5. Product</strong><p>Calibration and modelling turn raw measurement into maps, indices, temperatures, heights, or classifications.</p></div>
+<div class="info-panel"><strong>1. Source</strong><p>Sunlight, thermal emission, laser pulse, radar pulse, or acoustic pulse.</p></div>
+<div class="info-panel"><strong>2. Atmosphere</strong><p>Scattering, absorption, and emission change the signal before and after surface contact.</p></div>
+<div class="info-panel"><strong>3. Surface</strong><p>The surface reflects, emits, absorbs, or scatters energy depending on material and geometry.</p></div>
+<div class="info-panel"><strong>4. Sensor</strong><p>The instrument samples the signal with finite spatial, spectral, and radiometric limits.</p></div>
+<div class="info-panel"><strong>5. Product</strong><p>Calibration and modelling turn raw measurement into maps, indices, temperatures, heights, or classifications.</p></div>
 </div>
 </div>
 ```

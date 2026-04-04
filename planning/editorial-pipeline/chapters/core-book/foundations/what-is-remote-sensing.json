@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The series had supporting remote-sensing material, but it lacked a direct beginner-facing entry chapter that explains what remote sensing is, how sensors differ from one another, and why modelling starts with measurement choices.",
+    "issues": [
+      "Readers could meet remote-sensing applications before getting a plain-language definition of the field itself.",
+      "The core book needed a conceptual bridge from observation to model input.",
+      "Passive and active sensing needed to be distinguished before specialist chapters introduced their own methods."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added a new foundations chapter that introduces remote sensing through the idea of measuring Earth from a distance, compares common sensor families, and keeps the modelling frame visible from the start.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Kept the language introductory and concrete so the chapter works for first-time readers.",
+      "Used familiar examples such as cameras, thermal sensors, radar, and sonar before shifting into formal terminology.",
+      "Made the connection between sensed signals and computational models explicit."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter establishes remote sensing cleanly at the right level for the core-book volume and gives readers the intuition they need before later spectral and orbital chapters become more technical.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The missing introduction was repaired by adding a new chapter and placing it before the more technical remote-sensing foundations.",
+    "actions_taken": [
+      "Added a new introductory remote-sensing chapter to the foundations sequence.",
+      "Linked the chapter into the core-book configuration and part index.",
+      "Positioned the chapter as the conceptual start of a broader remote-sensing ladder."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses comparison visuals and sensor-family explainers to help readers see the structure of the topic before the terminology accumulates.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added a learner-facing Before You Start block to surface prerequisites.",
+      "Used a sensor comparison visual to show how different observation systems measure different parts of the world.",
+      "Explained how each sensor family feeds later models rather than leaving the examples descriptive only."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }
