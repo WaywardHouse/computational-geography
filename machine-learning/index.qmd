@@ -37,6 +37,27 @@ Topic Library
 </section>
 ```
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Library Route</div>
+<h3 class="cg-ill__title">This Mini-Library Moves From Prediction To Structure Discovery</h3>
+<p class="cg-ill__lede">The machine-learning branch is small enough that the route can be shown directly. First learn prediction for continuous geographic variables, then use dimensionality reduction to inspect hidden structure in high-dimensional data.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">1</div>
+<h4>Regression</h4>
+<p>Model a continuous target from spatial or environmental predictors.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2</div>
+<h4>Dimensionality reduction</h4>
+<p>Compress high-dimensional structure into a form humans can inspect visually.</p>
+</div>
+</div>
+</div>
+<figcaption>The machine-learning route starts with supervised prediction, then shifts to exploratory structure-finding in richer feature spaces.</figcaption>
+</figure>
+
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}

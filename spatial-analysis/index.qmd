@@ -114,19 +114,20 @@ Textbook Part
     <h3>Terrain Analysis</h3>
     <ul>
       <li><a href="./viewshed-line-of-sight.html">Viewshed and Line-of-Sight Analysis</a></li>
-      <li><a href="./cost-distance-least-cost-paths.html">Cost-Distance and Least-Cost Paths</a></li>
       <li><a href="./watershed-delineation.html">Watershed Delineation and Flow Networks</a></li>
     </ul>
+    <p>Least-cost path analysis continues this terrain toolkit in the topic-libraries volume.</p>
   </article>
   <article class="section-card">
     <span class="section-eyebrow">N</span>
-    <h3>Explore More</h3>
+    <h3>Explore More Later</h3>
     <ul>
-      <li><a href="./cost-distance-least-cost-paths.html">Cost-Distance and Least-Cost Paths</a></li>
-      <li><a href="./supervised-image-classification.html">Supervised Image Classification</a></li>
-      <li><a href="./change-detection.html">Change Detection in Satellite Imagery</a></li>
-      <li><a href="./time-series-analysis.html">Time Series Analysis of Satellite Data</a></li>
+      <li>Cost-Distance and Least-Cost Paths</li>
+      <li>Supervised Image Classification</li>
+      <li>Change Detection in Satellite Imagery</li>
+      <li>Time Series Analysis of Satellite Data</li>
     </ul>
+    <p>These chapters are part of the topic-libraries volume, so they are intentionally not linked from the core-book build.</p>
   </article>
 </div>
 ```

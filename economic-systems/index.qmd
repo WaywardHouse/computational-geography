@@ -45,17 +45,18 @@ Textbook Part
     <span class="section-eyebrow">EP</span>
     <h3>Infrastructure Depth</h3>
     <ul>
-      <li><a href="./alberta-pipeline-crude-oil.html">Alberta's Crude Oil Pipeline Network</a></li>
-      <li><a href="./alberta-pipeline-ngl-condensate.html">NGL and Condensate Pipeline Systems</a></li>
-      <li><a href="./alberta-pipeline-natural-gas.html">Natural Gas Transmission from Alberta</a></li>
-      <li><a href="./alberta-pipeline-refined-products.html">Refined Products Distribution</a></li>
-      <li><a href="./alberta-pipeline-integrated-network.html">The Integrated Network</a></li>
-      <li><a href="./crude-oil-pipelines.html">Crude Oil Pipelines</a></li>
-      <li><a href="./ngl-condensate-systems.html">NGL and Condensate Systems</a></li>
-      <li><a href="./natural-gas-transmission.html">Natural Gas Transmission</a></li>
-      <li><a href="./refined-products-distribution.html">Refined Products Distribution</a></li>
-      <li><a href="./integrated-network.html">The Integrated Network</a></li>
+      <li>Alberta's Crude Oil Pipeline Network</li>
+      <li>NGL and Condensate Pipeline Systems</li>
+      <li>Natural Gas Transmission from Alberta</li>
+      <li>Refined Products Distribution</li>
+      <li>The Integrated Network</li>
+      <li>Crude Oil Pipelines</li>
+      <li>NGL and Condensate Systems</li>
+      <li>Natural Gas Transmission</li>
+      <li>Refined Products Distribution</li>
+      <li>The Integrated Network</li>
     </ul>
+    <p>These infrastructure chapters belong to the topic-libraries volume and sit outside the four-chapter core route.</p>
   </article>
   <article class="section-card">
     <span class="section-eyebrow">TR</span>
@@ -74,41 +75,44 @@ Textbook Part
     </ul>
   </article>
   <article class="section-card">
-    <span class="section-eyebrow">Topic Library Links</span>
+    <span class="section-eyebrow">Topic Library Depth</span>
     <h3>Trade and Urban Depth</h3>
     <ul>
-      <li><a href="./canada-trade-corridors.html">Canadian Trade Corridors</a></li>
-      <li><a href="./canada-port-economics.html">Port Economics</a></li>
-      <li><a href="./canada-freight-modal-split.html">Modal Split and Freight Economics</a></li>
-      <li><a href="./canada-integrated-trade-network.html">The Integrated Trade Network</a></li>
-      <li><a href="./urban-city-size-zipf.html">Zipf's Law and the City Size Distribution</a></li>
-      <li><a href="./urban-economic-base.html">The Urban Economic Base</a></li>
-      <li><a href="./urban-integrated-system.html">The Integrated Urban System</a></li>
+      <li>Canadian Trade Corridors</li>
+      <li>Port Economics</li>
+      <li>Modal Split and Freight Economics</li>
+      <li>The Integrated Trade Network</li>
+      <li>Zipf's Law and the City Size Distribution</li>
+      <li>The Urban Economic Base</li>
+      <li>The Integrated Urban System</li>
     </ul>
+    <p>These chapters appear in topic-libraries once readers want fuller case-study and network depth.</p>
   </article>
   <article class="section-card">
-    <span class="section-eyebrow">Topic Library Links</span>
+    <span class="section-eyebrow">Topic Library Depth</span>
     <h3>Resources and Markets</h3>
     <ul>
-      <li><a href="./markets-commodity-price-formation.html">Commodity Price Formation</a></li>
-      <li><a href="./markets-futures-geographic-instruments.html">Futures Markets as Geographic Instruments</a></li>
-      <li><a href="./markets-price-volatility.html">Price Volatility and Its Geographic Consequences</a></li>
-      <li><a href="./markets-integrated-price-system.html">The Integrated Price System</a></li>
-      <li><a href="./resource-hotelling-rule.html">The Hotelling Rule</a></li>
-      <li><a href="./resource-supply-cost-curves.html">Supply Cost Curves and Break-Even Prices</a></li>
-      <li><a href="./resource-royalty-regimes.html">Royalty Regimes and Resource Rents</a></li>
-      <li><a href="./resource-curse.html">The Resource Curse</a></li>
-      <li><a href="./resource-integrated-system.html">The Integrated Resource System</a></li>
+      <li>Commodity Price Formation</li>
+      <li>Futures Markets as Geographic Instruments</li>
+      <li>Price Volatility and Its Geographic Consequences</li>
+      <li>The Integrated Price System</li>
+      <li>The Hotelling Rule</li>
+      <li>Supply Cost Curves and Break-Even Prices</li>
+      <li>Royalty Regimes and Resource Rents</li>
+      <li>The Resource Curse</li>
+      <li>The Integrated Resource System</li>
     </ul>
+    <p>These resource and market chapters are part of the topic-libraries volume rather than the core-book build.</p>
   </article>
   <article class="section-card">
-    <span class="section-eyebrow">Topic Library Links</span>
+    <span class="section-eyebrow">Topic Library Depth</span>
     <h3>Energy Transition</h3>
     <ul>
-      <li><a href="./alberta-renewable-resource-geography.html">Renewable Resource Geography</a></li>
-      <li><a href="./alberta-renewable-economics.html">The Economics of Clean Generation</a></li>
-      <li><a href="./alberta-renewable-policy-demand.html">Policy, Capital, and the Grid</a></li>
+      <li>Renewable Resource Geography</li>
+      <li>The Economics of Clean Generation</li>
+      <li>Policy, Capital, and the Grid</li>
     </ul>
+    <p>Energy-transition case studies continue in the topic-libraries volume.</p>
   </article>
 </div>
 ```

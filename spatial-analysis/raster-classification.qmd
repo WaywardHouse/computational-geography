@@ -831,8 +831,4 @@ Breakpoints at quantiles: $Q_{1/k}, Q_{2/k}, \ldots, Q_{(k-1)/k}$
 - **Challenges:** Outliers, information loss, boundary artifacts
 - Method choice depends on data distribution and application requirements
 
-**This completes Cluster K (Raster Foundations)!** We've covered resampling (33), map algebra (34), and classification (35).
-
-**Next:** Model 36 launches **Cluster M (Terrain Analysis)** with viewshed and line-of-sight analysis!
-
 ---

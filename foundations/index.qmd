@@ -37,6 +37,34 @@ Textbook Part
 </section>
 ```
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Part Route</div>
+<h3 class="cg-ill__title">This Part Builds From Simple Change To Full Spatial Systems</h3>
+<p class="cg-ill__lede">The foundations part is easier to enter when it feels like a progression instead of a list. Readers start with change and growth, move into coordinates and terrain, then use that maths to think about human and sensing systems.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Start</span>
+<h4>Change and growth</h4>
+<p>Build comfort with rates, exponential growth, and equilibrium.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then Represent</span>
+<h4>Coordinates and terrain</h4>
+<p>Learn how space, elevation, and gradients become computable objects.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then Apply</span>
+<h4>Human and sensing systems</h4>
+<p>Use the same mathematical habits to reason about trade, diffusion, and remote sensing.</p>
+</div>
+</div>
+</div>
+<figcaption>The foundations route is cumulative: each stage adds another way of turning a geographic question into a quantitative model.</figcaption>
+</figure>
+
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
@@ -85,14 +113,15 @@ Textbook Part
   </article>
   <article class="section-card">
     <span class="section-eyebrow">F</span>
-    <h3>Topic Library Links</h3>
+    <h3>More Mathematical Depth</h3>
     <ul>
-      <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
-      <li><a href="./spectral-mixing-and-sensor-response.html">Spectral Mixing and Sensor Response</a></li>
-      <li><a href="./solar-geometry-and-projection.html">Solar Geometry and Projection</a></li>
-      <li><a href="./hydrological-flow-as-optimization.html">Hydrological Flow as Optimization</a></li>
-      <li><a href="./earth-as-rotating-sphere.html">Earth as a Rotating Sphere</a></li>
+      <li>Light Attenuation in a Canopy</li>
+      <li>Spectral Mixing and Sensor Response</li>
+      <li>Solar Geometry and Projection</li>
+      <li>Hydrological Flow as Optimization</li>
+      <li>Earth as a Rotating Sphere</li>
     </ul>
+    <p>These extension chapters live in the topic-libraries volume and are best read after the core foundations route.</p>
   </article>
   <article class="section-card">
     <span class="section-eyebrow">G</span>

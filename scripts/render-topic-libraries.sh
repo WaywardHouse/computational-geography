@@ -50,5 +50,6 @@ cp "$TARGET_INDEX" "$BASE_INDEX"
 rm -rf "$ROOT_DIR/.quarto/idx"
 
 "$ROOT_DIR/scripts/prepare-book-output.sh" "$ROOT_DIR/_book-topics"
+mkdir -p "$ROOT_DIR/_book-topics"
 
 quarto render
