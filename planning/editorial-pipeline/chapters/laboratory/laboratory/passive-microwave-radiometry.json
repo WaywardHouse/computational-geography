@@ -9,50 +9,62 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Needed onboarding support and substantial cleanup of malformed emissivity and brightness-temperature notation.",
+    "issues": [
+      "Missing 'Before You Start' scaffold.",
+      "Escaped inline and display math markers disrupted several central formulas and value ranges."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Targeted rewrite pass focused on the emissivity examples, retrieval ranges, and learner entry.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a 'Before You Start' section.",
+      "Normalized malformed ranges and repaired broken display equations in the worked examples."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The chapter now explains brightness temperature and emissivity with clean notation and intact mathematical correctness.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Resolved the chapter's central notation defects.",
+    "actions_taken": [
+      "Added a 'Before You Start' section.",
+      "Fixed malformed emissivity ranges and brightness-temperature equations.",
+      "Repaired broken display-math steps in the worked calculations."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The existing visual and chart support now lands more effectively because the core equations read cleanly.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved opening orientation and repaired the text surrounding the retrieval visuals."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }
