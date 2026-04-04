@@ -33,6 +33,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That futures prices are linked to spot prices through storage, financing, and delivery obligations, and that delivery locations matter.
+
+**You will learn**  
+How the cost-of-carry model generates contango and backwardation, why negative oil prices were possible in April 2020, and how basis differentials encode infrastructure constraints.
+
+**Why this matters**  
+Forward curves are not just financial charts. They are geographic signals about storage scarcity, transport bottlenecks, and the timing of supply stress.
+
+**If this gets hard, focus on...**  
+The single equation that futures price equals spot price plus carrying cost minus convenience yield.
+
 
 A futures contract is, on its surface, a straightforward instrument: an agreement to buy or sell a specific quantity of a commodity at a specific price on a specific future date. But the price of that contract encodes something far richer than a simple forecast of where spot prices will be. It encodes the cost of holding inventory, the value of having physical supply on hand during uncertain times, the geographic specificity of delivery obligations, and the market's collective assessment of how supply and demand will balance at a specific location on a specific date.
 

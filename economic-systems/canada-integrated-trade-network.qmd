@@ -40,6 +40,20 @@ interactive:
   leaflet: true
 ---
 
+## Before You Start
+
+**You should know**  
+That trade corridors, ports, and border crossings can be represented as a network with capacities and shortest paths.
+
+**You will learn**  
+How max-flow, min-cut, and betweenness centrality identify the structural vulnerabilities of Canada's goods network.
+
+**Why this matters**  
+System-wide trade resilience depends on a few strategic nodes, and those nodes become visible only when the full network is assembled.
+
+**If this gets hard, focus on...**  
+The core idea that one bottleneck node can limit a much larger system's total flow.
+
 
 ## 1. From Pieces to Network
 

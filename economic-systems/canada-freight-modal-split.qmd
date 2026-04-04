@@ -38,6 +38,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That different transport modes have different fixed and variable costs, and that time in transit can itself be economically costly.
+
+**You will learn**  
+How truck, rail, marine, air, and pipeline costs differ, how break-even distances arise, and how total logistics cost determines modal choice.
+
+**Why this matters**  
+Modal split is the aggregate result of many cost comparisons, and it shapes infrastructure demand across the whole freight system.
+
+**If this gets hard, focus on...**  
+The simple comparison of fixed cost, per-kilometre cost, and time cost across modes.
+
 
 ## 1. The Question
 

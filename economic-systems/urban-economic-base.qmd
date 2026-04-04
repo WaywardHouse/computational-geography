@@ -31,6 +31,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That some city jobs sell to outside markets while others mostly serve local residents.
+
+**You will learn**  
+How the economic base multiplier works, how location quotients identify export-oriented sectors, and why Calgary is so sensitive to commodity shocks.
+
+**Why this matters**  
+Urban downturns and recoveries are often amplified versions of changes in the city's export base.
+
+**If this gets hard, focus on...**  
+The main distinction between basic jobs that bring income in and local jobs that recirculate it.
+
 
 In late 2015, as the oil price shock worked its way through the Calgary economy, the city's food banks reported a 25% increase in usage. Coffee shops in the Beltline closed. Fitness studios in Eau Claire emptied out. Real estate listings multiplied. None of this was caused directly by oil — most of these businesses had nothing to do with petroleum. They were casualties of the economic base multiplier: the amplification mechanism that turns a contraction in one sector into a citywide recession.
 
@@ -70,7 +84,7 @@ $$\Delta E = \Delta B + k\Delta B + k^2 \Delta B + k^3 \Delta B + \cdots$$
 
 $$\Delta E = \Delta B \cdot \sum_{n=0}^{\infty} k^n = \Delta B \cdot \frac{1}{1-k}$$
 
-This is the same multiplier $m = 1/(1-k)$. The series converges provided &#36;0 < k < 1$, which is satisfied as long as some fraction of income leaks out of the local economy (into savings, imports, and taxes).
+This is the same multiplier $m = 1/(1-k)$. The series converges provided $0 < k < 1$, which is satisfied as long as some fraction of income leaks out of the local economy (into savings, imports, and taxes).
 
 The larger the leakage, the smaller the multiplier. Small cities with limited local economic diversity have high leakage — residents must import many goods and services from outside — producing low multipliers. Large, diversified metros like Toronto have more local spending opportunities and less leakage, producing higher multipliers.
 

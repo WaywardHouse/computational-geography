@@ -38,6 +38,20 @@ interactive:
   leaflet: true
 ---
 
+## Before You Start
+
+**You should know**  
+That trade volumes do not tell us which routes goods actually use, and that a corridor is more than a single road or rail line.
+
+**You will learn**  
+How Canada's main freight corridors are organized, how flow assignment works, and why Windsor-Detroit is such a dominant structural node.
+
+**Why this matters**  
+Routing, capacity, and bottlenecks determine whether trade can actually move, not just whether it exists in the aggregate.
+
+**If this gets hard, focus on...**  
+The main distinction between total trade demand and the specific corridors that have to carry it.
+
 
 ## 1. The Question
 
@@ -93,7 +107,7 @@ lines and makes the corridor vulnerable to weather events and rock slides.
 The mid-continent corridor, centred on the Windsor-Detroit crossing, is the
 most economically significant freight route in Canada. The Ambassador Bridge
 alone — a single privately-owned span across the Detroit River connecting
-Windsor, Ontario to Detroit, Michigan — carries approximately CAD&#36;146 billion
+Windsor, Ontario to Detroit, Michigan — carries approximately CAD$146 billion
 per year in two-way trade, accounting for roughly 25% of all Canada-US trade by
 value. The crossing is the primary artery for automotive supply chains, which
 dominate the Ontario-Michigan manufacturing relationship and involve the same
@@ -244,14 +258,14 @@ lines as parts inventory ran out. The just-in-time delivery systems that make
 modern automotive assembly economical — in which parts arrive hours before they
 are needed on the production line — have essentially zero buffer for multi-day
 border disruptions. The estimated economic cost of the six-day blockade was
-CAD&#36;300-400 million per day, concentrated in the automotive sector. A single
-protest at a single bridge cost an estimated CAD&#36;1.8-2.4 billion in total.
+CAD$300-400 million per day, concentrated in the automotive sector. A single
+protest at a single bridge cost an estimated CAD$1.8-2.4 billion in total.
 
 The Gordie Howe International Bridge, under construction throughout 2024 and
 approaching completion, addresses this vulnerability. The new crossing is a
 public-private partnership between the governments of Canada and Michigan,
 funded through a combination of federal contributions and toll revenue financing,
-at an estimated total cost of CAD&#36;5.7 billion. It adds six lanes of crossing
+at an estimated total cost of CAD$5.7 billion. It adds six lanes of crossing
 capacity — doubling the effective Windsor-Detroit corridor throughput — and is
 owned publicly rather than privately, eliminating the single-owner bottleneck
 that created both the Freedom Convoy vulnerability and three decades of capacity
@@ -267,7 +281,7 @@ plants, and final assembly facilities on both sides of the border. Under a
 25% tariff regime, each crossing incurs a 25% levy. A part that crosses five
 times faces, in aggregate, a cost structure equivalent to a tariff far exceeding
 25% of the original component value. Estimates of the total annual cost to the
-Canadian automotive sector range from CAD&#36;8 billion to CAD&#36;15 billion, depending
+Canadian automotive sector range from CAD$8 billion to CAD$15 billion, depending
 on the assumptions made about pass-through rates and supply chain reconfiguration.
 
 ---
@@ -366,8 +380,8 @@ market-driven routing.
 The Gordie Howe International Bridge addresses exactly this: it does not
 try to redirect freight away from Windsor, it adds capacity at Windsor so that
 the corridor's structural advantage can be realised without single-bridge
-vulnerability. The CAD&#36;5.7 billion cost, spread over a corridor that carries
-CAD&#36;146 billion per year in trade, represents an infrastructure investment cost
+vulnerability. The CAD$5.7 billion cost, spread over a corridor that carries
+CAD$146 billion per year in trade, represents an infrastructure investment cost
 of approximately 3.9% of annual corridor value — a straightforward case for
 public investment in strategic infrastructure.
 

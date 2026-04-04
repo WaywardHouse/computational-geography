@@ -51,6 +51,20 @@ nocite: |
   @transmountain-system2024
 ---
 
+## Before You Start
+
+**You should know**  
+That Alberta's crude, gas, condensate, and products systems can each be represented as networks with nodes, links, and capacity limits.
+
+**You will learn**  
+How max-flow, min-cut, centrality, and netback surfaces reveal system-wide vulnerabilities that single-pipeline analysis can miss.
+
+**Why this matters**  
+Integrated infrastructure behaves like a system, not a list of separate assets, so bottlenecks and pricing power appear most clearly at the network level.
+
+**If this gets hard, focus on...**  
+The simple idea that the whole network is constrained by a few critical links and hubs, not by every segment equally.
+
 
 ## 1. The Question
 
@@ -196,7 +210,7 @@ constraints:
 $$\min \sum_k \sum_{(u,v) \in E} c_k(u,v) \cdot f_k(u,v)$$
 
 subject to:
-- &#36;0 \leq f_k(u,v) \leq \text{cap}_k(u,v)$ for all $k$, $(u,v)$
+- $0 \leq f_k(u,v) \leq \text{cap}_k(u,v)$ for all $k$, $(u,v)$
 - Flow conservation at each node for each commodity $k$
 - Shared capacity constraints where pipelines carry multiple products
 
@@ -262,13 +276,13 @@ to the Midwest but limited onward connections southward.
 
 **Step 2 — Netback comparison by path:**
 
-At WTI &#36;75 USD/bbl, CAD/USD 0.73:
+At WTI $75 USD/bbl, CAD/USD 0.73:
 
 | Destination | Market price (CAD/bbl) | Transport cost (CAD/bbl) | Netback (CAD/bbl) |
 |:---|---:|---:|---:|
-| Superior WI (Enbridge) | &#36;93.2 | &#36;9.9 | &#36;83.3 |
-| Burnaby BC (TMX) | &#36;97.3 | &#36;15.1 | &#36;82.2 |
-| Port Arthur TX (Keystone) | &#36;95.9 | &#36;14.4 | &#36;81.5 |
+| Superior WI (Enbridge) | $93.2 | $9.9 | $83.3 |
+| Burnaby BC (TMX) | $97.3 | $15.1 | $82.2 |
+| Port Arthur TX (Keystone) | $95.9 | $14.4 | $81.5 |
 
 The minimum-cost path from Alberta to each market determines the
 maximum achievable netback. Superior WI offers the best netback in

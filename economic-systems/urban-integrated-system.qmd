@@ -32,6 +32,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That city size, land rent, agglomeration, and the economic base are connected rather than independent urban concepts.
+
+**You will learn**  
+How those mechanisms reinforce one another and how a shock to Calgary's export base propagates through the whole urban system.
+
+**Why this matters**  
+A city behaves like an interconnected system, so local real-estate, wage, and employment changes are often linked responses to the same deeper shock.
+
+**If this gets hard, focus on...**  
+The feedback loops: export growth changes city size, city size changes agglomeration, and agglomeration changes rents and density.
+
 
 In the four preceding models, we built four distinct analytical tools. The bid-rent model explained why land rent falls with distance from the centre and how each land use type bids for the locations where it is most productive. The agglomeration model explained why density raises productivity and why specialised cities like Calgary earn wage premiums but carry fragility risk. Zipf's Law showed that the national hierarchy of cities follows a predictable statistical regularity, with Alberta's near-equal Edmonton-Calgary pair as a notable exception. And the economic base model showed how basic export employment drives total employment through the multiplier.
 

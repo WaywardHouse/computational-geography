@@ -39,6 +39,20 @@ interactive:
   leaflet: true
 ---
 
+## Before You Start
+
+**You should know**  
+That ports compete as gateways, not just as isolated terminals, and that shippers care about total route cost rather than maritime distance alone.
+
+**You will learn**  
+How throughput, queuing, and hinterland competition shape Canadian port performance, and why Prince Rupert can be economically advantaged despite its small size.
+
+**Why this matters**  
+Port economics links geography, congestion, and inland connectivity into one decision problem for trade routing.
+
+**If this gets hard, focus on...**  
+The main idea that a port wins traffic when the full door-to-door route through it is cheaper or faster than the alternatives.
+
 
 ## 1. The Question
 
@@ -96,10 +110,10 @@ will bring capacity to approximately 1.8 million TEUs when complete.
 
 The economic case for Prince Rupert rests on a specific arithmetic. The port
 is 2.4 sailing days closer to Shanghai than Vancouver. On a containership with
-an operating cost of approximately USD&#36;1,800 per day, 2.4 days of sailing equals
-USD&#36;4,320 saved per voyage. A Panamax vessel carrying approximately 4,000 TEUs
-would yield a per-TEU maritime cost advantage of roughly USD&#36;1.08 — or
-approximately CAD&#36;1.50 at typical exchange rates. For certain commodity flows
+an operating cost of approximately USD$1,800 per day, 2.4 days of sailing equals
+USD$4,320 saved per voyage. A Panamax vessel carrying approximately 4,000 TEUs
+would yield a per-TEU maritime cost advantage of roughly USD$1.08 — or
+approximately CAD$1.50 at typical exchange rates. For certain commodity flows
 where time value is not paramount, this maritime cost advantage more than offsets
 Prince Rupert's slightly longer landside rail transit to major inland destinations.
 

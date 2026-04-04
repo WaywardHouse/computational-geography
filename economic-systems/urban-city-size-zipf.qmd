@@ -33,6 +33,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That cities can be ranked by population and that log-log plots can turn power-law relationships into straight lines.
+
+**You will learn**  
+What Zipf's Law says about city size distributions, how it connects to Gibrat's Law, and why Canada's urban hierarchy is slightly unusual.
+
+**Why this matters**  
+City systems are not random collections of places. They follow regular patterns that reveal how urban growth is organised at the national scale.
+
+**If this gets hard, focus on...**  
+The simple rule that rank and size often move together in a near one-over-r relationship.
+
 
 Open a table of world city populations and sort it by rank. Take any country with more than twenty substantial cities. Plot rank on the horizontal axis and population on the vertical axis, both on logarithmic scales. In almost every case, the points fall along a straight line with a slope of approximately $-1$. The second city has half the population of the first. The tenth has a tenth. The hundredth has a hundredth.
 
