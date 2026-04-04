@@ -43,6 +43,20 @@ math-prerequisites-note: Basic algebra. Familiarity with slope (Essay C8) and th
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AB1-sediment-transport
 ---
 
+## Before You Start
+
+**You should know**  
+That rivers move sediment only when flow forces exceed the resistance holding grains in place.
+
+**You will learn**  
+How entrainment thresholds, bedload transport, suspended transport, and rating curves connect hydraulics to sediment flux.
+
+**Why this matters**  
+Sediment transport controls channel change, reservoir filling, habitat structure, and the response of rivers to altered flow.
+
+**If this gets hard, focus on...**  
+The threshold idea: motion begins only after shear stress crosses a critical value.
+
 
 The Fraser River carries roughly 17 million tonnes of sediment to the Pacific Ocean every year. The Bow River, more modestly, transports several hundred thousand tonnes past Calgary annually — gravel and sand moved grain by grain along the riverbed, or suspended in the water column like dust in air. Every one of those grains was entrained, transported, and eventually deposited according to a balance of forces that we can write down precisely.
 
@@ -126,7 +140,7 @@ and $q_b$ [m² s⁻¹] is bedload transport per unit channel width, $s = \rho_s/
 
 $$q_b = 8 (\tau^* - \tau^*_c)^{3/2} \sqrt{(s-1)g D^3}$$
 
-The $(3/2)$ exponent in the MPM formula arises from the physics: transport rate scales with both the number of grains in motion (proportional to $\tau^* - \tau^*_c$) and the velocity of those grains (also proportional to $\tau^* - \tau^*_c$, raised to the &#36;1/2$). Their product gives the &#36;3/2$ power.
+The $(3/2)$ exponent in the MPM formula arises from the physics: transport rate scales with both the number of grains in motion (proportional to $\tau^* - \tau^*_c$) and the velocity of those grains (also proportional to $\tau^* - \tau^*_c$, raised to the $1/2$). Their product gives the $3/2$ power.
 
 Total bedload discharge [m³ s⁻¹] for a channel of width $W$ is $Q_b = q_b \times W$, or in mass units [kg s⁻¹]: $\dot{M}_b = \rho_s q_b W$.
 
@@ -153,8 +167,8 @@ where:
 
 The Rouse number controls the shape of the profile:
 - $Z > 2.5$: sediment essentially all in bedload, negligible suspension
-- &#36;1.2 < Z < 2.5$: mixed transport, grains near bed
-- &#36;0.8 < Z < 1.2$: graded suspension, concentration decreases upward
+- $1.2 < Z < 2.5$: mixed transport, grains near bed
+- $0.8 < Z < 1.2$: graded suspension, concentration decreases upward
 - $Z < 0.2$: near-uniform distribution, fine washload
 
 ### 3.5 Settling Velocity
@@ -173,7 +187,7 @@ Continuous measurement of suspended sediment concentration is expensive. The sta
 
 $$Q_s = a Q^b$$
 
-where $Q_s$ [kg s⁻¹] is the suspended sediment discharge, $Q$ [m³ s⁻¹] is water discharge, and $a$, $b$ are empirically fitted constants. Typical values: $b \approx 1.5$–&#36;2.5$.
+where $Q_s$ [kg s⁻¹] is the suspended sediment discharge, $Q$ [m³ s⁻¹] is water discharge, and $a$, $b$ are empirically fitted constants. Typical values: $b \approx 1.5$-$2.5$.
 
 In log-log space, the rating curve is linear:
 
