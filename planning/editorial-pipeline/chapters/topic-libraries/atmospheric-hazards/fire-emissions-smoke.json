@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The smoke-dispersion chapter had a strong modelling structure but needed clearer onboarding and one substantive unit-scale correction in the emissions discussion.",
+    "issues": [
+      "The chapter entered specialist atmospheric-dispersion material without a learner-facing setup block.",
+      "A CO2 emissions example overstated the result by three orders of magnitude in its unit label.",
+      "Minor escaped-currency markup interrupted the explanatory flow."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added onboarding, repaired notation friction, and corrected the CO2 example while preserving the core emissions and dispersion model.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Corrected the CO2 example from gigatonnes to megatonnes.",
+      "Kept the Gaussian and plume-rise treatment intact because it already fit the volume."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters more fairly for readers and the key numerical examples are mathematically consistent with their stated units.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The chapter was repaired through stronger reader scaffolding, one real numerical-unit fix, and minor notation cleanup.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Corrected the CO2 example from 22.3 Gt to 22.3 Mt.",
+      "Repaired escaped-currency formatting in the health-cost section."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses visuals and model structure effectively, and the revised framing improves how readers approach them.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Preserved the existing plume and dispersion visual support.",
+      "Improved interpretive fairness around the emissions-to-concentration chain."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter's geographic-economic logic was strong, but it needed onboarding and several notation repairs in the pricing and Weymouth worked sections.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "Escaped-currency markup disrupted the basis-differential discussion.",
+      "Two malformed displayed-math lines interrupted the unit-conversion and diameter-term steps."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added stronger onboarding and repaired pricing and displayed-math notation while preserving the Weymouth and basis-differential treatment.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Fixed escaped-currency strings in the basis discussion.",
+      "Repaired malformed display-math lines in the unit-conversion and diameter-term steps."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now reads more smoothly and the key gas-pricing and hydraulic steps are no longer interrupted by broken notation.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The chapter was repaired through stronger reader scaffolding and targeted notation cleanup in the pricing and Weymouth examples.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Repaired escaped-currency formatting in the basis discussion.",
+      "Fixed the malformed display-math lines for the MMBtu conversion and diameter term."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's quantitative explainer structure remains strong, and the revised opening improves interpretive support.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Retained the chapter's strong pricing-plus-hydraulics explanation.",
+      "Improved interpretive access to the basis-differential logic."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

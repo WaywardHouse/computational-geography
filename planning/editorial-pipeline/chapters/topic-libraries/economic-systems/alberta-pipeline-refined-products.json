@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter's logistics model was already clear, but it needed a learner-facing setup block so batching, transmix, and terminal inventory were framed before the equations.",
+    "issues": [
+      "The chapter lacked a Before You Start section.",
+      "Readers benefit from a clearer advance frame around batch sequencing and terminal timing.",
+      "The pipeline sequence needed more consistent chapter-entry design."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added onboarding and preserved the batch scheduling, transmix, and terminal inventory treatment.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the setup block to foreground the one-pipe, many-products problem.",
+      "Left the logistics mathematics intact."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters more gently while preserving the mathematical and logistical correctness of the refined-products supply-chain model.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair focused on pacing and reader setup rather than on structural changes to the content.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the batching and transmix problem before the equations.",
+      "Preserved the terminal and scheduling analysis."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's logistics explanations remain strong, and the new opening improves interpretive support for the batch and terminal visuals.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Retained the chapter's strong batch-and-terminal logistics structure.",
+      "Improved interpretive access to the supply-chain timing logic."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

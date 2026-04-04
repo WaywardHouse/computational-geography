@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The downburst and derecho chapter had a clear technical core, but it needed onboarding so the scale difference between local downbursts and regional derechos was framed before the formal model.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "The contrast between downbursts and derechos benefited from earlier conceptual framing.",
+      "The hazards sequence needed consistent entry structure."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added stronger onboarding and preserved the downdraft, outflow, and derecho dynamics treatment.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the opening to foreground the cold-outflow sequence.",
+      "Left the technical derivation intact."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters at a fairer pace and keeps the distinction between local and mesoscale wind hazards conceptually clear.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The main repair was pedagogical: clearer framing around outflow physics and scale.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the cold-outflow sequence before the formal equations.",
+      "Preserved the existing wind-hazard modelling."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's explanatory support remains effective, and the stronger opening improves interpretation of the hazard structure.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Preserved the chapter's downburst and derecho explainer structure.",
+      "Improved interpretive support around the scale difference between events."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

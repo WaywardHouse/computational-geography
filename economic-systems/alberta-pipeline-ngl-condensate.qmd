@@ -287,15 +287,15 @@ diluent supply chain from local processing alone.
 
 **Step 4 — Diluent value:**
 
-At a condensate price of approximately USD &#36;55/bbl (roughly WTI less a
-&#36;20 quality discount, converted at 0.73 CAD/USD):
+At a condensate price of approximately USD $55/bbl (roughly WTI less a
+$20 quality discount, converted at 0.73 CAD/USD):
 
-$$P_{\text{condensate, CAD}} = \frac{55}{0.73} \approx \&#36;75.3 \text{ CAD/bbl}$$
+$$P_{\text{condensate, CAD}} = \frac{55}{0.73} \approx 75.3 \text{ CAD/bbl}$$
 
 Annual value of Cochin's 95,000 bbl/d:
-$$V = 95{,}000 \times 365 \times 75.3 \approx \&#36;2.61 \text{ billion CAD/yr}$$
+$$V = 95{,}000 \times 365 \times 75.3 \approx 2.61 \text{ billion CAD/yr}$$
 
-A single condensate import pipeline represents over &#36;2.6 billion in
+A single condensate import pipeline represents over $2.6 billion in
 annual input supply to the oil sands industry.
 
 ---
@@ -820,7 +820,7 @@ for oil sands production. The key quantitative facts:
 - The **Cochin pipeline reversal** (2014) demonstrates that existing
   infrastructure can be adapted to serve new market needs — adding
   95,000 bbl/d of condensate import capacity worth approximately
-  **CAD &#36;2.6 billion/year**
+  **CAD $2.6 billion/year**
 - NGL fractionation also produces the **ethane feedstock** for Alberta's
   petrochemical industry — the polyethylene and other plastics produced
   at Joffre and Scotford

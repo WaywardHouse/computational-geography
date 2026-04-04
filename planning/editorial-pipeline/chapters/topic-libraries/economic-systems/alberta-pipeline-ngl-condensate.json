@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter's system logic was strong, but it needed explicit onboarding so readers could see the diluent circuit before the fractionation mass-balance treatment began.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "The reverse-flow condensate circuit benefited from earlier conceptual framing.",
+      "The economic-systems sequence needed consistent chapter-entry design."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added stronger onboarding and preserved the fractionation and diluent-supply modelling.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the setup block to foreground the northbound condensate and southbound dilbit circuit.",
+      "Left the mass-balance treatment intact."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now frames the coupled diluent system more clearly while preserving mathematically correct fractionation and blending logic.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair focused on pacing and framing rather than structural content changes.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the condensate-supply circuit before the formal model.",
+      "Preserved the fractionation and blend-ratio analysis."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's explanatory structure remains strong, and the revised opening improves interpretive support.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Retained the chapter's strong system-circuit explanation.",
+      "Improved interpretive access to the coupling between condensate and crude flows."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

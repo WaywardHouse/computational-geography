@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter's severe-weather physics was already strong, but it needed a clearer entry ramp so instability and shear were framed before the formal CAPE treatment.",
+    "issues": [
+      "The chapter lacked learner-facing onboarding.",
+      "The instability-versus-shear distinction benefited from earlier framing.",
+      "The hazards sequence needed consistent chapter-entry structure."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added clearer onboarding and preserved the CAPE, shear, and supercell dynamics treatment.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the setup block to foreground the instability-plus-shear pairing.",
+      "Left the technical derivation intact."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now leads with intuition more cleanly while preserving the thermodynamic and dynamical correctness of the severe-weather model.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair focused on conceptual pacing and chapter-entry fairness.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the instability and shear roles before the formal equations.",
+      "Preserved the core storm-structure modelling."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's visual and worked-example support remains strong, and the revised opening improves interpretation of those tools.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Retained the chapter's strong severe-weather explainer structure.",
+      "Improved interpretive access to CAPE and shear concepts."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

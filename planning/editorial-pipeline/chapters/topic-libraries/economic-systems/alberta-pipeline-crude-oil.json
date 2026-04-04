@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter already had a strong quantitative geography frame, but it needed explicit onboarding and cleanup of escaped currency notation in the worked example.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "Escaped currency notation disrupted the economic worked example.",
+      "The pipeline sequence benefits from a more explicit entry into hydraulics and netback logic."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added reader-facing scaffolding and repaired the economic worked example notation while preserving the network and hydraulic analysis.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Recast the worked-example value calculation without malformed currency markup.",
+      "Left the chapter's quantitative geography structure intact."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters more fairly and the economic example reads cleanly without distracting notation errors.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The chapter was repaired through better onboarding and worked-example notation cleanup.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Repaired the WTI and discount valuation example formatting.",
+      "Preserved the existing hydraulic and network treatment."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses explanatory and quantitative support effectively, and the revised opening improves how readers enter the topic.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Retained the chapter's quantitative network framing and worked examples.",
+      "Improved interpretive access to the hydraulics-plus-market-access logic."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The hail chapter needed the standard onboarding treatment and several small notation and example cleanups, including a misleading arithmetic line in the terminal-velocity section.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "The terminal-velocity worked line mixed inconsistent intermediate arithmetic.",
+      "Several escaped-currency strings interrupted reading flow."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added clearer onboarding, repaired the terminal-velocity example, and cleaned markup while preserving the hail-growth model.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Rephrased the terminal-velocity example so the operational takeaway matches the math.",
+      "Fixed multiple escaped-currency strings."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now reads more cleanly and the key numerical explanation around hail suspension is no longer internally confusing.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The chapter was repaired through stronger onboarding, a clearer velocity example, and notation cleanup.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the 5 cm hailstone terminal-speed example.",
+      "Repaired escaped-currency formatting in the losses and damage notes."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's visuals and growth-path explanations remain strong, and the revised setup improves interpretive support.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Preserved the chapter's strong hail-growth and radar-explainer treatment.",
+      "Improved interpretive access to the suspension-versus-growth logic."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

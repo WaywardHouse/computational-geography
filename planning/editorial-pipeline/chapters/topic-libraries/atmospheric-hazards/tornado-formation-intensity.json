@@ -9,50 +9,66 @@
     "difficulty": "5"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The tornado chapter was technically rich but needed clearer onboarding so vorticity, stretching, and damage-rating logic were established before the more advanced vortex math.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "The conceptual bridge from storm-scale rotation to tornado intensity needed earlier framing.",
+      "There was one escaped-currency glitch in the practical mitigation note."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added stronger chapter-entry framing and repaired a minor notation glitch while preserving the vortex and EF-scale modelling.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the opening to emphasize concentration and stretching of rotation.",
+      "Repaired the escaped-currency line in the shelter-cost note."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces the tornado problem more fairly while preserving mathematically coherent vorticity and vortex treatments.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair was primarily pedagogical, with one small notation cleanup.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the link between mesocyclone rotation and tornado intensification.",
+      "Fixed the escaped-currency shelter-cost note."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's existing visuals and examples remain effective, and the revised entry improves how readers interpret them.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Preserved the chapter's strong vortex and damage-rating support.",
+      "Improved interpretive support around the concentration-of-rotation idea."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

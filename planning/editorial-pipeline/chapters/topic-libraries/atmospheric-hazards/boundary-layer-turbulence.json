@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The boundary-layer chapter was already strong, but it needed clearer reader onboarding and a few math-markup repairs in the worked example and roughness description.",
+    "issues": [
+      "The chapter lacked a learner-facing setup block.",
+      "Two escaped-math lines disrupted the friction-velocity worked example.",
+      "One roughness-length bullet had an unclosed math span."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added onboarding and repaired the local math-markup defects while preserving the wind-profile and turbulence treatment.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Fixed the malformed equations in the hub-height worked example.",
+      "Closed the roughness-length math span in the surface-type list."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now reads more smoothly and the key wind-extrapolation example is no longer interrupted by broken markup.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair combined reader scaffolding with markup fixes in the worked-example section.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Repaired two malformed worked-example equations.",
+      "Fixed the forest roughness-length bullet formatting."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already leverages explanatory visuals effectively, and the revised entry improves how readers approach them.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and focus guidance.",
+      "Preserved the chapter's strong wind-profile and turbulence visualization support.",
+      "Improved interpretive access to the hub-height extrapolation example."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

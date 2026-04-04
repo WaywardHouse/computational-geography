@@ -318,22 +318,22 @@ to total system throughput.
 
 **Step 6 — Convert to economic terms:**
 
-At an AECO price of CAD &#36;2.50/GJ:
+At an AECO price of CAD $2.50/GJ:
 
-$&#36;1 \text{ Bcf} = 10^9 \text{ scf} \times 0.02832 \text{ m}^3/\text{scf}
+$$1 \text{ Bcf} = 10^9 \text{ scf} \times 0.02832 \text{ m}^3/\text{scf}
 \times 0.03726 \text{ GJ/m}^3 \approx 1.055 \text{ PJ}$$
 
 $$\text{Annual value of Alliance throughput} = 1.6 \text{ Bcf/d}
 \times 365 \times 1.055 \text{ PJ/Bcf} \times 1{,}000 \text{ GJ/PJ}
-\times \&#36;2.50/\text{GJ}$$
+\times 2.50/\text{GJ}$$
 
 $$\approx 1.6 \times 365 \times 1{,}055 \times 2{,}500 \approx
-\&#36;2.44 \text{ billion CAD/yr}$$
+2.44 \text{ billion CAD/yr}$$
 
-One pipeline, at AECO prices. At Henry Hub prices of USD &#36;3.00/MMBtu
-(approximately CAD &#36;4.35/GJ at current exchange rates), the same
-volume would be worth approximately **CAD &#36;3.52 billion/yr** — the
-basis differential costs Alberta producers roughly **CAD &#36;1.1 billion/yr**
+One pipeline, at AECO prices. At Henry Hub prices of USD $3.00/MMBtu
+(approximately CAD $4.35/GJ at current exchange rates), the same
+volume would be worth approximately **CAD $3.52 billion/yr** — the
+basis differential costs Alberta producers roughly **CAD $1.1 billion/yr**
 on Alliance throughput alone.
 
 ---
@@ -730,7 +730,7 @@ for p in analysis.pipelines:
 
 ```{=html}
 <div data-viz="echarts" style="height:360px" data-options='{
-"title": {"text": "Annual Revenue Foregone: AECO-Henry Hub Basis", "subtext": "CAD$ million/year per corridor — AECO &#36;2.50/GJ, HH &#36;2.80 USD/MMBtu", "left": "center"},
+"title": {"text": "Annual Revenue Foregone: AECO-Henry Hub Basis", "subtext": "CAD$ million/year per corridor — AECO $2.50/GJ, HH $2.80 USD/MMBtu", "left": "center"},
 "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
 "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
 "xAxis": {"type": "value", "name": "Annual basis cost (CAD$ million/yr)"},
@@ -833,8 +833,8 @@ every GJ Alberta produces.
 ### The basis differential is not constant — it is a signal
 
 The historical data in Figure 2 show that the basis differential widens
-sharply during constraint events. In 2018, AECO collapsed to CAD &#36;1.10/GJ
-while Henry Hub traded near CAD &#36;4.20/GJ — a basis of nearly -&#36;3.10/GJ.
+sharply during constraint events. In 2018, AECO collapsed to CAD $1.10/GJ
+while Henry Hub traded near CAD $4.20/GJ — a basis of nearly -$3.10/GJ.
 This was not a policy failure or a market manipulation; it was the result
 of NGTL running near capacity during a period of rapid Montney production
 growth, while export pipeline additions lagged. Gas that could not leave
@@ -925,9 +925,9 @@ The key quantitative facts:
 - **Total export capacity**: approximately 10.9 Bcf/d across all corridors,
   against provincial production of 15–17 Bcf/d (remainder consumed in-province
   or stored)
-- **AECO-Henry Hub basis**: historically CAD -&#36;1.00 to -&#36;3.10/GJ; at
-  current conditions approximately -&#36;1.15/GJ, representing roughly
-  **CAD &#36;1.5 billion/year** in revenue foregone across major corridors
+- **AECO-Henry Hub basis**: historically CAD -$1.00 to -$3.10/GJ; at
+  current conditions approximately -$1.15/GJ, representing roughly
+  **CAD $1.5 billion/year** in revenue foregone across major corridors
 - **Weymouth diameter leverage**: a 42-inch pipe carries 5.16 times the
   flow of a 24-inch pipe at identical pressure conditions — the single
   most powerful engineering lever in gas transmission

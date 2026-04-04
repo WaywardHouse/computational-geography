@@ -482,7 +482,7 @@ class PipelineNetwork:
             print(f"  {s.name:<30} {s.capacity_bbl_d:>10,} "
                   f"{s.utilization_pct:>6.0f}% {dp:>10.1f} {pumps:>6}")
 
-        print(f"\n  Annual revenue (WTI &#36;75, -&#36;14 quality adj):")
+        print(f"\n  Annual revenue (WTI $75, -$14 quality adj):")
         rev = self.market_revenue_usd(75.0)
         print(f"    ≈ USD ${rev/1e9:.1f} billion/year")
 
@@ -612,7 +612,7 @@ network.report()
 
 ```{=html}
 <div data-viz="echarts" style="height:380px" data-options='{
-"title": {"text": "Netback Price by Market Destination", "subtext": "CAD/bbl — WTI at &#36;75 USD, exchange rate 0.73, illustrative tariffs", "left": "center"},
+"title": {"text": "Netback Price by Market Destination", "subtext": "CAD/bbl — WTI at $75 USD, exchange rate 0.73, illustrative tariffs", "left": "center"},
 "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
 "grid": {"left": "3%", "right": "8%", "bottom": "8%", "containLabel": true},
 "xAxis": {"type": "value", "name": "Netback (CAD/bbl)", "min": 60},
@@ -659,10 +659,10 @@ premiums and different heavy crude benchmarks produce meaningfully higher
 netbacks than U.S. Midwest destinations dominated by WTI pricing.
 
 The netback calculation in Figure 4 illustrates the spread: at the
-assumptions shown (WTI &#36;75 USD, CAD/USD 0.73), the differential between
+assumptions shown (WTI $75 USD, CAD/USD 0.73), the differential between
 an Asia-Pacific shipment via Westridge and a typical Enbridge Mainline
-destination is roughly **CAD &#36;9–10/bbl**. On 890,000 bbl/d, that is
-approximately **CAD &#36;3 billion per year** in additional producer revenue —
+destination is roughly **CAD $9-10/bbl**. On 890,000 bbl/d, that is
+approximately **CAD $3 billion per year** in additional producer revenue —
 if the capacity is fully utilized and Asian refiners continue to value
 the quality characteristics of Alberta SCO and dilbit.
 
