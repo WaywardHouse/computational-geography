@@ -42,6 +42,117 @@ This backlog tracks high-value opportunities to improve accessibility for visual
 5. `laboratory/wave-dynamics-and-nearshore-transformation.qmd`
 6. `laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd`
 
+## Laboratory Priority Cards
+
+### Card 1: SAR Aperture Synthesis Geometry
+
+- Chapter path: `laboratory/sar-fundamentals-and-applications.qmd`
+- Goal: Make synthetic aperture formation visually obvious before readers meet the resolution math.
+- Deliverable: One annotated concept graphic showing a moving platform, successive pulse positions, overlapping returns, and the resulting synthetic aperture length versus physical antenna length.
+- Recommended visual type: Annotated process diagram.
+- Visual brief:
+  - Draw the satellite track with several pulse positions.
+  - Show one target patch on the ground being observed from multiple positions.
+  - Label physical antenna length, synthetic aperture length, range direction, and azimuth direction.
+  - Include a small before/after inset comparing coarse physical-aperture azimuth resolution versus sharpened SAR azimuth resolution.
+- Why this matters: The hardest conceptual leap in SAR is geometric. If that leap is visualized well, the later algebra reads as explanation instead of mystery.
+- Acceptance criteria:
+  - A first-time reader can point to azimuth and range directions correctly.
+  - The diagram makes clear why motion improves azimuth resolution.
+  - The figure is interpretable without reading the full derivation first.
+- Difficulty: Medium
+
+### Card 2: InSAR Phase and Unwrapping Sequence
+
+- Chapter path: `laboratory/insar-deformation-monitoring.qmd`
+- Goal: Reduce cognitive load in the phase-displacement sections.
+- Deliverable: One four-panel explainer showing acquisition geometry, path-length difference, wrapped fringes, and phase unwrapping to displacement.
+- Recommended visual type: Four-panel conceptual explainer.
+- Visual brief:
+  - Panel 1: Two SAR acquisitions from slightly different positions/times over the same ground target.
+  - Panel 2: Range difference translated into phase difference.
+  - Panel 3: Wrapped phase shown as repeating color cycles.
+  - Panel 4: Unwrapped phase converted to a smooth displacement field.
+  - Keep line-of-sight displacement explicit.
+- Why this matters: InSAR is teachable when readers can see fringe logic in sequence. Without that, the notation feels abstract too early.
+- Acceptance criteria:
+  - The reader can explain what one fringe cycle means.
+  - The distinction between wrapped and unwrapped phase is visually obvious.
+  - The line-of-sight measurement limitation is visible in the figure.
+- Difficulty: Medium
+
+### Card 3: GRACE Pull-Gap Measurement Concept
+
+- Chapter path: `laboratory/gravity-remote-sensing-grace.qmd`
+- Goal: Make the measurement principle legible at a glance.
+- Deliverable: One orbital schematic showing leading and trailing satellites crossing a mass anomaly and the inter-satellite gap changing.
+- Recommended visual type: Conceptual orbital diagram.
+- Visual brief:
+  - Show two satellites on the same track with a labeled separation distance.
+  - Show a groundwater/ice mass anomaly below.
+  - Indicate slight acceleration of the lead satellite first, then the trailing satellite.
+  - Add a small callout for range-rate measurement and how repeated passes become monthly mass-change maps.
+- Why this matters: GRACE feels magical until the geometry is seen. This is a high-payoff low-complexity illustration.
+- Acceptance criteria:
+  - A reader can describe why the gap first grows and then shrinks.
+  - The link between mass anomaly and range-rate change is explicit.
+  - The figure supports, rather than duplicates, the chapter text.
+- Difficulty: Low
+
+### Card 4: Infinite Slope Force Balance
+
+- Chapter path: `laboratory/shallow-landslides-and-slope-stability.qmd`
+- Goal: Support the derivation with a physical picture of forces and effective stress.
+- Deliverable: One slope cross-section showing soil depth, failure plane, driving force, resisting force, pore pressure, and root reinforcement.
+- Recommended visual type: Force-balance slope diagram.
+- Visual brief:
+  - Show a planar hillslope and shallow soil slab over a failure plane.
+  - Label slab thickness `z`, slope angle `beta`, groundwater height, and root zone.
+  - Use arrows for downslope shear stress, normal force, pore-pressure effect, and root reinforcement.
+  - Include a dry-versus-wet inset or side-by-side mini comparison.
+- Why this matters: This chapter is a classic case where one diagram can carry a large share of the intuition.
+- Acceptance criteria:
+  - The reader can map each major term in the factor-of-safety expression to a visible part of the figure.
+  - The effect of increasing pore pressure is visually immediate.
+  - The role of root reinforcement is explicit rather than implied.
+- Difficulty: Low
+
+### Card 5: Nearshore Wave Transformation Profile
+
+- Chapter path: `laboratory/wave-dynamics-and-nearshore-transformation.qmd`
+- Goal: Show the spatial sequence from deep water to surf zone before the equations are asked to do all the work.
+- Deliverable: One shore-normal profile illustration showing wavelength shortening, shoaling, steepening, breaking, and setup.
+- Recommended visual type: Cross-shore transformation diagram.
+- Visual brief:
+  - Draw offshore deep water, intermediate depth, shoaling zone, breaker zone, and swash zone.
+  - Show one incoming wave train changing form as depth decreases.
+  - Label wave height increase, wavelength decrease, celerity decrease, and breaking point.
+  - Add a subtle water-level setup indication nearshore.
+- Why this matters: The chapter is fundamentally a process sequence in space. A spatial figure should anchor the entire model.
+- Acceptance criteria:
+  - A reader can trace the wave from deep water to breaking without relying on equations.
+  - The connection between depth change and wave transformation is explicit.
+  - The figure prepares the reader for shoaling and breaking calculations.
+- Difficulty: Low
+
+### Card 6: Kalman Filter Update Loop
+
+- Chapter path: `laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd`
+- Goal: Give readers a durable mental model for sequential state estimation.
+- Deliverable: One loop diagram showing forecast state, observation, innovation/residual, Kalman gain, and updated analysis state.
+- Recommended visual type: Algorithm flow diagram.
+- Visual brief:
+  - Show the cycle `predict -> compare -> update -> predict`.
+  - Include state estimate, uncertainty, observation, and model forecast as distinct boxes.
+  - Label the innovation as "observation minus forecast".
+  - Include a small note that high observation uncertainty means smaller correction, and vice versa.
+- Why this matters: The Kalman filter is often easy mathematically once the loop is understood, but opaque without that loop.
+- Acceptance criteria:
+  - The reader can state what the innovation is.
+  - The direction of information flow between model and observation is obvious.
+  - The diagram makes uncertainty an active part of the update, not a side note.
+- Difficulty: Low
+
 ## Notes
 
 - Most laboratory chapters already have charts.

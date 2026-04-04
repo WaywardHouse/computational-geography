@@ -1987,7 +1987,491 @@ body.split-home-lab .section-card:nth-child(3n + 3) {
   background: var(--bg-2, #1e1c1a);
 }
 
+.cg-ill {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg2) 72%, var(--white) 28%), var(--bg));
+}
+
+.cg-ill figcaption {
+  padding: 0.9rem 1rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.cg-ill__frame {
+  padding: 1rem;
+}
+
+.cg-ill__eyebrow,
+.cg-ill__label,
+.cg-ill__step-num,
+.cg-ill__token-label,
+.cg-ill__mini-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cg-ill__eyebrow {
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.cg-ill__title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.cg-ill__lede {
+  margin: 0 0 1rem;
+  color: var(--text-2);
+}
+
+.cg-ill__grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.cg-ill__grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cg-ill__grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cg-ill__grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.cg-ill__card {
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__card h4,
+.cg-ill__card h5 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cg-ill__card p,
+.cg-ill__card ul,
+.cg-ill__card ol {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+
+.cg-ill__card ul,
+.cg-ill__card ol {
+  padding-left: 1rem;
+}
+
+.cg-ill__card li + li {
+  margin-top: 0.25rem;
+}
+
+.cg-ill__equation {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cg-ill__equation-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__token {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  min-width: 4.6rem;
+}
+
+.cg-ill__token-label {
+  color: var(--text-3);
+}
+
+.cg-ill__token-value {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.3rem;
+  min-height: 3.3rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg2) 70%, var(--white) 30%);
+  font-family: var(--font-read);
+  font-size: 1.7rem;
+}
+
+.cg-ill__token--focus .cg-ill__token-value {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.cg-ill__token--mechanism .cg-ill__token-value {
+  border-color: color-mix(in srgb, var(--accent-amber) 75%, var(--border));
+}
+
+.cg-ill__equation-read {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0.9rem;
+}
+
+.cg-ill__steps {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.cg-ill__step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__step-num {
+  color: var(--accent);
+}
+
+.cg-ill__step strong {
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.cg-ill__step p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 0.9rem;
+}
+
+.cg-ill__map-stack {
+  position: relative;
+  min-height: 13rem;
+}
+
+.cg-ill__layer {
+  position: absolute;
+  inset: auto 0 0 auto;
+  width: calc(100% - var(--layer-offset, 0rem));
+  margin-left: var(--layer-offset, 0rem);
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  box-shadow: 0 12px 20px -18px rgba(0, 0, 0, 0.45);
+}
+
+.cg-ill__layer--1 { --layer-offset: 0rem; bottom: 0; }
+.cg-ill__layer--2 { --layer-offset: 0.65rem; bottom: 1.1rem; }
+.cg-ill__layer--3 { --layer-offset: 1.3rem; bottom: 2.2rem; }
+.cg-ill__layer--4 { --layer-offset: 1.95rem; bottom: 3.3rem; }
+
+.cg-ill__label {
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.cg-ill__coord-plane,
+.cg-ill__mini-map,
+.cg-ill__grid-map,
+.cg-ill__contour-map {
+  position: relative;
+  min-height: 11rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.cg-ill__coord-plane {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+}
+
+.cg-ill__axis {
+  position: absolute;
+  background: var(--text);
+}
+
+.cg-ill__axis--x {
+  left: 1rem;
+  right: 1rem;
+  bottom: 1.4rem;
+  height: 2px;
+}
+
+.cg-ill__axis--y {
+  left: 1.4rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+}
+
+.cg-ill__coord-point {
+  position: absolute;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 16%, transparent);
+}
+
+.cg-ill__coord-note {
+  position: absolute;
+  padding: 0.15rem 0.35rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+}
+
+.cg-ill__vector-shape {
+  position: absolute;
+  border: 2px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+.cg-ill__vector-point {
+  position: absolute;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--accent-amber);
+}
+
+.cg-ill__grid-map {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(135deg, #dceccf 0%, #c5deb6 40%, #e9d8b1 68%, #d9b38c 100%);
+  background-size: 1.6rem 1.6rem, 1.6rem 1.6rem, 100% 100%;
+}
+
+.cg-ill__mini-map {
+  background:
+    radial-gradient(circle at 22% 22%, color-mix(in srgb, var(--accent) 18%, transparent) 0 0.45rem, transparent 0.46rem),
+    linear-gradient(135deg, #e5efe5 0%, #d8ead5 52%, #eef2d9 100%);
+}
+
+.cg-ill__contour-map {
+  background:
+    radial-gradient(circle at 45% 42%, transparent 0 1.1rem, color-mix(in srgb, var(--accent) 35%, transparent) 1.12rem 1.2rem, transparent 1.22rem),
+    radial-gradient(circle at 45% 42%, transparent 0 2.15rem, color-mix(in srgb, var(--accent) 35%, transparent) 2.17rem 2.25rem, transparent 2.27rem),
+    radial-gradient(circle at 45% 42%, transparent 0 3.15rem, color-mix(in srgb, var(--accent) 35%, transparent) 3.17rem 3.25rem, transparent 3.27rem),
+    linear-gradient(180deg, #edf4eb 0%, #dbead7 100%);
+}
+
+.cg-ill__raster-note,
+.cg-ill__vector-note {
+  position: absolute;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0.7rem;
+  padding: 0.45rem 0.55rem;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--text-2);
+}
+
+.cg-ill__scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.cg-ill__scale-step {
+  position: relative;
+  padding: 0.9rem 0.8rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__scale-step::after {
+  content: "->";
+  position: absolute;
+  top: 50%;
+  right: -0.62rem;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+.cg-ill__scale-step:last-child::after {
+  display: none;
+}
+
+.cg-ill__scale-step h4 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.cg-ill__scale-step p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 0.85rem;
+}
+
+.cg-ill__compare {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.cg-ill__compare-card {
+  padding: 0.9rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__compare-card h4 {
+  margin: 0.2rem 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.cg-ill__compare-card p {
+  margin: 0;
+  color: var(--text-2);
+}
+
+.cg-ill__compare-card strong {
+  display: block;
+  margin-top: 0.55rem;
+  font-size: 0.84rem;
+}
+
+.cg-ill__flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.cg-ill__flow-step {
+  position: relative;
+  padding: 0.95rem 0.8rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__flow-step::after {
+  content: "->";
+  position: absolute;
+  top: 1rem;
+  right: -0.65rem;
+  z-index: 2;
+  padding: 0 0.1rem;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.cg-ill__flow-step:last-child::after {
+  display: none;
+}
+
+.cg-ill__flow-step h4 {
+  margin: 0.3rem 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.cg-ill__flow-step p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 0.87rem;
+}
+
+.cg-ill__views {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.cg-ill__view {
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.cg-ill__view h4 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  text-transform: uppercase;
+}
+
+.cg-ill__profile {
+  min-height: 11rem;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(to top, #b9d8b2 0 36%, transparent 36%),
+    linear-gradient(160deg, #f3f0e8 0%, #d9ead4 100%);
+  position: relative;
+}
+
+.cg-ill__profile-line {
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 1.6rem;
+  height: 3.2rem;
+  border-top: 2px solid var(--accent);
+  border-right: 2px solid var(--accent);
+  transform: skewX(-36deg);
+}
+
+.cg-ill__view p {
+  margin: 0.4rem 0 0;
+  color: var(--text-2);
+  font-size: 0.84rem;
+}
+
 @media (max-width: 720px) {
+  .cg-ill__grid--2,
+  .cg-ill__grid--3,
+  .cg-ill__grid--4,
+  .cg-ill__equation-read,
+  .cg-ill__compare,
+  .cg-ill__flow,
+  .cg-ill__views,
+  .cg-ill__scale {
+    grid-template-columns: 1fr;
+  }
+
+  .cg-ill__scale-step::after,
+  .cg-ill__flow-step::after {
+    display: none;
+  }
+
   .quarto-title-block .title {
     font-size: clamp(2.4rem, 14vw, 4rem);
   }

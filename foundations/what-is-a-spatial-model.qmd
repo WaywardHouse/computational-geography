@@ -191,6 +191,45 @@ When we plot a scalar field as a map — a topographic contour map, an isotherm 
 
 The scalar field concept is the mathematical foundation of most of physical geography. The entire apparatus of gradient, slope, flow routing, and terrain analysis that we will build through this series rests on this single idea: that geographic quantities vary continuously across space and can be treated as functions.
 
+<figure class="cg-ill">
+  <div class="cg-ill__frame">
+    <div class="cg-ill__eyebrow">Scalar Field Views</div>
+    <h3 class="cg-ill__title">One Field, Several Valid Ways To See It</h3>
+    <p class="cg-ill__lede">A spatial model becomes easier to understand when the same quantity is shown as samples, a gridded surface, contours, and a profile.</p>
+    <div class="cg-ill__views">
+      <div class="cg-ill__view">
+        <h4>Sample Points</h4>
+        <div class="cg-ill__mini-map">
+          <div class="cg-ill__coord-point" style="left:16%; top:68%;"></div>
+          <div class="cg-ill__coord-point" style="left:42%; top:62%;"></div>
+          <div class="cg-ill__coord-point" style="left:74%; top:66%;"></div>
+          <div class="cg-ill__coord-point" style="left:30%; top:26%;"></div>
+          <div class="cg-ill__coord-point" style="left:64%; top:30%;"></div>
+        </div>
+        <p>Observed values at known locations.</p>
+      </div>
+      <div class="cg-ill__view">
+        <h4>Raster Surface</h4>
+        <div class="cg-ill__grid-map"></div>
+        <p>The same field stored as cells across space.</p>
+      </div>
+      <div class="cg-ill__view">
+        <h4>Contours</h4>
+        <div class="cg-ill__contour-map"></div>
+        <p>Lines connect places with the same value.</p>
+      </div>
+      <div class="cg-ill__view">
+        <h4>Profile</h4>
+        <div class="cg-ill__profile">
+          <div class="cg-ill__profile-line"></div>
+        </div>
+        <p>A cross-section turns the field into change along a path.</p>
+      </div>
+    </div>
+  </div>
+  <figcaption>The same spatial quantity can be sampled, gridded, contoured, or sliced in profile without changing the underlying field concept.</figcaption>
+</figure>
+
 ---
 
 ## 4. Worked Example by Hand

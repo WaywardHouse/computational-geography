@@ -75,6 +75,42 @@ A model might describe:
 
 The same number can feel ordinary in one setting and extreme in another.
 
+<figure class="cg-ill">
+  <div class="cg-ill__frame">
+    <div class="cg-ill__eyebrow">Scale Ladder</div>
+    <h3 class="cg-ill__title">The Same Quantity Changes Meaning Across Scale</h3>
+    <p class="cg-ill__lede">A useful plausibility check is to ask where a number sits: in a leaf, on a slope, in a neighbourhood, or across a whole region.</p>
+    <div class="cg-ill__scale">
+      <div class="cg-ill__scale-step">
+        <div class="cg-ill__label">1 m</div>
+        <h4>Leaf</h4>
+        <p>Small changes can be biological structure.</p>
+      </div>
+      <div class="cg-ill__scale-step">
+        <div class="cg-ill__label">10-100 m</div>
+        <h4>Hillslope</h4>
+        <p>The same number may now describe local terrain variation.</p>
+      </div>
+      <div class="cg-ill__scale-step">
+        <div class="cg-ill__label">1 km</div>
+        <h4>Neighbourhood</h4>
+        <p>Values become urban, hydrologic, or land-use signals.</p>
+      </div>
+      <div class="cg-ill__scale-step">
+        <div class="cg-ill__label">10-100 km</div>
+        <h4>Watershed</h4>
+        <p>Now you are reading systems rather than isolated objects.</p>
+      </div>
+      <div class="cg-ill__scale-step">
+        <div class="cg-ill__label">100-1000 km</div>
+        <h4>Province</h4>
+        <p>Only large aggregate patterns still make sense here.</p>
+      </div>
+    </div>
+  </div>
+  <figcaption>A quick visual reminder that plausibility depends on scale: what feels tiny locally can be a major regional signal.</figcaption>
+</figure>
+
 ## 3. Estimation Is A Safety Rail
 
 Exact calculation matters. Rough estimation keeps exact calculation honest.
