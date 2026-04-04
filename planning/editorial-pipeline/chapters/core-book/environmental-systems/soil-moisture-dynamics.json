@@ -1,0 +1,67 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/soil-moisture-dynamics.qmd",
+    "chapter_title": "Soil Moisture Dynamics",
+    "chapter_subtitle": "Water balance, infiltration, and plant-available water in the root zone",
+    "part_title": "Environmental Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already strong and coherent; this pass primarily confirmed that its bucket-model framing remained clear and beginner-safe for the core-book volume.",
+    "issues": [
+      "No blocking textual defects were identified; the review focused on consistency and pedagogical pacing."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass without major structural changes because the chapter's water-balance framing and state-variable explanation were already working well.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Confirmed that the bucket-model explanation stays intuition-first.",
+      "Confirmed that key storage states remain clearly distinguished."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter passes QA as written and remains clear, technically correct, and well paced.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No separate repair pass was needed after review.",
+    "actions_taken": [
+      "Confirmed consistency with the volume calibration profile."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's stock-flow framing, state definitions, and practical examples are already doing strong pedagogical work.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Preserved the chapter's strong explanatory framing around storage, inputs, and outputs."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

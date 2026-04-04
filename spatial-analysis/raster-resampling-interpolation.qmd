@@ -40,6 +40,20 @@ math-prerequisites-note: Functions of two variables (Model 7). Grid coordinates 
   kernels.
 ---
 
+## Before You Start
+
+**You should know**  
+That raster data stores values on a grid, and that not every new grid position lines up with an old one.
+
+**You will learn**  
+How nearest-neighbour, bilinear, and bicubic resampling estimate new raster values, and why method choice matters analytically as well as visually.
+
+**Why this matters**  
+Whenever rasters from different sensors, scales, or projections need to work together, resampling decisions shape the result.
+
+**If this gets hard, focus on...**  
+The practical question: when you need a value at a new pixel centre, which nearby old values should influence it?
+
 
 When the European Space Agency launched Sentinel-2 in 2015, it offered something Landsat users had never had: 10-metre resolution imagery in the visible and near-infrared bands, freely available every five days at any point on Earth. Research groups that had built workflows around Landsat's 30-metre pixels immediately faced a practical problem: their existing DEMs, land-cover maps, and ancillary datasets were at 30 metres. To combine them with Sentinel-2 data, someone had to resample something — either the Sentinel image to a coarser grid or the existing datasets to a finer one. The choice of resampling method matters more than most users realise: nearest-neighbour resampling is fast and preserves discrete class boundaries, but produces blocky artefacts in continuous data; bilinear interpolation is smooth but blurs edges and can create fractional class values from categorical data.
 
@@ -139,7 +153,7 @@ $$j_q = \lfloor (y_q - y_0) / \Delta y \rfloor$$
 $$u = \frac{x_q - x_0}{\Delta x} - i_q$$
 $$v = \frac{y_q - y_0}{\Delta y} - j_q$$
 
-Where &#36;0 \leq u, v < 1$.
+Where $0 \leq u, v < 1$.
 
 ### Nearest Neighbor
 

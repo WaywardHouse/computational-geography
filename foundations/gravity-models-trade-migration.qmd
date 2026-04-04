@@ -98,7 +98,7 @@ Where:
 - $P_i, P_j$ are the **populations** (or economic sizes) of the two places
 - $d_{ij}$ is the **distance** between them
 - $k$ is a **constant** (scaling factor)
-- $\alpha, \beta, \gamma$ are **exponents** (often $\alpha = \beta = 1$, $\gamma \approx 1$–&#36;2$)
+- $\alpha, \beta, \gamma$ are **exponents** (often $\alpha = \beta = 1$, $\gamma \approx 1{-}2$)
 
 ### Distance Decay
 
@@ -128,7 +128,7 @@ $$I_{ij} = k \frac{P_i P_j}{d_{ij}^2}$$
 ### Calibrating the Exponent
 
 Real data rarely fit $\gamma = 2$ exactly. The exponent depends on:
-- **Type of interaction:** Commuting ($\gamma \approx 1.5$), migration ($\gamma \approx 1$–&#36;2$), trade ($\gamma \approx 1.5$–&#36;2.5$)
+- **Type of interaction:** Commuting ($\gamma \approx 1.5$), migration ($\gamma \approx 1{-}2$), trade ($\gamma \approx 1.5{-}2.5$)
 - **Transportation technology:** Better roads, cheaper flights → lower $\gamma$ (distance matters less)
 - **Cultural/linguistic barriers:** Higher $\gamma$ across language boundaries
 
@@ -404,9 +404,9 @@ window.addEventListener('resize', () => chart.resize());
 ### Cultural and Technological Shifts
 
 **Historical change:**
-- **1800s:** $\gamma \approx 3$–&#36;4$ (horse-drawn transport, poor roads)
+- **1800s:** $\gamma \approx 3{-}4$ (horse-drawn transport, poor roads)
 - **1950s:** $\gamma \approx 2$ (cars, highways, telephones)
-- **2020s:** $\gamma \approx 1$–&#36;1.5$ (air travel, internet, remote work)
+- **2020s:** $\gamma \approx 1{-}1.5$ (air travel, internet, remote work)
 
 **Interpretation:** Globalization = declining $\gamma$.
 
@@ -499,7 +499,7 @@ $$y = ax^{-\gamma}$$
 $$y = ae^{-\lambda x}$$
 
 - Straight line on **semi-log** plot: $\ln y = \ln a - \lambda x$
-- **Characteristic scale:** &#36;1/\lambda$ is the distance where $y$ drops to &#36;1/e \approx 37\%$
+- **Characteristic scale:** $1/\lambda$ is the distance where $y$ drops to $1/e \approx 37\%$
 - **Light tails** — extreme values are rare
 
 **Examples:** Radioactive decay, light attenuation, population density with distance from city center
@@ -515,7 +515,7 @@ $$y = ae^{-\lambda x}$$
 ## Summary
 
 - The **gravity model** predicts spatial interaction: $I_{ij} = k \frac{P_i P_j}{d_{ij}^\gamma}$
-- **Distance decay** exponent $\gamma$ controls sensitivity to distance ($\gamma \approx 1$–&#36;3$)
+- **Distance decay** exponent $\gamma$ controls sensitivity to distance ($\gamma \approx 1{-}3$)
 - Larger $\gamma$ → stronger distance decay (local interactions dominate)
 - Smaller $\gamma$ → weaker distance decay (globalized interactions)
 - The model applies to migration, trade, commuting, phone calls, retail choice

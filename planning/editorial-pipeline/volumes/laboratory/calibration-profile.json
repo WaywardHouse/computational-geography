@@ -1,0 +1,28 @@
+{
+  "stage": "calibration_profile",
+  "volume_id": "laboratory",
+  "volume_title": "Computational Geography Laboratory",
+  "chapter_count": 39,
+  "reader_profile": "Advanced readers working through investigations and practicum-style models.",
+  "language_target": "Approximate Grade 10 readability across the series, with controlled increases in technical density where the series progression supports it.",
+  "complexity_position": "Most advanced volume. Language remains readable, but mathematical density can rise when the scaffolding remains generous.",
+  "pedagogy_priorities": [
+    "Preserve explanatory framing even in advanced derivations.",
+    "State assumptions, notation, and goal conditions before long technical sections.",
+    "Use worked steps and interpretation paragraphs to keep the mathematics learnable."
+  ],
+  "required_rules": [
+    "Explain notation on first use.",
+    "Introduce concepts with intuition before formalism whenever possible.",
+    "Preserve mathematical correctness.",
+    "Improve transitions and conceptual pacing.",
+    "Avoid abrupt abstraction in early volumes.",
+    "Retain explanatory framing in later volumes.",
+    "Do not skip QA."
+  ],
+  "design_expectations": [
+    "Investigations should maximize model diagrams, workflow schematics, and parameter explainers.",
+    "Interactive visualizations should expose assumptions, sensitivities, and failure modes."
+  ],
+  "status": "active"
+}

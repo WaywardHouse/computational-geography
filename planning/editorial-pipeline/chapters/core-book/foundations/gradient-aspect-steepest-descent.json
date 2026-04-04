@@ -1,0 +1,68 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/gradient-aspect-steepest-descent.qmd",
+    "chapter_title": "Gradient, Aspect, and Direction of Steepest Descent",
+    "chapter_subtitle": "Partial derivatives in action on terrain surfaces",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "4"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was technically strong, but the pass identified a metadata inconsistency and the usual need to keep abstract vector notation tied to terrain intuition.",
+    "issues": [
+      "The chapter used an inconsistent book-part identifier.",
+      "The chapter required a senior-editor check to keep the gradient formalism grounded in physical interpretation."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass, correcting metadata and preserving the chapter's strong intuition-first structure for gradient, slope, and aspect.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Aligned the chapter metadata with the rest of the foundations sequence.",
+      "Confirmed that vector notation stays connected to terrain processes."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter remains technically correct and now fits the core-book volume more consistently.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The identified consistency issue was repaired during the editorial pass.",
+    "actions_taken": [
+      "Normalized the chapter's book-part metadata."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses terrain examples, a worked grid, and gradient framing effectively as teaching devices.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Preserved the terrain-first explanation that keeps the calculus interpretable."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

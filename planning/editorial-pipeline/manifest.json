@@ -1,0 +1,878 @@
+{
+  "series_title": "Computational Geography",
+  "volumes": {
+    "core-book": {
+      "title": "Computational Geography: Core Book",
+      "config": "_quarto-core-book.yml",
+      "chapter_count": 40,
+      "chapters": [
+        {
+          "chapter_path": "getting-started/how-to-read-equations.qmd",
+          "title": "How to Read Equations",
+          "part_title": "Getting Started",
+          "difficulty": ""
+        },
+        {
+          "chapter_path": "getting-started/units-scale-and-estimation.qmd",
+          "title": "Units, Scale, and Estimation",
+          "part_title": "Getting Started",
+          "difficulty": ""
+        },
+        {
+          "chapter_path": "getting-started/maps-coordinates-and-layers.qmd",
+          "title": "Maps, Coordinates, and Layers",
+          "part_title": "Getting Started",
+          "difficulty": ""
+        },
+        {
+          "chapter_path": "getting-started/uncertainty-error-and-approximation.qmd",
+          "title": "Uncertainty, Error, and Approximation",
+          "part_title": "Getting Started",
+          "difficulty": ""
+        },
+        {
+          "chapter_path": "getting-started/what-makes-a-model-computational.qmd",
+          "title": "What Makes a Model Computational",
+          "part_title": "Getting Started",
+          "difficulty": ""
+        },
+        {
+          "chapter_path": "getting-started/setting-up-your-environment.qmd",
+          "title": "Setting Up Your Environment",
+          "part_title": "Getting Started",
+          "difficulty": ""
+        },
+        {
+          "chapter_path": "foundations/what-is-a-spatial-model.qmd",
+          "title": "What Is a Spatial Model?",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "1"
+        },
+        {
+          "chapter_path": "foundations/linear-change-and-rate.qmd",
+          "title": "Linear Change and Rate",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "1"
+        },
+        {
+          "chapter_path": "foundations/exponential-growth-and-logarithms.qmd",
+          "title": "Exponential Growth and Logarithms",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "foundations/logistic-growth-and-equilibrium.qmd",
+          "title": "Logistic Growth and Equilibrium",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "foundations/digital-elevation-models-as-functions.qmd",
+          "title": "Digital Elevation Models as Functions",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "foundations/gradient-aspect-steepest-descent.qmd",
+          "title": "Gradient, Aspect, and Direction of Steepest Descent",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "foundations/gravity-models-trade-migration.qmd",
+          "title": "Gravity Models of Trade and Migration",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "foundations/spatial-diffusion-of-innovation.qmd",
+          "title": "Spatial Diffusion of Innovation",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "environmental-systems/net-radiation-and-albedo.qmd",
+          "title": "Net Radiation and Albedo",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/sensible-and-latent-heat-fluxes.qmd",
+          "title": "Sensible and Latent Heat Fluxes",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/soil-heat-diffusion.qmd",
+          "title": "Soil Heat Diffusion",
+          "part_title": "Environmental Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "environmental-systems/photosynthesis-light-response.qmd",
+          "title": "Photosynthesis and Light Response",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/soil-moisture-dynamics.qmd",
+          "title": "Soil Moisture Dynamics",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/wind-profiles-and-turbulence.qmd",
+          "title": "Wind Profiles and Atmospheric Turbulence",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/temperature-moisture-gradients.qmd",
+          "title": "Temperature and Moisture Gradients",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+          "title": "Vegetation Indices and Remote Sensing",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/point-in-polygon-testing.qmd",
+          "title": "Point-in-Polygon Testing",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/buffer-operations.qmd",
+          "title": "Buffer Operations and Distance Fields",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/polygon-overlay-operations.qmd",
+          "title": "Polygon Overlay and Clipping",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "spatial-analysis/spatial-joins.qmd",
+          "title": "Spatial Joins and Proximity Queries",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/raster-resampling-interpolation.qmd",
+          "title": "Raster Resampling and Interpolation",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/map-algebra-focal-operations.qmd",
+          "title": "Map Algebra and Focal Operations",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/raster-classification.qmd",
+          "title": "Raster Classification and Reclassification",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "spatial-analysis/viewshed-line-of-sight.qmd",
+          "title": "Viewshed and Line-of-Sight Analysis",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "spatial-analysis/watershed-delineation.qmd",
+          "title": "Watershed Delineation and Flow Networks",
+          "part_title": "Computational Spatial Analysis",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/fire-weather-ignition.qmd",
+          "title": "Fire Weather and Ignition Potential",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/fire-spread-modeling.qmd",
+          "title": "Fire Spread modelling",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/rainfall-intensity-duration.qmd",
+          "title": "Rainfall Intensity-Duration-Frequency",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/flood-frequency-analysis.qmd",
+          "title": "Flood Frequency Analysis",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/urban-flood-modeling.qmd",
+          "title": "Urban Flood modelling and Green Infrastructure",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/canada-trade-gravity-model.qmd",
+          "title": "The Gravity Model of Trade",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/urban-bid-rent-model.qmd",
+          "title": "The Bid-Rent Model",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/urban-agglomeration-economies.qmd",
+          "title": "Agglomeration Economies",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/markets-spatial-arbitrage.qmd",
+          "title": "Spatial Arbitrage and the Law of One Price",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        }
+      ]
+    },
+    "topic-libraries": {
+      "title": "Computational Geography: Topic Libraries",
+      "config": "_quarto-topic-libraries.yml",
+      "chapter_count": 63,
+      "chapters": [
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/snowpack-energy-balance.qmd",
+          "title": "Snowpack Energy Balance",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/snow-accumulation-melt-modeling.qmd",
+          "title": "Snow Accumulation and Melt modelling",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/swe-estimation-methods.qmd",
+          "title": "Snow Water Equivalent Estimation",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd",
+          "title": "Avalanche Terrain Analysis",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/glacier-mass-balance.qmd",
+          "title": "Glacier Mass Balance",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/glacial-meltwater-chemistry.qmd",
+          "title": "Glacial Meltwater Chemistry",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/glacial-lake-outburst-floods.qmd",
+          "title": "Glacial Lake Outburst Floods (GLOFs)",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/slope-stability-analysis.qmd",
+          "title": "Slope Stability Analysis",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/debris-flow-modeling.qmd",
+          "title": "Debris Flow modelling",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "cryosphere-and-mountain-systems/permafrost-thaw-geohazards.qmd",
+          "title": "Permafrost Thaw and Geohazards",
+          "part_title": "Cryosphere and Mountain Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/prospect-leaf-optical-properties.qmd",
+          "title": "Leaf Optical Properties \u2014 the PROSPECT Model",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/sail-canopy-reflectance.qmd",
+          "title": "Canopy Reflectance \u2014 the SAIL Model",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/hyperspectral-imaging.qmd",
+          "title": "Hyperspectral Imaging",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/thermal-infrared-remote-sensing.qmd",
+          "title": "Thermal Infrared Remote Sensing",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/lidar-point-clouds.qmd",
+          "title": "Terrestrial LiDAR Point Clouds",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/bathymetric-lidar-sonar.qmd",
+          "title": "Bathymetric LiDAR and Sonar Mapping",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/sar-fundamentals.qmd",
+          "title": "SAR Fundamentals and Applications",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "5"
+        },
+        {
+          "chapter_path": "advanced-remote-sensing/gravity-remote-sensing.qmd",
+          "title": "Gravity Remote Sensing (GRACE)",
+          "part_title": "Advanced Remote Sensing",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "machine-learning/regression-continuous-variables.qmd",
+          "title": "Regression for Continuous Variables",
+          "part_title": "Machine Learning for Geographic Data",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "machine-learning/dimensionality-reduction-pca-tsne-umap.qmd",
+          "title": "Dimensionality Reduction: PCA, t-SNE, and UMAP",
+          "part_title": "Machine Learning for Geographic Data",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/circular-orbits-and-keplers-third-law.qmd",
+          "title": "Circular Orbits and Kepler's Third Law",
+          "part_title": "Environmental Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "environmental-systems/ground-tracks-and-orbital-geometry.qmd",
+          "title": "Ground Tracks and Orbital Geometry",
+          "part_title": "Environmental Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "environmental-systems/satellite-overpasses-and-visibility.qmd",
+          "title": "Satellite Overpasses and Visibility",
+          "part_title": "Environmental Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "environmental-systems/how-gps-works.qmd",
+          "title": "How GPS Works",
+          "part_title": "Environmental Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "environmental-systems/carbon-allocation-and-npp.qmd",
+          "title": "Carbon Allocation and Net Primary Productivity",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/decomposition-and-soil-carbon.qmd",
+          "title": "Decomposition and Soil Carbon Turnover",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/nitrogen-cycling.qmd",
+          "title": "Nitrogen Cycling and Limitation",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/phenology-and-growing-season.qmd",
+          "title": "Phenology and Growing Season Dynamics",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/fire-emissions-smoke.qmd",
+          "title": "Fire Emissions and Smoke Dispersion",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/thunderstorm-dynamics.qmd",
+          "title": "Thunderstorm Dynamics and Severe Weather",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/tornado-formation-intensity.qmd",
+          "title": "Tornado Formation and Intensity",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "5"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/hail-formation-forecasting.qmd",
+          "title": "Hail Formation and Forecasting",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/boundary-layer-turbulence.qmd",
+          "title": "Boundary Layer Turbulence and Wind Profiles",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "atmospheric-hazards/extreme-wind-events.qmd",
+          "title": "Extreme Wind Events and Downbursts",
+          "part_title": "Atmospheric Hazards and Dynamics",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-pipeline-crude-oil.qmd",
+          "title": "Alberta's Crude Oil Pipeline Network",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-pipeline-ngl-condensate.qmd",
+          "title": "NGL and Condensate Pipeline Systems",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-pipeline-natural-gas.qmd",
+          "title": "Natural Gas Transmission from Alberta",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-pipeline-refined-products.qmd",
+          "title": "Refined Products Distribution",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-pipeline-integrated-network.qmd",
+          "title": "The Integrated Network",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/canada-trade-corridors.qmd",
+          "title": "Canadian Trade Corridors",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/canada-port-economics.qmd",
+          "title": "Port Economics",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/canada-freight-modal-split.qmd",
+          "title": "Modal Split and Freight Economics",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/canada-integrated-trade-network.qmd",
+          "title": "The Integrated Trade Network",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/urban-city-size-zipf.qmd",
+          "title": "Zipf's Law and the City Size Distribution",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/urban-economic-base.qmd",
+          "title": "The Urban Economic Base",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/urban-integrated-system.qmd",
+          "title": "The Integrated Urban System",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/markets-commodity-price-formation.qmd",
+          "title": "Commodity Price Formation",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/markets-futures-geographic-instruments.qmd",
+          "title": "Futures Markets as Geographic Instruments",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/markets-price-volatility.qmd",
+          "title": "Price Volatility and Its Geographic Consequences",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/markets-integrated-price-system.qmd",
+          "title": "The Integrated Price System",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/resource-hotelling-rule.qmd",
+          "title": "The Hotelling Rule",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/resource-supply-cost-curves.qmd",
+          "title": "Supply Cost Curves and Break-Even Prices",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/resource-royalty-regimes.qmd",
+          "title": "Royalty Regimes and Resource Rents",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/resource-curse.qmd",
+          "title": "The Resource Curse",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/resource-integrated-system.qmd",
+          "title": "The Integrated Resource System",
+          "part_title": "Economic Systems",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "economic-systems/crude-oil-pipelines.qmd",
+          "title": "Crude Oil Pipelines",
+          "part_title": "Economic Systems",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "economic-systems/ngl-condensate-systems.qmd",
+          "title": "NGL and Condensate Systems",
+          "part_title": "Economic Systems",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "economic-systems/natural-gas-transmission.qmd",
+          "title": "Natural Gas Transmission",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/refined-products-distribution.qmd",
+          "title": "Refined Products Distribution",
+          "part_title": "Economic Systems",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "economic-systems/integrated-network.qmd",
+          "title": "The Integrated Network",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-renewable-resource-geography.qmd",
+          "title": "Renewable Resource Geography",
+          "part_title": "Economic Systems",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-renewable-economics.qmd",
+          "title": "The Economics of Clean Generation",
+          "part_title": "Economic Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "economic-systems/alberta-renewable-policy-demand.qmd",
+          "title": "Policy, Capital, and the Grid",
+          "part_title": "Economic Systems",
+          "difficulty": "2"
+        }
+      ]
+    },
+    "laboratory": {
+      "title": "Computational Geography Laboratory",
+      "config": "_quarto-laboratory.yml",
+      "chapter_count": 39,
+      "chapters": [
+        {
+          "chapter_path": "laboratory/sar-fundamentals-and-applications.qmd",
+          "title": "SAR Fundamentals and Applications",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/insar-deformation-monitoring.qmd",
+          "title": "InSAR Deformation Monitoring",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "5"
+        },
+        {
+          "chapter_path": "laboratory/gravity-remote-sensing-grace.qmd",
+          "title": "Gravity Remote Sensing (GRACE)",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/passive-microwave-radiometry.qmd",
+          "title": "Passive Microwave Radiometry",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/rock-weathering-and-soil-formation.qmd",
+          "title": "Rock Weathering and Soil Formation",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/soil-erosion-and-the-rusle.qmd",
+          "title": "Soil Erosion and the RUSLE",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/shallow-landslides-and-slope-stability.qmd",
+          "title": "Shallow Landslides and Slope Stability",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/sediment-transport-in-rivers.qmd",
+          "title": "Sediment Transport in Rivers",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/channel-morphology-and-hydraulic-geometry.qmd",
+          "title": "Channel Morphology and Hydraulic Geometry",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/wave-dynamics-and-nearshore-transformation.qmd",
+          "title": "Wave Dynamics and Nearshore Transformation",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/longshore-sediment-transport-and-coastal-budgets.qmd",
+          "title": "Longshore Sediment Transport and Coastal Budgets",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd",
+          "title": "Sea Level, Storm Surge, and Coastal Morphodynamics",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/urban-heat-island-dynamics.qmd",
+          "title": "Urban Heat Island Dynamics",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/urban-ventilation-and-pollutant-dispersion.qmd",
+          "title": "Urban Ventilation and Pollutant Dispersion",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/transportation-network-analysis.qmd",
+          "title": "Transportation Network Analysis",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/accessibility-and-travel-demand-modeling.qmd",
+          "title": "Accessibility and Travel Demand modelling",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/land-use-change-modeling.qmd",
+          "title": "Land Use Change modelling",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/urban-scaling-laws-and-city-structure.qmd",
+          "title": "Urban Scaling Laws and City Structure",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/demographic-spatial-dynamics.qmd",
+          "title": "Demographic Spatial Dynamics",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/reservoir-operations-and-mass-balance.qmd",
+          "title": "Reservoir Operations and Mass Balance",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/stochastic-streamflow-and-drought-risk.qmd",
+          "title": "Stochastic Streamflow and Drought Risk",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/dissolved-oxygen-dynamics-and-the-streeter-phelps-model.qmd",
+          "title": "Dissolved Oxygen Dynamics and the Streeter-Phelps Model",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/nutrient-dynamics-and-lake-eutrophication.qmd",
+          "title": "Nutrient Dynamics and Lake Eutrophication",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/sediment-and-contaminant-transport-in-rivers.qmd",
+          "title": "Sediment and Contaminant Transport in Rivers",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/groundwater-contaminant-plumes.qmd",
+          "title": "Groundwater Contaminant Plumes",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/pump-and-treat-and-in-situ-remediation.qmd",
+          "title": "Pump-and-Treat and In-Situ Remediation",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/bayesian-inference-for-environmental-models.qmd",
+          "title": "Bayesian Inference for Environmental Models",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/regression-for-continuous-spatial-variables.qmd",
+          "title": "Regression for Continuous Spatial Variables",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/dimensionality-reduction-for-high-dimensional-geographic-data.qmd",
+          "title": "Dimensionality Reduction for High-Dimensional Geographic Data",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/ensemble-forecasting-and-uncertainty-quantification.qmd",
+          "title": "Ensemble Forecasting and Uncertainty Quantification",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "4"
+        },
+        {
+          "chapter_path": "laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd",
+          "title": "The Kalman Filter and Sequential Data Assimilation",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "5"
+        },
+        {
+          "chapter_path": "laboratory/satellite-data-assimilation-in-environmental-models.qmd",
+          "title": "Satellite Data Assimilation in Environmental Models",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "5"
+        },
+        {
+          "chapter_path": "laboratory/Fossil-Fuel-Combustion-Chemistry.qmd",
+          "title": "Fossil Fuel Combustion Chemistry",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "laboratory/Biomass-Burning-and-Pyrogenic-Carbon.qmd",
+          "title": "Biomass Burning and Pyrogenic Carbon",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/Land-Use-Change-and-Deforestation.qmd",
+          "title": "Land Use Change and Deforestation",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/Photosynthesis-and-Gross-Primary-Production.qmd",
+          "title": "Photosynthesis and Gross Primary Production",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "2"
+        },
+        {
+          "chapter_path": "laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd",
+          "title": "Ocean Carbon Uptake and Air-Sea Exchange",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/Soil-Carbon-Storage-and-Decomposition.qmd",
+          "title": "Soil Carbon Storage and Decomposition",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "laboratory/Methanogenesis-in-Anaerobic-Environments.qmd",
+          "title": "Methanogenesis in Anaerobic Environments",
+          "part_title": "Computational Geography Laboratory",
+          "difficulty": "3"
+        }
+      ]
+    }
+  }
+}

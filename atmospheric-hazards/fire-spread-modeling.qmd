@@ -45,6 +45,10 @@ On the afternoon of 16 August 2003, the Okanagan Mountain Park fire in British C
 
 The physics of fire spread is encoded in the Rothermel equations, first published in 1972 and still the backbone of every operational fire behaviour model in North America. The equations predict the rate at which a fire front moves through fuel of given type, loading, and moisture, under given wind and slope conditions. The spread rate varies with direction — wind and slope both push the fire, so headfire spreads far faster than backfire — producing an elliptical fire shape that grows over time. Combining spread rate, direction, and an initial perimeter with a cellular automaton or vector propagation scheme produces a fire perimeter evolution that can be computed in near-real time. This model derives the Rothermel rate-of-spread equation, implements elliptical fire growth, and shows how the cellular automaton approach simulates fire spread across heterogeneous landscapes.
 
+## Before You Start
+
+This chapter moves from intuition to equations in three steps. First we describe why fires spread faster in some directions than others. Then we name the quantities in the spread model such as $ROS$ for rate of spread and $I$ for fireline intensity. Only after that do we combine them into the full model. If the full Rothermel expression feels dense on first reading, focus on what each term is doing physically: fuel feeds the fire, wind and slope accelerate it, and heating requirements slow it down.
+
 ## 1. The Question
 
 Where will this fire be in 6 hours, and what communities are at risk?

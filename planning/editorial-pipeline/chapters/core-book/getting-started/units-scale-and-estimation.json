@@ -1,0 +1,71 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "getting-started/units-scale-and-estimation.qmd",
+    "chapter_title": "Units, Scale, and Estimation",
+    "chapter_subtitle": "The habits that keep models realistic before any heavy calculation begins",
+    "part_title": "Getting Started",
+    "difficulty": ""
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The original draft had the right concepts but needed stronger scaffolding, more explicit routines, and clearer links between units, scale, and plausibility checks.",
+    "issues": [
+      "Needed a clearer intuition-first onboarding structure.",
+      "Units and scale were discussed, but the reading routine was too implicit.",
+      "The chapter needed stronger transitions from concept to example."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Rewrote the full chapter around a calm checking routine: units, scale, order of magnitude, and rough estimation before exact calculation.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Defined rho on first use.",
+      "Made plausibility checking the central habit."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now matches the core-book calibration profile and gives first-time readers a usable checking routine without abrupt abstraction.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No second repair pass was needed after the rewrite.",
+    "actions_taken": [
+      "Confirmed that units and scale checks are demonstrated rather than only stated."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses examples and a simple routine as its primary explainers, which is appropriate for an opening bridge-skills chapter.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Added a stable question sequence for reading numerical claims.",
+      "Used the density example as a working explainer instead of a decorative formula."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

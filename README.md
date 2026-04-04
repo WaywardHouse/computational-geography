@@ -37,6 +37,30 @@ The repo can now also render three clustered outputs without splitting into sepa
 
 These targets support the Earthdata-like clustered publishing model while keeping one source repository.
 
+## Editorial review pipeline
+
+The repository now includes a structured editorial QA pipeline for the full series:
+
+```bash
+python3 scripts/editorial_review_pipeline.py bootstrap
+python3 scripts/editorial_review_pipeline.py status
+```
+
+The generated review records live in [`planning/editorial-pipeline/`](/Users/pauldhobson/src/websites/waywardhouse-computational-geography/planning/editorial-pipeline/README.md).
+
+That pipeline creates:
+
+- a calibration profile for each volume
+- a review record for each chapter
+- a volume consistency review for each volume
+- a series progression review for the full program
+
+Its completion rules match the editorial policy:
+
+- a chapter is not complete unless QA passes
+- a volume is not complete unless volume consistency passes
+- the series is not complete unless progression across volumes is coherent
+
 ## Submodule workflow
 
 The intended workflow is:

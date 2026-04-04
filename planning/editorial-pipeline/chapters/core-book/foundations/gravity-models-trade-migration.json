@@ -1,0 +1,68 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/gravity-models-trade-migration.qmd",
+    "chapter_title": "Gravity Models of Trade and Migration",
+    "chapter_subtitle": "Distance decay and inverse power laws in human geography",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was conceptually strong but contained malformed math in parameter ranges and exponential-comparison examples.",
+    "issues": [
+      "Broken math markup appeared in gamma ranges and characteristic-scale notation.",
+      "The summary section needed the same notation cleanup for consistency."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that repaired notation defects while preserving the chapter's strong human-systems framing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Cleaned parameter-range notation.",
+      "Preserved the chapter's intuition-first gravity analogy."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now reads cleanly and remains mathematically correct, accessible, and well paced.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "Notation defects were repaired during the editorial pass.",
+    "actions_taken": [
+      "Corrected malformed gamma ranges and characteristic-scale expressions."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's examples and power-law comparison continue to do strong explanatory work for first-time readers entering human systems modelling.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the notation that controls parameter sensitivity."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

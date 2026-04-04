@@ -10,51 +10,65 @@ section-title: "Bridge Skills"
 description: "A practical setup guide for building a reliable learning environment across Windows, macOS, Linux, and Raspberry Pi, with enough tooling for in-page work and external labs."
 ---
 
-This book is designed so that much of the learning can happen directly on the page. You can read, think, and often experiment without needing a complicated local setup.
+## Before You Start
 
-But some of the labs and companion projects work better when you have your own environment ready:
+**You should know**  
+That you do not need a perfect or expensive setup to begin.
+
+**You will learn**  
+What a beginner-safe starter environment looks like, why virtual environments matter, and how to build a stable workflow on Windows, macOS, Linux, or Raspberry Pi.
+
+**Why this matters**  
+Many beginners lose momentum because their computer setup feels mysterious. A good learning environment should be boring, recoverable, and easy to understand.
+
+**If this gets hard, focus on...**  
+Getting one editor, one Python installation, one terminal, and one project folder working cleanly. That is enough to start.
+
+
+This book is designed so that much of the learning can happen directly on the page. You can read, think, and often experiment without a complicated local setup.
+
+But some labs and companion projects work better when you have your own environment ready:
 
 - a place to write and run code
-- a way to install packages safely
+- a terminal
 - a text editor
 - a notebook workflow
-- a terminal
-- enough structure that things do not break every time you try something new
+- a safe way to install packages
 
-The good news is that your setup does not need to be fancy. It needs to be stable, understandable, and easy to recover when something goes wrong.
+The goal is not to make your machine impressive. The goal is to make it stable.
 
-## What You Actually Need
+## 1. What You Actually Need
 
-For most readers, a good starter environment includes:
+For most readers, a good starter setup includes:
 
 - a modern web browser
 - a code editor
-- Python
-- a terminal
+- Python 3
 - Git
-- Jupyter or another notebook-friendly workflow
+- a terminal
+- JupyterLab
 
-If you want to go further into spatial labs, it is also useful to have:
+If you move further into spatial work, it is also useful to have:
 
-- a package manager
 - a virtual environment workflow
-- optional GIS tools such as QGIS
+- a package manager
+- optional GIS software such as QGIS
 
-## A Good Rule
+## 2. The Most Important Rule
 
-Do not install everything globally if you can avoid it.
+Avoid installing everything globally if you can.
 
 Instead, aim for:
 
 - one clean base Python installation
-- one project folder per lab or course project
+- one project folder per lab or project
 - one virtual environment per project when needed
 
-This makes it much easier to fix problems later.
+That makes it much easier to recover when something breaks.
 
-## Recommended Cross-Platform Starter Stack
+## 3. Recommended Starter Stack
 
-If you want the short version, this is the recommended starter stack:
+If you want the short version, this is a practical beginner stack:
 
 - browser: Firefox or Chrome
 - editor: VS Code
@@ -63,13 +77,13 @@ If you want the short version, this is the recommended starter stack:
 - notebooks: JupyterLab
 - optional GIS: QGIS
 
-That stack is not the only good one. It is simply a practical one with lots of documentation and low friction for beginners.
+This is not the only good stack. It is simply one with low friction and strong documentation.
 
-## Windows
+## 4. Platform Notes
 
-Windows is perfectly usable for this work, but it helps to be deliberate.
+### Windows
 
-### Recommended setup
+Recommended order:
 
 1. Install `VS Code`
 2. Install `Git for Windows`
@@ -78,39 +92,19 @@ Windows is perfectly usable for this work, but it helps to be deliberate.
 5. Install `JupyterLab`
 6. Optionally install `QGIS`
 
-### Terminal choices
-
-You can use:
-
-- PowerShell
-- Windows Terminal
-- Command Prompt
-
-Recommended:
-
-- `Windows Terminal` plus `PowerShell`
-
-That gives a cleaner and more modern experience.
-
-### Check that Python works
-
-Open a terminal and run:
+Check Python:
 
 ```bash
 python --version
 ```
 
-or, on some Windows systems:
+or, on some systems:
 
 ```bash
 py --version
 ```
 
-If that prints a Python version, your install is visible.
-
-### Create a virtual environment
-
-Inside a project folder:
+Create a virtual environment inside a project folder:
 
 ```bash
 python -m venv .venv
@@ -128,21 +122,17 @@ Then install JupyterLab:
 python -m pip install jupyterlab
 ```
 
-### Windows caution
+Common beginner problems on Windows:
 
-Beginners often run into problems because:
+- multiple Python versions
+- `python` not on `PATH`
+- packages installed globally and forgotten
 
-- they have multiple Python versions
-- `python` is not on `PATH`
-- they install packages globally and forget where they went
+If things get messy, a clean reinstall plus a fresh virtual environment is often faster than endless debugging.
 
-If things get messy, a clean reinstall plus a fresh virtual environment is often faster than debugging for hours.
+### macOS
 
-## macOS
-
-macOS is usually a smooth platform for this kind of work.
-
-### Recommended setup
+Recommended order:
 
 1. Install `VS Code`
 2. Install `Homebrew`
@@ -151,27 +141,19 @@ macOS is usually a smooth platform for this kind of work.
 5. Install `JupyterLab`
 6. Optionally install `QGIS`
 
-### Check for Git
-
-In the terminal:
+Check Git:
 
 ```bash
 git --version
 ```
 
-If Git is not installed, macOS may prompt you to install command-line developer tools.
-
-### Check for Python
-
-Use:
+Check Python:
 
 ```bash
 python3 --version
 ```
 
-On macOS, `python3` is usually safer than `python`.
-
-### Create a virtual environment
+Create and activate a virtual environment:
 
 ```bash
 python3 -m venv .venv
@@ -180,95 +162,24 @@ python -m pip install --upgrade pip
 python -m pip install jupyterlab
 ```
 
-### macOS caution
+Do not depend on the old system Python for learning projects. It is better to use your own install and your own environments.
 
-Do not depend on the old system Python for learning projects.
+### Linux
 
-It is better to use your own Python installation and your own project environments.
+Linux is often the easiest platform for reproducible technical work once you become comfortable with the terminal.
 
-## Linux
+Typical needs:
 
-Linux is often the easiest platform for reproducible scientific and technical work, especially if you become comfortable with the terminal.
-
-### Recommended setup
-
-1. Install `VS Code` or another editor you like
-2. Make sure `git` is installed
-3. Install `python3`
-4. Install `python3-venv`
-5. Install `pip`
-6. Install `JupyterLab`
-7. Optionally install `QGIS`
-
-### Example package install
+- `git`
+- `python3`
+- `python3-venv`
+- `pip`
+- an editor
 
 On Debian or Ubuntu style systems:
 
 ```bash
 sudo apt update
-sudo apt install python3 python3-venv python3-pip git
-```
-
-Then, in your project folder:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install jupyterlab
-```
-
-### Linux caution
-
-Package names and install commands vary across distributions. The general pattern matters more than memorizing one exact command.
-
-You want:
-
-- Python
-- virtual environments
-- pip
-- Git
-- an editor
-
-## Raspberry Pi
-
-The Raspberry Pi deserves special attention because it is such a good learning machine.
-
-It is inexpensive, tangible, and excellent for teaching the idea that computing environments are built, not magical.
-
-It is also more resource-constrained than a laptop or desktop, so your setup choices matter more.
-
-### Good use cases for Raspberry Pi
-
-A Pi is great for:
-
-- Python basics
-- notebooks
-- small simulations
-- simple data analysis
-- sensor experiments
-- command-line confidence
-
-It is less ideal for:
-
-- very large machine-learning workloads
-- heavy GIS processing
-- large remote-sensing datasets
-- complex notebook stacks with many compiled dependencies
-
-### Recommended Raspberry Pi setup
-
-1. Use a current Raspberry Pi OS
-2. Update the system
-3. Install Python tools, Git, and Jupyter
-4. Use lightweight projects first
-5. Keep storage and memory limits in mind
-
-Example:
-
-```bash
-sudo apt update
-sudo apt upgrade -y
 sudo apt install python3 python3-venv python3-pip git
 ```
 
@@ -281,30 +192,47 @@ python -m pip install --upgrade pip
 python -m pip install jupyterlab
 ```
 
-### Raspberry Pi tips
+Package names vary by distribution, but the overall pattern is the same.
 
-- Prefer lighter notebooks and smaller datasets
-- Close other heavy applications when running labs
-- Use a fast SD card or SSD if possible
-- Save often and keep backups
-- Treat the Pi as a great practice machine, not a replacement for all heavy analysis
+### Raspberry Pi
 
-### When to move from Pi to a larger machine
+A Raspberry Pi can be an excellent learning machine.
 
-Move to a laptop, desktop, or remote server when:
+It is great for:
 
-- notebook startup becomes painfully slow
-- package installs fail because of architecture or memory limits
-- your datasets are large
-- your model runs take too long
+- Python basics
+- notebooks
+- small simulations
+- simple data analysis
+- sensor experiments
 
-That is not failure. It just means the scale of the problem has changed.
+It is less ideal for:
 
-## Folder Structure
+- large remote-sensing datasets
+- heavy GIS processing
+- large machine-learning workloads
+
+A practical Pi setup:
+
+1. Use a current Raspberry Pi OS
+2. Update the system
+3. Install Python tools, Git, and Jupyter
+4. Start with lightweight projects
+5. Keep memory and storage limits in mind
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install python3 python3-venv python3-pip git
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install jupyterlab
+```
+
+## 5. Folder Structure
 
 A simple project structure helps a lot.
-
-For example:
 
 ```text
 geography-work/
@@ -317,7 +245,7 @@ geography-work/
 └── scratch/
 ```
 
-Within a single lab:
+Within one lab:
 
 ```text
 lab-01/
@@ -328,14 +256,9 @@ lab-01/
 └── .venv/
 ```
 
-This is not the only good structure, but it helps you separate:
+This helps separate source work, input data, outputs, and environment files.
 
-- source work
-- input data
-- outputs
-- environment files
-
-## What To Install First
+## 6. What To Install First
 
 If you are trying not to overwhelm yourself, install in this order:
 
@@ -349,20 +272,22 @@ If you are trying not to overwhelm yourself, install in this order:
 
 That is enough to begin.
 
-## Sanity Check
+## 7. Sanity Check
 
-Before starting labs, make sure you can do all of these:
+Before starting labs, make sure these work:
 
 ```bash
-python --version
 git --version
 ```
 
-or on systems where needed:
+```bash
+python --version
+```
+
+or, where needed:
 
 ```bash
 python3 --version
-git --version
 ```
 
 Then try:
@@ -377,7 +302,7 @@ and:
 jupyter lab
 ```
 
-If those work, you are in good shape.
+If those work, your environment is in good shape.
 
 ## If This Gets Hard, Focus On
 
@@ -387,15 +312,3 @@ If those work, you are in good shape.
 - one terminal you are willing to practice with
 
 A clean, boring setup is better than an advanced, confusing one.
-
-## Recommended Minimum
-
-If you want the shortest possible answer:
-
-- install VS Code
-- install Python 3
-- install Git
-- learn how to create and activate a virtual environment
-- install JupyterLab
-
-That is enough to start almost all of the companion lab work successfully.

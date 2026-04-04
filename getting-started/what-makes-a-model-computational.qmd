@@ -10,75 +10,101 @@ section-title: "Bridge Skills"
 description: "An introduction to what makes a model computational: repetition, simulation, data handling, and asking questions too large to do by hand."
 ---
 
+## Before You Start
+
+**You should know**  
+That a model is an idea about relationships, not just a piece of software.
+
+**You will learn**  
+Why computers become necessary when we repeat calculations, simulate change over time, or work with spatial data at realistic scale.
+
+**Why this matters**  
+This book is about computational geography, but the computer is never the whole story. The real goal is still to ask a geographic question clearly and build a model that helps answer it.
+
+**If this gets hard, focus on...**  
+The distinction between the model and the tool. The model is the idea. The computer helps us apply it at useful scale.
+
+
 Not every model needs a computer.
 
-You can sketch a food web, calculate density by hand, or reason through a simple distance problem on paper.
+You can sketch a food web, compute a density by hand, or reason through a simple distance problem on paper.
 
-So what makes a model computational?
+So what turns a model into a **computational** model?
 
-Usually one of four things:
+Usually one or more of these:
 
 - too many calculations to do comfortably by hand
-- repeated operations across many locations
-- simulation over many time steps
-- large amounts of data
+- the same operation repeated across many locations
+- a process simulated across many time steps
+- large amounts of data that must be stored, sorted, or compared
 
-## Repetition
+## 1. Repetition
 
 Suppose you want to compute slope from elevation for one cell in a grid. You could do that by hand.
 
-If you want to do it for `2 million` cells, a computer becomes the practical tool.
+If you want to do it for `2 million` cells, the mathematical idea is the same, but the practical task changes. The computer becomes necessary because repetition becomes the problem.
 
-The mathematical idea is still the same. The computer just makes repetition possible.
+## 2. Simulation
 
-## Simulation
-
-Some models are about change through time.
+Some models describe systems that change through time.
 
 Examples:
 
 - population growth
 - wildfire spread
 - flood routing
-- soil temperature through seasons
+- soil temperature through the seasons
 
-A computer helps when you want to step that system forward again and again and watch the pattern emerge.
+A computer helps because it can move the system forward step by step and show the pattern that emerges.
 
-## Data Handling
+## 3. Data Handling
 
-Computational geography also matters because spatial data gets big very quickly.
+Spatial data gets large quickly.
 
-One satellite image can contain millions of pixels. One road network can contain thousands of links. One climate dataset can store decades of daily measurements.
+One satellite image may contain millions of pixels. One road network may contain thousands of links. One climate dataset may store decades of daily measurements.
 
 Computers let us:
 
-- store
-- sort
-- compare
-- transform
-- visualize
+- store data
+- sort data
+- compare locations
+- transform variables
+- visualize results
 
-all of that information.
+without losing track of the structure.
 
-## The Idea Still Comes First
+## 4. The Idea Still Comes First
 
-This matters: the computer is not the model.
+This is the key safeguard:
 
-The model is the idea about how quantities relate.
+The computer is not the model.
+
+The model is the claim about how quantities relate.
 
 The computer helps us:
 
-- apply the idea many times
+- apply that claim many times
 - test scenarios
-- work at realistic scales
-- visualize results
+- work at realistic scale
+- inspect and visualize the outcome
 
 Good computational geography still begins with clear thinking.
+
+## 5. A Good Diagnostic Question
+
+When you see a computational example, ask:
+
+1. What is the geographic question?
+2. What is the model idea?
+3. What part is being delegated to the computer?
+4. Why would doing it by hand be unrealistic?
+
+That keeps the technology in the right place: useful, but not magical.
 
 ## If This Gets Hard, Focus On
 
 - a computational model is still a model first
 - the computer matters when repetition, simulation, or scale becomes large
-- the geography question remains the center of the work
+- the geography question remains the centre of the work
 
 That is the spirit of the whole book.

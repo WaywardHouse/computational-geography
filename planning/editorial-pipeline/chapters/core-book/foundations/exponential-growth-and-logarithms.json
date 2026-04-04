@@ -1,0 +1,70 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/exponential-growth-and-logarithms.qmd",
+    "chapter_title": "Exponential Growth and Logarithms",
+    "chapter_subtitle": "When the rate of change depends on how much you already have",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "2"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter had strong explanatory framing but contained front-matter noise and several broken math expressions that would interrupt comprehension.",
+    "issues": [
+      "Malformed math appeared in the prerequisites note and in several derivation steps.",
+      "A stray image fragment in front matter needed removal.",
+      "The chapter needed cleaner notation handling in its logarithm examples."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that preserved the chapter's strong intuition-first structure while repairing notation and front-matter defects.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Removed malformed front-matter content.",
+      "Fixed broken displayed equations in the log-solving examples."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter is now mathematically clean, readable, and appropriately scaffolded for early core-book readers.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The pass repaired all identified notation defects.",
+    "actions_taken": [
+      "Corrected malformed math in the exponential and logarithm sections.",
+      "Removed the stray front-matter fragment."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's tables, worked examples, and analytical-versus-numerical explainer remain strong and now read more cleanly.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning notation in the worked examples."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

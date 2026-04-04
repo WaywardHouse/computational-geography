@@ -10,96 +10,152 @@ section-title: "Bridge Skills"
 description: "An introduction to units, order of magnitude, and rough estimation as everyday tools for checking whether a model makes sense."
 ---
 
-One of the fastest ways to tell whether a model is sensible is to check its units.
+## Before You Start
 
-If someone tells you a river velocity is `300 km/h`, you do not need a calculator to feel suspicious. If someone says a neighbourhood park is `0.002 m²`, that is clearly wrong too. Before exactness comes plausibility.
+**You should know**  
+That measurements need units, and that quantities can be compared as bigger, smaller, faster, slower, longer, or shorter.
 
-That is why units and estimation matter so much in computational geography.
+**You will learn**  
+Why units carry meaning, how scale changes interpretation, and how rough estimation can catch impossible claims before you do careful calculation.
 
-## Units Carry Meaning
+**Why this matters**  
+Many modelling mistakes are not advanced mathematical errors. They are simpler than that: wrong units, wrong scale, or a number that should have felt suspicious much earlier.
+
+**If this gets hard, focus on...**  
+The habit of asking, "What are the units?" and "Does this number feel plausible at this scale?"
+
+
+Before exactness comes plausibility.
+
+If someone tells you a river is flowing at `300 km/h`, you should hesitate immediately. If someone says a neighbourhood park covers `0.002 m²`, that should also feel wrong. You do not need heavy mathematics to notice the problem. You need units, scale, and a rough sense of what the world is like.
+
+That is why these habits matter so much in computational geography. They are not optional extras. They are part of how we protect a model from nonsense.
+
+## 1. Units Carry Meaning
 
 The number `20` means almost nothing by itself.
 
-It becomes meaningful only with units:
+Now compare:
 
 - `20 m`
 - `20 km`
 - `20 people/km²`
 - `20 °C`
 
-Units tell you what kind of quantity you are looking at. They are not decorations added at the end.
+The number stayed the same, but the meaning changed completely.
 
-## Scale Changes Interpretation
+Units tell us what kind of quantity we are looking at:
 
-A value that sounds large at one scale can be tiny at another.
+- metres describe length
+- square kilometres describe area
+- people per square kilometre describe density
+- degrees Celsius describe temperature
 
-Examples:
+So units are not decorations added after the fact. They are part of the quantity itself.
 
-- `5 mm` of rain in an hour is modest
-- `5 mm` of vertical land movement can be a major geophysical signal
-- `5 km` is a short drive but a long walk
+## 2. Scale Changes Interpretation
 
-Modelling always happens at some scale:
+A value that sounds large at one scale may be small at another.
+
+For example:
+
+- `5 mm` of rain in one hour is modest in many storms
+- `5 mm` of vertical land movement can be a very important geophysical signal
+- `5 km` is short for a drive but long for a walk
+
+This is why modellers keep asking, "At what scale is this statement true?"
+
+A model might describe:
 
 - a leaf
 - a hillslope
-- a city
+- a neighbourhood
 - a watershed
-- a country
+- a province
 
-Part of becoming a stronger reader is learning to ask, "At what scale is this statement true?"
+The same number can feel ordinary in one setting and extreme in another.
 
-## Estimation Is a Safety Rail
+## 3. Estimation Is A Safety Rail
 
-Exact calculation is useful. Rough estimation is what keeps exact calculation honest.
+Exact calculation matters. Rough estimation keeps exact calculation honest.
 
-Suppose a chapter claims that a walking trip of `2 km` takes `3 minutes`.
+Suppose a chapter claims that a `2 km` walking trip takes `3 minutes`.
 
 You can estimate:
 
-- ordinary walking speed is roughly `5 km/h`
-- `2 km` should take something like `20-30 minutes`
+- ordinary walking speed is around `5 km/h`
+- at that speed, `2 km` should take roughly `20` to `30 minutes`
 
-The claim is wrong by a large margin. You found that without doing careful algebra.
+So the claim is not just a little off. It is wrong by a large margin.
 
-## Order of Magnitude
+That kind of quick check is valuable because it is fast, and because it prevents us from trusting a polished but unreasonable result.
 
-Sometimes the question is not "What is the exact number?"
+## 4. Order Of Magnitude
+
+Sometimes the first useful question is not "What is the exact number?"
 
 It is:
 
 - Is this about `10`?
 - `100`?
+- `10,000`?
 - `1,000,000`?
 
-That is called order-of-magnitude thinking. It is one of the most useful habits in science and modelling.
+That is **order-of-magnitude thinking**.
 
-If a glacier loses a few centimetres of meltwater equivalent, that is one kind of story. If it loses several metres, that is another.
+It is one of the most important habits in science because it helps us tell the difference between:
 
-## A Geography Example
+- small and large
+- local and regional
+- ordinary variation and truly extreme change
+
+If a glacier loses a few centimetres of water equivalent, that is one kind of story. If it loses several metres, that is another.
+
+## 5. A Geography Example
 
 Population density can be written as:
 
 $$\rho = \frac{N}{A}$$
 
-If a city has:
+Read the notation on first use:
+
+- $\rho$ (rho) is density
+- $N$ is population count
+- $A$ is area
+
+Suppose a city has:
 
 - `500,000` people
 - `250 km²` of area
 
-then a quick estimate gives:
+Then a quick estimate gives:
 
 $$\rho \approx \frac{500{,}000}{250} = 2{,}000 \text{ people/km}^2$$
 
-Even without detailed comparison, you now know the city is neither empty countryside nor hyper-dense megacity core.
+That number already tells you something useful. The city is not empty countryside, but it is not the densest part of a global megacity either.
 
-That is useful knowledge already.
+And the units matter:
+
+$$\frac{\text{people}}{\text{km}^2}$$
+
+This tells us the result is a density, not an area or a raw population total.
+
+## 6. A Good Checking Routine
+
+Before trusting a model output, ask:
+
+1. What are the units?
+2. What spatial or time scale are we talking about?
+3. Is the number in the right order of magnitude?
+4. Would a rough estimate give something similar?
+
+If the answer to any of those feels shaky, slow down before doing anything more sophisticated.
 
 ## If This Gets Hard, Focus On
 
 - attach units to every quantity
 - ask what scale you are working at
 - estimate before calculating exactly
-- use rough plausibility checks early and often
+- use plausibility checks early and often
 
 These habits make every later chapter easier.

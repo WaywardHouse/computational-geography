@@ -10,39 +10,59 @@ section-title: "Bridge Skills"
 description: "A beginner-friendly introduction to coordinates, layers, and the idea that maps are structured data as well as visual representations."
 ---
 
-Most people meet maps as images. In computational geography, a map is more than an image. It is also a structured way of storing information about where things are.
+## Before You Start
 
-That shift matters.
+**You should know**  
+What a map is and that places can be located relative to other places.
 
-Once a map becomes data, we can ask questions like:
+**You will learn**  
+How coordinates name location, how layers organize different kinds of spatial information, and why maps in computational geography are data as well as images.
+
+**Why this matters**  
+Once a map becomes structured data, we can measure, compare, overlay, and compute with it. That is the bridge from "looking at a map" to "asking a geographic question with a model."
+
+**If this gets hard, focus on...**  
+The simple idea that a map can store location and attributes in a form a computer can work with.
+
+
+Most people first meet maps as pictures.
+
+In computational geography, a map is still a picture, but it is also something more important: a structured description of where things are and what is true there.
+
+That shift changes the kinds of questions we can ask. Once a map becomes data, we can ask:
 
 - Which homes lie within `500 m` of a river?
 - Which slopes face south?
 - Which neighbourhoods gained tree cover?
-- Which road route is cheapest or fastest?
+- Which route is shortest, cheapest, or fastest?
 
-Those are computational questions, not just visual ones.
+Those are not just visual questions. They are computational ones.
 
-## Coordinates
+## 1. Coordinates Name Location
 
-Coordinates are simply a way of naming location.
+Coordinates are a way of naming where something is.
 
-On a flat grid we might use:
+On a flat grid, we often use:
 
 - $(x, y)$
 
-On the Earth we often use:
+Here:
+
+- $x$ is the horizontal position
+- $y$ is the vertical position
+
+On Earth, we often use:
 
 - latitude
 - longitude
 
-Coordinates let us turn "somewhere near the river bend" into a location a model can actually use.
+Coordinates matter because a computer cannot use "near the river bend" very well. It can use a named location.
 
-## Layers
+## 2. Layers Separate Kinds Of Information
 
 A modern map is often built from layers.
 
-Examples:
+Examples include:
 
 - roads
 - rivers
@@ -50,17 +70,17 @@ Examples:
 - land cover
 - elevation
 
-You can think of layers like transparent sheets stacked on top of each other. Each layer carries one kind of information.
+You can picture layers as transparent sheets stacked on top of one another. Each sheet stores one kind of information.
 
-This is one of the key ideas behind GIS.
+That is one of the core ideas behind GIS: we do not just draw everything at once. We organize spatial information so it can be combined deliberately.
 
-## Raster and Vector
+## 3. Vector And Raster
 
-There are two very common ways to represent spatial data.
+Two of the most common spatial data models are **vector** and **raster**.
 
 ### Vector
 
-Vector data stores shapes:
+Vector data stores shapes.
 
 - points
 - lines
@@ -70,13 +90,13 @@ Examples:
 
 - a weather station as a point
 - a road as a line
-- a city boundary as a polygon
+- a lake boundary as a polygon
 
 ### Raster
 
 Raster data stores space as a grid of cells.
 
-Each cell holds a value.
+Each cell holds one value.
 
 Examples:
 
@@ -85,21 +105,32 @@ Examples:
 - rainfall
 - land-cover class
 
-You do not need to master this immediately. You just need to know that spatial data can be stored in more than one way, and the storage choice affects what questions are easy to ask.
+You do not need to master the distinction yet. The important idea is that storage format affects what questions are easy to ask.
 
-## Why Layers Matter
+## 4. Why Layers Matter
 
-Suppose you want to know which schools are flood-prone.
+Suppose we want to know which schools are flood-prone.
 
-You might combine:
+We might combine:
 
 - a school locations layer
 - a floodplain layer
 - an elevation layer
 
-The power is not in any one layer alone. It is in asking questions across layers.
+No one layer answers the question alone. The answer comes from relating them.
 
-That is why spatial analysis is so useful.
+That is why spatial analysis is so powerful. It lets us ask questions across layers, not just within one map.
+
+## 5. A Good First Reading Habit
+
+When you see a map in this book, ask:
+
+1. What does the map locate?
+2. What layer or layers are being shown?
+3. Is the data stored as shapes or as a grid?
+4. What question would this representation make easy to answer?
+
+That habit will help you read maps as data, not just as illustrations.
 
 ## If This Gets Hard, Focus On
 

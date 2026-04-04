@@ -38,6 +38,20 @@ math-prerequisites-note: Raster concepts (Model 7, 33). Matrix operations (basic
   We'll introduce convolution and kernel operations from first principles.
 ---
 
+## Before You Start
+
+**You should know**  
+That a raster is a grid of values, and that those values can be combined cell by cell or compared across neighbourhoods.
+
+**You will learn**  
+How map algebra organizes raster operations, why focal kernels matter, and how simple raster arithmetic powers many larger analyses.
+
+**Why this matters**  
+Suitability mapping, smoothing, edge detection, change analysis, and many terrain calculations are all versions of raster math.
+
+**If this gets hard, focus on...**  
+The distinction between local operations and neighbourhood operations. That one split carries a lot of the chapter.
+
 
 In the 1960s, landscape architect Ian McHarg developed a technique for siting infrastructure through ecologically sensitive terrain: print multiple constraint maps on transparent acetate sheets — slope, floodplain, habitat, farmland — and stack them over a light table. The darkest areas, where the most constraints overlapped, were the least suitable. The light areas were the windows of opportunity. McHarg called it "Design with Nature" and it became the conceptual foundation of modern GIS suitability analysis. What he did manually with acetate sheets, a modern GIS does with raster arithmetic in milliseconds.
 

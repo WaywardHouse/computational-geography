@@ -38,6 +38,20 @@ math-prerequisites-note: Point-in-polygon (Model 29). Line intersection (geometr
   algorithms.
 ---
 
+## Before You Start
+
+**You should know**  
+That polygons represent areas, and that set ideas like overlap, union, and exclusion can be applied to space.
+
+**You will learn**  
+How polygon intersection, union, and difference are built from line intersections, point inclusion, and careful traversal of boundaries.
+
+**Why this matters**  
+Overlay is one of the most powerful operations in GIS because it lets us ask compound where-questions across multiple layers at once.
+
+**If this gets hard, focus on...**  
+The big picture first: overlay is just set logic applied to polygons.
+
 
 After the 2013 Alberta floods, the provincial government faced a spatial question that was simple to state and complex to compute: which properties were inside the floodway (where reconstruction was prohibited), which were in the flood fringe (where reconstruction was permitted with conditions), and which in each case were already developed versus vacant? The answer required intersecting four polygon layers: the floodway boundary, the flood fringe boundary, municipal parcel boundaries, and existing land-use zoning. The result of that intersection — a new set of polygons carrying attributes inherited from all four input layers — was the map that determined whether individual landowners would be bought out, required to elevate, or left undisturbed.
 
@@ -146,7 +160,7 @@ $$t = \frac{(Q_1 - P_1) \times (P_2 - P_1)}{(P_2 - P_1) \times (Q_2 - Q_1)}$$
 
 Where $\times$ is 2D cross product: $(x_1, y_1) \times (x_2, y_2) = x_1 y_2 - y_1 x_2$
 
-**Intersection exists if:** &#36;0 \leq s \leq 1$ AND &#36;0 \leq t \leq 1$
+**Intersection exists if:** $0 \leq s \leq 1$ AND $0 \leq t \leq 1$
 
 **Intersection point:**
 

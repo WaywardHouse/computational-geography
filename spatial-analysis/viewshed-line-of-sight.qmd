@@ -40,6 +40,20 @@ math-prerequisites-note: Digital elevation models (Model 7-9). Raster interpolat
   from scratch.
 ---
 
+## Before You Start
+
+**You should know**  
+That terrain can block sight lines, and that a DEM can represent the elevations needed to test visibility.
+
+**You will learn**  
+How line-of-sight is tested across terrain, why observer and target height matter, and how a viewshed turns many visibility tests into one map.
+
+**Why this matters**  
+Viewshed analysis supports fire detection, communications planning, surveillance, landscape assessment, and many terrain-based design questions.
+
+**If this gets hard, focus on...**  
+The physical picture first: draw a straight line from observer to target and ask whether terrain rises above it anywhere in between.
+
 
 The fire lookout towers that dot the ridges of western North America were placed, before any of them were built, by surveyors who climbed candidate peaks and looked. They were searching for locations that could see the greatest area of forested slope with the fewest blind spots — natural terrain convexities or intervening ridges that would hide a smoke column from view until it was too large to suppress. That process of visual survey, repeated at hundreds of sites across BC, Alberta, Montana, and Idaho, is now done in an afternoon using a DEM and a viewshed algorithm. The mathematics is the same; the speed is not.
 
@@ -227,30 +241,30 @@ Check visibility of cells along row 2 (eastward from observer).
 
 Ground elevation: 20m  
 Horizontal distance: $d = 1$ cell = 30m (assume 30m cell size)  
-Elevation difference: &#36;20 - 20 = 0$ m  
+Elevation difference: $20 - 20 = 0$ m  
 Angle: $\alpha = \arctan(0/30) = 0°$
 
 **Visible** (no obstruction yet)  
-Max angle: &#36;0°$
+Max angle: $0^\circ$
 
 **Cell (2,4):** 2 cells east
 
 Ground elevation: 22m  
 Distance: $d = 2 \times 30 = 60$ m  
-Elevation difference: &#36;22 - 20 = 2$ m  
+Elevation difference: $22 - 20 = 2$ m  
 Angle: $\alpha = \arctan(2/60) = 1.91°$
 
-**Compare to max angle:** &#36;1.91° > 0°$ → **Visible**  
-Update max angle: &#36;1.91°$
+**Compare to max angle:** $1.91^\circ > 0^\circ$ → **Visible**  
+Update max angle: $1.91^\circ$
 
 **Cell (3,3):** 1 cell southeast
 
 Ground elevation: 18m  
 Distance: $d = \sqrt{30^2 + 30^2} = 42.4$ m  
-Elevation difference: &#36;18 - 20 = -2$ m  
+Elevation difference: $18 - 20 = -2$ m  
 Angle: $\alpha = \arctan(-2/42.4) = -2.70°$
 
-**Compare to max in SE direction:** Assume max was &#36;0°$ (flat)  
+**Compare to max in SE direction:** Assume max was $0^\circ$ (flat)  
 $-2.70° < 0°$ → **Not visible** (below horizon)
 
 **Continue for all cells...**
@@ -722,7 +736,7 @@ $$z_0 + t(z_1 - z_0) = z_{\text{terrain}}$$
 
 $$t = \frac{z_{\text{terrain}} - z_0}{z_1 - z_0}$$
 
-**If &#36;0 < t < 1$:** Ray intersects terrain → blocked  
+**If $0 < t < 1$:** Ray intersects terrain → blocked  
 **If $t < 0$ or $t > 1$:** No intersection → clear
 
 ### Elevation Angle

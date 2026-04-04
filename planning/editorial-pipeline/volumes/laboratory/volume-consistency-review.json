@@ -1,0 +1,24 @@
+{
+  "stage": "volume_consistency_review",
+  "metadata": {
+    "volume_id": "laboratory",
+    "volume_title": "Computational Geography Laboratory",
+    "chapter_count": 39
+  },
+  "consistency_review": {
+    "status": "pending",
+    "outcome": "pending",
+    "summary": "",
+    "checks": {
+      "language_band_consistency": "pending",
+      "pedagogical_consistency": "pending",
+      "notation_consistency": "pending",
+      "design_consistency": "pending"
+    },
+    "blocking_issues": [],
+    "repair_actions": []
+  },
+  "completion": {
+    "volume_complete": false
+  }
+}

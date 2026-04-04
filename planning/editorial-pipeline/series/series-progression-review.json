@@ -1,0 +1,24 @@
+{
+  "stage": "series_progression_review",
+  "metadata": {
+    "series_title": "Computational Geography",
+    "volume_count": 3,
+    "chapter_count": 142
+  },
+  "progression_review": {
+    "status": "pending",
+    "outcome": "pending",
+    "summary": "",
+    "checks": {
+      "progression_coherence": "pending",
+      "language_progression": "pending",
+      "reader_fairness": "pending",
+      "design_progression": "pending"
+    },
+    "blocking_issues": [],
+    "repair_actions": []
+  },
+  "completion": {
+    "series_complete": false
+  }
+}

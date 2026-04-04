@@ -1,0 +1,66 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/digital-elevation-models-as-functions.qmd",
+    "chapter_title": "Digital Elevation Models as Functions",
+    "chapter_subtitle": "Representing terrain as a function of two variables \u2014 from continuous surfaces",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already strong, but it benefited from a small editorial pass to keep the function notation verbally grounded for early readers.",
+    "issues": [
+      "The core equation needed slightly more verbal framing so notation did not become abstract too early."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass with a small but important clarification around reading z = f(x, y) in words.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added explicit verbal scaffolding for the central two-variable function notation."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter remains mathematically correct and conceptually well paced, and the notation is now more beginner-safe.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No separate repair pass was required after the editorial adjustment.",
+    "actions_taken": [
+      "Confirmed that the chapter's main notation is now verbally interpreted at first use."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's DEM table, worked example, and interactive grid remain well matched to the learning goal.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support at the chapter's main notation hinge."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

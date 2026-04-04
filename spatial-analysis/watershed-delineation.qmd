@@ -40,6 +40,20 @@ math-prerequisites-note: Digital elevation models (Models 7-9). Gradient and ste
   from scratch.
 ---
 
+## Before You Start
+
+**You should know**  
+That water tends to flow downhill, and that a DEM can represent the elevation patterns controlling that flow.
+
+**You will learn**  
+How flow direction, flow accumulation, stream extraction, and watershed boundaries are computed from terrain data.
+
+**Why this matters**  
+Watersheds are one of the most important organizing units in hydrology, ecology, water quality, and flood analysis.
+
+**If this gets hard, focus on...**  
+The simplest chain in the chapter: water goes downhill, many cells feed a few channels, and all cells that drain to one outlet belong to one watershed.
+
 
 Water quality managers in the Athabasca River basin need to answer a question that seems simple but requires a surprising amount of spatial computation: which parcels of land — which farms, which industrial sites, which municipalities — drain into this reach of river? The answer determines whose effluent license applies, whose operations require monitoring, and whose land practices affect the downstream fishery. Before digital elevation models and flow-routing algorithms, watershed boundaries were traced by hand on topographic maps by experienced technicians. Today a GIS can delineate hundreds of nested watersheds in a large basin automatically from a DEM, consistently and reproducibly, in minutes.
 

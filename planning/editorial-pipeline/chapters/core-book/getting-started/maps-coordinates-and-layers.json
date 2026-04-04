@@ -1,0 +1,71 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "getting-started/maps-coordinates-and-layers.qmd",
+    "chapter_title": "Maps, Coordinates, and Layers",
+    "chapter_subtitle": "A first look at spatial thinking as data rather than just pictures",
+    "part_title": "Getting Started",
+    "difficulty": ""
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The original draft was clear but slightly too compressed. It needed stronger transitions from everyday maps to structured spatial data and a more explicit explanation of why layers matter.",
+    "issues": [
+      "Needed a fuller bridge from maps as images to maps as data.",
+      "Raster and vector needed gentler placement inside the larger idea of representation.",
+      "The chapter needed a clearer reading habit for later map-based chapters."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Rewrote the full chapter to center coordinates, layers, and representation choices in a more gradual beginner-safe progression.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Clarified x and y notation on first use.",
+      "Added a reading routine for maps as data."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces core GIS ideas with intuition before terminology and avoids abrupt abstraction.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No additional repair work was required after the rewrite.",
+    "actions_taken": [
+      "Confirmed that vector and raster are framed as storage choices, not memorization traps."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter leans on conceptual explainers and concrete examples rather than unnecessary graphics, which is appropriate here.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Added a layered-question framing that anticipates later GIS work.",
+      "Added a first-reading habit for map interpretation."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

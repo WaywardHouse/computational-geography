@@ -1,0 +1,58 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "laboratory",
+    "chapter_path": "laboratory/transportation-network-analysis.qmd",
+    "chapter_title": "Transportation Network Analysis",
+    "chapter_subtitle": "Graph theory, shortest paths, and the mathematics of how cities move",
+    "part_title": "Computational Geography Laboratory",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "pending",
+    "summary": "",
+    "issues": [],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "pending",
+    "summary": "",
+    "full_text_rewritten": false,
+    "editor_notes": []
+  },
+  "qa_review": {
+    "status": "pending",
+    "outcome": "pending",
+    "summary": "",
+    "checks": {
+      "notation_first_use": "pending",
+      "intuition_before_formalism": "pending",
+      "mathematical_correctness": "pending",
+      "conceptual_pacing": "pending",
+      "abstraction_control": "pending",
+      "beginner_accessibility": "pending"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "pending",
+    "summary": "",
+    "actions_taken": []
+  },
+  "design_review": {
+    "status": "pending",
+    "outcome": "pending",
+    "summary": "",
+    "checks": {
+      "visualization_leverage": "pending",
+      "explainer_leverage": "pending",
+      "interpretive_support": "pending"
+    },
+    "improvements_made": []
+  },
+  "completion": {
+    "chapter_complete": false,
+    "ready_for_volume_review": false
+  }
+}

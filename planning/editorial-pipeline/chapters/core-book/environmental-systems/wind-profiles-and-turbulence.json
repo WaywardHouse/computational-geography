@@ -1,0 +1,69 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/wind-profiles-and-turbulence.qmd",
+    "chapter_title": "Wind Profiles and Atmospheric Turbulence",
+    "chapter_subtitle": "The logarithmic law and how roughness controls momentum transfer",
+    "part_title": "Environmental Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter's technical structure was good, but several derivation lines contained malformed math and one sentence-level prose error needed repair.",
+    "issues": [
+      "Broken math markup appeared in the log-law derivation and worked example.",
+      "The introduction contained a minor article error that disrupted polish."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that repaired the derivation notation and improved sentence-level polish while preserving the chapter's strong physical framing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Fixed malformed equations in the derivation and worked example.",
+      "Repaired a small prose error in the opening explanation."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter is now mathematically clean and remains conceptually clear for core-book readers.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The identified notation and prose issues were repaired during the pass.",
+    "actions_taken": [
+      "Corrected malformed log-law derivation lines.",
+      "Corrected the article error in the opening explanation."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's physical picture, roughness comparisons, and turbine-height examples continue to do strong explanatory work.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the derivation steps students follow."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

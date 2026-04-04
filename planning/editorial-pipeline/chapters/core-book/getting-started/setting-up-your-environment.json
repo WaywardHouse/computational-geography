@@ -1,0 +1,70 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "getting-started/setting-up-your-environment.qmd",
+    "chapter_title": "Setting Up Your Environment",
+    "chapter_subtitle": "Getting your computer ready for notebooks, code, GIS, and lab work on Windows, macOS, Linux, and Raspberry Pi",
+    "part_title": "Getting Started",
+    "difficulty": ""
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The original chapter was useful but overlong for its place in the core-book opener. It needed tighter pacing, clearer prioritization, and more reassurance for beginners.",
+    "issues": [
+      "Too much platform detail arrived before the reader had a stable mental model.",
+      "The chapter needed stronger emphasis on minimum viable setup.",
+      "The sequence needed to privilege recoverability over completeness."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Rewrote the full chapter into a shorter, clearer setup guide focused on a stable beginner-safe environment across Windows, macOS, Linux, and Raspberry Pi.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Moved the minimum viable setup earlier.",
+      "Kept platform instructions practical and recoverable."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The revised chapter is more proportional to its role in the core-book opening and remains technically sound.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No additional repair pass was needed after the rewrite.",
+    "actions_taken": [
+      "Confirmed that the chapter now foregrounds one-editor, one-Python, one-environment logic."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now uses ordered setup sequences and folder examples as its primary explainers, which is the right design choice here.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support with a clearer install order and sanity-check section."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

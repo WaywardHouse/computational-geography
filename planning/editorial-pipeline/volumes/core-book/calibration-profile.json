@@ -1,0 +1,29 @@
+{
+  "stage": "calibration_profile",
+  "volume_id": "core-book",
+  "volume_title": "Computational Geography: Core Book",
+  "chapter_count": 40,
+  "reader_profile": "First-time readers on the flagship modelling path.",
+  "language_target": "Approximate Grade 10 readability across the series, with controlled increases in technical density where the series progression supports it.",
+  "complexity_position": "Entry point. Grade 10 language with gentle progression toward early undergraduate technical writing.",
+  "pedagogy_priorities": [
+    "Lead with intuition before formalism.",
+    "Define notation on first use.",
+    "Avoid abrupt abstraction and long theorem-like stretches.",
+    "Keep transitions explicit when moving from story to model to equation."
+  ],
+  "required_rules": [
+    "Explain notation on first use.",
+    "Introduce concepts with intuition before formalism whenever possible.",
+    "Preserve mathematical correctness.",
+    "Improve transitions and conceptual pacing.",
+    "Avoid abrupt abstraction in early volumes.",
+    "Retain explanatory framing in later volumes.",
+    "Do not skip QA."
+  ],
+  "design_expectations": [
+    "Every major concept should have an explainer, diagram, worked example, or visualization where it clarifies reasoning.",
+    "Use visual aids to reduce abstraction, not decorate the page."
+  ],
+  "status": "active"
+}

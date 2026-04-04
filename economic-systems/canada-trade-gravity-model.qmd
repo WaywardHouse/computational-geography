@@ -63,6 +63,10 @@ Alberta's position in the gravity framework, and what the 2025 US tariff regime
 implies for bilateral flows when viewed through a model that has been calibrated
 over decades.
 
+## Before You Start
+
+This chapter borrows the language of physics, but the model itself is economic. Here $T_{ij}$ means trade from place $i$ to place $j$, $M_i$ and $M_j$ mean economic size, and $d_{ij}$ means distance between them. The important intuition comes first: larger economies tend to trade more, and more distant economies tend to trade less. The equation simply turns that intuition into something we can estimate and compare.
+
 ---
 
 ## 2. The Gravity Equation
@@ -133,9 +137,9 @@ for equivalent international pairs.
 
 Canada and the United States together account for the world's largest bilateral
 trade relationship by value. In 2023, Canadian goods exports to the United States
-reached approximately CAD&#36;630 billion, with imports of roughly CAD&#36;470 billion
+reached approximately CAD$630 billion, with imports of roughly CAD$470 billion
 in goods returning northward, for a two-way goods trade total approaching
-CAD&#36;1.4 trillion. This is larger than any other bilateral goods trade pair in
+CAD$1.4 trillion. This is larger than any other bilateral goods trade pair in
 the world, exceeding even US-China and US-Mexico relationships when measured
 in value terms.
 
@@ -181,7 +185,7 @@ different commodity classifications.
 }'></div>
 ```
 
-*Ontario's dominance reflects both GDP size and geographic proximity to Detroit, Buffalo, and the US manufacturing corridor. Alberta's figure of CAD&#36;175B substantially understates total US-bound flows — crude oil pipeline exports add another CAD&#36;130B+ that does not appear in goods-trade statistics.*
+*Ontario's dominance reflects both GDP size and geographic proximity to Detroit, Buffalo, and the US manufacturing corridor. Alberta's figure of CAD$175B substantially understates total US-bound flows — crude oil pipeline exports add another CAD$130B+ that does not appear in goods-trade statistics.*
 
 ---
 
@@ -276,9 +280,9 @@ This apparent anomaly has several explanations, each of which illuminates a
 different aspect of the gravity model's assumptions.
 
 First and most importantly, the standard goods-trade statistics exclude pipeline
-flows. Alberta's crude oil exports to the United States — roughly CAD&#36;130 billion
+flows. Alberta's crude oil exports to the United States — roughly CAD$130 billion
 per year — move via pipeline and are classified as energy trade rather than goods
-trade. Natural gas pipeline exports add another CAD&#36;25 billion or so. When these
+trade. Natural gas pipeline exports add another CAD$25 billion or so. When these
 are included, Alberta's total economic exchange with the United States is
 substantially larger and aligns much more closely with gravity model predictions.
 The apparent underperformance is largely a statistical artefact of commodity

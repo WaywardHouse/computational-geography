@@ -39,6 +39,20 @@ math-prerequisites-note: Pythagorean theorem. Distance formula from coordinate g
   from scratch.
 ---
 
+## Before You Start
+
+**You should know**  
+How distance is measured between points, and that many geographic rules are really proximity rules.
+
+**You will learn**  
+How buffers are defined around points, lines, and polygons, and why the same distance idea appears in both raster distance fields and vector offset geometry.
+
+**Why this matters**  
+Buffers support environmental setbacks, access analysis, service areas, exposure zones, and countless legal and planning workflows.
+
+**If this gets hard, focus on...**  
+The simplest sentence in the chapter: a buffer is every location within distance $d$ of a feature.
+
 
 Alberta's Water Act specifies a 30-metre setback from any permanent or intermittent watercourse for most development and land disturbance activities. BC's Riparian Areas Regulation sets a 30-metre Streamside Protection and Enhancement Area around fish-bearing streams. These legal instruments work, at the level of individual permits, as polygon intersection problems: does the proposed development boundary overlap the 30-metre buffer polygon of any regulated watercourse? The buffer is not metaphorical — it is a precisely computed geometric object, and its computational properties determine whether the regulatory test is tractable for the thousands of permit applications processed annually.
 
@@ -129,7 +143,7 @@ for i = 0 to n-1:
     add (x, y) to buffer polygon
 ```
 
-Typically $n = 32$ or &#36;64$ points for smooth circle.
+Typically $n = 32$ or $64$ points for a smooth circle.
 
 ### Line Segment Buffer
 
@@ -616,7 +630,7 @@ Buffer around rivers = union of all individual stream buffers.
 Buffers overlap → merged area may not be simple sum of individual buffers.
 
 **Example:** Two points 60m apart, each with 50m buffer:
-- Individual areas: &#36;2 \times \pi(50^2) = 15,708$ m²
+- Individual areas: $2 \times \pi(50^2) = 15{,}708$ m²
 - Merged area: < 15,708 m² (overlap region counted once)
 
 **Solution:** Use union operation, calculate area from merged polygon.

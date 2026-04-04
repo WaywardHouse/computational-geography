@@ -45,6 +45,10 @@ The relationship between urbanisation and flooding is not mysterious; it follows
 
 Urban flood modelling quantifies this relationship. The rational method translates impervious fraction, catchment area, and design rainfall intensity into a peak discharge number. The SCS Curve Number method tracks runoff volume across mixed land covers. Hydrograph routing follows that water pulse as it moves through pipe networks, detention basins, and channels. Green infrastructure — bioswales, permeable pavement, rain gardens — works by recovering some of the infiltration and storage that development destroyed. This model builds all of that machinery from first principles, starting with a single parking lot and working outward to a full urban watershed.
 
+## Before You Start
+
+This chapter mixes three related but different ideas: runoff volume, peak discharge, and storage. We will name them separately so they do not blur together. Usually $Q$ means discharge, $P$ means rainfall depth, $CN$ means curve number, and $t_c$ means time of concentration. If you keep asking "am I measuring water amount, water rate, or water travel time?" the modelling steps stay clear.
+
 ## 1. The Question
 
 How much will this parking lot increase downstream flooding?
@@ -256,7 +260,7 @@ $$V_{required} = (Q_{in} - Q_{out}) \times t_d$$
 Where:
 - $Q_{in}$ = post-development peak
 - $Q_{out}$ = allowable release rate (= $Q_{pre}$)
-- $t_d$ = detention time (typically &#36;2-3 \times t_c$)
+- $t_d$ = detention time (typically $2-3 \times t_c$)
 
 **More accurate (routing):**
 
@@ -433,7 +437,7 @@ Top area (with 3:1 side slopes): ~1200 m² (35 × 35 m)
 
 Design to capture first 25 mm (water quality storm):
 
-Impervious area: &#36;1.5 + 2.5 = 4$ ha
+Impervious area: $1.5 + 2.5 = 4$ ha
 
 $$A_{bio} = \frac{40000 \times 0.025 \times 0.9}{0.35 \times 0.9}$$
 
@@ -702,9 +706,9 @@ Regulatory limit on pollutant loading.
 
 **Cost comparison:**
 
-Traditional detention: &#36;50-150/m³ storage  
-Bioretention: &#36;200-400/m²  
-Permeable pavement: &#36;25-75/m² premium over conventional
+Traditional detention: $50-150/m^3$ storage  
+Bioretention: $200-400/m^2$  
+Permeable pavement: $25-75/m^2$ premium over conventional
 
 **Benefits beyond storage:**
 - Water quality treatment
@@ -736,7 +740,7 @@ Treat 90% of average annual rainfall.
 
 Some jurisdictions require GI for all new development.
 
-Philadelphia: Green City, Clean Waters (&#36;2 billion GI program)
+Philadelphia: Green City, Clean Waters ($2 billion GI program)
 
 ---
 

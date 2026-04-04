@@ -1,0 +1,70 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "getting-started/what-makes-a-model-computational.qmd",
+    "chapter_title": "What Makes a Model Computational",
+    "chapter_subtitle": "Why computers matter even when the real idea is still geographic",
+    "part_title": "Getting Started",
+    "difficulty": ""
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The original draft had the right thesis but needed a clearer distinction between model and tool and a more explicit explanation of when computers become necessary.",
+    "issues": [
+      "Needed stronger conceptual separation between the model and the computer.",
+      "Needed smoother transitions across repetition, simulation, and data handling.",
+      "Needed a more useful reader-facing diagnostic routine."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Rewrote the full chapter to keep the geographic idea central while explaining exactly what the computer adds.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Made the model-versus-tool distinction explicit.",
+      "Added a practical diagnostic question sequence."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The revised chapter is clear, concept-first, and appropriate for first-time readers entering computational work.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No further repair was needed after the rewrite.",
+    "actions_taken": [
+      "Confirmed that the chapter stays conceptually grounded instead of becoming tool-centric."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses examples and classification of tasks as explainers, which is the right pedagogical design for this topic.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved the chapter's interpretive scaffolding with a diagnostic reading routine."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

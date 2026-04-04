@@ -3,7 +3,7 @@ title: "Gradient, Aspect, and Direction of Steepest Descent"
 subtitle: "Partial derivatives in action on terrain surfaces"
 date: 2026-02-26
 type: chapter
-book-part: computational-geography-foundations
+book-part: foundations
 book-part-title: "Foundations of Computational Geography"
 chapter-number: 9
 section-code: C

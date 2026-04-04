@@ -39,6 +39,20 @@ math-prerequisites-note: Basic statistics (mean, standard deviation). Histograms
   basics.
 ---
 
+## Before You Start
+
+**You should know**  
+That raster values can be continuous, and that turning them into categories requires drawing boundaries that are not already present in the data.
+
+**You will learn**  
+How raster classification schemes work, what breakpoint choices imply, and why classification is always partly an analytical decision rather than a neutral conversion.
+
+**Why this matters**  
+Much of practical GIS depends on turning continuous measurements into actionable categories like slope classes, risk classes, and land-cover types.
+
+**If this gets hard, focus on...**  
+The central question: where are we choosing to place the boundaries between classes, and why?
+
 
 Canada's national land cover dataset — 30-metre resolution, updated roughly every five years from Landsat imagery — classifies every pixel in the country into one of seventeen categories: water, wetland, cropland, urban, treed upland, and so on. The classification is the product of a decision process applied to hundreds of millions of pixels, each represented by a stack of spectral reflectance values in multiple bands. The output — discrete categories on a continuous landscape — is what land managers, carbon accountants, and biodiversity assessors actually work with. But the categories are not in the data; they are imposed on it. And the choice of where to draw the boundaries between classes has a larger effect on the results than most users appreciate.
 

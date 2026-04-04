@@ -1,0 +1,67 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+    "chapter_title": "Vegetation Indices and Remote Sensing",
+    "chapter_subtitle": "NDVI, EVI, and monitoring photosynthesis from space",
+    "part_title": "Environmental Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already strong and did not need structural rewriting. This pass confirmed that its remote-sensing explanation remains accessible and well paced for the core-book volume.",
+    "issues": [
+      "No blocking defects were found; the review focused on consistency with the volume calibration profile."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass without major textual changes because the chapter already combined physics, biology, and observation clearly.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Confirmed that NDVI and EVI are introduced through intuition before algebraic detail.",
+      "Confirmed that notation is explained in context."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter passes QA as written and remains clear, technically correct, and pedagogically appropriate for the core-book reader.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No repair pass was needed after review.",
+    "actions_taken": [
+      "Confirmed consistency with the volume calibration profile."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses strong explainers, including spectral contrast, examples, and time-series interpretation, to support first-time learners.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Preserved the chapter's strong interpretive framing between leaf optics and satellite indices."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

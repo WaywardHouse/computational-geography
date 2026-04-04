@@ -1,0 +1,66 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/temperature-moisture-gradients.qmd",
+    "chapter_title": "Temperature and Moisture Gradients",
+    "chapter_subtitle": "Atmospheric stability, inversions, and the vertical structure of humidity",
+    "part_title": "Environmental Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already strong, but a worked example contained malformed temperature notation that needed repair.",
+    "issues": [
+      "Broken math markup appeared in the parcel-versus-environment comparison example."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass with targeted notation repair while preserving the chapter's strong stability and lapse-rate framing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Fixed malformed temperature notation in the worked example."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter remains technically sound and pedagogically strong, with the worked-example notation repaired.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The notation issue was repaired during the pass.",
+    "actions_taken": [
+      "Corrected the malformed parcel and environment temperature expressions."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's inversion examples, stability comparisons, and moisture-profile explanations remain effective explainers.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning a key worked-example comparison."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/logistic-growth-and-equilibrium.qmd",
+    "chapter_title": "Logistic Growth and Equilibrium",
+    "chapter_subtitle": "When growth slows as it approaches a limit \u2014 feedback, carrying capacity,",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "2"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter's conceptual pacing was already good, but several malformed expressions would have distracted readers and weakened trust in the equilibrium discussion.",
+    "issues": [
+      "Broken math markup appeared in the brake-term interpretation, equilibrium steps, and Euler table.",
+      "A few stability statements needed cleaner notation and wording."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that retained the chapter's strong intuition-first arc while repairing notation and stability-language defects.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Fixed malformed expressions around the logistic brake term.",
+      "Kept the stability explanation verbal as well as symbolic."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now passes QA with clearer notation, mathematically correct examples, and appropriate conceptual pacing.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The identified notation defects were repaired during the editorial pass.",
+    "actions_taken": [
+      "Corrected malformed table and derivation expressions.",
+      "Clarified verbal interpretation around equilibrium and overshoot."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's phase plot, Euler table, and S-curve interpretation continue to do strong explanatory work.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the symbolic steps readers rely on."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

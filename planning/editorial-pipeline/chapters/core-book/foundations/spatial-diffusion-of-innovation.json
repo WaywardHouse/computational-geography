@@ -1,0 +1,68 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/spatial-diffusion-of-innovation.qmd",
+    "chapter_title": "Spatial Diffusion of Innovation",
+    "chapter_subtitle": "How ideas, diseases, and technologies spread across networks over time",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "4"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already pedagogically strong; the pass mainly addressed a small wording defect and confirmed that the discrete-time diffusion framing stayed readable.",
+    "issues": [
+      "A duplicated phrase in the description weakened polish.",
+      "The chapter needed a senior-editor check to keep network language fair to first-time readers."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass with light wording cleanup and confirmation that the diffusion story remains intuition-first.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Corrected duplicated wording in the description.",
+      "Preserved the chapter's strong historical and conceptual framing."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter remains technically sound and approachable despite its network and discrete-time content.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The identified wording issue was repaired in the editorial pass.",
+    "actions_taken": [
+      "Replaced the duplicated phrase in the description."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter uses the staged diffusion explanation, network model, and worked example effectively.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Preserved the chapter's strong two-stage diffusion explainer."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

@@ -59,7 +59,7 @@ Keep the physical picture in mind: surfaces drag on moving air, so wind is slowe
 
 Wind turbines in Alberta's Pincher Creek area are mounted on towers 80–120 metres tall — not for scenic reasons but because wind speed at 100 metres is typically 25–40% higher than at 10 metres. That increase translates directly into energy: wind power scales as the cube of wind speed, so a 30% increase in speed nearly doubles the available power. The tower height is an economic optimisation grounded in atmospheric physics — specifically in the logarithmic wind profile that describes how wind speed increases with height in the lowest kilometre of the atmosphere.
 
-The logarithmic profile arises from a elegant piece of dimensional analysis. Near the ground, turbulent eddies are the dominant mechanism of momentum transfer. The relevant length scale for those eddies is simply the height above the surface; the relevant velocity scale is the friction velocity, a measure of the surface stress. Dimensional analysis then requires that wind speed increase logarithmically with height — and experimental measurements confirm this with remarkable precision over a wide range of surface types. The roughness length — the height at which the logarithmic profile theoretically reaches zero — encodes everything about the surface: it is an order of magnitude smaller over a smooth water surface than over a city, and that difference propagates through the entire profile. This model derives the log law from first principles, introduces the concept of stability corrections, and shows how surface roughness controls the wind resource at turbine height.
+The logarithmic profile arises from an elegant piece of dimensional analysis. Near the ground, turbulent eddies are the dominant mechanism of momentum transfer. The relevant length scale for those eddies is simply the height above the surface; the relevant velocity scale is the friction velocity, a measure of the surface stress. Dimensional analysis then requires that wind speed increase logarithmically with height — and experimental measurements confirm this with remarkable precision over a wide range of surface types. The roughness length — the height at which the logarithmic profile theoretically reaches zero — encodes everything about the surface: it is an order of magnitude smaller over a smooth water surface than over a city, and that difference propagates through the entire profile. This model derives the log law from first principles, introduces the concept of stability corrections, and shows how surface roughness controls the wind resource at turbine height.
 
 ## 1. The Question
 
@@ -172,7 +172,7 @@ $$u(z) = \frac{u_*}{k} \ln(z) + C$$
 
 **Boundary condition:** At $z = z_0$, $u = 0$ (roughness length is where wind extrapolates to zero).
 
-$&#36;0 = \frac{u_*}{k} \ln(z_0) + C \implies C = -\frac{u_*}{k}\ln(z_0)$$
+$$0 = \frac{u_*}{k} \ln(z_0) + C \implies C = -\frac{u_*}{k}\ln(z_0)$$
 
 **Final form:**
 
@@ -246,11 +246,11 @@ From log law:
 
 $$u(10) = \frac{u_*}{k} \ln\left(\frac{10}{z_0}\right)$$
 
-$&#36;8 = \frac{u_*}{0.41} \ln\left(\frac{10}{0.03}\right)$$
+$$8 = \frac{u_*}{0.41} \ln\left(\frac{10}{0.03}\right)$$
 
-$&#36;8 = \frac{u_*}{0.41} \ln(333.3)$$
+$$8 = \frac{u_*}{0.41} \ln(333.3)$$
 
-$&#36;8 = \frac{u_*}{0.41} \times 5.81$$
+$$8 = \frac{u_*}{0.41} \times 5.81$$
 
 $$u_* = \frac{8 \times 0.41}{5.81} = 0.565 \text{ m/s}$$
 
@@ -264,9 +264,9 @@ $$= 1.378 \times 4.20 = 5.79 \text{ m/s}$$
 
 **(c) Height for 12 m/s**
 
-$&#36;12 = \frac{0.565}{0.41} \ln\left(\frac{z}{0.03}\right)$$
+$$12 = \frac{0.565}{0.41} \ln\left(\frac{z}{0.03}\right)$$
 
-$&#36;12 = 1.378 \ln\left(\frac{z}{0.03}\right)$$
+$$12 = 1.378 \ln\left(\frac{z}{0.03}\right)$$
 
 $$\ln\left(\frac{z}{0.03}\right) = \frac{12}{1.378} = 8.71$$
 
@@ -669,7 +669,7 @@ $$\int du = \int \frac{u_*}{k}\frac{dz}{z}$$
 
 $$u = \frac{u_*}{k}\ln(z) + C$$
 
-The &#36;1/z$ term on the right forces a logarithm on the left.
+The $1/z$ term on the right forces a logarithm on the left.
 
 ---
 

@@ -1,0 +1,68 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/net-radiation-and-albedo.qmd",
+    "chapter_title": "Net Radiation and Albedo",
+    "chapter_subtitle": "Surface energy balance \u2014 how much solar energy stays at the ground?",
+    "part_title": "Environmental Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was structurally strong but contained malformed math in the albedo and fourth-power refresher examples.",
+    "issues": [
+      "Broken math markup appeared in worked numerical examples.",
+      "A few explanatory examples needed cleaner symbolic presentation."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that repaired numerical examples while preserving the chapter's clear four-stream energy balance structure.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Fixed malformed worked-example equations.",
+      "Kept the chapter's intuition-first radiation bookkeeping."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter is now mathematically clean and remains pedagogically well structured for first-time learners.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The notation defects were repaired within the editorial pass.",
+    "actions_taken": [
+      "Corrected malformed equations in the absorbed-radiation and fourth-power sections."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's radiation-stream decomposition and worked examples remain strong teaching devices.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the numerical examples students follow."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

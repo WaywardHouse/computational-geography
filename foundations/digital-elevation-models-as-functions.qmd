@@ -84,6 +84,8 @@ Imagine standing at a point with coordinates $(x, y)$ measured in meters east an
 
 $$z = f(x, y)$$
 
+Read that aloud as: "elevation $z$ equals some function of horizontal position $(x, y)$." That verbal reading matters, because it keeps the notation tied to the landscape instead of turning it into abstraction too early.
+
 This is a **function of two variables**:
 - **Input:** A position $(x, y)$ in the horizontal plane
 - **Output:** Elevation $z$ at that position

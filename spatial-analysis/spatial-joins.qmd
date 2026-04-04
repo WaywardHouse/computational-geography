@@ -38,6 +38,20 @@ math-prerequisites-note: Point-in-polygon (Model 29). Distance calculations (Mod
   scratch.
 ---
 
+## Before You Start
+
+**You should know**  
+That ordinary joins match records by an ID, and that spatial data can also be matched by containment, intersection, or distance.
+
+**You will learn**  
+How spatial joins work, why proximity queries and containment queries differ, and how spatial indexing makes large joins tractable.
+
+**Why this matters**  
+Spatial joins are one of the main ways separate layers become one analysis-ready dataset.
+
+**If this gets hard, focus on...**  
+The core idea that a spatial join asks "which feature is related to this one by location?"
+
 
 When epidemiologists investigated the outbreak of cholera in London's Soho district in 1854, the key analytical step was linking two datasets that had no shared identifier: the locations of cholera deaths and the locations of water pumps. John Snow's famous dot map accomplished this visually — placing dots where people died and observing their spatial clustering around the Broad Street pump. A modern GIS would do it computationally, joining each death location to the nearest pump (a nearest-neighbour spatial join) and computing summary statistics by pump service area. Snow's map is celebrated as the birth of epidemiology; the underlying operation is a spatial join.
 

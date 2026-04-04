@@ -1,0 +1,66 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "spatial-analysis/spatial-joins.qmd",
+    "chapter_title": "Spatial Joins and Proximity Queries",
+    "chapter_subtitle": "Linking datasets by location \u2014 the foundation of spatial analysis",
+    "part_title": "Computational Spatial Analysis",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter's content was already strong, but it needed the standard onboarding block to make its transition from database joins to spatial joins more reader-safe.",
+    "issues": [
+      "The chapter opened without the standard onboarding block."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding support while preserving the chapter's strong conceptual arc from spatial predicates to indexing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now fits the core-book pacing better while remaining technically clear and correct.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The onboarding gap was repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses comparison between ordinary joins and spatial joins as an effective explainer, and the new onboarding block strengthens that entry point.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support at the chapter's entry point."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

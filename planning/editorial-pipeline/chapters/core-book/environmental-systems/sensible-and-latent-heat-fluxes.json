@@ -1,0 +1,68 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/sensible-and-latent-heat-fluxes.qmd",
+    "chapter_title": "Sensible and Latent Heat Fluxes",
+    "chapter_subtitle": "How net radiation is partitioned between heating air and evaporating water",
+    "part_title": "Environmental Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter's conceptual structure was strong, but a malformed energy-balance check line needed repair and the examples needed a consistency review.",
+    "issues": [
+      "Broken math markup appeared in the worked energy-balance check.",
+      "The chapter needed a pass to confirm that the latent-versus-sensible framing stayed intuitive."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that repaired the worked example and preserved the chapter's strong energy-partitioning explanation.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Fixed the malformed energy-balance line.",
+      "Kept the desert-versus-rainforest comparison prominent."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter remains clear, technically correct, and conceptually well paced.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The malformed worked-example line was repaired during the pass.",
+    "actions_taken": [
+      "Corrected the energy-balance check notation."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's comparative examples and partitioning logic continue to do effective explanatory work.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the worked budget check."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

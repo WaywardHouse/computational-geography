@@ -1,0 +1,66 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "spatial-analysis/map-algebra-focal-operations.qmd",
+    "chapter_title": "Map Algebra and Focal Operations",
+    "chapter_subtitle": "Cell-by-cell calculations and neighborhood analysis on rasters",
+    "part_title": "Computational Spatial Analysis",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already strong but needed the standard onboarding block so its shift into raster operation classes felt less abrupt.",
+    "issues": [
+      "The chapter opened without the standard onboarding block."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding support while preserving the chapter's strong raster-operations taxonomy.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters more gently for first-time readers and remains technically solid.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The onboarding gap was repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's local-focal-zonal-global structure is an excellent explainer and the revised opening makes it more accessible.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support at the chapter's entry point."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

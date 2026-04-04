@@ -1,0 +1,58 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "topic-libraries",
+    "chapter_path": "economic-systems/resource-supply-cost-curves.qmd",
+    "chapter_title": "Supply Cost Curves and Break-Even Prices",
+    "chapter_subtitle": "What It Actually Costs to Produce Oil \u2014 and Who Survives a Price Crash",
+    "part_title": "Economic Systems",
+    "difficulty": "3"
+  },
+  "inventory": {
+    "status": "pending",
+    "summary": "",
+    "issues": [],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "pending",
+    "summary": "",
+    "full_text_rewritten": false,
+    "editor_notes": []
+  },
+  "qa_review": {
+    "status": "pending",
+    "outcome": "pending",
+    "summary": "",
+    "checks": {
+      "notation_first_use": "pending",
+      "intuition_before_formalism": "pending",
+      "mathematical_correctness": "pending",
+      "conceptual_pacing": "pending",
+      "abstraction_control": "pending",
+      "beginner_accessibility": "pending"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "pending",
+    "summary": "",
+    "actions_taken": []
+  },
+  "design_review": {
+    "status": "pending",
+    "outcome": "pending",
+    "summary": "",
+    "checks": {
+      "visualization_leverage": "pending",
+      "explainer_leverage": "pending",
+      "interpretive_support": "pending"
+    },
+    "improvements_made": []
+  },
+  "completion": {
+    "chapter_complete": false,
+    "ready_for_volume_review": false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "foundations/linear-change-and-rate.qmd",
+    "chapter_title": "Linear Change and Rate",
+    "chapter_subtitle": "Slope as the fundamental measure of how things change through space and",
+    "part_title": "Foundations of Computational Geography",
+    "difficulty": "1"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was conceptually strong but contained several broken math lines that would confuse readers and disrupt trust in the derivation.",
+    "issues": [
+      "Malformed displayed equations appeared in intercept and worked-example algebra.",
+      "A few inline prompts needed cleaner notation for first-time readers."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass, repairing derivation markup and tightening a few explanatory lines while preserving the chapter's strong pacing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Fixed broken algebra displays.",
+      "Kept slope interpretation grounded in units and physical meaning."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now reads cleanly and remains mathematically correct, approachable, and well paced for the core-book sequence.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The repair work was folded into the main editorial pass.",
+    "actions_taken": [
+      "Corrected malformed equations in the derivations and refresher."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The worked examples and interactive line model remain effective explainers for this chapter's teaching goals.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the algebraic steps readers follow by hand."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

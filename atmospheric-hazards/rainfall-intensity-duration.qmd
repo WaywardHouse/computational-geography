@@ -47,6 +47,10 @@ IDF stands for Intensity-Duration-Frequency. An IDF curve answers the question a
 
 The challenge is that IDF curves are calibrated to the past. Climate change is already shifting extreme precipitation upward in many regions, meaning curves built on 20th-century data underestimate what 21st-century storms will deliver. Toronto's 2013 event was a preview: storms that once represented "100-year" rarity are now arriving on shorter cycles. This model builds the statistical machinery of IDF analysis from the ground up — so you understand not just the curves themselves, but exactly where their assumptions live and where they can break.
 
+## Before You Start
+
+This chapter uses a few probability words in a very specific way. A return period of $T$ years does not mean an event waits exactly $T$ years before happening again; it means the annual exceedance probability is about $1/T$. We will also switch carefully between rainfall intensity $I$, duration $D$, and return period $T$. If you keep track of those three symbols and their units, the rest of the model stays readable.
+
 ## 1. The Question
 
 What rainfall intensity should this culvert be designed for?
@@ -296,11 +300,11 @@ $$I = \frac{1200 \times 10^{0.2}}{(15+10)^{0.8}}$$
 
 **Calculate return period term:**
 
-$&#36;10^{0.2} = 10^{1/5} = \sqrt[5]{10} = 1.585$$
+$$10^{0.2} = 10^{1/5} = \sqrt[5]{10} = 1.585$$
 
 **Calculate duration term:**
 
-$&#36;25^{0.8} = 25^{4/5} = (25^4)^{1/5} = (390625)^{1/5} = 14.62$$
+$$25^{0.8} = 25^{4/5} = (25^4)^{1/5} = (390625)^{1/5} = 14.62$$
 
 **Compute intensity:**
 
@@ -363,7 +367,7 @@ Verify capacity exceeds design flow with safety margin.
 
 $$Q_{capacity} \approx 420 \text{ L/s}$$
 
-**Margin:** &#36;420/376 = 1.12$ (12% safety margin)
+**Margin:** $420/376 = 1.12$ (12% safety margin)
 
 **Acceptable** (>10% desired)
 

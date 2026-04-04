@@ -46,6 +46,10 @@ The afternoon of 16 May 2016 in Fort McMurray started with a wind shift. The Hor
 
 Fire weather is the meteorological context that determines whether a landscape is flammable and how intensely a fire will burn. The same fuel — the same black spruce forest, the same accumulation of downed wood — behaves completely differently at 50% relative humidity than at 15%. The Fire Weather Index (FWI) system, developed by Canadian Forest Service researchers and now used operationally in dozens of countries, quantifies this through a cascade of moisture calculations: the Fine Fuel Moisture Code responds to the last 24 hours of weather, the Duff Moisture Code to the last month, the Drought Code to the cumulative summer deficit. Their combination produces a single number — the FWI — that fire managers use to set operating restrictions, trigger pre-positioning of equipment, and issue public fire bans. This model derives the moisture physics underlying the system and shows how atmospheric variables translate into ignition potential.
 
+## Before You Start
+
+This chapter is easiest to follow if you treat each symbol as a physical quantity rather than as abstract algebra. Here $MC$ means fuel moisture content, $RH$ means relative humidity, $VPD$ means vapor pressure deficit, and $ROS$ means rate of spread. Keep one larger idea in view as you read: extreme fire danger is rarely caused by a single weather variable. It appears when drying, heating, and wind-driven spread all reinforce one another.
+
 ## 1. The Question
 
 Will today's weather conditions trigger catastrophic wildfires?

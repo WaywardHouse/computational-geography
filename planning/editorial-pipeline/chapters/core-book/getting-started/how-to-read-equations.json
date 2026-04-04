@@ -1,0 +1,75 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "getting-started/how-to-read-equations.qmd",
+    "chapter_title": "How to Read Equations",
+    "chapter_subtitle": "Treating equations as compressed sentences instead of walls of symbols",
+    "part_title": "Getting Started",
+    "difficulty": ""
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The original draft had a strong core idea but was too brief for an onboarding chapter. It needed clearer notation-on-first-use support, a more explicit reading routine, stronger unit-based intuition, and gentler pacing for first-time readers.",
+    "issues": [
+      "The chapter moved too quickly from reassurance to examples without a stable reading routine.",
+      "Notation was used in examples, but the habit of naming symbols on first use was not made explicit enough.",
+      "Units were mentioned as a rule but not demonstrated as an actual reasoning tool.",
+      "The chapter needed more scaffolding to function as a true bridge skill for the core-book volume."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Rewrote the full chapter to emphasize equation-reading as a calm interpretive process. Added a Before You Start block, explicit notation definitions, a left-side/right-side reading heuristic, a unit-cancellation example, and a more gradual progression from simple to more advanced forms.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Kept the tone beginner-safe and direct.",
+      "Added explanation of the Greek symbol rho on first use.",
+      "Used units as both intuition and error-checking scaffolding.",
+      "Retained explanatory framing even when introducing exponential notation."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The rewritten chapter now meets the core-book calibration profile. It explains notation on first use, leads with intuition, keeps the mathematics correct, and gives first-time readers a repeatable method for reading equations before solving them.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "No additional repair pass was required after QA because the rewrite resolved the identified issues in one iteration.",
+    "actions_taken": [
+      "Confirmed that every symbol family introduced in the chapter is named in context.",
+      "Confirmed that the advanced exponential example remains explanatory rather than abrupt."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "For a bridge-skills chapter, explainers and worked examples are the right primary teaching devices. The chapter now uses its examples, unit check, and reading routine to do real pedagogical work without adding unnecessary visual clutter.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Added a structured Before You Start explainer block.",
+      "Added a unit-cancellation example that makes the equation interpretable rather than decorative.",
+      "Added a stepwise reading routine that tells the reader how to approach each example."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

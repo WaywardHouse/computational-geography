@@ -1,0 +1,69 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "spatial-analysis/viewshed-line-of-sight.qmd",
+    "chapter_title": "Viewshed and Line-of-Sight Analysis",
+    "chapter_subtitle": "What can you see from this location? Visibility analysis on terrain",
+    "part_title": "Computational Spatial Analysis",
+    "difficulty": "4"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter needed the standard onboarding block and contained malformed angle and comparison notation in the worked example.",
+    "issues": [
+      "The chapter opened without the standard onboarding block.",
+      "Worked-example angle comparisons and visibility checks contained malformed math markup."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding support and repaired the worked-example angle notation.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Corrected angle and visibility expressions in the hand-worked example."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters more gently and its visibility walkthrough is mathematically clean.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The onboarding and notation issues were repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block.",
+      "Corrected angle and t-range notation in the worked example."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's line-of-sight framing and terrain-blocking picture remain strong explainers, and the walkthrough is now easier to follow.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved interpretive support by cleaning the visibility walkthrough."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

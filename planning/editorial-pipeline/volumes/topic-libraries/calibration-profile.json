@@ -1,0 +1,28 @@
+{
+  "stage": "calibration_profile",
+  "volume_id": "topic-libraries",
+  "volume_title": "Computational Geography: Topic Libraries",
+  "chapter_count": 63,
+  "reader_profile": "Second-pass readers moving into specialist companion material.",
+  "language_target": "Approximate Grade 10 readability across the series, with controlled increases in technical density where the series progression supports it.",
+  "complexity_position": "Intermediate branch work. Keep Grade 10 readability, but allow denser technical vocabulary with stronger explanatory framing.",
+  "pedagogy_priorities": [
+    "Retain intuition-first framing even when topics are specialist.",
+    "Keep prerequisites visible and restate core ideas before extending them.",
+    "Use formalism carefully and unpack every new symbol family."
+  ],
+  "required_rules": [
+    "Explain notation on first use.",
+    "Introduce concepts with intuition before formalism whenever possible.",
+    "Preserve mathematical correctness.",
+    "Improve transitions and conceptual pacing.",
+    "Avoid abrupt abstraction in early volumes.",
+    "Retain explanatory framing in later volumes.",
+    "Do not skip QA."
+  ],
+  "design_expectations": [
+    "Specialist chapters should still surface diagrams, comparison tables, and annotated workflows.",
+    "Visualizations should expose mechanism, not only results."
+  ],
+  "status": "active"
+}

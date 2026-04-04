@@ -10,70 +10,90 @@ section-title: "Bridge Skills"
 description: "A short guide to the difference between uncertainty, error, and approximation, and why modelling is still valuable even when results are imperfect."
 ---
 
-One reason people mistrust models is that models are never perfect.
+## Before You Start
 
-That sounds like a weakness, but it is actually normal. A model is useful not because it captures everything, but because it captures enough of the right structure to help us think, compare, or predict.
+**You should know**  
+That measurements can be imperfect and that real systems are usually more complicated than a simple diagram or formula.
 
-## Error Is Not Always Failure
+**You will learn**  
+How uncertainty, error, and approximation differ, and why a model can still be useful even when it does not match reality exactly.
+
+**Why this matters**  
+Readers who expect perfect prediction from every model usually end up either disappointed or mistrustful. Better modelling starts with learning what kinds of imperfection are normal and manageable.
+
+**If this gets hard, focus on...**  
+The question "Is this model useful for the job?" That is usually better than asking whether it is perfect.
+
+
+Models are never perfect.
+
+That sounds like a criticism, but it is actually normal. A model is useful not because it captures every detail of reality, but because it captures enough of the right structure to help us explain, compare, or predict.
+
+## 1. Error Is Not Always Failure
 
 If a weather model predicts `18 °C` and the day reaches `19 °C`, the model is not useless. It is close.
 
-If a flood model predicts the wrong neighbourhood entirely, that is more serious.
+If a flood model predicts the wrong neighbourhood entirely, that is much more serious.
 
-So the right question is not:
+So the important questions are not:
 
-- "Was the model perfect?"
+- Was the model perfect?
 
-It is:
+They are:
 
-- "How wrong was it?"
-- "Was it wrong in a useful way or a dangerous way?"
+- How wrong was it?
+- In what direction was it wrong?
+- Was that amount of error acceptable for the decision being made?
 
-## Uncertainty
+## 2. Uncertainty
 
-Uncertainty means we do not know something exactly.
+**Uncertainty** means that something is not known exactly.
 
 That can happen because:
 
 - measurements are limited
 - future conditions are unknown
-- the world is noisy
-- the model is simplified
+- natural systems are noisy
+- the model leaves out some processes
 
-Uncertainty is not the same as ignorance. Often it can be described, bounded, or estimated.
+Uncertainty is not the same as total ignorance. Often it can be described, bounded, or estimated.
 
-## Approximation
+## 3. Approximation
 
-Approximation means we deliberately replace something complicated with something simpler.
+**Approximation** means we deliberately replace something complicated with something simpler.
 
 Examples:
 
-- treating the Earth as a sphere
+- treating Earth as a sphere
 - treating a slope as uniform
-- treating a city as one center instead of many
+- treating a city as one centre instead of many
 
-These are not mistakes by themselves. They are choices. The key question is whether the simplification still serves the problem well.
+Those are not mistakes by themselves. They are modelling choices.
 
-## Why This Matters
+The real question is whether the simplification is fair for the problem we are trying to solve.
 
-If readers expect exact certainty from every model, they will either become frustrated or stop trusting the whole project.
+## 4. Why This Matters
 
-It is better to learn early that models are:
+Good modelling requires honesty about limits.
+
+Models are:
 
 - structured simplifications
 - useful despite limits
 - strongest when their assumptions are visible
 
-## A Practical Habit
+If readers learn that early, they can read technical work more maturely. They stop looking for impossible certainty and start asking better questions.
+
+## 5. A Practical Reading Habit
 
 When you meet a model, ask:
 
 1. What is being simplified?
 2. What is being ignored?
-3. What kind of error might that create?
+3. What kind of error could that create?
 4. Is that acceptable for the question at hand?
 
-That habit will make you a better reader than simply memorizing formulas.
+That habit is more valuable than memorizing formulas without judgment.
 
 ## If This Gets Hard, Focus On
 
@@ -82,4 +102,4 @@ That habit will make you a better reader than simply memorizing formulas.
 - uncertainty can still be informative
 - the real question is whether the model is useful for the job
 
-That is a mature way to read quantitative work.
+That is a strong and realistic way to read quantitative work.

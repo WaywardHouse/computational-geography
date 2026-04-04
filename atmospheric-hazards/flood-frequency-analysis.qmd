@@ -47,6 +47,10 @@ The term "100-year flood" is one of the most misunderstood phrases in civil engi
 
 Flood frequency analysis provides that language. It takes the historical record of annual peak flows — often 40 to 80 years of gauge data — and fits a probability distribution to it. From the fitted distribution, engineers can read off the discharge corresponding to any return period they need: the 10-year flood for a culvert, the 100-year flood for a floodplain map, the 500-year flood for a dam spillway. The method is probabilistic, not deterministic — it cannot predict when the next big flood will come, only how big it is likely to be when it does.
 
+## Before You Start
+
+This chapter becomes much easier once you separate two spaces in your mind. The discharge data live in ordinary units such as cubic metres per second, but the fitting work often happens in log-space, where we write $Y = \log_{10}(Q)$. We will always translate back to the real flood discharge $Q$ before interpreting results. Keep that distinction in mind and the formulas will feel much less abrupt.
+
 ## 1. The Question
 
 What is the 100-year flood discharge for this river?
@@ -361,7 +365,7 @@ $$SE(y_{100}) = 0.124 \sqrt{\frac{1 + 2.29^2/2}{15}} = 0.124 \sqrt{\frac{3.62}{1
 
 $$y_{100} \pm 1.96 \times 0.061 = 3.010 \pm 0.120$$
 
-Range: $y = 2.890$ to &#36;3.130$
+Range: $y = 2.890$ to $3.130$
 
 $$Q_{100} = 10^{2.890} \text{ to } 10^{3.130} = 776 \text{ to } 1349 \text{ m}^3\text{/s}$$
 

@@ -1,0 +1,66 @@
+{
+  "stage": "chapter_review",
+  "metadata": {
+    "volume_id": "core-book",
+    "chapter_path": "environmental-systems/soil-heat-diffusion.qmd",
+    "chapter_title": "Soil Heat Diffusion",
+    "chapter_subtitle": "Temperature waves propagating into the ground \u2014 diurnal and seasonal cycles",
+    "part_title": "Environmental Systems",
+    "difficulty": "4"
+  },
+  "inventory": {
+    "status": "completed",
+    "summary": "The chapter was already strong, but the damping-depth explanation contained malformed notation that needed correction.",
+    "issues": [
+      "Broken math markup appeared in the definition of the 1/e damping depth."
+    ],
+    "blocking_risks": []
+  },
+  "rewrite": {
+    "status": "completed",
+    "summary": "Completed a full editorial pass with focused notation repair while preserving the chapter's strong wave-and-diffusion framing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Cleaned the damping-depth notation."
+    ]
+  },
+  "qa_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter remains mathematically correct and conceptually accessible, with the notation issue repaired.",
+    "checks": {
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
+    },
+    "blocking_issues": [],
+    "recommended_repairs": []
+  },
+  "repair": {
+    "status": "completed",
+    "summary": "The damping-depth notation was repaired during the pass.",
+    "actions_taken": [
+      "Corrected the malformed 1/e expression."
+    ]
+  },
+  "design_review": {
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's damped-wave framing, examples, and interpretive sections remain strong pedagogical supports.",
+    "checks": {
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
+    },
+    "improvements_made": [
+      "Improved the interpretive clarity of the damping-depth concept."
+    ]
+  },
+  "completion": {
+    "chapter_complete": true,
+    "ready_for_volume_review": true
+  }
+}

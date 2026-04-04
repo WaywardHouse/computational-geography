@@ -34,6 +34,10 @@ Stand at the corner of Bay Street and King Street in Toronto's financial core an
 
 The bid-rent model formalises this intuition. It was first developed by Johann Heinrich von Thünen in 1826 to explain the concentric ring structure of agricultural land use around a central market town. William Alonso adapted it in 1964 to the modern city, and Richard Muth and Edwin Mills extended it to include housing consumption choices. Together they produced the canonical monocentric city model, which remains the workhorse of urban economics more than half a century later.
 
+## Before You Start
+
+This chapter is about willingness to pay for access. The key object is the bid-rent function $R(d)$, which means the maximum rent a land user is willing to pay at distance $d$ from the centre. We will keep returning to one simple question: how quickly does that willingness to pay fall as distance increases? Once that slope is clear, the rest of the urban pattern becomes much easier to read.
+
 ---
 
 ## 1. The Core Idea
@@ -112,7 +116,7 @@ The bid-rent function is linear in the simplest case, though in more realistic f
 
 The bid-rent gradient is clearly visible in Canadian metropolitan areas, though each city has its own character.
 
-**Toronto** has the steepest gradient of any Canadian city. Commercial rents in the Bay-King financial district exceed $\&#36;1{,}000$ per square metre annually; class-A office rents in Scarborough or Mississauga are below $\&#36;300$. The gradient steepened after the 2000s as downtown employment concentrated in financial services and technology, increasing the value of central proximity.
+**Toronto** has the steepest gradient of any Canadian city. Commercial rents in the Bay-King financial district exceed $1{,}000$ dollars per square metre annually; class-A office rents in Scarborough or Mississauga are below $300$ dollars per square metre. The gradient steepened after the 2000s as downtown employment concentrated in financial services and technology, increasing the value of central proximity.
 
 **Vancouver** has a compressed spatial structure imposed by geography — mountains to the north, ocean to the west, the US border to the south. Land scarcity amplifies the bid-rent mechanism: even small differences in centrality are capitalised into large rent differences. Metro Vancouver's rent gradient is steep and shows relatively little flattening at the fringe because the fringe is geographically constrained.
 
