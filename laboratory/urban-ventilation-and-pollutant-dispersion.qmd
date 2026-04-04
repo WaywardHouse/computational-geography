@@ -43,6 +43,20 @@ math-prerequisites-note: The Gaussian distribution and its properties. Logarithm
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AJ2-dispersion
 ---
 
+## Before You Start
+
+**You should know**  
+That wind flow changes when it meets buildings, and that geometry can strongly influence how quickly pollutants are diluted.
+
+**You will learn**  
+How street-canyon flow regimes work, how emissions translate into roadside concentration, and why some urban geometries trap pollution much more effectively than others.
+
+**Why this matters**  
+Urban air quality is shaped not just by how much pollution is emitted, but by how the city is built.
+
+**If this gets hard, focus on...**  
+The aspect-ratio idea: taller walls and narrower streets make ventilation harder.
+
 
 On a winter morning on Marylebone Road in London, NO₂ concentrations routinely reach 300–400 μg m⁻³ — three to four times the World Health Organization annual guideline of 40 μg m⁻³. A few hundred metres away in Regent's Park, the concentration is below 30 μg m⁻³. Traffic volumes are comparable in both locations. The difference is geometry: Marylebone Road is flanked by tall buildings that trap exhaust at street level; the park disperses it into the full depth of the boundary layer.
 
@@ -62,7 +76,7 @@ A street canyon is two parallel rows of buildings with a street between them. Th
 
 **Isolated roughness flow** ($H/W < 0.3$): buildings are spaced far enough apart that flow reattaches to the ground between them; each building behaves independently.
 
-**Wake interference flow** (&#36;0.3 < H/W < 0.7$): building wakes interact; flow is complex and highly three-dimensional.
+**Wake interference flow** ($0.3 < H/W < 0.7$): building wakes interact; flow is complex and highly three-dimensional.
 
 **Skimming flow** ($H/W > 0.7$): the flow above rooftop level skims over the canyon; a stable, nearly two-dimensional recirculating vortex forms inside. Most traffic pollution is trapped in this vortex rather than ventilated upward.
 
@@ -118,7 +132,7 @@ The emission rate $Q$ from a road segment is computed from traffic volume, emiss
 
 $$Q = \frac{N}{3600} \cdot \text{EF} \cdot v \cdot \frac{1}{1000} \quad [\text{g s}^{-1}\text{m}^{-1}]$$
 
-where $N$ [veh hr⁻¹] is hourly traffic count, EF [g km⁻¹ veh⁻¹] is the emission factor, and $v$ [km hr⁻¹] is speed. Converting g s⁻¹ m⁻¹ to μg s⁻¹ m⁻¹, multiply by &#36;10^6$.
+where $N$ [veh hr⁻¹] is hourly traffic count, EF [g km⁻¹ veh⁻¹] is the emission factor, and $v$ [km hr⁻¹] is speed. Converting g s⁻¹ m⁻¹ to μg s⁻¹ m⁻¹, multiply by $10^6$.
 
 Representative Euro 6 real-world emission factors for NO$_x$:
 

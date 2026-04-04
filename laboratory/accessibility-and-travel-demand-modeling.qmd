@@ -42,6 +42,20 @@ math-prerequisites-note: Gravity models (Essay D10). Logarithms and power functi
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AK2-accessibility
 ---
 
+## Before You Start
+
+**You should know**  
+That travel behavior depends on both opportunities and the cost of reaching them, not on distance alone.
+
+**You will learn**  
+How accessibility is modeled, how demand distributes across a network, and why individual route choices can produce surprising system outcomes like Braess's paradox.
+
+**Why this matters**  
+Accessibility is one of the clearest ways to connect transport infrastructure to social outcomes.
+
+**If this gets hard, focus on...**  
+The core tradeoff between attractiveness and travel cost.
+
 
 In 2012, the city of Stuttgart closed the Sperrstraße — a central road that had been a key shortcut through the city — to reduce through traffic in residential areas. Congestion on the surrounding network did not worsen. In some measurements it improved. Commuters adapted, redistributed across parallel routes, and the system found a new equilibrium that was, on balance, no worse than the original.
 

@@ -42,6 +42,20 @@ math-prerequisites-note: Cumulative sums and running totals. Basic algebra. The 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AR1-reservoir-operations
 ---
 
+## Before You Start
+
+**You should know**  
+That storage changes through inflow, release, evaporation, and spill, and that reservoirs are fundamentally governed by conservation of mass.
+
+**You will learn**  
+How storage-yield analysis works, how the sequent peak algorithm estimates required capacity, and how competing reservoir objectives are balanced.
+
+**Why this matters**  
+Reservoir design is one of the clearest examples of a practical mass-balance problem with real tradeoffs.
+
+**If this gets hard, focus on...**  
+The core bookkeeping idea: storage next period equals storage now plus inflow minus losses and releases.
+
 
 The W.A.C. Bennett Dam on the Peace River in British Columbia impounds 74 km³ of water — one of the largest reservoirs in the world by volume. It took seven years to fill after completion in 1968. Since then it has generated 2,730 MW of hydroelectric power, regulated spring floods downstream, and supplied irrigation water to the Peace River valley. It has also been accumulating sediment at rates that are gradually reducing its storage capacity, and its downstream flow regime has transformed the Peace-Athabasca Delta in ways that continue to be debated.
 
@@ -75,7 +89,7 @@ where $Q_{\text{in}}$ = inflow (natural streamflow), $Q_{\text{out}}$ = controll
 
 $$S(t+1) = S(t) + Q_{\text{in}}(t)\Delta t - Q_{\text{out}}(t)\Delta t - E(t)\Delta t$$
 
-subject to &#36;0 \leq S(t) \leq S_{\max}$. When $S(t+1) > S_{\max}$, the excess **spills**; when $S(t+1) < 0$, there is a **shortage** of magnitude $|S(t+1)|$.
+subject to $0 \leq S(t) \leq S_{\max}$. When $S(t+1) > S_{\max}$, the excess **spills**; when $S(t+1) < 0$, there is a **shortage** of magnitude $|S(t+1)|$.
 
 ### 3.2 The Sequent Peak Algorithm
 
@@ -97,7 +111,7 @@ $$K_{t_1,t_2} = X_{t_1} - \min_{t_1 \le t \le t_2}(X_t)$$
 
 $$K = \max_{t_1,t_2} K_{t_1,t_2}$$
 
-The algorithm is applied to the inflow sequence repeated twice (length &#36;2n$) to handle droughts that straddle the record's start/end boundary.
+The algorithm is applied to the inflow sequence repeated twice (length $2n$) to handle droughts that straddle the record's start/end boundary.
 
 **Intuition:** $X_t$ rises during surplus periods (reservoir filling) and falls during deficits (reservoir draining). The maximum drop from any peak to its subsequent trough is exactly the storage needed to bridge that drought without running dry.
 
