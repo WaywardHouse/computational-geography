@@ -197,12 +197,3 @@ You do not need to solve every equation immediately. First learn to read what it
   </article>
 </div>
 ```
-
-## Still To Add Later {#bridge-topics .section-title}
-
-The next bridge topics that would strengthen this on-ramp even more are:
-
-- graphs, curves, and what they mean
-- a gentle introduction to probability
-- simple simulation and step-by-step updating
-- reading charts, maps, and legends together
