@@ -48,6 +48,10 @@ The Siberian Highway — officially the M56 Kolyma Highway and informally known 
 
 Permafrost underlies roughly a quarter of the Northern Hemisphere land surface and stores an estimated 1,500 billion tonnes of organic carbon — roughly twice the current atmospheric carbon burden. Its thaw is therefore both an engineering crisis and a potential climate feedback: as permafrost thaws, the organic matter stored in it becomes available for microbial decomposition, releasing CO₂ and methane. The active layer — the zone that freezes and thaws annually above the permanently frozen ground — deepens as mean annual temperatures rise. This model derives the Stefan equation for thaw depth from the heat conduction physics of phase change, calculates ground settlement from ice-rich permafrost thaw, and maps the hazard implications of projected warming across the permafrost zone.
 
+## Before You Start
+
+This chapter links heat transfer to ground failure. The central idea is that thaw depth does not just change temperature; it changes the mechanical structure of the ground because buried ice becomes water. Read the Stefan equation as a thaw-depth model first, and the settlement and hazard consequences will make much more sense.
+
 ## 1. The Question
 
 How deep will permafrost thaw this century, and what will collapse?
@@ -601,7 +605,7 @@ window.addEventListener('resize', () => chart.resize());
 - 1300 km crosses permafrost
 - Elevated on vertical support members
 - Thermosyphons prevent thaw
-- Maintenance cost: &#36;100s millions annually
+- Maintenance cost: $100s millions annually
 
 **Arctic communities:**
 - Buildings tilting, cracking

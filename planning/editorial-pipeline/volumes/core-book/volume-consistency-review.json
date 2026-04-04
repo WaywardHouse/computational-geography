@@ -3,22 +3,27 @@
   "metadata": {
     "volume_id": "core-book",
     "volume_title": "Computational Geography: Core Book",
-    "chapter_count": 40
+    "chapter_count": 41
   },
   "consistency_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The full core-book volume now reads as a coherent beginner-to-intermediate progression. The openings were normalized, notation is consistently introduced before heavy use, and the added projections chapter closes an important conceptual gap between basic coordinates and later spatial analysis.",
     "checks": {
-      "language_band_consistency": "pending",
-      "pedagogical_consistency": "pending",
-      "notation_consistency": "pending",
-      "design_consistency": "pending"
+      "language_band_consistency": "pass",
+      "pedagogical_consistency": "pass",
+      "notation_consistency": "pass",
+      "design_consistency": "pass"
     },
     "blocking_issues": [],
-    "repair_actions": []
+    "repair_actions": [
+      "Normalized learner-facing onboarding across the volume.",
+      "Repaired malformed math and currency expressions that interrupted reading flow.",
+      "Aligned later technical chapters with the same intuition-before-formalism pattern used in the opening units.",
+      "Added a dedicated CRS and map-projections bridge chapter to support later measurement-heavy modelling."
+    ]
   },
   "completion": {
-    "volume_complete": false
+    "volume_complete": true
   }
 }

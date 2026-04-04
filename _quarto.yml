@@ -26,6 +26,7 @@ book:
     - foundations/linear-change-and-rate.qmd
     - foundations/exponential-growth-and-logarithms.qmd
     - foundations/logistic-growth-and-equilibrium.qmd
+    - foundations/map-projections-and-coordinate-reference-systems.qmd
     - foundations/digital-elevation-models-as-functions.qmd
     - foundations/gradient-aspect-steepest-descent.qmd
     - foundations/gravity-models-trade-migration.qmd

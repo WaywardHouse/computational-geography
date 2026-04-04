@@ -4,7 +4,7 @@
     "core-book": {
       "title": "Computational Geography: Core Book",
       "config": "_quarto-core-book.yml",
-      "chapter_count": 40,
+      "chapter_count": 41,
       "chapters": [
         {
           "chapter_path": "getting-started/how-to-read-equations.qmd",
@@ -65,6 +65,12 @@
           "title": "Logistic Growth and Equilibrium",
           "part_title": "Foundations of Computational Geography",
           "difficulty": "2"
+        },
+        {
+          "chapter_path": "foundations/map-projections-and-coordinate-reference-systems.qmd",
+          "title": "Map Projections and Coordinate Reference Systems",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "3"
         },
         {
           "chapter_path": "foundations/digital-elevation-models-as-functions.qmd",

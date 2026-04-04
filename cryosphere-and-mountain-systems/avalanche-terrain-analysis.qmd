@@ -46,6 +46,10 @@ On 1 February 2003, seven experienced backcountry skiers died in the Revelstoke 
 
 Avalanche terrain analysis is the systematic application of terrain parameters — slope angle, aspect, elevation, shape, and the presence of anchors like trees and rocks — to identify which parts of a mountain are likely to produce, channel, or be reached by avalanche runout. Unlike snowpack assessment, which changes day to day and requires specialist training to interpret, terrain is fixed. A GIS analysis of a DEM can identify all slopes between 30° and 45° facing a given aspect range, trace the runout zones below them using flow routing algorithms, and produce a hazard map that remains valid for decades. This model builds that analysis, derives the slope thresholds from snow mechanics, and implements the ATES (Avalanche Terrain Exposure Scale) classification used across North America.
 
+## Before You Start
+
+This chapter separates terrain factors from snowpack factors on purpose. Terrain is the long-lived structure of the hazard, while snowpack and weather decide how active that hazard is on a given day. If the equations feel heavy, keep returning to the basic map-reading question: where can avalanches start, move, and stop?
+
 ## 1. The Question
 
 Is this slope safe to ski, or will it avalanche?

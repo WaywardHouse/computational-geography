@@ -7,7 +7,7 @@ type: chapter
 image: /assets/images/spatial-analysis.webp
 book-part: foundations
 book-part-title: Foundations of Computational Geography
-chapter-number: 8
+chapter-number: 9
 section-code: C
 section-title: Terrain and Spatial Derivatives
 tags:

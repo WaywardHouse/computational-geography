@@ -47,6 +47,10 @@ Athabasca Glacier, the most visited glacier in North America, has retreated more
 
 Glacier mass balance is the accountant's view of a glacier: income (accumulation of snow and ice from snowfall, avalanches, and refreezing) versus expenditure (ablation through surface melt, sublimation, calving into water). When income exceeds expenditure the glacier advances; when expenditure exceeds income it retreats. The balance varies with elevation — the upper reaches of a glacier accumulate snow while the lower tongue melts vigorously — and the altitude at which the two exactly cancel is the equilibrium line altitude (ELA). As climate warms, the ELA rises, shrinking the accumulation zone. This model quantifies that relationship and connects it to the ice dynamics that determine how a glacier responds over decades to a step change in climate.
 
+## Before You Start
+
+This chapter uses mass balance in the plainest possible sense: gain minus loss. The notation can look unfamiliar because the rates are often written with dots, such as $\dot{b}$ for balance rate, but the physical idea is simple. A glacier survives only if enough snow and refreezing in the upper zone compensate for melting and ice loss lower down.
+
 ## 1. The Question
 
 Will this glacier exist in 50 years?

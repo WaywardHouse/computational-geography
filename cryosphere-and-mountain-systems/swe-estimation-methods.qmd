@@ -46,6 +46,10 @@ Every April, hydrologists across western North America wait for the same number:
 
 The challenge is that a mountain snowpack is not uniformly distributed. Elevation, aspect, wind exposure, and forest cover create enormous spatial variability — a north-facing bowl at 2,000 metres might hold three metres of snow while an adjacent south-facing ridge at the same elevation holds less than one. A handful of SNOTEL stations scattered across a basin captures this variability poorly. Satellite remote sensing offers spatial coverage but has its own limitations: passive microwave retrievals saturate at deep snowpacks; optical sensors cannot see through clouds and are blind beneath forest canopy; airborne LiDAR provides excellent snow depth maps but at high cost and limited frequency. SWE estimation across a large basin is therefore a data fusion problem — combining point observations, remote sensing, terrain analysis, and interpolation into a spatial estimate with quantified uncertainty. This model derives the measurement physics of each approach and the statistical methods used to combine them.
 
+## Before You Start
+
+This chapter compares measurement methods that do not observe exactly the same thing. Some instruments estimate snow depth, some estimate weight, and some infer SWE indirectly from radiation or microwave response. The central skill is keeping track of what quantity each sensor actually measures before converting it into SWE.
+
 ## 1. The Question
 
 What's the total water stored in snow across a 1000 km² mountain basin?
@@ -256,12 +260,12 @@ $$\text{SWE} = \rho(x,y) \times d(x,y)$$
 
 **Passive microwave (basin average):**
 - $\Delta T_B = 50$ K
-- SWE = &#36;1.59 \times 50 = 79.5$ mm (underestimate due to saturation)
+- SWE = $1.59 \times 50 = 79.5$ mm (underestimate due to saturation)
 
 **LiDAR (sample area, 2500m elevation):**
 - Average depth: 1.8 m
 - Estimated density: 300 kg/m³
-- SWE = &#36;0.300 \times 1.8 = 540$ mm
+- SWE = $0.300 \times 1.8 = 540$ mm
 
 **Basin characteristics:**
 - Area: 500 km²

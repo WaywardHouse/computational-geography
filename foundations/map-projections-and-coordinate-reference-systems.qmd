@@ -1,0 +1,679 @@
+---
+title: "Map Projections and Coordinate Reference Systems"
+subtitle: "Why every flat map distorts Earth, and how to choose coordinates that fit the question"
+date: 2026-04-04
+type: chapter
+book-part: foundations
+book-part-title: "Foundations of Computational Geography"
+chapter-number: 8
+section-code: B
+section-title: "Coordinates and Spatial Representation"
+tags:
+  - computational-geography
+  - modelling
+  - gis
+  - projections
+  - coordinate-reference-systems
+  - datum
+difficulty: 3
+description: >
+  Maps need coordinates, but Earth is curved and most analysis happens on flat
+  surfaces. This chapter explains what a coordinate reference system is, why
+  projections always distort something, and how to choose a sensible CRS for
+  measuring distance, area, slope, and direction.
+learning:
+  concepts:
+    - coordinate-reference-system
+    - projection-distortion
+    - geographic-vs-projected-coordinates
+    - datum
+body-classes: "reading-body tag-hash-math tag-hash-viz"
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: >
+  Comfort with basic coordinates from Getting Started is enough. We keep the
+  geometry intuitive and only use light formulas where they clarify the idea.
+image: /assets/images/spatial-analysis.webp
+---
+
+## Before You Start
+
+**You should know**  
+That latitude and longitude are a way of naming location on Earth.
+
+**You will learn**  
+What a coordinate reference system is, why map projections always involve distortion, and how to choose coordinates that match the calculation you want to do.
+
+**Why this matters**  
+Distance, area, slope, buffering, and overlay can all go wrong if the coordinate system is wrong. A projection choice is not a cosmetic setting. It is part of the model.
+
+**If this gets hard, focus on...**  
+One simple idea: Earth is curved, but most maps and most computations are flat. A projection is the bridge between those two facts.
+
+
+In school atlases, Greenland often looks almost as large as Africa. It is not. Africa is about fourteen times larger. The map is not lying exactly, but it is distorting. That distortion is the price of taking a curved planet and flattening it onto paper or a screen.
+
+Computational geography runs into this problem constantly. We measure river lengths, buffer roads, calculate slope from elevation grids, compare forest area, and interpolate environmental fields. Every one of those tasks depends on coordinates. If the coordinates do not match the geometry of the question, the numbers can become misleading before any interesting modelling even begins.
+
+This chapter gives that problem a proper foundation. It explains what a coordinate reference system is, why projections always distort something, and how to choose a sensible working system for the analysis in front of you.
+
+## 1. The Question
+
+How do we put locations from a curved Earth onto a flat map without confusing ourselves or breaking the analysis?
+
+That question has three parts:
+
+1. How do we name location on Earth?
+2. How do we flatten a curved surface into a map?
+3. How do we decide whether a given coordinate system is suitable for distance, area, or direction calculations?
+
+If you can answer those three questions, you can avoid one of the most common failures in GIS and spatial modelling: using coordinates that look plausible but measure the wrong thing.
+
+---
+
+## 2. The Core Idea
+
+### A Coordinate System Is Not Yet A Full CRS
+
+A **coordinate system** tells you how positions are written.
+
+Examples:
+
+- geographic coordinates: longitude and latitude, often written as $(\lambda, \phi)$
+- planar coordinates: eastings and northings, often written as $(x, y)$
+
+But a full **coordinate reference system**, or **CRS**, does more than name axes. It also tells you:
+
+- what shape of Earth is being assumed
+- where the origin and orientation come from
+- how curved positions are transformed into flat-map positions, if a projection is involved
+
+So when someone says "the CRS," they mean the whole positioning framework, not just the coordinate labels.
+
+### Earth Is Curved, Analysis Is Usually Flat
+
+Earth is approximately spherical, and more accurately ellipsoidal. A map on a page or screen is flat. You cannot move from one to the other without distortion.
+
+An orange-peel analogy is useful here:
+
+- leave the peel curved and it fits the orange
+- flatten the peel and it tears, stretches, or compresses
+
+Map projections do the same thing mathematically. They preserve some properties better than others, but they cannot preserve everything at once.
+
+### The Four Big Properties
+
+Projection choices usually trade among four properties:
+
+- **area**: are regions shown with correct relative size?
+- **shape**: are local angles and outlines preserved?
+- **distance**: are measured lengths reliable?
+- **direction**: are bearings preserved from some point or along some lines?
+
+No single projection preserves all four everywhere.
+
+That is why projection choice depends on the question:
+
+- area comparison needs an equal-area projection
+- local shape and angle work often prefers a conformal projection
+- short-distance engineering work often uses a local projected CRS such as UTM
+- global overview maps may prioritize visual continuity over precise measurement
+
+```{=html}
+<div data-viz="echarts" style="height:420px; min-height:320px" data-options='{
+"title": {"text": "Projection Priorities: What Different CRS Choices Preserve Best", "subtext": "Stylized comparison for teaching purposes, not a formal ranking", "left": "center"},
+"tooltip": {"trigger": "item"},
+"legend": {"bottom": 0, "data": ["Geographic CRS", "UTM / local projected", "Equal-area", "Conformal"]},
+"radar": {
+"radius": "62%",
+"indicator": [
+{"name": "Area fidelity", "max": 5},
+{"name": "Shape fidelity", "max": 5},
+{"name": "Distance utility", "max": 5},
+{"name": "Direction utility", "max": 5}
+]
+},
+"series": [{
+"type": "radar",
+"data": [
+{"value": [1, 2, 1, 3], "name": "Geographic CRS", "areaStyle": {"opacity": 0.08}},
+{"value": [4, 4, 5, 4], "name": "UTM / local projected", "areaStyle": {"opacity": 0.08}},
+{"value": [5, 3, 3, 3], "name": "Equal-area", "areaStyle": {"opacity": 0.08}},
+{"value": [2, 5, 3, 4], "name": "Conformal", "areaStyle": {"opacity": 0.08}}
+]
+}]
+}'></div>
+```
+
+Read this as a decision picture, not as a universal scoreboard. Equal-area projections protect size comparisons, conformal projections protect local shape, and local projected systems such as UTM are often the most convenient working surface for ordinary distance-based analysis.
+
+---
+
+## 3. The Building Blocks Of A CRS
+
+### Geographic Coordinates
+
+Geographic coordinates use:
+
+- longitude $\lambda$: east-west angle
+- latitude $\phi$: north-south angle
+
+These are angular coordinates, measured in degrees, not metres.
+
+That point matters. A degree of longitude is not a fixed ground distance. It shrinks as you move toward the poles.
+
+### Datum
+
+A **datum** tells you how the coordinate system is tied to Earth.
+
+In plain language, a datum answers: what mathematical Earth are we measuring on, and how is that mathematical surface aligned with the real planet?
+
+You do not need geodesy in full detail here. The important practical point is this:
+
+- two datasets can both use latitude and longitude
+- but if they use different datums, they may not line up exactly
+
+For most modern work, you will often see datums such as `WGS84` or `NAD83`.
+
+### Projection
+
+A **projection** converts positions on the curved Earth into positions on a flat surface.
+
+That means:
+
+$$(\lambda, \phi) \longrightarrow (x, y)$$
+
+You do not need the full formula for every projection. What matters first is that the output coordinates are now planar and usually measured in metres.
+
+### EPSG Codes
+
+Many CRSs are identified by an **EPSG code**, which is a standard reference number.
+
+Examples:
+
+- `EPSG:4326` for geographic coordinates in WGS84
+- `EPSG:32612` for UTM Zone 12N in WGS84
+
+You do not need to memorize the numbers. You do need to recognize that an EPSG code is a compact way of saying, "use this exact CRS definition."
+
+---
+
+## 4. Geographic Versus Projected Coordinates
+
+### Geographic Coordinates Are Good For Storage And Exchange
+
+Latitude and longitude are excellent for:
+
+- global data exchange
+- GPS output
+- storing location on the whole planet
+- mapping very large extents in a common reference
+
+But they are awkward for direct measurement because the units are angles, not metres.
+
+### Projected Coordinates Are Better For Many Calculations
+
+Projected coordinates are usually better for:
+
+- buffering by a fixed distance
+- measuring length
+- measuring local area
+- terrain derivatives that depend on horizontal spacing
+- overlay and engineering-style site analysis
+
+This is why many workflows begin in geographic coordinates, then reproject into a projected CRS for analysis.
+
+### Worked Example: Why Degrees Are Not Uniform
+
+A rough rule is:
+
+- 1 degree of latitude is about `111 km`
+- 1 degree of longitude is about `111 cos(\phi) km`
+
+At the equator, where $\phi = 0^\circ$:
+
+$$111 \cos(0^\circ) = 111 \text{ km}$$
+
+At latitude $53^\circ$, roughly the latitude of Edmonton:
+
+$$111 \cos(53^\circ) \approx 111 \times 0.60 \approx 67 \text{ km}$$
+
+So one degree of longitude is:
+
+- about `111 km` at the equator
+- about `67 km` near Edmonton
+
+That is why a "square" one-degree cell is not really square on the ground, and why area and distance work in raw longitude-latitude coordinates can quickly become misleading.
+
+```{=html}
+<div data-viz="echarts" style="height:380px; min-height:300px" data-options='{
+"title": {"text": "Ground Distance of 1 Degree of Longitude", "subtext": "Distance shrinks as latitude increases", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"grid": {"left": "8%", "right": "4%", "bottom": "12%", "containLabel": true},
+"xAxis": {"type": "category", "name": "Latitude", "data": ["0°","10°","20°","30°","40°","50°","53°","60°","70°","80°"]},
+"yAxis": {"type": "value", "name": "Distance (km)", "min": 0, "max": 120},
+"series": [{
+"name": "1° longitude",
+"type": "line",
+"smooth": true,
+"symbolSize": 8,
+"lineStyle": {"width": 3, "color": "#2563eb"},
+"itemStyle": {"color": "#2563eb"},
+"areaStyle": {"opacity": 0.12, "color": "#93c5fd"},
+"data": [111,109,104,96,85,71,67,56,38,19],
+"markPoint": {
+"data": [
+{"name": "Equator", "coord": ["0°", 111]},
+{"name": "Edmonton", "coord": ["53°", 67]}
+],
+"label": {"formatter": "{b}"}
+}
+}]
+}'></div>
+```
+
+This is the visual reason geographic coordinates are awkward for direct measurement. The east-west size of a degree changes continuously with latitude, so the same numeric difference in longitude does not mean the same ground distance in different places.
+
+---
+
+## 5. Common Projection Families
+
+### UTM
+
+The **Universal Transverse Mercator** system divides Earth into zones and gives each zone a local projected grid.
+
+UTM is often a strong default for:
+
+- local to regional analysis
+- distance measurement
+- buffering
+- terrain work
+
+Why it is useful:
+
+- units are metres
+- local distortion is small inside a zone
+- it is easy to reason about eastings and northings
+
+### Equal-Area Projections
+
+Equal-area projections preserve area correctly.
+
+They are useful when you care about:
+
+- land-cover totals
+- watershed area
+- habitat comparison
+- regional statistics by polygon
+
+If the question is "which region covers more land?" an equal-area CRS is often the safest choice.
+
+### Conformal Projections
+
+Conformal projections preserve local angles and local shape reasonably well.
+
+They are useful for:
+
+- navigation
+- local orientation work
+- some engineering and topographic mapping tasks
+
+But preserving local shape does not mean preserving area.
+
+### Geographic CRS
+
+A geographic CRS is still a valid CRS. It is just usually not the best working CRS for planar measurement.
+
+Think of it as a good storage and interchange format, but often a poor analysis surface for operations that assume metres.
+
+### Named Examples You Will Actually See
+
+Some projection names appear so often that they are worth recognizing directly.
+
+**Mercator**
+
+- Preserves local shape reasonably well
+- Great for marine navigation and web-map familiarity
+- Strongly inflates high-latitude area
+- Poor choice for comparing region size
+
+**Sinusoidal**
+
+- Equal-area projection
+- Good for global rasters and land-cover accounting
+- Shapes stretch away from the central meridian
+- Useful when area matters more than visual familiarity
+
+**Albers Equal-Area Conic**
+
+- Equal-area projection built for mid-latitude regions that extend east-west
+- Common choice for national and provincial area comparison
+- Often a strong fit for Canada-wide thematic mapping
+- Better for area totals than for preserving local shape perfectly
+
+**Lambert Conformal Conic**
+
+- Conformal projection commonly used for aeronautical and topographic mapping
+- Strong for mid-latitude regions with large east-west extent
+- Preserves local shape and angle better than area
+- A very plausible choice when navigation, orientation, or regional basemapping matters
+
+**Polar Stereographic**
+
+- Designed for polar and high-latitude mapping
+- Useful when Arctic geometry matters more than equatorial balance
+- Common in sea ice, cryosphere, and polar remote-sensing products
+- Distortion grows away from the pole, but it treats the Arctic far more honestly than Mercator
+
+**Azimuthal Equidistant**
+
+- Preserves distance and direction from a chosen center point
+- Useful for "how far from this city, station, or radar?" questions
+- Not a general-purpose equal-everything projection
+- Best when one origin point is the star of the map
+
+**UTM**
+
+- Local projected grid in metres
+- Excellent for regional measurement, buffering, and terrain work
+- Not designed for whole-continent or global mapping in a single zone
+- Best read as a practical working CRS rather than a world-view map
+
+```{=html}
+<div class="viz-container" style="margin-top:1.5rem;">
+<div class="info-panel">
+<p><strong>Same Earth, different flattening choices.</strong> These sketches are not exact cartographic outputs. They are teaching diagrams that show how the graticule changes shape under several common choices.</p>
+</div>
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; align-items:start;">
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Mercator graticule">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<line x1="45" y1="20" x2="45" y2="130" stroke="#94a3b8"/>
+<line x1="80" y1="20" x2="80" y2="130" stroke="#94a3b8"/>
+<line x1="110" y1="20" x2="110" y2="130" stroke="#334155" stroke-width="1.5"/>
+<line x1="140" y1="20" x2="140" y2="130" stroke="#94a3b8"/>
+<line x1="175" y1="20" x2="175" y2="130" stroke="#94a3b8"/>
+<line x1="20" y1="28" x2="200" y2="28" stroke="#94a3b8"/>
+<line x1="20" y1="45" x2="200" y2="45" stroke="#94a3b8"/>
+<line x1="20" y1="75" x2="200" y2="75" stroke="#334155" stroke-width="1.5"/>
+<line x1="20" y1="105" x2="200" y2="105" stroke="#94a3b8"/>
+<line x1="20" y1="122" x2="200" y2="122" stroke="#94a3b8"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Mercator</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">Straight meridians and straight parallels make it visually tidy, but spacing expands strongly toward the poles. Greenland looks much too large.</figcaption>
+</figure>
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Sinusoidal graticule">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<path d="M110 20 L110 130" stroke="#334155" stroke-width="1.5" fill="none"/>
+<path d="M70 20 C78 55,78 95,70 130" stroke="#94a3b8" fill="none"/>
+<path d="M150 20 C142 55,142 95,150 130" stroke="#94a3b8" fill="none"/>
+<path d="M38 20 C55 55,55 95,38 130" stroke="#94a3b8" fill="none"/>
+<path d="M182 20 C165 55,165 95,182 130" stroke="#94a3b8" fill="none"/>
+<line x1="20" y1="32" x2="200" y2="32" stroke="#94a3b8"/>
+<line x1="20" y1="52" x2="200" y2="52" stroke="#94a3b8"/>
+<line x1="20" y1="75" x2="200" y2="75" stroke="#334155" stroke-width="1.5"/>
+<line x1="20" y1="98" x2="200" y2="98" stroke="#94a3b8"/>
+<line x1="20" y1="118" x2="200" y2="118" stroke="#94a3b8"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Sinusoidal</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">Parallels stay straight, but meridians curve. The result preserves area well, which is why it is popular for global raster products and land accounting.</figcaption>
+</figure>
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Albers conic graticule">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<path d="M28 118 Q110 18 192 118" stroke="#94a3b8" fill="none"/>
+<path d="M36 102 Q110 28 184 102" stroke="#94a3b8" fill="none"/>
+<path d="M44 86 Q110 38 176 86" stroke="#334155" stroke-width="1.5" fill="none"/>
+<path d="M52 70 Q110 48 168 70" stroke="#94a3b8" fill="none"/>
+<path d="M72 24 Q88 82 76 130" stroke="#94a3b8" fill="none"/>
+<path d="M110 20 Q110 80 110 130" stroke="#334155" stroke-width="1.5" fill="none"/>
+<path d="M148 24 Q132 82 144 130" stroke="#94a3b8" fill="none"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Albers equal-area conic</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">A classic area-preserving choice for broad mid-latitude regions. This is the kind of logic behind many Canada-scale thematic maps.</figcaption>
+</figure>
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized Lambert conformal conic graticule">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<path d="M30 120 Q110 24 190 120" stroke="#94a3b8" fill="none"/>
+<path d="M40 100 Q110 36 180 100" stroke="#94a3b8" fill="none"/>
+<path d="M48 82 Q110 46 172 82" stroke="#334155" stroke-width="1.5" fill="none"/>
+<path d="M58 64 Q110 56 162 64" stroke="#94a3b8" fill="none"/>
+<path d="M70 24 Q84 78 74 130" stroke="#94a3b8" fill="none"/>
+<path d="M110 20 Q110 78 110 130" stroke="#334155" stroke-width="1.5" fill="none"/>
+<path d="M150 24 Q136 78 146 130" stroke="#94a3b8" fill="none"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Lambert conformal conic</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">Another conic family, but with a different promise: better local shape and angle, not equal area.</figcaption>
+</figure>
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized local projected grid">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<line x1="40" y1="20" x2="40" y2="130" stroke="#94a3b8"/>
+<line x1="75" y1="20" x2="75" y2="130" stroke="#94a3b8"/>
+<line x1="110" y1="20" x2="110" y2="130" stroke="#334155" stroke-width="1.5"/>
+<line x1="145" y1="20" x2="145" y2="130" stroke="#94a3b8"/>
+<line x1="180" y1="20" x2="180" y2="130" stroke="#94a3b8"/>
+<line x1="20" y1="35" x2="200" y2="35" stroke="#94a3b8"/>
+<line x1="20" y1="60" x2="200" y2="60" stroke="#94a3b8"/>
+<line x1="20" y1="85" x2="200" y2="85" stroke="#334155" stroke-width="1.5"/>
+<line x1="20" y1="110" x2="200" y2="110" stroke="#94a3b8"/>
+<circle cx="118" cy="77" r="18" fill="rgba(37,99,235,0.12)" stroke="#2563eb" stroke-width="1.5"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Local projected grid (for example UTM)</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">The key idea here is not world appearance but usable local geometry. Inside a limited zone, metre-based coordinates behave much more like the flat geometry your calculations assume.</figcaption>
+</figure>
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized polar stereographic graticule">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<circle cx="110" cy="75" r="42" fill="none" stroke="#334155" stroke-width="1.5"/>
+<circle cx="110" cy="75" r="30" fill="none" stroke="#94a3b8"/>
+<circle cx="110" cy="75" r="18" fill="none" stroke="#94a3b8"/>
+<line x1="110" y1="25" x2="110" y2="125" stroke="#94a3b8"/>
+<line x1="60" y1="75" x2="160" y2="75" stroke="#94a3b8"/>
+<line x1="76" y1="41" x2="144" y2="109" stroke="#94a3b8"/>
+<line x1="144" y1="41" x2="76" y2="109" stroke="#94a3b8"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Polar stereographic</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">A pole-centered view is often much more honest for Arctic geography than a familiar equatorial world map.</figcaption>
+</figure>
+<figure style="margin:0; padding:1rem; border:1px solid rgba(0,0,0,0.08); border-radius:14px; background:#fff;">
+<svg viewBox="0 0 220 150" width="100%" aria-label="Stylized azimuthal equidistant graticule">
+<rect x="10" y="10" width="200" height="130" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+<circle cx="110" cy="75" r="46" fill="none" stroke="#94a3b8"/>
+<circle cx="110" cy="75" r="32" fill="none" stroke="#94a3b8"/>
+<circle cx="110" cy="75" r="18" fill="none" stroke="#334155" stroke-width="1.5"/>
+<line x1="110" y1="29" x2="110" y2="121" stroke="#94a3b8"/>
+<line x1="64" y1="75" x2="156" y2="75" stroke="#94a3b8"/>
+<line x1="78" y1="43" x2="142" y2="107" stroke="#94a3b8"/>
+<circle cx="110" cy="75" r="3" fill="#dc2626"/>
+<text x="110" y="145" text-anchor="middle" font-size="12" fill="#0f172a">Azimuthal equidistant</text>
+</svg>
+<figcaption style="font-size:0.95rem; line-height:1.45; margin-top:0.6rem;">This kind of map is organized around one chosen center. It is valuable when distance from that center is the point of the analysis.</figcaption>
+</figure>
+</div>
+</div>
+```
+
+These examples point to a practical habit: when someone names a projection, ask what it is trying to preserve and what scale it was designed for. "Mercator," "Sinusoidal," "Albers," "Lambert conformal conic," and "Polar stereographic" are not just labels; they are answers to different cartographic priorities.
+
+### A Canada And Alberta Decision Example
+
+The projection question becomes much easier once you attach it to a real place and a real task.
+
+Suppose we are working in western Canada:
+
+- Edmonton is around `53.5°N`
+- Calgary is around `51.0°N`
+- northern Alberta reaches much farther poleward
+- the province is large enough that distortion choices matter, but small enough that we usually do not need a whole-world map
+
+Now imagine three different jobs:
+
+**Job 1: Buffering wells, roads, or streams around Edmonton**
+
+This is a local measurement task. We care about metres. A local projected CRS such as the relevant UTM zone is usually the right working surface.
+
+**Job 2: Comparing burned area or wetland area across all of Alberta**
+
+This is an area-comparison task. A provincial or national equal-area projection is usually safer, because northern Alberta should not get an artificial size bonus from the map.
+
+**Job 3: Showing Alberta in a web map with familiar zoom and pan behavior**
+
+This is mostly a display task. Web Mercator may be acceptable for visual browsing, but it is still a poor surface for area comparison.
+
+So the question is not "which projection is best?" The better question is "best for what?"
+
+```{=html}
+<div data-viz="echarts" style="height:420px; min-height:320px" data-options='{
+"title": {"text": "Choosing a Projection for Alberta and Western Canada", "subtext": "Different spatial questions call for different working surfaces", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"bottom": 0, "data": ["Local projected (for example UTM)", "Equal-area", "Web Mercator"]},
+"grid": {"left": "7%", "right": "4%", "bottom": "16%", "containLabel": true},
+"xAxis": {
+"type": "category",
+"data": ["Local distance work", "Provincial area comparison", "Terrain derivatives", "Public web display"],
+"axisLabel": {"interval": 0, "rotate": 12}
+},
+"yAxis": {"type": "value", "name": "Suitability (teaching scale)", "min": 0, "max": 5},
+"series": [
+{
+"name": "Local projected (for example UTM)",
+"type": "bar",
+"data": [5, 3, 5, 3],
+"itemStyle": {"color": "#2563eb"}
+},
+{
+"name": "Equal-area",
+"type": "bar",
+"data": [3, 5, 3, 2],
+"itemStyle": {"color": "#0f766e"}
+},
+{
+"name": "Web Mercator",
+"type": "bar",
+"data": [1, 1, 1, 5],
+"itemStyle": {"color": "#dc2626"}
+}
+]
+}'></div>
+```
+
+This chart is deliberately practical. In Alberta, a projected CRS in metres is usually the working choice for local analysis, an equal-area projection is often the safer choice for province-wide area accounting, and Web Mercator is mostly a display convenience rather than an analysis surface.
+
+One more implication matters for Canada in particular: high latitude exaggeration is not a side issue. It is exactly why Mercator-style views can mislead northern comparisons. If your question is about size, extent, or area totals in northern Canada, projection choice is part of the evidence, not just part of the map styling.
+
+---
+
+## 6. What Goes Wrong When The CRS Is Wrong
+
+### Buffering In Degrees
+
+Suppose you want a `500 m` buffer around a stream.
+
+If the layer is in longitude-latitude and you accidentally buffer by `500`, the software may interpret that as `500 degrees`, which is absurd. Even if you use a small degree value that seems to approximate `500 m`, the ground distance will vary with latitude.
+
+### Area Comparison In A Distorted Projection
+
+Suppose you want to compare forest loss in northern Alberta and southern Alberta.
+
+If the projection inflates northern areas more strongly, the comparison can be biased by the map itself, not by the land-cover change.
+
+### Slope On A Geographic Grid
+
+Suppose a digital elevation model stores heights on a longitude-latitude grid.
+
+Slope depends on:
+
+$$\text{slope} \approx \frac{\text{vertical change}}{\text{horizontal distance}}$$
+
+If the horizontal spacing is treated as though degrees were uniform metres, the slope estimate is wrong. This is why terrain chapters keep warning you to check the CRS before computing derivatives.
+
+```{=html}
+<div data-viz="echarts" style="height:400px; min-height:300px" data-options='{
+"title": {"text": "Why Buffering in Degrees Fails", "subtext": "Ground width of the same 0.01° longitude step at different latitudes", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "8%", "right": "4%", "bottom": "14%", "containLabel": true},
+"xAxis": {"type": "category", "name": "Latitude", "data": ["0°","30°","53°","70°"]},
+"yAxis": {"type": "value", "name": "Ground width (m)"},
+"series": [{
+"type": "bar",
+"data": [1110,960,670,380],
+"itemStyle": {
+"color": {
+"type": "linear",
+"x": 0, "y": 0, "x2": 0, "y2": 1,
+"colorStops": [
+{"offset": 0, "color": "#0f766e"},
+{"offset": 1, "color": "#5eead4"}
+]
+}
+},
+"label": {"show": true, "position": "top", "formatter": "{c} m"}
+}]
+}'></div>
+```
+
+The bars show the problem directly: the same degree-based east-west step is almost three times wider at the equator than at high latitude. A projected CRS with metre units removes that ambiguity and makes the buffer distance mean what you think it means.
+
+---
+
+## 7. A Practical Selection Habit
+
+When choosing a CRS, ask:
+
+1. Is my main task storage, display, or measurement?
+2. Do I care most about area, distance, shape, or direction?
+3. Is the study area local, regional, continental, or global?
+4. Do all layers already share a CRS?
+5. Are the output units appropriate for the calculation?
+
+A useful beginner checklist is:
+
+- use geographic coordinates for global reference and exchange
+- use UTM or another local projected CRS for local distance work
+- use equal-area projections for area comparison
+- reproject all layers to a common CRS before overlay and measurement
+
+---
+
+## 8. Worked Example By Hand
+
+**Problem:** A road centerline is stored in a projected CRS with metre units. Two points on the road are:
+
+- $A = (500000,\ 5910000)$
+- $B = (500600,\ 5910800)$
+
+Estimate the straight-line distance between them.
+
+### Solution
+
+The coordinate differences are:
+
+$$\Delta x = 500600 - 500000 = 600 \text{ m}$$
+
+$$\Delta y = 5910800 - 5910000 = 800 \text{ m}$$
+
+Use the Pythagorean formula:
+
+$$d = \sqrt{(\Delta x)^2 + (\Delta y)^2}$$
+
+$$d = \sqrt{600^2 + 800^2} = \sqrt{360000 + 640000} = \sqrt{1000000} = 1000 \text{ m}$$
+
+So the straight-line distance is **1 km**.
+
+This is the kind of calculation projected coordinates are designed to support. The numbers behave like ordinary planar geometry because the CRS has already done the work of flattening the Earth in a controlled way.
+
+---
+
+## 9. If This Gets Hard, Focus On
+
+- a CRS is the full positioning framework, not just axis names
+- latitude and longitude are angles, not metres
+- every flat map distorts something
+- projected coordinates are often better for measurement
+- choose the CRS to match the question, not just the default setting
+
+That is enough foundation for the raster, terrain, vector, and remote-sensing chapters that follow.

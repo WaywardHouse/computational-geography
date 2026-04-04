@@ -43,6 +43,10 @@ On the morning of 9 August 2010, a hillside above the village of Gansu in northw
 
 Slope stability analysis is the quantitative answer to a question that engineers, geologists, and land-use planners need to answer precisely: given this slope geometry, these soil properties, and these groundwater conditions, how close is this hillside to failure? The tool is the Factor of Safety — the ratio of resisting to driving forces — derived from the Mohr-Coulomb failure criterion that describes how soils and rocks resist shear. A Factor of Safety above 1 means the slope is stable; below 1 means it has already failed; exactly 1 is the critical condition. The power of the method is that it converts a qualitative question about hazard into a number that can be mapped, compared across landscapes, and updated as conditions change with rainfall, earthquake shaking, or excavation.
 
+## Before You Start
+
+This chapter becomes much easier once you read the factor of safety as a comparison, not a mysterious formula. It is simply resisting force divided by driving force. Values above 1 mean the slope has some margin; values below 1 mean failure is expected.
+
 ## 1. The Question
 
 After heavy rain, which hillslopes will fail as landslides?

@@ -19,7 +19,7 @@ Textbook Part
       <a class="cta" href="./what-is-a-spatial-model.html">Start Part 1</a>
     </div>
     <div class="book-pill-row">
-      <span class="book-pill">8 core chapters</span>
+      <span class="book-pill">9 core chapters</span>
       <span class="book-pill">Best first part</span>
       <span class="book-pill">Part 1</span>
     </div>
@@ -53,13 +53,9 @@ Textbook Part
   </article>
   <article class="section-card">
     <span class="section-eyebrow">B</span>
-    <h3>Topic Library Links</h3>
+    <h3>Coordinates and Representation</h3>
     <ul>
-      <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
-      <li><a href="./spectral-mixing-and-sensor-response.html">Spectral Mixing and Sensor Response</a></li>
-      <li><a href="./solar-geometry-and-projection.html">Solar Geometry and Projection</a></li>
-      <li><a href="./hydrological-flow-as-optimization.html">Hydrological Flow as Optimization</a></li>
-      <li><a href="./earth-as-rotating-sphere.html">Earth as a Rotating Sphere</a></li>
+      <li><a href="./map-projections-and-coordinate-reference-systems.html">Map Projections and Coordinate Reference Systems</a></li>
     </ul>
   </article>
   <article class="section-card">
@@ -80,6 +76,17 @@ Textbook Part
   </article>
   <article class="section-card">
     <span class="section-eyebrow">E</span>
+    <h3>Topic Library Links</h3>
+    <ul>
+      <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
+      <li><a href="./spectral-mixing-and-sensor-response.html">Spectral Mixing and Sensor Response</a></li>
+      <li><a href="./solar-geometry-and-projection.html">Solar Geometry and Projection</a></li>
+      <li><a href="./hydrological-flow-as-optimization.html">Hydrological Flow as Optimization</a></li>
+      <li><a href="./earth-as-rotating-sphere.html">Earth as a Rotating Sphere</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">F</span>
     <h3>Why This Part Matters</h3>
     <p>These chapters build the habits the rest of the project depends on: defining quantities carefully, noticing how they change, and turning geographic questions into models that can be tested.</p>
   </article>

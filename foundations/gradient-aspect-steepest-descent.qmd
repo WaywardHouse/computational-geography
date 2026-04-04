@@ -5,7 +5,7 @@ date: 2026-02-26
 type: chapter
 book-part: foundations
 book-part-title: "Foundations of Computational Geography"
-chapter-number: 9
+chapter-number: 10
 section-code: C
 section-title: "Terrain and Spatial Derivatives"
 tags:
