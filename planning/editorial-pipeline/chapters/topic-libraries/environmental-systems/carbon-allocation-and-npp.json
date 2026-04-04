@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The carbon-allocation chapter needed clearer learner-facing setup so the transition from photosynthesis to pooled biomass modelling felt less abrupt.",
+    "issues": [
+      "The chapter benefited from a more explicit entry ramp into GPP, respiration, and pool allocation.",
+      "The ecosystem-carbon sequence needed consistent onboarding across the topic-library environmental chapters.",
+      "Readers needed a stronger reminder that turnover rates are as important as allocation fractions."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added stronger opening scaffolding while preserving the multi-pool carbon model and worked example.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section focused on flow from GPP to NPP to biomass pools.",
+      "Kept the differential-equation treatment because it is appropriate for the volume.",
+      "Used the onboarding to slow the transition into allocation coefficients and turnover."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now handles the carbon-flow narrative more clearly while remaining technically correct and well matched to the topic-library level.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair was pedagogical rather than structural: better opening guidance around the carbon-flow logic and pool behaviour.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the sequence from carbon fixation to storage.",
+      "Preserved the existing model derivation and worked example."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses visual and interactive explanation well, and the new framing improves interpretation of the pool dynamics.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and reading guidance.",
+      "Preserved the chapter's multi-pool simulation and worked example structure.",
+      "Improved interpretive support around respiration and turnover."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

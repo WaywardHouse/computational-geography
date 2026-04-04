@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter had the right biogeochemical content, but it needed a clearer opening frame so the nitrogen pools and limiting-process logic were established before the kinetics work began.",
+    "issues": [
+      "The chapter needed the same learner-facing entry structure used elsewhere in the revised series.",
+      "Readers benefit from a more explicit bridge between nitrogen form, plant availability, and productivity limitation.",
+      "The environmental systems topic-library set needed stronger consistency in onboarding."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added clearer chapter-entry scaffolding while preserving the coupled nitrogen-uptake and limitation model.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the opening to foreground the mineralization-to-uptake chain.",
+      "Kept the Michaelis-Menten treatment and worked example intact."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now explains the nitrogen-limitation problem at a fairer pace while maintaining correct kinetics and biogeochemical logic.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The main repair was to improve conceptual pacing and make the uptake-limitation logic easier to enter.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the progression from decomposition to mineral N to plant uptake.",
+      "Preserved the kinetic and coupled C-N model content."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses explainers and examples effectively, and the revised entry improves interpretation of the cycle and uptake relationships.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisite guidance.",
+      "Retained the chapter's cycle-based explanatory structure and interactive support.",
+      "Improved interpretive support around the link between nitrogen supply and NPP."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

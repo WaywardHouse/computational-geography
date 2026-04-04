@@ -52,6 +52,20 @@ nocite: |
   @weymouth1912
 ---
 
+## Before You Start
+
+**You should know**  
+That gases are compressible, that pipeline networks have finite capacity, and that regional prices can differ when transport is costly or constrained.
+
+**You will learn**  
+How Alberta's gas transmission system is organized, how the Weymouth equation approximates gas-pipeline flow, and why AECO trades below Henry Hub.
+
+**Why this matters**  
+Gas pricing is not only a market story. It is also a geography and infrastructure story written into the pipeline network.
+
+**If this gets hard, focus on...**  
+The central idea that Alberta gas is cheaper because it must travel through a constrained transport system to reach distant benchmarks.
+
 
 ## 1. The Question
 
@@ -159,12 +173,12 @@ $$\text{Basis} = P_{\text{AECO}} - P_{\text{Henry Hub}}$$
 
 This value is almost always negative — AECO trades at a discount to
 Henry Hub. The discount varies with season and pipeline capacity
-conditions, but has historically averaged CAD &#36;1.00–&#36;2.50/GJ, with
-occasional spikes to CAD &#36;4–5/GJ during constraint events.
+conditions, but has historically averaged CAD $1.00-$2.50/GJ, with
+occasional spikes to CAD $4-$5/GJ during constraint events.
 
 The discount exists because:
 1. **Transport cost**: moving gas from AECO to Henry Hub costs money —
-   approximately USD &#36;0.50–&#36;1.00/MMBtu in tariffs
+   approximately USD $0.50-$1.00/MMBtu in tariffs
 2. **Basis risk**: shippers demand a discount to hold Alberta gas
    relative to a benchmark they can hedge on financial markets
 3. **Capacity constraints**: when NGTL or export corridors are congested,
@@ -202,7 +216,7 @@ where in field units (common in the North American gas industry):
 
 The key insight from this equation is the **diameter exponent**: flow
 rate scales as $D^{8/3} \approx D^{2.67}$. Doubling the diameter
-increases capacity by a factor of &#36;2^{8/3} \approx 6.35$ — a far more
+increases capacity by a factor of $2^{8/3} \approx 6.35$ — a far more
 powerful leverage than for liquid pipelines (where flow scales roughly
 as $D^{2.5}$ via Darcy-Weisbach). This is why gas transmission
 investments strongly favour large-diameter pipes.
@@ -235,7 +249,7 @@ Alberta gas cannot physically reach the destination.
 
 Converting between common gas pricing units:
 
-$&#36;1 \text{ MMBtu} \approx 1.055 \text{ GJ} \approx 28.3 \text{ m}^3
+$$1 \text{ MMBtu} \approx 1.055 \text{ GJ} \approx 28.3 \text{ m}^3
 \text{ (at standard conditions)}$$
 
 $$P_{\text{CAD/GJ}} = P_{\text{USD/MMBtu}} \times \frac{1}{1.055}
@@ -282,7 +296,7 @@ $$\sqrt{9.972} \approx 3.158$$
 
 $$D^{8/3} = 36^{8/3}$$
 
-$&#36;36^{1/3} \approx 3.302 \qquad 36^{8/3} = 36^2 \times 36^{2/3}
+$$36^{1/3} \approx 3.302 \qquad 36^{8/3} = 36^2 \times 36^{2/3}
 = 1{,}296 \times 10.90 \approx 14{,}126$$
 
 **Step 5 — Assemble:**

@@ -42,6 +42,20 @@ math-prerequisites-note: 'Fire spread (Model 61). Atmospheric stability. Gaussia
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That wildfires release heat and pollutants, and that wind and turbulence move those pollutants through the atmosphere.
+
+**You will learn**  
+How fuel consumption becomes emissions, how plume rise changes release height, and how dispersion models estimate downwind smoke concentration.
+
+**Why this matters**  
+Smoke forecasting connects fire behaviour to health risk, air-quality alerts, and regional hazard planning.
+
+**If this gets hard, focus on...**  
+The chain from fuel burned, to pollutant released, to plume transported, to concentration experienced downwind.
+
 
 In the summer of 2023, wildfire smoke from Quebec and Ontario turned the skies over New York City orange. PM2.5 concentrations reached 11 times the WHO daily guideline, schools cancelled outdoor activities, and the United States issued its worst-ever air quality alerts across the Northeast. The smoke had travelled more than 1,500 km from fires consuming millions of hectares of boreal forest. The public health impact — measured in respiratory hospital admissions, reduced visibility, and premature deaths — rivalled the fires' direct destruction of property. And it was predictable: atmospheric transport models had been forecasting the smoke plume's trajectory for days before it arrived.
 
@@ -591,7 +605,7 @@ window.addEventListener('resize', () => chart.resize());
 
 Estimated 1200-3000 premature deaths from smoke exposure.
 
-**Economic impact:** &#36;10-80 billion (health costs).
+**Economic impact:** $10-80 billion (health costs).
 
 ### Air Quality Forecasting
 
@@ -624,7 +638,7 @@ Fuel loading ~1.5 kg/m², CC = 0.9:
 
 $$FC = 10^{10} \times 1.5 \times 0.9 = 1.35 \times 10^{10} \text{ kg}$$
 
-$$E_{CO_2} = 1.35 \times 10^{10} \times 1650 \times 10^{-12} = 22.3 \text{ Gt CO}_2$$
+$$E_{CO_2} = 1.35 \times 10^{10} \times 1650 \times 10^{-12} = 22.3 \text{ Mt CO}_2$$
 
 **~5% of global fossil fuel emissions!**
 

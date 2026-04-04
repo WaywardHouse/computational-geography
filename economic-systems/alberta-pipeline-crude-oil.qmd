@@ -37,6 +37,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That pipelines move fluids under pressure and that market access depends on where a network can physically send those flows.
+
+**You will learn**  
+How Alberta's crude network is organized, how throughput and utilization are computed, and why transport geography affects the producer netback.
+
+**Why this matters**  
+Pipeline debates often sound political, but underneath them are measurable questions about capacity, direction, distance, and hydraulics.
+
+**If this gets hard, focus on...**  
+The simple logic that a pipeline network links source regions to destinations, and that diameter, pressure loss, and reachable markets all matter.
+
 
 ## 1. The Question
 
@@ -203,12 +217,12 @@ oil per year through a single pipeline.
 
 **Step 3 — Express in economic terms:**
 
-At a typical WTI price of USD &#36;75/bbl and a heavy crude discount of USD &#36;15/bbl
+At a typical WTI price of USD $75/bbl and a heavy crude discount of USD $15/bbl
 (Canadian Heavy Differential), the crude moving through Line 3 at full capacity
 has a destination market value of:
 
-$$V_{\text{economic}} = 277.4 \times 10^6 \text{ bbl} \times \$(75 - 15)$$
-$$V_{\text{economic}} = 277.4 \times 10^6 \times \&#36;60 \approx \&#36;16.6 \text{ billion USD/yr}$$
+$$V_{\text{economic}} = 277.4 \times 10^6 \text{ bbl} \times (75 - 15)\ \text{USD/bbl}$$
+$$V_{\text{economic}} = 277.4 \times 10^6 \times 60 \approx 16.6 \text{ billion USD/yr}$$
 
 This is the market value of one pipeline's throughput at one point in time.
 Line 3 is the largest single line; Enbridge's Mainline system comprises six

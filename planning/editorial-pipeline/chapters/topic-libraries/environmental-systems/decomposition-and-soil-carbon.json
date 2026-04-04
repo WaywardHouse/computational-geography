@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The decomposition chapter already had a strong explanatory arc, but it needed clearer onboarding so readers could orient themselves to pools, rates, and climate controls before the equations accumulated.",
+    "issues": [
+      "The chapter lacked the now-standard learner-facing opening scaffold.",
+      "The relationship between inputs, pool transfers, and decay benefits from being framed before formal notation begins.",
+      "The topic-library environmental sequence needed consistency in how specialist chapters announce prerequisites."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added clearer onboarding and preserved the three-pool decomposition model and steady-state reasoning.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section.",
+      "Used the setup block to foreground first-order decay and climate controls.",
+      "Left the multi-pool derivation intact because it was already clear."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now enters the soil-carbon model more gently while preserving accurate multi-pool dynamics and steady-state calculations.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The repair focused on conceptual pacing and chapter-entry support rather than on changing the core model.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the input-versus-decay logic before the equations.",
+      "Preserved the existing multi-pool and steady-state treatment."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's visual and worked-example support is already strong, and the revised opening improves how those supports are interpreted.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisite framing.",
+      "Retained the chapter's strong pool-based explanatory structure.",
+      "Improved interpretive support around the role of temperature and moisture."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

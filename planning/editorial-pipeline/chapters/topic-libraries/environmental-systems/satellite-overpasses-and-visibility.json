@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The visibility chapter had good geometric substance but needed explicit onboarding so readers could distinguish position, local horizon, and line-of-sight questions before the vector algebra began.",
+    "issues": [
+      "The chapter opened quickly into vector geometry without a learner-facing setup block.",
+      "The conceptual difference between being nearby on Earth and being visible above the horizon needed stronger emphasis.",
+      "The topic-library sequence needed consistent onboarding across the orbital mechanics set."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added a clearer reader ramp and preserved the core line-of-sight derivation and overpass geometry.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section to separate the geometric objects involved.",
+      "Kept the vector derivations because they fit the volume once the entry is gentler.",
+      "Used the onboarding to tie the chapter more directly to real overpass prediction."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces visibility geometry at a fairer pace while maintaining correct vector and angle relationships.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The main repair was pedagogical: a stronger conceptual setup before the formal geometry.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Clarified the local-horizon reading frame.",
+      "Preserved the worked vector-geometry treatment and visibility conditions."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses figures and geometry explainers appropriately, and the added onboarding improves interpretation of those tools.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added prerequisite framing before the main derivation.",
+      "Retained the chapter's applied overpass and angle-explainer structure.",
+      "Improved interpretive support around the meaning of elevation and azimuth."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

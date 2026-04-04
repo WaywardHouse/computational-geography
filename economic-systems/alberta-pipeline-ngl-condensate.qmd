@@ -47,6 +47,20 @@ nocite: |
   @pembina-aif-2023
 ---
 
+## Before You Start
+
+**You should know**  
+That bitumen is often too viscous to move alone in a pipeline and that hydrocarbon streams can be separated into different components after processing.
+
+**You will learn**  
+How condensate and NGL systems support Alberta's oil-sands transport chain, how the fractionation mass balance works, and why condensate supply can constrain crude movement.
+
+**Why this matters**  
+The crude network only works because a second, quieter network moves diluent in the opposite direction.
+
+**If this gets hard, focus on...**  
+The basic circuit: condensate moves north, blends with bitumen, and the resulting dilbit moves south.
+
 
 ## 1. The Question
 

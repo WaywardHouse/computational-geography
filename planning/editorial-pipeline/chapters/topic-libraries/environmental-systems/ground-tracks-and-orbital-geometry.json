@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter's coordinate-geometry core was solid, but it needed a clearer conceptual entry and one repair to a malformed westward-shift summary expression.",
+    "issues": [
+      "The chapter moved quickly from mission examples into rotating-frame geometry.",
+      "A malformed inline expression appeared in the summary of westward shift.",
+      "The volume benefits when orbital chapters make their surface-mapping relevance explicit up front."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added beginner-safe scaffolding for the coordinate transformation story and repaired the broken westward-shift notation.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start section focused on orbit versus rotating Earth.",
+      "Fixed the malformed summary expression for westward shift.",
+      "Preserved the strong computational and geometric treatment already present."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now handles the orbit-to-map transformation more accessibly while remaining mathematically coherent and appropriately specialist.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The chapter was repaired through added onboarding and a small notation correction in the summary material.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Fixed the malformed westward-shift expression.",
+      "Clarified the conceptual bridge between orbital geometry and surface coverage."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses an interactive ground-track explainer well, and the revised framing improves the reader's ability to interpret it.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites before the interactive model.",
+      "Preserved the chapter's strong orbital-geometry visualization work.",
+      "Improved interpretive support around the main westward-shift idea."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

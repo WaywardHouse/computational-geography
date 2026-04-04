@@ -40,6 +40,20 @@ math-prerequisites-note: 'Thunderstorm dynamics (Model 63). Boundary layer (Mode
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That thunderstorms can generate strong downdrafts as precipitation loading and evaporative cooling create negative buoyancy.
+
+**You will learn**  
+How downbursts and derechos generate damaging straight-line winds, how cold outflow spreads at the surface, and how wind damage potential can be estimated from storm structure.
+
+**Why this matters**  
+Straight-line winds often cause more widespread damage than tornadoes, but they are easier to misread if the outflow physics is not clear.
+
+**If this gets hard, focus on...**  
+The core sequence that sinking cooled air hits the ground and then spreads outward as a destructive wind surge.
+
 
 At 8:00 AM on 29 June 2012, meteorologists watching radar over the US Midwest saw a bowed line of severe thunderstorms forming over northern Indiana. By midnight it had swept 1,000 km to the Atlantic coast, killed 22 people, and left 4.2 million homes without power from Ohio to Virginia — one of the most damaging derechos in recorded American history. The storm's straight-line winds exceeded 145 km/h in some areas, downing trees and power lines across an area larger than France. And yet the radar signature — a distinctive bow-shaped arc with "bookend" vortices at each end — had been visible to trained observers hours before the worst damage arrived.
 

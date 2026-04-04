@@ -42,6 +42,20 @@ math-prerequisites-note: 'Fluid dynamics basics. Reynolds decomposition. Shear s
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That wind speed usually changes with height and that turbulence mixes momentum between the surface and the atmosphere above.
+
+**You will learn**  
+How logarithmic wind profiles, friction velocity, and stability shape near-surface winds and why those ideas matter for wind energy and dispersion.
+
+**Why this matters**  
+Many practical geographic models depend on translating a surface wind measurement into the actual flow experienced by turbines, plumes, crops, or aircraft.
+
+**If this gets hard, focus on...**  
+The main pattern that rough surfaces slow the air near the ground, while turbulence and stability control how quickly wind speed recovers with height.
+
 
 On a cold, clear morning in the winter of 2008, photographer Christian Steiness flew over the Horns Rev offshore wind farm in the North Sea and captured one of the most reproduced images in wind energy history: 80 turbines each trailing a distinct plume of condensation, the entire farm a visible map of its own turbulent wake. The photograph made tangible something engineers already knew but the public rarely sees — that a wind turbine doesn't just extract energy from the air, it transforms the air, leaving kilometres of disturbed flow that rob downwind turbines of their resource.
 
@@ -105,7 +119,7 @@ Depends on surface:
 - Water (smooth): $z_0 = 0.0001$ m
 - Grass: $z_0 = 0.01-0.05$ m
 - Crops: $z_0 = 0.1-0.2$ m
-- Forest: $z_0 = 0.5-2 m
+- Forest: $z_0 = 0.5-2$ m
 - Urban: $z_0 = 1-3 m
 
 ### Power Law (Simplified)
@@ -267,9 +281,9 @@ From log profile:
 
 $$u(10) = \frac{u_*}{0.4} \ln\left(\frac{10}{0.15}\right)$$
 
-$&#36;6 = \frac{u_*}{0.4} \ln(66.7) = \frac{u_*}{0.4} \times 4.20$$
+$$6 = \frac{u_*}{0.4} \ln(66.7) = \frac{u_*}{0.4} \times 4.20$$
 
-$&#36;6 = 10.5 u_*$$
+$$6 = 10.5 u_*$$
 
 $$u_* = 0.571 \text{ m/s}$$
 

@@ -49,6 +49,20 @@ nocite: |
   @transmountain-system2024
 ---
 
+## Before You Start
+
+**You should know**  
+That refineries turn crude into different finished fuels and that a single pipeline can move multiple products in sequence.
+
+**You will learn**  
+How refined products are batched, how transmix forms at product interfaces, and how terminal storage and turnover keep the downstream supply chain running.
+
+**Why this matters**  
+Fuel supply depends not just on crude production, but on the timing, sequencing, and inventory management of finished-product logistics.
+
+**If this gets hard, focus on...**  
+The main operational idea that product batches move one after another through the same pipe and must be separated and timed carefully.
+
 
 ## 1. The Question
 

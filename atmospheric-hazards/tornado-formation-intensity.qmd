@@ -41,6 +41,20 @@ math-prerequisites-note: 'Thunderstorm dynamics (Model 63). Vector calculus (cur
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That rotating thunderstorms can concentrate vorticity, and that stronger convergence and stretching can intensify rotation.
+
+**You will learn**  
+How vorticity tilting and stretching support tornado formation, how the Rankine vortex approximates tornado winds, and how damage surveys translate into EF ratings.
+
+**Why this matters**  
+Tornado risk assessment depends on connecting storm structure, radar signals, and near-surface damage to one coherent physical model.
+
+**If this gets hard, focus on...**  
+The core idea that existing rotation becomes stronger when it is concentrated into a smaller, more strongly stretched column.
+
 
 On 22 May 2011, a tornado of EF5 intensity — the highest category on the Enhanced Fujita Scale — struck Joplin, Missouri, killing 158 people and destroying a third of the city. The tornado was a mile wide at times and maintained that width for 22 miles. Wind speeds inside the vortex were estimated at over 320 km/h. The Storm Prediction Center had issued a tornado watch for the area that morning and a tornado warning 24 minutes before the Joplin tornado touched down. Most residents received the warning. Many did not have adequate shelter. The storm's intensity, once the vortex formed, exceeded anything most residents had experienced or mentally prepared for.
 
@@ -624,7 +638,7 @@ Historical ~5 minutes (1990s)
 
 **Cost-benefit:**
 
-&#36;5,000-10,000 safe room vs potential lives saved.
+$5,000-10,000 safe room vs potential lives saved.
 
 ---
 

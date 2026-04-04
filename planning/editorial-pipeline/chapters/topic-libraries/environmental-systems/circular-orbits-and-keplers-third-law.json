@@ -9,50 +9,66 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The orbital mechanics chapter was technically strong but needed the same learner-facing onboarding used elsewhere in the topic libraries, plus one inline-math repair in the period derivation section.",
+    "issues": [
+      "The chapter assumed too much immediate comfort with orbital mechanics at the opening.",
+      "A malformed circumference expression interrupted a central explanatory step.",
+      "The section benefited from more explicit framing of why orbital mechanics matters for Earth observation."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Added clearer onboarding, repaired the inline-math glitch, and preserved the derivation of orbital velocity and Kepler's Third Law.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block to make the free-fall framing explicit.",
+      "Fixed the malformed $2\\pi r$ inline expression.",
+      "Kept the technical development because it fits the topic-library level."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces the orbital model more gently while preserving mathematical correctness and a strong intuition-first narrative.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The specialist pacing issue was repaired with stronger onboarding and a direct math-markup correction.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Fixed the malformed circumference notation.",
+      "Reinforced the chapter's connection to satellite observation work."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already used diagrams and worked examples effectively, and the revised opening improves interpretive access to those materials.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added a learner-facing prerequisite frame.",
+      "Retained the chapter's strong worked-example structure.",
+      "Reduced friction in the derivation by repairing broken notation."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

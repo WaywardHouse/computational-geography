@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter's modelling spine was strong, but it needed better learner-facing onboarding and a couple of math-markup repairs so the notation did not interrupt the flow.",
+    "issues": [
+      "The chapter opened abruptly for first-time readers entering the topic-library machine-learning section.",
+      "A few malformed currency and inline-math fragments disrupted the explanation.",
+      "The chapter needed explicit framing around why spatial validation matters in geographic regression."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Revised the opening scaffolding, clarified the learning arc, and repaired notation glitches while preserving the chapter's technical depth.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block to make prerequisites and goals explicit.",
+      "Kept the mathematical derivation intact because it already matched the topic-library level.",
+      "Repaired malformed inline math in the learning-rate and cross-validation sections."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces the regression workflow more cleanly, keeps notation readable, and remains technically appropriate for an intermediate specialist volume.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The machine-learning onboarding gap was repaired by adding clearer chapter framing and by fixing the local notation errors.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Repaired malformed inline math and currency-style markup.",
+      "Kept the derivation sequence but made the chapter entry more pedagogically fair."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The existing figures and worked examples already carried the concept well, and the added onboarding improves how readers approach those materials.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisite guidance before the main exposition.",
+      "Preserved the worked examples and technical visuals already present in the chapter.",
+      "Reduced avoidable friction from malformed notation."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

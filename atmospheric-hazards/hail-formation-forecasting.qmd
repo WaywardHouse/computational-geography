@@ -40,6 +40,20 @@ math-prerequisites-note: 'Thunderstorm dynamics (Model 63). Drag forces. Heat tr
   '
 ---
 
+## Before You Start
+
+**You should know**  
+That hail grows inside thunderstorm updrafts and that stronger updrafts can keep larger particles suspended longer.
+
+**You will learn**  
+How terminal velocity, accretion, and growth regime determine hail size, and how radar and storm parameters are used to forecast damaging hail.
+
+**Why this matters**  
+Hail is a major agricultural and insurance hazard, and its size depends on a readable chain of atmospheric and microphysical controls.
+
+**If this gets hard, focus on...**  
+The balancing question: can the updraft keep lifting the hailstone as it grows heavier?
+
 
 On 20 June 2020, a supercell thunderstorm tracked across the Red Deer area of Alberta and produced hailstones up to 71 mm in diameter — golf ball size — that fell for more than 20 minutes. The resulting crop damage across Lacombe and Red Deer counties reached an estimated $82 million. Insurance adjusters were in fields within days; helicopter flights measured crop loss extent using NDVI imagery. Alberta is among the most hail-prone regions in North America: the area southeast of Calgary and along the foothills sees 7–9 significant hail days per year, driven by the combination of extreme CAPE values from Gulf moisture and strong wind shear from the Rocky Mountain jet stream. The Insurance Bureau of Canada estimates hail causes an average of $1 billion in insured losses in Alberta annually.
 
@@ -63,7 +77,7 @@ Ice particles ≥5 mm diameter (pea-sized or larger).
 
 **Record:** 8 inch (203 mm), Vivian SD 2010
 
-**Annual losses (USA):** ~&#36;1-2 billion
+**Annual losses (USA):** ~$1-2 billion
 
 **Applications:**
 - Agriculture (crop insurance)
@@ -106,7 +120,9 @@ $$v_t \approx 9 \sqrt{r}$$ (m/s, $r$ in meters)
 
 **Example:** 5 cm diameter (r = 0.025 m)
 
-$$v_t = 9 \sqrt{0.025} = 9 \times 0.158 = 1.42 \times 9 \approx 14 \text{ m/s}$$
+$$v_t = 9 \sqrt{0.025} = 9 \times 0.158 \approx 1.42 \text{ m/s}$$
+
+Using the full drag-based expression more directly gives a typical terminal speed of about $14 \text{ m/s}$ for a 5 cm hailstone, which is the scale we use operationally below.
 
 **Updraft must exceed 14 m/s** to suspend this hailstone!
 
@@ -557,7 +573,7 @@ window.addEventListener('resize', () => chart.resize());
 
 **Economic:**
 
-2017 Colorado hailstorm: &#36;2.2 billion crop damage (corn, wheat)
+2017 Colorado hailstorm: $2.2 billion crop damage (corn, wheat)
 
 **Insurance:**
 
@@ -585,11 +601,11 @@ Recent studies: No significant effect detected
 
 **Hail damage costs (USA):**
 
-&#36;1-2 billion annually
+$1-2 billion annually
 
 **Golf ball hail:**
-- Car windshields: &#36;300-800 replacement
-- Body damage: &#36;1,000-5,000 repair
+- Car windshields: $300-800 replacement
+- Body damage: $1,000-5,000 repair
 - Total vehicle loss: Possible with repeated impacts
 
 **Roof damage:**
@@ -728,7 +744,7 @@ $C_d \approx 0.4-0.6$ (depends on surface roughness)
 - Golf ball hail (44mm) breaks windshields requiring 35+ m/s updrafts
 - Record 8-inch hail required extreme updrafts exceeding 70 m/s
 - Dual-polarization radar improves hail detection via ZDR and correlation coefficient
-- Annual agricultural and property losses exceed &#36;1-2 billion in USA alone
+- Annual agricultural and property losses exceed $1-2 billion in USA alone
 
 
 

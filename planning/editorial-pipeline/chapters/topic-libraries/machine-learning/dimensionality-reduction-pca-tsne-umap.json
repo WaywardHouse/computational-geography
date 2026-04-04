@@ -9,50 +9,66 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter already had a strong technical core, but it needed a better invitation for readers so PCA, t-SNE, and UMAP were introduced as answers to a shared problem rather than as a rapid stack of methods.",
+    "issues": [
+      "The chapter entered specialist material quickly without enough onboarding.",
+      "Readers benefited from a clearer statement of the common compression goal before the methods diverged.",
+      "The topic-library sequence needed consistent learner-facing framing across machine-learning chapters."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Revised the chapter entry and added clearer scaffolding so the three dimensionality-reduction methods feel connected and readable from the start.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block focused on redundancy and compression.",
+      "Kept the specialist math because it suits the volume once the entry ramp is gentler.",
+      "Used the opening framing to distinguish compression, visualization, and manifold discovery more clearly."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now does a better job of leading with intuition before method-specific formalism while preserving the mathematical accuracy of the PCA development.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The pacing issue was repaired by making the chapter's prerequisite frame and conceptual target explicit at the top.",
+    "actions_taken": [
+      "Added a Before You Start section.",
+      "Strengthened the common framing around compression and visualization.",
+      "Left the core technical treatment intact because it was already sound."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter already uses visualization-heavy explanation effectively, and the added framing improves how readers interpret those figures.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Added learner-facing prerequisites and reading guidance.",
+      "Preserved the chapter's strong visual orientation around reduced-dimensional structure.",
+      "Improved interpretive support by clarifying what each method is trying to preserve."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }
