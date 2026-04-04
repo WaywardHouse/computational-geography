@@ -40,6 +40,48 @@ Start Here
 </section>
 ```
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Entry Route</div>
+<h3 class="cg-ill__title">This Part Starts With Reading Habits, Then Moves Into Maps And Models</h3>
+<p class="cg-ill__lede">The getting-started path works best when it feels like a steady on-ramp rather than six unrelated preliminaries. Readers begin by lowering symbol anxiety, then learn to judge scale and uncertainty, and only then connect those habits to maps and computational models.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">First</span>
+<h4>Read Without Panic</h4>
+<p>Use equations as claims about quantities and relationships rather than as instant tests.</p>
+<ul>
+<li><a href="./how-to-read-equations.html">How to Read Equations</a></li>
+<li><a href="./units-scale-and-estimation.html">Units, Scale, and Estimation</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>See Maps As Structured Data</h4>
+<p>Learn coordinates, layers, and what uncertainty means before trusting exact-looking maps.</p>
+<ul>
+<li><a href="./maps-coordinates-and-layers.html">Maps, Coordinates, and Layers</a></li>
+<li><a href="./uncertainty-error-and-approximation.html">Uncertainty, Error, and Approximation</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Bridge Into The Core Path</h4>
+<p>Connect the reading habits to computation and get the tools in place for later labs and libraries.</p>
+<ul>
+<li><a href="./what-makes-a-model-computational.html">What Makes a Model Computational</a></li>
+<li><a href="./setting-up-your-environment.html">Setting Up Your Environment</a></li>
+</ul>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">If the core book feels intimidating, this is the stabilizing loop: read for meaning, estimate before calculating, and keep returning to the spatial question.</p>
+</div>
+</div>
+</figure>
+
 ## How To Use This Book {#how-to-use-this-book .section-title}
 
 ```{=html}

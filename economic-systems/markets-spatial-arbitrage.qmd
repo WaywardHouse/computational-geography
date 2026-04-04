@@ -39,6 +39,60 @@ In 1952, Paul Samuelson published a paper that seems almost too obvious to be wo
 
 This Samuelson condition — sometimes called spatial price equilibrium — is the foundation of all commodity market geography. It explains which markets are connected, what price differences are permanent versus temporary, and crucially, what a persistent price anomaly tells us about the physical infrastructure that is supposed to connect two markets.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Arbitrage Constraint</div>
+<h3 class="cg-ill__title">Prices Converge Only If The Cheap Market Can Actually Reach The Expensive One</h3>
+<p class="cg-ill__lede">This chapter is easiest to read as a corridor story. When transfer cost is the only friction, arbitrage compresses the price gap until it matches transport cost. When the corridor is full or blocked, the gap widens beyond transport cost and turns into a visible price of constraint.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Integrated Corridor</div>
+<h4>Gap Shrinks Toward Transfer Cost</h4>
+<svg viewBox="0 0 560 300" role="img" aria-label="Low-price market and high-price market connected by corridor, with arbitrage closing most of the gap until only transfer cost remains">
+<rect x="28" y="24" width="504" height="252" rx="12" fill="#f7f5ef" stroke="#d0d0c8"/>
+<rect x="74" y="112" width="108" height="84" rx="12" fill="#91cc75"/>
+<rect x="378" y="86" width="108" height="110" rx="12" fill="#5470c6"/>
+<path d="M182 154 H378" stroke="#5a5a56" stroke-width="10" stroke-linecap="round"/>
+<path d="M206 154 H350" stroke="#e02020" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#cg-arb-arrow)"/>
+<defs>
+<marker id="cg-arb-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e02020"/></marker>
+</defs>
+<text x="128" y="148" text-anchor="middle" font-size="18" fill="#0a0a0a">AECO</text>
+<text x="128" y="174" text-anchor="middle" font-size="16" fill="#0a0a0a">cheap market</text>
+<text x="432" y="128" text-anchor="middle" font-size="18" fill="#ffffff">Henry Hub</text>
+<text x="432" y="156" text-anchor="middle" font-size="16" fill="#ffffff">expensive market</text>
+<text x="280" y="136" text-anchor="middle" font-size="15" fill="#5a5a56">pipeline / rail / corridor</text>
+<text x="280" y="192" text-anchor="middle" font-size="15" fill="#5a5a56">arbitrage continues until price gap ≈ transfer cost</text>
+</svg>
+<p>If traders can move the commodity, excess profit is temporary. The corridor keeps compressing the differential until only movement cost remains.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Binding Constraint</div>
+<h4>Physical Limits Let A Price Gap Stay Open</h4>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<h4>Cheap region</h4>
+<p>Supply is abundant, so the local price stays low.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Corridor full</h4>
+<p>Pipe, rail, or terminal capacity becomes the binding limit.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Arbitrage stalls</h4>
+<p>Profits exist on paper, but extra volume cannot physically move.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Gap persists</h4>
+<p>The excess differential becomes a dollar signal of bottleneck value.</p>
+</div>
+</div>
+</div>
+</div>
+<figcaption>Spatial arbitrage is really a test of connectivity. Prices tell you whether markets are linked by functioning capacity or separated by a bottleneck that economic incentives alone cannot overcome.</figcaption>
+</div>
+</figure>
+
 ## Before You Start
 
 This chapter is really about one test: can traders physically move the good from the cheap market to the expensive market? If the answer is yes, price gaps should shrink toward transfer cost. If the answer is no, the gap can persist. We will write prices as $P_A$ and $P_B$, transport cost as $T_{AB}$, and later use $\delta$, $t$, and $\epsilon$ to separate the observed price gap from the competitive transport cost and the extra constraint cost.

@@ -58,6 +58,69 @@ Computational geography runs into this problem constantly. We measure river leng
 
 This chapter gives that problem a proper foundation. It explains what a coordinate reference system is, why projections always distort something, and how to choose a sensible working system for the analysis in front of you.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">CRS Decision Flow</div>
+<h3 class="cg-ill__title">A CRS Is A Chain Of Decisions, Not Just A Label In A Dropdown</h3>
+<p class="cg-ill__lede">Readers often meet coordinate systems as software settings, which hides the real structure. A useful mental model is a short chain: Earth has a shape, the datum ties coordinates to that shape, the projection flattens it if needed, and the final choice should match the measurement question rather than map appearance alone.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">1</span>
+<h4>Start With Curved Earth</h4>
+<p>Longitude and latitude name position on a curved planet, so they are good for global storage and exchange.</p>
+<ul>
+<li>angular units</li>
+<li>great for GPS and interchange</li>
+<li>awkward for direct metre-based analysis</li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">2</span>
+<h4>Add Datum + Projection</h4>
+<p>The datum decides which mathematical Earth is being used. The projection decides how curved positions become flat coordinates.</p>
+<ul>
+<li>datum controls alignment</li>
+<li>projection creates x-y map coordinates</li>
+<li>every flattening introduces distortion</li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">3</span>
+<h4>Match The Task</h4>
+<p>The right CRS depends on what you are measuring, not on what looks familiar.</p>
+<ul>
+<li>distance/buffers: local projected</li>
+<li>area totals: equal-area</li>
+<li>display/browsing: web map CRS may be fine</li>
+</ul>
+</div>
+</div>
+<div class="cg-ill__compare" style="margin-top: 1rem;">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Store</div>
+<h4>Geographic CRS</h4>
+<p>Use longitude-latitude when the goal is global referencing, data exchange, or preserving one common Earth-wide location format.</p>
+<strong>Best question: “Where is it on Earth?”</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Analyze</div>
+<h4>Projected CRS</h4>
+<p>Switch to metre-based coordinates when buffering, measuring distance, calculating slope, or doing local spatial analysis.</p>
+<strong>Best question: “How big, how far, or how steep?”</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Compare</div>
+<h4>Property-Specific CRS</h4>
+<p>Choose equal-area, conformal, or other families based on which property needs the most protection.</p>
+<strong>Best question: “What must distort least?”</strong>
+</div>
+</div>
+<figcaption>A practical CRS habit is to ask three things in order: what Earth model is assumed, how it is being flattened, and what property the analysis needs to preserve most.</figcaption>
+</div>
+</figure>
+
 ## 1. The Question
 
 How do we put locations from a curved Earth onto a flat map without confusing ourselves or breaking the analysis?

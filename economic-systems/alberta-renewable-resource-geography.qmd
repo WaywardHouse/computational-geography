@@ -71,6 +71,29 @@ not 21% more energy — it is 73% more power, because wind power scales
 with the cube of speed. At the scale of a 300 MW project, that
 difference is decisive.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Resource Geography</div>
+<h3 class="cg-ill__title">Alberta's Renewable Landscape Splits Into A Sunny South And A Windier Foothills-Prairie Belt</h3>
+<p class="cg-ill__lede">The chapter's main teaching move is geographic: solar and wind are not just "renewables" in the abstract. They peak in different parts of Alberta for different physical reasons. Solar follows dry air and lower latitude. Wind follows terrain exposure, roughness, and channelled airflow. That contrast explains why the transition is spatially uneven even inside one province.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Solar</div>
+<h4>Highest In The Dry Southern Belt</h4>
+<p>Southern Alberta benefits from lower latitude, more frequent clear-sky conditions, and drier air, which makes fixed-tilt solar unusually productive by Canadian standards.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Wind</div>
+<h4>Best Along The Foothills And Open Prairie Corridors</h4>
+<p>Wind quality improves where airflow is accelerated by topography or preserved by open prairie fetch, which is why Alberta's best wind sites cluster differently from its best solar sites.</p>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">Renewable siting starts with spatial physics. Alberta is not one resource province but several overlapping solar and wind geographies with different advantages and tradeoffs.</p>
+</div>
+</div>
+</figure>
+
 ## Reading the sun: Alberta’s solar atlas
 
 The amount of solar energy arriving at the Earth’s surface depends on
@@ -861,5 +884,3 @@ capital constraints that determine where projects actually get built.*
 *Sources: NRCan Solar Atlas (solar.nrcan.gc.ca); Environment Canada Wind
 Atlas; AESO 2024 Annual Electricity Data Book; AESO Long-term
 Transmission Plan.*
-
-*Cluster EG — Renewable Energy Transition · Essay 1 of 3 · Difficulty: 2*

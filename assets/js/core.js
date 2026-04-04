@@ -863,23 +863,27 @@ async function init() {
   for (const entry of REGISTRY) {
     if (!entry.detect(content)) continue;
 
-    await loadCDN(entry.cdn);
+    try {
+      await loadCDN(entry.cdn);
 
-    if (entry.init) await entry.init();
+      if (entry.init) await entry.init();
 
-    if (entry.selector) {
-      const els = Array.from(document.querySelectorAll(entry.selector));
-      for (const el of els) {
-        const id = ensureId(el);
-        let opts = {};
-        try {
-          if (el.dataset.options) opts = JSON.parse(el.dataset.options);
-        } catch {
-          console.warn('[loom] Invalid data-options JSON on', el);
+      if (entry.selector) {
+        const els = Array.from(document.querySelectorAll(entry.selector));
+        for (const el of els) {
+          const id = ensureId(el);
+          let opts = {};
+          try {
+            if (el.dataset.options) opts = JSON.parse(el.dataset.options);
+          } catch {
+            console.warn('[loom] Invalid data-options JSON on', el);
+          }
+          const instance = entry.render ? await entry.render(el, opts) : null;
+          instances.set(id, { entry, el, instance });
         }
-        const instance = entry.render ? await entry.render(el, opts) : null;
-        instances.set(id, { entry, el, instance });
       }
+    } catch (error) {
+      console.error(`[loom] Failed to initialize visual adapter "${entry.id}".`, error);
     }
   }
 

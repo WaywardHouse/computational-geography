@@ -44,6 +44,64 @@ At solar noon on the summer solstice in Banff, Alberta, the sun stands about 60�
 
 The mathematical tool that makes this precise is the dot product — a single operation that converts the angle between a surface's normal vector and the direction to the sun into the fraction of maximum possible energy the surface receives. A surface facing directly at the sun gets the full beam; a surface parallel to the beam gets nothing; every other orientation falls between these extremes as a cosine function of the angle. This model introduces trigonometry and vector geometry through the practical problem of solar energy receipt on sloped terrain, building from the definition of angle through to hillshade calculation and the explanation of aspect-dependent microclimates.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Projection Geometry</div>
+<h3 class="cg-ill__title">Energy Receipt Depends On How Closely The Surface Normal Points Toward The Sun</h3>
+<p class="cg-ill__lede">The most useful visual habit in this chapter is to stop looking at the surface itself and look at its normal vector. Once the sun direction and the surface normal are in the same picture, the dot product stops feeling abstract and starts reading like a geometric overlap score.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Beam Spread</div>
+<h4>Oblique Illumination Spreads The Same Beam Across More Ground</h4>
+<svg viewBox="0 0 560 320" role="img" aria-label="Perpendicular and oblique sunlight beams hitting surfaces and creating small versus stretched footprints">
+<rect x="24" y="18" width="512" height="284" rx="12" fill="#f7f5ef" stroke="#d0d0c8"/>
+<g>
+<rect x="68" y="204" width="160" height="18" fill="#c7b08c"/>
+<path d="M148 54 V204" stroke="#f0a800" stroke-width="18" stroke-linecap="round"/>
+<ellipse cx="148" cy="194" rx="28" ry="12" fill="rgba(240,168,0,0.28)" stroke="#f0a800" stroke-width="3"/>
+<text x="74" y="246" font-size="15" fill="#5a5a56">perpendicular beam</text>
+<text x="74" y="268" font-size="15" fill="#5a5a56">small footprint, high W/m²</text>
+</g>
+<g>
+<path d="M314 214 L472 176" stroke="#c7b08c" stroke-width="18" stroke-linecap="round"/>
+<path d="M344 66 L408 192" stroke="#f0a800" stroke-width="18" stroke-linecap="round"/>
+<ellipse cx="404" cy="191" rx="48" ry="16" transform="rotate(-12 404 191)" fill="rgba(240,168,0,0.22)" stroke="#f0a800" stroke-width="3"/>
+<text x="314" y="246" font-size="15" fill="#5a5a56">oblique beam</text>
+<text x="314" y="268" font-size="15" fill="#5a5a56">stretched footprint, lower W/m²</text>
+</g>
+</svg>
+<p>The beam carries the same total energy in both cases. What changes is the area over which that energy is distributed.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Dot Product</div>
+<h4>The Normal Vector Is The Quantity That Matters</h4>
+<svg viewBox="0 0 560 320" role="img" aria-label="Surface normal and sun vector with incidence angle theta and cosine values for direct, oblique, and grazing illumination">
+<rect x="24" y="18" width="512" height="284" rx="12" fill="#f7f5ef" stroke="#d0d0c8"/>
+<path d="M88 238 L472 168" stroke="#c7b08c" stroke-width="14" stroke-linecap="round"/>
+<path d="M250 208 L292 92" stroke="#e02020" stroke-width="5" marker-end="url(#cg-sun-arrow)"/>
+<path d="M432 60 L302 146" stroke="#f0a800" stroke-width="5" marker-end="url(#cg-sun-arrow2)"/>
+<path d="M296 118 A38 38 0 0 0 320 146" fill="none" stroke="#3f7fb3" stroke-width="3"/>
+<defs>
+<marker id="cg-sun-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e02020"/></marker>
+<marker id="cg-sun-arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f0a800"/></marker>
+</defs>
+<text x="212" y="92" font-size="15" fill="#e02020">surface normal n̂</text>
+<text x="408" y="58" font-size="15" fill="#f0a800">sun vector ŝ</text>
+<text x="326" y="136" font-size="15" fill="#3f7fb3">θ</text>
+<g transform="translate(324 176)">
+<rect x="0" y="0" width="160" height="84" rx="10" fill="#ffffff" stroke="#d0d0c8"/>
+<text x="16" y="24" font-size="15" fill="#5a5a56">θ = 0°  → cos θ = 1.00</text>
+<text x="16" y="46" font-size="15" fill="#5a5a56">θ = 45° → cos θ = 0.71</text>
+<text x="16" y="68" font-size="15" fill="#5a5a56">θ = 90° → cos θ = 0.00</text>
+</g>
+</svg>
+<p>If the vectors align, the surface gets the full beam. As the vectors diverge, the cosine term reduces the effective flux smoothly toward zero.</p>
+</div>
+</div>
+<figcaption>The geometry is a projection problem: the dot product measures how much of the sun vector falls onto the surface normal, and that overlap sets energy receipt per unit area.</figcaption>
+</div>
+</figure>
+
 ## 1. The Question
 
 Why does the same incoming solar radiation produce different heating rates on slopes of different orientations?

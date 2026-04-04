@@ -48,6 +48,59 @@ To do that inversion, you first need a forward model: given a surface with a kno
 
 This model is a direct web reconstruction of interactive teaching software described in Barnsley & Hobson (1997).[^1] The original ran on Windows 95 and Solaris as a Tcl/Tk application. This version runs in a browser. The physics is identical.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Mixed Pixels</div>
+<h3 class="cg-ill__title">A Sensor Collapses Surface Mixtures And Wavelength Ranges Into One Band Value</h3>
+<p class="cg-ill__lede">This chapter asks readers to make two conceptual jumps at once: one pixel can contain more than one material, and one band value is already an average over a wavelength interval. Seeing those two compressions together makes the rest of the chapter much easier to follow.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Surface Mixing</div>
+<h4>One Pixel Can Hold Several Materials</h4>
+<svg viewBox="0 0 560 300" role="img" aria-label="Mixed pixel containing vegetation and soil fractions that combine into one measured value">
+<rect x="28" y="28" width="180" height="180" fill="#f7f5ef" stroke="#d0d0c8" stroke-width="3"/>
+<path d="M28 190 L28 28 L208 28 L208 108 C170 126, 124 150, 84 190 Z" fill="#5f8d4e"/>
+<path d="M28 190 C80 150, 130 126, 208 108 L208 208 L28 208 Z" fill="#b48c61"/>
+<g stroke="#f8f8f4" stroke-width="2">
+<path d="M88 28 V208"/><path d="M148 28 V208"/>
+<path d="M28 88 H208"/><path d="M28 148 H208"/>
+</g>
+<text x="60" y="238" font-size="16" fill="#5a5a56">60% vegetation</text>
+<text x="160" y="238" font-size="16" fill="#5a5a56">40% soil</text>
+<path d="M242 118 H352" stroke="#e02020" stroke-width="5" marker-end="url(#arrow)"/>
+<rect x="382" y="74" width="132" height="90" rx="12" fill="#f7f5ef" stroke="#d0d0c8"/>
+<text x="448" y="104" text-anchor="middle" font-size="16" fill="#5a5a56">recorded</text>
+<text x="448" y="128" text-anchor="middle" font-size="28" fill="#0a0a0a">0.36</text>
+<text x="448" y="150" text-anchor="middle" font-size="15" fill="#5a5a56">single red-band value</text>
+<defs>
+<marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+<path d="M0,0 L10,5 L0,10 z" fill="#e02020"/>
+</marker>
+</defs>
+</svg>
+<p>The instrument does not separately store “vegetation” and “soil.” It stores one mixed reflectance that the analyst later tries to interpret.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Bandpass Integration</div>
+<h4>One Band Also Averages Across Wavelength</h4>
+<svg viewBox="0 0 560 300" role="img" aria-label="Reflectance curve with a narrow and broad sensor bandpass showing averaging over wavelength">
+<rect x="34" y="24" width="492" height="214" fill="#f7f5ef" stroke="#d0d0c8"/>
+<rect x="98" y="42" width="78" height="178" fill="rgba(94, 140, 212, 0.22)" stroke="#4e8ac4"/>
+<rect x="258" y="42" width="196" height="178" fill="rgba(212, 124, 78, 0.18)" stroke="#d47c4e"/>
+<path d="M50 184 C92 168, 124 190, 166 180 S244 118, 286 74 S386 54, 510 64" fill="none" stroke="#5f8d4e" stroke-width="5"/>
+<path d="M50 220 H512" stroke="#5a5a56" stroke-width="2"/>
+<path d="M50 220 V40" stroke="#5a5a56" stroke-width="2"/>
+<text x="137" y="34" text-anchor="middle" font-size="14" fill="#4e8ac4">narrow band</text>
+<text x="356" y="34" text-anchor="middle" font-size="14" fill="#d47c4e">broad band</text>
+<text x="314" y="266" text-anchor="middle" font-size="15" fill="#5a5a56">broad bands smooth over sharp spectral features</text>
+</svg>
+<p>A band is not a point sample at one wavelength. It is a weighted average over a spectral window, so wider windows dilute narrow absorption features.</p>
+</div>
+</div>
+<figcaption>The measurement pipeline has two averaging steps before analysis even begins: across surface components within a pixel, and across wavelengths within a band.</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 1. The Question

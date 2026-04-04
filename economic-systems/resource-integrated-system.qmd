@@ -52,6 +52,69 @@ The previous four models in this cluster were deliberately isolated. Hotelling's
 
 This final model does that synthesis. It builds the full causal system, traces three price scenarios through 2040, performs a sensitivity analysis of government revenues, and then adds the energy transition as an exogenous shift in the demand side — changing the terminal conditions that Hotelling's rule depends on.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">System Map</div>
+<h3 class="cg-ill__title">Alberta’s Resource Economy Works As An Interlocked Price, Rent, Fiscal, And Transition System</h3>
+<p class="cg-ill__lede">The chapter’s value is not in any one mechanism. It comes from seeing how price, extraction, royalties, public finance, diversification pressure, and the energy transition all push on one another at the same time. A systems visual makes it easier to keep the policy levers and feedback loops separate.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Price + Cost</span>
+<h4>Who Extracts And When?</h4>
+<p>Hotelling logic and the supply cost curve decide whether extraction now is profitable and which projects sit above the break-even line.</p>
+<ul>
+<li>oil price path</li>
+<li>cost curve position</li>
+<li>remaining reserves</li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Rent Capture</span>
+<h4>How Much Of The Boom Reaches The Public?</h4>
+<p>Royalty design converts producer netback into public revenue, but the capture rate is a policy choice rather than a geological fact.</p>
+<ul>
+<li>royalty regime</li>
+<li>government revenue</li>
+<li>Heritage Fund vs current spending</li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Long Run</span>
+<h4>Does Wealth Become Capacity Or Dependency?</h4>
+<p>Diversification, exchange-rate pressure, volatility, and the energy transition determine whether temporary resource rents become permanent resilience.</p>
+<ul>
+<li>Dutch disease risk</li>
+<li>non-resource fiscal base</li>
+<li>transition-driven demand squeeze</li>
+</ul>
+</div>
+</div>
+<div class="cg-ill__compare" style="margin-top: 1rem;">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Boom</div>
+<h4>High Oil Price</h4>
+<p>More projects clear the cost curve, royalties rise, and the temptation is to treat temporary rents like permanent fiscal capacity.</p>
+<strong>Main danger: overspending on cyclical revenue</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Bust</div>
+<h4>Low Oil Price</h4>
+<p>High-cost extraction drops away, royalties collapse, and the province rediscovers that the non-resource tax base is the only stable base.</p>
+<strong>Main danger: structural deficits and delayed adjustment</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Transition</div>
+<h4>Shorter Window</h4>
+<p>Falling backstop prices and rising carbon costs compress the period during which resource rents can still be captured at scale.</p>
+<strong>Main danger: missing the window to convert rents into durable capacity</strong>
+</div>
+</div>
+<figcaption>The integrated resource system is best read as a policy map: price is important, but rent capture, savings choices, and transition timing decide whether booms become long-run strength or repeated instability.</figcaption>
+</div>
+</figure>
+
 ## The Causal System
 
 The integrated Alberta resource system has four main feedback loops. The primary extraction loop runs from oil price through the production decision to royalty revenues and government spending. The fiscal loop connects government revenues to Heritage Fund accumulation (or not) and public service capacity. The Dutch disease loop links resource revenues to exchange rate pressure and non-resource sector health. The transition loop introduces the energy transition as a demand-side force that eventually forces a Hotelling re-optimisation.

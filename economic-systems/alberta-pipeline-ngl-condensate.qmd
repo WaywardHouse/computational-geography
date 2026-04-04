@@ -83,6 +83,33 @@ This essay maps the NGL and condensate systems, derives the mass balance
 mathematics of the fractionation cascade, and traces the geographic logic of
 why condensate flows north while bitumen flows south.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Diluent Circuit</div>
+<h3 class="cg-ill__title">The Oil-Sands Export System Depends On A Second Network Moving Condensate In The Opposite Direction</h3>
+<p class="cg-ill__lede">This chapter lands once readers see that Alberta's crude network is not self-sufficient. Raw bitumen needs a lighter hydrocarbon partner to move. That creates a counterflow system: condensate and NGL-derived products move north into the oil sands, then return south inside dilbit or as separated liquids after refining.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<h4>Gas plants + imports</h4>
+<p>Raw mix and condensate come from western gas processing and from U.S. imports like the reversed Cochin line.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Fractionation hub</h4>
+<p>Fort Saskatchewan separates y-grade into ethane, propane, butane, and condensate streams.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Northbound diluent</h4>
+<p>Condensate moves toward blending terminals and oil-sands projects to thin bitumen into pipeline-grade dilbit.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Southbound dilbit</h4>
+<p>The blended crude then re-enters the export system, carrying the diluent south with it.</p>
+</div>
+</div>
+<figcaption>The NGL/condensate system is the hidden circulatory system of Alberta crude exports. If northbound diluent is short, southbound crude movement is capped no matter how much export pipe exists.</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 2. The Conceptual Model

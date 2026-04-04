@@ -549,5 +549,3 @@ oil. Natural gas presents a fundamentally different challenge:
 compressible flow, where pressure, temperature, and volume interact
 through the gas equation of state, and the governing equation is the
 Weymouth formula.
-
-*Cluster P — Pipeline Connectivity · Essay 2 of 5 · Difficulty: 2*

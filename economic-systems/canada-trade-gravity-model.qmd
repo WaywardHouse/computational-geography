@@ -63,6 +63,59 @@ Alberta's position in the gravity framework, and what the 2025 US tariff regime
 implies for bilateral flows when viewed through a model that has been calibrated
 over decades.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Gravity Logic</div>
+<h3 class="cg-ill__title">Trade Is Strongest Where Economic Mass Is Large And Friction Distance Is Small</h3>
+<p class="cg-ill__lede">The gravity model becomes intuitive when it is seen as a tug-of-war between market size and geographic friction. Ontario trades heavily with the United States not because Ontario is uniquely “trade minded,” but because a large economy sits close to another very large one. Alberta has scale too, but it is farther from the densest North American manufacturing and consumer corridor.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Mass vs Distance</div>
+<h4>Big Nearby Markets Pull Harder Than Big Distant Ones</h4>
+<svg viewBox="0 0 560 320" role="img" aria-label="Trade gravity diagram with one Canadian origin connected more strongly to nearby large market than to a distant market">
+<rect x="28" y="24" width="504" height="272" rx="12" fill="#f7f5ef" stroke="#d0d0c8"/>
+<circle cx="126" cy="164" r="34" fill="#e02020" opacity="0.9"/>
+<circle cx="314" cy="132" r="56" fill="#5470c6" opacity="0.82"/>
+<circle cx="432" cy="204" r="38" fill="#91cc75" opacity="0.82"/>
+<path d="M160 156 C210 146, 244 140, 258 136" fill="none" stroke="#e02020" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
+<path d="M160 176 C236 194, 300 202, 394 204" fill="none" stroke="#e02020" stroke-width="5" stroke-linecap="round" opacity="0.55"/>
+<text x="126" y="220" text-anchor="middle" font-size="16" fill="#5a5a56">Canada province</text>
+<text x="314" y="210" text-anchor="middle" font-size="16" fill="#5a5a56">large nearby US market</text>
+<text x="432" y="260" text-anchor="middle" font-size="16" fill="#5a5a56">large farther market</text>
+<text x="214" y="118" font-size="15" fill="#5a5a56">shorter distance + big mass</text>
+<text x="258" y="228" font-size="15" fill="#5a5a56">longer distance weakens pull</text>
+</svg>
+<p>The model is not saying distance is destiny. It is saying distance behaves like a friction cost that dampens otherwise profitable exchange.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Border Effect</div>
+<h4>Same Distance Does Not Mean Same Trade If A Border Sits In The Way</h4>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Within Canada</div>
+<h4>Low Friction</h4>
+<p>Shared regulations, currency, legal system, and distribution networks let gravity work with fewer hidden costs.</p>
+<strong>Prediction: more trade than distance alone suggests</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Cross-Border</div>
+<h4>Extra Friction</h4>
+<p>Customs, paperwork, hedging, standards, and separate business networks add resistance beyond kilometres.</p>
+<strong>Prediction: less trade than an otherwise similar domestic pair</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Residual</div>
+<h4>What The Model Misses</h4>
+<p>The gap between predicted and observed trade is where border institutions, commodity mix, and infrastructure show up.</p>
+<strong>Use: explain Alberta, Ontario, and the tariff shock story</strong>
+</div>
+</div>
+</div>
+</div>
+<figcaption>The gravity model is strongest as a baseline expectation. It explains why large neighbouring markets should trade heavily, and it makes deviations like border effects and commodity-specific bottlenecks legible.</figcaption>
+</div>
+</figure>
+
 ## Before You Start
 
 This chapter borrows the language of physics, but the model itself is economic. Here $T_{ij}$ means trade from place $i$ to place $j$, $M_i$ and $M_j$ mean economic size, and $d_{ij}$ means distance between them. The important intuition comes first: larger economies tend to trade more, and more distant economies tend to trade less. The equation simply turns that intuition into something we can estimate and compare.

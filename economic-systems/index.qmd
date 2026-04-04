@@ -37,6 +37,50 @@ Textbook Part
 </section>
 ```
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Part Route</div>
+<h3 class="cg-ill__title">This Part Builds From Trade Across Distance To Cities, Infrastructure, And Price Systems</h3>
+<p class="cg-ill__lede">The economic geography material is easiest to navigate when it is read as one widening argument. Start with distance and exchange, move into city structure and agglomeration, then treat infrastructure and markets as networked systems that reveal constraints, rents, and power.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Core Trade</span>
+<h4>Distance, Connectivity, And Arbitrage</h4>
+<p>Begin with the two core trade chapters that establish movement, frictions, and price convergence.</p>
+<ul>
+<li><a href="./canada-trade-gravity-model.html">Gravity Model of Trade</a></li>
+<li><a href="./markets-spatial-arbitrage.html">Spatial Arbitrage</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Core Urban</span>
+<h4>Why Cities Organize Land And Productivity The Way They Do</h4>
+<p>Then move into rent gradients and agglomeration, where geography shapes who can be where and why.</p>
+<ul>
+<li><a href="./urban-bid-rent-model.html">Bid-Rent</a></li>
+<li><a href="./urban-agglomeration-economies.html">Agglomeration</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Depth</span>
+<h4>Infrastructure, Markets, Resources, And Transition</h4>
+<p>Use the topic-library chapters to go deeper into pipelines, trade corridors, commodity markets, and energy transition.</p>
+<ul>
+<li>Trade and port systems</li>
+<li>Pipeline and network chapters</li>
+<li>Resource rents and market formation</li>
+<li>Renewables and policy</li>
+</ul>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">The core path gives the theory. The topic-library depth shows how those same ideas behave inside real networks, regional dependencies, and market bottlenecks.</p>
+</div>
+</div>
+</figure>
+
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}

@@ -60,6 +60,44 @@ downgrading or reprocessing. Managing transmix is the discipline of
 multi-product pipeline operation, and the mathematics that describes it
 is the Cola equation.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Batch Logic</div>
+<h3 class="cg-ill__title">A Multi-Product Pipeline Is A Moving Sequence Of Clean Batches Separated By Small Zones Of Contamination</h3>
+<p class="cg-ill__lede">This essay works best when the reader can picture the pipe as a procession rather than a uniform flow. Premium, regular, diesel, and jet fuel all share the same steel cylinder, but each boundary creates transmix, and that forces decisions about minimum batch size, delivery timing, and terminal inventory.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Inside The Pipe</div>
+<h4>Products Travel In Ordered Slugs</h4>
+<p>Every interface is a penalty zone. The larger the pipe and the longer the route, the more expensive those mixed boundaries become.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Operational Rule</div>
+<h4>Batch Size Must Be Large Enough To Absorb Interface Loss</h4>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<h4>Small batch</h4>
+<p>Responsive to demand, but transmix becomes a big share of the delivered volume.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Large batch</h4>
+<p>More efficient in-pipe, but slower cycle time and bigger storage needs at the terminal.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Terminal buffer</h4>
+<p>Receiving tanks smooth the mismatch between pipeline cycle timing and daily consumer demand.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Scheduler's job</h4>
+<p>Balance contamination cost, storage limits, and service reliability all at once.</p>
+</div>
+</div>
+</div>
+</div>
+<figcaption>Refined-products logistics is a geometry-and-timing problem. The pipe is shared, the interfaces are costly, and terminal storage is what makes the whole schedule survivable.</figcaption>
+</div>
+</figure>
+
 ## The batch scheduling problem
 
 A **multi-product pipeline** carries different petroleum products
@@ -550,5 +588,3 @@ volumes depend on refinery utilisation. P5 takes all four systems as a
 single directed graph and asks the overarching question: what is the
 total export capacity of Alberta’s energy network, and where is the
 binding constraint?
-
-*Cluster P — Pipeline Connectivity · Essay 4 of 5 · Difficulty: 2*

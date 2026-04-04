@@ -533,5 +533,3 @@ system — refined products — is the most operationally complex: multiple
 products sharing a single pipe, where batch sequencing and the transmix
 problem determine whether a gasoline shipment stays a gasoline shipment
 all the way to Vancouver.
-
-*Cluster P — Pipeline Connectivity · Essay 3 of 5 · Difficulty: 3*

@@ -92,6 +92,29 @@ derives the Weymouth equation governing gas pipeline hydraulics, and
 shows quantitatively why geography produces the price discount that
 Alberta producers live with.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Gas Geography</div>
+<h3 class="cg-ill__title">AECO Sits At The Junction Between A Giant Gathering Network And A Limited Set Of Export Paths</h3>
+<p class="cg-ill__lede">The cleanest way to understand Alberta gas pricing is to separate the system into two layers. NGTL gathers and compresses gas across the province, but benchmark pricing depends on what happens after AECO, where only a few export corridors carry that gas toward larger demand centres. The basis differential is the spatial price of that bottlenecked distance.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Inside Alberta</div>
+<h4>Gather, Compress, And Pool At AECO</h4>
+<p>NGTL is a giant internal collector: it turns thousands of wells and gas plants into one tradable pooled hub price.</p>
+<strong>Meaning: Alberta supply is highly connected internally</strong>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Outside Alberta</div>
+<h4>Export Capacity Sets The Basis</h4>
+<p>Alliance, the Mainline, westbound routes, and U.S. interconnects are the narrower gate through which Alberta gas reaches higher-priced markets.</p>
+<strong>Meaning: AECO discounts widen when the gate is crowded</strong>
+</div>
+</div>
+<figcaption>When export space is scarce, the AECO-Henry Hub gap grows beyond pure tariff cost. That excess is the price of constrained geography.</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 2. The Conceptual Model

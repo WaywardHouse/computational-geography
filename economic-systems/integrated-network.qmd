@@ -705,5 +705,3 @@ market condition.
 
 That is what it means to model a geographic system rather than argue
 about it.
-
-*Cluster P — Pipeline Connectivity · Essay 5 of 5 · Difficulty: 3*

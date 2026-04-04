@@ -93,6 +93,53 @@ the maximum sustainable throughput is, and how the netback price
 surface changes across the continent as a function of transport
 costs and market conditions.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Network Synthesis</div>
+<h3 class="cg-ill__title">The Alberta Hydrocarbon System Behaves Like One Network With Shared Hubs And Unequal Bottlenecks</h3>
+<p class="cg-ill__lede">This chapter is about moving from asset lists to network thinking. Crude, gas, condensate, and products look separate when taught individually, but several hubs and corridor constraints matter across all of them. Max-flow and min-cut ideas become intuitive once the shared structure is visible first.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Hardisty</div>
+<h4>Routing Hub</h4>
+<p>Crude and condensate flows converge here, making it a high-betweenness node whose disruption propagates across export routing.</p>
+<strong>Network role: switching and market access</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Fort Saskatchewan</div>
+<h4>Processing Hub</h4>
+<p>Fractionation, petrochemical feedstocks, and links to the crude system make this the processing hinge of the network.</p>
+<strong>Network role: transformation and coupling</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Edmonton / AECO</div>
+<h4>Distribution Hubs</h4>
+<p>Products and gas pricing concentrate here before they feed wider continental corridors.</p>
+<strong>Network role: pooling and outward dispatch</strong>
+</div>
+</div>
+<div class="cg-ill__flow" style="margin-top: 1rem;">
+<div class="cg-ill__flow-step">
+<h4>Commodity subsystems</h4>
+<p>Crude, gas, NGL, and products each have their own directed edges and capacities.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Shared nodes</h4>
+<p>Some hubs matter to multiple subsystems, so a local failure becomes a system-wide issue.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Critical cuts</h4>
+<p>A few links and hubs determine the maximum sustainable network throughput.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Price surface</h4>
+<p>Transport cost and route options translate directly into different netbacks across markets.</p>
+</div>
+</div>
+<figcaption>The integrated network view answers a different question than the chapter-level system studies: not "how does this pipeline work?" but "which nodes and cuts actually govern the whole hydrocarbon geography?"</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 2. The Conceptual Model

@@ -86,6 +86,36 @@ the Trans Mountain refined products line that carries fuel to Vancouver,
 the regional distribution terminals, and the batch scheduling mathematics
 that keeps the supply chain synchronized.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Products Chain</div>
+<h3 class="cg-ill__title">Refined Fuel Supply Is A Sequencing Problem From Refinery Gate To Terminal Tank</h3>
+<p class="cg-ill__lede">The important mental shift in this chapter is from "a pipeline moves fuel" to "a pipeline moves a timed sequence of product batches into a terminal inventory system." The physical pipe matters, but so do batch order, transmix, storage, and truck-loading rhythm at the receiving end.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Refinery</span>
+<h4>Make Distinct Fuels</h4>
+<p>Edmonton-area refineries produce gasoline, diesel, and jet fuel to separate specification targets.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Pipeline</span>
+<h4>Move Products In Batches</h4>
+<p>Products are sent one after another through the same line, creating interface zones that become transmix.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Terminal</span>
+<h4>Receive, Sort, And Dispatch</h4>
+<p>Terminals detect each batch arrival, divert transmix, hold inventory, and load trucks or airport deliveries.</p>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">The supply chain fails when sequencing, storage, or interface management fails. Total capacity alone is not enough.</p>
+</div>
+</div>
+</figure>
+
 ---
 
 ## 2. The Conceptual Model

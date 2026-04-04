@@ -76,6 +76,53 @@ Understanding why produces insight not just into freight economics but into
 the geography of infrastructure investment, the competitive position of
 Canadian commodity exporters, and the distributional effects of trade policy.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Modal Choice</div>
+<h3 class="cg-ill__title">Freight Mode Follows Cost Structure, Not Mode Loyalty</h3>
+<p class="cg-ill__lede">A useful way to teach modal split is to separate terminal cost, line-haul cost, and time cost. Truck wins early because it starts cheaply and moves flexibly. Rail and marine win later because their variable cost is much lower, but only after enough distance or volume exists to repay the higher terminal burden.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Truck</div>
+<h4>Low Start Cost, High Running Cost</h4>
+<p>Minimal terminal friction and excellent flexibility make truck competitive at short distance and for time-sensitive freight.</p>
+<strong>Best fit: short haul, frequent service, perishables, dispersed origins</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Rail</div>
+<h4>Higher Terminal Cost, Lower Running Cost</h4>
+<p>Rail needs enough distance or volume to amortize yards, train assembly, and dray, but then becomes far cheaper per tonne-kilometre.</p>
+<strong>Best fit: long haul, heavy volumes, intermodal and bulk corridors</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Marine</div>
+<h4>Lowest Variable Cost, Highest Handling Burden</h4>
+<p>Ports, loading time, and water access make marine highly selective, but its variable cost is unmatched for suitable bulk corridors.</p>
+<strong>Best fit: very large volumes, low time sensitivity, water-adjacent routes</strong>
+</div>
+</div>
+<div class="cg-ill__flow" style="margin-top: 1rem;">
+<div class="cg-ill__flow-step">
+<h4>Short distance</h4>
+<p>Terminal cost dominates, so truck usually wins.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Medium distance</h4>
+<p>Rail begins to catch up once lower line-haul cost outweighs terminal penalties.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Long distance / bulk</h4>
+<p>Rail or marine typically clears as the cheapest total logistics option.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Special cases</h4>
+<p>Perishability, reliability, and inventory value can pull freight back toward truck or air.</p>
+</div>
+</div>
+<figcaption>Modal split is the aggregate result of repeated break-even comparisons. The cheapest mode changes with distance, handling burden, commodity value, and tolerance for slow transit.</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 2. Cost Functions by Mode
