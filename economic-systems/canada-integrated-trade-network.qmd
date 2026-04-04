@@ -333,7 +333,7 @@ of path concentration.
 
 ```{=html}
 <div data-viz="echarts" style="height:300px" data-options='{
-"title": {"text": "Windsor Blockade — Economic Cost by Sector per Day", "subtext": "Estimated CAD$M/day based on Freedom Convoy 2022 economic analysis. Total ~CAD&#36;350M/day.", "left": "center"},
+"title": {"text": "Windsor Blockade — Economic Cost by Sector per Day", "subtext": "Estimated CAD$M/day based on Freedom Convoy 2022 economic analysis. Total ~CAD$350M/day.", "left": "center"},
 "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
 "grid": {"left": "3%", "right": "4%", "bottom": "8%", "containLabel": true},
 "xAxis": {"type": "category", "data": ["Automotive\nparts", "Manufacturing\ninputs", "Consumer\ngoods", "Perishable\nfood", "Other"]},
@@ -351,14 +351,14 @@ of path concentration.
 "markLine": {
 "symbol": "none",
 "lineStyle": {"color": "#dc2626", "type": "dashed", "width": 2},
-"label": {"formatter": "Total ~CAD&#36;350M/day", "position": "insideEndTop"},
+"label": {"formatter": "Total ~CAD$350M/day", "position": "insideEndTop"},
 "data": [{"yAxis": 350}]
 }
 }]
 }'></div>
 ```
 
-*Automotive parts account for roughly 51% of the per-day disruption cost, reflecting Windsor's dominance as an automotive corridor. A six-day blockade cost an estimated CAD&#36;2.1 billion, concentrated in automotive just-in-time supply chains with no buffer inventory.*
+*Automotive parts account for roughly 51% of the per-day disruption cost, reflecting Windsor's dominance as an automotive corridor. A six-day blockade cost an estimated CAD$2.1 billion, concentrated in automotive just-in-time supply chains with no buffer inventory.*
 
 ---
 

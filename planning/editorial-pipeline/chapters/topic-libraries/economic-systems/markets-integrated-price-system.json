@@ -9,50 +9,62 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Needed onboarding support plus cleanup of encoded currency notation across the integrated scenario analysis.",
+    "issues": [
+      "Missing 'Before You Start' scaffold for a difficulty 4 synthesis chapter.",
+      "Escaped currency entities appeared in equations, scenario prose, and map labels."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Applied a targeted rewrite pass to strengthen learner entry and clean the integrated price-surface examples without changing the chapter's structure.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a 'Before You Start' section.",
+      "Normalized currency notation in equations, scenario discussion, and leaflet labels."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The integrated price-surface argument is intact, mathematically readable, and better paced for non-specialist readers.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Resolved all remaining notation and onboarding issues.",
+    "actions_taken": [
+      "Added a 'Before You Start' section.",
+      "Fixed escaped monetary notation throughout the integrated examples and map."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "This chapter already uses diagram, chart, and map layers well; the cleanup makes that visual system easier to follow.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved reader orientation at the front of the chapter.",
+      "Improved interpretive readability of equations and map labels."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

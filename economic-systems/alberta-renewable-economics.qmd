@@ -30,6 +30,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/EG2-lcoe-generation-storage-transmission
 ---
 
+## Before You Start
+
+**You should know**  
+That electricity projects combine upfront capital cost, operating cost, and output over time into one economic decision.
+
+**You will learn**  
+How LCOE, storage cost, and transmission limits shape renewable project economics in Alberta.
+
+**Why this matters**  
+Good renewable sites do not automatically become good investments unless the economics and grid constraints work too.
+
+**If this gets hard, focus on...**  
+The main comparison: annualized project cost divided by annual energy produced.
+
 
 A wind turbine in Pincher Creek costs roughly the same to build as a
 natural gas peaker in Edmonton. The difference is that the turbine’s

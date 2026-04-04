@@ -28,6 +28,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P1-crude-oil-pipelines
 ---
 
+## Before You Start
+
+**You should know**  
+That moving oil through a pipe requires pressure, and that transport cost affects the price producers actually receive.
+
+**You will learn**  
+How crude-pipeline hydraulics, capacity, and route choice shape Alberta's export economics.
+
+**Why this matters**  
+Pipeline physics is part of commodity pricing, not just an engineering detail.
+
+**If this gets hard, focus on...**  
+The basic idea that friction and pressure determine how much oil can move.
+
 
 Every barrel of Alberta crude travels an average of 3,500 kilometres
 before it reaches a refinery — and the price the producer receives is

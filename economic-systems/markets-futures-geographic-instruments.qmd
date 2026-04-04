@@ -16,7 +16,7 @@ tags:
 - tag-hash-viz
 difficulty: 4
 description: 'On April 20, 2020, the WTI May futures contract settled at negative
-  &#36;37.63 per barrel. Oil had never had a negative price before. What actually
+  $37.63 per barrel. Oil had never had a negative price before. What actually
   happened was not mysterious — it was the cost-of-carry model working exactly as
   designed, in a world where every storage tank near Cushing, Oklahoma was full. The
   futures market was pricing a geographic constraint: there was nowhere to put the
@@ -94,17 +94,17 @@ The forward curve slopes downward — later delivery months are cheaper than pro
 
 The convenience yield spikes during supply disruptions because the cost of *not* having inventory — having to shut down a refinery or break a delivery contract — can be enormous. In backwardated markets, it is difficult to execute the storage trade (buy spot, sell futures) because the futures price is below spot — the trade loses money unless you can earn the convenience yield, which by definition accrues only to physical holders of the commodity.
 
-The post-Ukraine 2022 energy market was deeply backwardated across oil, gas, and coal. WTI spot traded &#36;20–30/bbl above 12-month futures at points in mid-2022. This was the market screaming that physical supply right now was extraordinarily scarce.
+The post-Ukraine 2022 energy market was deeply backwardated across oil, gas, and coal. WTI spot traded $20–30/bbl above 12-month futures at points in mid-2022. This was the market screaming that physical supply right now was extraordinarily scarce.
 
 ## April 20, 2020: When Contango Broke the Market
 
-The most dramatic demonstration of the cost-of-carry model in modern commodity history occurred on April 20, 2020. The WTI May futures contract — which expired on April 21, with delivery in May at Cushing, Oklahoma — settled at **negative &#36;37.63 per barrel**.
+The most dramatic demonstration of the cost-of-carry model in modern commodity history occurred on April 20, 2020. The WTI May futures contract — which expired on April 21, with delivery in May at Cushing, Oklahoma — settled at **negative $37.63 per barrel**.
 
 This was not irrational. It was the cost-of-carry model operating exactly as designed, but in an extreme environment.
 
 The mechanism: COVID lockdowns had collapsed oil demand globally. Storage tanks at Cushing (the WTI delivery point) were near capacity. The May contract required physical delivery at Cushing. Holders of long May contracts who did not want to take physical delivery needed to roll to June — but the June contract was trading at $+20/bbl, and there was essentially no one willing to take physical delivery at Cushing in May because there was nowhere to put the oil.
 
-The cost of taking delivery and finding storage — negative &#36;37.63/bbl — was the market's price for one month of storage at Cushing under conditions of near-complete capacity exhaustion. The cost-of-carry model had always predicted that if $u$ (storage cost) became extremely high, futures prices could fall below spot prices — or even below zero. In 2020, $u$ effectively became infinite for a brief period, and the formula delivered a negative price.
+The cost of taking delivery and finding storage — negative $37.63/bbl — was the market's price for one month of storage at Cushing under conditions of near-complete capacity exhaustion. The cost-of-carry model had always predicted that if $u$ (storage cost) became extremely high, futures prices could fall below spot prices — or even below zero. In 2020, $u$ effectively became infinite for a brief period, and the formula delivered a negative price.
 
 The June contract did not go negative because by June, some storage capacity had freed up. The market structure reveals the geographic precision of futures pricing: the May price was about Cushing in May. Not Houston. Not Rotterdam. Not Alberta. Cushing, in May, with full tanks.
 
@@ -123,7 +123,7 @@ The term structure across all maturities encodes the market's expectation of how
 </div>
 ```
 
-The three curves tell three different stories about the world. The 2020 contango curve has an enormous slope — storing oil for 24 months at the April 2020 spot price and delivering it into a futures contract was worth &#36;21/bbl, reflecting the extraordinary cost of storage. The 2022 backwardation curve falls steeply — the market in July 2022 was pricing in supply relief over time, as LNG and non-Russian sources ramped up. The 2023 flat curve reflects relative market equilibrium: carrying costs and convenience yields roughly balanced.
+The three curves tell three different stories about the world. The 2020 contango curve has an enormous slope — storing oil for 24 months at the April 2020 spot price and delivering it into a futures contract was worth $21/bbl, reflecting the extraordinary cost of storage. The 2022 backwardation curve falls steeply — the market in July 2022 was pricing in supply relief over time, as LNG and non-Russian sources ramped up. The 2023 flat curve reflects relative market equilibrium: carrying costs and convenience yields roughly balanced.
 
 ## Geographic Basis: Two Delivery Points, One Forward Curve
 
@@ -141,7 +141,7 @@ This is the geographic instrument interpretation: the AECO-Henry Hub futures bas
 
 An Alberta oil producer wants to hedge price risk — to lock in a future price for their production. The natural hedge is to sell WTI futures on NYMEX, since WTI is the benchmark that drives most price negotiations.
 
-But the Alberta producer does not sell WTI. They sell WCS — and WCS trades at a persistent discount to WTI. The WCS-WTI differential (the basis) has historically averaged &#36;14–20/bbl, but it is itself volatile. In 2018, it widened to &#36;50/bbl. In 2020, it briefly went to near parity as WTI collapsed faster than WCS could follow.
+But the Alberta producer does not sell WTI. They sell WCS — and WCS trades at a persistent discount to WTI. The WCS-WTI differential (the basis) has historically averaged $14–20/bbl, but it is itself volatile. In 2018, it widened to $50/bbl. In 2020, it briefly went to near parity as WTI collapsed faster than WCS could follow.
 
 **Basis risk** is the risk that the differential between the price you are hedging and the price you are receiving changes in an unexpected direction. Even if you have perfectly hedged your WTI exposure, you retain full exposure to the WCS-WTI differential as unhedged basis risk.
 
@@ -157,7 +157,7 @@ A WTI futures hedge eliminates WTI price risk. It does not touch differential ri
 </div>
 ```
 
-The relationship is visible: when Trans Mountain operates near 100% utilisation, the WCS-WTI differential widens significantly — because there is no capacity margin to absorb additional production, and the market cannot arbitrage the differential through additional pipeline shipments. The Q4 2018 spike to nearly &#36;50/bbl occurred when Trans Mountain was simultaneously at capacity and regulatory uncertainty about the expansion project was at its peak, eliminating the expectation of new capacity.
+The relationship is visible: when Trans Mountain operates near 100% utilisation, the WCS-WTI differential widens significantly — because there is no capacity margin to absorb additional production, and the market cannot arbitrage the differential through additional pipeline shipments. The Q4 2018 spike to nearly $50/bbl occurred when Trans Mountain was simultaneously at capacity and regulatory uncertainty about the expansion project was at its peak, eliminating the expectation of new capacity.
 
 ## The Forward Curve as an Infrastructure Signal
 

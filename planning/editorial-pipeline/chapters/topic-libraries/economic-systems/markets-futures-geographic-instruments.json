@@ -9,50 +9,62 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Needed onboarding support and cleanup of escaped currency notation across the historical examples and basis discussion.",
+    "issues": [
+      "Missing 'Before You Start' scaffold.",
+      "Escaped currency entities disrupted readability in several key examples."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Targeted editorial pass focused on historical examples, basis language, and sequence consistency.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a 'Before You Start' section.",
+      "Normalized currency notation in the April 2020 and WCS-basis examples."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The cost-of-carry narrative is now cleaner to read, and the headline examples no longer stumble on broken monetary notation.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Resolved the remaining markup defects.",
+    "actions_taken": [
+      "Added a 'Before You Start' section.",
+      "Cleaned escaped currency notation across the futures-curve and basis examples."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's forward-curve and basis visualizations are already pedagogically strong.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved chapter entry with the opening scaffold.",
+      "Improved visualization support by cleaning the text that frames the major examples."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

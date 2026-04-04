@@ -32,6 +32,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That resource booms can raise incomes while also creating instability, exchange-rate pressure, and institutional dependence.
+
+**You will learn**  
+How Dutch disease, volatility transmission, and the staples trap interact to create the resource curse pattern.
+
+**Why this matters**  
+Resource wealth can weaken long-run resilience if its gains are not converted into diversification and stable institutions.
+
+**If this gets hard, focus on...**  
+The three channels separately: exchange rate, volatility, and institutional lock-in.
+
 
 There is something deeply counterintuitive about the resource curse. A region discovers it sits atop billions of barrels of oil, or a mountain of iron ore, or a vein of gold — and the conventional expectation is prosperity. Yet the empirical record is troubling. Angola, Nigeria, Venezuela, and dozens of other resource-rich nations have grown more slowly than resource-poor counterparts at similar income levels. Within Canada, the provinces most dependent on resource extraction have the most volatile GDP trajectories and the least diversified economic bases.
 
@@ -50,7 +64,7 @@ The transmission runs through four steps:
 
 The real exchange rate effect can be decomposed into a **spending effect** (domestic demand rises with resource income, pushing up non-tradeable prices) and a **resource movement effect** (factors of production physically move into the resource sector).
 
-For Canada, the Canadian dollar's correlation with oil prices is well-documented. During the 2003–2014 commodity supercycle, the CAD rose from &#36;0.63 USD to over &#36;1.05 USD — a 67% appreciation. Over the same period, Ontario's manufacturing sector shed roughly 300,000 jobs. The counterfactual — what manufacturing employment would have been without the petrodollar — is contested, but the directional effect is clear.
+For Canada, the Canadian dollar's correlation with oil prices is well-documented. During the 2003–2014 commodity supercycle, the CAD rose from $0.63 USD to over $1.05 USD — a 67% appreciation. Over the same period, Ontario's manufacturing sector shed roughly 300,000 jobs. The counterfactual — what manufacturing employment would have been without the petrodollar — is contested, but the directional effect is clear.
 
 The **Balassa-Samuelson-style** exchange rate model for a resource-exporting economy suggests the real exchange rate appreciation is:
 
@@ -88,7 +102,7 @@ The **volatility transmission regression** estimates the sensitivity at each ste
 
 $$\Delta \ln Y_{t} = \alpha + \beta \cdot \Delta \ln P_{\text{oil}, t} + \gamma \cdot \Delta \ln P_{\text{oil}, t-1} + \epsilon_t$$
 
-where $Y_t$ is any downstream variable (government revenue, employment, etc.) and $\beta, \gamma$ capture contemporaneous and lagged responses. For Alberta GDP, estimates suggest $\beta \approx 0.3$: a 10% oil price fall reduces Alberta GDP growth by roughly 3 percentage points — a very high sensitivity for a province with a &#36;400 billion economy.
+where $Y_t$ is any downstream variable (government revenue, employment, etc.) and $\beta, \gamma$ capture contemporaneous and lagged responses. For Alberta GDP, estimates suggest $\beta \approx 0.3$: a 10% oil price fall reduces Alberta GDP growth by roughly 3 percentage points — a very high sensitivity for a province with a $400 billion economy.
 
 ```{=html}
 <div data-viz="echarts" style="height:420px; min-height:320px" data-options='{"title": {"text": "Alberta GDP Growth vs WTI Oil Price (2000–2024)", "subtext": "Annual % change in Alberta real GDP vs WTI annual average price change"}, "tooltip": {"trigger": "axis"}, "legend": {"data": ["Alberta GDP Growth (%)", "WTI Price Change (%)"], "bottom": 0}, "xAxis": {"type": "category", "data": ["2000","2002","2004","2006","2008","2010","2012","2014","2016","2018","2020","2022","2024"]}, "yAxis": {"type": "value", "name": "Annual Change (%)", "min": -20, "max": 30}, "series": [{"name": "Alberta GDP Growth (%)", "type": "bar", "data": [5.2, 4.1, 5.8, 7.2, 0.5, 4.8, 4.3, 4.7, -3.7, 2.4, -8.2, 5.1, 2.8], "itemStyle": {"color": "#5470c6", "opacity": 0.7}}, {"name": "WTI Price Change (%)", "type": "line", "data": [57, -4, 33, 19, 38, 29, -1, -8, -46, 25, -23, 67, -11], "lineStyle": {"width": 2}, "itemStyle": {"color": "#ee6666"}}]}'>
@@ -103,7 +117,7 @@ The **Herfindahl-Hirschman Index (HHI)** measures economic concentration. Applie
 
 $$\text{HHI} = \sum_{i=1}^{N} s_i^2$$
 
-where $s_i$ is the share of sector $i$ in total exports. HHI ranges from &#36;1/N$ (perfectly equal across $N$ sectors) to 1 (complete monopoly). Higher HHI means greater concentration and higher vulnerability to sector-specific shocks.
+where $s_i$ is the share of sector $i$ in total exports. HHI ranges from $1/N$ (perfectly equal across $N$ sectors) to 1 (complete monopoly). Higher HHI means greater concentration and higher vulnerability to sector-specific shocks.
 
 Alberta's export HHI is dominated by energy. Energy goods account for roughly 85% of Alberta's merchandise exports — an HHI approaching 0.73. Compare this to Ontario (automotive, machinery, pharmaceuticals — HHI around 0.15) and British Columbia (forestry, mining, agricultural, software — HHI around 0.25).
 
@@ -118,7 +132,7 @@ Alberta's HHI of 0.73 is roughly five times Ontario's — reflecting the degree 
 
 Alberta has tried to diversify before:
 
-**NovAtel (1980s):** The province invested in cellular telephone manufacturing through a Crown corporation subsidiary. NovAtel became a world leader in cellular handsets — and then haemorrhaged &#36;566 million in bad loans to US dealers before the province sold it at a &#36;611 million loss. A diversification attempt that succeeded technologically and failed commercially.
+**NovAtel (1980s):** The province invested in cellular telephone manufacturing through a Crown corporation subsidiary. NovAtel became a world leader in cellular handsets — and then haemorrhaged $566 million in bad loans to US dealers before the province sold it at a $611 million loss. A diversification attempt that succeeded technologically and failed commercially.
 
 **MagCan (1980s):** A magnesium smelter in High River — another provincially backed industrial development project — closed after cost overruns and low commodity prices.
 

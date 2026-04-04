@@ -106,7 +106,7 @@ The diagram shows the four models as nodes in the causal graph. The red node (Ba
 
 ### 3.1 Bid-Rent Gradient
 
-Calgary's downtown core — approximately the area bounded by the Bow River to the north, 12th Avenue to the south, 4th Street SE to the east, and 8th Street SW to the west — has the steepest rent gradient of any Canadian city outside Toronto and Vancouver. Class-A office rents in the core ran $\&#36;40$–$\&#36;55$ per square foot annually at the 2014 oil-price peak. By 2020, vacancy rates had exceeded 30% and effective rents in some buildings had fallen below $\&#36;20$ per square foot — one of the most dramatic gradient collapses of any major North American CBD.
+Calgary's downtown core — approximately the area bounded by the Bow River to the north, 12th Avenue to the south, 4th Street SE to the east, and 8th Street SW to the west — has the steepest rent gradient of any Canadian city outside Toronto and Vancouver. Class-A office rents in the core ran $40$-$55$ per square foot annually at the 2014 oil-price peak. By 2020, vacancy rates had exceeded 30% and effective rents in some buildings had fallen below $20$ per square foot — one of the most dramatic gradient collapses of any major North American CBD.
 
 This collapse is the bid-rent mechanism working in reverse: when the value of central proximity falls — because energy firms vacate offices and reduce face-to-face operations — the equilibrium rent gradient flattens. The "trophy" premium for the innermost location evaporates.
 

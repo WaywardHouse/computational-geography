@@ -30,6 +30,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P3-natural-gas-transmission
 ---
 
+## Before You Start
+
+**You should know**  
+That gas expands when pressure falls, and that Alberta gas prices depend partly on transport access to larger benchmark markets.
+
+**You will learn**  
+How compressible gas flow differs from liquid flow, how the Weymouth equation works, and why the AECO-Henry Hub basis can widen dramatically.
+
+**Why this matters**  
+Pipeline constraints can become a direct price penalty for gas producers.
+
+**If this gets hard, focus on...**  
+The core difference from oil: gas density changes as pressure changes.
+
 
 The price Alberta gas producers receive for their product is set in
 Louisiana — then reduced by the cost of moving it there, a journey of

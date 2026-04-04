@@ -6,19 +6,23 @@
     "chapter_count": 63
   },
   "consistency_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The volume now reads as a coherent advanced library: language remains within the intended band, onboarding is consistent, notation has been normalized, and visual/interactive support is being used meaningfully across specialist chapters.",
     "checks": {
-      "language_band_consistency": "pending",
-      "pedagogical_consistency": "pending",
-      "notation_consistency": "pending",
-      "design_consistency": "pending"
+      "language_band_consistency": "pass",
+      "pedagogical_consistency": "pass",
+      "notation_consistency": "pass",
+      "design_consistency": "pass"
     },
     "blocking_issues": [],
-    "repair_actions": []
+    "repair_actions": [
+      "Added 'Before You Start' scaffolding across the volume where it was missing.",
+      "Normalized escaped currency and malformed notation across economics and infrastructure chapters.",
+      "Strengthened consistency between narrative explanation and existing interactive/visual assets."
+    ]
   },
   "completion": {
-    "volume_complete": false
+    "volume_complete": true
   }
 }

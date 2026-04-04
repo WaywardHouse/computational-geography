@@ -30,6 +30,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P4-refined-products-distribution
 ---
 
+## Before You Start
+
+**You should know**  
+That a multi-product pipeline can carry different fuels in sequence, but those products partially mix at their boundaries.
+
+**You will learn**  
+How batch scheduling works, what transmix is, and why refined-products logistics require inventory and sequencing discipline.
+
+**Why this matters**  
+Refined fuel distribution depends on operational precision, not just on total pipeline capacity.
+
+**If this gets hard, focus on...**  
+The idea that every product boundary creates a small contaminated zone that has to be managed.
+
 
 Every litre of gasoline sold in Vancouver left Edmonton as part of a
 numbered batch in a 24-inch pipe — separated from the next batch of

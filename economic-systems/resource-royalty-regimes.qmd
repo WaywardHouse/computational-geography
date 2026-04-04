@@ -16,8 +16,8 @@ tags:
 - tag-hash-viz
 difficulty: 3
 description: Norway started its sovereign wealth fund in 1990 with oil revenues. Alberta
-  started its Heritage Fund in 1976. Today Norway's fund holds &#36;1.7 trillion;
-  Alberta's holds &#36;18 billion. Both sat on comparable oil wealth. The difference
+  started its Heritage Fund in 1976. Today Norway's fund holds $1.7 trillion;
+  Alberta's holds $18 billion. Both sat on comparable oil wealth. The difference
   is entirely in how they designed their royalty regimes and what they chose to do
   with the proceeds — a lesson in fiscal policy that still echoes through every Alberta
   budget.
@@ -33,10 +33,24 @@ interactive:
   charts: true
 ---
 
+## Before You Start
 
-In 1976, Premier Peter Lougheed established the Alberta Heritage Savings Trust Fund. The premise was straightforward: Alberta's oil wealth was finite and non-renewable, so a portion of royalty revenues should be saved for future generations. For a few years, it worked. Then in 1987, deposits stopped. The fund, which held &#36;12 billion at that point, sat largely idle for four decades. Today it holds about &#36;18 billion — roughly &#36;14,000 per Albertan.
+**You should know**  
+That governments can tax resource production in different ways, and that resource wealth does not automatically become long-run public wealth.
 
-In 1990, Norway established its Government Pension Fund Global on identical logic. Today it holds &#36;1.7 trillion — roughly &#36;310,000 per Norwegian.
+**You will learn**  
+What resource rent is, how royalties differ from profit-based taxes, and why Alberta and Norway ended up with such different fiscal outcomes.
+
+**Why this matters**  
+Royalty design shapes how much of a finite resource's value reaches future generations.
+
+**If this gets hard, focus on...**  
+The core difference between taxing gross revenue and taxing economic rent.
+
+
+In 1976, Premier Peter Lougheed established the Alberta Heritage Savings Trust Fund. The premise was straightforward: Alberta's oil wealth was finite and non-renewable, so a portion of royalty revenues should be saved for future generations. For a few years, it worked. Then in 1987, deposits stopped. The fund, which held $12 billion at that point, sat largely idle for four decades. Today it holds about $18 billion — roughly $14,000 per Albertan.
+
+In 1990, Norway established its Government Pension Fund Global on identical logic. Today it holds $1.7 trillion — roughly $310,000 per Norwegian.
 
 Both countries extracted their oil. Both collected royalties. The difference is almost entirely fiscal design and political will. Understanding it requires understanding what resource rents are, how royalty regimes work, and why some approaches to rent capture destroy the investment they are trying to tax.
 
@@ -133,7 +147,7 @@ The fragility of Alberta's fiscal position becomes visible in its revenue compos
 </div>
 ```
 
-The contrast is dramatic: royalty revenue of &#36;25.2 billion in the boom year (2022–23) versus &#36;2.8 billion in the bust year (2015–16) — a nine-fold swing, while total government spending remained relatively stable. This volatility is the direct consequence of high rent capture dependency without a stabilisation fund.
+The contrast is dramatic: royalty revenue of $25.2 billion in the boom year (2022-23) versus $2.8 billion in the bust year (2015-16) — a nine-fold swing, while total government spending remained relatively stable. This volatility is the direct consequence of high rent capture dependency without a stabilisation fund.
 
 ## The Royalty Holiday Problem
 

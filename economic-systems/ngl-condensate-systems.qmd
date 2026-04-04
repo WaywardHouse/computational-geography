@@ -29,6 +29,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P2-ngl-condensate-systems
 ---
 
+## Before You Start
+
+**You should know**  
+That bitumen often needs to be blended before it can move by pipeline, and that natural-gas processing produces several different liquid products.
+
+**You will learn**  
+How fractionation works, why condensate is strategically important in Alberta, and how blending arithmetic constrains exports.
+
+**Why this matters**  
+Condensate supply is one of the quiet bottlenecks in Alberta's oil-sands system.
+
+**If this gets hard, focus on...**  
+The one key ratio: how much diluent is needed to move a given volume of bitumen.
+
 
 Moving a million barrels of Alberta bitumen per day requires almost
 430,000 barrels of condensate — imported from the United States through

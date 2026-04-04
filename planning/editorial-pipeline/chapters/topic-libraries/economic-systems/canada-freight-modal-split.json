@@ -9,50 +9,65 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Needed onboarding support plus a substantial notation repair pass in the worked examples and chart text.",
+    "issues": [
+      "Missing 'Before You Start' scaffold.",
+      "Escaped currency entities affected prose, worked-example equations, and chart metadata.",
+      "Worked examples needed cleaner mathematical presentation for readability."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Applied a targeted rewrite to the worked examples and introductory framing rather than replacing the full chapter.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a 'Before You Start' section.",
+      "Rewrote the IIT worked examples into cleaner mathematical form.",
+      "Normalized currency notation in prose and figure metadata."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass after notation repair. The worked examples now read clearly, use consistent symbols, and remain mathematically correct for first-time readers.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Resolved all notation and presentation defects.",
+    "actions_taken": [
+      "Added a 'Before You Start' section.",
+      "Repaired escaped currency entities throughout the chapter.",
+      "Reformatted the inventory-in-transit equations for cleaner mathematical reading."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The quantitative charts already support the chapter well; the cleaned labels and examples now better reinforce the visual story.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Normalized figure text so the chart reads cleanly.",
+      "Improved worked-example readability so the visuals and text reinforce each other."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

@@ -446,7 +446,7 @@ net.add_edge("PATOKA",    "CUSHING",     400, 2.0,  "crude")   # Capline (revers
 net.add_edge("CUSHING",   "PORT_ARTHUR", 600, 1.8,  "crude")   # Seaway / Longhorn
 net.add_edge("GUERNSEY",  "CUSHING",     280, 3.5,  "crude")   # Platte Pipeline
 
-# Market prices (CAD/bbl) — WTI &#36;75 USD, exchange 0.73, location differentials
+# Market prices (CAD/bbl) — WTI $75 USD, exchange 0.73, location differentials
 MARKETS = {
     "PATOKA":     102.7,   # WTI Midwest
     "CUSHING":    102.7,   # WTI Cushing
@@ -469,7 +469,7 @@ for sink_id in ["PATOKA", "CUSHING", "PORT_ARTHUR", "BURNABY"]:
 
 # --- Netback surface ---
 print(f"\n=== Netback Price Surface (CAD/bbl) ===\n")
-print(f"  WTI: &#36;75 USD/bbl | Quality discount: &#36;19 CAD/bbl | Exchange: 0.73\n")
+print(f"  WTI: $75 USD/bbl | Quality discount: $19 CAD/bbl | Exchange: 0.73\n")
 
 surface = net.netback_surface("HARDISTY", MARKETS, quality_discount_cad=19.0)
 
@@ -813,7 +813,7 @@ for nid, r in sorted(surface.items(), key=lambda x: -x[1]["netback_cad"]):
 
 ```{=html}
 <div data-viz="echarts" style="height:400px" data-options='{
-"title": {"text": "Crude Oil Netback Price Surface", "subtext": "CAD/bbl from Hardisty AB — WTI &#36;75 USD, quality discount &#36;19 CAD/bbl, exchange 0.73", "left": "center"},
+"title": {"text": "Crude Oil Netback Price Surface", "subtext": "CAD/bbl from Hardisty AB — WTI $75 USD, quality discount $19 CAD/bbl, exchange 0.73", "left": "center"},
 "tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
 "legend": {"data": ["Market price (CAD)", "Transport tariff", "Quality discount", "Netback"], "bottom": 0},
 "grid": {"left": "3%", "right": "4%", "bottom": "15%", "containLabel": true},
@@ -977,8 +977,8 @@ cancellation left the minimum cut in place.
 ### The netback surface is nearly flat — which matters
 
 Figure 2 shows that netback prices across all six major market
-destinations range from approximately CAD &#36;74.7 to &#36;77.0 per barrel —
-a spread of only &#36;2.3/bbl. This relative flatness reflects the fact
+destinations range from approximately CAD $74.7 to $77.0 per barrel —
+a spread of only $2.3/bbl. This relative flatness reflects the fact
 that higher-priced markets (Burnaby, Port Arthur) are also more
 expensive to reach, while cheaper markets (Patoka, Cushing) have lower
 transport costs. The market has largely arbitraged away the geographic
@@ -1063,7 +1063,7 @@ results:
   Superior, Wisconsin — the Mainline itself is not the Gulf binding
   constraint
 - **The netback price surface is nearly flat** across available markets
-  (CAD &#36;74.7–&#36;77.0/bbl range) because transport costs largely absorb
+  (CAD $74.7-$77.0/bbl range) because transport costs largely absorb
   destination price premiums — market access matters most as a binary,
   not as a marginal optimization
 - **The integrated network is structurally robust** with three specific

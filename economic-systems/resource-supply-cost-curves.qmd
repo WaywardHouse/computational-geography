@@ -32,8 +32,22 @@ interactive:
   charts: true
 ---
 
+## Before You Start
 
-When the oil price collapsed from &#36;110 to &#36;45 between June and December 2014, the immediate question in Calgary was: who keeps pumping? The answer depends entirely on where each producer sits on the global supply cost curve — the ranked list of every barrel of extractable oil in the world, ordered from cheapest to most expensive.
+**You should know**  
+That producers face both operating costs and longer-run capital recovery costs, and that not all oil projects are equally expensive.
+
+**You will learn**  
+How supply stacks and break-even prices work, why projects can keep operating while losing money on a full-cycle basis, and where Alberta sits on the global cost curve.
+
+**Why this matters**  
+Cost position determines who survives a downturn, who earns rent in an upturn, and which projects are stranded first.
+
+**If this gets hard, focus on...**  
+The distinction between operating cost and full-cycle break-even.
+
+
+When the oil price collapsed from $110 to $45 between June and December 2014, the immediate question in Calgary was: who keeps pumping? The answer depends entirely on where each producer sits on the global supply cost curve — the ranked list of every barrel of extractable oil in the world, ordered from cheapest to most expensive.
 
 This curve is not just an academic tool. It determines which projects get sanctioned, which shut in during downturns, which generate economic rents for governments and shareholders, and which are stranded when the energy transition reshapes demand. Understanding it is prerequisite to understanding Alberta's place in the global energy economy.
 
@@ -61,15 +75,15 @@ The approximate full-cycle break-even ranges by major supply category (2024 esti
 
 | Supply Source | OPEX | Full-Cycle Break-Even |
 |---|---|---|
-| Middle East conventional | &#36;2–5 | &#36;10–25 |
-| Russia onshore conventional | &#36;5–10 | &#36;20–35 |
-| US shale (Permian core) | &#36;15–25 | &#36;35–50 |
-| US shale (non-core) | &#36;25–35 | &#36;45–60 |
-| Alberta conventional | &#36;8–15 | &#36;30–45 |
-| Alberta SAGD (in-situ bitumen) | &#36;20–30 | &#36;45–65 |
-| Deepwater (Gulf of Mexico, Brazil) | &#36;15–25 | &#36;50–70 |
-| Alberta oil sands mining | &#36;35–50 | &#36;65–85 |
-| Arctic / ultra-deepwater | &#36;40–60 | &#36;80–120 |
+| Middle East conventional | $2-$5 | $10-$25 |
+| Russia onshore conventional | $5-$10 | $20-$35 |
+| US shale (Permian core) | $15-$25 | $35-$50 |
+| US shale (non-core) | $25-$35 | $45-$60 |
+| Alberta conventional | $8-$15 | $30-$45 |
+| Alberta SAGD (in-situ bitumen) | $20-$30 | $45-$65 |
+| Deepwater (Gulf of Mexico, Brazil) | $15-$25 | $50-$70 |
+| Alberta oil sands mining | $35-$50 | $65-$85 |
+| Arctic / ultra-deepwater | $40-$60 | $80-$120 |
 
 Alberta spans a wide range — conventional oil is competitive with US shale, while oil sands mining sits near the top of the global cost curve. This heterogeneity within a single jurisdiction is unusual.
 
@@ -78,19 +92,19 @@ Alberta spans a wide range — conventional oil is competitive with US shale, wh
 </div>
 ```
 
-The supply stack chart shows break-even ranges (the bar spans minimum to maximum break-even within each category). At &#36;75 WTI, Alberta SAGD operations are near break-even on a full-cycle basis, while Alberta mining and Arctic supply are underwater. Middle Eastern conventional producers earn enormous rents.
+The supply stack chart shows break-even ranges (the bar spans minimum to maximum break-even within each category). At $75 WTI, Alberta SAGD operations are near break-even on a full-cycle basis, while Alberta mining and Arctic supply are underwater. Middle Eastern conventional producers earn enormous rents.
 
 ## The Critical Distinction: OPEX vs Full-Cycle
 
 The difference between operating cost and full-cycle cost creates a well-known dynamic in commodity markets: producers keep pumping below their full-cycle break-even, because the capital is already sunk.
 
-Consider an Alberta SAGD operation that cost &#36;2 billion to build. Its full-cycle break-even (including capital recovery) is &#36;60/bbl. Its OPEX is &#36;25/bbl. When WTI falls to &#36;40:
+Consider an Alberta SAGD operation that cost $2 billion to build. Its full-cycle break-even (including capital recovery) is $60/bbl. Its OPEX is $25/bbl. When WTI falls to $40:
 
-- The project loses money on a full-cycle basis: &#36;40 − &#36;60 = −&#36;20/bbl
-- But it still generates positive cash flow net of operating costs: &#36;40 − &#36;25 = +&#36;15/bbl
-- Rational decision: **keep pumping** — stopping would sacrifice &#36;15/bbl of contribution to fixed and sunk costs
+- The project loses money on a full-cycle basis: $40 - $60 = -$20/bbl
+- But it still generates positive cash flow net of operating costs: $40 - $25 = +$15/bbl
+- Rational decision: **keep pumping** — stopping would sacrifice $15/bbl of contribution to fixed and sunk costs
 
-This logic explains why oil production does not immediately collapse when prices fall. Producers shut in only when price falls below OPEX — the true floor. For SAGD operations, that floor is around &#36;20–25/bbl; for oil sands mining, around &#36;35–50/bbl (because energy costs, diluent, and processing are all higher).
+This logic explains why oil production does not immediately collapse when prices fall. Producers shut in only when price falls below OPEX — the true floor. For SAGD operations, that floor is around $20-$25/bbl; for oil sands mining, around $35-$50/bbl (because energy costs, diluent, and processing are all higher).
 
 The break-even condition for continuing to operate is:
 
@@ -110,9 +124,9 @@ The **netback** to a producer is:
 
 $$\text{Netback} = P_{\text{WTI}} - \text{quality discount} - \text{transport cost} - \text{WCS differential}$$
 
-In periods of pipeline constraint (as in 2018), the WCS discount widened to &#36;50/bbl — meaning Alberta producers received only &#36;20 when WTI was &#36;70. This completely inverted the economics of high-cost projects and triggered emergency discussions about rail transport and pipeline capacity.
+In periods of pipeline constraint (as in 2018), the WCS discount widened to $50/bbl — meaning Alberta producers received only $20 when WTI was $70. This completely inverted the economics of high-cost projects and triggered emergency discussions about rail transport and pipeline capacity.
 
-The netback framework means Alberta's effective position on the global supply stack is *worse* than its nominal break-even costs suggest. A project with a &#36;55/bbl full-cycle cost may only net &#36;45 when transport and quality discounts are applied — making it uneconomic even at &#36;60 WTI.
+The netback framework means Alberta's effective position on the global supply stack is *worse* than its nominal break-even costs suggest. A project with a $55/bbl full-cycle cost may only net $45 when transport and quality discounts are applied — making it uneconomic even at $60 WTI.
 
 ## Alberta SAGD Break-Even Components Over Time
 
@@ -129,9 +143,9 @@ Several features stand out. Transport costs spiked in 2018 (the pipeline constra
 
 The supply cost curve framework has direct implications for Alberta's resource policy:
 
-**Investment sanctioning:** New projects are only sanctioned when the long-run expected price exceeds the full-cycle LCOS, including a risk premium. At &#36;65 WTI, no new oil sands mining project is economic on a full-cycle basis — which is why no major mining expansion has been sanctioned since 2014.
+**Investment sanctioning:** New projects are only sanctioned when the long-run expected price exceeds the full-cycle LCOS, including a risk premium. At $65 WTI, no new oil sands mining project is economic on a full-cycle basis — which is why no major mining expansion has been sanctioned since 2014.
 
-**Price floor policy:** The OPEX floor determines when the government faces a catastrophic revenue collapse (producers shut in) vs a gradual decline. Understanding the &#36;20–25/bbl SAGD OPEX floor helps budget planners model downside scenarios.
+**Price floor policy:** The OPEX floor determines when the government faces a catastrophic revenue collapse (producers shut in) vs a gradual decline. Understanding the $20-$25/bbl SAGD OPEX floor helps budget planners model downside scenarios.
 
 **Pipeline capacity:** The WCS discount analysis shows that transport infrastructure is not a mere logistics issue — it is a direct determinant of whether Alberta's oil is competitive on global markets. The differential between WTI and WCS can determine whether the entire tail of the supply stack is viable.
 

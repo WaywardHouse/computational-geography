@@ -31,6 +31,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/EG1-renewable-resource-geography
 ---
 
+## Before You Start
+
+**You should know**  
+That renewable energy resources vary geographically, and that solar and wind output depend on physical conditions rather than on fuel delivery.
+
+**You will learn**  
+How Alberta's geography shapes solar irradiance, wind potential, and renewable project siting.
+
+**Why this matters**  
+The energy transition starts with resource geography: where strong solar and wind conditions actually exist.
+
+**If this gets hard, focus on...**  
+The two governing ideas: sun angle for solar and wind speed for wind power.
+
 
 Alberta is, by Canadian standards, a sunbaked and wind-scoured province.
 The same geography that made it a fossil fuel province — the Rocky

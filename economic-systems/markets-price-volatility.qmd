@@ -34,8 +34,22 @@ interactive:
   charts: true
 ---
 
+## Before You Start
 
-Alberta's provincial government budget in fiscal year 2014–15 assumed WTI would average &#36;94/bbl. The actual average was &#36;81/bbl. The next year, it was &#36;53/bbl. The year after that, &#36;46/bbl. Over three years, the provincial government experienced a revenue shortfall of roughly &#36;30 billion relative to its planning assumptions — a consequence of commodity price volatility that was entirely predictable in its existence, if not its timing.
+**You should know**  
+That commodity prices move unpredictably in the short run, and that Alberta's producer revenues depend on both benchmark prices and local differentials.
+
+**You will learn**  
+How volatility is measured, why it clusters, and why Alberta experiences amplified revenue swings relative to headline benchmark prices.
+
+**Why this matters**  
+Price volatility is one of the main channels through which geography turns market shocks into fiscal and regional shocks.
+
+**If this gets hard, focus on...**  
+The simple idea that Alberta's netback can move more than WTI because both price and differential change together.
+
+
+Alberta's provincial government budget in fiscal year 2014–15 assumed WTI would average $94/bbl. The actual average was $81/bbl. The next year, it was $53/bbl. The year after that, $46/bbl. Over three years, the provincial government experienced a revenue shortfall of roughly $30 billion relative to its planning assumptions — a consequence of commodity price volatility that was entirely predictable in its existence, if not its timing.
 
 Volatility is not a peripheral feature of commodity markets. It is their central characteristic. Understanding why commodity prices are volatile, how volatility clusters and propagates, and why some geographies experience amplified volatility while others are shielded from it is essential for any serious analysis of resource-dependent economies.
 
@@ -124,7 +138,7 @@ The derivative with respect to WTI is:
 
 $$\frac{d(\text{Netback})}{dP_{\text{WTI}}} = 1 - \frac{d\Delta_{\text{diff}}}{dP_{\text{WTI}}}$$
 
-Historical data suggests $d\Delta_{\text{diff}}/dP_{\text{WTI}} \approx -0.3$ to $-0.5$ — a &#36;1 fall in WTI is typically associated with a &#36;0.30–&#36;0.50 widening in the WCS-WTI differential. This means the Alberta netback falls by &#36;1.30–&#36;1.50 for every &#36;1 fall in WTI. The amplification is real and persistent.
+Historical data suggests $d\Delta_{\text{diff}}/dP_{\text{WTI}} \approx -0.3$ to $-0.5$ — a $1 fall in WTI is typically associated with a $0.30-$0.50 widening in the WCS-WTI differential. This means the Alberta netback falls by $1.30-$1.50 for every $1 fall in WTI. The amplification is real and persistent.
 
 ## Revenue at Risk
 
@@ -135,15 +149,15 @@ If annual royalty revenue $R$ is approximately log-normally distributed with mea
 $$R_{5\%} = \exp\left(\ln(\mu_R) - 1.645 \cdot \sigma_R\right)$$
 
 For Alberta government oil royalty revenues, historical parameters (2010–2024) are approximately:
-- Mean annual royalty revenue: ~&#36;10 billion CAD
-- Standard deviation: ~&#36;7 billion CAD
+- Mean annual royalty revenue: ~$10 billion CAD
+- Standard deviation: ~$7 billion CAD
 - Coefficient of variation: ~70%
 
 This implies the 5th percentile revenue is approximately:
 
-$$R_{5\%} = \exp(\ln(10) - 1.645 \times 0.7 \times \ln(10) / \ln(10)) \approx \&#36;2.5 \text{ billion}$$
+$$R_{5\%} = \exp(\ln(10) - 1.645 \times 0.7 \times \ln(10) / \ln(10)) \approx \$2.5 \text{ billion}$$
 
-At the 5th percentile, royalty revenues are about 25% of their mean — a catastrophic fiscal shock. This occurred in 2015–16 (&#36;2.8 billion in royalties) and again in 2020–21 (&#36;2.3 billion).
+At the 5th percentile, royalty revenues are about 25% of their mean — a catastrophic fiscal shock. This occurred in 2015–16 ($2.8 billion in royalties) and again in 2020–21 ($2.3 billion).
 
 For fiscal planning purposes, the Alberta government should budget at or near the 5th percentile and treat any royalty revenue above that as a windfall to be directed to the Heritage Fund. In practice, Alberta has historically budgeted at or above the 50th percentile and been surprised by the downside.
 
@@ -164,7 +178,7 @@ This high beta reflects the royalty dependence identified in the RE cluster: whe
 </div>
 ```
 
-The chart makes the stability case for fiscal diversification concrete. The royalty-inclusive revenue (stacked bars) swings from &#36;34 billion in bust years to &#36;65 billion in the 2022 boom — a &#36;31 billion range. A diversification strategy that caps the royalty contribution and directs excess to a stabilisation fund would produce a smoother, more predictable revenue profile (gold line) — with lower peak revenues but dramatically lower trough risks.
+The chart makes the stability case for fiscal diversification concrete. The royalty-inclusive revenue (stacked bars) swings from $34 billion in bust years to $65 billion in the 2022 boom — a $31 billion range. A diversification strategy that caps the royalty contribution and directs excess to a stabilisation fund would produce a smoother, more predictable revenue profile (gold line) — with lower peak revenues but dramatically lower trough risks.
 
 ## Diversification as Volatility Management
 

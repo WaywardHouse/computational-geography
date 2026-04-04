@@ -36,6 +36,20 @@ interactive:
   charts: true
 ---
 
+## Before You Start
+
+**You should know**  
+That benchmark prices, basis differentials, transport costs, and volatility each explain one part of producer pricing.
+
+**You will learn**  
+How those pieces combine into a price surface, why Alberta sits below the benchmark, and how infrastructure scenarios change that position.
+
+**Why this matters**  
+An integrated price system shows how geography, infrastructure, and market structure combine into one economic outcome.
+
+**If this gets hard, focus on...**  
+The one repeated calculation: benchmark price minus quality and transport penalties gives the producer's netback.
+
 
 A price surface is a useful way to think about commodity markets in space. Imagine a topographic map where elevation represents the price a producer receives for their commodity. The highest elevations are at demand centres — Gulf Coast refineries, European LNG terminals, Asian steel mills — where buyers are concentrated and supply is easiest to access. The price surface slopes downward as you move toward supply sources, reflecting transport costs. Where quality is poor or export infrastructure is constrained, the surface dips further.
 
@@ -91,15 +105,15 @@ The total penalty for an Athabasca oil sands producer relative to a Permian Basi
 
 $$\text{Total Penalty} = \Delta_q + T_{\text{Athabasca}} - T_{\text{Permian}} + \Phi_{\text{Athabasca}}$$
 
-$$\approx \&#36;14 + (\&#36;8 - \&#36;3.50) + \&#36;2 \approx \&#36;20.50/\text{bbl}$$
+$$\approx \$14 + (\$8 - \$3.50) + \$2 \approx \$20.50/\text{bbl}$$
 
-This &#36;20.50/bbl penalty is the price of geography and geology. Of that total, roughly &#36;14 is geology (quality penalty), &#36;4.50 is geography (transport differential), and &#36;2 is infrastructure constraint (excess basis). Policy can address the infrastructure component and partially the transport component (by adding alternative export routes). It cannot address the quality penalty — that is determined by the physics of the deposit.
+This $20.50/bbl penalty is the price of geography and geology. Of that total, roughly $14 is geology (quality penalty), $4.50 is geography (transport differential), and $2 is infrastructure constraint (excess basis). Policy can address the infrastructure component and partially the transport component (by adding alternative export routes). It cannot address the quality penalty — that is determined by the physics of the deposit.
 
 ## Scenario Analysis: Alberta's Wellhead Netback 2025–2030
 
 The scenario analysis varies two dimensions:
 1. **Infrastructure outcome** — how much new export capacity is built and when
-2. **WTI price path** — held roughly constant at &#36;70–75/bbl to isolate the infrastructure effect
+2. **WTI price path** — held roughly constant at $70-$75/bbl to isolate the infrastructure effect
 
 **Scenario 1 — New Export Routes:** Trans Mountain Expansion running at full capacity (890,000 bbl/day), LNG Canada Phase 1 at 1.8 Bcf/day, and completion of Coastal GasLink. This opens substantial new West Coast market access, reducing both pipeline constraints and basis differentials.
 
@@ -112,9 +126,9 @@ The scenario analysis varies two dimensions:
 </div>
 ```
 
-The three scenarios diverge in 2025–2027 — the critical window for Trans Mountain ramp-up and LNG Canada commissioning. In Scenario 1, the netback gap between WTI and the Alberta wellhead narrows from ~&#36;23/bbl to ~&#36;11/bbl as new export routes open and the basis differential compresses. In Scenario 3, the stress case, the netback drops to &#36;38/bbl in 2026 — barely above full-cycle break-even for oil sands mining — before recovering as the disruption clears.
+The three scenarios diverge in 2025–2027 — the critical window for Trans Mountain ramp-up and LNG Canada commissioning. In Scenario 1, the netback gap between WTI and the Alberta wellhead narrows from ~$23/bbl to ~$11/bbl as new export routes open and the basis differential compresses. In Scenario 3, the stress case, the netback drops to $38/bbl in 2026 — barely above full-cycle break-even for oil sands mining — before recovering as the disruption clears.
 
-The difference between Scenario 1 and Scenario 2 over the 2025–2030 period represents approximately &#36;4–6/bbl additional netback for Alberta producers from new infrastructure. At roughly 1.4 million barrels per day of oil sands production, that is &#36;2.0–&#36;3.1 billion per year in additional producer revenue — and at a 12% royalty rate, &#36;240–&#36;370 million per year in additional government royalties. The infrastructure investment pays off in captured rent, not just in producer margins.
+The difference between Scenario 1 and Scenario 2 over the 2025–2030 period represents approximately $4-$6/bbl additional netback for Alberta producers from new infrastructure. At roughly 1.4 million barrels per day of oil sands production, that is $2.0-$3.1 billion per year in additional producer revenue — and at a 12% royalty rate, $240-$370 million per year in additional government royalties. The infrastructure investment pays off in captured rent, not just in producer margins.
 
 ## The Heatmap Price Surface
 
@@ -127,14 +141,14 @@ The price surface concept can be visualised as a heatmap across producing region
 
 The heatmap makes the geography of price explicit. At every WTI scenario, Alberta oil sands producers receive the lowest netback of any major producing region — not because they are inefficient, but because the price surface dips deepest at their location. The Permian Basin and North Sea producers receive 85–92% of their relevant benchmark at the wellhead. Alberta oil sands producers receive 55–70%, depending on the price level and infrastructure scenario.
 
-The Peace River row is instructive: at &#36;50 WTI, the netback (&#36;8/bbl) is below the operating cost threshold for most Peace River projects — these deposits are effectively uneconomic at low prices and remain on the supply cost curve's unproduced segment. This is the supply cost curve from the RE cluster made spatial: different parts of Alberta's resource base activate at different price levels.
+The Peace River row is instructive: at $50 WTI, the netback ($8/bbl) is below the operating cost threshold for most Peace River projects — these deposits are effectively uneconomic at low prices and remain on the supply cost curve's unproduced segment. This is the supply cost curve from the RE cluster made spatial: different parts of Alberta's resource base activate at different price levels.
 
 ## The Pipeline Network as Price Geography
 
 The Leaflet map shows the key price formation nodes in the Western Canadian sedimentary basin corridor — the physical geography that underlies the price surface.
 
 ```{=html}
-<div data-leaflet data-lat="53.0" data-lng="-108.0" data-zoom="4" data-tiles="carto-dark" data-markers='[{"lat":56.7,"lng":-111.4,"label":"Hardisty, AB — WCS price formation point, pipeline junction. Basis differential vs Cushing: ~&#36;14-20/bbl"},{"lat":35.8,"lng":-96.0,"label":"Cushing, OK — WTI delivery hub, NYMEX settlement. The global benchmark anchor."},{"lat":29.7,"lng":-95.3,"label":"Gulf Coast, TX — Primary US refinery market for WCS. Motiva, Valero heavy crude capacity."},{"lat":49.2,"lng":-122.9,"label":"Westridge Marine Terminal, BC — Trans Mountain expansion terminus. New tidewater access."},{"lat":54.0,"lng":-128.6,"label":"Kitimat, BC — LNG Canada Phase 1. 1.8 Bcf/day capacity, Pacific Basin access."},{"lat":51.0,"lng":-114.0,"label":"Calgary, AB — Corporate HQ, commodity trading desks. Where hedging decisions are made."},{"lat":49.9,"lng":-97.1,"label":"Winnipeg / Brandon region — Enbridge mainline corridor. Key transit node eastbound."}]'>
+<div data-leaflet data-lat="53.0" data-lng="-108.0" data-zoom="4" data-tiles="carto-dark" data-markers='[{"lat":56.7,"lng":-111.4,"label":"Hardisty, AB — WCS price formation point, pipeline junction. Basis differential vs Cushing: ~$14-20/bbl"},{"lat":35.8,"lng":-96.0,"label":"Cushing, OK — WTI delivery hub, NYMEX settlement. The global benchmark anchor."},{"lat":29.7,"lng":-95.3,"label":"Gulf Coast, TX — Primary US refinery market for WCS. Motiva, Valero heavy crude capacity."},{"lat":49.2,"lng":-122.9,"label":"Westridge Marine Terminal, BC — Trans Mountain expansion terminus. New tidewater access."},{"lat":54.0,"lng":-128.6,"label":"Kitimat, BC — LNG Canada Phase 1. 1.8 Bcf/day capacity, Pacific Basin access."},{"lat":51.0,"lng":-114.0,"label":"Calgary, AB — Corporate HQ, commodity trading desks. Where hedging decisions are made."},{"lat":49.9,"lng":-97.1,"label":"Winnipeg / Brandon region — Enbridge mainline corridor. Key transit node eastbound."}]'>
 </div>
 ```
 

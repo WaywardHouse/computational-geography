@@ -32,6 +32,20 @@ interactive:
 notebook-url: https://github.com/WaywardHouse/computational-geography-lab/tree/main/essays/P5-integrated-network
 ---
 
+## Before You Start
+
+**You should know**  
+That the crude, gas, NGL, and refined-products systems can all be represented as one network of nodes and constrained links.
+
+**You will learn**  
+How max-flow, min-cut, and netback-surface analysis expose Alberta's export-system bottlenecks.
+
+**Why this matters**  
+A system-level network view reveals vulnerabilities that commodity-by-commodity analysis can miss.
+
+**If this gets hard, focus on...**  
+The main question: which links actually limit total export flow?
+
 
 Alberta’s pipeline network exports more than 3 million barrels of oil
 per day — but that capacity is concentrated through a single hub, at a
