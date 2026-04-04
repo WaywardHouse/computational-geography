@@ -214,6 +214,36 @@ The discount exists because:
 Understanding the basis differential quantitatively is the central
 economic lesson of Alberta's gas transmission geography.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Basis Decomposition</div>
+<h3 class="cg-ill__title">The AECO Discount Is Built From Distance, Tariffs, And Constraint Cost</h3>
+<p class="cg-ill__lede">A useful reading habit is to stop treating the basis as one mysterious number. Part of it is ordinary transport cost, part is the benchmark location difference, and part appears only when capacity becomes scarce enough to prevent full arbitrage.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Benchmark</span>
+<h4>Henry Hub Price</h4>
+<p>Start with the destination benchmark that reflects a much larger integrated demand centre.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Minus</span>
+<h4>Tariff + Fuel Use</h4>
+<p>Subtract the cost of physically moving gas through the corridor and recompressing it along the way.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Minus</span>
+<h4>Constraint Premium</h4>
+<p>When pipes or hubs are crowded, an extra discount opens because more gas would like to leave Alberta than the network can carry.</p>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">If the observed basis is wider than transport cost alone, the difference is evidence of bottleneck value rather than simple mileage.</p>
+</div>
+</div>
+</figure>
+
 ---
 
 ## 3. The Mathematical Model

@@ -308,6 +308,36 @@ products line a critical infrastructure link. When that line has a
 disruption, BC’s fuel supply depends on terminal inventory and
 alternative supply by marine barge or rail.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Dispatch Timing</div>
+<h3 class="cg-ill__title">The Scheduler Is Really Managing Two Clocks: In-Pipe Transit And On-Site Tank Drawdown</h3>
+<p class="cg-ill__lede">This chapter becomes much easier once readers separate the pipeline clock from the terminal clock. The batch leaves Edmonton now, travels for about a week, then lands in a terminal that has been steadily emptying the whole time.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Day 0</span>
+<h4>Dispatch Batch</h4>
+<p>The scheduler commits pipeline space based on last week's inventory, today's nominations, and expected demand one week ahead.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Days 1-7</span>
+<h4>Product Is In Transit</h4>
+<p>No mid-course correction exists. Burnaby keeps supplying trucks by drawing down stored inventory while the batch is still moving west.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Arrival</span>
+<h4>Tank Levels Reset</h4>
+<p>Operators cut the interface, divert transmix, refill the correct product tank, and immediately begin planning the next cycle.</p>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">If demand changes faster than the transit clock, storage is the only shock absorber. That is why terminal design and batch scheduling are inseparable.</p>
+</div>
+</div>
+</figure>
+
 ## Terminal inventory design
 
 The **Burnaby Marine Terminal** must hold enough product to supply

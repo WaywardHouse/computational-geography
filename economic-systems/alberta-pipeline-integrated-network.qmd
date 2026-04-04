@@ -215,6 +215,37 @@ netback uses the lowest-cost routing. If only one path exists, the
 operator of that path has pricing power — the basis differential cannot
 be arbitraged away.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Four Network Questions</div>
+<h3 class="cg-ill__title">Each Network Tool Answers A Different Operational Question</h3>
+<p class="cg-ill__lede">This chapter can feel abstract because it introduces several graph concepts together. The easiest way to keep them straight is to tie each method to the practical question it answers for the Alberta system.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Max Flow</div>
+<h4>How Much Can Move?</h4>
+<p>Use max flow when the question is total sustainable throughput from source to market under current capacities.</p>
+<strong>Operational meaning: export ceiling</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Min Cut</div>
+<h4>What Is The Binding Limit?</h4>
+<p>Use min cut to identify the smallest set of links whose capacity actually governs the whole corridor.</p>
+<strong>Operational meaning: structural bottleneck</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Centrality</div>
+<h4>Which Nodes Matter Most?</h4>
+<p>Use centrality to find hubs whose disruption would have system-wide consequences beyond their own direct throughput.</p>
+<strong>Operational meaning: hub criticality</strong>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">Netback surfaces then translate that physical network into price geography: cheapest path first, market value second, bottleneck power everywhere underneath.</p>
+</div>
+</div>
+</figure>
+
 ---
 
 ## 3. The Mathematical Model

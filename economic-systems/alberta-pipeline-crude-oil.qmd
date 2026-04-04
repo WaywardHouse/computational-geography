@@ -220,6 +220,35 @@ price points — is the geographic variable that determines producer revenue, wh
 is exactly why TMX's export route to the coast mattered so much in 2024-2025
 [@cer-pipeline-profile-tmx2024; @cer-tmx-overseas-2025; @transmountain-system2024].
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Market Access</div>
+<h3 class="cg-ill__title">Each Export Direction Offers A Different Netback Tradeoff</h3>
+<p class="cg-ill__lede">Once the corridor map is clear, the next step is to compare what each direction actually buys producers. A route with higher transport cost can still be valuable if it reaches a better benchmark or reduces dependence on a saturated market.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">East</div>
+<h4>Great Lakes / Central Canada</h4>
+<p>Moderate tariffs and strong refinery demand, but still tied to continental inland pricing and existing refinery preferences.</p>
+<strong>Value: stable continental access</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">South</div>
+<h4>Midwest / Gulf Coast</h4>
+<p>The deepest refinery system and core benchmark linkage, but also the corridor where congestion can widen inland discounts.</p>
+<strong>Value: scale and refining depth</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">West</div>
+<h4>Burnaby / Tidewater</h4>
+<p>Often the most expensive route physically, but strategically valuable because it opens tanker export optionality and weakens landlocked dependence.</p>
+<strong>Value: optionality and bargaining power</strong>
+</div>
+</div>
+<figcaption>Pipeline geography matters because route choice changes producer leverage. Market access is not just volume moved; it is the ability to choose among benchmarks and buyers.</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 4. Worked Example by Hand

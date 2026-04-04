@@ -626,6 +626,35 @@ costs running to hundreds of millions of dollars, and uncertainty about
 whether the upgrade will be built before the project reaches its
 financial close decision.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Siting Tradeoffs</div>
+<h3 class="cg-ill__title">The Best Renewable Site Is Where Resource Quality And Grid Access Overlap</h3>
+<p class="cg-ill__lede">High irradiance or strong wind alone is not enough. A project only becomes easy to build when the resource, transmission access, land availability, and demand geography line up well enough to keep connection cost and curtailment risk under control.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">South Solar</div>
+<h4>Excellent Sun, Variable Grid Reach</h4>
+<p>Southern Alberta often wins on annual solar yield, but transmission reinforcement and distance to major load can still decide project viability.</p>
+<strong>Main question: how expensive is interconnection?</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Foothills Wind</div>
+<h4>Excellent Wind, More Siting Friction</h4>
+<p>Wind corridors can be exceptional, but terrain, permitting, and local congestion can offset part of the meteorological advantage.</p>
+<strong>Main question: does strong wind survive the network bottleneck?</strong>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Balanced Site</div>
+<h4>Resource + Grid + Land</h4>
+<p>The strongest projects often sit slightly below the pure resource maximum because transmission and development conditions are better.</p>
+<strong>Main question: what is the best total project geography?</strong>
+</div>
+</div>
+<figcaption>Renewable geography is really a matching problem between physical resource and electrical infrastructure. The winning site is rarely chosen by weather alone.</figcaption>
+</div>
+</figure>
+
 The Travers Solar project (465 MW) successfully navigated this
 environment because it sits near existing 240kV infrastructure in the
 Lethbridge area, and because its generation profile — peaking in the

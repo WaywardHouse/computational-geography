@@ -288,6 +288,32 @@ in summer. A single pipeline carrying all three products must manage
 this asynchronous demand pattern through batch sequencing and terminal
 inventory management.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Terminal Tradeoff</div>
+<h3 class="cg-ill__title">Refined-Products Systems Trade Off Storage Cost Against Speed Of Response</h3>
+<p class="cg-ill__lede">Once products are already in the pipe, operators cannot instantly pivot to a new demand mix. The only real flexibility comes from storage at the receiving terminal, which buys time while the next schedule works its way across the mountains.</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Lean terminal</span>
+<h4>Cheap Tanks, Fragile Supply</h4>
+<p>Less capital tied up in inventory, but any batch delay or unexpected demand spike quickly shows up as shortages or emergency truck-and-barge replacement.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Buffered terminal</span>
+<h4>More Tanks, Slower Cost Pass-Through</h4>
+<p>Extra inventory absorbs timing shocks and seasonal peaks, but it also means retail supply reflects fuel made and priced days earlier rather than today's marginal barrel.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Operator objective</span>
+<h4>Hold Enough To Survive Transit Time</h4>
+<p>The terminal has to bridge the 9 to 10 day journey from Edmonton while preserving just enough flexibility to swap the product mix as driving, freight, and jet demand rotate through the year.</p>
+</div>
+</div>
+<figcaption>Storage is not a passive afterthought. It is the device that converts a long fixed-transit pipeline into something the downstream market can actually live with.</figcaption>
+</div>
+</figure>
+
 ---
 
 ## 4. Worked Example by Hand
