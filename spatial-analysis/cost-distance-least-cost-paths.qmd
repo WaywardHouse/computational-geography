@@ -810,6 +810,7 @@ Each cell needs:
 **Total:** ~2 GB minimum
 
 **Solution:** 
+
 - Process in tiles
 - Use sparse data structures
 - Hierarchical pathfinding (coarse → fine)

@@ -120,7 +120,10 @@ When water evaporates, it absorbs energy but **doesn't change temperature**. The
 
 **Why it matters:** Evaporation is a very effective cooling mechanism. That's why sweating cools you down.
 
-::: {.cg-ill title="How Net Radiation Gets Split"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">How Net Radiation Gets Split</div>
+```{=html}
 <svg viewBox="0 0 760 360" role="img" aria-label="Illustration showing net radiation being partitioned into sensible heat, latent heat, and ground heat for dry and wet surfaces.">
   <rect x="0" y="0" width="760" height="360" fill="#fbfcff"/>
   <circle cx="124" cy="82" r="30" fill="#fbbf24"/>
@@ -163,9 +166,11 @@ When water evaporates, it absorbs energy but **doesn't change temperature**. The
     </marker>
   </defs>
 </svg>
+```
 
-This is the comparison to keep in mind through the whole chapter. The sun can deliver similar net radiation to two surfaces, but a dry surface tends to spend more of that energy heating air, while a wet surface spends more of it evaporating water. That difference is exactly what the Bowen ratio is trying to summarize.
-:::
+<p class="cg-ill__lede">This is the comparison to keep in mind through the whole chapter. The sun can deliver similar net radiation to two surfaces, but a dry surface tends to spend more of that energy heating air, while a wet surface spends more of it evaporating water. That difference is exactly what the Bowen ratio is trying to summarize.</p>
+</div>
+</figure>
 
 ---
 

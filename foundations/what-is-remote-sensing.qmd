@@ -115,7 +115,10 @@ Those measurements can then be converted into things we care about:
 
 That conversion step is the model.
 
-::: {.cg-ill title="Remote Sensing Turns A Surface Into A Signal"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Remote Sensing Turns A Surface Into A Signal</div>
+```{=html}
 <svg viewBox="0 0 760 360" role="img" aria-label="Illustration of the remote sensing chain from energy source through atmosphere and surface to sensor and data product.">
   <rect x="0" y="0" width="760" height="360" fill="#f8fbff"/>
   <rect x="50" y="92" width="124" height="168" rx="18" fill="#fff8ef" stroke="#f0dfc3"/>
@@ -171,9 +174,11 @@ That conversion step is the model.
     </marker>
   </defs>
 </svg>
+```
 
-This is the main habit the chapter is trying to build. A remote-sensing product is never the first thing measured. Energy is generated, altered by the atmosphere, modified by the surface, sampled by a sensor, and only then converted into a product we can interpret.
-:::
+<p class="cg-ill__lede">This is the main habit the chapter is trying to build. A remote-sensing product is never the first thing measured. Energy is generated, altered by the atmosphere, modified by the surface, sampled by a sensor, and only then converted into a product we can interpret.</p>
+</div>
+</figure>
 
 ---
 

@@ -109,7 +109,10 @@ This oscillation propagates downward as a **damped, delayed wave**.
 **Damping:** Amplitude decreases exponentially with depth  
 **Delay:** Peak temperature occurs later at greater depths
 
-::: {.cg-ill title="Temperature Waves Fade And Lag With Depth"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Temperature Waves Fade And Lag With Depth</div>
+```{=html}
 <svg viewBox="0 0 760 360" role="img" aria-label="Illustration of soil temperature waves showing stronger surface oscillations and weaker, delayed oscillations with increasing depth.">
   <rect x="0" y="0" width="760" height="360" fill="#fbfcff"/>
   <rect x="54" y="70" width="318" height="230" rx="18" fill="#eef7ff" stroke="#d7e6f5"/>
@@ -139,9 +142,11 @@ This oscillation propagates downward as a **damped, delayed wave**.
   <text x="678" y="236" font-size="14" fill="#1d4ed8">much later</text>
   <text x="458" y="286" font-size="15" fill="#475569">depth increases downward as the wave damps out</text>
 </svg>
+```
 
-This is the picture the PDE is formalizing. The surface cycle keeps repeating, but deeper soil feels a weaker version of the same wave and feels it later. Diffusion turns a sharp surface rhythm into a muted, delayed subsurface response.
-:::
+<p class="cg-ill__lede">This is the picture the PDE is formalizing. The surface cycle keeps repeating, but deeper soil feels a weaker version of the same wave and feels it later. Diffusion turns a sharp surface rhythm into a muted, delayed subsurface response.</p>
+</div>
+</figure>
 
 ---
 

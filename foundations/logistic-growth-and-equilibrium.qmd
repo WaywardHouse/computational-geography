@@ -197,12 +197,14 @@ An equilibrium is **stable** if small perturbations return to it.
 An equilibrium is **unstable** if small perturbations grow away from it.
 
 **At $N^* = 0$:**  
+
 - If you add a small population ($N > 0$), does it grow or shrink?
 - When $N$ is small, $\frac{dN}{dt} = rN(1 - N/K) \approx rN > 0$
 - The population **grows away** from zero
 - **$N = 0$ is unstable**
 
 **At $N^* = K$:**  
+
 - If $N$ is slightly below $K$, then $1 - N/K > 0$, so $\frac{dN}{dt} > 0$ and population increases toward $K$
 - If $N$ is slightly above $K$, then $1 - N/K < 0$, so $\frac{dN}{dt} < 0$ and population decreases toward $K$
 - **$N = K$ is stable**

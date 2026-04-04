@@ -133,7 +133,10 @@ Compare environmental lapse rate ($\Gamma$) to adiabatic rates:
 - Suppresses vertical mixing
 - Traps pollution
 
-::: {.cg-ill title="Vertical Structure of Temperature and Moisture"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Vertical Structure of Temperature and Moisture</div>
+```{=html}
 <svg viewBox="0 0 760 360" role="img" aria-label="Illustration of normal lapse rate and inversion, together with moisture and cloud-base structure in a vertical atmospheric profile.">
   <rect x="0" y="0" width="760" height="360" fill="#f8fbff"/>
   <rect x="0" y="292" width="760" height="68" fill="#d7c3a3"/>
@@ -165,9 +168,11 @@ Compare environmental lapse rate ($\Gamma$) to adiabatic rates:
   <text x="444" y="123" font-size="15" fill="#334155">drier, warmer air</text>
   <text x="602" y="114" font-size="15" fill="#334155">cooler air reaches saturation</text>
 </svg>
+```
 
-This chapter is really about two vertical stories happening at once. Temperature usually falls with height, but an inversion bends that profile the other way and creates stability. At the same time, rising air usually gets closer to saturation until it reaches the lifting condensation level, where cloud can begin.
-:::
+<p class="cg-ill__lede">This chapter is really about two vertical stories happening at once. Temperature usually falls with height, but an inversion bends that profile the other way and creates stability. At the same time, rising air usually gets closer to saturation until it reaches the lifting condensation level, where cloud can begin.</p>
+</div>
+</figure>
 
 ---
 

@@ -705,6 +705,7 @@ $$z_{\text{adjusted}} = z_{\text{DEM}} - \frac{d^2}{2R}$$
 **30m DEM:** Can't represent 2m wall.
 
 **Solution:** 
+
 - Use high-resolution DEM (1m LiDAR)
 - Add separate obstruction layer (buildings, vegetation)
 

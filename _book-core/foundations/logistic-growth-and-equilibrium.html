@@ -288,10 +288,19 @@ If the system overshoots, the brake term becomes negative and pulls the populati
 <h3 id="stability-analysis-conceptual" class="anchored">Stability Analysis (Conceptual)</h3>
 <p>An equilibrium is <strong>stable</strong> if small perturbations return to it.<br>
 An equilibrium is <strong>unstable</strong> if small perturbations grow away from it.</p>
-<p><strong>At <span class="math inline">N^* = 0</span>:</strong><br>
-- If you add a small population (<span class="math inline">N &gt; 0</span>), does it grow or shrink? - When <span class="math inline">N</span> is small, <span class="math inline">\frac{dN}{dt} = rN(1 - N/K) \approx rN &gt; 0</span> - The population <strong>grows away</strong> from zero - <strong><span class="math inline">N = 0</span> is unstable</strong></p>
-<p><strong>At <span class="math inline">N^* = K</span>:</strong><br>
-- If <span class="math inline">N</span> is slightly below <span class="math inline">K</span>, then <span class="math inline">1 - N/K &gt; 0</span>, so <span class="math inline">\frac{dN}{dt} &gt; 0</span> and population increases toward <span class="math inline">K</span> - If <span class="math inline">N</span> is slightly above <span class="math inline">K</span>, then <span class="math inline">1 - N/K &lt; 0</span>, so <span class="math inline">\frac{dN}{dt} &lt; 0</span> and population decreases toward <span class="math inline">K</span> - <strong><span class="math inline">N = K</span> is stable</strong></p>
+<p><strong>At <span class="math inline">N^* = 0</span>:</strong></p>
+<ul>
+<li>If you add a small population (<span class="math inline">N &gt; 0</span>), does it grow or shrink?</li>
+<li>When <span class="math inline">N</span> is small, <span class="math inline">\frac{dN}{dt} = rN(1 - N/K) \approx rN &gt; 0</span></li>
+<li>The population <strong>grows away</strong> from zero</li>
+<li><strong><span class="math inline">N = 0</span> is unstable</strong></li>
+</ul>
+<p><strong>At <span class="math inline">N^* = K</span>:</strong></p>
+<ul>
+<li>If <span class="math inline">N</span> is slightly below <span class="math inline">K</span>, then <span class="math inline">1 - N/K &gt; 0</span>, so <span class="math inline">\frac{dN}{dt} &gt; 0</span> and population increases toward <span class="math inline">K</span></li>
+<li>If <span class="math inline">N</span> is slightly above <span class="math inline">K</span>, then <span class="math inline">1 - N/K &lt; 0</span>, so <span class="math inline">\frac{dN}{dt} &lt; 0</span> and population decreases toward <span class="math inline">K</span></li>
+<li><strong><span class="math inline">N = K</span> is stable</strong></li>
+</ul>
 <p>This is <strong>negative feedback</strong> — deviations from the equilibrium are self-correcting.</p>
 <hr>
 <h2 id="worked-example-by-hand" class="anchored">5. Worked Example by Hand</h2>

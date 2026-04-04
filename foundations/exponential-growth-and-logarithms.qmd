@@ -100,7 +100,10 @@ The mathematical question: How do we model this? What does the solution look lik
 
 After 20 years, the exponential model is more than **twice** the linear model, even though they started the same.
 
-::: {.cg-ill title="Linear Versus Exponential Growth"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Linear Versus Exponential Growth</div>
+```{=html}
 <svg viewBox="0 0 760 340" role="img" aria-label="Illustration comparing linear and exponential growth and showing logarithms as the inverse operation.">
   <rect x="0" y="0" width="760" height="340" fill="#fbfcff"/>
   <rect x="48" y="46" width="430" height="232" rx="18" fill="#f4f8ff" stroke="#d7e3f4"/>
@@ -133,9 +136,11 @@ After 20 years, the exponential model is more than **twice** the linear model, e
     </marker>
   </defs>
 </svg>
+```
 
-The visual difference is the key lesson. Linear growth keeps adding the same vertical step. Exponential growth keeps multiplying, so each step becomes larger than the one before. Logarithms matter because they let us reverse that process and ask how much time or how many growth factors produced the observed size.
-:::
+<p class="cg-ill__lede">The visual difference is the key lesson. Linear growth keeps adding the same vertical step. Exponential growth keeps multiplying, so each step becomes larger than the one before. Logarithms matter because they let us reverse that process and ask how much time or how many growth factors produced the observed size.</p>
+</div>
+</figure>
 
 ---
 

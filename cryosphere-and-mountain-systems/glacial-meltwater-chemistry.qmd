@@ -732,6 +732,7 @@ $$\text{CO}_2 + \text{CaSiO}_3 \rightarrow \text{CaCO}_3 + \text{SiO}_2$$
 **Seasonal:** Summer vs winter (order of magnitude difference)
 
 **Solution:** 
+
 - Flow-weighted composite sampling
 - Automated samplers
 - High-frequency sensors (conductivity as TDS proxy)

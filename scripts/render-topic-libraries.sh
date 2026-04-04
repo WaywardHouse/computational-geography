@@ -26,9 +26,16 @@ cleanup() {
 trap cleanup EXIT
 
 while IFS= read -r file_path; do
+  [[ -e "$file_path" ]] || continue
   rel="${file_path#$ROOT_DIR/}"
   mkdir -p "$STASH_DIR/$(dirname "$rel")"
-  mv "$file_path" "$STASH_DIR/$rel"
+  if [[ -d "$file_path" ]]; then
+    cp -R "$file_path" "$STASH_DIR/$rel"
+    rm -rf "$file_path"
+  else
+    cp "$file_path" "$STASH_DIR/$rel"
+    rm -f "$file_path"
+  fi
 done < <(find "$ROOT_DIR" -maxdepth 2 \
   \( -name '*.html' -o -name '*_files' \) \
   -not -path "$ROOT_DIR/_book*" \

@@ -316,10 +316,13 @@ The reversal was an infrastructure response to the scale of bitumen
 production — when the oil sands ramp up, diluent demand rises, and the
 condensate market responds by rerouting supply.
 
-**Cochin pipeline (post-reversal):** - Operator: Pembina Pipeline -
-Direction: Kankakee, IL → Kerrobert, SK → Fort Saskatchewan, AB -
-Product: condensate (C5+) - Capacity: ~95,000 bbl/day - Purpose: diluent
-supply for oil sands bitumen blending
+**Cochin pipeline (post-reversal):**
+
+- Operator: Pembina Pipeline
+- Direction: Kankakee, IL → Kerrobert, SK → Fort Saskatchewan, AB
+- Product: condensate (C5+)
+- Capacity: ~95,000 bbl/day
+- Purpose: diluent supply for oil sands bitumen blending
 
 Cochin covers roughly 22% of diluent demand at 1 million bbl/day bitumen
 production. The remainder is supplied by local condensate production

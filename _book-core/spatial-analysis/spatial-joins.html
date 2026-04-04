@@ -811,7 +811,11 @@ Result: customers enriched with (population, income, ...)</code></pre>
 <p><strong>Solution:</strong> Convention (use &lt; or ≤ consistently) or assign to nearest centroid.</p>
 <p><strong>Multiple polygons contain point:</strong></p>
 <p>Overlapping polygons (e.g., political vs.&nbsp;statistical boundaries).</p>
-<p><strong>Solution:</strong> - Return all matches (one-to-many join) - Or prioritize by attribute (e.g., smallest polygon)</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Return all matches (one-to-many join)</li>
+<li>Or prioritize by attribute (e.g., smallest polygon)</li>
+</ul>
 <h3 id="performance-degradation" class="anchored">Performance Degradation</h3>
 <p><strong>Clustered data:</strong></p>
 <p>If all features are in one spatial region, R-tree becomes unbalanced.</p>

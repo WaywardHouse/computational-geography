@@ -705,6 +705,7 @@ Microwave signal saturates → underestimate.
 **Worse in:** Maritime climates (deep, wet snow)
 
 **Solution:** 
+
 - Combine with model
 - Use passive + active microwave
 - Assimilation techniques

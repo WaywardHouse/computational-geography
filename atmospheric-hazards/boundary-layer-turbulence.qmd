@@ -171,7 +171,10 @@ Where:
 **$L < 0$:** Unstable  
 **$|L| \to \infty$:** Neutral
 
-::: {.cg-ill title="Boundary-Layer Structure"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Boundary-Layer Structure</div>
+```{=html}
 <svg viewBox="0 0 760 360" role="img" aria-label="Illustration of the atmospheric boundary layer showing roughness elements, a logarithmic wind profile, and stronger versus weaker turbulent mixing.">
   <rect x="0" y="0" width="760" height="360" fill="#f6fbff"/>
   <rect x="0" y="280" width="760" height="80" fill="#d9c3a1"/>
@@ -210,9 +213,11 @@ Where:
   <text x="545" y="156" font-size="15" fill="#0f766e">deep mixing</text>
   <text x="545" y="228" font-size="15" fill="#b45309">suppressed mixing</text>
 </svg>
+```
 
-The picture to hold in mind is simple: rough surfaces slow the air next to the ground, the mean wind speed curves upward with height, and turbulence is the mechanism that transfers faster-moving air downward. Daytime heating usually deepens that mixing. Stable nighttime cooling usually compresses it into a thinner layer with stronger shear.
-:::
+<p class="cg-ill__lede">The picture to hold in mind is simple: rough surfaces slow the air next to the ground, the mean wind speed curves upward with height, and turbulence is the mechanism that transfers faster-moving air downward. Daytime heating usually deepens that mixing. Stable nighttime cooling usually compresses it into a thinner layer with stronger shear.</p>
+</div>
+</figure>
 
 ---
 

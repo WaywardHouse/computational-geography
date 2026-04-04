@@ -123,7 +123,10 @@ In reality, we can't write down a simple algebraic formula for real terrain. Ins
 
 Each number is the elevation (in meters) at the center of that cell.
 
-::: {.cg-ill title="From Landscape to Grid"}
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">From Landscape to Grid</div>
+```{=html}
 <svg viewBox="0 0 760 360" role="img" aria-label="Illustration showing a continuous terrain surface, a sampled raster grid, and the idea that each cell stores one elevation value.">
   <rect x="0" y="0" width="760" height="360" fill="#fbfcfe"/>
   <rect x="46" y="58" width="292" height="226" rx="18" fill="#f3f8ec" stroke="#d4e2bf"/>
@@ -179,9 +182,11 @@ Each number is the elevation (in meters) at the center of that cell.
     </marker>
   </defs>
 </svg>
+```
 
-This is the bridge the chapter needs readers to feel. Real terrain is continuous, but computation needs samples. A DEM turns the surface into a regular grid of stored heights, which is why later operations like slope, flow, and shading can be computed cell by cell.
-:::
+<p class="cg-ill__lede">This is the bridge the chapter needs readers to feel. Real terrain is continuous, but computation needs samples. A DEM turns the surface into a regular grid of stored heights, which is why later operations like slope, flow, and shading can be computed cell by cell.</p>
+</div>
+</figure>
 
 ---
 

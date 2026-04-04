@@ -777,6 +777,7 @@ May be assigned to either polygon (undefined).
 Overlapping polygons (e.g., political vs. statistical boundaries).
 
 **Solution:** 
+
 - Return all matches (one-to-many join)
 - Or prioritize by attribute (e.g., smallest polygon)
 

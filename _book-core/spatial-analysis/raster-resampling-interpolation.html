@@ -430,7 +430,12 @@ y=1    105   120</code></pre>
 <p><span class="math display">z = (1-0.3)(1-0.7) \cdot 100 + (0.3)(1-0.7) \cdot 110</span> <span class="math display">\quad + (1-0.3)(0.7) \cdot 105 + (0.3)(0.7) \cdot 120</span></p>
 <p><span class="math display">= 0.7 \times 0.3 \times 100 + 0.3 \times 0.3 \times 110</span> <span class="math display">\quad + 0.7 \times 0.7 \times 105 + 0.3 \times 0.7 \times 120</span></p>
 <p><span class="math display">= 21 + 9.9 + 51.45 + 25.2 = 107.55 \text{ m}</span></p>
-<p><strong>Verification:</strong> - Nearest to <span class="math inline">(0,1)</span> at 105m (weight 0.49) - Also weighted toward 110 and 120 - Result 107.55 is reasonable weighted average</p>
+<p><strong>Verification:</strong></p>
+<ul>
+<li>Nearest to <span class="math inline">(0,1)</span> at 105m (weight 0.49)</li>
+<li>Also weighted toward 110 and 120</li>
+<li>Result 107.55 is reasonable weighted average</li>
+</ul>
 <hr>
 <h2 id="computational-implementation" class="anchored">5. Computational Implementation</h2>
 <p>Below is an interactive resampling demonstration.</p>
@@ -768,7 +773,12 @@ render();
 <li>Faults (abrupt elevation change)</li>
 <li>Roads (linear features)</li>
 </ul>
-<p><strong>Solution:</strong> - Use nearest neighbor for boundaries - Edge-preserving filters - Or accept smoothing as necessary artifact</p>
+<p><strong>Solution:</strong></p>
+<ul>
+<li>Use nearest neighbor for boundaries</li>
+<li>Edge-preserving filters</li>
+<li>Or accept smoothing as necessary artifact</li>
+</ul>
 <hr>
 <h2 id="extension-advanced-interpolation" class="anchored">8. Extension: Advanced Interpolation</h2>
 <h3 id="inverse-distance-weighting-idw" class="anchored">Inverse Distance Weighting (IDW)</h3>
