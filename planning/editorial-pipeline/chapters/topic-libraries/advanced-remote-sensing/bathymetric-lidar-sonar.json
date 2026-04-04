@@ -9,50 +9,64 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter needed a clearer comparison between optical and acoustic ranging before the detailed geometry.",
+    "issues": [
+      "The chapter lacked the standard onboarding block.",
+      "The contrast between light-based and sound-based depth mapping needed stronger early framing.",
+      "The geometry-and-correction storyline benefited from a clearer conceptual setup."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding and clarified the light-versus-sound comparison.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Clarified why bathymetric LiDAR and sonar succeed under different water conditions.",
+      "Improved the lead-in to travel-time and refraction geometry."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces underwater ranging more clearly while preserving the specialist physics.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The comparison-and-pacing issue was repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block.",
+      "Clarified when optical versus acoustic ranging is appropriate.",
+      "Strengthened the geometry-first interpretation of the corrections."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's ranging workflow and error-correction visuals now have stronger interpretive support.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved interpretive support around why the same travel-time idea behaves differently in light and sound."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

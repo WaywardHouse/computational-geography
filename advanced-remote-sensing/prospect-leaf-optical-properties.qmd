@@ -48,6 +48,10 @@ Hold a leaf up to a bright light. The transmitted light is not white: it is an a
 
 Remote sensing of vegetation rests on reading that signature from a distance. But to read it, you first need a model of how it is written — a forward model that predicts what spectrum a sensor will record given knowledge of what the leaf contains. PROSPECT (Jacquemoud & Baret, 1990)[^1] is that model. It is, at its core, an extension of the Beer-Lambert law you have already met — applied not to a column of water in a forest canopy but to a stack of plant cells, each partially absorbing, partially scattering.
 
+## Before You Start
+
+This chapter is easier if you hold onto one simple idea: PROSPECT is a forward model of how leaf chemistry and structure create a spectrum. The parameter list may look dense, but the logic is straightforward. Pigments control some wavelengths, water and dry matter control others, and internal leaf structure controls how strongly light is scattered.
+
 ---
 
 ## 1. The Question

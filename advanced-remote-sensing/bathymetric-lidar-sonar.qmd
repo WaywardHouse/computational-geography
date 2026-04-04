@@ -46,6 +46,10 @@ On 25 July 2020, the bulk carrier MV Wakashio ran aground on a coral reef off th
 
 Measuring water depth sounds deceptively simple. Drop a weighted line, read the rope. Nineteenth-century hydrographers did exactly that, sounding harbour floors one point at a time. Today two technologies dominate. In clear, shallow water — coastal reefs, river channels, lake beds — green-wavelength laser light (532 nm) penetrates the water column, reflects off the bottom, and returns a depth with centimetre precision. In deeper or turbid water, acoustic pulses do the same job: sonar calculates depth from the travel time of a sound wave bouncing off the seabed, mapping swaths hundreds of metres wide in a single pass. Neither method is universal; each has its physics, its geometric corrections, and its characteristic errors.
 
+## Before You Start
+
+This chapter compares two ranging systems that face the same geometric challenge in different media. Light is fast and useful in clear shallow water; sound is slower but works far better in deeper or murkier water. The key question throughout is how to turn travel time and angle into a trustworthy underwater position.
+
 This model works through those physics from first principles. The core challenge in both cases is the same: the signal doesn't travel in a straight line at constant speed. Light refracts at the air-water interface and slows as it enters denser water. Sound bends with temperature and salinity gradients. Getting the geometry right — converting raw travel times and angles into accurate XYZ coordinates on a map — is the craft that separates a chart you can navigate by from one that gets ships grounded.
 
 ## 1. The Question

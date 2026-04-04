@@ -9,50 +9,64 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter was strong technically but needed explicit onboarding for readers entering specialist radiative-transfer material.",
+    "issues": [
+      "The chapter lacked the standard onboarding block.",
+      "The parameter-heavy PROSPECT setup needed clearer framing before the formal model.",
+      "The leaf chemistry versus structure distinction needed stronger front-loaded guidance."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding and clarified the model's chemistry-structure logic.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Clarified the role of pigments, water, dry matter, and internal structure.",
+      "Made the forward-model framing more explicit for specialist readers."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now eases readers into PROSPECT without reducing the technical depth.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The onboarding gap was repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block.",
+      "Clarified the chemistry-versus-structure interpretation of the parameters.",
+      "Strengthened the forward-model framing before the equations."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's optical-system explanation now better supports the later spectral and parameter visuals.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved interpretive support around how the model writes biochemical information into a spectrum."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

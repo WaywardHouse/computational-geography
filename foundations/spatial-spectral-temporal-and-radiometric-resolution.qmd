@@ -1,0 +1,197 @@
+---
+title: Spatial, Spectral, Temporal, and Radiometric Resolution
+subtitle: The four resolution tradeoffs that shape every remote-sensing product
+date: 2026-04-04
+type: chapter
+image: /assets/images/remote-sensing.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 15
+section-code: E
+section-title: Remote Sensing Foundations
+tags:
+- computational-geography
+- modelling
+- remote-sensing
+- resolution
+- sensor-design
+- earth-observation
+difficulty: 3
+description: 'Every sensor sees Earth with limits. Spatial resolution controls pixel
+  size, spectral resolution controls wavelength detail, temporal resolution controls
+  revisit timing, and radiometric resolution controls sensitivity to small signal differences.
+  This chapter explains the tradeoffs among the four.
+
+  '
+learning:
+  concepts:
+  - spatial-resolution
+  - spectral-resolution
+  - temporal-resolution
+  - radiometric-resolution
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: Ratios, area, and simple powers of two are enough.
+---
+
+## Before You Start
+
+**You should know**  
+That a sensor has limits and that measurement always involves compromise.
+
+**You will learn**  
+What the four major kinds of resolution mean and why improving one often comes at the expense of another.
+
+**Why this matters**  
+Many remote-sensing mistakes come from asking a product to answer a question it was never designed to answer.
+
+**If this gets hard, focus on...**  
+Spatial means where, spectral means which wavelengths, temporal means when, and radiometric means how finely the signal is measured.
+
+
+A `10 m` pixel can map field boundaries better than a `1 km` pixel. A hyperspectral sensor can distinguish subtle absorption features better than a broad-band sensor. A daily revisit is better for rapidly changing events than a monthly revisit. A 12-bit detector can distinguish smaller signal differences than an 8-bit detector. None of these improvements is free. Sensor design is a tradeoff problem.
+
+This chapter gives a compact language for that tradeoff space. Once you understand the four resolutions, sensor choice becomes much easier to reason about.
+
+## 1. The Question
+
+Why can one remote-sensing product be excellent for crop monitoring but poor for detailed urban mapping, while another is excellent for terrain detail but poor for biochemical discrimination?
+
+Usually the answer lies in resolution:
+
+- **spatial**: how large is each pixel?
+- **spectral**: how narrow and numerous are the wavelength bands?
+- **temporal**: how often do we get a new observation?
+- **radiometric**: how finely can the detector distinguish signal levels?
+
+---
+
+## 2. Spatial Resolution
+
+Spatial resolution is the ground size represented by one pixel.
+
+Examples:
+
+- `1 m` pixel: good for small roads, rooftops, individual crowns
+- `10 m` pixel: good for fields, streams, forest patches
+- `250 m` pixel: good for regional vegetation patterns
+- `1 km` pixel: good for continental climate signals
+
+### Worked Example By Hand
+
+If a pixel is `30 m × 30 m`, its area is:
+
+$$A = 30 \times 30 = 900\ \text{m}^2$$
+
+If a small pond covers only `200\ \text{m}^2`, then it fills less than one full pixel:
+
+$$\frac{200}{900} \approx 0.22$$
+
+So the pond will likely appear as a mixed pixel rather than a clean water pixel.
+
+---
+
+## 3. Spectral Resolution
+
+Spectral resolution describes how finely the sensor samples wavelength.
+
+- broad bands: few, wide wavelength intervals
+- narrow bands: many, thin wavelength intervals
+
+Broad bands are often enough for:
+
+- simple land-cover separation
+- NDVI-style indices
+- basic change mapping
+
+Narrow bands are better for:
+
+- mineral identification
+- pigment and water-content retrieval
+- subtle absorption-feature analysis
+
+---
+
+## 4. Temporal Resolution
+
+Temporal resolution is how often the sensor returns to observe the same place.
+
+This matters because some processes change:
+
+- slowly, like glacier retreat
+- seasonally, like vegetation growth
+- rapidly, like flooding, fire, or storm damage
+
+A product with coarse spatial detail but daily observations can be more useful for drought monitoring than a fine-resolution product that returns only rarely.
+
+---
+
+## 5. Radiometric Resolution
+
+Radiometric resolution is how finely the sensor distinguishes signal intensity.
+
+It is often described in bits:
+
+- 8-bit sensor: $2^8 = 256$ levels
+- 12-bit sensor: $2^{12} = 4096$ levels
+- 16-bit sensor: $2^{16} = 65536$ levels
+
+Higher radiometric resolution helps when the surface differences are subtle and you need the detector to notice small changes in radiance or reflectance.
+
+---
+
+## 6. The Tradeoff Picture
+
+```{=html}
+<div data-viz="echarts" style="height:380px; min-height:300px" data-options='{
+"title": {"text": "Resolution Tradeoffs Across Common Sensor Styles", "subtext": "Stylized comparison for teaching, not a product specification sheet", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"bottom": 0, "data": ["High-detail imaging", "Regional monitoring", "Hyperspectral system"]},
+"radar": {
+"radius": "60%",
+"indicator": [
+  {"name": "Spatial detail", "max": 5},
+  {"name": "Spectral detail", "max": 5},
+  {"name": "Temporal frequency", "max": 5},
+  {"name": "Radiometric sensitivity", "max": 5}
+]
+},
+"series": [{
+"type": "radar",
+"data": [
+  {"name": "High-detail imaging", "value": [5, 2, 2, 3], "areaStyle": {"opacity": 0.08}},
+  {"name": "Regional monitoring", "value": [3, 3, 5, 4], "areaStyle": {"opacity": 0.08}},
+  {"name": "Hyperspectral system", "value": [2, 5, 2, 5], "areaStyle": {"opacity": 0.08}}
+]
+}]
+}'></div>
+```
+
+The point is not that one sensor type is best. The point is that they are optimized for different questions.
+
+---
+
+## 7. A Practical Reading Habit
+
+When you encounter a remote-sensing product, ask:
+
+1. What is the pixel size?
+2. How many bands does it have, and how wide are they?
+3. How often can the place be observed?
+4. How finely can the detector distinguish signal levels?
+
+Those four questions often tell you more about the usefulness of the product than its brand name does.
+
+---
+
+## 8. If This Gets Hard, Focus On
+
+- spatial = pixel size
+- spectral = wavelength detail
+- temporal = revisit timing
+- radiometric = signal sensitivity
+- good sensing is always a tradeoff, not a perfect-all-at-once design
+
+That is enough to make later chapters on multispectral, thermal, hyperspectral, LiDAR, and radar much easier to place in context.

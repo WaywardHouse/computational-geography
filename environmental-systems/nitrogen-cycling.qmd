@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/nitrogen-cycle.webp
 book-part: environmental-systems
 book-part-title: Environmental Systems
-chapter-number: 15
+chapter-number: 16
 section-code: J
 section-title: Biogeochemical Cycles
 tags:

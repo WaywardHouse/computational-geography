@@ -1,0 +1,196 @@
+---
+title: Multispectral Imagery and Band Interpretation
+subtitle: Reading broad-band satellite images before jumping to indices
+date: 2026-04-04
+type: chapter
+image: /assets/images/vegetation-indices.webp
+book-part: environmental-systems
+book-part-title: Environmental Systems
+chapter-number: 13
+section-code: I
+section-title: Atmospheric Interactions
+tags:
+- computational-geography
+- modelling
+- remote-sensing
+- multispectral
+- band-interpretation
+- earth-observation
+difficulty: 3
+description: 'Multispectral sensors do not record full continuous spectra. They sample
+  a small set of carefully chosen bands. This chapter explains how to read those bands,
+  how false-colour composites work, and how to infer water, vegetation, bare soil,
+  and urban materials from broad-band imagery.
+
+  '
+learning:
+  concepts:
+  - multispectral-bands
+  - false-colour-composites
+  - band-interpretation
+  - spectral-contrast
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: Basic reflectance concepts and ratios are enough. This chapter
+  emphasizes interpretation more than heavy mathematics.
+---
+
+## Before You Start
+
+**You should know**  
+That different surfaces reflect differently at different wavelengths.
+
+**You will learn**  
+How to read common multispectral bands, why false-colour images are useful, and what broad-band patterns often signal vegetation, soil, water, and built surfaces.
+
+**Why this matters**  
+Many higher-level products begin with a simple multispectral image. If you cannot interpret the bands, the index or classification built on top of them stays opaque.
+
+**If this gets hard, focus on...**  
+The key habit is to ask what each band emphasizes and what contrast it creates relative to the others.
+
+
+A multispectral image is not just a picture with more colours. It is a small set of carefully chosen wavelength windows, each selected because it highlights a different property of the surface. One band emphasizes chlorophyll absorption. Another emphasizes leaf structure. Another responds strongly to water content. Another separates warm roofs and asphalt from cooler vegetation. Reading a multispectral image means learning to ask what each band is sensitive to.
+
+This chapter is the bridge between basic reflectance ideas and vegetation indices. Before computing NDVI or EVI, we should be able to look at the bands themselves and understand why those indices work.
+
+## 1. The Question
+
+How do we interpret a multispectral image before turning it into an index, classification, or map product?
+
+Usually we start by asking:
+
+1. Which wavelengths are being sampled?
+2. What kinds of surfaces reflect strongly or weakly in each band?
+3. What contrast will appear if we combine those bands into an image or a ratio?
+
+---
+
+## 2. Common Broad-Band Regions
+
+Multispectral optical sensors often include some version of these bands:
+
+- **blue**: sensitive to atmospheric scattering, shallow water, and some sediment or haze effects
+- **green**: useful for visible brightness and vegetation appearance
+- **red**: strongly affected by chlorophyll absorption
+- **near-infrared (NIR)**: strongly reflected by healthy vegetation structure
+- **shortwave infrared (SWIR)**: sensitive to water content, dryness, and some mineral differences
+
+### A Simple Surface Pattern
+
+Three broad surface types behave very differently:
+
+- **healthy vegetation**: low red, high NIR, lower SWIR when moist
+- **bare soil**: moderate red, moderate NIR, often rising toward SWIR
+- **water**: low reflectance in NIR and SWIR
+
+Those broad contrasts are enough to explain why so many practical remote-sensing tools work.
+
+---
+
+## 3. False-Colour Images
+
+A **false-colour composite** assigns non-visible bands to visible display channels.
+
+A famous example is:
+
+- red display channel = NIR
+- green display channel = red
+- blue display channel = green
+
+In that display:
+
+- healthy vegetation often appears bright red
+- water often appears dark
+- urban surfaces often appear cyan, grey, or pale tones
+
+The image is called "false colour" not because it is fake, but because the displayed colours are chosen to highlight useful contrasts rather than to mimic human vision.
+
+---
+
+## 4. A Practical Interpretation Chart
+
+```{=html}
+<div data-viz="echarts" style="height:380px; min-height:300px" data-options='{
+"title": {"text": "Broad-Band Behaviour of Common Surface Types", "subtext": "Stylized reflectance patterns for teaching interpretation", "left": "center"},
+"tooltip": {"trigger": "axis"},
+"legend": {"bottom": 0, "data": ["Healthy vegetation", "Bare soil", "Water"]},
+"grid": {"left": "8%", "right": "4%", "bottom": "16%", "containLabel": true},
+"xAxis": {"type": "category", "name": "Band region", "data": ["Blue", "Green", "Red", "NIR", "SWIR"]},
+"yAxis": {"type": "value", "name": "Relative reflectance", "min": 0, "max": 60},
+"series": [
+{"name": "Healthy vegetation", "type": "line", "smooth": true, "data": [6, 9, 5, 48, 18], "lineStyle": {"width": 3, "color": "#16a34a"}, "itemStyle": {"color": "#16a34a"}},
+{"name": "Bare soil", "type": "line", "smooth": true, "data": [12, 16, 20, 26, 32], "lineStyle": {"width": 3, "color": "#a16207"}, "itemStyle": {"color": "#a16207"}},
+{"name": "Water", "type": "line", "smooth": true, "data": [7, 5, 3, 1, 0.5], "lineStyle": {"width": 3, "color": "#2563eb"}, "itemStyle": {"color": "#2563eb"}}
+]
+}'></div>
+```
+
+This chart is intentionally broad rather than sensor-specific. The value is in the pattern:
+
+- vegetation jumps high in NIR
+- water collapses in NIR and SWIR
+- soil tends to rise more steadily
+
+---
+
+## 5. Worked Example By Hand
+
+Suppose one pixel has these broad-band reflectances:
+
+- red = $0.07$
+- NIR = $0.42$
+- SWIR = $0.16$
+
+That pattern suggests:
+
+- strong chlorophyll absorption in red
+- strong internal leaf scattering in NIR
+- moderate water-sensitive SWIR response
+
+So the most likely interpretation is **healthy vegetation with non-trivial moisture content**.
+
+Now compare another pixel:
+
+- red = $0.18$
+- NIR = $0.20$
+- SWIR = $0.28$
+
+This second pattern shows:
+
+- little red absorption
+- no strong NIR jump
+- stronger SWIR response
+
+That pattern is more consistent with **bare soil or dry sparse cover** than with a dense healthy canopy.
+
+---
+
+## 6. Why This Comes Before Vegetation Indices
+
+NDVI works because:
+
+$$\text{NDVI} = \frac{\rho_{NIR} - \rho_{red}}{\rho_{NIR} + \rho_{red}}$$
+
+But that ratio only makes sense if you already understand why vegetation separates so strongly between those two bands.
+
+So a good reading order is:
+
+1. understand the bands
+2. understand the broad spectral contrast
+3. then compute the ratio
+
+That way the index feels like a compressed summary of a physical pattern, not like a magic formula.
+
+---
+
+## 7. If This Gets Hard, Focus On
+
+- multispectral means a few carefully chosen broad bands
+- each band emphasizes different surface behaviour
+- false colour is a way to make useful contrast visible
+- vegetation, soil, and water differ most clearly in red, NIR, and SWIR
+
+That foundation makes the vegetation-index chapter much easier to read and trust.

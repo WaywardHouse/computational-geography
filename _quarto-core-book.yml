@@ -31,6 +31,9 @@ book:
     - foundations/gradient-aspect-steepest-descent.qmd
     - foundations/gravity-models-trade-migration.qmd
     - foundations/spatial-diffusion-of-innovation.qmd
+    - foundations/what-is-remote-sensing.qmd
+    - foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd
+    - foundations/atmospheric-effects-and-surface-reflectance.qmd
     - environmental-systems/index.qmd
     - environmental-systems/net-radiation-and-albedo.qmd
     - environmental-systems/sensible-and-latent-heat-fluxes.qmd
@@ -39,6 +42,7 @@ book:
     - environmental-systems/soil-moisture-dynamics.qmd
     - environmental-systems/wind-profiles-and-turbulence.qmd
     - environmental-systems/temperature-moisture-gradients.qmd
+    - environmental-systems/multispectral-imagery-and-band-interpretation.qmd
     - environmental-systems/vegetation-indices-and-remote-sensing.qmd
     - spatial-analysis/index.qmd
     - spatial-analysis/point-in-polygon-testing.qmd

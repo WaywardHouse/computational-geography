@@ -47,6 +47,10 @@ In the late 1990s, NASA's Jet Propulsion Laboratory began flying the AVIRIS spec
 
 A standard satellite or aircraft sensor might capture 4 to 12 spectral bands. Hyperspectral imaging captures 100 to 400 narrow bands, sampling reflected sunlight essentially continuously from the visible through the shortwave infrared. The result is not a colour image but a spectrum for every pixel — a spectral fingerprint that encodes the chemical composition of the surface. Different minerals have different absorption features at characteristic wavelengths: the iron oxide hematite absorbs at 490 nm; kaolinite shows absorption doublets at 1400 and 2200 nm; water absorbs at 1400 and 1900 nm. These features can be identified by comparing pixel spectra to reference libraries, or extracted using spectral unmixing — the algebraic decomposition of each pixel spectrum into fractional contributions from end-member spectra. This model derives the spectral signature physics, implements absorption feature analysis, and shows how linear unmixing maps sub-pixel composition across a scene.
 
+## Before You Start
+
+This chapter introduces a lot of spectral language, but the central idea is simple: each pixel contains a spectrum, and that spectrum carries chemical information. When we unmix a pixel, we are asking what combination of known spectral end-members could plausibly have produced the measured signal.
+
 ## 1. The Question
 
 Can we identify minerals from orbit using reflected sunlight?
@@ -297,11 +301,11 @@ $$\rho(\lambda) = f_{\text{veg}} (\rho_{\text{veg}}(\lambda) - \rho_{\text{soil}
 
 **Solve using one wavelength (800 nm):**
 
-$&#36;0.35 = f_{\text{veg}}(0.50 - 0.20) + 0.20$$
+$$0.35 = f_{\text{veg}}(0.50 - 0.20) + 0.20$$
 
-$&#36;0.35 = 0.30 f_{\text{veg}} + 0.20$$
+$$0.35 = 0.30 f_{\text{veg}} + 0.20$$
 
-$&#36;0.15 = 0.30 f_{\text{veg}}$$
+$$0.15 = 0.30 f_{\text{veg}}$$
 
 $$f_{\text{veg}} = 0.50$$
 

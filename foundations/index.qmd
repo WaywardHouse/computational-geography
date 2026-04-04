@@ -19,7 +19,7 @@ Textbook Part
       <a class="cta" href="./what-is-a-spatial-model.html">Start Part 1</a>
     </div>
     <div class="book-pill-row">
-      <span class="book-pill">9 core chapters</span>
+      <span class="book-pill">12 core chapters</span>
       <span class="book-pill">Best first part</span>
       <span class="book-pill">Part 1</span>
     </div>
@@ -76,6 +76,15 @@ Textbook Part
   </article>
   <article class="section-card">
     <span class="section-eyebrow">E</span>
+    <h3>Remote Sensing Foundations</h3>
+    <ul>
+      <li><a href="./what-is-remote-sensing.html">What Is Remote Sensing?</a></li>
+      <li><a href="./spatial-spectral-temporal-and-radiometric-resolution.html">Spatial, Spectral, Temporal, and Radiometric Resolution</a></li>
+      <li><a href="./atmospheric-effects-and-surface-reflectance.html">Atmospheric Effects and Surface Reflectance</a></li>
+    </ul>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">F</span>
     <h3>Topic Library Links</h3>
     <ul>
       <li><a href="./light-attenuation-in-canopy.html">Light Attenuation in a Canopy</a></li>
@@ -86,7 +95,7 @@ Textbook Part
     </ul>
   </article>
   <article class="section-card">
-    <span class="section-eyebrow">F</span>
+    <span class="section-eyebrow">G</span>
     <h3>Why This Part Matters</h3>
     <p>These chapters build the habits the rest of the project depends on: defining quantities carefully, noticing how they change, and turning geographic questions into models that can be tested.</p>
   </article>

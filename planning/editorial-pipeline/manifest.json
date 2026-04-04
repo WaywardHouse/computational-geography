@@ -4,7 +4,7 @@
     "core-book": {
       "title": "Computational Geography: Core Book",
       "config": "_quarto-core-book.yml",
-      "chapter_count": 41,
+      "chapter_count": 45,
       "chapters": [
         {
           "chapter_path": "getting-started/how-to-read-equations.qmd",
@@ -97,6 +97,24 @@
           "difficulty": "4"
         },
         {
+          "chapter_path": "foundations/what-is-remote-sensing.qmd",
+          "title": "What Is Remote Sensing?",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd",
+          "title": "Spatial, Spectral, Temporal, and Radiometric Resolution",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "foundations/atmospheric-effects-and-surface-reflectance.qmd",
+          "title": "Atmospheric Effects and Surface Reflectance",
+          "part_title": "Foundations of Computational Geography",
+          "difficulty": "3"
+        },
+        {
           "chapter_path": "environmental-systems/net-radiation-and-albedo.qmd",
           "title": "Net Radiation and Albedo",
           "part_title": "Environmental Systems",
@@ -135,6 +153,12 @@
         {
           "chapter_path": "environmental-systems/temperature-moisture-gradients.qmd",
           "title": "Temperature and Moisture Gradients",
+          "part_title": "Environmental Systems",
+          "difficulty": "3"
+        },
+        {
+          "chapter_path": "environmental-systems/multispectral-imagery-and-band-interpretation.qmd",
+          "title": "Multispectral Imagery and Band Interpretation",
           "part_title": "Environmental Systems",
           "difficulty": "3"
         },

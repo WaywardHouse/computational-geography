@@ -50,6 +50,10 @@ The **SAIL model** (Scattering by Arbitrarily Inclined Leaves, Verhoef 1984)[^1]
 
 Together with PROSPECT as the leaf optical property model, the coupled **PROSAIL** (PROSPECT + SAIL) model is the workhorse forward model in optical remote sensing of vegetation.[^2]
 
+## Before You Start
+
+This chapter asks you to shift scales. PROSPECT explained a single leaf; SAIL explains what happens when millions of leaves interact with sunlight, shadow, soil background, and sensor geometry together. If the formal model feels heavy, keep asking what changes when the canopy gets denser, more erect, or more strongly backlit.
+
 ---
 
 ## 1. The Question

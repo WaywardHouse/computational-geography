@@ -1,0 +1,199 @@
+---
+title: Atmospheric Effects and Surface Reflectance
+subtitle: Why the sensor does not see the surface alone
+date: 2026-04-04
+type: chapter
+image: /assets/images/remote-sensing.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 16
+section-code: E
+section-title: Remote Sensing Foundations
+tags:
+- computational-geography
+- modelling
+- remote-sensing
+- atmosphere
+- reflectance
+- calibration
+difficulty: 3
+description: 'Between the surface and the sensor lies the atmosphere. This chapter
+  explains scattering, absorption, and path radiance, and shows why remote-sensing
+  products often need atmospheric correction before they can be treated as surface
+  reflectance.
+
+  '
+learning:
+  concepts:
+  - path-radiance
+  - atmospheric-correction
+  - top-of-atmosphere-radiance
+  - surface-reflectance
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: Basic ratios and the idea of attenuation are enough.
+---
+
+## Before You Start
+
+**You should know**  
+That a sensor records energy arriving at the instrument, not at the ground surface itself.
+
+**You will learn**  
+How the atmosphere adds, removes, and redirects energy, and why top-of-atmosphere measurement is not the same thing as surface reflectance.
+
+**Why this matters**  
+If you ignore the atmosphere, you can mistake haze, water vapour, or scattering effects for real surface change.
+
+**If this gets hard, focus on...**  
+The sensor sees the surface signal plus atmospheric effects, not the surface signal alone.
+
+
+A satellite looking at a wheat field on a clear day does not measure the wheat field by itself. Some incoming sunlight was already scattered before it reached the field. Some reflected light from the field is absorbed on its way back up. Some light is added by the atmosphere itself through scattering into the sensor's line of sight. The sensor records the sum of those effects.
+
+That is why remote sensing often distinguishes between **top-of-atmosphere** measurement and **surface reflectance**. The first is what the instrument actually receives. The second is the quantity analysts usually want when they compare materials, dates, or places.
+
+## 1. The Question
+
+Why can the same surface appear different on two days even if the ground itself has not changed?
+
+Three common reasons are:
+
+- different atmospheric scattering
+- different atmospheric absorption
+- different sun-sensor geometry
+
+So if we want to compare surface properties, we need a model that separates atmospheric influence from surface behaviour.
+
+---
+
+## 2. The Core Components
+
+### Scattering
+
+Scattering redirects light.
+
+Important types:
+
+- **Rayleigh scattering**: strong at short wavelengths, helps explain why blue bands are haze-sensitive
+- **Mie scattering**: caused by larger particles such as dust, smoke, and haze
+
+### Absorption
+
+Atmospheric gases remove energy at specific wavelengths.
+
+Important absorbers include:
+
+- water vapour
+- carbon dioxide
+- ozone
+
+This is why some wavelength regions are excellent atmospheric windows and others are difficult to use.
+
+### Path Radiance
+
+Some radiation reaches the sensor without ever touching the surface of interest. It has been scattered into the sensor path by the atmosphere.
+
+That added component is called **path radiance**.
+
+---
+
+## 3. A Simple Measurement Model
+
+A beginner-safe conceptual model is:
+
+$$L_{\text{sensor}} = L_{\text{path}} + \tau \, L_{\text{surface}}$$
+
+where:
+
+- $L_{\text{sensor}}$ is the radiance at the sensor
+- $L_{\text{path}}$ is path radiance added by the atmosphere
+- $L_{\text{surface}}$ is the radiance leaving the surface
+- $\tau$ is atmospheric transmittance, a number between 0 and 1
+
+This is not the full radiative-transfer equation, but it captures the logic:
+
+- one part is added by the atmosphere
+- one part comes from the surface
+- the surface part is weakened on its way to the sensor
+
+### Worked Example By Hand
+
+Suppose:
+
+- $L_{\text{path}} = 12$
+- $L_{\text{surface}} = 40$
+- $\tau = 0.70$
+
+Then:
+
+$$L_{\text{sensor}} = 12 + 0.70 \times 40 = 12 + 28 = 40$$
+
+Notice what happened: even though the surface emitted or reflected `40` units, the sensor also records `40` units for a different reason. The atmosphere added some signal and removed some signal at the same time.
+
+That is why interpretation without correction can be deceptive.
+
+---
+
+## 4. Why Blue Bands Often Look Hazy
+
+Shorter wavelengths are more strongly affected by atmospheric scattering. That is why distant mountains often look bluish and washed out in photographs and why blue bands are especially sensitive to haze.
+
+This is not just a photography problem. In remote sensing it affects:
+
+- water mapping
+- vegetation indices using visible bands
+- change detection across dates
+- urban material interpretation
+
+---
+
+## 5. A Visual Accounting Of The Signal
+
+```{=html}
+<div data-viz="echarts" style="height:360px; min-height:280px" data-options='{
+"title": {"text": "What Reaches the Sensor?", "subtext": "A stylized signal budget for one optical measurement", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"grid": {"left": "8%", "right": "4%", "bottom": "14%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Clear day", "Hazy day"]},
+"yAxis": {"type": "value", "name": "Relative contribution"},
+"legend": {"bottom": 0, "data": ["Surface contribution after transmission", "Path radiance"]},
+"series": [
+{"name": "Surface contribution after transmission", "type": "bar", "stack": "total", "data": [70, 45], "itemStyle": {"color": "#2563eb"}},
+{"name": "Path radiance", "type": "bar", "stack": "total", "data": [10, 30], "itemStyle": {"color": "#f59e0b"}}
+]
+}'></div>
+```
+
+On a hazier day, more of the signal may come from the atmosphere and less from the surface. If we compare those two scenes without correction, we risk treating atmospheric change as though it were land-surface change.
+
+---
+
+## 6. Top-Of-Atmosphere Versus Surface Reflectance
+
+Two common product levels are:
+
+- **top-of-atmosphere reflectance**: closer to what the sensor directly observes after calibration
+- **surface reflectance**: an estimate of what the surface would look like with atmospheric effects removed
+
+Surface reflectance is usually the better input for:
+
+- comparing dates
+- computing vegetation indices
+- classification
+- biophysical retrieval
+
+Top-of-atmosphere products can still be useful, but they require more caution.
+
+---
+
+## 7. If This Gets Hard, Focus On
+
+- the atmosphere both adds and removes signal
+- path radiance is signal that did not come from the target surface
+- top-of-atmosphere measurement is not the same thing as surface reflectance
+- atmospheric correction is a modelling step, not just a button in software
+
+That is enough foundation for multispectral interpretation, vegetation indices, and the more advanced sensor-physics chapters.

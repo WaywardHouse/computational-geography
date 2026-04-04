@@ -47,6 +47,10 @@ The discovery in 2010 that LiDAR surveys from aircraft could detect the outlines
 
 LiDAR measures distance by timing the travel of laser pulses: emit a pulse, wait for the return, multiply the elapsed time by the speed of light and halve it for the one-way distance. An airborne system fires up to a million pulses per second, combining range measurements with GPS-derived position and IMU-derived orientation to place each return as a 3D point in an absolute coordinate system. The result — the point cloud — may contain tens or hundreds of points per square metre, capturing the vertical structure of vegetation and the shape of terrain beneath it with centimetre-scale precision. Processing a point cloud requires separating ground returns from vegetation returns (a classification problem), interpolating the ground points to a smooth Digital Terrain Model, and computing the Canopy Height Model as the difference between the top-of-canopy surface and the terrain. This model derives the ranging physics, implements the ground classification algorithm, and builds the derived products.
 
+## Before You Start
+
+This chapter is about moving from raw points to useful surfaces. A point cloud is not yet a DEM or a canopy height model; it is just a very dense set of 3D returns. The core workflow is to understand where the points came from, classify what they hit, and then derive terrain or vegetation structure from them.
+
 ## 1. The Question
 
 What's the forest canopy height and how does ground elevation vary beneath it?

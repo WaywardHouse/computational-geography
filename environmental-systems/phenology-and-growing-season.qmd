@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/growing-season.webp
 book-part: environmental-systems
 book-part-title: Environmental Systems
-chapter-number: 16
+chapter-number: 17
 section-code: J
 section-title: Biogeochemical Cycles
 tags:

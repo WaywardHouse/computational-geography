@@ -48,6 +48,10 @@ The Central Valley of California overlies one of the largest and most heavily ex
 
 GRACE (Gravity Recovery and Climate Experiment), launched in 2002 and succeeded by GRACE-FO in 2018, is the only instrument that measures large-scale changes in the distribution of mass within and at the surface of the Earth. Every month it produces a global map of gravitational anomalies that, when processed to remove known signals from ocean tides, atmospheric loading, and glacial isostatic adjustment, yields changes in terrestrial water storage — the sum of soil moisture, surface water, snow, ice, and groundwater. The spatial resolution is coarse (roughly 300 km) and the processing is complex, but the measurement is unique: no other technique can quantify groundwater depletion over a multi-state region or ice sheet mass balance over an entire continent. This model derives the gravitational potential equations, introduces spherical harmonic decomposition, and explains how mass anomalies are recovered from satellite inter-ranging data.
 
+## Before You Start
+
+This chapter helps if you keep one physical idea in mind: GRACE does not see groundwater directly. It sees tiny changes in Earth’s gravity field caused by mass redistribution. The monthly water-storage maps are therefore an inference from orbital motion, not a direct image.
+
 ## 1. The Question
 
 How much water is California losing during drought?

@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/vegetation-indices.webp
 book-part: environmental-systems
 book-part-title: Environmental Systems
-chapter-number: 13
+chapter-number: 14
 section-code: I
 section-title: Atmospheric Interactions
 tags:

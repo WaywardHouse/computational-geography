@@ -48,6 +48,10 @@ In the early hours of 18 July 2022, an Aqua satellite passed over Sicily during 
 
 Thermal infrared remote sensing measures the electromagnetic radiation emitted by surfaces in the 8–14 µm wavelength range. Unlike visible and near-infrared sensors that detect reflected sunlight, thermal sensors detect radiation that the surface itself emits because it has temperature above absolute zero — in accordance with Planck's law and the Stefan-Boltzmann relation. The brightness temperature measured by the sensor is not exactly the surface kinetic temperature: it is modified by the surface emissivity (how efficiently the surface radiates compared to a perfect blackbody) and by atmospheric absorption and emission along the path. Converting from brightness temperature to actual land surface temperature requires knowing the emissivity — which varies by surface type from about 0.90 for dry sand to 0.995 for water — and correcting for atmospheric effects using a split-window algorithm that exploits the differential absorption in two adjacent thermal channels. This model derives the complete chain from Planck's law through brightness temperature to land surface temperature retrieval.
 
+## Before You Start
+
+This chapter becomes much easier once you keep three temperatures separate. The sensor measures radiance, we convert that to brightness temperature, and only then do we estimate the actual surface temperature after accounting for emissivity and atmosphere. Those are related quantities, but they are not identical.
+
 ## 1. The Question
 
 How hot is that parking lot compared to the adjacent park?

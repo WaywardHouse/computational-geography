@@ -9,50 +9,64 @@
     "difficulty": "5"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter needed stronger onboarding around the synthetic-aperture idea before the signal-processing detail.",
+    "issues": [
+      "The chapter lacked the standard onboarding block.",
+      "The conceptual trick behind the synthetic aperture needed clearer front-loaded explanation.",
+      "The chapter benefited from stronger early separation between backscatter intuition and later processing detail."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding and clarified the core synthetic-aperture idea.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Clarified how platform motion substitutes for a very long antenna.",
+      "Strengthened the conceptual spine before the processing mathematics."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces SAR more accessibly while preserving its advanced technical scope.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The conceptual-pacing issue was repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block.",
+      "Clarified the synthetic-aperture concept before the detailed equations.",
+      "Improved the separation between sensing physics and processing detail."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's SAR imagery and geometry now have better interpretive framing for specialist readers.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved interpretive support around backscatter, platform motion, and image formation."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

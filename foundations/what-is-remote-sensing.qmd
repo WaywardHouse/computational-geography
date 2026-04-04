@@ -1,0 +1,227 @@
+---
+title: What Is Remote Sensing?
+subtitle: Measuring Earth from a distance with light, heat, sound, and microwave energy
+date: 2026-04-04
+type: chapter
+image: /assets/images/remote-sensing.webp
+book-part: foundations
+book-part-title: Foundations of Computational Geography
+chapter-number: 14
+section-code: E
+section-title: Remote Sensing Foundations
+tags:
+- computational-geography
+- modelling
+- remote-sensing
+- earth-observation
+- passive-sensing
+- active-sensing
+difficulty: 3
+description: 'Remote sensing turns emitted or reflected energy into evidence about
+  Earth''s surface. This chapter introduces the sensing chain, explains passive and
+  active systems, and shows how pixels, footprints, and measurement geometry shape
+  what a sensor can know.
+
+  '
+learning:
+  concepts:
+  - passive-sensing
+  - active-sensing
+  - sensing-chain
+  - footprint
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+math-prerequisites-note: Basic coordinates and graphs are enough. We use very light
+  algebra and focus on physical intuition.
+---
+
+## Before You Start
+
+**You should know**  
+That maps can be built from measured data and that light interacts with surfaces in different ways.
+
+**You will learn**  
+What remote sensing actually measures, how passive and active systems differ, and why a sensor never sees "the thing itself" directly.
+
+**Why this matters**  
+Most modern computational geography depends on Earth observation. Before using an index, a classification, or a satellite product, you need a model of how the measurement was made.
+
+**If this gets hard, focus on...**  
+The core idea that a sensor records energy, and we infer surface properties from that energy.
+
+
+When people first hear "remote sensing," they often imagine a camera in space taking a picture. Sometimes that is close enough. Often it is not. A thermal sensor does not record visible colour; it records emitted radiation. Radar does not wait for sunlight; it transmits its own microwave pulse and measures the backscatter. LiDAR does something similar with laser light. GRACE does not image water at all; it infers mass redistribution from gravity change. In every case, the measurement reaches the analyst only after physics has transformed the surface into a signal.
+
+That is why remote sensing belongs in a modelling book. The sensor is not a magical eye. It is part of a chain: energy interacts with the atmosphere, then the surface, then the sensor, then the data system that calibrates and packages the result. This chapter introduces that chain and the basic language needed to think clearly about Earth observation before we move into more specialized chapters.
+
+## 1. The Question
+
+How can we learn something about Earth's surface without touching it directly?
+
+The answer is: by measuring energy that has interacted with the surface.
+
+Sometimes that energy comes from the Sun. Sometimes it is emitted by the surface itself. Sometimes the sensor provides the energy and measures the return.
+
+So remote sensing always asks two linked questions:
+
+1. What energy is being measured?
+2. How did the surface and atmosphere modify that energy before the sensor recorded it?
+
+---
+
+## 2. The Sensing Chain
+
+Remote sensing works through a chain of transformations:
+
+1. **Energy source**
+2. **Atmosphere**
+3. **Surface interaction**
+4. **Sensor measurement**
+5. **Data product and interpretation**
+
+```{=html}
+<div class="viz-container" style="margin-top:1rem;">
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.9rem;">
+  <div class="info-panel"><strong>1. Source</strong><p>Sunlight, thermal emission, laser pulse, radar pulse, or acoustic pulse.</p></div>
+  <div class="info-panel"><strong>2. Atmosphere</strong><p>Scattering, absorption, and emission change the signal before and after surface contact.</p></div>
+  <div class="info-panel"><strong>3. Surface</strong><p>The surface reflects, emits, absorbs, or scatters energy depending on material and geometry.</p></div>
+  <div class="info-panel"><strong>4. Sensor</strong><p>The instrument samples the signal with finite spatial, spectral, and radiometric limits.</p></div>
+  <div class="info-panel"><strong>5. Product</strong><p>Calibration and modelling turn raw measurement into maps, indices, temperatures, heights, or classifications.</p></div>
+</div>
+</div>
+```
+
+The important habit is to resist jumping straight to the product. A vegetation index, a temperature map, or a flood mask is never the first thing measured.
+
+### What A Sensor Actually Records
+
+Most remote-sensing instruments record one of four broad kinds of quantity:
+
+- **reflected radiation**
+- **emitted radiation**
+- **backscattered energy**
+- **travel time or phase**
+
+Those measurements can then be converted into things we care about:
+
+- vegetation greenness
+- land surface temperature
+- flood extent
+- forest canopy height
+- soil moisture
+- ice loss
+
+That conversion step is the model.
+
+---
+
+## 3. Passive And Active Remote Sensing
+
+### Passive Systems
+
+A **passive** sensor does not provide its own illumination. It records energy already present in the environment.
+
+Examples:
+
+- visible and near-infrared satellite imagery
+- thermal infrared imaging
+- passive microwave sensing
+
+Passive systems depend on what the environment provides:
+
+- reflected solar radiation for optical sensing
+- emitted thermal radiation for thermal sensing
+
+### Active Systems
+
+An **active** sensor sends out energy and measures the return.
+
+Examples:
+
+- radar
+- LiDAR
+- sonar
+
+Active systems are powerful because they control the signal source. That often means:
+
+- day and night operation
+- better control over ranging
+- some ability to penetrate cloud, canopy, or water depending on wavelength
+
+```{=html}
+<div data-viz="echarts" style="height:360px; min-height:280px" data-options='{
+"title": {"text": "Passive vs Active Remote Sensing", "subtext": "Different systems solve different observation problems", "left": "center"},
+"tooltip": {"trigger": "axis", "axisPointer": {"type": "shadow"}},
+"legend": {"bottom": 0, "data": ["Passive", "Active"]},
+"grid": {"left": "8%", "right": "4%", "bottom": "16%", "containLabel": true},
+"xAxis": {"type": "category", "data": ["Needs external illumination", "Works at night", "Measures return travel time directly", "Often gives direct range or height"]},
+"yAxis": {"type": "value", "name": "Typical fit", "min": 0, "max": 5},
+"series": [
+{"name": "Passive", "type": "bar", "data": [5, 2, 1, 1], "itemStyle": {"color": "#2563eb"}},
+{"name": "Active", "type": "bar", "data": [1, 5, 5, 5], "itemStyle": {"color": "#0f766e"}}
+]
+}'></div>
+```
+
+This is a teaching chart, not a strict rulebook. Thermal infrared is passive but can still work at night because the surface emits its own radiation. The bigger lesson is that "remote sensing" is not one technology.
+
+---
+
+## 4. Pixels, Footprints, And Mixed Surfaces
+
+A sensor does not usually observe an infinitesimal point. It observes a finite **footprint** on the ground.
+
+For an imaging sensor, that footprint becomes a **pixel** in the image.
+
+If the pixel contains:
+
+- 100% forest, interpretation is easy
+- 50% forest and 50% soil, interpretation is harder
+- forest, water, and road together, it becomes a mixing problem
+
+That is why even a beautiful image is not direct truth. Each pixel is already a summary over space.
+
+### Worked Example By Hand
+
+Suppose a pixel is `30 m × 30 m`, so its ground area is:
+
+$$A = 30 \times 30 = 900\ \text{m}^2$$
+
+If `60%` of that pixel is vegetation and `40%` is bare soil, then:
+
+- vegetation area = $0.60 \times 900 = 540\ \text{m}^2$
+- bare soil area = $0.40 \times 900 = 360\ \text{m}^2$
+
+The sensor does not record two separate numbers. It records one number per band that mixes the signal from both parts.
+
+That is the foundation of spectral mixing, classification uncertainty, and sub-pixel modelling.
+
+---
+
+## 5. Why Geometry Matters
+
+The same field can look different depending on:
+
+- sun angle
+- sensor view angle
+- surface slope and aspect
+- shadowing
+- canopy structure
+
+So remote sensing is not only about material. It is also about geometry.
+
+That is why later chapters on solar geometry, satellite overpasses, and canopy reflectance matter. The signal is shaped by where the source, surface, and sensor sit relative to one another.
+
+---
+
+## 6. If This Gets Hard, Focus On
+
+- the sensor measures energy, not "the phenomenon itself"
+- passive sensors record available energy; active sensors send out their own
+- a pixel is a finite footprint, not a perfect point
+- atmosphere and geometry both alter the signal
+- the data product is always one modelling step beyond the raw measurement
+
+That foundation is enough to make the rest of the remote-sensing sequence feel much less mysterious.

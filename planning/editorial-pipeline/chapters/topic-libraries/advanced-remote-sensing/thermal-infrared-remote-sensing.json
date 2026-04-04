@@ -9,50 +9,64 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter needed clearer front-loaded guidance on radiance, brightness temperature, and surface temperature as distinct quantities.",
+    "issues": [
+      "The chapter lacked the standard onboarding block.",
+      "The temperature chain from radiance to land surface temperature needed clearer early framing.",
+      "The specialist retrieval context benefited from stronger interpretive setup."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding and clarified the different temperature quantities used in thermal retrieval.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Clarified radiance, brightness temperature, and actual surface temperature.",
+      "Improved the interpretive lead-in to emissivity and atmospheric correction."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces the retrieval chain more patiently while preserving the thermal-radiation rigor.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The conceptual-pacing issue was repaired during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block.",
+      "Separated the key temperature concepts more clearly.",
+      "Improved the lead-in to emissivity and atmospheric correction."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's retrieval chain and heat-related applications now have stronger explanatory support.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved interpretive support around the conversion from emitted radiance to temperature maps."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

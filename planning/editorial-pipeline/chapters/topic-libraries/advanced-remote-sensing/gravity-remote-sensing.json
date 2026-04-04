@@ -9,50 +9,64 @@
     "difficulty": "4"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "The chapter needed a clearer opening distinction between direct observation and inferred mass change from gravity anomalies.",
+    "issues": [
+      "The chapter lacked the standard onboarding block.",
+      "The indirect nature of GRACE measurement needed stronger early framing.",
+      "The specialist inversion workflow benefited from a simpler conceptual anchor."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a full editorial pass that added onboarding and clarified GRACE as an inference from satellite motion rather than direct groundwater observation.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Added a Before You Start block.",
+      "Clarified that GRACE senses gravity change rather than seeing water directly.",
+      "Improved the conceptual lead-in to the inversion workflow."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter now introduces the indirect measurement logic more clearly while preserving the advanced gravity-field content.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "The chapter's conceptual anchor was strengthened during the editorial pass.",
+    "actions_taken": [
+      "Added the standard onboarding block.",
+      "Clarified that GRACE products are inferred from gravity anomalies.",
+      "Improved the transition from orbital motion to water-storage interpretation."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The chapter's mass-change storyline and coarse-resolution interpretation now have stronger explanatory support.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
-    "improvements_made": []
+    "improvements_made": [
+      "Improved interpretive support around what GRACE can and cannot resolve directly."
+    ]
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

@@ -6,7 +6,7 @@ type: chapter
 image: /assets/images/soil-carbon.webp
 book-part: environmental-systems
 book-part-title: Environmental Systems
-chapter-number: 14
+chapter-number: 15
 section-code: J
 section-title: Biogeochemical Cycles
 tags:
