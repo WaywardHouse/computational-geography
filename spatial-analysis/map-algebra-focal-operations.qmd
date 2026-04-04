@@ -157,6 +157,52 @@ $$z = w_1 z_1 + w_2 z_2 + \cdots + w_n z_n$$
 
 Where $\sum w_i = 1$ (weights sum to 1).
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Focal Logic</div>
+<h3 class="cg-ill__title">A Kernel Turns A Neighborhood Into One New Cell Value</h3>
+<p class="cg-ill__lede">Local map algebra reads one cell at a time. Focal map algebra reads a small neighborhood, applies a kernel of weights, and writes one summarized value back to the center cell.</p>
+<div class="cg-ill__kernel-grid">
+<div class="cg-ill__matrix-wrap">
+<div class="cg-ill__matrix cg-ill__matrix--input">
+<span>92</span><span>95</span><span>91</span>
+<span>90</span><span class="is-focus">96</span><span>89</span>
+<span>88</span><span>94</span><span>87</span>
+</div>
+<div class="cg-ill__kernel-op">*</div>
+<div class="cg-ill__matrix cg-ill__matrix--kernel">
+<span>1/9</span><span>1/9</span><span>1/9</span>
+<span>1/9</span><span class="is-focus">1/9</span><span>1/9</span>
+<span>1/9</span><span>1/9</span><span>1/9</span>
+</div>
+</div>
+<div class="cg-ill__matrix-wrap">
+<div class="cg-ill__matrix cg-ill__matrix--output">
+<span></span><span></span><span></span>
+<span></span><span class="is-focus">91.3</span><span></span>
+<span></span><span></span><span></span>
+</div>
+<div class="cg-ill__kernel-op">=</div>
+<div class="cg-ill__logic-rail">
+<div class="cg-ill__logic-step">
+<h4>Input window</h4>
+<p>Take the center cell and its neighbors.</p>
+</div>
+<div class="cg-ill__logic-step">
+<h4>Apply weights</h4>
+<p>Multiply each neighborhood value by the kernel weight.</p>
+</div>
+<div class="cg-ill__logic-step">
+<h4>Write result</h4>
+<p>Sum the weighted values and assign the result to the output center cell.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<figcaption>A focal operation replaces one raster cell with a weighted summary of its neighborhood, which is the core of smoothing, edge detection, and many terrain calculations.</figcaption>
+</figure>
+
 ### Focal Operations: Convolution
 
 **Kernel (filter):** Small matrix of weights $K$ (typically 3×3, 5×5, or 7×7).

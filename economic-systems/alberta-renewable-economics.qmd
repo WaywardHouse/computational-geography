@@ -221,6 +221,56 @@ peaker’s remaining advantage is dispatchability — it can run when called
 upon regardless of weather — but that is increasingly an argument about
 grid architecture rather than raw generation cost.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Cost Structure</div>
+<h3 class="cg-ill__title">Similar LCOEs Can Hide Very Different Cost Mixes</h3>
+<p class="cg-ill__lede">Visual learners usually understand LCOE faster when the total is split into the pieces that create it. Wind and solar are capital-heavy; gas technologies carry lower upfront cost but much higher fuel exposure.</p>
+<div class="cg-ill__lcoe-grid">
+<div class="cg-ill__lcoe-card">
+<div class="cg-ill__label">Wind</div>
+<div class="cg-ill__lcoe-stack">
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--capital" style="height: 58%;">capital</span>
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--opex" style="height: 18%;">opex</span>
+</div>
+<p>High capital, no fuel, strong Alberta capacity factors.</p>
+</div>
+<div class="cg-ill__lcoe-card">
+<div class="cg-ill__label">Solar</div>
+<div class="cg-ill__lcoe-stack">
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--capital" style="height: 56%;">capital</span>
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--opex" style="height: 12%;">opex</span>
+</div>
+<p>Lower capex than wind, but lower capacity factor spreads cost over fewer MWh.</p>
+</div>
+<div class="cg-ill__lcoe-card">
+<div class="cg-ill__label">Gas CCGT</div>
+<div class="cg-ill__lcoe-stack">
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--capital" style="height: 28%;">capital</span>
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--opex" style="height: 12%;">opex</span>
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--fuel" style="height: 30%;">fuel</span>
+</div>
+<p>Competitive total cost comes from high utilization, but fuel stays material.</p>
+</div>
+<div class="cg-ill__lcoe-card">
+<div class="cg-ill__label">Gas Peaker</div>
+<div class="cg-ill__lcoe-stack">
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--capital" style="height: 34%;">capital</span>
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--opex" style="height: 10%;">opex</span>
+<span class="cg-ill__lcoe-seg cg-ill__lcoe-seg--fuel" style="height: 24%;">fuel</span>
+</div>
+<p>Cheap to build, expensive per MWh because it runs so infrequently.</p>
+</div>
+</div>
+<div class="cg-ill__legend">
+<span><i class="cg-ill__key cg-ill__key--capital"></i> capital recovery</span>
+<span><i class="cg-ill__key cg-ill__key--opex"></i> fixed and operating costs</span>
+<span><i class="cg-ill__key cg-ill__key--fuel"></i> fuel exposure</span>
+</div>
+</div>
+<figcaption>Headline LCOE values can be close even when the underlying economic risk is very different, especially when fuel price exposure and utilization diverge.</figcaption>
+</figure>
+
 **The 2024 threshold.** Alberta’s electricity pool price has averaged
 approximately \$65–80/MWh over recent years, with extreme volatility in
 both directions. New wind and solar, contracted at \$50–70/MWh through a

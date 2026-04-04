@@ -513,18 +513,6 @@ This closed-form sum — the same structure as compound interest and the Beer-La
 
 ---
 
-## Where Next?
-
-This model has shown how surface spectra mix and how sensor bandpass design determines what a satellite can detect. The next model — **Solar Geometry and Projection** — addresses a different dimension of the same problem: how much solar radiation actually reaches a tilted surface, as a function of sun angle and slope orientation. Together, these two models cover the energy budget at the Earth's surface from two complementary directions: how radiation is reflected once it arrives, and how much arrives in the first place.
-
-For the full physics of canopy reflectance — multiple leaf layers, leaf angle distributions, and the bidirectional reflectance function — see the canopy reflectance models in Series 5 (Remote Sensing).
-
-**In this series:**
-- ← [Light Attenuation in a Canopy](#) *(previous)*
-- → [Solar Geometry and Projection](#) *(next)*
-
----
-
 ## References
 
 [^1]: Barnsley, M.J. and Hobson, P., 1997. Teaching the principles of optical remote sensing using graphical tools developed in Tcl/Tk. Presented at IGARSS '97, Singapore. (Author's manuscript.) The four interactive tools described in that paper — spectral mixing, sensor bandwidth simulation, a canopy Adding model, and the SAIL bidirectional reflectance model — were implemented as Tcl/Tk applications running on Windows 95, Macintosh, and UNIX (Solaris/Linux). This model reconstructs the first two tools for the web.

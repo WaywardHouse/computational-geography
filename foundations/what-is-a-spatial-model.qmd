@@ -191,43 +191,43 @@ When we plot a scalar field as a map — a topographic contour map, an isotherm 
 
 The scalar field concept is the mathematical foundation of most of physical geography. The entire apparatus of gradient, slope, flow routing, and terrain analysis that we will build through this series rests on this single idea: that geographic quantities vary continuously across space and can be treated as functions.
 
-<figure class="cg-ill">
-  <div class="cg-ill__frame">
-    <div class="cg-ill__eyebrow">Scalar Field Views</div>
-    <h3 class="cg-ill__title">One Field, Several Valid Ways To See It</h3>
-    <p class="cg-ill__lede">A spatial model becomes easier to understand when the same quantity is shown as samples, a gridded surface, contours, and a profile.</p>
-    <div class="cg-ill__views">
-      <div class="cg-ill__view">
-        <h4>Sample Points</h4>
-        <div class="cg-ill__mini-map">
-          <div class="cg-ill__coord-point" style="left:16%; top:68%;"></div>
-          <div class="cg-ill__coord-point" style="left:42%; top:62%;"></div>
-          <div class="cg-ill__coord-point" style="left:74%; top:66%;"></div>
-          <div class="cg-ill__coord-point" style="left:30%; top:26%;"></div>
-          <div class="cg-ill__coord-point" style="left:64%; top:30%;"></div>
-        </div>
-        <p>Observed values at known locations.</p>
-      </div>
-      <div class="cg-ill__view">
-        <h4>Raster Surface</h4>
-        <div class="cg-ill__grid-map"></div>
-        <p>The same field stored as cells across space.</p>
-      </div>
-      <div class="cg-ill__view">
-        <h4>Contours</h4>
-        <div class="cg-ill__contour-map"></div>
-        <p>Lines connect places with the same value.</p>
-      </div>
-      <div class="cg-ill__view">
-        <h4>Profile</h4>
-        <div class="cg-ill__profile">
-          <div class="cg-ill__profile-line"></div>
-        </div>
-        <p>A cross-section turns the field into change along a path.</p>
-      </div>
-    </div>
-  </div>
-  <figcaption>The same spatial quantity can be sampled, gridded, contoured, or sliced in profile without changing the underlying field concept.</figcaption>
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Scalar Field Views</div>
+<h3 class="cg-ill__title">One Field, Several Valid Ways To See It</h3>
+<p class="cg-ill__lede">A spatial model becomes easier to understand when the same quantity is shown as samples, a gridded surface, contours, and a profile.</p>
+<div class="cg-ill__views">
+<div class="cg-ill__view">
+<h4>Sample Points</h4>
+<div class="cg-ill__mini-map">
+<div class="cg-ill__coord-point" style="left:16%; top:68%;"></div>
+<div class="cg-ill__coord-point" style="left:42%; top:62%;"></div>
+<div class="cg-ill__coord-point" style="left:74%; top:66%;"></div>
+<div class="cg-ill__coord-point" style="left:30%; top:26%;"></div>
+<div class="cg-ill__coord-point" style="left:64%; top:30%;"></div>
+</div>
+<p>Observed values at known locations.</p>
+</div>
+<div class="cg-ill__view">
+<h4>Raster Surface</h4>
+<div class="cg-ill__grid-map"></div>
+<p>The same field stored as cells across space.</p>
+</div>
+<div class="cg-ill__view">
+<h4>Contours</h4>
+<div class="cg-ill__contour-map"></div>
+<p>Lines connect places with the same value.</p>
+</div>
+<div class="cg-ill__view">
+<h4>Profile</h4>
+<div class="cg-ill__profile">
+<div class="cg-ill__profile-line"></div>
+</div>
+<p>A cross-section turns the field into change along a path.</p>
+</div>
+</div>
+</div>
+<figcaption>The same spatial quantity can be sampled, gridded, contoured, or sliced in profile without changing the underlying field concept.</figcaption>
 </figure>
 
 ---
@@ -400,22 +400,5 @@ If $y = k/x$, then $y$ is **inversely proportional** to $x$. Doubling $x$ halves
 If $y = kx^2$, then $y$ is proportional to the **square** of $x$. Doubling $x$ quadruples $y$.
 
 Proportional reasoning means asking: what is the relationship between $x$ and $y$, and what does a change in $x$ imply for $y$? It is one of the most transferable skills in quantitative thinking.
-
----
-
-## Where Next?
-
-This model introduced the vocabulary of spatial modelling: variables, units, proportional reasoning, and scalar fields. These ideas will appear in every model that follows.
-
-The next model — **Linear Change and Rate** — takes the scalar field idea one step further. If a quantity changes linearly across space, the *rate of change* (the slope) is itself a meaningful geographic quantity. We will build linear functions, interpret their parameters, and use them to make predictions.
-
-**In this series:**
-- → [Linear Change and Rate](#) *(next)*
-- [Exponential Growth and Logarithms](#)
-- [Logistic Growth and Equilibrium](#)
-
-**If you want to go deeper now:**
-- The concept of a scalar field is a special case of a *tensor field*. In later models we will encounter vector fields (which assign a direction as well as a magnitude to each point) when we study terrain gradients and wind.
-- The spatial sampling problem touched on in §8 is the subject of *geostatistics*, particularly the branch concerned with optimal interpolation (kriging). A readable introduction is Cressie's *Statistics for Spatial Data* (1993).
 
 ---

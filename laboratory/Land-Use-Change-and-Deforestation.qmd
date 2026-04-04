@@ -42,6 +42,20 @@ math-prerequisites-note: Mass fractions and the 44/12 CO₂ conversion (Essay AM
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AM3-land-use-change
 ---
 
+## Before You Start
+
+**You should know**  
+That land conversion releases carbon from several pools, not just from the visible clearing or burning event.
+
+**You will learn**  
+How the stock-change method works, how different carbon pools respond on different timescales, and what the IPCC tier system is trying to capture.
+
+**Why this matters**  
+Deforestation accounting is one of the clearest examples of why timing and pool structure matter in environmental modeling.
+
+**If this gets hard, focus on...**  
+The simple inventory idea: emissions are the difference between what the system stored before and after conversion.
+
 
 When a hectare of tropical forest is cleared for cattle pasture in Brazil, how much carbon is released and over what timescale? The answer depends on more than the fire. Even without burning, the roots decay over months to years, the soil organic carbon (SOC) mineralises over decades, and the dead wood decomposes over years to centuries. Only 30–50% of the forest carbon is typically released in the clearing event; the remainder is released slowly over the following years and decades.
 
@@ -352,4 +366,4 @@ $$F(t) = 1 - \sum_i w_i e^{-k_i t} \quad\text{[cumulative emission fraction]}$$
 
 ## Math Refresher
 
-**Exponential decay for carbon pools.** If a carbon pool contains $C_0$ tonnes of carbon at time zero and decays at rate $k$ yr⁻¹, then $C(t) = C_0 e^{-kt}$ and the annual emission is $-dC/dt = C_0 k e^{-kt}$. The mean residence time is $\tau = 1/k$: the time it takes for the pool to fall to $C_0/e \approx 37\%$ of its initial value. A pool with $k = 0.10$ yr⁻¹ has a mean residence time of 10 years; $k = 0.005$ yr⁻¹ gives $\tau = 200$ years (passive SOC). The cumulative fraction released by time $t$ is &#36;1 - e^{-kt}$. For a system with multiple pools, the total release is a sum of these exponentials, each weighted by its initial mass fraction — producing the curves in the visualization above.
+**Exponential decay for carbon pools.** If a carbon pool contains $C_0$ tonnes of carbon at time zero and decays at rate $k$ yr⁻¹, then $C(t) = C_0 e^{-kt}$ and the annual emission is $-dC/dt = C_0 k e^{-kt}$. The mean residence time is $\tau = 1/k$: the time it takes for the pool to fall to $C_0/e \approx 37\%$ of its initial value. A pool with $k = 0.10$ yr⁻¹ has a mean residence time of 10 years; $k = 0.005$ yr⁻¹ gives $\tau = 200$ years (passive SOC). The cumulative fraction released by time $t$ is $1 - e^{-kt}$. For a system with multiple pools, the total release is a sum of these exponentials, each weighted by its initial mass fraction — producing the curves in the visualization above.

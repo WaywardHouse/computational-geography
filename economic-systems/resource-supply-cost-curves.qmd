@@ -94,6 +94,35 @@ Alberta spans a wide range — conventional oil is competitive with US shale, wh
 
 The supply stack chart shows break-even ranges (the bar spans minimum to maximum break-even within each category). At $75 WTI, Alberta SAGD operations are near break-even on a full-cycle basis, while Alberta mining and Arctic supply are underwater. Middle Eastern conventional producers earn enormous rents.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Supply Stack</div>
+<h3 class="cg-ill__title">Who Survives Depends On Where Their Barrels Sit On The Cost Curve</h3>
+<p class="cg-ill__lede">The supply stack is easiest to read as a ranked staircase. Cheap barrels clear first, expensive barrels only survive when demand is strong enough and market price is high enough to reach them.</p>
+<div class="cg-ill__stack-grid">
+<div class="cg-ill__stack-chart">
+<div class="cg-ill__stack-step cg-ill__stack-step--low" style="height: 20%;">Middle East conventional</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--mid" style="height: 32%;">Russia / Alberta conventional</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--mid" style="height: 46%;">Permian / shale core</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--high" style="height: 62%;">SAGD / deepwater</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--high" style="height: 78%;">Oil sands mining</div>
+<div class="cg-ill__stack-step cg-ill__stack-step--edge" style="height: 92%;">Arctic frontier</div>
+<div class="cg-ill__stack-price">market price</div>
+</div>
+<div class="cg-ill__card">
+<h4>How to read the stack</h4>
+<ul>
+<li>Leftward producers are cheaper and usually keep selling through downturns.</li>
+<li>Projects near the right edge are first to lose sanctioning support in weaker markets.</li>
+<li>Existing projects may still operate below full-cycle break-even if they cover OPEX.</li>
+<li>Alberta spans multiple positions on the stack, which is why downturn impacts are uneven inside the province.</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>The market-clearing price intersects a ranked cost staircase. That intersection decides which categories earn rent, which merely keep operating, and which are stranded first.</figcaption>
+</figure>
+
 ## The Critical Distinction: OPEX vs Full-Cycle
 
 The difference between operating cost and full-cycle cost creates a well-known dynamic in commodity markets: producers keep pumping below their full-cycle break-even, because the capital is already sunk.

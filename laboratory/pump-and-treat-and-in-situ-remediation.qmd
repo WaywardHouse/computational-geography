@@ -42,6 +42,20 @@ math-prerequisites-note: Logarithms and natural logarithms. The concept of radia
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AT2-remediation
 ---
 
+## Before You Start
+
+**You should know**  
+That groundwater remediation is constrained by aquifer flow, capture geometry, and the chemistry of the contaminant mass.
+
+**You will learn**  
+How capture zones are estimated, how in-situ oxidation demand is calculated, and how long-horizon remediation options compare economically.
+
+**Why this matters**  
+Remediation choices are expensive and long-lived, so the physics and economics both matter.
+
+**If this gets hard, focus on...**  
+The central practical question: does the pumping or treatment setup actually control the plume you care about?
+
 
 The largest pump-and-treat system in North America operates at the Rocky Mountain Arsenal near Denver, Colorado — a former chemical weapons manufacturing site contaminated with nerve agent precursors, pesticides, and aviation fuel. The system has been pumping and treating since 1982, handling up to 6,000 gallons per minute through a treatment train that includes air stripping, activated carbon adsorption, and biological treatment. After 40 years and hundreds of millions of dollars, it continues to operate — not because it has failed, but because the contamination was so severe and so deeply embedded in the aquifer that complete cleanup will take generations.
 
@@ -129,7 +143,7 @@ ISCO destroys contaminants in the subsurface by injecting a strong oxidant — p
 
 **PCE destruction by permanganate:**
 
-$&#36;3\text{C}_2\text{Cl}_4 + 4\text{KMnO}_4 \rightarrow 6\text{CO}_2 + 4\text{KCl} + 4\text{MnO}_2 + 2\text{Cl}_2$$
+$$3\text{C}_2\text{Cl}_4 + 4\text{KMnO}_4 \rightarrow 6\text{CO}_2 + 4\text{KCl} + 4\text{MnO}_2 + 2\text{Cl}_2$$
 
 Stoichiometric ratio: 4 mol KMnO₄ per 3 mol PCE.
 
@@ -210,7 +224,7 @@ The stagnation point is 5.6 m upgradient of the well — a relatively small capt
 
 **Step 4: ISCO requirement** (TCE source mass = 80 kg)
 
-TCE + permanganate: &#36;2\text{KMnO}_4 + \text{C}_2\text{HCl}_3 \rightarrow 2\text{CO}_2 + 2\text{MnO}_2 + 2\text{KCl} + \text{HCl}$
+TCE + permanganate: $2\text{KMnO}_4 + \text{C}_2\text{HCl}_3 \rightarrow 2\text{CO}_2 + 2\text{MnO}_2 + 2\text{KCl} + \text{HCl}$
 
 Stoichiometric ratio: $(2 \times 158.0)/(131.4) = 316/131.4 = 2.41$ kg KMnO₄/kg TCE
 
@@ -222,7 +236,7 @@ $\text{NOD mass} = 3 \times 10^{-3} \times 1800 \times 1000 = 5400$ kg
 
 $M_{\text{total}} = (193 + 5400) \times 2 \text{ (safety factor)} = 11{,}186$ kg KMnO₄
 
-At $\&#36;1.50$/kg, reagent cost ≈ $\&#36;16{,}800.
+At $\$1.50$/kg, reagent cost is approximately $\$16{,}800$.
 
 ---
 
@@ -349,7 +363,7 @@ The NPV comparison shows that pump-and-treat is economically justified primarily
 
 **MNA requires long-term institutional memory.** A 30-year MNA programme requires maintaining monitoring wells, records, and institutional knowledge across multiple ownership and regulatory transitions. Sites that were accepted for MNA in the 1990s have in some cases lost their monitoring programmes, been redeveloped without proper assessment, and created new exposure pathways. MNA is not a "walk away" strategy — it requires sustained commitment that many organisations and regulatory agencies are poorly equipped to maintain.
 
-**Discount rates systematically underweight future costs.** A 5% discount rate reduces a &#36;1M cost in year 30 to &#36;231K present value — an 77% reduction. This means long-duration remediation (pump-and-treat for 50 years) appears less expensive in NPV terms than it actually is in undiscounted terms. The choice of discount rate is not politically neutral: lower rates favour long-duration approaches; higher rates favour front-loaded capital investment (like ISCO). For projects with environmental and public health consequences, zero or near-zero discount rates for benefit and harm are defensible in principle, even if unconventional in practice.
+**Discount rates systematically underweight future costs.** A 5% discount rate reduces a $1M cost in year 30 to $231K present value — a 77% reduction. This means long-duration remediation (pump-and-treat for 50 years) appears less expensive in NPV terms than it actually is in undiscounted terms. The choice of discount rate is not politically neutral: lower rates favour long-duration approaches; higher rates favour front-loaded capital investment (like ISCO). For projects with environmental and public health consequences, zero or near-zero discount rates for benefit and harm are defensible in principle, even if unconventional in practice.
 
 ---
 

@@ -182,6 +182,42 @@ moderate pressures (gas is more compressible than ideal), *Z* \> 1 at
 very high pressures. At typical NGTL operating conditions (900 psia,
 50°F), *Z* ≈ 0.88.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Gas Transmission</div>
+<h3 class="cg-ill__title">As Pressure Falls, Gas Expands And Capacity Becomes A Market Constraint</h3>
+<p class="cg-ill__lede">Gas pipelines are harder to reason about than oil pipelines because the fluid changes density along the route. That is why compressor spacing, outlet constraints, and export access show up in the AECO basis.</p>
+<div class="cg-ill__gas-grid">
+<div class="cg-ill__gas-pipe">
+<div class="cg-ill__gas-stage">
+<strong>High-pressure inlet</strong>
+<span>dense gas, slower velocity</span>
+</div>
+<div class="cg-ill__gas-compressor">compressor station</div>
+<div class="cg-ill__gas-stage cg-ill__gas-stage--mid">
+<strong>Midline flow</strong>
+<span>pressure falling, gas expanding</span>
+</div>
+<div class="cg-ill__gas-compressor">compressor station</div>
+<div class="cg-ill__gas-stage cg-ill__gas-stage--outlet">
+<strong>Export outlet</strong>
+<span>lower pressure, local bottleneck if takeaway is full</span>
+</div>
+</div>
+<div class="cg-ill__card">
+<h4>What to hold onto</h4>
+<ul>
+<li>Liquids mostly keep the same density; gas does not.</li>
+<li>Capacity depends on squared pressure terms, diameter, and compression.</li>
+<li>When NGTL takeaway fills, Alberta gas can become stranded locally.</li>
+<li>The AECO-Henry Hub basis widens when export access is scarcer than production.</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>Gas transmission links physics and pricing directly: when pipeline and compressor capacity lag production growth, the constrained basin clears at a lower local price.</figcaption>
+</figure>
+
 ## The NOVA Gas Transmission system
 
 **NGTL** (NOVA Gas Transmission Ltd., a TC Energy subsidiary) is the

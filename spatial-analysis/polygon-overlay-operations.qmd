@@ -117,6 +117,47 @@ $$A \setminus B = \{(x,y) : (x,y) \in A \text{ AND } (x,y) \notin B\}$$
 3. Edge-edge intersection points
 4. Correct traversal order
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Boolean Overlay</div>
+<h3 class="cg-ill__title">Set Logic, But On Real Space</h3>
+<p class="cg-ill__lede">Overlay operations differ because each one keeps a different part of the same two polygons.</p>
+<div class="cg-ill__grid cg-ill__grid--3">
+<div class="cg-ill__card">
+<div class="cg-ill__label">Intersection</div>
+<div class="cg-ill__overlay-set">
+<div class="cg-ill__overlay-a"></div>
+<div class="cg-ill__overlay-b"></div>
+<div class="cg-ill__overlay-result cg-ill__overlay-result--intersection"></div>
+<div class="cg-ill__overlay-labels"><span>A</span><span>B</span></div>
+</div>
+<p>Keep only the shared overlap.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Union</div>
+<div class="cg-ill__overlay-set">
+<div class="cg-ill__overlay-a"></div>
+<div class="cg-ill__overlay-b"></div>
+<div class="cg-ill__overlay-result cg-ill__overlay-result--union"></div>
+<div class="cg-ill__overlay-labels"><span>A</span><span>B</span></div>
+</div>
+<p>Keep everything covered by either polygon.</p>
+</div>
+<div class="cg-ill__card">
+<div class="cg-ill__label">Difference</div>
+<div class="cg-ill__overlay-set">
+<div class="cg-ill__overlay-a"></div>
+<div class="cg-ill__overlay-b"></div>
+<div class="cg-ill__overlay-result cg-ill__overlay-result--difference"></div>
+<div class="cg-ill__overlay-labels"><span>A kept</span><span>B removed</span></div>
+</div>
+<p>Keep A, but cut away the part covered by B.</p>
+</div>
+</div>
+</div>
+<figcaption>Intersection, union, and difference are the same two polygons viewed through different set rules.</figcaption>
+</figure>
+
 ---
 
 ## 3. Building the Mathematical Model

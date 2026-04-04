@@ -9,50 +9,58 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Senior-editor review found the chapter well structured, with one small escaped-math cluster in the carbon-partition and worked-example sections.",
+    "issues": [
+      "Escaped dollar-sign fragments interrupted a few carbon-partition expressions."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a light repair pass while preserving the existing progression from combustion efficiency to pyrogenic carbon and neutrality timing.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Retained the current conceptual pacing and examples.",
+      "Repaired malformed math in the partition identity and worked-example recap."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The chapter now reads cleanly, introduces notation fairly, and keeps the fire-carbon logic technically coherent for first-time learners.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Repaired escaped math in the carbon-partition identity and emission-factor explanation.",
+    "actions_taken": [
+      "Restored valid display math for the alpha-fraction sum.",
+      "Normalized the unit-conversion factor and carbon-neutrality figure."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The existing visualization and worked example provide adequate support for carbon partitioning and pyrogenic-carbon interpretation.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
     "improvements_made": []
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

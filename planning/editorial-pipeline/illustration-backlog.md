@@ -158,3 +158,153 @@ This backlog tracks high-value opportunities to improve accessibility for visual
 - Most laboratory chapters already have charts.
 - The bigger opportunity is conceptual illustration rather than additional charting.
 - A separate audit for `core-book` and `topic-libraries` is in progress and should be appended here when ready.
+
+## Core-Book
+
+| Chapter path | Highest-value missing illustration | Recommended visual type | Rationale | Difficulty |
+|---|---|---|---|---|
+| `foundations/gradient-aspect-steepest-descent.qmd` | Show a sloped surface with the gradient vector uphill, steepest descent downhill, and aspect as a compass-facing quantity | Annotated terrain diagram | This is one of the clearest "see it once, understand it faster" chapters in the core book. | Medium |
+| `spatial-analysis/watershed-delineation.qmd` | Show the pipeline from DEM to flow direction to accumulation to streams to watershed boundary | Process-flow sequence | The chapter is really an end-to-end terrain transformation chain. | Medium |
+| `environmental-systems/net-radiation-and-albedo.qmd` | Show incoming and outgoing shortwave and longwave around one surface | Energy-budget diagram | Radiation balance is much easier with arrows than with prose alone. | Low |
+| `environmental-systems/soil-moisture-dynamics.qmd` | Show infiltration, storage, evapotranspiration, drainage, runoff, and plant uptake in one root-zone profile | Cross-section diagram | Soil moisture is a stock-and-flow system that readers grasp spatially. | Low |
+| `spatial-analysis/point-in-polygon-testing.qmd` | Show ray casting with edge crossings counted visually | Interactive widget or algorithm diagram | The odd-even rule becomes obvious when crossings are animated or highlighted. | Medium |
+| `atmospheric-hazards/fire-weather-ignition.qmd` | Show the causal chain linking weather, fuel moisture, VPD, wind, and ignition potential | Systems diagram | This chapter teaches a dependency chain, not an isolated formula. | Medium |
+
+## Topic-Libraries
+
+| Chapter path | Highest-value missing illustration | Recommended visual type | Rationale | Difficulty |
+|---|---|---|---|---|
+| `advanced-remote-sensing/sar-fundamentals.qmd` | Show side-looking radar geometry, repeated pulse positions, synthetic aperture formation, and the range/azimuth distinction | Conceptual geometry diagram | SAR is one of the least intuitive sensing modes; geometry carries the intuition better than algebra. | High |
+| `advanced-remote-sensing/hyperspectral-imaging.qmd` | Show a hyperspectral cube plus representative spectra from different materials | Cube diagram plus annotated spectra | Readers need to see the object they are compressing before the later analytics make sense. | Medium |
+| `machine-learning/dimensionality-reduction-pca-tsne-umap.qmd` | Show the same dataset under PCA, t-SNE, and UMAP with labeled preservation goals | Comparison figure | The important distinction is what structure each method preserves, not just the method names. | Medium |
+| `cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd` | Show start zone, track, runout, terrain trap, and safer route alternatives on one mountain slope | Annotated terrain illustration | This chapter is strongly geometric and hazard-oriented, so a visual route-and-hazard frame would materially improve retention. | Medium |
+| `atmospheric-hazards/fire-emissions-smoke.qmd` | Show the chain from fuel consumed to emissions to plume rise to transport to surface concentration | Process-flow diagram | Smoke modeling is a linked process pipeline and benefits from a single visual overview. | Medium |
+| `economic-systems/alberta-pipeline-integrated-network.qmd` | Show the integrated network geographically with commodity toggles and bottleneck emphasis | Interactive map | The existing chapter already has strong charts; the next gain is spatial legibility. | High |
+
+## Cross-Volume Priority Order
+
+1. `advanced-remote-sensing/sar-fundamentals.qmd`
+2. `spatial-analysis/watershed-delineation.qmd`
+3. `foundations/gradient-aspect-steepest-descent.qmd`
+4. `cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd`
+5. `environmental-systems/net-radiation-and-albedo.qmd`
+6. `machine-learning/dimensionality-reduction-pca-tsne-umap.qmd`
+
+## Cross-Volume Priority Cards
+
+### Card 7: SAR Side-Looking Geometry
+
+- Chapter path: `advanced-remote-sensing/sar-fundamentals.qmd`
+- Goal: Make side-looking radar geometry legible before readers encounter synthetic aperture and speckle mathematics.
+- Deliverable: One concept graphic showing slant range, ground range, azimuth, layover, foreshortening, and shadow on a simple terrain profile.
+- Recommended visual type: Conceptual geometry diagram.
+- Visual brief:
+  - Draw a side-looking radar platform with pulses traveling obliquely to the ground.
+  - Label platform track, slant range, ground range, and azimuth direction.
+  - Include one sloped terrain feature to show layover, foreshortening, and radar shadow.
+  - Add a small inset connecting this geometry to why SAR imagery looks unlike optical imagery.
+- Why this matters: This is the gateway intuition for the whole SAR family. Without it, later chapters inherit avoidable cognitive load.
+- Acceptance criteria:
+  - A reader can point to slant range and azimuth correctly.
+  - Terrain distortion mechanisms are visually distinct.
+  - The figure prepares readers for later SAR and InSAR chapters.
+- Difficulty: High
+
+### Card 8: Watershed Delineation Pipeline
+
+- Chapter path: `spatial-analysis/watershed-delineation.qmd`
+- Goal: Show the full DEM-to-basin workflow as a single sequence instead of leaving readers to mentally stitch together processing steps.
+- Deliverable: One six-step figure showing DEM, sink filling, flow direction, flow accumulation, stream extraction, and final watershed boundary.
+- Recommended visual type: Process-flow sequence.
+- Visual brief:
+  - Use one stylized terrain example carried through each stage.
+  - Keep color treatment consistent so the same ridge, valley, and outlet are recognizable throughout.
+  - Label where each algorithmic step changes the data model.
+  - End with a clearly highlighted catchment outlet and boundary polygon.
+- Why this matters: This chapter is algorithmically straightforward but conceptually multi-step. A process sequence would materially improve retention.
+- Acceptance criteria:
+  - A reader can explain how flow direction leads to accumulation and then to stream extraction.
+  - The visual distinguishes raster transformation from final polygon output.
+  - The outlet-to-boundary logic is obvious.
+- Difficulty: Medium
+
+### Card 9: Gradient, Aspect, and Steepest Descent
+
+- Chapter path: `foundations/gradient-aspect-steepest-descent.qmd`
+- Goal: Anchor the vector calculus ideas in a terrain picture that readers can return to mentally.
+- Deliverable: One annotated hillslope illustration showing contour lines, gradient vector, aspect direction, and steepest descent path.
+- Recommended visual type: Annotated terrain diagram.
+- Visual brief:
+  - Show a small hill with contours and a raster-cell inset.
+  - Draw the gradient perpendicular to contours and aspect as compass-facing downhill direction.
+  - Include a labeled path for steepest descent.
+  - Add a tiny “common confusion” inset showing aspect is not the same as gradient magnitude.
+- Why this matters: This chapter sits at an important conceptual bridge between maps, DEMs, and spatial analysis workflows.
+- Acceptance criteria:
+  - A reader can explain why the gradient is perpendicular to contours.
+  - Aspect is clearly a direction rather than a magnitude.
+  - The steepest-descent connection to later hydrology work is visible.
+- Difficulty: Medium
+
+### Card 10: Avalanche Terrain Structure
+
+- Chapter path: `cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd`
+- Goal: Make terrain-hazard structure visible at a glance before readers parse slope thresholds and exposure logic.
+- Deliverable: One annotated mountain-slope figure showing start zone, track, runout, terrain trap, ridgeline, and safer alternatives.
+- Recommended visual type: Annotated terrain illustration.
+- Visual brief:
+  - Draw a mountain face with one avalanche path from crown to runout.
+  - Mark slope-angle bands, convexities, gullies, and terrain traps.
+  - Overlay one safer route and one high-exposure route.
+  - Use labels that match the chapter's hazard vocabulary.
+- Why this matters: The chapter is highly geometric and safety-relevant, so visual terrain literacy is essential rather than optional.
+- Acceptance criteria:
+  - A reader can identify the three main avalanche-path zones.
+  - Terrain traps are visually obvious.
+  - The route-choice contrast is immediately legible.
+- Difficulty: Medium
+
+### Card 11: Surface Radiation Budget
+
+- Chapter path: `environmental-systems/net-radiation-and-albedo.qmd`
+- Goal: Turn the net-radiation equation into a physically intuitive arrow diagram.
+- Deliverable: One surface-energy schematic showing incoming and outgoing shortwave and longwave fluxes over contrasting surfaces.
+- Recommended visual type: Energy-budget diagram.
+- Visual brief:
+  - Show sun, atmosphere, and ground or snow surface.
+  - Use distinct arrow colors for shortwave and longwave.
+  - Label reflected fraction as albedo and show how a darker versus brighter surface changes the balance.
+  - Add a small snow-versus-forest comparison inset.
+- Why this matters: This chapter's core idea is an accounting balance best learned spatially, not only algebraically.
+- Acceptance criteria:
+  - A reader can distinguish shortwave from longwave visually.
+  - Albedo changes are shown as changes in reflected energy rather than only described.
+  - The diagram supports the equation rather than duplicating it.
+- Difficulty: Low
+
+### Card 12: PCA vs t-SNE vs UMAP
+
+- Chapter path: `machine-learning/dimensionality-reduction-pca-tsne-umap.qmd`
+- Goal: Clarify what each method preserves so readers stop treating them as interchangeable dimensionality-reduction buttons.
+- Deliverable: One comparison figure using the same toy dataset under PCA, t-SNE, and UMAP with preservation goals labeled.
+- Recommended visual type: Comparison figure.
+- Visual brief:
+  - Start from one simple high-dimensional-toy-data concept panel.
+  - Show three side-by-side 2D embeddings.
+  - Label PCA with global variance preservation, t-SNE with local neighborhood preservation, and UMAP with local structure plus better global organization.
+  - Include a small “do not over-interpret distance” note under t-SNE.
+- Why this matters: The chapter is conceptually comparative. A side-by-side figure would dramatically improve fast comprehension.
+- Acceptance criteria:
+  - A reader can state one preservation strength and one limitation for each method.
+  - The same dataset is visibly used across all three panels.
+  - The figure reduces method confusion rather than adding decorative complexity.
+- Difficulty: Medium
+
+## Next Queue
+
+- `advanced-remote-sensing/sar-fundamentals.qmd`
+- `spatial-analysis/watershed-delineation.qmd`
+- `foundations/gradient-aspect-steepest-descent.qmd`
+- `cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd`
+- `environmental-systems/net-radiation-and-albedo.qmd`
+- `machine-learning/dimensionality-reduction-pca-tsne-umap.qmd`

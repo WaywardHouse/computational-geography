@@ -42,6 +42,20 @@ math-prerequisites-note: Proportionality and ratios. Exponential relationships. 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AN2-ocean-carbon
 ---
 
+## Before You Start
+
+**You should know**  
+That gases dissolve into water according to pressure and temperature, and that the ocean can act as either a sink or source depending on those conditions.
+
+**You will learn**  
+How Henry's Law, gas exchange velocity, and ocean carbon chemistry combine to control air-sea CO2 flux.
+
+**Why this matters**  
+The ocean has absorbed a large share of anthropogenic carbon, so understanding its uptake is central to the carbon budget.
+
+**If this gets hard, focus on...**  
+The sign of the flux: air-to-sea when atmospheric partial pressure is higher, sea-to-air when ocean partial pressure is higher.
+
 
 At latitude 60°N in the North Atlantic, surface ocean water is cold — around 5–8°C. Cold water dissolves more CO₂ than warm water, and as water cools while drifting poleward, it absorbs CO₂ from the atmosphere. It then sinks — dense, cold, CO₂-rich water descends to the deep ocean in the North Atlantic Deep Water formation, carrying that carbon into storage for centuries. In the tropics, the reverse occurs: upwelled deep water warms at the surface, CO₂ becomes less soluble, and the ocean outgasses. The net of these processes constitutes the **ocean carbon sink** — roughly 10 Gt CO₂ yr⁻¹ in recent decades.
 
@@ -167,7 +181,7 @@ $$k_w = 0.26 \times 9^2 \times \left(\frac{600}{660}\right)^{-0.5} = 0.26 \times
 
 **Step 3: Solubility at 12°C** ($K_H \approx 0.046$ mol L⁻¹ atm⁻¹ = 46 mmol L⁻¹ atm⁻¹)
 
-**Step 4: ΔpCO₂** = 420 − 380 = 40 µatm = &#36;40 \times 10^{-6}$ atm
+**Step 4: ΔpCO₂** = 420 − 380 = 40 µatm = $40 \times 10^{-6}$ atm
 
 **Step 5: Net flux**
 
@@ -330,4 +344,4 @@ $$\gamma = \frac{\Delta p\text{CO}_2/p\text{CO}_2}{\Delta\text{DIC}/\text{DIC}} 
 
 ## Math Refresher
 
-**Partial pressure and concentration.** A gas mixture at total pressure $P_{\text{total}}$ contains CO₂ at mole fraction $x_{\text{CO}_2}$. The partial pressure of CO₂ is $p\text{CO}_2 = x_{\text{CO}_2} \times P_{\text{total}}$. Current atmospheric CO₂ is 420 ppm by mole = 420 µmol/mol = &#36;420 \times 10^{-6}$ mole fraction. At standard pressure (1 atm): $p\text{CO}_2 = 420 \times 10^{-6}$ atm = 420 µatm. Henry's Law says dissolved concentration is proportional to partial pressure: twice the $p\text{CO}_2$ → twice as much dissolved. This direct proportionality breaks down for CO₂ in seawater because of the carbonate chemistry — additional dissolved CO₂ is "consumed" by reaction with carbonate ions, so the effective solubility is much higher than Henry's Law alone predicts.
+**Partial pressure and concentration.** A gas mixture at total pressure $P_{\text{total}}$ contains CO₂ at mole fraction $x_{\text{CO}_2}$. The partial pressure of CO₂ is $p\text{CO}_2 = x_{\text{CO}_2} \times P_{\text{total}}$. Current atmospheric CO₂ is 420 ppm by mole = 420 µmol/mol = $420 \times 10^{-6}$ mole fraction. At standard pressure (1 atm): $p\text{CO}_2 = 420 \times 10^{-6}$ atm = 420 µatm. Henry's Law says dissolved concentration is proportional to partial pressure: twice the $p\text{CO}_2$ -> twice as much dissolved. This direct proportionality breaks down for CO₂ in seawater because of the carbonate chemistry — additional dissolved CO₂ is "consumed" by reaction with carbonate ions, so the effective solubility is much higher than Henry's Law alone predicts.

@@ -4,55 +4,63 @@
     "volume_id": "laboratory",
     "chapter_path": "laboratory/Soil-Carbon-Storage-and-Decomposition.qmd",
     "chapter_title": "Soil Carbon Storage and Decomposition",
-    "chapter_subtitle": "Residence time, Q\u2081\u2080 temperature sensitivity, moisture effects, and steady-state",
+    "chapter_subtitle": "Residence time, Q10 temperature sensitivity, moisture effects, and steady-state",
     "part_title": "Computational Geography Laboratory",
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Senior-editor review found the chapter strong overall, with a small escaped-math issue in the worked example and sequestration conversion note.",
+    "issues": [
+      "Two escaped dollar-sign fragments disrupted the worked-example rate discussion."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a light repair pass while keeping the current residence-time and steady-state framing intact.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Kept the current explanatory sequence from turnover to sequestration limits.",
+      "Repaired malformed inline math in the worked example."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The chapter now reads cleanly, introduces notation fairly, and remains technically correct on equilibrium storage and sequestration interpretation.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Repaired escaped inline math in the worked example and CO2-equivalent conversion line.",
+    "actions_taken": [
+      "Restored the disturbance-rate parameter to valid inline math.",
+      "Normalized the 41 × 44/12 / 100 conversion expression."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The current figure and worked example provide adequate visual and interpretive support for this chapter's equilibrium intuition.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
     "improvements_made": []
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

@@ -150,6 +150,49 @@ and Prairie shippers, the calculus is more complex: the shorter maritime leg
 to Europe must be weighed against the longer landside rail movement from
 interior origins to Halifax.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Gateway Competition</div>
+<h3 class="cg-ill__title">Ports Compete On Total Route Cost, Not On Maritime Distance Alone</h3>
+<p class="cg-ill__lede">A port can be closer by sea and still lose traffic if the inland leg is slower, more expensive, or more congested. The gateway decision is a bundled cost problem: sea leg, terminal delay, and hinterland connection together.</p>
+<div class="cg-ill__port-grid">
+<div class="cg-ill__port-card">
+<div class="cg-ill__label">Prince Rupert</div>
+<div class="cg-ill__port-stack">
+<span class="cg-ill__port-seg cg-ill__port-seg--sea" style="height: 28%;">shorter sea leg</span>
+<span class="cg-ill__port-seg cg-ill__port-seg--terminal" style="height: 18%;">terminal</span>
+<span class="cg-ill__port-seg cg-ill__port-seg--land" style="height: 34%;">longer rail leg</span>
+</div>
+<p>Wins when maritime savings and efficient terminal handling outweigh the extra inland haul.</p>
+</div>
+<div class="cg-ill__port-card">
+<div class="cg-ill__label">Vancouver</div>
+<div class="cg-ill__port-stack">
+<span class="cg-ill__port-seg cg-ill__port-seg--sea" style="height: 36%;">longer sea leg</span>
+<span class="cg-ill__port-seg cg-ill__port-seg--terminal" style="height: 24%;">terminal</span>
+<span class="cg-ill__port-seg cg-ill__port-seg--land" style="height: 26%;">strong inland access</span>
+</div>
+<p>Often wins on network redundancy and hinterland reach even if the ship leg is longer.</p>
+</div>
+<div class="cg-ill__port-card">
+<div class="cg-ill__label">Montreal / Halifax</div>
+<div class="cg-ill__port-stack">
+<span class="cg-ill__port-seg cg-ill__port-seg--sea" style="height: 22%;">Europe proximity</span>
+<span class="cg-ill__port-seg cg-ill__port-seg--terminal" style="height: 20%;">terminal</span>
+<span class="cg-ill__port-seg cg-ill__port-seg--land" style="height: 38%;">interior rail cost</span>
+</div>
+<p>Best for eastern flows; competitiveness falls as inland distance to Prairie origins rises.</p>
+</div>
+</div>
+<div class="cg-ill__legend">
+<span><i class="cg-ill__key cg-ill__key--sea"></i> maritime leg</span>
+<span><i class="cg-ill__key cg-ill__key--terminal"></i> terminal time and handling</span>
+<span><i class="cg-ill__key cg-ill__key--land"></i> landside rail or truck movement</span>
+</div>
+</div>
+<figcaption>Gateway competition is a generalized-cost problem. Ports win or lose traffic based on the combined economics of ocean distance, terminal performance, and inland connectivity.</figcaption>
+</figure>
+
 ---
 
 ## 3. Throughput Economics

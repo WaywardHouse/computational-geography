@@ -182,6 +182,40 @@ the REP or the moratorium. It is the 1994 decision to create a
 competitive market that could reward the lowest-cost generator, whatever
 that generator turned out to be.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Policy Arc</div>
+<h3 class="cg-ill__title">Policy Changed The Financing Path More Than The Underlying Direction</h3>
+<p class="cg-ill__lede">This chapter makes more sense as a causal sequence. Alberta’s market structure set the baseline, the REP lowered financing risk, and the 2023-2024 pause slowed approvals without reversing the long-run economic pull toward new buildout.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">1994-1996</div>
+<h4>Deregulated market</h4>
+<p>Competitive pool pricing creates a system where low-cost generation can eventually win market share.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2016-2019</div>
+<h4>REP auctions</h4>
+<p>Long-term contracts reduce financing costs and reveal how cheap Alberta wind and solar can be under stable revenue.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2019-2023</div>
+<h4>Merchant buildout</h4>
+<p>Developers pivot from Crown contracts to PPAs and market-based deals once LCOE falls below expected pool-price economics.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">Aug 2023-Feb 2024</div>
+<h4>Moratorium and restart</h4>
+<p>Approvals pause, then resume with tighter siting rules; investor confidence weakens, but the buildout logic stays intact.</p>
+</div>
+</div>
+<div class="cg-ill__route-note">
+<strong>System consequence:</strong> policy mostly changes timing, financing conditions, and siting friction; demand growth still creates a widening supply gap that new generation has to serve.
+</div>
+</div>
+<figcaption>The policy story is not a clean stop-start sequence. It is a shift in how quickly capital can move, under what rules, and at what financing cost.</figcaption>
+</figure>
+
 ## Capital flows: what got built and who built it
 
 The numbers at the start of 2025 are substantial. Alberta had

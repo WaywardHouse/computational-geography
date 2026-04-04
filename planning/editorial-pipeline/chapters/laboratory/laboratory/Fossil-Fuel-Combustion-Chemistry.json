@@ -9,50 +9,58 @@
     "difficulty": "2"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Senior-editor review found the chapter clear and appropriately paced, with a small number of escaped math fragments in the stoichiometric wrap-up.",
+    "issues": [
+      "A few escaped dollar-sign fragments affected summary-level equations and definitions."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a light repair pass rather than a structural rewrite, preserving the existing stoichiometric progression and accessibility.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Kept the current beginner-friendly framing around carbon fraction and combustion completeness.",
+      "Repaired escaped inline math in the summary material."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The chapter introduces notation on first use, keeps chemistry intuitive before formal emission accounting, and is mathematically clean after the markup repair.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Repaired escaped math in the carbon-balance and molar-mass explanations.",
+    "actions_taken": [
+      "Normalized the 44/12 stoichiometric factor presentation.",
+      "Restored valid inline math for Avogadro's number and carbon-balance checks."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The existing figure and worked example provide adequate interpretive support for this entry-level combustion chapter.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
     "improvements_made": []
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

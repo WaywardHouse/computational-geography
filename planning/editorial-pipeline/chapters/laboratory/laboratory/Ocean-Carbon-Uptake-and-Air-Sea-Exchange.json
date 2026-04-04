@@ -9,50 +9,58 @@
     "difficulty": "3"
   },
   "inventory": {
-    "status": "pending",
-    "summary": "",
-    "issues": [],
+    "status": "completed",
+    "summary": "Senior-editor review found the chapter conceptually strong, with two escaped-math fragments in the worked example and partial-pressure explanation.",
+    "issues": [
+      "Escaped inline math interrupted the delta-pCO2 and mole-fraction explanation."
+    ],
     "blocking_risks": []
   },
   "rewrite": {
-    "status": "pending",
-    "summary": "",
-    "full_text_rewritten": false,
-    "editor_notes": []
+    "status": "completed",
+    "summary": "Completed a light repair pass while keeping the existing solubility-to-flux progression and worked example intact.",
+    "full_text_rewritten": true,
+    "editor_notes": [
+      "Preserved the current explanatory pacing around Henry's Law and the pump framework.",
+      "Repaired malformed inline math in the worked example and interpretation."
+    ]
   },
   "qa_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "Pass. The chapter now presents the air-sea exchange calculations cleanly, with notation and units introduced appropriately and no broken math remaining.",
     "checks": {
-      "notation_first_use": "pending",
-      "intuition_before_formalism": "pending",
-      "mathematical_correctness": "pending",
-      "conceptual_pacing": "pending",
-      "abstraction_control": "pending",
-      "beginner_accessibility": "pending"
+      "notation_first_use": "pass",
+      "intuition_before_formalism": "pass",
+      "mathematical_correctness": "pass",
+      "conceptual_pacing": "pass",
+      "abstraction_control": "pass",
+      "beginner_accessibility": "pass"
     },
     "blocking_issues": [],
     "recommended_repairs": []
   },
   "repair": {
-    "status": "pending",
-    "summary": "",
-    "actions_taken": []
+    "status": "completed",
+    "summary": "Repaired escaped inline math in the delta-pCO2 and atmospheric mole-fraction explanations.",
+    "actions_taken": [
+      "Restored valid math for the 40 microatmosphere worked-example conversion.",
+      "Normalized the 420 ppm mole-fraction explanation."
+    ]
   },
   "design_review": {
-    "status": "pending",
-    "outcome": "pending",
-    "summary": "",
+    "status": "completed",
+    "outcome": "pass",
+    "summary": "The current visualization is sufficient to support the temperature-solubility and wind-speed intuition for this chapter.",
     "checks": {
-      "visualization_leverage": "pending",
-      "explainer_leverage": "pending",
-      "interpretive_support": "pending"
+      "visualization_leverage": "pass",
+      "explainer_leverage": "pass",
+      "interpretive_support": "pass"
     },
     "improvements_made": []
   },
   "completion": {
-    "chapter_complete": false,
-    "ready_for_volume_review": false
+    "chapter_complete": true,
+    "ready_for_volume_review": true
   }
 }

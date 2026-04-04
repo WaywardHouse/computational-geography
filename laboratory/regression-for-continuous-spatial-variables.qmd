@@ -43,6 +43,20 @@ math-prerequisites-note: Matrix notation and the idea of a dot product. Basic ca
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/Z2-spatial-regression
 ---
 
+## Before You Start
+
+**You should know**  
+That regression predicts a continuous outcome from measured predictors, and that spatial data can make ordinary validation look better than it really is.
+
+**You will learn**  
+How linear and regularized regression compare, why spatial cross-validation matters, and where random forests improve prediction.
+
+**Why this matters**  
+A map prediction is only useful if it generalizes to places you did not sample.
+
+**If this gets hard, focus on...**  
+The tradeoff between fit and generalization.
+
 
 In 2019, the International Soil Reference and Information Centre completed a global mapping exercise that assigned a soil organic carbon (SOC) value to every 250 m grid cell on Earth's land surface. They did not measure SOC at every cell — there are approximately 800 million such cells on the global land surface. They measured it at 150,000 sites and used regression models, trained on those measurements, to predict SOC everywhere else from covariate rasters: climate variables, vegetation indices, terrain attributes, and soil parent material classes.
 
@@ -225,7 +239,7 @@ Interpretation: each 100 m of elevation adds ~8 mm yr⁻¹ of precipitation (oro
 $\hat{y} = 416 + 0.08(498) + 10.5(-0.2) = 416 + 39.8 - 2.1 = 453.7$ mm
 
 Given $\hat{\sigma} = 22$ mm from training residuals and the leverage factor for Banff ≈ 1.6:
-95% prediction interval: &#36;453.7 \pm 2.78 \times 22 \times \sqrt{1 + 1.6/5} = 453.7 \pm 68 = [386, 521]$ mm.
+95% prediction interval: $453.7 \pm 2.78 \times 22 \times \sqrt{1 + 1.6/5} = 453.7 \pm 68 = [386, 521]$ mm.
 
 ---
 

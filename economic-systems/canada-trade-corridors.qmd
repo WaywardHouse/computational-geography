@@ -140,6 +140,47 @@ grain and resource exports destined for European markets. Rail connections from
 Montreal and Halifax to the interior are operated by CN and CP, though landside
 distances are greater than for Pacific Gateway routing to the same Prairie origins.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Corridor Geography</div>
+<h3 class="cg-ill__title">Canada's Trade System Runs Through Three Very Different Gateways</h3>
+<p class="cg-ill__lede">The Pacific, Windsor-Detroit, and Atlantic corridors do not just move different volumes. They serve different market geographies, commodity mixes, and vulnerability structures.</p>
+<div class="cg-ill__grid cg-ill__grid--2">
+<div class="cg-ill__card">
+<svg viewBox="0 0 560 320" role="img" aria-label="Stylized Canada trade corridor map showing Pacific, Windsor-Detroit, and Atlantic gateways">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef3f8"/>
+  <path d="M74 92 C126 64, 206 56, 300 66 C384 76, 444 86, 500 110 L480 184 C432 192, 386 202, 334 212 C260 226, 194 220, 142 206 C108 198, 88 180, 74 162 Z" fill="#dfe7ef" stroke="#7d8ea0" stroke-width="3"/>
+  <circle cx="100" cy="144" r="8" fill="#1d5f7a"/>
+  <circle cx="128" cy="132" r="8" fill="#1d5f7a"/>
+  <circle cx="342" cy="176" r="8" fill="#a63d40"/>
+  <circle cx="460" cy="150" r="8" fill="#7a5ea8"/>
+  <circle cx="486" cy="132" r="8" fill="#7a5ea8"/>
+  <line x1="100" y1="144" x2="250" y2="128" stroke="#1d5f7a" stroke-width="8" stroke-linecap="round"/>
+  <line x1="128" y1="132" x2="268" y2="132" stroke="#1d5f7a" stroke-width="8" stroke-linecap="round"/>
+  <line x1="342" y1="176" x2="458" y2="176" stroke="#a63d40" stroke-width="8" stroke-linecap="round"/>
+  <line x1="460" y1="150" x2="330" y2="158" stroke="#7a5ea8" stroke-width="8" stroke-linecap="round"/>
+  <line x1="486" y1="132" x2="350" y2="144" stroke="#7a5ea8" stroke-width="8" stroke-linecap="round"/>
+  <text x="54" y="118" font-size="17" fill="#1d5f7a" font-weight="700">Pacific</text>
+  <text x="308" y="198" font-size="17" fill="#8c2f31" font-weight="700">Windsor-Detroit</text>
+  <text x="430" y="108" font-size="17" fill="#5d4781" font-weight="700">Atlantic</text>
+  <text x="68" y="246" font-size="16" fill="#35515f">Pacific: Asia-facing maritime gateway with mountain-pass constraints.</text>
+  <text x="68" y="268" font-size="16" fill="#35515f">Windsor-Detroit: dense manufacturing corridor tied to just-in-time trade.</text>
+  <text x="68" y="290" font-size="16" fill="#35515f">Atlantic: Europe-facing alternative with different inland distance tradeoffs.</text>
+</svg>
+</div>
+<div class="cg-ill__card">
+<h4>How to compare the corridors</h4>
+<ul>
+<li><strong>Pacific Gateway:</strong> strongest for Asia-linked container and bulk flows, but exposed to mountain-pass disruptions.</li>
+<li><strong>Windsor-Detroit:</strong> highest-value cross-border manufacturing corridor, dominated by speed and frequency.</li>
+<li><strong>Atlantic Corridor:</strong> strongest European orientation and an important diversification route for eastern flows.</li>
+<li>The same national trade system therefore has maritime chokepoints, border chokepoints, and rail-distance tradeoffs at once.</li>
+</ul>
+</div>
+</div>
+</div>
+</figure>
+
 ---
 
 ## 3. The Mathematics of Flow Assignment
@@ -178,6 +219,42 @@ $$c_r(x) \geq \lambda_{ij} \quad \forall r \text{ with } x_r = 0$$
 where $\lambda_{ij}$ is the minimum cost between $i$ and $j$ in equilibrium.
 This is a fixed-point condition: the costs depend on the flows (through
 congestion), and the flows depend on the costs (through shipper routing choices).
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Flow Assignment</div>
+<h3 class="cg-ill__title">Route Use Stabilizes When No Used Path Is Clearly Cheaper</h3>
+<p class="cg-ill__lede">Trade demand does not automatically stay on one corridor. As congestion raises generalized cost on the fastest path, some flow shifts until the used routes offer roughly comparable shipper cost.</p>
+<div class="cg-ill__assign-grid">
+<div class="cg-ill__assign-panel">
+<div class="cg-ill__assign-node">Origin</div>
+<div class="cg-ill__assign-branch">
+<div class="cg-ill__assign-route cg-ill__assign-route--fast">
+<strong>Route A</strong>
+<span>shorter path, lower fixed cost</span>
+<em>fills first, congestion rises quickly</em>
+</div>
+<div class="cg-ill__assign-route cg-ill__assign-route--steady">
+<strong>Route B</strong>
+<span>slightly longer path, more spare capacity</span>
+<em>absorbs flow once A gets crowded</em>
+</div>
+</div>
+<div class="cg-ill__assign-node">Destination</div>
+</div>
+<div class="cg-ill__card">
+<h4>Equilibrium intuition</h4>
+<ul>
+<li>Low-cost routes attract most shipments first.</li>
+<li>Congestion raises time and reliability penalties on those routes.</li>
+<li>Alternative routes pick up traffic as cost differences narrow.</li>
+<li>In user equilibrium, all used routes for the same origin-destination pair have similar generalized cost.</li>
+</ul>
+</div>
+</div>
+</div>
+<figcaption>Wardrop equilibrium explains why corridor loads depend on congestion and routing choice, not only on the size of the underlying trade demand.</figcaption>
+</figure>
 
 ### The Beckmann formulation
 

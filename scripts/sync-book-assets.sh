@@ -3,11 +3,19 @@ set -euo pipefail
 
 OUTDIR="${1:-_book}"
 
-mkdir -p "$OUTDIR/assets"
+ASSET_ROOT="$OUTDIR/assets"
 
-rm -rf "$OUTDIR/assets/dist" "$OUTDIR/assets/js" "$OUTDIR/assets/css" "$OUTDIR/assets/images"
+rm -rf "$ASSET_ROOT"
 
-cp -R assets/dist "$OUTDIR/assets/"
-cp -R assets/js "$OUTDIR/assets/"
-cp -R assets/css "$OUTDIR/assets/"
-cp -R assets/images "$OUTDIR/assets/"
+mkdir -p \
+  "$ASSET_ROOT/dist" \
+  "$ASSET_ROOT/js" \
+  "$ASSET_ROOT/css" \
+  "$ASSET_ROOT/images"
+
+# Copy directory contents rather than the directories themselves so reruns stay
+# idempotent even when Quarto leaves partial outputs behind.
+cp -R assets/dist/. "$ASSET_ROOT/dist/"
+cp -R assets/js/. "$ASSET_ROOT/js/"
+cp -R assets/css/. "$ASSET_ROOT/css/"
+cp -R assets/images/. "$ASSET_ROOT/images/"
