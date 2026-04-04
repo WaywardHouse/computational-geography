@@ -1,0 +1,255 @@
+---
+title: How to Choose a Model
+subtitle: When to use analytical equations, GIS workflows, statistical learning, or simulation
+date: 2026-04-04
+type: chapter
+image: /assets/images/foundations-and-math.webp
+book-part: methods-and-tools
+book-part-title: Methods and Tools
+chapter-number: 2
+section-code: M
+section-title: Modelling Workflow
+tags:
+- computational-geography
+- model-selection
+- simulation
+- statistical-models
+- gis-workflow
+- analytical-models
+difficulty: 2
+description: 'A cross-cutting guide to choosing a modelling approach. This chapter compares analytical models, GIS operations, statistical learning, and simulation so readers can match model family to question, data, mechanism, and decision context.
+
+  '
+learning:
+  concepts:
+  - model-families
+  - analytical-models
+  - statistical-models
+  - simulation-models
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+---
+
+## Before You Start
+
+**You should know**  
+That models are simplified representations of geographic systems, and that different chapters in the book use different kinds of simplification.
+
+**You will learn**  
+How to choose between analytical equations, GIS/spatial-analysis workflows, statistical or machine-learning models, and simulation approaches.
+
+**Why this matters**  
+Many modelling mistakes happen before any code runs: the model family does not match the question.
+
+**If this gets hard, focus on...**  
+The central question: are you trying to explain a mechanism, estimate a relationship, transform spatial data, or simulate a process through time?
+
+
+A forest fire, a trade corridor, a river basin, and a housing market can all be “modelled,” but not always with the same kind of model. Some questions want a short equation that makes the governing relationship visible. Others want a GIS workflow that transforms geometry into a useful answer. Others need a statistical model because the relationship is learned from data rather than specified from physics. Others still need simulation because the outcome depends on many interacting steps unfolding through time. The hard part is not just building a model. It is choosing the right kind of model before you begin.
+
+This chapter gives the book a shared model-choice language. The goal is not to enforce one rigid taxonomy. The goal is to help readers make a better first decision and to understand the tradeoffs that come with each family.
+
+## 1. The Question
+
+How do we know what kind of model to build?
+
+A useful first pass is to ask four questions:
+
+1. Is the main goal explanation, prediction, spatial transformation, or scenario exploration?
+2. Do we know the mechanism well enough to write it down directly?
+3. Do we mainly have equations, observations, or geometry?
+4. Do interactions unfold step by step through time, or can they be summarized more simply?
+
+Those questions usually push the problem toward one of four broad model families:
+
+- analytical models
+- GIS / spatial-analysis workflows
+- statistical or machine-learning models
+- simulation models
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Model Choice</div>
+<h3 class="cg-ill__title">Choose The Model Family By Matching The Question To The Type Of Structure You Need</h3>
+<p class="cg-ill__lede">The best first decision is rarely about software. It is about structure. Do you need a governing relationship, a spatial operation, a learned pattern, or an evolving process?</p>
+<div class="cg-ill__compare">
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Analytical model</span>
+<h4>Use When Mechanism Is Clear</h4>
+<p>Best for rates, balances, geometry, and compact equations where the goal is to understand how the system works and how parameters control it.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">GIS workflow</span>
+<h4>Use When The Main Task Is Spatial Transformation</h4>
+<p>Best for overlays, buffers, joins, resampling, viewsheds, and other operations that convert spatial inputs into derived spatial outputs.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Statistical / ML model</span>
+<h4>Use When The Relationship Must Be Learned From Data</h4>
+<p>Best for prediction, classification, interpolation, and pattern extraction when the mechanism is partly unknown or too complex to specify directly.</p>
+</div>
+<div class="cg-ill__compare-item">
+<span class="cg-ill__label">Simulation</span>
+<h4>Use When Dynamics And Interaction Matter</h4>
+<p>Best for systems that evolve step by step, include feedbacks, or depend on many local interactions such as spread, routing, or adaptive behavior.</p>
+</div>
+</div>
+<figcaption>Model choice is really structure choice. The wrong family can still produce numbers, but those numbers may answer the wrong question.</figcaption>
+</div>
+</figure>
+
+### 1. Analytical models
+
+Analytical models are the most compact. They write the relationship down directly:
+
+- slope and rate
+- exponential growth
+- logistic equilibrium
+- gravity-style interaction
+- energy balance
+
+Use them when:
+
+- the governing mechanism is already reasonably understood
+- interpretability matters more than flexibility
+- parameter effects need to stay visible
+
+Their strength is clarity. Their weakness is that they can become unrealistic if the real system is more heterogeneous or interactive than the equation allows.
+
+### 2. GIS and spatial-analysis workflows
+
+Some problems are not mainly about unknown relationships. They are about spatial operations:
+
+- which parcels lie within a floodplain?
+- which cells drain to this outlet?
+- which houses are within 500 m of a road?
+- what is visible from this ridge?
+
+These are often best answered by GIS-style workflows rather than by fitting a statistical model or simulating agents. The strength of this family is direct spatial logic. The weakness is that it may transform data cleanly without necessarily explaining why the pattern exists.
+
+### 3. Statistical and machine-learning models
+
+Statistical models are strongest when the relationship must be estimated from data:
+
+- regression for a continuous target
+- classification for land cover
+- dimensionality reduction for high-dimensional imagery
+- probabilistic models for noisy observations
+
+Use them when:
+
+- observations are rich
+- the mechanism is partial, uncertain, or too complicated to encode directly
+- prediction or inference is the main goal
+
+Their strength is flexibility and empirical performance. Their weakness is that they can look accurate while still being fragile, uninterpretable, or badly validated.
+
+### 4. Simulation models
+
+Simulation models advance a system through time or interaction steps:
+
+- fire spread
+- urban growth
+- flood propagation
+- agent-based movement
+- cellular automata
+- system-dynamics feedback models
+
+Use them when:
+
+- timing and path dependence matter
+- local interactions create large-scale patterns
+- scenario exploration matters more than a single closed-form answer
+
+Their strength is realism of process and scenario power. Their weakness is that they can become parameter-heavy and difficult to validate.
+
+---
+
+## 3. A Decision Workflow
+
+The following workflow is deliberately simple:
+
+1. **If the core task is a spatial operation, start with GIS.**
+2. **If the main mechanism is known and compact, start with an analytical model.**
+3. **If the relationship must be learned from observations, start with a statistical model.**
+4. **If the system evolves through many interacting steps, start with simulation.**
+
+### A few examples
+
+| Question | Better first model family | Why |
+|---|---|---|
+| Which land parcels intersect a hazard zone? | GIS workflow | this is a spatial relation problem |
+| How does temperature change with elevation? | analytical model | mechanism is compact and interpretable |
+| Can we predict soil moisture from imagery? | statistical model | relationship is learned from data |
+| How might a wildfire spread under new wind scenarios? | simulation | path dependence and time evolution matter |
+
+### Hybrid models are normal
+
+Many strong projects combine families:
+
+- GIS preprocessing + regression
+- analytical model + Monte Carlo uncertainty
+- simulation + statistical calibration
+- remote-sensing features + spatial classification + process interpretation
+
+The choice is therefore not “pick one forever.” It is “pick the right backbone first.”
+
+---
+
+## 4. Worked Example by Hand
+
+Imagine four different questions about a mountain watershed.
+
+### Question A: Which slopes are steeper than 30°?
+
+This is a **GIS / terrain operation** problem. We already know the rule and need to apply it across a raster.
+
+### Question B: How much does temperature fall with elevation?
+
+This is an **analytical model** problem. A lapse-rate equation is compact, interpretable, and easy to check.
+
+### Question C: Can we predict SWE from topography and remote sensing?
+
+This is a **statistical model** problem. The mapping from features to SWE is too variable to specify with one small equation.
+
+### Question D: How might avalanche risk evolve during a storm cycle?
+
+This is a **simulation** problem. The answer depends on time, accumulation, wind loading, and sequence of events.
+
+The key lesson is that “mountain watershed modelling” is not one type of model. Different sub-questions legitimately want different families.
+
+---
+
+## 5. What Could Go Wrong?
+
+### Forcing a favorite method onto every problem
+
+If every question becomes a machine-learning problem or every question becomes a GIS problem, the method is leading the question instead of serving it.
+
+### Mistaking data abundance for model appropriateness
+
+Lots of observations do not automatically mean a statistical model is best. Sometimes the physics is simple enough that an analytical model is better.
+
+### Using simulation when a simpler model would answer the question
+
+If the real need is a threshold, ranking, or first-order estimate, a large simulation may add complexity without clarity.
+
+### Using a simple model where path dependence is the whole story
+
+Some systems cannot be compressed safely into a static equation because the order of events matters.
+
+---
+
+## Summary
+
+- Analytical models are strongest when the mechanism is known and interpretable.
+- GIS workflows are strongest when the task is a spatial transformation or relation.
+- Statistical models are strongest when the relationship must be learned from data.
+- Simulation is strongest when dynamics, feedbacks, and interaction matter.
+- Good modelling often combines families, but good projects still begin by choosing the right backbone.

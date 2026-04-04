@@ -62,6 +62,51 @@ This is the core bargain of supervised regression: a small number of expensive, 
 
 The machinery underneath is elegant. Linear regression minimises a squared error loss by gradient descent, finding the weight vector that best fits the training data. Regularisation (L1 and L2 penalties) prevents the model from over-fitting by penalising extreme weights. Spatial cross-validation replaces standard k-fold validation, because geographic data violates independence: nearby pixels share the same weather, geology, and disturbance history, and a model that looks accurate in standard cross-validation may have simply memorised spatial autocorrelation. Getting the validation right is as important as getting the model right.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Regression Workflow</div>
+<h3 class="cg-ill__title">Regression Turns Sparse Measurements Into A Continuous Surface, But Only If Validation Respects Geography</h3>
+<p class="cg-ill__lede">This chapter is easiest to hold together when the reader sees four distinct stages: expensive ground truth, cheap wall-to-wall features, a fitted function, and a validation step that tests the model on new places rather than nearby pixels from the same landscape patch.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Field data</span>
+<h4>Measure A Small Sample Well</h4>
+<p>Probe points, field plots, or lab assays provide expensive but trustworthy target values.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Feature stack</span>
+<h4>Assemble Predictors Everywhere</h4>
+<p>Satellite bands, indices, terrain, and climate layers are available wall-to-wall across the map.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Model fit</span>
+<h4>Learn The Function</h4>
+<p>Regression estimates how each feature helps predict the continuous target and then maps predictions to every cell.</p>
+</div>
+</div>
+<div class="cg-ill__compare" style="margin-top: 1rem;">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Bad test</div>
+<h4>Random Nearby Holdouts</h4>
+<p>The model can look excellent simply because nearby pixels share the same landscape signal.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Better test</div>
+<h4>Spatially Separated Validation</h4>
+<p>Hold out entire areas so the model has to generalize to genuinely new places, not just neighboring cells.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Goal</div>
+<h4>A Surface You Can Trust</h4>
+<p>The output is not just a prediction map. It is a prediction map whose generalization error has been tested geographically.</p>
+</div>
+</div>
+<figcaption>Most of the real discipline in geographic regression sits at the validation step. A good-looking map is not enough if the test design leaks spatial autocorrelation.</figcaption>
+</div>
+</figure>
+
 ## 1. The Question
 
 Given satellite imagery and a few field measurements, can we predict soil moisture across an entire watershed?

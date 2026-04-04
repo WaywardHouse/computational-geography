@@ -1,0 +1,280 @@
+---
+title: Decision Models and Optimization
+subtitle: Objectives, constraints, tradeoffs, and choosing under geographic limits
+date: 2026-04-04
+type: chapter
+image: /assets/images/foundations-and-math.webp
+book-part: methods-and-tools
+book-part-title: Methods and Tools
+chapter-number: 5
+section-code: M
+section-title: Modelling Workflow
+tags:
+- computational-geography
+- optimization
+- decision-models
+- constraints
+- tradeoffs
+- suitability-analysis
+difficulty: 3
+description: 'A cross-cutting guide to decision models in geography. This chapter introduces objective functions, constraints, tradeoffs, and multi-criteria thinking so readers can move from describing systems to choosing among actions under real limits.
+
+  '
+learning:
+  concepts:
+  - objective-functions
+  - constraints
+  - optimization
+  - tradeoff-analysis
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+---
+
+## Before You Start
+
+**You should know**  
+That many geographic models describe what is happening, while some are used to support choices about what to do next.
+
+**You will learn**  
+How objective functions, constraints, tradeoffs, and scenario comparison turn a descriptive model into a decision-support model.
+
+**Why this matters**  
+Planning, routing, siting, and resource management are usually not about one perfect answer. They are about finding the best available answer under limited capacity, competing goals, and real spatial constraints.
+
+**If this gets hard, focus on...**  
+The simple structure: define what you want, define what limits you, compare feasible options, and then choose.
+
+
+A flood map tells you where water is likely to go. A cost surface tells you which land is difficult to cross. A renewable-resource map tells you where the wind is strongest and where the grid is nearby. None of those products, on their own, makes a decision. The decision begins when someone asks a different question: where should we put the road, which reservoir rule is best, which evacuation route is acceptable, or which sites are most suitable given multiple constraints? At that point the model is no longer only descriptive. It becomes prescriptive or comparative. It is helping choose.
+
+This chapter gives the book a cross-cutting language for that shift. The aim is not to turn every reader into an operations researcher. The aim is to teach the basic structure that underlies least-cost paths, suitability analysis, network bottlenecks, allocation problems, and policy scenario comparisons.
+
+## 1. The Question
+
+How do we use a geographic model to support a choice?
+
+Most decision problems have four parts:
+
+1. an **objective**: what we are trying to maximize or minimize
+2. a set of **constraints**: what is not allowed or not possible
+3. a set of **alternatives**: the feasible options
+4. a **tradeoff**: why no option is best on every dimension at once
+
+Examples:
+
+- minimize travel cost while avoiding steep slopes
+- maximize renewable output while respecting grid and land limits
+- maximize throughput while identifying the binding network bottleneck
+- reduce flood risk without overspending storage or infrastructure capacity
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Decision Structure</div>
+<h3 class="cg-ill__title">Decision Models Start When We Add Objectives And Constraints To A Geographic System</h3>
+<p class="cg-ill__lede">A descriptive model says what the world looks like. A decision model says which options are feasible, which options are better under a stated objective, and what tradeoffs remain among them.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<h4>Define the objective</h4>
+<p>Choose what “better” means: lower cost, lower risk, higher access, higher yield, or some weighted combination.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Apply constraints</h4>
+<p>Remove infeasible options: protected land, slope thresholds, budget ceilings, capacity limits, policy rules.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Score or optimize</h4>
+<p>Compare the remaining options by a score, path cost, allocation rule, or mathematical objective function.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Inspect tradeoffs</h4>
+<p>Ask what is gained and lost when you move from one feasible option to another.</p>
+</div>
+</div>
+<figcaption>Optimization is only one part of decision modelling. A large share of the real work lies in defining the objective honestly and choosing defensible constraints.</figcaption>
+</div>
+</figure>
+
+### Objective functions
+
+An objective function is the quantity we want to minimize or maximize.
+
+Examples:
+
+- minimize total route cost
+- maximize covered population
+- minimize expected flood damages
+- maximize net present value
+
+In compact form:
+
+$$\text{choose } x \text{ to maximize or minimize } f(x)$$
+
+where $x$ is the decision and $f(x)$ is the score or cost attached to it.
+
+### Constraints
+
+Constraints define what is feasible:
+
+$$g(x) \leq b$$
+
+This can mean:
+
+- budget less than a ceiling
+- slope below a buildable threshold
+- flow not exceeding pipe capacity
+- habitat loss below a policy limit
+
+Without constraints, many “optimal” answers are physically or politically impossible.
+
+### Tradeoffs
+
+Most geographic decisions are multi-objective even when written as one number.
+
+A route that minimizes construction cost may maximize ecological damage. A reservoir rule that maximizes hydropower may increase flood risk. A renewable project that maximizes resource quality may raise transmission cost.
+
+Decision models become more honest when they show these tradeoffs explicitly instead of hiding them inside one opaque score.
+
+### Common styles of decision modelling
+
+#### 1. Least-cost or shortest-path optimization
+
+Use when movement through space is the main problem.
+
+Examples:
+
+- road siting
+- evacuation routing
+- wildlife corridor routing
+
+#### 2. Suitability and multi-criteria analysis
+
+Use when many weighted layers are combined to rank places.
+
+Examples:
+
+- renewable siting
+- landfill siting
+- habitat restoration prioritization
+
+#### 3. Capacity and allocation models
+
+Use when a limited resource must be distributed across competing demands.
+
+Examples:
+
+- reservoir release rules
+- network throughput
+- service catchments
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose we want to choose a route across a landscape using three candidate corridors.
+
+| Route | Cost | Habitat impact | Buildable? |
+|---|---:|---:|:---|
+| A | 10 | 8 | yes |
+| B | 13 | 4 | yes |
+| C | 7 | 12 | no |
+
+### Step 1: apply constraints
+
+If route C crosses an unbuildable slope or protected area, it is infeasible regardless of how cheap it is.
+
+That leaves A and B.
+
+### Step 2: compare the objective
+
+If the objective is only cost, route A wins over B:
+
+- A = 10
+- B = 13
+
+### Step 3: inspect the tradeoff
+
+But habitat impact differs:
+
+- A = 8
+- B = 4
+
+So A is cheaper, B is less damaging.
+
+The model does not eliminate judgment. It makes the tradeoff explicit.
+
+### Step 4: weighted score example
+
+Suppose the decision-maker uses:
+
+$$S = 0.6(\text{cost}) + 0.4(\text{impact})$$
+
+Then:
+
+- $S_A = 0.6(10) + 0.4(8) = 9.2$
+- $S_B = 0.6(13) + 0.4(4) = 9.4$
+
+Route A is slightly preferred under this weighting.
+
+If the environmental weight rises, route B may become preferable. That tells us the decision is sensitive to values, not just to terrain.
+
+---
+
+## 4. Practical Workflow
+
+Use this sequence:
+
+1. **State the decision clearly.**
+   Not “analyze flooding,” but “choose among flood-mitigation options.”
+2. **Define the objective.**
+   What is to be minimized or maximized?
+3. **Define hard constraints.**
+   What options are impossible or unacceptable?
+4. **List the major tradeoff dimensions.**
+   Cost, risk, equity, access, ecological damage, time.
+5. **Compare feasible alternatives openly.**
+   If using weights, say so explicitly.
+
+### Which decision style fits which problem?
+
+| Problem | Better decision style | Why |
+|---|---|---|
+| Route through a friction surface | least-cost path | movement cost is central |
+| Site ranking across many layers | multi-criteria suitability | comparison across places matters |
+| Shared infrastructure capacity | allocation / network optimization | competition for limited throughput matters |
+| Policy under uncertain futures | scenario comparison | one optimum may not survive across futures |
+
+---
+
+## 5. What Could Go Wrong?
+
+### Hidden objectives
+
+If the real objective is speed but the model score emphasizes cost, the optimization is solving the wrong problem very efficiently.
+
+### Soft constraints disguised as hard constraints
+
+Some limits are negotiable, some are not. Confusing them can distort the feasible set.
+
+### Weighting without explanation
+
+A weighted suitability score can look objective while actually embedding unspoken value judgments.
+
+### Forgetting uncertainty
+
+An option that looks best under one deterministic map may be fragile under plausible alternative conditions.
+
+---
+
+## Summary
+
+- Decision models add objectives and constraints to descriptive geographic models.
+- Optimization is useful, but only after the objective and feasible set are defined honestly.
+- Least-cost paths, suitability analysis, and allocation problems are all forms of decision modelling.
+- Tradeoffs are not modelling failure; they are the point of the exercise.
+- Good decision support makes the choice structure explicit instead of hiding judgment behind one score.

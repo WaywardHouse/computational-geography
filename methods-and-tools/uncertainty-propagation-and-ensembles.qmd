@@ -1,0 +1,286 @@
+---
+title: Uncertainty Propagation and Ensembles
+subtitle: Scenario bands, Monte Carlo thinking, and why a range is often more honest than a point
+date: 2026-04-04
+type: chapter
+image: /assets/images/foundations-and-math.webp
+book-part: methods-and-tools
+book-part-title: Methods and Tools
+chapter-number: 3
+section-code: M
+section-title: Modelling Workflow
+tags:
+- computational-geography
+- uncertainty
+- monte-carlo
+- ensembles
+- scenarios
+- sensitivity-analysis
+difficulty: 2
+description: 'A cross-cutting guide to uncertainty propagation in geographic models. This chapter introduces scenario ranges, Monte Carlo sampling, and ensemble thinking so readers can move from single-number outputs to more honest ranges and distributions.
+
+  '
+learning:
+  concepts:
+  - uncertainty-propagation
+  - monte-carlo
+  - ensemble-thinking
+  - scenario-analysis
+body-classes: reading-body tag-hash-math tag-hash-viz
+interactive:
+  math: true
+  charts: true
+---
+
+## Before You Start
+
+**You should know**  
+That model inputs are often imperfectly known and that output values can therefore be uncertain too.
+
+**You will learn**  
+How uncertainty moves through a model, when a scenario range is enough, when Monte Carlo sampling helps, and why ensemble outputs are often more informative than a single deterministic answer.
+
+**Why this matters**  
+Many geographic systems are uncertain in ways that cannot honestly be hidden behind one neat number.
+
+**If this gets hard, focus on...**  
+The central idea that uncertain inputs create uncertain outputs, and that we can represent that uncertainty rather than ignore it.
+
+
+In wildfire forecasting, flood forecasting, snowpack modelling, and commodity planning, the most misleading answer is often the crispest one. A model says the peak flow will be 42 m³/s, the fire front will reach the road at 16:00, or the seasonal water supply will be 74% of normal. Those answers sound useful because they are concrete. But if the rainfall, wind, initial snow state, or demand path is uncertain, a single point can quietly imply a level of confidence the system does not deserve. In operational practice, the response to this problem is not to abandon modelling. It is to move from point forecasts to ranges, scenarios, and ensembles.
+
+This chapter introduces that shift. The goal is not full probability theory. The goal is to make readers comfortable with a more honest habit: propagate uncertainty forward, inspect the resulting spread, and report the output as a range or distribution when the question requires it.
+
+## 1. The Question
+
+If the inputs to a model are uncertain, what should we say about the outputs?
+
+The weak answer is:
+
+- use the best guess inputs
+- calculate one output
+- report that output as if it were exact
+
+The stronger answer is:
+
+- identify the important uncertain inputs
+- vary them systematically or probabilistically
+- observe the resulting spread of outputs
+- report the spread in a way that fits the decision
+
+That is uncertainty propagation.
+
+---
+
+## 2. The Conceptual Model
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Uncertainty Flow</div>
+<h3 class="cg-ill__title">Uncertainty Propagation Turns One Model Run Into A Distribution Of Plausible Outcomes</h3>
+<p class="cg-ill__lede">The important shift is from “the model output” to “the model output under many plausible inputs.” The spread of outcomes is often as informative as the mean.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<h4>Choose uncertain inputs</h4>
+<p>Select the parameters, forcings, or initial conditions that are not known exactly.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Represent their uncertainty</h4>
+<p>Use ranges, discrete scenarios, or probability distributions depending on what is known.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Run the model many times</h4>
+<p>Each run uses a different plausible input combination and returns a different output.</p>
+</div>
+<div class="cg-ill__flow-step">
+<h4>Summarize the spread</h4>
+<p>Report means, intervals, percentiles, exceedance probabilities, or scenario bands.</p>
+</div>
+</div>
+<figcaption>Uncertainty propagation is not extra decoration around a model. It is the step that translates uncertain assumptions into honest statements about output confidence.</figcaption>
+</div>
+</figure>
+
+### Three increasingly richer approaches
+
+#### 1. Scenario bands
+
+The simplest approach is to run a small number of explicit scenarios:
+
+- low
+- medium
+- high
+
+This is often enough when uncertainty is dominated by a few distinct futures, such as low/medium/high oil price or dry/average/wet hydrologic years.
+
+#### 2. Sensitivity ranges
+
+If only one or two parameters matter, vary them across plausible ranges and inspect the output interval. This is often enough for first-order reporting.
+
+#### 3. Monte Carlo and ensembles
+
+When several uncertain inputs interact, repeated random sampling is more informative. Draw many plausible input combinations, run the model many times, and inspect the resulting output distribution.
+
+This is the basic Monte Carlo idea. In forecasting contexts, the same logic is often called an **ensemble**.
+
+### A simple mathematical statement
+
+Suppose a model output is:
+
+$$Y = f(X_1, X_2, ..., X_n)$$
+
+If the inputs $X_1, X_2, ..., X_n$ are uncertain, then $Y$ is uncertain too. The goal is not just to compute one value of $Y$, but to learn the distribution of possible $Y$ values under plausible inputs.
+
+### When ranges are more useful than means
+
+Different decisions need different summaries:
+
+- **Design and safety:** upper quantiles or worst-case scenarios
+- **Planning:** median, interval width, and threshold exceedance probability
+- **Communication:** scenario bands and simple language
+- **Scientific comparison:** confidence or prediction intervals
+
+The right summary depends on the decision, not just on the statistics.
+
+---
+
+## 3. Worked Example by Hand
+
+Suppose a simple snowmelt runoff model predicts runoff:
+
+$$Q = cM$$
+
+where:
+
+- $M$ is meltwater input
+- $c$ is a runoff efficiency coefficient
+
+Assume:
+
+- plausible meltwater input $M$ is 40, 50, or 60 mm
+- plausible runoff coefficient $c$ is 0.6, 0.7, or 0.8
+
+That gives nine plausible runs:
+
+| Melt $M$ | Coefficient $c$ | Runoff $Q$ |
+|---:|---:|---:|
+| 40 | 0.6 | 24 |
+| 40 | 0.7 | 28 |
+| 40 | 0.8 | 32 |
+| 50 | 0.6 | 30 |
+| 50 | 0.7 | 35 |
+| 50 | 0.8 | 40 |
+| 60 | 0.6 | 36 |
+| 60 | 0.7 | 42 |
+| 60 | 0.8 | 48 |
+
+### What can we report?
+
+The model does not support a single exact value.
+
+It supports statements like:
+
+- plausible runoff range: 24 to 48
+- central case: about 35
+- upper-end scenario: around 48
+
+Already this is better than claiming “runoff will be 35.”
+
+### A simple ensemble summary
+
+The mean of the nine runs is:
+
+$$\bar{Q} = \frac{24+28+32+30+35+40+36+42+48}{9} = \frac{315}{9} = 35$$
+
+But the mean alone hides the spread. The key lesson is:
+
+**same mean, different uncertainty widths can imply very different decisions**
+
+---
+
+## 4. Practical Workflow
+
+Use this sequence:
+
+1. **Name the uncertain inputs.**
+   Common examples: rainfall, wind, roughness, emissivity, coefficients, demand paths.
+2. **Choose a representation.**
+   Range, scenario set, or probability distribution.
+3. **Run multiple model realizations.**
+   Three runs is better than one; hundreds are better when interaction matters.
+4. **Summarize outputs for the decision.**
+   Interval, percentile, exceedance probability, or scenario envelope.
+5. **State clearly what the spread does and does not mean.**
+
+### Which method fits which situation?
+
+| Situation | Better first approach | Why |
+|---|---|---|
+| Few discrete futures | scenario analysis | simple and interpretable |
+| One dominant uncertain parameter | sensitivity range | fast and transparent |
+| Several interacting uncertainties | Monte Carlo | captures combined spread |
+| Forecasting with uncertain initial states | ensemble methods | natural fit to time-evolving systems |
+
+---
+
+## 5. Computational Implementation
+
+```python
+import random
+
+def runoff(melt_mm, coeff):
+    return melt_mm * coeff
+
+melt_range = (40, 60)
+coeff_range = (0.6, 0.8)
+
+runs = []
+for _ in range(1000):
+    melt = random.uniform(*melt_range)
+    coeff = random.uniform(*coeff_range)
+    runs.append(runoff(melt, coeff))
+
+runs.sort()
+mean_q = sum(runs) / len(runs)
+p10 = runs[int(0.10 * len(runs))]
+p90 = runs[int(0.90 * len(runs))]
+
+print("Mean runoff:", round(mean_q, 2))
+print("10th-90th percentile range:", round(p10, 2), "to", round(p90, 2))
+```
+
+This is not an advanced ensemble system. It is just the core idea made explicit:
+
+- sample plausible inputs
+- rerun the model
+- inspect the output spread
+
+---
+
+## 6. What Could Go Wrong?
+
+### Fake precision in the input distributions
+
+If the assumed uncertainty range is invented carelessly, the output spread will look rigorous without actually being trustworthy.
+
+### Too few runs
+
+A tiny ensemble may produce unstable summaries, especially in the tails.
+
+### Reporting only the mean
+
+The mean is often the least decision-relevant part of the result if the spread is wide.
+
+### Confusing scenario spread with probability
+
+Not every scenario set is probabilistic. Sometimes a low/medium/high trio is only a set of plausible cases, not a full probability distribution.
+
+---
+
+## Summary
+
+- Uncertain inputs imply uncertain outputs.
+- Scenario bands, sensitivity ranges, Monte Carlo sampling, and ensembles are all ways of propagating uncertainty.
+- The right uncertainty summary depends on the decision.
+- Reporting a range is usually more honest than reporting one exact value.
+- The spread of model outcomes is often as informative as the average.

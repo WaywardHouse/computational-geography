@@ -41,8 +41,79 @@ Cross-Cutting Support
 
 ## Current Resource Clusters {#resource-clusters .section-title}
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Methods Route</div>
+<h3 class="cg-ill__title">This Section Should Teach How To Judge Models, Not Just How To Build Them</h3>
+<p class="cg-ill__lede">The strongest cross-cutting gap in the book is evaluation. Readers already build models in many branches. This section is where they should learn how to test those models honestly and report uncertainty without bluffing.</p>
+<div class="cg-ill__flow">
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">1</div>
+<h4>Validate</h4>
+<p>Learn to separate fit, validation, residual analysis, sensitivity, and uncertainty reporting.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">2</div>
+<h4>Choose</h4>
+<p>Learn how to match questions to analytical, GIS, statistical, or simulation model families.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">3</div>
+<h4>Quantify uncertainty</h4>
+<p>Learn when to move from point estimates to ranges, scenario bands, Monte Carlo runs, and ensembles.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">4</div>
+<h4>Simulate</h4>
+<p>Learn when evolving systems call for cellular automata, agents, or stock-and-flow feedback models.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">5</div>
+<h4>Decide</h4>
+<p>Learn how objectives, constraints, tradeoffs, and optimization turn model outputs into choices.</p>
+</div>
+<div class="cg-ill__flow-step">
+<div class="cg-ill__label">6</div>
+<h4>Extend</h4>
+<p>Later chapters here can grow into inference, simulation, and decision methods that support the whole project.</p>
+</div>
+</div>
+</div>
+<figcaption>The Methods and Tools section is the natural home for cross-cutting modelling discipline.</figcaption>
+</figure>
+
 ```{=html}
 <div class="section-card-grid">
+  <article class="section-card">
+    <span class="section-eyebrow">Evaluation</span>
+    <h3>How to Validate a Model</h3>
+    <p>Residuals, holdout design, sensitivity analysis, and uncertainty reporting for any geographic model.</p>
+    <p><a href="./how-to-validate-a-model.html">Open the chapter</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Model Choice</span>
+    <h3>How to Choose a Model</h3>
+    <p>When to use analytical equations, GIS workflows, statistical learning, or simulation.</p>
+    <p><a href="./how-to-choose-a-model.html">Open the chapter</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Uncertainty</span>
+    <h3>Uncertainty Propagation and Ensembles</h3>
+    <p>Scenario bands, Monte Carlo thinking, and how uncertain inputs create output ranges.</p>
+    <p><a href="./uncertainty-propagation-and-ensembles.html">Open the chapter</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Simulation</span>
+    <h3>Simulation Paradigms</h3>
+    <p>When to use cellular automata, agent-based models, or aggregate feedback models.</p>
+    <p><a href="./simulation-paradigms.html">Open the chapter</a></p>
+  </article>
+  <article class="section-card">
+    <span class="section-eyebrow">Decision</span>
+    <h3>Decision Models and Optimization</h3>
+    <p>Objectives, constraints, tradeoffs, and how to support choices under geographic limits.</p>
+    <p><a href="./decision-models-and-optimization.html">Open the chapter</a></p>
+  </article>
   <article class="section-card">
     <span class="section-eyebrow">Setup</span>
     <h3>Getting Started</h3>

@@ -21,6 +21,11 @@ book:
     - getting-started/what-makes-a-model-computational.qmd
     - getting-started/setting-up-your-environment.qmd
     - methods-and-tools/index.qmd
+    - methods-and-tools/how-to-validate-a-model.qmd
+    - methods-and-tools/how-to-choose-a-model.qmd
+    - methods-and-tools/uncertainty-propagation-and-ensembles.qmd
+    - methods-and-tools/simulation-paradigms.qmd
+    - methods-and-tools/decision-models-and-optimization.qmd
     - foundations/index.qmd
     - foundations/what-is-a-spatial-model.qmd
     - foundations/linear-change-and-rate.qmd
