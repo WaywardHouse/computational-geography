@@ -37,6 +37,51 @@ But some labs and companion projects work better when you have your own environm
 
 The goal is not to make your machine impressive. The goal is to make it stable.
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Starter Stack</div>
+<h3 class="cg-ill__title">A Good Learning Environment Is Small, Boring, And Recoverable</h3>
+<p class="cg-ill__lede">The important mental model is not “install everything.” It is one stable workflow: browser for reading, editor for files, terminal for commands, Python inside a project environment, and optional heavier tools only when they are actually needed.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Read and inspect</span>
+<h4>Browser + project folder</h4>
+<p>Keep one clear place where the work lives and one browser where the book and docs stay open.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Edit and run</span>
+<h4>Editor + terminal</h4>
+<p>Use the editor for files and the terminal for a small set of predictable commands.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Keep it isolated</span>
+<h4>Python + virtual environment</h4>
+<p>Install packages inside the project environment so experiments stay local and easy to repair.</p>
+</div>
+</div>
+<div class="cg-ill__compare" style="margin-top: 1rem;">
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Always needed</div>
+<h4>Browser, editor, terminal, Python, Git</h4>
+<p>This is enough for most reading, notebooks, and early companion work.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Add later</div>
+<h4>JupyterLab and QGIS</h4>
+<p>Bring in heavier tools when the work actually asks for notebooks or desktop GIS.</p>
+</div>
+<div class="cg-ill__compare-card">
+<div class="cg-ill__label">Main rule</div>
+<h4>Prefer recoverable over clever</h4>
+<p>A simple setup you understand is better than a complicated one you cannot repair.</p>
+</div>
+</div>
+<figcaption>The aim is a learning environment that stays legible under stress: one project, one environment, one boring path to recovery.</figcaption>
+</div>
+</figure>
+
 ## 1. What You Actually Need
 
 For most readers, a good starter setup includes:

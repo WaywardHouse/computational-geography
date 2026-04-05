@@ -37,6 +37,40 @@ Textbook Part
 </section>
 ```
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Part Route</div>
+<h3 class="cg-ill__title">This Part Starts With Fire And Flood, Then Widens Into Compound Risk</h3>
+<p class="cg-ill__lede">Part 4 becomes much clearer when it is read as one risk sequence. Begin with the hazards that are easiest to picture and compute, then use the deeper meteorology and compound-risk chapters to understand why real disasters rarely stay isolated.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">First</span>
+<h4>Fire conditions and spread</h4>
+<p>Learn the weather and landscape ingredients that turn ignition into fast-moving fire behavior.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Rainfall, floods, and runoff</h4>
+<p>Move from extreme precipitation to frequency logic and urban flood response.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Second pass</span>
+<h4>Storms, smoke, and wind depth</h4>
+<p>Use the meteorology-heavy chapters to understand transport, severe weather, and boundary-layer structure.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Capstone</span>
+<h4>Compound hazard chains</h4>
+<p>End with evolving event systems where smoke, runoff, infrastructure strain, and health burden reinforce one another.</p>
+</div>
+</div>
+<figcaption>Part 4 is not only about isolated hazard formulas; it is about how environmental danger evolves through time.</figcaption>
+</div>
+</figure>
+
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}

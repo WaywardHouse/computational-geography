@@ -20,6 +20,7 @@ body-classes: articles-landing
       <span class="book-pill">Core Book</span>
       <span class="book-pill">Go deeper later</span>
     </div>
+    <p><a href="./all-models/">Need the blunt version? Open the full model index.</a></p>
   </div>
   <aside class="mock-book-hero__meta">
     <div class="book-meta-card">

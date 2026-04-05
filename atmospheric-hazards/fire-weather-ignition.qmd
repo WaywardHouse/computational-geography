@@ -98,6 +98,69 @@ Meteorological conditions controlling fire ignition and spread.
 
 ### Fuel Moisture Content
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Fire Weather System</div>
+<h3 class="cg-ill__title">Fire Danger Comes From Several Weather Controls Acting At Once</h3>
+<p class="cg-ill__lede">The key idea in this chapter is combination. Temperature, humidity, wind, and recent rain do not contribute independently in the way beginners often imagine. They interact through fuel moisture and atmospheric drying power to change ignition potential and fire behavior together.</p>
+```{=html}
+<svg viewBox="0 0 760 340" role="img" aria-label="Fire weather system diagram connecting temperature, humidity, wind, and recent rain to fuel moisture, vapor pressure deficit, and ignition potential">
+  <rect x="0" y="0" width="760" height="340" rx="22" fill="#f7f4ed"/>
+  <rect x="46" y="40" width="136" height="70" rx="16" fill="#fde2cf" stroke="#dba47b" stroke-width="3"/>
+  <text x="72" y="80" font-size="22" fill="#8f4b12" font-weight="700">temperature</text>
+  <rect x="46" y="138" width="136" height="70" rx="16" fill="#dbeffe" stroke="#92b8d8" stroke-width="3"/>
+  <text x="76" y="178" font-size="22" fill="#245b86" font-weight="700">humidity</text>
+  <rect x="46" y="236" width="136" height="70" rx="16" fill="#e4f4e5" stroke="#95bb98" stroke-width="3"/>
+  <text x="92" y="276" font-size="22" fill="#2e6131" font-weight="700">wind</text>
+
+  <rect x="290" y="78" width="180" height="82" rx="18" fill="#fff4d8" stroke="#debe67" stroke-width="3"/>
+  <text x="320" y="114" font-size="24" fill="#7a5a00" font-weight="700">fuel moisture</text>
+  <text x="322" y="140" font-size="17" fill="#5b4a3a">how flammable the fuels are</text>
+
+  <rect x="290" y="196" width="180" height="82" rx="18" fill="#efe4fb" stroke="#b69bd7" stroke-width="3"/>
+  <text x="324" y="232" font-size="24" fill="#5d4781" font-weight="700">VPD</text>
+  <text x="312" y="258" font-size="17" fill="#5b4a3a">how hard the air dries fuels</text>
+
+  <rect x="560" y="118" width="154" height="102" rx="18" fill="#f9d9d1" stroke="#d49386" stroke-width="3"/>
+  <text x="580" y="156" font-size="24" fill="#8c2f31" font-weight="700">ignition + spread</text>
+  <text x="582" y="184" font-size="17" fill="#5b4a3a">fire danger and control difficulty</text>
+
+  <path d="M182 74 C220 84, 252 92, 290 108" fill="none" stroke="#c96a2d" stroke-width="6" marker-end="url(#fw-arrow)"/>
+  <path d="M182 172 C220 168, 252 164, 290 146" fill="none" stroke="#3b82c4" stroke-width="6" marker-end="url(#fw-arrow-blue)"/>
+  <path d="M182 172 C220 184, 252 196, 290 216" fill="none" stroke="#3b82c4" stroke-width="6" marker-end="url(#fw-arrow-blue)"/>
+  <path d="M182 270 C226 266, 254 246, 290 238" fill="none" stroke="#3f8c42" stroke-width="6" marker-end="url(#fw-arrow-green)"/>
+  <path d="M470 120 C504 132, 530 144, 560 156" fill="none" stroke="#d89b00" stroke-width="6" marker-end="url(#fw-arrow-gold)"/>
+  <path d="M470 236 C508 218, 534 202, 560 190" fill="none" stroke="#7a5ea8" stroke-width="6" marker-end="url(#fw-arrow-purple)"/>
+
+  <text x="196" y="58" font-size="15" fill="#8f4b12">hotter air usually dries fuels faster</text>
+  <text x="190" y="194" font-size="15" fill="#245b86">low humidity lowers equilibrium moisture</text>
+  <text x="198" y="288" font-size="15" fill="#2e6131">wind increases oxygen supply and spread</text>
+  <text x="490" y="104" font-size="15" fill="#7a5a00">drier fuels ignite more easily</text>
+  <text x="486" y="256" font-size="15" fill="#5d4781">higher VPD increases drying pressure</text>
+
+  <defs>
+    <marker id="fw-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#c96a2d"/>
+    </marker>
+    <marker id="fw-arrow-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#3b82c4"/>
+    </marker>
+    <marker id="fw-arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#3f8c42"/>
+    </marker>
+    <marker id="fw-arrow-gold" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#d89b00"/>
+    </marker>
+    <marker id="fw-arrow-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#7a5ea8"/>
+    </marker>
+  </defs>
+</svg>
+```
+<figcaption>Think of fire weather as a chain: weather changes fuel moisture and atmospheric drying demand, and those together change how easily fire starts and how hard it is to stop.</figcaption>
+</div>
+</figure>
+
 **Definition:**
 
 $$MC = \frac{m_{\text{water}}}{m_{\text{dry}}} \times 100\%$$

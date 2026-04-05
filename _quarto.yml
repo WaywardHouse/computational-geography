@@ -13,6 +13,7 @@ book:
   search: true
   chapters:
     - index.qmd
+    - all-models/index.qmd
     - getting-started/index.qmd
     - getting-started/how-to-read-equations.qmd
     - getting-started/units-scale-and-estimation.qmd

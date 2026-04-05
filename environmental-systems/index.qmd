@@ -37,6 +37,40 @@ Textbook Part
 </section>
 ```
 
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Part Route</div>
+<h3 class="cg-ill__title">This Part Moves From Component Processes To A Coupled Earth System</h3>
+<p class="cg-ill__lede">Part 2 is easier to read when the chapters feel like one physical build rather than a pile of environmental topics. The route starts with surface energy, moves through soils and plants, then brings in atmosphere, observation, and finally the coupled land-atmosphere system.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Start</span>
+<h4>Energy at the surface</h4>
+<p>Learn radiation, evapotranspiration, and soil heat as the bookkeeping backbone of environmental change.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Water and ecosystem response</h4>
+<p>Track soil moisture, plant function, and seasonal or biogeochemical consequences.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Atmosphere and observation</h4>
+<p>Use wind, vertical structure, and sensing chapters to connect process models to what can actually be measured.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Capstone</span>
+<h4>Coupled feedbacks</h4>
+<p>Land-atmosphere coupling ties water, energy, vegetation, and heat extremes into one system.</p>
+</div>
+</div>
+<figcaption>Part 2 works best as a systems ladder: from component fluxes to interacting feedbacks.</figcaption>
+</div>
+</figure>
+
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
