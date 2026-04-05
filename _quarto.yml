@@ -9,7 +9,6 @@ project:
 book:
   title: "Computational Geography"
   subtitle: "A Wayward House subject book"
-  author: "Paul Hobson"
   search: true
   chapters:
     - index.qmd
