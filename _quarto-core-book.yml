@@ -13,58 +13,84 @@ book:
   search: true
   chapters:
     - index.qmd
-    - getting-started/index.qmd
-    - getting-started/how-to-read-equations.qmd
-    - getting-started/units-scale-and-estimation.qmd
-    - getting-started/maps-coordinates-and-layers.qmd
-    - getting-started/uncertainty-error-and-approximation.qmd
-    - getting-started/what-makes-a-model-computational.qmd
-    - getting-started/setting-up-your-environment.qmd
-    - methods-and-tools/index.qmd
-    - foundations/index.qmd
-    - foundations/what-is-a-spatial-model.qmd
-    - foundations/linear-change-and-rate.qmd
-    - foundations/exponential-growth-and-logarithms.qmd
-    - foundations/logistic-growth-and-equilibrium.qmd
-    - foundations/map-projections-and-coordinate-reference-systems.qmd
-    - foundations/digital-elevation-models-as-functions.qmd
-    - foundations/gradient-aspect-steepest-descent.qmd
-    - foundations/gravity-models-trade-migration.qmd
-    - foundations/spatial-diffusion-of-innovation.qmd
-    - foundations/what-is-remote-sensing.qmd
-    - foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd
-    - foundations/atmospheric-effects-and-surface-reflectance.qmd
-    - environmental-systems/index.qmd
-    - environmental-systems/net-radiation-and-albedo.qmd
-    - environmental-systems/sensible-and-latent-heat-fluxes.qmd
-    - environmental-systems/soil-heat-diffusion.qmd
-    - environmental-systems/photosynthesis-light-response.qmd
-    - environmental-systems/soil-moisture-dynamics.qmd
-    - environmental-systems/wind-profiles-and-turbulence.qmd
-    - environmental-systems/temperature-moisture-gradients.qmd
-    - environmental-systems/multispectral-imagery-and-band-interpretation.qmd
-    - environmental-systems/vegetation-indices-and-remote-sensing.qmd
-    - spatial-analysis/index.qmd
-    - spatial-analysis/point-in-polygon-testing.qmd
-    - spatial-analysis/buffer-operations.qmd
-    - spatial-analysis/polygon-overlay-operations.qmd
-    - spatial-analysis/spatial-joins.qmd
-    - spatial-analysis/raster-resampling-interpolation.qmd
-    - spatial-analysis/map-algebra-focal-operations.qmd
-    - spatial-analysis/raster-classification.qmd
-    - spatial-analysis/viewshed-line-of-sight.qmd
-    - spatial-analysis/watershed-delineation.qmd
-    - atmospheric-hazards/index.qmd
-    - atmospheric-hazards/fire-weather-ignition.qmd
-    - atmospheric-hazards/fire-spread-modeling.qmd
-    - atmospheric-hazards/rainfall-intensity-duration.qmd
-    - atmospheric-hazards/flood-frequency-analysis.qmd
-    - atmospheric-hazards/urban-flood-modeling.qmd
-    - economic-systems/index.qmd
-    - economic-systems/canada-trade-gravity-model.qmd
-    - economic-systems/urban-bid-rent-model.qmd
-    - economic-systems/urban-agglomeration-economies.qmd
-    - economic-systems/markets-spatial-arbitrage.qmd
+    # ============================================================
+    # PART 1: PREREQUISITES & ORIENTATION (10 chapters)
+    # ============================================================
+    - part: "Getting Started"
+      chapters:
+        - getting-started/index.qmd
+        - getting-started/how-to-read-equations.qmd
+        - getting-started/units-scale-and-estimation.qmd
+        - getting-started/maps-coordinates-and-layers.qmd
+        - getting-started/uncertainty-error-and-approximation.qmd
+        - getting-started/what-makes-a-model-computational.qmd
+        - getting-started/setting-up-your-environment.qmd
+
+    - part: "Foundations: Mathematical Machinery"
+      chapters:
+        - foundations/index.qmd
+        - foundations/what-is-a-spatial-model.qmd
+        - foundations/linear-change-and-rate.qmd
+        - foundations/exponential-growth-and-logarithms.qmd
+        - foundations/logistic-growth-and-equilibrium.qmd
+        - foundations/map-projections-and-coordinate-reference-systems.qmd
+        - foundations/gravity-models-trade-migration.qmd
+        - foundations/spatial-diffusion-of-innovation.qmd
+
+    # ============================================================
+    # PART 2: THREE LEARNING PATHWAYS (choose one or combine)
+    # ============================================================
+
+    # PATHWAY A: Remote Sensing & Observation
+    - part: "Pathway A: Remote Sensing & Observation"
+      chapters:
+        - foundations/what-is-remote-sensing.qmd
+        - foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd
+        - foundations/atmospheric-effects-and-surface-reflectance.qmd
+        - environmental-systems/multispectral-imagery-and-band-interpretation.qmd
+        - environmental-systems/vegetation-indices-and-remote-sensing.qmd
+        - spatial-analysis/raster-resampling-interpolation.qmd
+        - spatial-analysis/raster-classification.qmd
+        - spatial-analysis/change-detection.qmd
+
+    # PATHWAY B: Environmental Systems & Processes
+    - part: "Pathway B: Environmental Systems & Processes"
+      chapters:
+        - foundations/digital-elevation-models-as-functions.qmd
+        - foundations/gradient-aspect-steepest-descent.qmd
+        - environmental-systems/index.qmd
+        - environmental-systems/net-radiation-and-albedo.qmd
+        - environmental-systems/sensible-and-latent-heat-fluxes.qmd
+        - environmental-systems/soil-heat-diffusion.qmd
+        - environmental-systems/photosynthesis-light-response.qmd
+        - environmental-systems/soil-moisture-dynamics.qmd
+        - environmental-systems/wind-profiles-and-turbulence.qmd
+        - environmental-systems/temperature-moisture-gradients.qmd
+        - foundations/hydrological-flow-as-optimization.qmd
+        - spatial-analysis/watershed-delineation.qmd
+        - environmental-systems/phenology-and-growing-season.qmd
+
+    # PATHWAY C: Applications & Implications
+    - part: "Pathway C: Applications & Implications"
+      chapters:
+        - atmospheric-hazards/index.qmd
+        - atmospheric-hazards/fire-weather-ignition.qmd
+        - atmospheric-hazards/fire-spread-modeling.qmd
+        - atmospheric-hazards/rainfall-intensity-duration.qmd
+        - atmospheric-hazards/flood-frequency-analysis.qmd
+        - atmospheric-hazards/urban-flood-modeling.qmd
+        - economic-systems/index.qmd
+        - economic-systems/canada-trade-gravity-model.qmd
+        - economic-systems/urban-bid-rent-model.qmd
+        - economic-systems/urban-agglomeration-economies.qmd
+        - economic-systems/markets-spatial-arbitrage.qmd
+
+    # ============================================================
+    # PART 3: NAVIGATION & NEXT STEPS
+    # ============================================================
+    - part: "Next Steps"
+      chapters:
+        - explore-more/index.qmd
 
 format:
   html:
