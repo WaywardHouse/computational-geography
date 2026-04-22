@@ -2,24 +2,119 @@
 title: "How Your Computer Thinks: Command Line Essentials"
 type: chapter
 book-part: "scientific-computing"
+pathway-prerequisites:
+  - "Scientific Computing Foundations: Your First Python Script"
+next-steps:
+  - "Scientific Computing Foundations: Installing Python"
 ---
 
 ## Before You Start
 
 **You should know:**
-- Placeholders for prerequisites
+- How to open the Terminal on Mac/Linux, or PowerShell on Windows.
+- That computers use a hierarchical system to store information (folders inside folders).
 
 **You will learn:**
-- Placeholder for outcomes
+- How to navigate your computer's file system without using a mouse.
+- Why the command line is an essential environment for scientific computing.
+- The four core commands: `pwd`, `ls`, `cd`, and `mkdir`.
 
 ## Introduction
 
-This chapter will be fully drafted soon.
+In the previous chapter, you wrote Python code in a browser. That was a great sandbox, but real scientific computing happens locally—on your own machine, using your own files, processing your own satellite imagery or datasets.
+
+However, when you run Python locally, Python is essentially blind. It doesn't magically know where your files are stored. If you tell Python to "open `temperature_data.csv`," it will only look in the exact folder it is currently standing in. If it can't find it, it throws an error.
+
+To control Python, you must first learn how to control your computer the way a programmer does: through the **command line**. The command line (also called the terminal, console, or shell) is a text-based interface used to talk directly to your operating system.
+
+## The Mental Model: You Are Always "Somewhere"
+
+When you use a mouse, you open a window (like Finder on Mac or File Explorer on Windows) and look inside a folder. 
+
+In the terminal, you don't "open" a folder—you **step inside it**. 
+
+Imagine your computer's hard drive is a massive building with millions of rooms. The terminal is you, standing in one specific room at a time. This room is called your **working directory**.
+
+### 1. Where am I? (`pwd`)
+
+The first thing you need to know is which room you are standing in. 
+
+Open your terminal (Mac/Linux) or PowerShell (Windows). You will see a blinking cursor waiting for an instruction. Type the following and press Enter:
+
+```bash
+pwd
+```
+*(On Windows PowerShell, `pwd` still works perfectly!)*
+
+`pwd` stands for **Print Working Directory**. Your computer will reply with something like:
+```text
+/Users/yourname
+```
+or 
+```text
+C:\Users\yourname
+```
+
+This is your absolute path—the exact address of the room you are currently standing in. 
+
+### 2. What is in this room? (`ls`)
+
+Now that you know where you are, you need to see what's in the room with you. Type:
+
+```bash
+ls
+```
+*(On Windows PowerShell, use `ls` or `dir`.)*
+
+`ls` stands for **List**. Your terminal will print out all the files and folders located in your current working directory. You should see familiar folders like `Desktop`, `Documents`, and `Downloads`.
+
+### 3. Making a new room (`mkdir`)
+
+We are going to create a dedicated folder for all your computing work. Instead of right-clicking and selecting "New Folder," we'll do it using text. Type:
+
+```bash
+mkdir coding_projects
+```
+
+`mkdir` stands for **Make Directory**. If it succeeds, the terminal won't say anything at all—it will just give you a new blinking cursor. In the command line, no news is good news!
+
+To verify it worked, run `ls` again. You should see `coding_projects` listed among your folders.
+
+### 4. Walking into a room (`cd`)
+
+You've built the room, but `pwd` will show you are still standing outside of it. To step inside the new folder, use the **Change Directory** command:
+
+```bash
+cd coding_projects
+```
+
+Run `pwd` again. Your location should now explicitly end in `/coding_projects`.
+Run `ls`. It should return absolutely nothing, because this new room is currently empty.
+
+### 5. Walking backward (`cd ..`)
+
+To step backward—out of your current folder and into the parent folder—you use a special shortcut: two periods.
+
+```bash
+cd ..
+```
+
+The `..` symbolizes "the folder immediately above this one." Run `pwd` and you'll see you are safely back where you started.
+
+## Why This Matters for Geography
+
+Imagine you download a massive 5GB array of LiDAR data to your `Downloads` folder. You write a Python script and save it to your `Desktop`. 
+
+If you open your terminal, navigate to the `Desktop`, and tell Python to run your script, Python will wake up standing on the `Desktop`. When your script says "open the LiDAR file," Python looks around the `Desktop`, doesn't see the LiDAR file, and crashes.
+
+Understanding the command line ensures you always know exactly where you are standing, allowing you to feed the right data to your code. 
 
 ## Verify Your Work
 
-- Make sure you check this section.
+1. Open your terminal or PowerShell.
+2. Run `pwd` to confirm your starting location.
+3. Use `mkdir` to create a folder called `geography_workspace`.
+4. Use `cd geography_workspace` to step inside it.
+5. Provide `pwd` one last time to verify your path changed successfully.
 
-## Next Steps
-
-Ready for the next concept!
+If you can confidently move around your file system using only these commands, you are officially ready to install Python on your machine.

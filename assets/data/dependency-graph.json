@@ -1,0 +1,2035 @@
+{
+  "nodes": [
+    {
+      "id": "foundations/exponential-growth-and-logarithms.qmd",
+      "title": "Exponential Growth and Logarithms",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/linear-change-and-rate.qmd",
+      "title": "Linear Change and Rate",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/map-projections-and-coordinate-reference-systems.qmd",
+      "title": "Map Projections and Coordinate Reference Systems",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/public-health-and-environmental-exposure.qmd",
+      "title": "Public Health and Environmental Exposure",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/spatial-diffusion-of-innovation.qmd",
+      "title": "Spatial Diffusion of Innovation",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/logistic-growth-and-equilibrium.qmd",
+      "title": "Logistic Growth and Equilibrium",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/medical-geography-and-care-access.qmd",
+      "title": "Medical Geography and Care Access",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/light-attenuation-in-canopy.qmd",
+      "title": "Light Attenuation in a Canopy",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/social-vulnerability-and-exposure.qmd",
+      "title": "Social Vulnerability and Exposure",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/migration-systems-and-selective-mobility.qmd",
+      "title": "Migration Systems and Selective Mobility",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/hydrological-flow-as-optimization.qmd",
+      "title": "Hydrological Flow as Optimization",
+      "part": "foundations",
+      "prerequisites_raw": [
+        "Pathway B: Temperature and Moisture Gradients"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/gravity-models-trade-migration.qmd",
+      "title": "Gravity Models of Trade and Migration",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/what-is-remote-sensing.qmd",
+      "title": "What Is Remote Sensing?",
+      "part": "foundations",
+      "prerequisites_raw": [
+        "Foundations: Linear Change and Rate"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/what-is-a-spatial-model.qmd",
+      "title": "What Is a Spatial Model?",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/earth-as-rotating-sphere.qmd",
+      "title": "Earth as a Rotating Sphere",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/spectral-mixing-and-sensor-response.qmd",
+      "title": "Spectral Mixing and Sensor Response",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/demographic-structure-and-population-change.qmd",
+      "title": "Demographic Structure and Population Change",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/gradient-aspect-steepest-descent.qmd",
+      "title": "Gradient, Aspect, and Direction of Steepest Descent",
+      "part": "foundations",
+      "prerequisites_raw": [
+        "Pathway B: Digital Elevation Models as Functions"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/solar-geometry-and-projection.qmd",
+      "title": "Solar Geometry and Projection",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/accessibility-and-spatial-opportunity.qmd",
+      "title": "Accessibility and Spatial Opportunity",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd",
+      "title": "Spatial, Spectral, Temporal, and Radiometric Resolution",
+      "part": "foundations",
+      "prerequisites_raw": [
+        "Pathway A: What Is Remote Sensing?"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/atmospheric-effects-and-surface-reflectance.qmd",
+      "title": "Atmospheric Effects and Surface Reflectance",
+      "part": "foundations",
+      "prerequisites_raw": [
+        "Pathway A: Spatial, Spectral, Temporal, and Radiometric Resolution"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/digital-elevation-models-as-functions.qmd",
+      "title": "Digital Elevation Models as Functions",
+      "part": "foundations",
+      "prerequisites_raw": [
+        "Foundations: Linear Change and Rate"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "foundations/segregation-and-neighborhood-inequality.qmd",
+      "title": "Segregation and Neighborhood Inequality",
+      "part": "foundations",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/ground-tracks-and-orbital-geometry.qmd",
+      "title": "Ground Tracks and Orbital Geometry",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "title": "Wind Profiles and Atmospheric Turbulence",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Soil Moisture Dynamics"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/phenology-and-growing-season.qmd",
+      "title": "Phenology and Growing Season Dynamics",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Watershed Delineation and Flow Networks"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/how-gps-works.qmd",
+      "title": "How GPS Works",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/decomposition-and-soil-carbon.qmd",
+      "title": "Decomposition and Soil Carbon Turnover",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/photosynthesis-light-response.qmd",
+      "title": "Photosynthesis and Light Response",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Soil Heat Diffusion"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/soil-heat-diffusion.qmd",
+      "title": "Soil Heat Diffusion",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Sensible and Latent Heat Fluxes"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/temperature-moisture-gradients.qmd",
+      "title": "Temperature and Moisture Gradients",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Wind Profiles and Atmospheric Turbulence"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/nitrogen-cycling.qmd",
+      "title": "Nitrogen Cycling and Limitation",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/net-radiation-and-albedo.qmd",
+      "title": "Net Radiation and Albedo",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Gradient, Aspect, and Direction of Steepest Descent"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/sensible-and-latent-heat-fluxes.qmd",
+      "title": "Sensible and Latent Heat Fluxes",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Net Radiation and Albedo"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/land-atmosphere-coupling-and-feedbacks.qmd",
+      "title": "Land-Atmosphere Coupling and Feedbacks",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+      "title": "Vegetation Indices and Remote Sensing",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway A: Multispectral Imagery and Band Interpretation"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/satellite-overpasses-and-visibility.qmd",
+      "title": "Satellite Overpasses and Visibility",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/circular-orbits-and-keplers-third-law.qmd",
+      "title": "Circular Orbits and Kepler's Third Law",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/multispectral-imagery-and-band-interpretation.qmd",
+      "title": "Multispectral Imagery and Band Interpretation",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway A: Atmospheric Effects and Surface Reflectance"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/soil-moisture-dynamics.qmd",
+      "title": "Soil Moisture Dynamics",
+      "part": "environmental-systems",
+      "prerequisites_raw": [
+        "Pathway B: Photosynthesis and Light Response"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "environmental-systems/carbon-allocation-and-npp.qmd",
+      "title": "Carbon Allocation and Net Primary Productivity",
+      "part": "environmental-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/raster-classification.qmd",
+      "title": "Raster Classification and Reclassification",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [
+        "Pathway A: Raster Resampling and Interpolation"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/buffer-operations.qmd",
+      "title": "Buffer Operations and Distance Fields",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/time-series-analysis.qmd",
+      "title": "Time Series Analysis of Satellite Data",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/cost-distance-least-cost-paths.qmd",
+      "title": "Cost-Distance and Least-Cost Paths",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/watershed-delineation.qmd",
+      "title": "Watershed Delineation and Flow Networks",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [
+        "Pathway B: Hydrological Flow as Optimization"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/supervised-image-classification.qmd",
+      "title": "Supervised Image Classification",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/spatial-joins.qmd",
+      "title": "Spatial Joins and Proximity Queries",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/map-algebra-focal-operations.qmd",
+      "title": "Map Algebra and Focal Operations",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/point-in-polygon-testing.qmd",
+      "title": "Point-in-Polygon Testing",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/raster-resampling-interpolation.qmd",
+      "title": "Raster Resampling and Interpolation",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [
+        "Pathway A: Vegetation Indices and Remote Sensing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/change-detection.qmd",
+      "title": "Change Detection in Satellite Imagery",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [
+        "Pathway A: Raster Classification and Reclassification"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/polygon-overlay-operations.qmd",
+      "title": "Polygon Overlay and Clipping",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "spatial-analysis/viewshed-line-of-sight.qmd",
+      "title": "Viewshed and Line-of-Sight Analysis",
+      "part": "spatial-analysis",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/urban-flood-modeling.qmd",
+      "title": "Urban Flood modelling and Green Infrastructure",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [
+        "Pathway C: Flood Frequency Analysis"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/tornado-formation-intensity.qmd",
+      "title": "Tornado Formation and Intensity",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/extreme-wind-events.qmd",
+      "title": "Extreme Wind Events and Downbursts",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/thunderstorm-dynamics.qmd",
+      "title": "Thunderstorm Dynamics and Severe Weather",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/rainfall-intensity-duration.qmd",
+      "title": "Rainfall Intensity-Duration-Frequency",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [
+        "Pathway C: Fire Spread modelling"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/hail-formation-forecasting.qmd",
+      "title": "Hail Formation and Forecasting",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/compound-hazards-and-cascading-risk.qmd",
+      "title": "Compound Hazards and Cascading Risk",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/boundary-layer-turbulence.qmd",
+      "title": "Boundary Layer Turbulence and Wind Profiles",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/fire-spread-modeling.qmd",
+      "title": "Fire Spread modelling",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [
+        "Pathway C: Fire Weather and Ignition Potential"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/flood-frequency-analysis.qmd",
+      "title": "Flood Frequency Analysis",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [
+        "Pathway C: Rainfall Intensity-Duration-Frequency"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/fire-weather-ignition.qmd",
+      "title": "Fire Weather and Ignition Potential",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [
+        "Foundations: Linear Change and Rate"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "atmospheric-hazards/fire-emissions-smoke.qmd",
+      "title": "Fire Emissions and Smoke Dispersion",
+      "part": "atmospheric-hazards",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/resource-hotelling-rule.qmd",
+      "title": "The Hotelling Rule",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/markets-price-volatility.qmd",
+      "title": "Price Volatility and Its Geographic Consequences",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/resource-curse.qmd",
+      "title": "The Resource Curse",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/resource-royalty-regimes.qmd",
+      "title": "Royalty Regimes and Resource Rents",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-renewable-policy-demand.qmd",
+      "title": "Policy, Capital, and the Grid",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/urban-economic-base.qmd",
+      "title": "The Urban Economic Base",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/integrated-network.qmd",
+      "title": "The Integrated Network",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/urban-integrated-system.qmd",
+      "title": "The Integrated Urban System",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/canada-freight-modal-split.qmd",
+      "title": "Modal Split and Freight Economics",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/resource-integrated-system.qmd",
+      "title": "The Integrated Resource System",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/markets-integrated-price-system.qmd",
+      "title": "The Integrated Price System",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/canada-integrated-trade-network.qmd",
+      "title": "The Integrated Trade Network",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/markets-commodity-price-formation.qmd",
+      "title": "Commodity Price Formation",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/markets-futures-geographic-instruments.qmd",
+      "title": "Futures Markets as Geographic Instruments",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/canada-port-economics.qmd",
+      "title": "Port Economics",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/urban-city-size-zipf.qmd",
+      "title": "Zipf's Law and the City Size Distribution",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-pipeline-crude-oil.qmd",
+      "title": "Alberta's Crude Oil Pipeline Network",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/natural-gas-transmission.qmd",
+      "title": "Natural Gas Transmission",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/crude-oil-pipelines.qmd",
+      "title": "Crude Oil Pipelines",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/canada-trade-corridors.qmd",
+      "title": "Canadian Trade Corridors",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/ngl-condensate-systems.qmd",
+      "title": "NGL and Condensate Systems",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-renewable-resource-geography.qmd",
+      "title": "Renewable Resource Geography",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/canada-trade-gravity-model.qmd",
+      "title": "The Gravity Model of Trade",
+      "part": "economic-systems",
+      "prerequisites_raw": [
+        "Pathway C: Urban Flood modelling and Green Infrastructure"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/refined-products-distribution.qmd",
+      "title": "Refined Products Distribution",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/urban-bid-rent-model.qmd",
+      "title": "The Bid-Rent Model",
+      "part": "economic-systems",
+      "prerequisites_raw": [
+        "Pathway C: The Gravity Model of Trade"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-pipeline-refined-products.qmd",
+      "title": "Refined Products Distribution",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-pipeline-natural-gas.qmd",
+      "title": "Natural Gas Transmission from Alberta",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/markets-spatial-arbitrage.qmd",
+      "title": "Spatial Arbitrage and the Law of One Price",
+      "part": "economic-systems",
+      "prerequisites_raw": [
+        "Pathway C: Agglomeration Economies"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-pipeline-ngl-condensate.qmd",
+      "title": "NGL and Condensate Pipeline Systems",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-renewable-economics.qmd",
+      "title": "The Economics of Clean Generation",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/resource-supply-cost-curves.qmd",
+      "title": "Supply Cost Curves and Break-Even Prices",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/urban-agglomeration-economies.qmd",
+      "title": "Agglomeration Economies",
+      "part": "economic-systems",
+      "prerequisites_raw": [
+        "Pathway C: The Bid-Rent Model"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "economic-systems/alberta-pipeline-integrated-network.qmd",
+      "title": "The Integrated Network",
+      "part": "economic-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "machine-learning/regression-continuous-variables.qmd",
+      "title": "Regression for Continuous Variables",
+      "part": "machine-learning",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "machine-learning/dimensionality-reduction-pca-tsne-umap.qmd",
+      "title": "Dimensionality Reduction: PCA, t-SNE, and UMAP",
+      "part": "machine-learning",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/lidar-point-clouds.qmd",
+      "title": "Terrestrial LiDAR Point Clouds",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/thermal-infrared-remote-sensing.qmd",
+      "title": "Thermal Infrared Remote Sensing",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/bathymetric-lidar-sonar.qmd",
+      "title": "Bathymetric LiDAR and Sonar Mapping",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/sail-canopy-reflectance.qmd",
+      "title": "Canopy Reflectance \u2014 the SAIL Model",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/prospect-leaf-optical-properties.qmd",
+      "title": "Leaf Optical Properties \u2014 the PROSPECT Model",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/hyperspectral-imaging.qmd",
+      "title": "Hyperspectral Imaging",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/gravity-remote-sensing.qmd",
+      "title": "Gravity Remote Sensing (GRACE)",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "advanced-remote-sensing/sar-fundamentals.qmd",
+      "title": "SAR Fundamentals and Applications",
+      "part": "advanced-remote-sensing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/glacial-meltwater-chemistry.qmd",
+      "title": "Glacial Meltwater Chemistry",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/debris-flow-modeling.qmd",
+      "title": "Debris Flow modelling",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/snow-accumulation-melt-modeling.qmd",
+      "title": "Snow Accumulation and Melt modelling",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/swe-estimation-methods.qmd",
+      "title": "Snow Water Equivalent Estimation",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/glacier-mass-balance.qmd",
+      "title": "Glacier Mass Balance",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/glacial-lake-outburst-floods.qmd",
+      "title": "Glacial Lake Outburst Floods (GLOFs)",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd",
+      "title": "Avalanche Terrain Analysis",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/permafrost-thaw-geohazards.qmd",
+      "title": "Permafrost Thaw and Geohazards",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/slope-stability-analysis.qmd",
+      "title": "Slope Stability Analysis",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "cryosphere-and-mountain-systems/snowpack-energy-balance.qmd",
+      "title": "Snowpack Energy Balance",
+      "part": "cryosphere-and-mountain-systems",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/sar-fundamentals-and-applications.qmd",
+      "title": "SAR Fundamentals and Applications",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Remote Sensing fundamentals",
+        "Pathway A: Atmospheric Effects & Surface Reflectance",
+        "Pathway A: Raster Classification"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/bayesian-inference-for-environmental-models.qmd",
+      "title": "Bayesian Inference for Environmental Models",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Methods Reference: Bayesian Updating",
+        "Any applied chapter (fire, flood, etc.)"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/land-use-change-modeling.qmd",
+      "title": "Land Use Change modelling",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Raster Classification",
+        "Pathway A: Change Detection",
+        "Pathway C: Urban Bid-Rent Models"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/sediment-transport-in-rivers.qmd",
+      "title": "Sediment Transport in Rivers",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Watershed Delineation",
+        "Methods Reference: Dynamics"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/nutrient-dynamics-and-lake-eutrophication.qmd",
+      "title": "Nutrient Dynamics and Lake Eutrophication",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Moisture Dynamics",
+        "Pathway B: Photosynthesis & Light Response",
+        "Methods Reference: Differential Equations"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/passive-microwave-radiometry.qmd",
+      "title": "Passive Microwave Radiometry",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Thermal Infrared Remote Sensing",
+        "Pathway A: Vegetation Indices & Remote Sensing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/accessibility-and-travel-demand-modeling.qmd",
+      "title": "Accessibility and Travel Demand modelling",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway C: Gravity Models \u2014 Trade & Migration",
+        "Pathway C: Urban Agglomeration Economies"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/urban-ventilation-and-pollutant-dispersion.qmd",
+      "title": "Urban Ventilation and Pollutant Dispersion",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Wind Profiles & Turbulence",
+        "Pathway C: Urban Applications"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/shallow-landslides-and-slope-stability.qmd",
+      "title": "Shallow Landslides and Slope Stability",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Digital Elevation Models",
+        "Pathway B: Soil Moisture Dynamics",
+        "Pathway C: Rainfall Intensity-Duration-Frequency"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/satellite-data-assimilation-in-environmental-models.qmd",
+      "title": "Satellite Data Assimilation in Environmental Models",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Remote Sensing fundamentals",
+        "Vol II.B: Data Assimilation"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/stochastic-streamflow-and-drought-risk.qmd",
+      "title": "Stochastic Streamflow and Drought Risk",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Watershed Delineation",
+        "Vol II.B: Ensemble Methods",
+        "Methods Reference: Uncertainty Propagation"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Methanogenesis-in-Anaerobic-Environments.qmd",
+      "title": "Methanogenesis in Anaerobic Environments",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Moisture Dynamics"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Biomass-Burning-and-Pyrogenic-Carbon.qmd",
+      "title": "Biomass Burning and Pyrogenic Carbon",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway C: Fire Spread Modeling",
+        "Pathway B: Photosynthesis & Light Response"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/wave-dynamics-and-nearshore-transformation.qmd",
+      "title": "Wave Dynamics and Nearshore Transformation",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Wind Profiles & Turbulence",
+        "Pathway B: Temperature-Moisture Gradients",
+        "Methods Reference: Numerical Methods"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd",
+      "title": "Sea Level, Storm Surge, and Coastal Morphodynamics",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Wind Profiles & Turbulence",
+        "Pathway B: Temperature-Moisture Gradients",
+        "Methods Reference: Numerical Methods"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/groundwater-contaminant-plumes.qmd",
+      "title": "Groundwater Contaminant Plumes",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Heat Diffusion",
+        "Pathway B: Soil Moisture Dynamics",
+        "Methods Reference: PDEs & Numerical Methods"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/demographic-spatial-dynamics.qmd",
+      "title": "Demographic Spatial Dynamics",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway C: Urban Bid-Rent Models",
+        "Methods Reference: Spatial Statistics"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/urban-scaling-laws-and-city-structure.qmd",
+      "title": "Urban Scaling Laws and City Structure",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway C: Urban Agglomeration Economies",
+        "Pathway C: Gravity Models \u2014 Trade & Migration"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Photosynthesis-and-Gross-Primary-Production.qmd",
+      "title": "Photosynthesis and Gross Primary Production",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Photosynthesis & Light Response",
+        "Pathway A: Vegetation Indices"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/soil-erosion-and-the-rusle.qmd",
+      "title": "Soil Erosion and the RUSLE",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Moisture Dynamics",
+        "Pathway B: Watershed Delineation",
+        "Pathway C: Rainfall Intensity-Duration-Frequency"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/reservoir-operations-and-mass-balance.qmd",
+      "title": "Reservoir Operations and Mass Balance",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Watershed Delineation",
+        "Scientific Computing Foundations: Python scripting"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/transportation-network-analysis.qmd",
+      "title": "Transportation Network Analysis",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway C: Gravity Models \u2014 Trade & Migration",
+        "Pathway C: Urban Bid-Rent Models"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/longshore-sediment-transport-and-coastal-budgets.qmd",
+      "title": "Longshore Sediment Transport and Coastal Budgets",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Wind Profiles & Turbulence",
+        "Laboratory: Wave Dynamics & Nearshore Transformation"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/sediment-and-contaminant-transport-in-rivers.qmd",
+      "title": "Sediment and Contaminant Transport in Rivers",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Watershed Delineation",
+        "Pathway B: Wind Profiles & Turbulence",
+        "Methods Reference: Dynamics"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/channel-morphology-and-hydraulic-geometry.qmd",
+      "title": "Channel Morphology and Hydraulic Geometry",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Watershed Delineation",
+        "Methods Reference: Numerical Methods"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/pump-and-treat-and-in-situ-remediation.qmd",
+      "title": "Pump-and-Treat and In-Situ Remediation",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Moisture Dynamics",
+        "Laboratory: Groundwater Contaminant Plumes"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/gravity-remote-sensing-grace.qmd",
+      "title": "Gravity Remote Sensing (GRACE)",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Orbital Mechanics (Companion 1)",
+        "Pathway A: Spectral & Temporal Resolution"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/ensemble-forecasting-and-uncertainty-quantification.qmd",
+      "title": "Ensemble Forecasting and Uncertainty Quantification",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Vol II.B: Ensemble Methods",
+        "Methods Reference: Uncertainty Propagation"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Fossil-Fuel-Combustion-Chemistry.qmd",
+      "title": "Fossil Fuel Combustion Chemistry",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway C: Markets & Spatial Arbitrage"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Soil-Carbon-Storage-and-Decomposition.qmd",
+      "title": "Soil Carbon Storage and Decomposition",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Heat Diffusion",
+        "Pathway B: Soil Moisture Dynamics",
+        "Pathway B: Photosynthesis & Light Response"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/rock-weathering-and-soil-formation.qmd",
+      "title": "Rock Weathering and Soil Formation",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Net Radiation & Albedo"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/dimensionality-reduction-for-high-dimensional-geographic-data.qmd",
+      "title": "Dimensionality Reduction for High-Dimensional Geographic Data",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Multispectral Imagery & Band Interpretation",
+        "Methods Reference: How to Choose a Model"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/regression-for-continuous-spatial-variables.qmd",
+      "title": "Regression for Continuous Spatial Variables",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Raster Classification",
+        "Methods Reference: How to Choose a Model"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/dissolved-oxygen-dynamics-and-the-streeter-phelps-model.qmd",
+      "title": "Dissolved Oxygen Dynamics and the Streeter-Phelps Model",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Soil Moisture Dynamics",
+        "Methods Reference: Differential Equations"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd",
+      "title": "Ocean Carbon Uptake and Air-Sea Exchange",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Temperature-Moisture Gradients",
+        "Pathway A: Water Optics (Companion 1)"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd",
+      "title": "The Kalman Filter and Sequential Data Assimilation",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Vol II.B: Data Assimilation",
+        "Methods Reference: Bayesian Updating"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/laboratory-navigation.qmd",
+      "title": "Laboratory: Choose Your Problem Set",
+      "part": null,
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/insar-deformation-monitoring.qmd",
+      "title": "InSAR Deformation Monitoring",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: SAR Fundamentals (Problem Set A, Investigation 1)",
+        "Pathway A: Spectral & Temporal Resolution"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/urban-heat-island-dynamics.qmd",
+      "title": "Urban Heat Island Dynamics",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway B: Net Radiation & Albedo",
+        "Pathway B: Sensible & Latent Heat Fluxes",
+        "Pathway A: Thermal Infrared Remote Sensing"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "laboratory/Land-Use-Change-and-Deforestation.qmd",
+      "title": "Land Use Change and Deforestation",
+      "part": "laboratory",
+      "prerequisites_raw": [
+        "Pathway A: Change Detection",
+        "Pathway B: Photosynthesis & Light Response"
+      ],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/your-first-jupyter-notebook.qmd",
+      "title": "Jupyter Notebooks: Interactive Computing in Your Browser",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/ides-and-editors.qmd",
+      "title": "IDEs and Editors: VSCode, PyCharm, and When to Use Which",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/package-management.qmd",
+      "title": "Installing & Managing Packages (pip, conda, requirements.txt)",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/why-scientific-computing-matters.qmd",
+      "title": "Why Scientific Computing Matters",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/your-first-python-script.qmd",
+      "title": "Your First Python Script (No Installation Required)",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/command-line-essentials.qmd",
+      "title": "How Your Computer Thinks: Command Line Essentials",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/virtual-environments.qmd",
+      "title": "Virtual Environments: Why One Environment per Project",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/installing-python.qmd",
+      "title": "Installing Python: Anaconda vs. Venv",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/running-and-debugging-code.qmd",
+      "title": "Running Your Code: Scripts, Notebooks, and Debugging Basics",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "scientific-computing/git-and-version-control.qmd",
+      "title": "Git and Version Control: Tracking Your Work and Collaborating",
+      "part": "scientific-computing",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/how-to-validate-a-model.qmd",
+      "title": "How to Validate a Model",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/bayesian-updating-and-geographic-inference.qmd",
+      "title": "Bayesian Updating and Geographic Inference",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/uncertainty-propagation-and-ensembles.qmd",
+      "title": "Uncertainty Propagation and Ensembles",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/how-to-choose-a-model.qmd",
+      "title": "How to Choose a Model",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/decision-models-and-optimization.qmd",
+      "title": "Decision Models and Optimization",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/simulation-paradigms.qmd",
+      "title": "Simulation Paradigms",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/causal-inference-for-geographic-questions.qmd",
+      "title": "Causal Inference for Geographic Questions",
+      "part": "methods-and-tools",
+      "prerequisites_raw": [],
+      "status": "ready"
+    },
+    {
+      "id": "methods-and-tools/the-kalman-filter-and-sequential-data-assimilation.qmd",
+      "title": "The Kalman Filter And Sequential Data Assimilation",
+      "part": "Planned",
+      "prerequisites_raw": [],
+      "status": "planned"
+    },
+    {
+      "id": "advanced-remote-sensing/orbital-mechanics.qmd",
+      "title": "Orbital Mechanics",
+      "part": "Planned",
+      "prerequisites_raw": [],
+      "status": "planned"
+    },
+    {
+      "id": "advanced-remote-sensing/water-optics.qmd",
+      "title": "Water Optics",
+      "part": "Planned",
+      "prerequisites_raw": [],
+      "status": "planned"
+    }
+  ],
+  "edges": [
+    {
+      "source": "environmental-systems/temperature-moisture-gradients.qmd",
+      "target": "foundations/hydrological-flow-as-optimization.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/linear-change-and-rate.qmd",
+      "target": "foundations/what-is-remote-sensing.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/digital-elevation-models-as-functions.qmd",
+      "target": "foundations/gradient-aspect-steepest-descent.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/what-is-remote-sensing.qmd",
+      "target": "foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd",
+      "target": "foundations/atmospheric-effects-and-surface-reflectance.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/linear-change-and-rate.qmd",
+      "target": "foundations/digital-elevation-models-as-functions.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "environmental-systems/phenology-and-growing-season.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-heat-diffusion.qmd",
+      "target": "environmental-systems/photosynthesis-light-response.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/sensible-and-latent-heat-fluxes.qmd",
+      "target": "environmental-systems/soil-heat-diffusion.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "target": "environmental-systems/temperature-moisture-gradients.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/gradient-aspect-steepest-descent.qmd",
+      "target": "environmental-systems/net-radiation-and-albedo.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/net-radiation-and-albedo.qmd",
+      "target": "environmental-systems/sensible-and-latent-heat-fluxes.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/multispectral-imagery-and-band-interpretation.qmd",
+      "target": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/atmospheric-effects-and-surface-reflectance.qmd",
+      "target": "environmental-systems/multispectral-imagery-and-band-interpretation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/photosynthesis-light-response.qmd",
+      "target": "environmental-systems/soil-moisture-dynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/raster-resampling-interpolation.qmd",
+      "target": "spatial-analysis/raster-classification.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/hydrological-flow-as-optimization.qmd",
+      "target": "spatial-analysis/watershed-delineation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+      "target": "spatial-analysis/raster-resampling-interpolation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/raster-classification.qmd",
+      "target": "spatial-analysis/change-detection.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/flood-frequency-analysis.qmd",
+      "target": "atmospheric-hazards/urban-flood-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/fire-spread-modeling.qmd",
+      "target": "atmospheric-hazards/rainfall-intensity-duration.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/fire-weather-ignition.qmd",
+      "target": "atmospheric-hazards/fire-spread-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/rainfall-intensity-duration.qmd",
+      "target": "atmospheric-hazards/flood-frequency-analysis.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/linear-change-and-rate.qmd",
+      "target": "atmospheric-hazards/fire-weather-ignition.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/urban-flood-modeling.qmd",
+      "target": "economic-systems/canada-trade-gravity-model.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/canada-trade-gravity-model.qmd",
+      "target": "economic-systems/urban-bid-rent-model.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-agglomeration-economies.qmd",
+      "target": "economic-systems/markets-spatial-arbitrage.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-bid-rent-model.qmd",
+      "target": "economic-systems/urban-agglomeration-economies.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/what-is-remote-sensing.qmd",
+      "target": "laboratory/sar-fundamentals-and-applications.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/atmospheric-effects-and-surface-reflectance.qmd",
+      "target": "laboratory/sar-fundamentals-and-applications.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/raster-classification.qmd",
+      "target": "laboratory/sar-fundamentals-and-applications.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/bayesian-updating-and-geographic-inference.qmd",
+      "target": "laboratory/bayesian-inference-for-environmental-models.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/flood-frequency-analysis.qmd",
+      "target": "laboratory/bayesian-inference-for-environmental-models.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/raster-classification.qmd",
+      "target": "laboratory/land-use-change-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/change-detection.qmd",
+      "target": "laboratory/land-use-change-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-bid-rent-model.qmd",
+      "target": "laboratory/land-use-change-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "laboratory/sediment-transport-in-rivers.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/sediment-transport-in-rivers.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/nutrient-dynamics-and-lake-eutrophication.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/photosynthesis-light-response.qmd",
+      "target": "laboratory/nutrient-dynamics-and-lake-eutrophication.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/nutrient-dynamics-and-lake-eutrophication.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "advanced-remote-sensing/thermal-infrared-remote-sensing.qmd",
+      "target": "laboratory/passive-microwave-radiometry.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+      "target": "laboratory/passive-microwave-radiometry.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/canada-trade-gravity-model.qmd",
+      "target": "laboratory/accessibility-and-travel-demand-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-agglomeration-economies.qmd",
+      "target": "laboratory/accessibility-and-travel-demand-modeling.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "target": "laboratory/urban-ventilation-and-pollutant-dispersion.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-agglomeration-economies.qmd",
+      "target": "laboratory/urban-ventilation-and-pollutant-dispersion.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/digital-elevation-models-as-functions.qmd",
+      "target": "laboratory/shallow-landslides-and-slope-stability.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/shallow-landslides-and-slope-stability.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/rainfall-intensity-duration.qmd",
+      "target": "laboratory/shallow-landslides-and-slope-stability.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/what-is-remote-sensing.qmd",
+      "target": "laboratory/satellite-data-assimilation-in-environmental-models.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/the-kalman-filter-and-sequential-data-assimilation.qmd",
+      "target": "laboratory/satellite-data-assimilation-in-environmental-models.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "laboratory/stochastic-streamflow-and-drought-risk.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/uncertainty-propagation-and-ensembles.qmd",
+      "target": "laboratory/stochastic-streamflow-and-drought-risk.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/uncertainty-propagation-and-ensembles.qmd",
+      "target": "laboratory/stochastic-streamflow-and-drought-risk.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/Methanogenesis-in-Anaerobic-Environments.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/fire-spread-modeling.qmd",
+      "target": "laboratory/Biomass-Burning-and-Pyrogenic-Carbon.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/photosynthesis-light-response.qmd",
+      "target": "laboratory/Biomass-Burning-and-Pyrogenic-Carbon.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "target": "laboratory/wave-dynamics-and-nearshore-transformation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/temperature-moisture-gradients.qmd",
+      "target": "laboratory/wave-dynamics-and-nearshore-transformation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/wave-dynamics-and-nearshore-transformation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "target": "laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/temperature-moisture-gradients.qmd",
+      "target": "laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-heat-diffusion.qmd",
+      "target": "laboratory/groundwater-contaminant-plumes.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/groundwater-contaminant-plumes.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/groundwater-contaminant-plumes.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-bid-rent-model.qmd",
+      "target": "laboratory/demographic-spatial-dynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/how-to-validate-a-model.qmd",
+      "target": "laboratory/demographic-spatial-dynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-agglomeration-economies.qmd",
+      "target": "laboratory/urban-scaling-laws-and-city-structure.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/canada-trade-gravity-model.qmd",
+      "target": "laboratory/urban-scaling-laws-and-city-structure.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/photosynthesis-light-response.qmd",
+      "target": "laboratory/Photosynthesis-and-Gross-Primary-Production.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/vegetation-indices-and-remote-sensing.qmd",
+      "target": "laboratory/Photosynthesis-and-Gross-Primary-Production.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/soil-erosion-and-the-rusle.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "laboratory/soil-erosion-and-the-rusle.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "atmospheric-hazards/rainfall-intensity-duration.qmd",
+      "target": "laboratory/soil-erosion-and-the-rusle.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "laboratory/reservoir-operations-and-mass-balance.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "scientific-computing/your-first-python-script.qmd",
+      "target": "laboratory/reservoir-operations-and-mass-balance.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/canada-trade-gravity-model.qmd",
+      "target": "laboratory/transportation-network-analysis.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/urban-bid-rent-model.qmd",
+      "target": "laboratory/transportation-network-analysis.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "target": "laboratory/longshore-sediment-transport-and-coastal-budgets.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "laboratory/wave-dynamics-and-nearshore-transformation.qmd",
+      "target": "laboratory/longshore-sediment-transport-and-coastal-budgets.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "laboratory/sediment-and-contaminant-transport-in-rivers.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/wind-profiles-and-turbulence.qmd",
+      "target": "laboratory/sediment-and-contaminant-transport-in-rivers.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/sediment-and-contaminant-transport-in-rivers.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/watershed-delineation.qmd",
+      "target": "laboratory/channel-morphology-and-hydraulic-geometry.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/channel-morphology-and-hydraulic-geometry.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/pump-and-treat-and-in-situ-remediation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "laboratory/groundwater-contaminant-plumes.qmd",
+      "target": "laboratory/pump-and-treat-and-in-situ-remediation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "advanced-remote-sensing/orbital-mechanics.qmd",
+      "target": "laboratory/gravity-remote-sensing-grace.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd",
+      "target": "laboratory/gravity-remote-sensing-grace.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/uncertainty-propagation-and-ensembles.qmd",
+      "target": "laboratory/ensemble-forecasting-and-uncertainty-quantification.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/uncertainty-propagation-and-ensembles.qmd",
+      "target": "laboratory/ensemble-forecasting-and-uncertainty-quantification.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "economic-systems/markets-spatial-arbitrage.qmd",
+      "target": "laboratory/Fossil-Fuel-Combustion-Chemistry.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-heat-diffusion.qmd",
+      "target": "laboratory/Soil-Carbon-Storage-and-Decomposition.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/Soil-Carbon-Storage-and-Decomposition.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/photosynthesis-light-response.qmd",
+      "target": "laboratory/Soil-Carbon-Storage-and-Decomposition.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/net-radiation-and-albedo.qmd",
+      "target": "laboratory/rock-weathering-and-soil-formation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/multispectral-imagery-and-band-interpretation.qmd",
+      "target": "laboratory/dimensionality-reduction-for-high-dimensional-geographic-data.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/how-to-choose-a-model.qmd",
+      "target": "laboratory/dimensionality-reduction-for-high-dimensional-geographic-data.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/raster-classification.qmd",
+      "target": "laboratory/regression-for-continuous-spatial-variables.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/how-to-choose-a-model.qmd",
+      "target": "laboratory/regression-for-continuous-spatial-variables.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/soil-moisture-dynamics.qmd",
+      "target": "laboratory/dissolved-oxygen-dynamics-and-the-streeter-phelps-model.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/simulation-paradigms.qmd",
+      "target": "laboratory/dissolved-oxygen-dynamics-and-the-streeter-phelps-model.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/temperature-moisture-gradients.qmd",
+      "target": "laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "advanced-remote-sensing/water-optics.qmd",
+      "target": "laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/the-kalman-filter-and-sequential-data-assimilation.qmd",
+      "target": "laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "methods-and-tools/bayesian-updating-and-geographic-inference.qmd",
+      "target": "laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "laboratory/sar-fundamentals-and-applications.qmd",
+      "target": "laboratory/insar-deformation-monitoring.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "foundations/spatial-spectral-temporal-and-radiometric-resolution.qmd",
+      "target": "laboratory/insar-deformation-monitoring.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/net-radiation-and-albedo.qmd",
+      "target": "laboratory/urban-heat-island-dynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/sensible-and-latent-heat-fluxes.qmd",
+      "target": "laboratory/urban-heat-island-dynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "advanced-remote-sensing/thermal-infrared-remote-sensing.qmd",
+      "target": "laboratory/urban-heat-island-dynamics.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "spatial-analysis/change-detection.qmd",
+      "target": "laboratory/Land-Use-Change-and-Deforestation.qmd",
+      "type": "prerequisite"
+    },
+    {
+      "source": "environmental-systems/photosynthesis-light-response.qmd",
+      "target": "laboratory/Land-Use-Change-and-Deforestation.qmd",
+      "type": "prerequisite"
+    }
+  ],
+  "metadata": {
+    "total_nodes": 180,
+    "total_edges": 116,
+    "unresolved_count": 0
+  }
+}
