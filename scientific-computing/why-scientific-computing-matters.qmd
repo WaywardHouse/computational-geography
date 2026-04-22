@@ -1,0 +1,75 @@
+---
+title: "Why Scientific Computing Matters"
+type: chapter
+book-part: "scientific-computing"
+---
+
+## Before You Start
+
+**You should know:**
+- Nothing. This is where we begin. If you can use a web browser, you are ready.
+
+**You will learn:**
+- Why computational geography is different from traditional geography.
+- Why we use code instead of pointing and clicking.
+- What you will be able to do by the time you finish this section.
+
+---
+
+## 1. The Point-and-Click Ceiling
+
+If you have studied geography, you have almost certainly used Geographic Information Systems (GIS) software like ArcGIS or QGIS. These tools are incredibly powerful. You load data, you click menus, you run tools, and a map appears. 
+
+But eventually, you hit a ceiling. 
+
+What happens when you need to run that same analysis on 5,000 satellite images instead of one? What happens when you want to change a parameter in a model and see how the map changes in real time? What happens when a paper publishes a new method for detecting deforestation, but it hasn't been added as a button in your GIS software yet?
+
+You wait. Or you click 5,000 times. Or, instead, you learn to write instructions for the computer yourself.
+
+This is the transition from *using software* to *doing scientific computing*.
+
+## 2. Code as Reproducible Instructions
+
+At its core, code is just a list of instructions. 
+
+When you write a computational model, you are telling the computer exactly what to do with the data, step by step. This has three immediate benefits:
+
+1. **Scale:** A computer follows instructions on 1,000 datasets just as easily as on 1.
+2. **Transparency:** Your methodology is not a vague memory of which buttons you clicked in a wizard menu; it is written down line by line.
+3. **Collaboration:** You can send your script to another geographer across the world, and if they have the same data, they will get the exact same results.
+
+We are not learning to code just to be software engineers. We are learning to code because it is the only way to answer complex geographic questions honestly and reproducibly at scale.
+
+## 3. What Becomes Possible?
+
+By the time you finish the deeper pathways of this book:
+- You will automate the analysis of decades of satellite imagery.
+- You will simulate physical systems like flood propagation and fire spread.
+- You will pull live data from APIs to watch markets fluctuate across space.
+- You will apply statistical and machine learning models to classify raw geographic data.
+
+None of that happens without a computer that knows how to compute. And your computer doesn't know how to do that yet.
+
+## 4. The Goal of This Section
+
+This foundations section is not a complete textbook on computer science. We are going to build the minimum viable infrastructure for you to start doing computational geography.
+
+Over the next nine chapters, we will:
+1. Write and run your very first Python script (right in your browser).
+2. Learn how your computer thinks and how to use the command line.
+3. Install Python properly onto your system.
+4. Set up isolated "virtual environments" so your projects don't break one another.
+5. Install specialized geographic packages (like NumPy, SciPy, and Matplotlib).
+6. Launch Jupyter Notebooks for interactive exploration.
+7. Understand how to track your work and collaborate using Git.
+
+## Verify Your Work
+
+- [x] Read this introduction and understand the roadmap.
+- [x] Take a breath. This stuff can be intimidating, but we are going step by step.
+
+## Next Steps
+
+In the next chapter, we will write our first Python code without installing anything at all.
+
+- Proceed to [Your First Python Script](./your-first-python-script.qmd)

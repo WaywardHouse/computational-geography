@@ -1,0 +1,95 @@
+---
+title: "Your First Python Script (No Installation Required)"
+type: chapter
+book-part: "scientific-computing"
+---
+
+## Before You Start
+
+**You should know:**
+- How to open a web browser. (You're doing great so far!)
+
+**You will learn:**
+- What Python looks like.
+- How to write a simple script that performs math and prints text.
+- That code is just a sequence of readable instructions.
+
+---
+
+## 1. Zero Installation
+
+Usually, the hardest part of learning to code isn't the code itself—it is getting the environment installed on your computer. We will definitely do that, but not today. Today, we just want to feel what it is like to command a computer.
+
+We are going to use an online Python interpreter. You can use any free service like Repl.it, Google Colab, or an interactive code cell if this page supports it.
+
+## 2. Your First Instruction
+
+Code is a sequence of actions. Let's tell the computer to do something immediately visible: print text to the screen.
+
+In Python, the instruction is literally the word `print()`.
+
+```python
+print("Hello, computational geography!")
+```
+
+If you type this into your interpreter and hit "Run", the computer will output:
+`Hello, computational geography!`
+
+You just wrote code. It really is that simple.
+
+## 3. Using the Computer as a Calculator
+
+Geography is full of numbers—coordinates, temperatures, population counts. Let's ask Python to do some math for us.
+
+```python
+# The computer ignores lines that start with a hash (#). These are comments for us.
+
+# Let's define some variables
+elevation_base = 1500  # meters
+elevation_peak = 3200  # meters
+
+# Calculate the difference
+elevation_change = elevation_peak - elevation_base
+
+# Print the result
+print("The elevation change is:", elevation_change, "meters.")
+```
+
+When you run this, Python remembers the numbers you gave it, does the subtraction, and stitches the text together with the numerical answer.
+
+## 4. Why Does This Matter?
+
+You might be thinking, "I have a calculator app for that." 
+
+But consider this: what if instead of two elevations, you had a grid of two million elevations? The syntax would look almost identical. The computer doesn't get tired, and it doesn't make transcription mistakes.
+
+```python
+# A tiny taste of logic
+temperature = -5
+
+if temperature < 0:
+    print("Precipitation will fall as snow.")
+else:
+    print("Precipitation will fall as rain.")
+```
+
+This is the essence of computational models. We define rules (like `if temperature < 0`), provide data, and the computer applies the rules flawlessly across the entire dataset.
+
+## 5. From Scripts to Programs
+
+What you just wrote is called a **script**. It is a text file containing instructions that run from top to bottom. This is the foundation of everything you will build in this book.
+
+Right now, Python is running in the cloud. But eventually, you want it running directly on your own hard drive, reading your own files, and saving huge maps to your own folders. 
+
+To do that, we need to leave the browser.
+
+## Verify Your Work
+
+- [x] Run a `print()` statement in an online Python interpreter.
+- [x] Assign a number to a variable and perform a basic math operation.
+
+## Next Steps
+
+Before we can install Python, we need to understand how the computer actually organizes files when we don't have graphical windows to point and click on.
+
+- Proceed to [How Your Computer Thinks: Command Line Essentials](./command-line-essentials.qmd)

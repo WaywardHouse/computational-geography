@@ -1,0 +1,9 @@
+---
+title: "Scientific Computing Foundations"
+type: chapter
+book-part: "scientific-computing"
+---
+
+# Introduction to Scientific Computing
+
+Welcome to the foundation of your computational environment!

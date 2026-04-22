@@ -1,0 +1,25 @@
+---
+title: "Git and Version Control: Tracking Your Work and Collaborating"
+type: chapter
+book-part: "scientific-computing"
+---
+
+## Before You Start
+
+**You should know:**
+- Placeholders for prerequisites
+
+**You will learn:**
+- Placeholder for outcomes
+
+## Introduction
+
+This chapter will be fully drafted soon.
+
+## Verify Your Work
+
+- Make sure you check this section.
+
+## Next Steps
+
+Ready for the next concept!
