@@ -1,0 +1,68 @@
+project:
+  type: book
+  output-dir: _book-companion-base-3
+  pre-render:
+    - ./scripts/prepare-book-output.sh _book-companion-base-3
+  post-render:
+    - ./scripts/sync-book-assets.sh _book-companion-base-3
+
+book:
+  title: "Computational Geography"
+  subtitle: "Companion 3: Economic Geography & Infrastructure Systems"
+  author: "Paul Hobson"
+  search: true
+  chapters:
+    - index.qmd
+    - economic-systems/index.qmd
+    - part: "Trade & Economic Networks"
+      chapters:
+        - economic-systems/canada-trade-gravity-model.qmd
+        - economic-systems/canada-trade-corridors.qmd
+        - economic-systems/canada-port-economics.qmd
+        - economic-systems/canada-freight-modal-split.qmd
+        - economic-systems/canada-integrated-trade-network.qmd
+        - economic-systems/urban-city-size-zipf.qmd
+        - economic-systems/urban-economic-base.qmd
+        - economic-systems/urban-integrated-system.qmd
+        - economic-systems/markets-commodity-price-formation.qmd
+        - economic-systems/markets-futures-geographic-instruments.qmd
+        - economic-systems/markets-price-volatility.qmd
+        - economic-systems/markets-integrated-price-system.qmd
+    - part: "Resource Systems"
+      chapters:
+        - economic-systems/resource-hotelling-rule.qmd
+        - economic-systems/resource-supply-cost-curves.qmd
+        - economic-systems/resource-royalty-regimes.qmd
+        - economic-systems/resource-curse.qmd
+        - economic-systems/resource-integrated-system.qmd
+        - economic-systems/alberta-pipeline-crude-oil.qmd
+        - economic-systems/alberta-pipeline-ngl-condensate.qmd
+        - economic-systems/alberta-pipeline-natural-gas.qmd
+        - economic-systems/alberta-pipeline-refined-products.qmd
+        - economic-systems/alberta-pipeline-integrated-network.qmd
+        - economic-systems/crude-oil-pipelines.qmd
+        - economic-systems/ngl-condensate-systems.qmd
+        - economic-systems/natural-gas-transmission.qmd
+        - economic-systems/refined-products-distribution.qmd
+        - economic-systems/integrated-network.qmd
+    - part: "Renewable Energy & Transitions"
+      chapters:
+        - economic-systems/alberta-renewable-resource-geography.qmd
+        - economic-systems/alberta-renewable-economics.qmd
+        - economic-systems/alberta-renewable-policy-demand.qmd
+
+format:
+  html:
+    theme: none
+    css:
+      - assets/css/quarto-wayward.css
+    html-math-method: katex
+    toc: true
+    number-sections: false
+    include-in-header:
+      - assets/includes/quarto-head.html
+    include-after-body:
+      - assets/includes/quarto-body.html
+
+execute:
+  freeze: auto

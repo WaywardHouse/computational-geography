@@ -1,0 +1,38 @@
+project:
+  type: book
+  output-dir: _book-companion-base-4
+  pre-render:
+    - ./scripts/prepare-book-output.sh _book-companion-base-4
+  post-render:
+    - ./scripts/sync-book-assets.sh _book-companion-base-4
+
+book:
+  title: "Computational Geography"
+  subtitle: "Companion 4: Geographic Machine Learning & Inference"
+  author: "Paul Hobson"
+  search: true
+  chapters:
+    - index.qmd
+    - machine-learning/index.qmd
+    - part: "Geographic Machine Learning & Inference"
+      chapters:
+        - machine-learning/regression-continuous-variables.qmd
+        - machine-learning/dimensionality-reduction-pca-tsne-umap.qmd
+        - methods-and-tools/bayesian-updating-and-geographic-inference.qmd
+        - methods-and-tools/causal-inference-for-geographic-questions.qmd
+
+format:
+  html:
+    theme: none
+    css:
+      - assets/css/quarto-wayward.css
+    html-math-method: katex
+    toc: true
+    number-sections: false
+    include-in-header:
+      - assets/includes/quarto-head.html
+    include-after-body:
+      - assets/includes/quarto-body.html
+
+execute:
+  freeze: auto

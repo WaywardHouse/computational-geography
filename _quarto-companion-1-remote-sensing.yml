@@ -1,0 +1,48 @@
+project:
+  type: book
+  output-dir: _book-companion-base-1
+  pre-render:
+    - ./scripts/prepare-book-output.sh _book-companion-base-1
+  post-render:
+    - ./scripts/sync-book-assets.sh _book-companion-base-1
+
+book:
+  title: "Computational Geography"
+  subtitle: "Companion 1: Remote Sensing for Environmental Modelling"
+  author: "Paul Hobson"
+  search: true
+  chapters:
+    - index.qmd
+    - advanced-remote-sensing/index.qmd
+    - part: "Advanced Remote Sensing"
+      chapters:
+        - advanced-remote-sensing/prospect-leaf-optical-properties.qmd
+        - advanced-remote-sensing/sail-canopy-reflectance.qmd
+        - advanced-remote-sensing/hyperspectral-imaging.qmd
+        - advanced-remote-sensing/thermal-infrared-remote-sensing.qmd
+        - advanced-remote-sensing/lidar-point-clouds.qmd
+        - advanced-remote-sensing/bathymetric-lidar-sonar.qmd
+        - advanced-remote-sensing/sar-fundamentals.qmd
+        - advanced-remote-sensing/gravity-remote-sensing.qmd
+    - part: "Orbital Mechanics"
+      chapters:
+        - environmental-systems/circular-orbits-and-keplers-third-law.qmd
+        - environmental-systems/ground-tracks-and-orbital-geometry.qmd
+        - environmental-systems/satellite-overpasses-and-visibility.qmd
+        - environmental-systems/how-gps-works.qmd
+
+format:
+  html:
+    theme: none
+    css:
+      - assets/css/quarto-wayward.css
+    html-math-method: katex
+    toc: true
+    number-sections: false
+    include-in-header:
+      - assets/includes/quarto-head.html
+    include-after-body:
+      - assets/includes/quarto-body.html
+
+execute:
+  freeze: auto

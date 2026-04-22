@@ -1,0 +1,44 @@
+project:
+  type: book
+  output-dir: _book-companion-base-2
+  pre-render:
+    - ./scripts/prepare-book-output.sh _book-companion-base-2
+  post-render:
+    - ./scripts/sync-book-assets.sh _book-companion-base-2
+
+book:
+  title: "Computational Geography"
+  subtitle: "Companion 2: Cryosphere & Mountain Systems"
+  author: "Paul Hobson"
+  search: true
+  chapters:
+    - index.qmd
+    - cryosphere-and-mountain-systems/index.qmd
+    - part: "Cryosphere & Mountain Systems"
+      chapters:
+        - cryosphere-and-mountain-systems/snowpack-energy-balance.qmd
+        - cryosphere-and-mountain-systems/snow-accumulation-melt-modeling.qmd
+        - cryosphere-and-mountain-systems/swe-estimation-methods.qmd
+        - cryosphere-and-mountain-systems/avalanche-terrain-analysis.qmd
+        - cryosphere-and-mountain-systems/glacier-mass-balance.qmd
+        - cryosphere-and-mountain-systems/glacial-meltwater-chemistry.qmd
+        - cryosphere-and-mountain-systems/glacial-lake-outburst-floods.qmd
+        - cryosphere-and-mountain-systems/slope-stability-analysis.qmd
+        - cryosphere-and-mountain-systems/debris-flow-modeling.qmd
+        - cryosphere-and-mountain-systems/permafrost-thaw-geohazards.qmd
+
+format:
+  html:
+    theme: none
+    css:
+      - assets/css/quarto-wayward.css
+    html-math-method: katex
+    toc: true
+    number-sections: false
+    include-in-header:
+      - assets/includes/quarto-head.html
+    include-after-body:
+      - assets/includes/quarto-body.html
+
+execute:
+  freeze: auto
