@@ -2,24 +2,103 @@
 title: "Jupyter Notebooks: Interactive Computing in Your Browser"
 type: chapter
 book-part: "scientific-computing"
+pathway-prerequisites:
+  - "Scientific Computing Foundations: Installing Packages"
+next-steps:
+  - "Scientific Computing Foundations: Running and Debugging Code"
 ---
 
 ## Before You Start
 
 **You should know:**
-- Placeholders for prerequisites
+- How to create a virtual environment, activate it, and install libraries using `pip` or `conda`.
 
 **You will learn:**
-- Placeholder for outcomes
+- The concept of "literate programming" and why notebooks revolutionized spatial data science.
+- How to install, launch, and navigate the Jupyter interactively.
+- The fundamental difference between a Code cell and a Markdown cell.
 
 ## Introduction
 
-This chapter will be fully drafted soon.
+So far, you’ve learned how to establish a virtual environment sandbox and populate it with geographic and mathematical libraries. The question remains: where do you actually *write* the Python code?
+
+The traditional way is to open a plain text file, write hundreds of lines of code, save it as `script.py`, and run the entire file from the command line. If an error occurs on line 499, the program crashes, and you must run the entire file again from the top. 
+
+If you are just exploring data or making a quick map, rerunning the entire file is agonizing. This is where **Jupyter Notebooks** enter the picture.
+
+Jupyter allows you to chop your Python code into tiny blocks called "cells," and execute them one by one. The output (a map, a graph, or an error) appears immediately beneath the cell. Because it allows you to dynamically write code, see the result, and iterate instantly, Jupyter has become the undisputed standard environment for scientific computing.
+
+## Literate Programming
+
+A Jupyter notebook is not just a code environment; it is a document.
+
+Jupyter is built on the philosophy of **literate programming**. In a notebook, you can create a block of code, followed by a block of beautifully formatted text, followed by an interactive chart. You are writing an executable narrative. 
+
+In fact, almost the entirety of this Computational Geography platform—including pathways, assays, and problem sets—was written, executed, and rendered out of Jupyter Notebooks!
+
+## Setting Up Jupyter
+
+Jupyter isn't a program you download from a website; it is actually a Python package you install into your virtual environment!
+
+Open your terminal, ensure your virtual environment is active, and install it:
+
+Using pip:
+```bash
+pip install jupyter
+```
+
+Using conda:
+```bash
+conda install -c conda-forge jupyterlab
+```
+
+## Launching Your First Notebook
+
+To start writing, you must tell your computer to spin up the Jupyter server.
+
+In your terminal, navigate (`cd`) to your project directory. Then, type:
+```bash
+jupyter notebook
+```
+*(If you installed JupyterLab, type `jupyter lab` instead).*
+
+Your terminal will lock up and start printing server logs. Then, magically, your default web browser will open a new tab containing the Jupyter interface. 
+
+> [!NOTE]
+> Even though you are in a web browser, Jupyter is **not** connecting to the internet. It is rendering a local interface that talks directly to your computer’s hardware. If you disconnect from Wi-Fi, Jupyter works perfectly!
+
+## Working With Cells
+
+Once inside Jupyter, click **New > Notebook**. You are now looking at an empty document with a single gray box. That box is a **Cell**. 
+
+Cells come in two flavors:
+
+### 1. Code Cells
+By default, the cell expects Python. Type a basic math equation into the cell, like `2 + 2`. 
+To execute the cell, press **Shift + Enter**. It will compute the output, print `4` beneath it, and spawn a new empty cell.
+
+### 2. Markdown Cells
+You can change a cell from "Code" to "Markdown" using the dropdown menu at the top of the screen. Markdown cells are designed for text. You can use hashtags (`#`) for headers, asterisks (`*`) for bullet points, and dollar signs (`$`) to write LaTeX math equations.
+Change a cell to Markdown, type `# My First Notebook`, and hit **Shift + Enter**. It will instantly render into a beautiful header.
+
+## Stopping Jupyter
+
+Jupyter is a running background server. If you simply close your web browser tab, the server continues to run invisibly on your computer, consuming memory.
+
+To properly shut down Jupyter:
+1. Save your notebook in the browser.
+2. Go back to your terminal window (which should still be printing out server connection logs).
+3. Press **Ctrl + C** twice in rapid succession.
+
+This sends a "kill" signal to the server. Your terminal will return to a blinking cursor.
 
 ## Verify Your Work
 
-- Make sure you check this section.
+1. Activate your virtual environment and install Jupyter.
+2. Launch `jupyter notebook`.
+3. Create a new notebook document.
+4. Execute `print("Hello Geography!")` in a Code cell.
+5. Create a Markdown cell below it and write a brief sentence.
+6. Safely shut down the Jupyter server using **Ctrl + C** in the terminal.
 
-## Next Steps
-
-Ready for the next concept!
+You now possess a fully functional, interactive computing landscape.

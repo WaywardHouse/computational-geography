@@ -1,25 +1,92 @@
 ---
-title: "Running Your Code: Scripts, Notebooks, and Debugging Basics"
+title: "Execution and Errors: Running and Debugging Code"
 type: chapter
 book-part: "scientific-computing"
+pathway-prerequisites:
+  - "Scientific Computing Foundations: Your First Jupyter Notebook"
+next-steps:
+  - "Scientific Computing Foundations: IDEs and Code Editors"
 ---
 
 ## Before You Start
 
 **You should know:**
-- Placeholders for prerequisites
+- How to launch Jupyter Notebooks from the command line.
 
 **You will learn:**
-- Placeholder for outcomes
+- The three distinct ways your computer can execute Python code (Interactive, Scripts, and Notebooks).
+- How to deliberately break your code.
+- Why Error Messages (Tracebacks) are not punishments, but precise roadmaps.
 
 ## Introduction
 
-This chapter will be fully drafted soon.
+At this stage, you have an activated sandbox equipped with mathematical packages, and you know how to launch an interactive Jupyter Notebook. There is only one final barrier before writing actual geographic models: figuring out what happens when your code inevitably breaks.
+
+You will spend substantially more time debugging code than you will writing it. This is normal. Professional software engineers spend up to 70% of their day deciphering errors! 
+
+To become an effective debugger, you have to understand the three ways Python runs, and how to read the "Tracebacks" Python generates when it gets confused.
+
+## The Three Faces of Python
+
+There are three ways to execute code, and you will routinely switch between them depending on the puzzle you are trying to solve.
+
+### 1. The Interactive Shell (The Calculator)
+If you simply open your terminal and type `python` (and press Enter), you enter Python's interactive shell. Your terminal prompt will change to `>>>`.
+You are now communicating with the Python brain in real-time. If you type `10 * 5` and hit enter, it immediately replies `50`. 
+**When to use it:** When you want to check a single syntax, try out a simple equation, or aggressively test a one-line command without saving a file. Type `exit()` to leave.
+
+### 2. The Jupyter Notebook (The Sandbox)
+As we saw in the last chapter, Jupyter stores blocks of code and executes them piecemeal in an interactive web browser.
+**When to use it:** When you are exploring a novel dataset, generating maps, or iteratively testing a complex formula. The notebook remembers the variables you ran in earlier cells, giving you enormous freedom to dynamically manipulate data.
+
+### 3. The Script (The Final Product)
+A script is a plain text file ending in `.py`, filled with Python code. It is executed linearly from top to bottom. To run it, you go to your terminal and type `python my_script.py`. 
+**When to use it:** Once you have figured out your logic perfectly inside a Jupyter Notebook, you copy the cleaned code into a `.py` script. Scripts are used for automation, deploying models, and handling massive data pipelines that don't need a human to click a button for every step.
+
+## The Art of Breaking Code
+
+Let’s deliberately break Python. In either a Jupyter Notebook or a `.py` script, try running this impossible math operation:
+
+```python
+gravity = 9.81
+mass = "ten kilograms"
+force = gravity * mass
+print(force)
+```
+
+Python will crash aggressively and print red text. This block of screaming text is called a **Traceback**.
+
+## Reading a Traceback
+
+When beginners see an error message, they panic, assume they broke their computer, and immediately begin randomly changing code to make the red text vanish. 
+
+A traceback is actually a highly specific, very polite note from Python telling you exactly what it was doing at the moment it gave up. 
+
+A traceback must be read from the **bottom up**.
+
+### Step 1: The Error Type (The Bottom Line)
+Always look at the very last line of the traceback. In our example, it will say:
+`TypeError: can't multiply sequence by non-int of type 'float'`
+
+The bottom line tells you *what* Python is confused about. In this case, a `TypeError` means you handed it data of the wrong structure. You told it to multiply a decimal number (`9.81`) by English text (`"ten kilograms"`). Python doesn't know how to do numerical math on words, so it surrendered.
+
+### Step 2: The Location (One Line Up)
+Look slightly above the Error Type. The traceback will highlight the specific line of code that triggered the meltdown:
+`----> 3 force = gravity * mass`
+
+This tells you exactly *where* to start fixing the problem.
+
+### Common Errors to Memorize
+- **SyntaxError:** You made a typo. You forgot a parenthesis, missed a colon, or spelled a core Python command wrong. 
+- **NameError:** You tried to use a variable that doesn't exist yet! You probably mistyped a variable name (like `gravty` instead of `gravity`).
+- **FileNotFoundError:** Python looked in your current working directory (remember `pwd`?) and could not find the file you told it to open.
+- **ModuleNotFoundError:** You forgot to `pip install` or `conda install` the package before attempting to use it.
 
 ## Verify Your Work
 
-- Make sure you check this section.
+1. Open your terminal and type `python`. Try running some basic math in the interactive shell, then type `exit()` to leave.
+2. Launch a Jupyter Notebook, write the broken gravity code from this chapter, and run the cell.
+3. Read the traceback carefully. 
+4. Fix the code by changing `"ten kilograms"` to `10`, and run it again to make the error disappear.
 
-## Next Steps
-
-Ready for the next concept!
+Congratulations. You are now equipped with the mindset of a scientific programmer. When things break—and they will break constantly—you now know exactly where to look for clues!

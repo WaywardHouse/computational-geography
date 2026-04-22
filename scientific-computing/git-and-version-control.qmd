@@ -1,25 +1,99 @@
 ---
-title: "Git and Version Control: Tracking Your Work and Collaborating"
+title: "Git and Version Control: Tracking and Collaborating"
 type: chapter
 book-part: "scientific-computing"
+pathway-prerequisites:
+  - "Scientific Computing Foundations: IDEs and Editors"
 ---
 
 ## Before You Start
 
 **You should know:**
-- Placeholders for prerequisites
+- How to create plain text `.py` files and edit them in an IDE.
+- How to navigate folders in the command line (`cd`, `ls`).
 
 **You will learn:**
-- Placeholder for outcomes
+- The catastrophic risk of managing code files using "Save As".
+- What Git is, and how it differs from GitHub.
+- The fundamental lifecycle of version control: Clone, Status, Add, Commit, and Push.
 
 ## Introduction
 
-This chapter will be fully drafted soon.
+At some point in your geographic career, you will write a 300-line Python script that perfectly classifies an image. The next day, you will try to optimize just one function. You'll delete a few lines, tweak a loop, and suddenly the script will crash. Panicking, you’ll try to press Ctrl-Z to undo your work, but your editor will run out of history. 
+
+Your perfect model is gone forever.
+
+Before **Version Control**, the only way to avoid this was to constantly use "Save As" and clutter your folders with files named:
+```text
+model_final.py
+model_final_v2.py
+model_final_v3_really_final.py
+model_final_USE_THIS_ONE.py
+```
+
+This method is brittle, chaotic, and makes collaboration entirely impossible. Software engineers solved this crisis natively by inventing **Git**.
+
+## Git vs. GitHub
+
+People use these terms interchangeably, but they are entirely different things.
+
+- **Git** is a free program installed locally on your computer. It acts like a time machine. It silently monitors your folder, tracking exactly which lines of text were added or deleted in a file between saves. 
+- **GitHub** is simply a website. It is a cloud locker where you can safely upload the history that Git recorded on your computer, allowing your colleagues to download and combine it with their own work.
+
+## The Git Lifecycle
+
+Working with version control requires abandoning the idea of simply pressing "Save" and walking away. Instead, you capture a **snapshot** of your project in distinct stages.
+
+### 1. Initialization (`git clone` or `git init`)
+To tell Git to start monitoring a normal folder, you navigate to it in your terminal and type `git init`. This turns the folder into a Git **Repository** (a tracked folder). 
+Alternatively, if a repository already exists on the internet (like the templates for your upcoming Pathways modules), you can use `git clone <URL>` to pull a mirrored copy precisely down to your machine.
+
+### 2. Checking the pulse (`git status`)
+Once inside a repository, the most common command you will run is `git status`. It is the radar. Git will instantly reply by listing all the files in the room that have been modified, created, or deleted since the last snapshot.
+
+### 3. The Staging Area (`git add`)
+When you edit a Python file, Git notices, but it doesn't automatically record the change into history. You have to explicitly tell Git *which* modified files you want to include in the next snapshot. This is called the "Staging Area."
+To stage a specific file:
+```bash
+git add my_script.py
+```
+To stage every modified file in the folder at once:
+```bash
+git add .
+```
+
+### 4. Taking the Snapshot (`git commit`)
+Once your files are staged, you trigger the camera. A commit rigidly locks the current state of the code into the permanent timeline. Crucially, a commit forces you to attach a human-readable message explaining exactly *why* you made the changes.
+
+```bash
+git commit -m "Fixed the boundary coordinate glitch in the matrix"
+```
+
+If your code breaks tomorrow, you can easily tell Git to mathematically reverse this specific commit and restore the files to exactly the way they looked yesterday.
+
+### 5. Backing up to the Cloud (`git push`)
+A commit only saves the snapshot to your local hard drive. If you drop your laptop in a river, the history is gone. To synchronize your local timeline with the centralized timeline hosted on GitHub, you use the final command:
+
+```bash
+git push
+```
+Your terminal will upload the differences to the cloud. If your colleague logs into GitHub, they will immediately see your code, your commit message, and exactly which lines of code you altered.
 
 ## Verify Your Work
 
-- Make sure you check this section.
+You are at the culmination of the Scientific Computing Foundations module. 
 
-## Next Steps
+1. Create a free account at [GitHub.com](https://github.com/).
+2. Depending on your operating system, [Download and Install Git](https://git-scm.com/downloads) onto your computer.
+3. Open your terminal, create a fresh folder using `mkdir git_experiment`, and `cd` inside.
+4. Run `git init`. The terminal should silently accept the command.
+5. Create a simple text file or python script in that folder, then run `git status`. You should see Git reporting that a new file is "untracked" waiting for your instructions!
 
-Ready for the next concept!
+## Conclusion & Next Steps
+
+You have traversed the entire mechanical stack required to perform computational science. 
+You understand how to navigate directories using the **Command Line**. You know how to cleanly install the **Python Interpreter**. You recognize the vital necessity of using **Virtual Environments**, and you can confidently securely install geographic packages using **pip and conda**. You know how to fluidly explore data using **Jupyter Notebooks**, how to construct hardened pipelines in an **IDE**, and how to safely track your workflow dynamically using **Git**.
+
+The installation phase is over. You are theoretically and mechanically armed. 
+
+**It is time to choose your Pathway!**
