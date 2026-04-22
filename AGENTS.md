@@ -145,127 +145,18 @@ section-title: "Problem Set B: Water Systems & Hydrology"
 | 4 | Laboratory problem set planning (42→6 groups) | ✅ Done |
 | 5 | `_quarto-laboratory.yml` reorganized; `laboratory-navigation.qmd` written | ✅ Done |
 | 6 | All 39 lab chapters updated with problem-set frontmatter metadata | ✅ Done |
+| 7 | Core book chapter metadata (`pathway-prerequisites`, `next-steps`) | ✅ Done |
+| 8 | Methods Reference companion volume config | ✅ Done |
+| 9 | Four Companion Book configs created | ✅ Done |
+| 10 | Scientific Computing Foundations (10 chapters written) | ✅ Done |
+| 11 | "Before You Start" sections standardized in lab chapters | ✅ Done |
+| 12 | Graph/Ontology layer established via JSON/Script | ✅ Done |
 
 ---
 
 ## Remaining work (priority order)
 
-### Phase 7: Core book chapter metadata
-**Goal:** Add `pathway-prerequisites` and `next-steps` frontmatter to each of the 35 core pathway chapters (Pathway A, B, C).
-
-**Files to modify:**
-- `remote-sensing/*.qmd` (Pathway A, ~13 chapters)
-- `environmental-systems/*.qmd` (Pathway B, ~12 chapters)
-- `applications/*.qmd` (Pathway C, ~11 chapters)
-
-**Pattern per chapter:**
-```yaml
-pathway-prerequisites:
-  - "Foundations: Linear Change and Rate"
-next-steps:
-  - "Next chapter name in same pathway"
-  - "Laboratory: Investigation that builds on this (Problem Set X)"
-methods-anchor: "validation"  # if chapter has a natural validation teaching point
-```
-
-Reference: `planning/phase-2-methods-tools-bifurcation.md` — has the methods anchor map for each pathway chapter.
-
----
-
-### Phase 8: Methods Reference companion volume
-**Goal:** Create `_quarto-methods-reference.yml` reorganizing the 7 existing `methods-and-tools/` chapters into a reference structure.
-
-**Target structure:**
-```yaml
-- part: "Part 1: Foundations"
-  chapters:
-    - methods-and-tools/how-to-choose-a-model.qmd
-    - methods-and-tools/how-to-validate-a-model.qmd
-- part: "Part 2: Quantifying Uncertainty"
-  chapters:
-    - methods-and-tools/uncertainty-propagation-and-ensembles.qmd
-    - methods-and-tools/simulation-paradigms.qmd
-- part: "Part 3: Advanced Inference"
-  chapters:
-    - methods-and-tools/bayesian-updating-and-geographic-inference.qmd
-    - methods-and-tools/causal-inference-for-geographic-questions.qmd
-- part: "Part 4: Optimization"
-  chapters:
-    - methods-and-tools/decision-models-and-optimization.qmd
-```
-
-Reference: `planning/phase-2-methods-tools-bifurcation.md`, Section "Phase 2.3"
-
----
-
-### Phase 9: Four Companion Book configs
-**Goal:** Create 4 new `_quarto-companion-*.yml` configs for the specialist topic libraries.
-
-**Target configs:**
-1. `_quarto-companion-1-remote-sensing.yml` — Advanced RS + orbital mechanics + workflows
-2. `_quarto-companion-2-cryosphere.yml` — Cryosphere & Mountain Systems
-3. `_quarto-companion-3-economics.yml` — Economic Geography & Infrastructure
-4. `_quarto-companion-4-ml-inference.yml` — Geographic Machine Learning & Inference
-
-**Source material:**
-- `advanced-remote-sensing/` → Companion 1
-- `cryosphere-and-mountain-systems/` → Companion 2
-- `economic-systems/` → Companion 3
-- `machine-learning/` → Companion 4
-
-Reference: `planning/phase-3-topic-libraries.md`
-
----
-
-### Phase 10: Scientific Computing Foundations chapters
-**Goal:** Write 10 new chapters for `scientific-computing/` directory.
-
-**Chapter list:** See `planning/scientific-computing-foundations-outline.md`
-1. Why Scientific Computing Matters
-2. Your First Python Script
-3. Command Line Essentials
-4. Installing Python (Anaconda vs venv)
-5. Virtual Environments
-6. Package Management (pip, conda)
-7. Your First Jupyter Notebook
-8. Running Your Code (scripts, notebooks, debugging)
-9. IDEs & Code Editors
-10. Git & Version Control Basics
-
-**Directory:** `scientific-computing/` (create if absent)
-**Tone:** Beginner-friendly, cross-platform (Windows/Mac/Linux), hands-on first
-
----
-
-### Phase 11: "Before You Start" sections in lab chapters
-**Goal:** Add a standardized `## Before You Start This Investigation` section near the top of each lab chapter (after the introduction, before the first major section).
-
-**Template:**
-```markdown
-## Before You Start This Investigation
-
-**You should have completed:**
-- [Pathway B, Chapter 11: Watershed Delineation](...)
-- [Methods Reference, Chapter 3: Uncertainty Propagation](...)
-
-**You will learn:**
-- Bullet-point list of 3–5 specific outcomes
-
-**Estimated time:** 12 hours
-
-**See also:** [Backward link explanation]
-```
-
-**Note:** The frontmatter now contains the prerequisite data. This phase puts it into readable prose inside the chapter body.
-
----
-
-### Phase 12 (Deferred): Graph/Ontology layer
-**Goal:** Design a prerequisite graph that formalizes the chapter dependency network. Candidates: YAML-based adjacency list, JSON-LD, or a lightweight graph DB. 
-
-**Status:** Explicitly deferred until Phases 7–11 are complete. The metadata frontmatter (Phases 6–7) will serve as the raw data source for any future graph layer.
-
----
+No planned phases remaining! The structural overhaul is complete.
 
 ## Key conventions
 
