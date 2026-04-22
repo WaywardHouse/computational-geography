@@ -38,6 +38,10 @@ interactive:
 math-prerequisites-note: Functions of two variables (Model 7). Grid coordinates and
   rasters. Basic calculus for understanding smoothness. We'll introduce interpolation
   kernels.
+pathway-prerequisites:
+  - "Pathway A: Vegetation Indices and Remote Sensing"
+next-steps:
+  - "Pathway A: Raster Classification and Reclassification"
 ---
 
 ## Before You Start

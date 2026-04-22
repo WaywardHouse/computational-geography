@@ -36,6 +36,13 @@ interactive:
   charts: true
 math-prerequisites-note: Partial derivatives (Model 8). Exponential functions (Model
   3). We'll introduce the heat equation and solve it for periodic boundary conditions.
+pathway-prerequisites:
+  - "Pathway B: Sensible and Latent Heat Fluxes"
+next-steps:
+  - "Pathway B: Photosynthesis and Light Response"
+  - "Laboratory: Groundwater Contaminant Plumes (Problem Set B)"
+  - "Laboratory: Soil Carbon Storage (Problem Set F)"
+methods-anchor: "numerical-methods"
 ---
 
 

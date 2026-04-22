@@ -34,6 +34,10 @@ interactive:
   math: true
   charts: true
 math-prerequisites-note: Ratios, area, and simple powers of two are enough.
+pathway-prerequisites:
+  - "Pathway A: What Is Remote Sensing?"
+next-steps:
+  - "Pathway A: Atmospheric Effects and Surface Reflectance"
 ---
 
 ## Before You Start

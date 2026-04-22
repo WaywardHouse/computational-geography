@@ -39,6 +39,10 @@ math-prerequisites-note: 'Atmospheric moisture basics. Exponential decay. Heat t
   concepts. We''ll introduce fire meteorology and fuel dynamics from first principles.
 
   '
+pathway-prerequisites:
+  - "Foundations: Linear Change and Rate"
+next-steps:
+  - "Pathway C: Fire Spread modelling"
 ---
 
 

@@ -35,6 +35,12 @@ interactive:
   charts: true
 math-prerequisites-note: Basic reflectance concepts and ratios are enough. This chapter
   emphasizes interpretation more than heavy mathematics.
+pathway-prerequisites:
+  - "Pathway A: Atmospheric Effects and Surface Reflectance"
+next-steps:
+  - "Pathway A: Vegetation Indices and Remote Sensing"
+  - "Laboratory: Dimensionality Reduction for Geographic Data (Problem Set E)"
+methods-anchor: "model-choice"
 ---
 
 ## Before You Start

@@ -35,6 +35,10 @@ interactive:
   charts: true
 math-prerequisites-note: Basic coordinates and graphs are enough. We use very light
   algebra and focus on physical intuition.
+pathway-prerequisites:
+  - "Foundations: Linear Change and Rate"
+next-steps:
+  - "Pathway A: Spatial, Spectral, Temporal, and Radiometric Resolution"
 ---
 
 ## Before You Start

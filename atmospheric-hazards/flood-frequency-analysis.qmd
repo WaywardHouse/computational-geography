@@ -38,6 +38,10 @@ math-prerequisites-note: 'Probability distributions. Logarithms. Return periods 
   68). We''ll introduce flood statistics and frequency methods from first principles.
 
   '
+pathway-prerequisites:
+  - "Pathway C: Rainfall Intensity-Duration-Frequency"
+next-steps:
+  - "Pathway C: Urban Flood modelling and Green Infrastructure"
 ---
 
 

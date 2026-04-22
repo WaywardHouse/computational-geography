@@ -36,6 +36,10 @@ interactive:
   charts: true
 math-prerequisites-note: IDF curves (Model 68). Basic hydrology. Conservation of mass.
   We'll introduce urban runoff generation and mitigation strategies from first principles.
+pathway-prerequisites:
+  - "Pathway C: Flood Frequency Analysis"
+next-steps:
+  - "Pathway C: The Gravity Model of Trade"
 ---
 
 

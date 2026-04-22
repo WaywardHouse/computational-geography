@@ -39,6 +39,15 @@ math-prerequisites-note: 'Logarithms (Model 3). Basic calculus. We''ll introduce
   momentum transfer.
 
   '
+pathway-prerequisites:
+  - "Pathway B: Soil Moisture Dynamics"
+next-steps:
+  - "Pathway B: Temperature and Moisture Gradients"
+  - "Laboratory: Sediment Transport in Rivers (Problem Set B)"
+  - "Laboratory: Wave Dynamics & Nearshore Transformation (Problem Set C)"
+  - "Laboratory: Longshore Sediment Transport (Problem Set C)"
+  - "Laboratory: Sea Level & Coastal Morphodynamics (Problem Set C)"
+  - "Laboratory: Urban Ventilation (Problem Set D)"
 ---
 
 

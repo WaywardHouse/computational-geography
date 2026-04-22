@@ -38,6 +38,11 @@ interactive:
 math-prerequisites-note: Vegetation indices (Model 25). Image classification (Model
   39). Basic statistics (mean, standard deviation). We'll introduce change detection
   algorithms.
+pathway-prerequisites:
+  - "Pathway A: Raster Classification and Reclassification"
+next-steps:
+  - "Laboratory: Land Use Change Modeling (Problem Set D)"
+  - "Laboratory: Land Use Change & Deforestation (Problem Set F)"
 ---
 
 

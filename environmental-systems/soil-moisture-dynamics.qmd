@@ -36,6 +36,19 @@ interactive:
   charts: true
 math-prerequisites-note: Basic differential equations (Model 3-4). Conservation principles.
   We'll introduce soil water retention curves and hydraulic concepts from first principles.
+pathway-prerequisites:
+  - "Pathway B: Photosynthesis and Light Response"
+next-steps:
+  - "Pathway B: Wind Profiles and Atmospheric Turbulence"
+  - "Laboratory: Dissolved Oxygen Dynamics (Problem Set B)"
+  - "Laboratory: Nutrient Dynamics and Lake Eutrophication (Problem Set B)"
+  - "Laboratory: Groundwater Contaminant Plumes (Problem Set B)"
+  - "Laboratory: Pump and Treat Remediation (Problem Set B)"
+  - "Laboratory: Soil Erosion and the RUSLE (Problem Set C)"
+  - "Laboratory: Shallow Landslides (Problem Set C)"
+  - "Laboratory: Soil Carbon Storage (Problem Set F)"
+  - "Laboratory: Methanogenesis (Problem Set F)"
+methods-anchor: "validation"
 ---
 
 

@@ -35,6 +35,11 @@ body-classes: reading-body tag-hash-math tag-hash-viz
 interactive:
   math: true
   charts: true
+pathway-prerequisites:
+  - "Pathway C: Urban Flood modelling and Green Infrastructure"
+next-steps:
+  - "Pathway C: The Bid-Rent Model"
+methods-anchor: "statistical-testing"
 ---
 
 

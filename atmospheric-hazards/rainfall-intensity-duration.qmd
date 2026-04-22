@@ -38,6 +38,10 @@ math-prerequisites-note: 'Probability distributions. Statistics. Logarithms. We'
   introduce extreme value theory and frequency analysis from first principles.
 
   '
+pathway-prerequisites:
+  - "Pathway C: Fire Spread modelling"
+next-steps:
+  - "Pathway C: Flood Frequency Analysis"
 ---
 
 

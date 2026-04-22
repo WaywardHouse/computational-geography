@@ -37,6 +37,12 @@ interactive:
   charts: true
 math-prerequisites-note: Basic algebra. Ratios and normalization. Photosynthesis concepts
   (Model 20). We'll introduce spectral reflectance and band combinations from scratch.
+pathway-prerequisites:
+  - "Pathway A: Multispectral Imagery and Band Interpretation"
+next-steps:
+  - "Pathway A: Raster Resampling and Interpolation"
+  - "Laboratory: Passive Microwave Radiometry (Problem Set A)"
+  - "Laboratory: Photosynthesis and Gross Primary Production (Problem Set F)"
 ---
 
 

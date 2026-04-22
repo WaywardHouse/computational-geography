@@ -27,6 +27,13 @@ body-classes: reading-body tag-hash-math tag-hash-viz
 interactive:
   math: true
   charts: true
+pathway-prerequisites:
+  - "Pathway C: The Gravity Model of Trade"
+next-steps:
+  - "Pathway C: Agglomeration Economies"
+  - "Laboratory: Transportation Network Analysis (Problem Set D)"
+  - "Laboratory: Land Use Change Modeling (Problem Set D)"
+  - "Laboratory: Demographic & Spatial Dynamics (Problem Set D)"
 ---
 
 

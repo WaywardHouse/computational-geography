@@ -29,6 +29,13 @@ body-classes: reading-body tag-hash-math tag-hash-viz
 interactive:
   math: true
   charts: true
+pathway-prerequisites:
+  - "Pathway C: The Bid-Rent Model"
+next-steps:
+  - "Pathway C: Spatial Arbitrage and the Law of One Price"
+  - "Laboratory: Accessibility & Travel Demand (Problem Set D)"
+  - "Laboratory: Urban Scaling Laws (Problem Set D)"
+methods-anchor: "causal-inference"
 ---
 
 

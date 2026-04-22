@@ -38,6 +38,16 @@ interactive:
 math-prerequisites-note: Digital elevation models (Models 7-9). Gradient and steepest
   descent (Model 8). Graph traversal concepts. We'll introduce flow routing algorithms
   from scratch.
+pathway-prerequisites:
+  - "Pathway B: Hydrological Flow as Optimization"
+next-steps:
+  - "Pathway B: Phenology and Growing Season Dynamics"
+  - "Laboratory: Reservoir Operations (Problem Set B)"
+  - "Laboratory: Stochastic Streamflow (Problem Set B)"
+  - "Laboratory: Sediment and Contaminant Transport (Problem Set B)"
+  - "Laboratory: Soil Erosion and the RUSLE (Problem Set C)"
+  - "Laboratory: Sediment Transport in Rivers (Problem Set C)"
+  - "Laboratory: Channel Morphology (Problem Set C)"
 ---
 
 ## Before You Start

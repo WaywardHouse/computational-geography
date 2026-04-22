@@ -38,6 +38,10 @@ math-prerequisites-note: 'Functions of one variable (from Models 1-3). Comfortab
   to functions that take TWO inputs (x and y coordinates) and return elevation z.
 
   '
+pathway-prerequisites:
+  - "Foundations: Linear Change and Rate"
+next-steps:
+  - "Pathway B: Gradient, Aspect, and Direction of Steepest Descent"
 ---
 
 

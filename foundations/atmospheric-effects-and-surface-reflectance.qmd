@@ -34,6 +34,11 @@ interactive:
   math: true
   charts: true
 math-prerequisites-note: Basic ratios and the idea of attenuation are enough.
+pathway-prerequisites:
+  - "Pathway A: Spatial, Spectral, Temporal, and Radiometric Resolution"
+next-steps:
+  - "Pathway A: Multispectral Imagery and Band Interpretation"
+methods-anchor: "uncertainty"
 ---
 
 ## Before You Start

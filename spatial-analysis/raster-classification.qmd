@@ -37,6 +37,14 @@ interactive:
 math-prerequisites-note: Basic statistics (mean, standard deviation). Histograms.
   Map algebra (Model 34). We'll introduce classification schemes and decision theory
   basics.
+pathway-prerequisites:
+  - "Pathway A: Raster Resampling and Interpolation"
+next-steps:
+  - "Pathway A: Change Detection in Satellite Imagery"
+  - "Laboratory: SAR Fundamentals (Problem Set A)"
+  - "Laboratory: Regression for Continuous Spatial Variables (Problem Set E)"
+  - "Laboratory: Land Use Change Modeling (Problem Set D)"
+methods-anchor: "validation"
 ---
 
 ## Before You Start

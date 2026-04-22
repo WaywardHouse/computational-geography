@@ -36,6 +36,11 @@ interactive:
 math-prerequisites-note: Energy balance from Model 17. Basic thermodynamics (heat
   capacity conceptually). We'll introduce vapor pressure and latent heat from first
   principles.
+pathway-prerequisites:
+  - "Pathway B: Net Radiation and Albedo"
+next-steps:
+  - "Pathway B: Soil Heat Diffusion"
+  - "Laboratory: Urban Heat Island Dynamics (Problem Set D)"
 ---
 
 

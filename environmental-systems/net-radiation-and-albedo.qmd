@@ -34,6 +34,13 @@ interactive:
   charts: true
 math-prerequisites-note: Basic algebra. Conservation of energy conceptually. We'll
   introduce the Stefan- Boltzmann law and show how temperature and radiation are connected.
+pathway-prerequisites:
+  - "Pathway B: Gradient, Aspect, and Direction of Steepest Descent"
+next-steps:
+  - "Pathway B: Sensible and Latent Heat Fluxes"
+  - "Laboratory: Rock Weathering (Problem Set C)"
+  - "Laboratory: Urban Heat Island Dynamics (Problem Set D)"
+methods-anchor: "sensitivity"
 ---
 
 

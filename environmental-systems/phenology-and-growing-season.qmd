@@ -37,6 +37,9 @@ interactive:
 math-prerequisites-note: Seasonal cycles conceptually. Integration/accumulation (growing
   degree days are integrals of temperature). Photosynthesis and LAI (Model 20). We'll
   introduce thermal time from first principles.
+pathway-prerequisites:
+  - "Pathway B: Watershed Delineation and Flow Networks"
+next-steps:
 ---
 
 ## Before You Start

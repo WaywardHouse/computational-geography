@@ -38,6 +38,13 @@ interactive:
 math-prerequisites-note: Temperature concepts (Model 17-19). Vapor pressure (Model
   18). Basic thermodynamics (heat capacity). We'll introduce adiabatic processes from
   first principles.
+pathway-prerequisites:
+  - "Pathway B: Wind Profiles and Atmospheric Turbulence"
+next-steps:
+  - "Pathway B: Hydrological Flow as Optimization"
+  - "Laboratory: Wave Dynamics & Nearshore Transformation (Problem Set C)"
+  - "Laboratory: Sea Level & Coastal Morphodynamics (Problem Set C)"
+  - "Laboratory: Ocean Carbon Uptake (Problem Set F)"
 ---
 
 

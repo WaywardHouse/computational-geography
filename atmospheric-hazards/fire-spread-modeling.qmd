@@ -38,6 +38,12 @@ math-prerequisites-note: 'Fire weather (Model 60). Vector operations. Differenti
   equations. We''ll introduce fire physics and landscape-scale spread algorithms.
 
   '
+pathway-prerequisites:
+  - "Pathway C: Fire Weather and Ignition Potential"
+next-steps:
+  - "Pathway C: Rainfall Intensity-Duration-Frequency"
+  - "Laboratory: Biomass Burning (Problem Set F)"
+methods-anchor: "model-choice"
 ---
 
 

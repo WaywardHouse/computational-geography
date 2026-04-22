@@ -38,6 +38,10 @@ math-prerequisites-note: 'Gradient and aspect from Model 8. Comfortable with the
   concepts (nodes, edges, connectivity) as needed.
 
   '
+pathway-prerequisites:
+  - "Pathway B: Temperature and Moisture Gradients"
+next-steps:
+  - "Pathway B: Watershed Delineation and Flow Networks"
 ---
 
 

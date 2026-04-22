@@ -39,6 +39,10 @@ math-prerequisites-note: >
   Functions of two variables are the key setup. We introduce partial
   derivatives from scratch and use finite differences as the numerical bridge.
 image: /assets/images/spatial-analysis.webp
+pathway-prerequisites:
+  - "Pathway B: Digital Elevation Models as Functions"
+next-steps:
+  - "Pathway B: Net Radiation and Albedo"
 ---
 
 ## Before You Start
