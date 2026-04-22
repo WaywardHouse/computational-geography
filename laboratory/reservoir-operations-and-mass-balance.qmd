@@ -6,9 +6,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/watershed-models.webp
 book-part: laboratory
+problem-set: "B"
+lab-level: "Advanced"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway B: Watershed Delineation"
+  - "Scientific Computing Foundations: Python scripting"
+backward-link: "Pathway B, Watershed Delineation — apply mass balance to a real reservoir system"
 book-part-title: Computational Geography Laboratory
-section-code: AR
-section-title: Reservoir Operations and Water Supply
+section-code: B
+section-title: Problem Set B: Water Systems & Hydrology
 tags:
 - math
 - viz

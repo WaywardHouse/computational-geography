@@ -6,10 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/remote-sensing.webp
 book-part: laboratory
+problem-set: "A"
+lab-level: "Advanced"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway A: Thermal Infrared Remote Sensing"
+  - "Pathway A: Vegetation Indices & Remote Sensing"
+backward-link: "Pathway A, Vegetation Indices — microwave offers all-weather alternative"
 book-part-title: Computational Geography Laboratory
 chapter-number: 59
-section-code: U
-section-title: Geophysical Remote Sensing
+section-code: A
+section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
 tags:
 - math
 - viz

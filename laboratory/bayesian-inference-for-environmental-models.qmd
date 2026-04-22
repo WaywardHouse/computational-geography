@@ -5,9 +5,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/time-series.webp
 book-part: laboratory
+problem-set: "E"
+lab-level: "Advanced"
+est-hours: 12
+pathway-prerequisites:
+  - "Methods Reference: Bayesian Updating"
+  - "Any applied chapter (fire, flood, etc.)"
+backward-link: "Vol II.B, Data Assimilation — deep dive into Bayesian methods"
 book-part-title: Computational Geography Laboratory
-section-code: Z
-section-title: Foundations of Geographic Machine Learning
+section-code: E
+section-title: Problem Set E: Inference & Methods
 tags:
 - math
 - viz

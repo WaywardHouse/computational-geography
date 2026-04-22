@@ -5,9 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/nitrogen-cycle.webp
 book-part: laboratory
+problem-set: "B"
+lab-level: "Intermediate"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway B: Soil Moisture Dynamics"
+  - "Pathway B: Photosynthesis & Light Response"
+  - "Methods Reference: Differential Equations"
+backward-link: "Pathway B, Soil Moisture — extend to coupled nutrient-water dynamics"
 book-part-title: Computational Geography Laboratory
-section-code: AS
-section-title: Water Quality and Eutrophication
+section-code: B
+section-title: Problem Set B: Water Systems & Hydrology
 tags:
 - math
 - viz

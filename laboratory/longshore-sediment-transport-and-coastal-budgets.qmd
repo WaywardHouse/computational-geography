@@ -6,10 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/seafloor-bathymetry.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Intermediate"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway B: Wind Profiles & Turbulence"
+  - "Laboratory: Wave Dynamics & Nearshore Transformation"
+backward-link: "Pathway B, Wind Profiles — coastal sediment budgets driven by wave energy"
 book-part-title: Computational Geography Laboratory
 chapter-number: 77
-section-code: AC
-section-title: Coastal Processes
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

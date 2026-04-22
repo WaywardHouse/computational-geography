@@ -6,10 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/watershed-delineation.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway B: Watershed Delineation"
+  - "Methods Reference: Dynamics"
+backward-link: "Pathway B, Watershed Delineation — model sediment in your basin"
 book-part-title: Computational Geography Laboratory
 chapter-number: 74
-section-code: AB
-section-title: Fluvial Geomorphology
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

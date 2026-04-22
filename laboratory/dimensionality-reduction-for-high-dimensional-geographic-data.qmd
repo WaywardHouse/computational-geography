@@ -5,9 +5,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/dimensionality-reduction.webp
 book-part: laboratory
+problem-set: "E"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway A: Multispectral Imagery & Band Interpretation"
+  - "Methods Reference: How to Choose a Model"
+backward-link: "Pathway A, Vegetation Indices — extract features from high-dimensional imagery"
 book-part-title: Computational Geography Laboratory
-section-code: Z
-section-title: Foundations of Geographic Machine Learning
+section-code: E
+section-title: Problem Set E: Inference & Methods
 tags:
 - math
 - viz

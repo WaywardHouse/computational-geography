@@ -5,10 +5,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/slope-stability.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Intermediate"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway B: Digital Elevation Models"
+  - "Pathway B: Soil Moisture Dynamics"
+  - "Pathway C: Rainfall Intensity-Duration-Frequency"
+backward-link: "Pathway B, Gradient/Aspect — use terrain derivatives for hazard mapping"
 book-part-title: Computational Geography Laboratory
 chapter-number: 73
-section-code: AA
-section-title: Weathering and Hillslope Processes
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

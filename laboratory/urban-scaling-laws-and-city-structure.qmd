@@ -6,10 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/urban-flood.webp
 book-part: laboratory
+problem-set: "D"
+lab-level: "Intermediate"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway C: Urban Agglomeration Economies"
+  - "Pathway C: Gravity Models — Trade & Migration"
+backward-link: "Pathway C, Urban Agglomeration — investigate scaling in your region"
 book-part-title: Computational Geography Laboratory
 chapter-number: 100
-section-code: AL
-section-title: Land Use and Demographic Dynamics
+section-code: D
+section-title: Problem Set D: Urban Systems & Infrastructure
 tags:
 - math
 - viz

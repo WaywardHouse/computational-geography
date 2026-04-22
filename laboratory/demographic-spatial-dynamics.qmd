@@ -5,10 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/demographic-dynamics.webp
 book-part: laboratory
+problem-set: "D"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway C: Urban Bid-Rent Models"
+  - "Methods Reference: Spatial Statistics"
+backward-link: "Pathway C, Urban Bid-Rent — model population change in space"
 book-part-title: Computational Geography Laboratory
 chapter-number: 101
-section-code: AL
-section-title: Land Use and Demographic Dynamics
+section-code: D
+section-title: Problem Set D: Urban Systems & Infrastructure
 tags:
 - math
 - viz

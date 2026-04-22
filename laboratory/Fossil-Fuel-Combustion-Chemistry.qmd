@@ -5,10 +5,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/fire-modelling.webp
 book-part: laboratory
+problem-set: "F"
+lab-level: "Intermediate"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway C: Markets & Spatial Arbitrage"
+backward-link: "Companion 3: Energy Systems — understand emissions from sources"
 book-part-title: Computational Geography Laboratory
 chapter-number: 115
-section-code: AM
-section-title: Carbon Sources
+section-code: F
+section-title: Problem Set F: Biogeochemical Cycles
 tags:
 - math
 - viz

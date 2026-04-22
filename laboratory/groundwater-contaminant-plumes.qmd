@@ -6,9 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/river-hydrology.webp
 book-part: laboratory
+problem-set: "B"
+lab-level: "Advanced"
+est-hours: 14
+pathway-prerequisites:
+  - "Pathway B: Soil Heat Diffusion"
+  - "Pathway B: Soil Moisture Dynamics"
+  - "Methods Reference: PDEs & Numerical Methods"
+backward-link: "Pathway B, Soil Heat Diffusion — apply diffusion physics to contaminants"
 book-part-title: Computational Geography Laboratory
-section-code: AT
-section-title: Groundwater Contamination and Remediation
+section-code: B
+section-title: Problem Set B: Water Systems & Hydrology
 tags:
 - math
 - viz

@@ -5,10 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/change-detection.webp
 book-part: laboratory
+problem-set: "F"
+lab-level: "Intermediate"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway A: Change Detection"
+  - "Pathway B: Photosynthesis & Light Response"
+backward-link: "Pathway A, Change Detection — quantify carbon loss from deforestation"
 book-part-title: Computational Geography Laboratory
 chapter-number: 117
-section-code: AM
-section-title: Carbon Sources
+section-code: F
+section-title: Problem Set F: Biogeochemical Cycles
 tags:
 - math
 - viz

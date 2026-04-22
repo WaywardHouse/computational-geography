@@ -5,10 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/river-hydrology.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Intermediate"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway B: Watershed Delineation"
+  - "Methods Reference: Numerical Methods"
+backward-link: "Pathway B, Watershed Delineation — channel form as a product of process"
 book-part-title: Computational Geography Laboratory
 chapter-number: 75
-section-code: AB
-section-title: Fluvial Geomorphology
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

@@ -6,10 +6,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/urban-flood.webp
 book-part: laboratory
+problem-set: "D"
+lab-level: "Intermediate"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway B: Net Radiation & Albedo"
+  - "Pathway B: Sensible & Latent Heat Fluxes"
+  - "Pathway A: Thermal Infrared Remote Sensing"
+backward-link: "Pathway B, Sensible/Latent Heat — apply energy balance to cities"
 book-part-title: Computational Geography Laboratory
 chapter-number: 95
-section-code: AJ
-section-title: Urban Climate and Air Quality
+section-code: D
+section-title: Problem Set D: Urban Systems & Infrastructure
 tags:
 - math
 - viz

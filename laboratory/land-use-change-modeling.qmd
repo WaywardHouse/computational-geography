@@ -5,10 +5,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/change-detection.webp
 book-part: laboratory
+problem-set: "D"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway A: Raster Classification"
+  - "Pathway A: Change Detection"
+  - "Pathway C: Urban Bid-Rent Models"
+backward-link: "Pathway A, Change Detection — predict future land use from past change"
 book-part-title: Computational Geography Laboratory
 chapter-number: 99
-section-code: AL
-section-title: Land Use and Demographic Dynamics
+section-code: D
+section-title: Problem Set D: Urban Systems & Infrastructure
 tags:
 - math
 - viz

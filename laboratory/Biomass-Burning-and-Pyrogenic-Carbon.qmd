@@ -5,10 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/fire-modelling.webp
 book-part: laboratory
+problem-set: "F"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway C: Fire Spread Modeling"
+  - "Pathway B: Photosynthesis & Light Response"
+backward-link: "Pathway C, Fire Spread — calculate carbon emissions from fire"
 book-part-title: Computational Geography Laboratory
 chapter-number: 116
-section-code: AM
-section-title: Carbon Sources
+section-code: F
+section-title: Problem Set F: Biogeochemical Cycles
 tags:
 - math
 - viz

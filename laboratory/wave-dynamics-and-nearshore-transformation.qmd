@@ -6,10 +6,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/seafloor-bathymetry.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Advanced"
+est-hours: 13
+pathway-prerequisites:
+  - "Pathway B: Wind Profiles & Turbulence"
+  - "Pathway B: Temperature-Moisture Gradients"
+  - "Methods Reference: Numerical Methods"
+backward-link: "Pathway B, Wind Profiles — wave generation and propagation"
 book-part-title: Computational Geography Laboratory
 chapter-number: 76
-section-code: AC
-section-title: Coastal Processes
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

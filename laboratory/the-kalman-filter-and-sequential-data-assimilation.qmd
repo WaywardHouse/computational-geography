@@ -5,9 +5,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/time-series.webp
 book-part: laboratory
+problem-set: "E"
+lab-level: "Advanced"
+est-hours: 13
+pathway-prerequisites:
+  - "Vol II.B: Data Assimilation"
+  - "Methods Reference: Bayesian Updating"
+backward-link: "Vol II.B, Data Assimilation — operational forecasting implementation"
 book-part-title: Computational Geography Laboratory
-section-code: AU
-section-title: Ensemble Methods and Data Assimilation
+section-code: E
+section-title: Problem Set E: Inference & Methods
 tags:
 - math
 - viz

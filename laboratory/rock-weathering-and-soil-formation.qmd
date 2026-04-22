@@ -6,10 +6,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/soil-carbon.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Intermediate"
+est-hours: 9
+pathway-prerequisites:
+  - "Pathway B: Net Radiation & Albedo"
+backward-link: "Pathway B, Net Radiation & Albedo — heat drives weathering"
 book-part-title: Computational Geography Laboratory
 chapter-number: 71
-section-code: AA
-section-title: Weathering and Hillslope Processes
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

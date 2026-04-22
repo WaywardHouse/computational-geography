@@ -5,10 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/net-radiation.webp
 book-part: laboratory
+problem-set: "F"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway B: Temperature-Moisture Gradients"
+  - "Pathway A: Water Optics (Companion 1)"
+backward-link: "Pathway B, Temperature-Moisture Gradients — ocean carbon in global cycles"
 book-part-title: Computational Geography Laboratory
 chapter-number: 119
-section-code: AN
-section-title: Carbon Sinks
+section-code: F
+section-title: Problem Set F: Biogeochemical Cycles
 tags:
 - math
 - viz

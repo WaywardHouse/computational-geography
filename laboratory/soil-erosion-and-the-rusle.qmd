@@ -6,10 +6,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/soil-moisture-dynamics.webp
 book-part: laboratory
+problem-set: "C"
+lab-level: "Intermediate"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway B: Soil Moisture Dynamics"
+  - "Pathway B: Watershed Delineation"
+  - "Pathway C: Rainfall Intensity-Duration-Frequency"
+backward-link: "Pathway B, Watershed Delineation — predict erosion in your watershed"
 book-part-title: Computational Geography Laboratory
 chapter-number: 72
-section-code: AA
-section-title: Weathering and Hillslope Processes
+section-code: C
+section-title: Problem Set C: Geomorphology & Hazards
 tags:
 - math
 - viz

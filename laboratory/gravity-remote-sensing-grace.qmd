@@ -6,10 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/gravity-sensing.webp
 book-part: laboratory
+problem-set: "A"
+lab-level: "Advanced"
+est-hours: 11
+pathway-prerequisites:
+  - "Pathway A: Orbital Mechanics (Companion 1)"
+  - "Pathway A: Spectral & Temporal Resolution"
+backward-link: "Pathway A, Spectral & Temporal Resolution — GRACE extends temporal monitoring"
 book-part-title: Computational Geography Laboratory
 chapter-number: 58
-section-code: U
-section-title: Geophysical Remote Sensing
+section-code: A
+section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
 tags:
 - math
 - viz

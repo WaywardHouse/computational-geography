@@ -6,9 +6,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/time-series.webp
 book-part: laboratory
+problem-set: "E"
+lab-level: "Advanced"
+est-hours: 12
+pathway-prerequisites:
+  - "Vol II.B: Ensemble Methods"
+  - "Methods Reference: Uncertainty Propagation"
+backward-link: "Vol II.B, Time-Series Mechanics — practice ensemble thinking with real data"
 book-part-title: Computational Geography Laboratory
-section-code: AU
-section-title: Ensemble Methods and Data Assimilation
+section-code: E
+section-title: Problem Set E: Inference & Methods
 tags:
 - math
 - viz

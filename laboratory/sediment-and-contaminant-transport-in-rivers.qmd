@@ -5,9 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/watershed-delineation.webp
 book-part: laboratory
+problem-set: "B"
+lab-level: "Advanced"
+est-hours: 13
+pathway-prerequisites:
+  - "Pathway B: Watershed Delineation"
+  - "Pathway B: Wind Profiles & Turbulence"
+  - "Methods Reference: Dynamics"
+backward-link: "Pathway B, Watershed Delineation — model sediment in your basin"
 book-part-title: Computational Geography Laboratory
-section-code: AS
-section-title: Water Quality and Eutrophication
+section-code: B
+section-title: Problem Set B: Water Systems & Hydrology
 tags:
 - math
 - viz

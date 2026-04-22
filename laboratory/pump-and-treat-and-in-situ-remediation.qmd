@@ -6,9 +6,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/river-hydrology.webp
 book-part: laboratory
+problem-set: "B"
+lab-level: "Intermediate"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway B: Soil Moisture Dynamics"
+  - "Laboratory: Groundwater Contaminant Plumes"
+backward-link: "Laboratory: Groundwater Contaminant Plumes — extends to remediation design"
 book-part-title: Computational Geography Laboratory
-section-code: AT
-section-title: Groundwater Contamination and Remediation
+section-code: B
+section-title: Problem Set B: Water Systems & Hydrology
 tags:
 - math
 - viz

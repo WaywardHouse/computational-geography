@@ -6,10 +6,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/SAR-inSAR.webp
 book-part: laboratory
+problem-set: "A"
+lab-level: "Advanced"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway A: Remote Sensing fundamentals"
+  - "Pathway A: Atmospheric Effects & Surface Reflectance"
+  - "Pathway A: Raster Classification"
+backward-link: "Pathway A, Raster Classification — SAR is an all-weather alternative"
 book-part-title: Computational Geography Laboratory
 chapter-number: 56
-section-code: T
-section-title: Radar Remote Sensing
+section-code: A
+section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
 tags:
 - math
 - viz

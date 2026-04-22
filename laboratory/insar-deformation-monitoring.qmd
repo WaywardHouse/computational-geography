@@ -6,10 +6,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/SAR-inSAR.webp
 book-part: laboratory
+problem-set: "A"
+lab-level: "Advanced"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway A: SAR Fundamentals (Problem Set A, Investigation 1)"
+  - "Pathway A: Spectral & Temporal Resolution"
+backward-link: "Pathway A, Raster Classification — extends SAR to surface deformation"
 book-part-title: Computational Geography Laboratory
 chapter-number: 57
-section-code: T
-section-title: Radar Remote Sensing
+section-code: A
+section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
 tags:
 - math
 - viz

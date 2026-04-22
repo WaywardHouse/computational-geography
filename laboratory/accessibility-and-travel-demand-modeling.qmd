@@ -5,10 +5,17 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/trade-corridors.webp
 book-part: laboratory
+problem-set: "D"
+lab-level: "Intermediate"
+est-hours: 12
+pathway-prerequisites:
+  - "Pathway C: Gravity Models — Trade & Migration"
+  - "Pathway C: Urban Agglomeration Economies"
+backward-link: "Pathway C, Gravity Models — spatial accessibility and transport equity"
 book-part-title: Computational Geography Laboratory
 chapter-number: 98
-section-code: AK
-section-title: Transportation and Accessibility
+section-code: D
+section-title: Problem Set D: Urban Systems & Infrastructure
 tags:
 - math
 - viz

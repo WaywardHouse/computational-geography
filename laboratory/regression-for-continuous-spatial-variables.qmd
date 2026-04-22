@@ -6,9 +6,16 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/time-series.webp
 book-part: laboratory
+problem-set: "E"
+lab-level: "Intermediate"
+est-hours: 10
+pathway-prerequisites:
+  - "Pathway A: Raster Classification"
+  - "Methods Reference: How to Choose a Model"
+backward-link: "Pathway A, Classification — advanced statistical validation"
 book-part-title: Computational Geography Laboratory
-section-code: Z
-section-title: Foundations of Geographic Machine Learning
+section-code: E
+section-title: Problem Set E: Inference & Methods
 tags:
 - math
 - viz

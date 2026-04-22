@@ -6,10 +6,18 @@ date: 2026-03-05
 type: chapter
 image: /assets/images/soil-carbon.webp
 book-part: laboratory
+problem-set: "F"
+lab-level: "Intermediate"
+est-hours: 9
+pathway-prerequisites:
+  - "Pathway B: Soil Heat Diffusion"
+  - "Pathway B: Soil Moisture Dynamics"
+  - "Pathway B: Photosynthesis & Light Response"
+backward-link: "Pathway B, Soil Heat — model soil carbon under climate change"
 book-part-title: Computational Geography Laboratory
 chapter-number: 120
-section-code: AN
-section-title: Carbon Sinks
+section-code: F
+section-title: Problem Set F: Biogeochemical Cycles
 tags:
 - math
 - viz
