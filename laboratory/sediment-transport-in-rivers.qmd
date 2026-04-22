@@ -50,26 +50,31 @@ math-prerequisites-note: Basic algebra. Familiarity with slope (Essay C8) and th
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AB1-sediment-transport
 ---
 
-## Before You Start
-
-**You should know**  
-That rivers move sediment only when flow forces exceed the resistance holding grains in place.
-
-**You will learn**  
-How entrainment thresholds, bedload transport, suspended transport, and rating curves connect hydraulics to sediment flux.
-
-**Why this matters**  
-Sediment transport controls channel change, reservoir filling, habitat structure, and the response of rivers to altered flow.
-
-**If this gets hard, focus on...**  
-The threshold idea: motion begins only after shear stress crosses a critical value.
-
-
 The Fraser River carries roughly 17 million tonnes of sediment to the Pacific Ocean every year. The Bow River, more modestly, transports several hundred thousand tonnes past Calgary annually — gravel and sand moved grain by grain along the riverbed, or suspended in the water column like dust in air. Every one of those grains was entrained, transported, and eventually deposited according to a balance of forces that we can write down precisely.
 
 Sediment transport is where geomorphology becomes most explicitly mechanical. The river does not care about land use or political boundaries — it responds to the balance of fluid drag, grain weight, and bed friction. Understanding that balance gives us the tools to predict channel behaviour, design stable channels, estimate reservoir sedimentation rates, and understand what happens to river systems when we change their hydrology.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Watershed Delineation
+- Methods Reference: Dynamics
+
+**You will learn:**
+- How entrainment thresholds, bedload transport, suspended transport, and rating curves connect hydraulics to sediment flux.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway B, Watershed Delineation — model sediment in your basin
+
+**Why this matters:**
+Sediment transport controls channel change, reservoir filling, habitat structure, and the response of rivers to altered flow.
+
+**If this gets hard, focus on:**
+The threshold idea: motion begins only after shear stress crosses a critical value.
+
 
 ## 1. The Question
 

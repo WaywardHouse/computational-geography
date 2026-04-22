@@ -47,26 +47,30 @@ math-prerequisites-note: Exponential functions and logarithms (Essay A3). Basic 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AA1-weathering
 ---
 
-## Before You Start
-
-**You should know**  
-That soil forms slowly from rock and that chemical reaction rates depend strongly on temperature and environment.
-
-**You will learn**  
-How weathering kinetics, Arrhenius temperature dependence, and cosmogenic nuclides connect chemistry to landscape lowering.
-
-**Why this matters**  
-Weathering is one of the deep processes that sets soil depth, slope form, and long-run landscape change.
-
-**If this gets hard, focus on...**  
-The two core controls: reaction rate and time.
-
-
 Somewhere beneath the soil horizon on every hillslope on Earth, bedrock is dissolving. The process is imperceptibly slow by human standards — a millimetre of granite may yield a millimetre of saprolite over ten thousand years — but integrated across a continent and across geological time, it is the engine that produces the thin skin of soil on which all terrestrial life depends.
 
 Understanding weathering quantitatively means understanding chemistry: specifically, how fast minerals dissolve, how temperature changes that rate, and how we can read the cumulative history of landscape lowering from the atomic clocks embedded in quartz grains. These are not peripheral technical details. They are the foundation of every model of soil depth, slope form, and landscape evolution.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Net Radiation & Albedo
+
+**You will learn:**
+- How weathering kinetics, Arrhenius temperature dependence, and cosmogenic nuclides connect chemistry to landscape lowering.
+
+**Estimated time:** 9 hours
+
+**See also:** Pathway B, Net Radiation & Albedo — heat drives weathering
+
+**Why this matters:**
+Weathering is one of the deep processes that sets soil depth, slope form, and long-run landscape change.
+
+**If this gets hard, focus on:**
+The two core controls: reaction rate and time.
+
 
 ## 1. The Question
 

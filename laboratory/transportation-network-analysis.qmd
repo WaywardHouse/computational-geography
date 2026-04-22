@@ -48,24 +48,29 @@ math-prerequisites-note: Set notation and basic matrix concepts. The idea of min
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AK1-network-analysis
 ---
 
-## Before You Start
-
-**You should know**  
-That routes, intersections, and travel costs can be represented as nodes, edges, and weights in a graph.
-
-**You will learn**  
-How shortest paths, centrality, and network vulnerability are computed from that graph structure.
-
-**Why this matters**  
-Transportation systems become much easier to reason about once movement is translated into network language.
-
-**If this gets hard, focus on...**  
-The basic graph picture: places are nodes, connections are edges, and weights represent travel cost.
-
-
 Every morning, hundreds of thousands of Calgarians implicitly solve an optimisation problem: which sequence of roads minimises their travel time to work? They do it by intuition, habit, and navigation apps — but beneath those apps is an algorithm, and beneath the algorithm is a mathematical structure called a graph. Euler invented graph theory in 1736 to solve the Königsberg bridge problem — can you walk through a city crossing each of seven bridges exactly once? That problem had nothing to do with transportation planning. But transportation networks are graphs in exactly the sense Euler defined, and his abstract toolkit turns out to be precisely what is needed to understand how people and goods move through cities.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway C: Gravity Models — Trade & Migration
+- Pathway C: Urban Bid-Rent Models
+
+**You will learn:**
+- How shortest paths, centrality, and network vulnerability are computed from that graph structure.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway C, Gravity Models — model travel demand in your city
+
+**Why this matters:**
+Transportation systems become much easier to reason about once movement is translated into network language.
+
+**If this gets hard, focus on:**
+The basic graph picture: places are nodes, connections are edges, and weights represent travel cost.
+
 
 ## 1. The Question
 

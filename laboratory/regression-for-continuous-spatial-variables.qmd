@@ -50,26 +50,31 @@ math-prerequisites-note: Matrix notation and the idea of a dot product. Basic ca
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/Z2-spatial-regression
 ---
 
-## Before You Start
-
-**You should know**  
-That regression predicts a continuous outcome from measured predictors, and that spatial data can make ordinary validation look better than it really is.
-
-**You will learn**  
-How linear and regularized regression compare, why spatial cross-validation matters, and where random forests improve prediction.
-
-**Why this matters**  
-A map prediction is only useful if it generalizes to places you did not sample.
-
-**If this gets hard, focus on...**  
-The tradeoff between fit and generalization.
-
-
 In 2019, the International Soil Reference and Information Centre completed a global mapping exercise that assigned a soil organic carbon (SOC) value to every 250 m grid cell on Earth's land surface. They did not measure SOC at every cell — there are approximately 800 million such cells on the global land surface. They measured it at 150,000 sites and used regression models, trained on those measurements, to predict SOC everywhere else from covariate rasters: climate variables, vegetation indices, terrain attributes, and soil parent material classes.
 
 This process — spatially exhaustive prediction from point observations using covariates — is the central task of environmental machine learning. Its success depends on understanding which regression method is appropriate, how to validate that it generalises correctly to new locations, and how to honestly communicate prediction uncertainty.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: Raster Classification
+- Methods Reference: How to Choose a Model
+
+**You will learn:**
+- How linear and regularized regression compare, why spatial cross-validation matters, and where random forests improve prediction.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway A, Classification — advanced statistical validation
+
+**Why this matters:**
+A map prediction is only useful if it generalizes to places you did not sample.
+
+**If this gets hard, focus on:**
+The tradeoff between fit and generalization.
+
 
 ## 1. The Question
 

@@ -50,26 +50,31 @@ math-prerequisites-note: The Gaussian distribution and its properties. Logarithm
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AJ2-dispersion
 ---
 
-## Before You Start
-
-**You should know**  
-That wind flow changes when it meets buildings, and that geometry can strongly influence how quickly pollutants are diluted.
-
-**You will learn**  
-How street-canyon flow regimes work, how emissions translate into roadside concentration, and why some urban geometries trap pollution much more effectively than others.
-
-**Why this matters**  
-Urban air quality is shaped not just by how much pollution is emitted, but by how the city is built.
-
-**If this gets hard, focus on...**  
-The aspect-ratio idea: taller walls and narrower streets make ventilation harder.
-
-
 On a winter morning on Marylebone Road in London, NO₂ concentrations routinely reach 300–400 μg m⁻³ — three to four times the World Health Organization annual guideline of 40 μg m⁻³. A few hundred metres away in Regent's Park, the concentration is below 30 μg m⁻³. Traffic volumes are comparable in both locations. The difference is geometry: Marylebone Road is flanked by tall buildings that trap exhaust at street level; the park disperses it into the full depth of the boundary layer.
 
 Street canyon geometry is the dominant control on near-road air quality in dense urban environments. Understanding it requires fluid mechanics — specifically, how a turbulent flow separates and reattaches when it encounters a repeated obstacle array.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Wind Profiles & Turbulence
+- Pathway C: Urban Applications
+
+**You will learn:**
+- How street-canyon flow regimes work, how emissions translate into roadside concentration, and why some urban geometries trap pollution much more effectively than others.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway B, Wind Profiles — apply turbulence physics to urban canyons
+
+**Why this matters:**
+Urban air quality is shaped not just by how much pollution is emitted, but by how the city is built.
+
+**If this gets hard, focus on:**
+The aspect-ratio idea: taller walls and narrower streets make ventilation harder.
+
 
 ## 1. The Question
 

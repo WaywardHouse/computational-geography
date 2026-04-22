@@ -48,26 +48,32 @@ math-prerequisites-note: Mass balance concepts (Essay B5 and AR1). Logarithms fo
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AS2-eutrophication
 ---
 
-## Before You Start
-
-**You should know**  
-That lakes store nutrients over time, and that phosphorus often controls freshwater algal growth.
-
-**You will learn**  
-How phosphorus loading, lake response, stratification, and TMDL allocation fit into one eutrophication framework.
-
-**Why this matters**  
-Lake eutrophication is a mass-balance problem with direct consequences for oxygen, toxins, and water quality policy.
-
-**If this gets hard, focus on...**  
-The feedback loop: more phosphorus means more algae, which can mean less deep-water oxygen, which can release even more phosphorus.
-
-
 Lake Winnipeg is the world's tenth-largest freshwater lake by surface area. It is also one of the world's most rapidly eutrophying large lakes. Total phosphorus concentrations have increased more than 10-fold in the south basin since the 1960s, driven primarily by agricultural runoff from the Red River watershed and municipal discharges from Winnipeg's wastewater treatment plants. The response has been an explosion of Aphanizomenon and Dolichospermum (formerly Anabaena) cyanobacteria — blue-green algae that produce toxins dangerous to livestock, pets, and children.
 
 The quantitative framework for understanding this transition from clear oligotrophic lake to turbid hypereutrophic system is the **Vollenweider model** — a mass balance approach that links watershed phosphorus loading to lake phosphorus concentration, and lake phosphorus concentration to algal biomass.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Soil Moisture Dynamics
+- Pathway B: Photosynthesis & Light Response
+- Methods Reference: Differential Equations
+
+**You will learn:**
+- How phosphorus loading, lake response, stratification, and TMDL allocation fit into one eutrophication framework.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway B, Soil Moisture — extend to coupled nutrient-water dynamics
+
+**Why this matters:**
+Lake eutrophication is a mass-balance problem with direct consequences for oxygen, toxins, and water quality policy.
+
+**If this gets hard, focus on:**
+The feedback loop: more phosphorus means more algae, which can mean less deep-water oxygen, which can release even more phosphorus.
+
 
 ## 1. The Question
 

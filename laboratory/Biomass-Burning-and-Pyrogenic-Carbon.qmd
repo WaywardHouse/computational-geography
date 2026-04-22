@@ -50,26 +50,31 @@ math-prerequisites-note: Combustion stoichiometry and the 44/12 ratio (Essay AM1
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AM2-biomass-burning
 ---
 
-## Before You Start
-
-**You should know**  
-That biomass burning moves recently stored carbon back into the atmosphere, but not all of that carbon becomes CO2 immediately.
-
-**You will learn**  
-How fire emissions are partitioned among gases and char, how combustion completeness changes totals, and how carbon neutrality depends on regrowth timescales.
-
-**Why this matters**  
-Wildfire and prescribed-fire carbon accounting depends on both chemistry and ecology.
-
-**If this gets hard, focus on...**  
-The mass-balance idea that all burned carbon has to be assigned somewhere.
-
-
 On May 3, 2016, a wildfire ignited southwest of Fort McMurray, Alberta. Over the following two weeks it burned 590,000 hectares, releasing an estimated 570 million tonnes of CO₂ — more than the annual emissions of the entire United Kingdom. Yet this carbon had been drawn from the atmosphere over the preceding decades by boreal forest photosynthesis. In the long view, fire is part of the boreal carbon cycle, not an addition to it. Whether any particular fire represents a net carbon source depends on factors that span centuries: How much carbon was burned? How much char was produced and how long will it persist? When will the forest regrow to re-absorb the released carbon?
 
 This essay provides the tools to answer these questions quantitatively.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway C: Fire Spread Modeling
+- Pathway B: Photosynthesis & Light Response
+
+**You will learn:**
+- How fire emissions are partitioned among gases and char, how combustion completeness changes totals, and how carbon neutrality depends on regrowth timescales.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway C, Fire Spread — calculate carbon emissions from fire
+
+**Why this matters:**
+Wildfire and prescribed-fire carbon accounting depends on both chemistry and ecology.
+
+**If this gets hard, focus on:**
+The mass-balance idea that all burned carbon has to be assigned somewhere.
+
 
 ## 1. The Question
 

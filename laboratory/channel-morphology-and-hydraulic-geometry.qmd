@@ -48,26 +48,31 @@ math-prerequisites-note: Power functions and their logarithms (Essay A3). Basic 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AB2-hydraulic-geometry
 ---
 
-## Before You Start
-
-**You should know**  
-That channels adjust their dimensions over time in response to flow and sediment supply.
-
-**You will learn**  
-How hydraulic geometry power laws work, what regime theory means, and why channel size and meander pattern scale predictably with discharge.
-
-**Why this matters**  
-River form is one of the clearest examples of a self-organising geomorphic system.
-
-**If this gets hard, focus on...**  
-The recurring pattern that width, depth, and velocity each scale as powers of discharge.
-
-
 Stand at the bank of any river and you are looking at a self-portrait. The channel's width, depth, and planform are not accidents of history — they are the outcome of a long conversation between the flow and the boundary it is cutting through. Change the flow and the channel eventually changes its dimensions to match. Change the sediment supply and the channel responds in kind. The river is, in a precise sense, a system in dynamic equilibrium.
 
 This equilibrium has mathematical content. In 1953, Luna Leopold and Thomas Maddock published their landmark study of hydraulic geometry — the empirical finding that channel dimensions scale as power laws with discharge, with exponents that are remarkably consistent across rivers worldwide. Explaining why those exponents take the values they do is one of the more elegant problems in geomorphology.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Watershed Delineation
+- Methods Reference: Numerical Methods
+
+**You will learn:**
+- How hydraulic geometry power laws work, what regime theory means, and why channel size and meander pattern scale predictably with discharge.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway B, Watershed Delineation — channel form as a product of process
+
+**Why this matters:**
+River form is one of the clearest examples of a self-organising geomorphic system.
+
+**If this gets hard, focus on:**
+The recurring pattern that width, depth, and velocity each scale as powers of discharge.
+
 
 ## 1. The Question
 

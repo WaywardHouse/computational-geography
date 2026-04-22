@@ -48,26 +48,31 @@ math-prerequisites-note: Probability as area under a curve (density functions). 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/Z1-bayesian-inference
 ---
 
-## Before You Start
-
-**You should know**  
-That model parameters are often uncertain, and that data can be used to update what we believe about them rather than just produce one best estimate.
-
-**You will learn**  
-How priors, likelihoods, posteriors, and MCMC sampling fit together in Bayesian environmental modeling.
-
-**Why this matters**  
-Bayesian inference gives a practical way to carry uncertainty all the way from parameters to predictions.
-
-**If this gets hard, focus on...**  
-The single update rule: posterior is proportional to prior times likelihood.
-
-
 In 1783, the Reverend Thomas Bayes left behind an unpublished manuscript that would not see print until two years after his death. Its central insight was almost embarrassingly simple: the probability that a hypothesis is true, given the data we observe, is proportional to the probability of observing that data if the hypothesis were true, multiplied by how probable we thought the hypothesis was before we saw any data. Prior belief, updated by evidence, yields posterior belief.
 
 For two and a half centuries, this idea has been contested, celebrated, applied, and misapplied. In environmental modelling today, Bayesian inference is indispensable — not because it is philosophically superior to frequentism (a debate that continues), but because it naturally handles the situation environmental scientists actually face: sparse data, uncertain parameters, multiple competing models, and a need to communicate not just best estimates but the full range of possible outcomes.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Methods Reference: Bayesian Updating
+- Any applied chapter (fire, flood, etc.)
+
+**You will learn:**
+- How priors, likelihoods, posteriors, and MCMC sampling fit together in Bayesian environmental modeling.
+
+**Estimated time:** 12 hours
+
+**See also:** Vol II.B, Data Assimilation — deep dive into Bayesian methods
+
+**Why this matters:**
+Bayesian inference gives a practical way to carry uncertainty all the way from parameters to predictions.
+
+**If this gets hard, focus on:**
+The single update rule: posterior is proportional to prior times likelihood.
+
 
 ## 1. The Question
 

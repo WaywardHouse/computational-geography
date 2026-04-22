@@ -49,26 +49,31 @@ math-prerequisites-note: Matrix multiplication and the concept of an inverse. Ga
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AU2-kalman-filter
 ---
 
-## Before You Start
-
-**You should know**  
-That model predictions and observations both carry uncertainty, and that updating one with the other is a probabilistic weighting problem.
-
-**You will learn**  
-How the Kalman filter combines a background estimate with new observations, how uncertainty is propagated, and why ensemble versions matter for large environmental systems.
-
-**Why this matters**  
-Sequential data assimilation is one of the core mathematical tools behind weather forecasting, tracking, and state estimation.
-
-**If this gets hard, focus on...**  
-The central idea that the filter gives more weight to the more trustworthy source of information.
-
-
 In 1960, Rudolf Kalman published "A New Approach to Linear Filtering and Prediction Problems" in the Journal of Basic Engineering. Within two years, his algorithm was implemented in the navigation computer of the Apollo spacecraft, where it fused gyroscope, accelerometer, and star tracker observations to estimate the spacecraft's position and velocity with sufficient precision to return astronauts safely from the Moon. Kalman's filter is arguably the most consequential algorithm in the history of applied mathematics.
 
 In geophysical applications today, the Kalman filter and its nonlinear extensions are the mathematical backbone of numerical weather prediction: every 6 hours, thousands of in-situ observations (radiosondes, weather stations, ships, aircraft) and hundreds of millions of satellite observations are assimilated into a global model background state to produce the analysis — the optimal estimate of the atmosphere's current state — that becomes the initial condition for the next forecast cycle.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Vol II.B: Data Assimilation
+- Methods Reference: Bayesian Updating
+
+**You will learn:**
+- How the Kalman filter combines a background estimate with new observations, how uncertainty is propagated, and why ensemble versions matter for large environmental systems.
+
+**Estimated time:** 13 hours
+
+**See also:** Vol II.B, Data Assimilation — operational forecasting implementation
+
+**Why this matters:**
+Sequential data assimilation is one of the core mathematical tools behind weather forecasting, tracking, and state estimation.
+
+**If this gets hard, focus on:**
+The central idea that the filter gives more weight to the more trustworthy source of information.
+
 
 ## 1. The Question
 

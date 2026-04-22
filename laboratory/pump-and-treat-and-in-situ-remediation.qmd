@@ -49,26 +49,31 @@ math-prerequisites-note: Logarithms and natural logarithms. The concept of radia
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AT2-remediation
 ---
 
-## Before You Start
-
-**You should know**  
-That groundwater remediation is constrained by aquifer flow, capture geometry, and the chemistry of the contaminant mass.
-
-**You will learn**  
-How capture zones are estimated, how in-situ oxidation demand is calculated, and how long-horizon remediation options compare economically.
-
-**Why this matters**  
-Remediation choices are expensive and long-lived, so the physics and economics both matter.
-
-**If this gets hard, focus on...**  
-The central practical question: does the pumping or treatment setup actually control the plume you care about?
-
-
 The largest pump-and-treat system in North America operates at the Rocky Mountain Arsenal near Denver, Colorado — a former chemical weapons manufacturing site contaminated with nerve agent precursors, pesticides, and aviation fuel. The system has been pumping and treating since 1982, handling up to 6,000 gallons per minute through a treatment train that includes air stripping, activated carbon adsorption, and biological treatment. After 40 years and hundreds of millions of dollars, it continues to operate — not because it has failed, but because the contamination was so severe and so deeply embedded in the aquifer that complete cleanup will take generations.
 
 Pump-and-treat is not a silver bullet. It is a hydraulic containment technology that, in the best case, prevents plume migration to receptors while natural attenuation and time slowly reduce contaminant mass. Understanding its mathematics — capture zones, pumping rates, and the economics of operation over decades — is essential for realistic site management.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Soil Moisture Dynamics
+- Laboratory: Groundwater Contaminant Plumes
+
+**You will learn:**
+- How capture zones are estimated, how in-situ oxidation demand is calculated, and how long-horizon remediation options compare economically.
+
+**Estimated time:** 10 hours
+
+**See also:** Laboratory: Groundwater Contaminant Plumes — extends to remediation design
+
+**Why this matters:**
+Remediation choices are expensive and long-lived, so the physics and economics both matter.
+
+**If this gets hard, focus on:**
+The central practical question: does the pumping or treatment setup actually control the plume you care about?
+
 
 ## 1. The Question
 

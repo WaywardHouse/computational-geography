@@ -50,21 +50,6 @@ math-prerequisites-note: Matrix multiplication (introduced here from scratch). P
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AL3-demographic-dynamics
 ---
 
-## Before You Start
-
-**You should know**  
-That population change depends on births, deaths, and migration, and that age structure matters as much as total population size.
-
-**You will learn**  
-How cohort-component and Leslie-matrix models work, how migration redistributes population, and why ageing and shrinkage have distinct spatial signatures.
-
-**Why this matters**  
-Demographic change reshapes cities and regions through structured processes that can be modeled rather than guessed.
-
-**If this gets hard, focus on...**  
-The idea that each age cohort moves forward in time with survival, births, and migration applied separately.
-
-
 In 2022, for the first time in its recorded history, Japan's total population fell below 125 million — a milestone that demographers had been projecting for decades. Japan's fertility rate had been below replacement since 1974, but the demographic momentum of its large working-age population had sustained numerical growth for another 48 years. That momentum is now exhausted. Japan's population is projected to fall to 88 million by 2060, with a median age exceeding 55.
 
 Japan is the leading edge of a global phenomenon. Germany, South Korea, Italy, and dozens of other countries face the same trajectory on a 10–30 year delay. Canada is not exempt: without immigration, its natural population growth rate would already be negative. The spatial expression of this transition — shrinking cities, ageing rural areas, concentrated growth in immigrant-receiving metros — is reshaping the geography of every country that has passed through the demographic transition.
@@ -72,6 +57,26 @@ Japan is the leading edge of a global phenomenon. Germany, South Korea, Italy, a
 Understanding it quantitatively requires the cohort-component model — the mathematical framework that projects population by age, sex, and location simultaneously.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway C: Urban Bid-Rent Models
+- Methods Reference: Spatial Statistics
+
+**You will learn:**
+- How cohort-component and Leslie-matrix models work, how migration redistributes population, and why ageing and shrinkage have distinct spatial signatures.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway C, Urban Bid-Rent — model population change in space
+
+**Why this matters:**
+Demographic change reshapes cities and regions through structured processes that can be modeled rather than guessed.
+
+**If this gets hard, focus on:**
+The idea that each age cohort moves forward in time with survival, births, and migration applied separately.
+
 
 ## 1. The Question
 

@@ -50,26 +50,31 @@ math-prerequisites-note: The Planck radiation law is derived from first principl
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/U2-passive-microwave
 ---
 
-## Before You Start
-
-**You should know**  
-That all objects emit thermal radiation and that microwave sensors can measure naturally emitted energy rather than reflected light.
-
-**You will learn**  
-How brightness temperature and emissivity work, and how passive microwave observations retrieve soil moisture, sea ice, and snow water equivalent.
-
-**Why this matters**  
-Passive microwave gives all-weather global measurements for variables that optical sensors often miss.
-
-**If this gets hard, focus on...**  
-The basic relationship $T_B = \varepsilon T$ and what makes emissivity change.
-
-
 The Sahel of West Africa receives most of its annual rainfall in a three-month wet season. Whether crops survive the dry season depends critically on how much water the soil retains after the rains stop — and that soil moisture is invisible to optical satellites, which see only the surface colour. But to a passive microwave radiometer, soil moisture is the dominant signal: wet soil emits microwave radiation very differently from dry soil, and that contrast, recorded globally every day or two by satellites like SMOS, AMSR2, and SMAP, provides the only consistent long-term global record of surface soil moisture.
 
 Passive microwave remote sensing is the observation of naturally emitted microwave radiation from the Earth's surface and atmosphere. No transmitter is required — the surface itself is the source. The signal is faint (thermal emission at microwave frequencies is far weaker than visible sunlight), but it contains information that is simply unavailable from any other source.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: Thermal Infrared Remote Sensing
+- Pathway A: Vegetation Indices & Remote Sensing
+
+**You will learn:**
+- How brightness temperature and emissivity work, and how passive microwave observations retrieve soil moisture, sea ice, and snow water equivalent.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway A, Vegetation Indices — microwave offers all-weather alternative
+
+**Why this matters:**
+Passive microwave gives all-weather global measurements for variables that optical sensors often miss.
+
+**If this gets hard, focus on:**
+The basic relationship $T_B = \varepsilon T$ and what makes emissivity change.
+
 
 ## 1. The Question
 

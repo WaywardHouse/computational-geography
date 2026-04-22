@@ -49,24 +49,29 @@ math-prerequisites-note: Proportionality and ratios. Exponential relationships. 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AN2-ocean-carbon
 ---
 
-## Before You Start
-
-**You should know**  
-That gases dissolve into water according to pressure and temperature, and that the ocean can act as either a sink or source depending on those conditions.
-
-**You will learn**  
-How Henry's Law, gas exchange velocity, and ocean carbon chemistry combine to control air-sea CO2 flux.
-
-**Why this matters**  
-The ocean has absorbed a large share of anthropogenic carbon, so understanding its uptake is central to the carbon budget.
-
-**If this gets hard, focus on...**  
-The sign of the flux: air-to-sea when atmospheric partial pressure is higher, sea-to-air when ocean partial pressure is higher.
-
-
 At latitude 60°N in the North Atlantic, surface ocean water is cold — around 5–8°C. Cold water dissolves more CO₂ than warm water, and as water cools while drifting poleward, it absorbs CO₂ from the atmosphere. It then sinks — dense, cold, CO₂-rich water descends to the deep ocean in the North Atlantic Deep Water formation, carrying that carbon into storage for centuries. In the tropics, the reverse occurs: upwelled deep water warms at the surface, CO₂ becomes less soluble, and the ocean outgasses. The net of these processes constitutes the **ocean carbon sink** — roughly 10 Gt CO₂ yr⁻¹ in recent decades.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Temperature-Moisture Gradients
+- Pathway A: Water Optics (Companion 1)
+
+**You will learn:**
+- How Henry's Law, gas exchange velocity, and ocean carbon chemistry combine to control air-sea CO2 flux.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway B, Temperature-Moisture Gradients — ocean carbon in global cycles
+
+**Why this matters:**
+The ocean has absorbed a large share of anthropogenic carbon, so understanding its uptake is central to the carbon budget.
+
+**If this gets hard, focus on:**
+The sign of the flux: air-to-sea when atmospheric partial pressure is higher, sea-to-air when ocean partial pressure is higher.
+
 
 ## 1. The Question
 

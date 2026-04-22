@@ -51,26 +51,31 @@ math-prerequisites-note: Logarithms and power functions (Essay A3). The concept 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AL2-scaling-laws
 ---
 
-## Before You Start
-
-**You should know**  
-That cities often follow power-law patterns, where larger size changes infrastructure and economic output in systematic ways.
-
-**You will learn**  
-How urban scaling laws work, why Zipf's law appears, and how internal land-rent structure connects to city form.
-
-**Why this matters**  
-Scaling laws reveal that city structure is patterned rather than accidental.
-
-**If this gets hard, focus on...**  
-The recurring idea that many urban quantities change as powers of population size.
-
-
 In 1949, George Kingsley Zipf noticed something strange about the cities of the United States. If you ranked them by population — New York first, Los Angeles second, Chicago third, and so on — and plotted rank against population on a log-log graph, the data fell almost perfectly on a straight line with slope −1. This meant that the second-largest city had roughly half the population of the largest, the third-largest roughly one-third, and so on. The same pattern appeared for cities in every country with sufficient data, and for words in texts, and for earthquake magnitudes, and for firm sizes.
 
 Zipf's law is an example of a **power law** — a relationship where one quantity varies as a fixed power of another. Cities exhibit power laws not just in their size distribution but in their internal structure: roads, patents, crime, restaurants, and walking speed all scale with city population as power laws, with exponents that cluster around 1.15 for socioeconomic quantities (superlinear) and 0.85 for infrastructure (sublinear).
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway C: Urban Agglomeration Economies
+- Pathway C: Gravity Models — Trade & Migration
+
+**You will learn:**
+- How urban scaling laws work, why Zipf's law appears, and how internal land-rent structure connects to city form.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway C, Urban Agglomeration — investigate scaling in your region
+
+**Why this matters:**
+Scaling laws reveal that city structure is patterned rather than accidental.
+
+**If this gets hard, focus on:**
+The recurring idea that many urban quantities change as powers of population size.
+
 
 ## 1. The Question
 

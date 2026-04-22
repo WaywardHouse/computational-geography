@@ -52,26 +52,32 @@ math-prerequisites-note: Basic algebra and the concept of force balance (Essay A
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AC3-sea-level-surge
 ---
 
-## Before You Start
-
-**You should know**  
-That coastlines experience more than just mean sea level: tides, surge, waves, and long-term rise all stack together.
-
-**You will learn**  
-How total water level is decomposed, how storm surge and shoreline retreat are modeled, and how coastal vulnerability is assembled from measurable factors.
-
-**Why this matters**  
-Coastal risk comes from the combination of processes, not from sea level rise in isolation.
-
-**If this gets hard, focus on...**  
-The superposition idea: several separate water-level components add up to the event a coast actually experiences.
-
-
 On October 29, 2012, Hurricane Sandy made landfall near Atlantic City, New Jersey. Storm surge of 2.7 m above normal tide level flooded lower Manhattan, devastated barrier island communities in New Jersey, and caused over USD 65 billion in damage. The surge was not primarily a wave phenomenon — it was a long, slow rise of the entire water level driven by the atmospheric pressure of the storm and, more importantly, by the wind pushing water toward the coast.
 
 Sandy's surge sat on top of a tide. The tide sat on top of a slowly rising baseline sea level. The waves that destroyed beachfront structures sat on top of the surge. The total water level — the only thing a coastline actually experiences — is the sum of all these components. Understanding them separately is the prerequisite for predicting their combined effect.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Wind Profiles & Turbulence
+- Pathway B: Temperature-Moisture Gradients
+- Methods Reference: Numerical Methods
+
+**You will learn:**
+- How total water level is decomposed, how storm surge and shoreline retreat are modeled, and how coastal vulnerability is assembled from measurable factors.
+
+**Estimated time:** 14 hours
+
+**See also:** Pathway B, Wind Profiles — surge modeling from atmospheric forcing
+
+**Why this matters:**
+Coastal risk comes from the combination of processes, not from sea level rise in isolation.
+
+**If this gets hard, focus on:**
+The superposition idea: several separate water-level components add up to the event a coast actually experiences.
+
 
 ## 1. The Question
 

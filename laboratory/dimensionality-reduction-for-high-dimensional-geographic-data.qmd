@@ -50,26 +50,31 @@ math-prerequisites-note: Vectors and matrices. The concept of variance and covar
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/Z3-dimensionality-reduction
 ---
 
-## Before You Start
-
-**You should know**  
-That high-dimensional datasets often contain a lot of redundancy, and that projection into fewer dimensions can preserve useful structure.
-
-**You will learn**  
-How PCA, t-SNE, and UMAP reduce dimensionality for geographic data and what kind of structure each method preserves.
-
-**Why this matters**  
-Many modern geographic datasets are too large and too correlated to interpret directly in their raw feature space.
-
-**If this gets hard, focus on...**  
-The core question: what structure are we trying to preserve when we compress the data?
-
-
 The Airborne Visible/Infrared Imaging Spectrometer (AVIRIS) generates 224 spectral bands for every pixel in its imagery — sampling reflected electromagnetic radiation from 400 to 2500 nanometres in 10 nm increments. For a 1000 × 1000 pixel scene, that is $10^6 \times 224 = 2.24 \times 10^8$ numbers. Storing, processing, and modelling this data naively would require working in a 224-dimensional feature space where all standard algorithms — nearest-neighbour search, regression, clustering — become slow, unreliable, or meaningless due to the **curse of dimensionality**: in high dimensions, all distances become similar, volume concentrates in thin shells near the surface of hyperspheres, and training data becomes exponentially sparse.
 
 Dimensionality reduction solves this problem by finding a low-dimensional representation that preserves the structure of the data — either the variance structure (PCA), the local neighbourhood structure (t-SNE), or the global topological structure (UMAP).
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: Multispectral Imagery & Band Interpretation
+- Methods Reference: How to Choose a Model
+
+**You will learn:**
+- How PCA, t-SNE, and UMAP reduce dimensionality for geographic data and what kind of structure each method preserves.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway A, Vegetation Indices — extract features from high-dimensional imagery
+
+**Why this matters:**
+Many modern geographic datasets are too large and too correlated to interpret directly in their raw feature space.
+
+**If this gets hard, focus on:**
+The core question: what structure are we trying to preserve when we compress the data?
+
 
 ## 1. The Question
 

@@ -49,21 +49,6 @@ math-prerequisites-note: Gravity models (Essay D10). Logarithms and power functi
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AK2-accessibility
 ---
 
-## Before You Start
-
-**You should know**  
-That travel behavior depends on both opportunities and the cost of reaching them, not on distance alone.
-
-**You will learn**  
-How accessibility is modeled, how demand distributes across a network, and why individual route choices can produce surprising system outcomes like Braess's paradox.
-
-**Why this matters**  
-Accessibility is one of the clearest ways to connect transport infrastructure to social outcomes.
-
-**If this gets hard, focus on...**  
-The core tradeoff between attractiveness and travel cost.
-
-
 In 2012, the city of Stuttgart closed the Sperrstraße — a central road that had been a key shortcut through the city — to reduce through traffic in residential areas. Congestion on the surrounding network did not worsen. In some measurements it improved. Commuters adapted, redistributed across parallel routes, and the system found a new equilibrium that was, on balance, no worse than the original.
 
 This was not a fluke. It was an instance of **Braess's Paradox**: in a network at user equilibrium, removing a road can improve travel times for everyone. The reverse — adding a road — can make everyone worse off. The paradox is not a mathematical curiosity; it is a practical warning that infrastructure investment guided by naive shortest-path logic can produce the opposite of its intended effect.
@@ -71,6 +56,26 @@ This was not a fluke. It was an instance of **Braess's Paradox**: in a network a
 Understanding why requires a model of how individual route choices aggregate into network flows — which requires the gravity model of trip distribution, the logit model of mode choice, and the concept of user equilibrium. This essay builds that chain.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway C: Gravity Models — Trade & Migration
+- Pathway C: Urban Agglomeration Economies
+
+**You will learn:**
+- How accessibility is modeled, how demand distributes across a network, and why individual route choices can produce surprising system outcomes like Braess's paradox.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway C, Gravity Models — spatial accessibility and transport equity
+
+**Why this matters:**
+Accessibility is one of the clearest ways to connect transport infrastructure to social outcomes.
+
+**If this gets hard, focus on:**
+The core tradeoff between attractiveness and travel cost.
+
 
 ## 1. The Question
 

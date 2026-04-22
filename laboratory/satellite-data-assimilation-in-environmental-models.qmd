@@ -48,26 +48,31 @@ math-prerequisites-note: The Kalman filter framework (Essay AU2). Gradient desce
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AU3-satellite-assimilation
 ---
 
-## Before You Start
-
-**You should know**  
-That assimilation means combining a model state with observations, and that satellite measurements usually observe the system indirectly rather than measuring the state variable directly.
-
-**You will learn**  
-How variational assimilation is framed as an optimization problem, how observation operators connect model space to sensor space, and why background covariance matters.
-
-**Why this matters**  
-Modern environmental forecasting depends on turning huge streams of remote-sensing data into better model states.
-
-**If this gets hard, focus on...**  
-The core idea that assimilation is a weighted compromise between prior model knowledge and new evidence.
-
-
 At 00:00 UTC every day, the ECMWF data assimilation system begins ingesting observations that have arrived in the previous 12 hours from: 3,000 radiosonde balloon soundings, 300,000 aircraft reports, 500,000 surface station observations, and approximately 40 million satellite observations from polar-orbiting and geostationary platforms. Six hours later, an analysis of the global atmosphere at 9 km horizontal resolution and 137 vertical levels is available as the initial condition for the forecast. The system that fuses these heterogeneous, asynchronous, uncertain data streams is variational data assimilation — one of the most computationally intensive mathematical procedures run routinely on Earth.
 
 The core insight is that finding the "best" initial condition is equivalent to minimising a cost function that measures the distance from a background state (the model's prior estimate), penalised by the distances from all available observations, each weighted by the inverse of its error covariance.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: Remote Sensing fundamentals
+- Vol II.B: Data Assimilation
+
+**You will learn:**
+- How variational assimilation is framed as an optimization problem, how observation operators connect model space to sensor space, and why background covariance matters.
+
+**Estimated time:** 12 hours
+
+**See also:** Vol II.B, Data Assimilation — assimilate real satellite observations
+
+**Why this matters:**
+Modern environmental forecasting depends on turning huge streams of remote-sensing data into better model states.
+
+**If this gets hard, focus on:**
+The core idea that assimilation is a weighted compromise between prior model knowledge and new evidence.
+
 
 ## 1. The Question
 

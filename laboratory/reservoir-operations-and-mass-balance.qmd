@@ -49,26 +49,31 @@ math-prerequisites-note: Cumulative sums and running totals. Basic algebra. The 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AR1-reservoir-operations
 ---
 
-## Before You Start
-
-**You should know**  
-That storage changes through inflow, release, evaporation, and spill, and that reservoirs are fundamentally governed by conservation of mass.
-
-**You will learn**  
-How storage-yield analysis works, how the sequent peak algorithm estimates required capacity, and how competing reservoir objectives are balanced.
-
-**Why this matters**  
-Reservoir design is one of the clearest examples of a practical mass-balance problem with real tradeoffs.
-
-**If this gets hard, focus on...**  
-The core bookkeeping idea: storage next period equals storage now plus inflow minus losses and releases.
-
-
 The W.A.C. Bennett Dam on the Peace River in British Columbia impounds 74 km³ of water — one of the largest reservoirs in the world by volume. It took seven years to fill after completion in 1968. Since then it has generated 2,730 MW of hydroelectric power, regulated spring floods downstream, and supplied irrigation water to the Peace River valley. It has also been accumulating sediment at rates that are gradually reducing its storage capacity, and its downstream flow regime has transformed the Peace-Athabasca Delta in ways that continue to be debated.
 
 That package of outcomes — power, flood control, irrigation, ecological transformation, and eventual capacity loss — defines the multi-purpose reservoir problem. Understanding any one outcome quantitatively requires the mass balance framework that underlies all reservoir analysis.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Watershed Delineation
+- Scientific Computing Foundations: Python scripting
+
+**You will learn:**
+- How storage-yield analysis works, how the sequent peak algorithm estimates required capacity, and how competing reservoir objectives are balanced.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway B, Watershed Delineation — apply mass balance to a real reservoir system
+
+**Why this matters:**
+Reservoir design is one of the clearest examples of a practical mass-balance problem with real tradeoffs.
+
+**If this gets hard, focus on:**
+The core bookkeeping idea: storage next period equals storage now plus inflow minus losses and releases.
+
 
 ## 1. The Question
 

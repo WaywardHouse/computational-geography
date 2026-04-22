@@ -47,24 +47,28 @@ math-prerequisites-note: Stoichiometry and the 44/12, 16/12 ratios (Essay AM1). 
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AO1-methanogenesis
 ---
 
-## Before You Start
-
-**You should know**  
-That decomposition changes when oxygen runs out, and that methane production only appears under strongly anaerobic conditions.
-
-**You will learn**  
-How methanogenesis fits into the anaerobic decomposition chain, how CH4 and CO2 are partitioned, and what environmental controls drive methane emissions.
-
-**Why this matters**  
-Wetlands and other anaerobic environments are major methane sources, so their behavior matters for climate feedbacks.
-
-**If this gets hard, focus on...**  
-The sequence of electron acceptors: methanogenesis begins only after the higher-energy options are exhausted.
-
-
 The Hudson Bay Lowlands, stretching across northern Ontario, Manitoba, and Quebec, contain the world's largest wetland complex outside Siberia — approximately 370,000 km² of peat bogs and fens. Every summer, as the permafrost thaws and water tables rise, these wetlands emit methane at rates of 10–100 mg CH₄ m⁻² d⁻¹. Integrated across the wetland area, this amounts to 20–30 million tonnes of CH₄ annually from Canada alone — about 10% of total global natural methane emissions.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Soil Moisture Dynamics
+
+**You will learn:**
+- How methanogenesis fits into the anaerobic decomposition chain, how CH4 and CO2 are partitioned, and what environmental controls drive methane emissions.
+
+**Estimated time:** 8 hours
+
+**See also:** Pathway B, Soil Moisture — model methane from wetlands
+
+**Why this matters:**
+Wetlands and other anaerobic environments are major methane sources, so their behavior matters for climate feedbacks.
+
+**If this gets hard, focus on:**
+The sequence of electron acceptors: methanogenesis begins only after the higher-energy options are exhausted.
+
 
 ## 1. The Question
 

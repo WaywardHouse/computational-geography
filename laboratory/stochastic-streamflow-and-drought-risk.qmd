@@ -51,26 +51,32 @@ math-prerequisites-note: Probability as relative frequency (0–1 range). Logari
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AR2-stochastic-streamflow
 ---
 
-## Before You Start
-
-**You should know**  
-That river flow varies from year to year, and that rare droughts are defined by probability rather than by a fixed calendar interval.
-
-**You will learn**  
-How exceedance probabilities, synthetic streamflow generation, drought indices, and reliability metrics work together in water-risk analysis.
-
-**Why this matters**  
-Water systems have to survive sequences of dry years, not just average conditions.
-
-**If this gets hard, focus on...**  
-The one key distinction: a “100-year” event is a 1% annual-probability event, not a guaranteed schedule.
-
-
 On October 3, 1988, the Colorado River below Hoover Dam dropped to its lowest recorded flow in more than 50 years — a direct consequence of a multi-year drought that had drawn Lake Mead to 39% of capacity. The event was not unprecedented: tree-ring records show that the 20th century was one of the wettest in the past 1,200 years of Colorado River history, meaning the entire reservoir system was sized on an anomalously wet baseline. The same pattern applies to almost every major river basin in western North America: the instrumental record is too short to characterise the worst droughts that will occur over a 100-year infrastructure design life.
 
 The solution is stochastic hydrology: generating many synthetic streamflow sequences — each statistically consistent with the historical record but covering the full range of natural variability — and evaluating reservoir performance across all of them.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Watershed Delineation
+- Vol II.B: Ensemble Methods
+- Methods Reference: Uncertainty Propagation
+
+**You will learn:**
+- How exceedance probabilities, synthetic streamflow generation, drought indices, and reliability metrics work together in water-risk analysis.
+
+**Estimated time:** 15 hours
+
+**See also:** Vol II.B, Time-Series Mechanics — practice with real USGS data
+
+**Why this matters:**
+Water systems have to survive sequences of dry years, not just average conditions.
+
+**If this gets hard, focus on:**
+The one key distinction: a “100-year” event is a 1% annual-probability event, not a guaranteed schedule.
+
 
 ## 1. The Question
 

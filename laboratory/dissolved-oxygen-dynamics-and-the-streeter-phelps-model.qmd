@@ -50,26 +50,31 @@ math-prerequisites-note: First-order differential equations and exponential deca
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AS1-do-dynamics
 ---
 
-## Before You Start
-
-**You should know**  
-That rivers gain and lose dissolved oxygen through biological demand and atmospheric exchange, and that wastewater loading can push that balance out of range.
-
-**You will learn**  
-How the Streeter-Phelps model couples deoxygenation and reaeration, where the critical oxygen minimum occurs, and how treatment changes compliance outcomes.
-
-**Why this matters**  
-Dissolved oxygen is one of the most important practical indicators of river ecosystem health.
-
-**If this gets hard, focus on...**  
-The two competing processes: oxygen is being consumed and replenished at the same time.
-
-
 On August 1, 1858, the British Parliament passed the Metropolis Local Management Amendment Act giving the Metropolitan Board of Works emergency powers to clean up the Thames — not for reasons of public health, but because the smell coming off the river was so severe that the windows of the Houses of Parliament had to be hung with curtains soaked in chloride of lime. The Great Stink, as it became known, was caused by years of raw sewage discharge into a tidal river that had no capacity to process it. Dissolved oxygen had dropped to near zero over stretches of the central Thames.
 
 The Streeter-Phelps model — developed in 1925 for the Ohio River — provides the mathematical framework for quantifying exactly the process that created the Great Stink: the depletion of dissolved oxygen by organic waste, and the counter-acting process of atmospheric reaeration that drives recovery downstream.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Soil Moisture Dynamics
+- Methods Reference: Differential Equations
+
+**You will learn:**
+- How the Streeter-Phelps model couples deoxygenation and reaeration, where the critical oxygen minimum occurs, and how treatment changes compliance outcomes.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway B, Soil Moisture — extend to coupled water-quality dynamics
+
+**Why this matters:**
+Dissolved oxygen is one of the most important practical indicators of river ecosystem health.
+
+**If this gets hard, focus on:**
+The two competing processes: oxygen is being consumed and replenished at the same time.
+
 
 ## 1. The Question
 

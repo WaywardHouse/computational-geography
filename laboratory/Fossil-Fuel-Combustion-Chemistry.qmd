@@ -45,26 +45,30 @@ math-prerequisites-note: Unit conversion and dimensional analysis. The concept o
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AM1-combustion-chemistry
 ---
 
-## Before You Start
-
-**You should know**  
-That combustion rearranges atoms rather than destroying them, so fuel carbon can be tracked into atmospheric products by conservation of mass.
-
-**You will learn**  
-How stoichiometry, carbon fraction, and emission factors determine fossil-fuel CO2 emissions and how incomplete combustion changes the product mix.
-
-**Why this matters**  
-Most practical carbon accounting begins with this chemistry.
-
-**If this gets hard, focus on...**  
-The one invariant ratio that matters most: 12 units of carbon become 44 units of CO2.
-
-
 The Genesee Generating Station, 70 km west of Edmonton, burns sub-bituminous coal to produce up to 1,370 MW of electrical power. In 2022 it emitted approximately 5.2 million tonnes of CO₂ — the largest single point source in Alberta. This number was not measured directly. No instrument can count CO₂ molecules as they leave a smokestack. Instead, it was calculated: fuel consumption (tonnes of coal) multiplied by an emission factor (tonnes of CO₂ per tonne of coal). That emission factor comes from chemistry — from the carbon content of the coal and the stoichiometry of its combustion.
 
 The connection between fuel chemistry and atmospheric CO₂ is one of the most direct cause-and-effect relationships in Earth science: carbon in the fuel becomes carbon in the atmosphere, quantitatively, with no ambiguity. Understanding this connection from first principles is the foundation of every national greenhouse gas inventory.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway C: Markets & Spatial Arbitrage
+
+**You will learn:**
+- How stoichiometry, carbon fraction, and emission factors determine fossil-fuel CO2 emissions and how incomplete combustion changes the product mix.
+
+**Estimated time:** 10 hours
+
+**See also:** Companion 3: Energy Systems — understand emissions from sources
+
+**Why this matters:**
+Most practical carbon accounting begins with this chemistry.
+
+**If this gets hard, focus on:**
+The one invariant ratio that matters most: 12 units of carbon become 44 units of CO2.
+
 
 ## 1. The Question
 

@@ -50,24 +50,29 @@ math-prerequisites-note: Basic unit conversions (g to mol, W to J). Proportional
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AN1-photosynthesis-gpp
 ---
 
-## Before You Start
-
-**You should know**  
-That plants take in carbon dioxide using light energy, and that not all fixed carbon remains stored because ecosystems respire too.
-
-**You will learn**  
-How photosynthesis stoichiometry connects to GPP, how the light-use efficiency model works, and how GPP, NPP, and NEP differ.
-
-**Why this matters**  
-Most land-carbon modeling starts from estimating how much carbon vegetation fixes in the first place.
-
-**If this gets hard, focus on...**  
-The flow sequence from total uptake to progressively smaller net carbon gains.
-
-
 Every summer morning, as the sun rises over the aspen parkland north of Edmonton, chloroplasts in millions of trembling aspen leaves begin absorbing carbon dioxide and converting it to sugar. By noon, on a warm clear August day, an aspen stand may be absorbing 8–12 g of CO₂ per square metre per day. By September, the leaves yellow; by October, photosynthesis effectively stops. The annual integral of this process — gross primary production — is the largest natural carbon flux on Earth.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Photosynthesis & Light Response
+- Pathway A: Vegetation Indices
+
+**You will learn:**
+- How photosynthesis stoichiometry connects to GPP, how the light-use efficiency model works, and how GPP, NPP, and NEP differ.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway B, Photosynthesis — validate GPP with field measurements
+
+**Why this matters:**
+Most land-carbon modeling starts from estimating how much carbon vegetation fixes in the first place.
+
+**If this gets hard, focus on:**
+The flow sequence from total uptake to progressively smaller net carbon gains.
+
 
 ## 1. The Question
 

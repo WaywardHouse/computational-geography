@@ -48,26 +48,31 @@ math-prerequisites-note: Probability distributions and sampling (Essay AR2 and Z
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AU1-ensemble-forecasting
 ---
 
-## Before You Start
-
-**You should know**  
-That a forecast can be expressed as a distribution of plausible outcomes rather than as one deterministic answer.
-
-**You will learn**  
-How ensembles represent uncertainty, how spread and skill are compared, and how probabilistic forecasts are verified and improved.
-
-**Why this matters**  
-Operational environmental forecasting depends on understanding not just what is likely, but how uncertain that judgment is.
-
-**If this gets hard, focus on...**  
-The distinction between a single forecast value and a forecast distribution.
-
-
 On January 4, 1992, the European Centre for Medium-Range Weather Forecasts (ECMWF) ran its first operational ensemble forecast — 33 slightly perturbed versions of the same numerical weather prediction model, run simultaneously, producing a range of possible futures rather than a single prediction. In 2025, ECMWF's operational ensemble contains 51 members and is run twice daily to 15 days; ensemble products from Environment and Climate Change Canada (ECCC) drive the forecasts on which Canadian flood warning systems, wildfire behaviour models, and agricultural advisories depend.
 
 The philosophical shift from deterministic to probabilistic forecasting is deeper than it appears. A deterministic forecast is falsifiable in a binary way: it was right or wrong. A probabilistic forecast — "70% probability of precipitation exceeding 10 mm" — is only falsifiable in a statistical sense: if you collect 1000 such forecasts, exactly 700 should verify. This is a fundamentally different epistemology, and it requires fundamentally different verification methods.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Vol II.B: Ensemble Methods
+- Methods Reference: Uncertainty Propagation
+
+**You will learn:**
+- How ensembles represent uncertainty, how spread and skill are compared, and how probabilistic forecasts are verified and improved.
+
+**Estimated time:** 12 hours
+
+**See also:** Vol II.B, Time-Series Mechanics — practice ensemble thinking with real data
+
+**Why this matters:**
+Operational environmental forecasting depends on understanding not just what is likely, but how uncertain that judgment is.
+
+**If this gets hard, focus on:**
+The distinction between a single forecast value and a forecast distribution.
+
 
 ## 1. The Question
 

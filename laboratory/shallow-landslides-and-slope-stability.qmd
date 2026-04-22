@@ -51,21 +51,6 @@ math-prerequisites-note: Trigonometry (sin, cos, tan) and the concept of force b
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AA3-slope-stability
 ---
 
-## Before You Start
-
-**You should know**  
-That slope stability is a balance between resisting forces and driving forces, and that water pressure can weaken soils dramatically.
-
-**You will learn**  
-How the infinite slope model works, how pore pressure changes factor of safety, and how root reinforcement affects failure risk.
-
-**Why this matters**  
-A simple force-balance model can explain why some slopes remain stable for decades and then fail during one wet period.
-
-**If this gets hard, focus on...**  
-The main comparison between shear resistance and downslope driving stress.
-
-
 On the morning of January 9, 2005, a shallow landslide on a steep forested hillslope above La Conchita, California, travelled 150 metres in about 30 seconds, killing ten people. Aerial photographs taken after the slide showed a clean, planar failure surface roughly parallel to the slope surface — a textbook example of what geomorphologists call a **translational** or **infinite-slope** failure.
 
 The slide had been preceded by exceptionally heavy rainfall. The soil profile was saturated. Pore water pressure reduced the effective stress between soil particles, and a slope that had been stable for decades failed in minutes.
@@ -73,6 +58,27 @@ The slide had been preceded by exceptionally heavy rainfall. The soil profile wa
 Understanding why requires a precise analysis of forces — and that analysis turns out to be surprisingly tractable. The infinite slope model is one of the most elegant and practically useful results in applied geomorphology.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Digital Elevation Models
+- Pathway B: Soil Moisture Dynamics
+- Pathway C: Rainfall Intensity-Duration-Frequency
+
+**You will learn:**
+- How the infinite slope model works, how pore pressure changes factor of safety, and how root reinforcement affects failure risk.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway B, Gradient/Aspect — use terrain derivatives for hazard mapping
+
+**Why this matters:**
+A simple force-balance model can explain why some slopes remain stable for decades and then fail during one wet period.
+
+**If this gets hard, focus on:**
+The main comparison between shear resistance and downslope driving stress.
+
 
 ## 1. The Question
 

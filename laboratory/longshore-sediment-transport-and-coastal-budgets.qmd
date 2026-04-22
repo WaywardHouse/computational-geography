@@ -49,26 +49,31 @@ math-prerequisites-note: Wave energy flux and the shoaling coefficient (Essay AC
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AC2-longshore-transport
 ---
 
-## Before You Start
-
-**You should know**  
-That waves approaching a shoreline at an angle can move sand along the coast, and that beaches respond to gains and losses in sediment supply.
-
-**You will learn**  
-How the CERC formula estimates longshore transport, how sediment budgets explain erosion and accretion, and how coastal structures change both.
-
-**Why this matters**  
-Coastal engineering succeeds or fails largely by whether it respects the sediment budget.
-
-**If this gets hard, focus on...**  
-The budget idea: if more sand leaves a stretch of coast than enters it, the beach must erode.
-
-
 In the summer of 1968, the town of Ocean City, Maryland, opened a new inlet to create a safer harbour entrance. Engineers placed two jetties to stabilise the channel. Within a decade, the downdrift beach to the south — Assateague Island — had retreated hundreds of metres. The jetties had interrupted the longshore transport of sand that had historically nourished Assateague, and the beach was consuming itself.
 
 The same story has played out at hundreds of harbour inlets, groyne fields, and breakwaters around the world. The mechanism is always the same: an engineering structure interrupts the longshore conveyor belt of sediment. Updrift sand accumulates. Downdrift sand is starved. The physics is not subtle — it follows directly from a sediment budget in which transport must be continuous unless something intercepts it.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Wind Profiles & Turbulence
+- Laboratory: Wave Dynamics & Nearshore Transformation
+
+**You will learn:**
+- How the CERC formula estimates longshore transport, how sediment budgets explain erosion and accretion, and how coastal structures change both.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway B, Wind Profiles — coastal sediment budgets driven by wave energy
+
+**Why this matters:**
+Coastal engineering succeeds or fails largely by whether it respects the sediment budget.
+
+**If this gets hard, focus on:**
+The budget idea: if more sand leaves a stretch of coast than enters it, the beach must erode.
+
 
 ## 1. The Question
 

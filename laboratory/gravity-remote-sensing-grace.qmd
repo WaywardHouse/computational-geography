@@ -51,26 +51,31 @@ math-prerequisites-note: Newton's law of gravitation. Exponential and trigonomet
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/U1-grace-gravimetry
 ---
 
-## Before You Start
-
-**You should know**  
-That gravity depends on mass and distance, and that small orbital changes can reveal underlying mass anomalies.
-
-**You will learn**  
-How GRACE converts inter-satellite range changes into time-varying mass estimates for groundwater, ice, and the geoid.
-
-**Why this matters**  
-GRACE lets us monitor hidden changes in the water cycle that are otherwise almost impossible to observe globally.
-
-**If this gets hard, focus on...**  
-The simple picture of one satellite being pulled slightly more strongly than the other.
-
-
 Beneath the fields of the Central Valley of California, one of the most productive agricultural regions on Earth, the aquifers are emptying. Satellite data from GRACE — the Gravity Recovery and Climate Experiment — showed that California lost approximately 4 cubic kilometres of groundwater per year during the 2011–2017 drought, a depletion rate visible from 500 km altitude because removing water from an aquifer literally makes the Earth slightly lighter, and that change in mass slightly weakens the gravitational field.
 
 GRACE measured that weakening not by pointing a gravity sensor at the ground, but by measuring the distance between two satellites flying 220 km apart in the same orbit. When the lead satellite flew over a region of greater mass, it was pulled forward slightly; the following satellite, not yet over the mass anomaly, was pulled less — and the gap between them grew. That gap change, measured to micrometer precision by a microwave ranging system, is the gravity signal.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: Orbital Mechanics (Companion 1)
+- Pathway A: Spectral & Temporal Resolution
+
+**You will learn:**
+- How GRACE converts inter-satellite range changes into time-varying mass estimates for groundwater, ice, and the geoid.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway A, Spectral & Temporal Resolution — GRACE extends temporal monitoring
+
+**Why this matters:**
+GRACE lets us monitor hidden changes in the water cycle that are otherwise almost impossible to observe globally.
+
+**If this gets hard, focus on:**
+The simple picture of one satellite being pulled slightly more strongly than the other.
+
 
 ## 1. The Question
 

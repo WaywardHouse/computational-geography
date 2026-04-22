@@ -50,26 +50,32 @@ math-prerequisites-note: Partial derivatives and the concept of a gradient (Essa
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AS3-transport
 ---
 
-## Before You Start
-
-**You should know**  
-That a contaminant in a river is both carried downstream and spread out by mixing, and that some chemicals also decay or sorb during transport.
-
-**You will learn**  
-How the advection-dispersion equation works, how peak concentration and arrival timing are estimated, and how reactive transport changes plume behavior.
-
-**Why this matters**  
-Spill response and water-quality protection depend on predicting when contamination arrives and how strong it will be.
-
-**If this gets hard, focus on...**  
-The two-part picture: mean flow moves the plume, turbulence spreads it.
-
-
 On July 25, 2015, the Gold King Mine in Colorado blew out, releasing 11 million litres of acid mine drainage containing arsenic, lead, and cadmium into Cement Creek, a tributary of the Animas River. By August 9, the contamination plume had reached the San Juan River in New Mexico — 600 km downstream. Along the way, it arrived as a visible orange slug of sediment, peaked, and then declined as the pulse dispersed and diluted. By the time it reached the Colorado River, concentrations were elevated but below health-based action levels.
 
 The shape of that plume — the orange slug growing broader and lower as it travelled — is exactly what the advection-dispersion equation (ADE) predicts. Understanding the ADE quantitatively allows emergency managers to answer the critical questions: when will the contamination arrive? what will the peak concentration be? how long until it passes?
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Watershed Delineation
+- Pathway B: Wind Profiles & Turbulence
+- Methods Reference: Dynamics
+
+**You will learn:**
+- How the advection-dispersion equation works, how peak concentration and arrival timing are estimated, and how reactive transport changes plume behavior.
+
+**Estimated time:** 13 hours
+
+**See also:** Pathway B, Watershed Delineation — model sediment in your basin
+
+**Why this matters:**
+Spill response and water-quality protection depend on predicting when contamination arrives and how strong it will be.
+
+**If this gets hard, focus on:**
+The two-part picture: mean flow moves the plume, turbulence spreads it.
+
 
 ## 1. The Question
 

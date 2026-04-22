@@ -53,26 +53,32 @@ math-prerequisites-note: Exponential functions and their derivatives (Essay A3).
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AC1-wave-dynamics
 ---
 
-## Before You Start
-
-**You should know**  
-That waves carry energy, that their speed depends on depth and period, and that coastal transformation begins offshore before breaking is visible.
-
-**You will learn**  
-How dispersion, shoaling, and breaking work, and how nearshore wave transformation sets up coastal forcing.
-
-**Why this matters**  
-Breaking waves are one of the main physical drivers of coastal erosion, transport, and flooding.
-
-**If this gets hard, focus on...**  
-The sequence: deep-water wave, shoaling wave, then breaking wave.
-
-
 Watch a breaking wave carefully. It arrives from offshore as a smooth, rolling swell. As the water shallows, the crest rises, the trough deepens, and the wave steepens until, at a depth roughly equal to its own height, the crest pitches forward and the wave collapses. The energy that left a storm hundreds of kilometres away is dissipated in a few metres of white water.
 
 This transformation — from deep-water swell to breaking surf — is one of the most precisely understood processes in geomorphology. The governing physics is the linear wave theory, first formalised by Airy (1845), and it predicts the wave's speed, wavelength, energy flux, and breaking depth from three inputs: wave period, wave height, and water depth. The predictive power is remarkable given the complexity of what we are actually watching.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Wind Profiles & Turbulence
+- Pathway B: Temperature-Moisture Gradients
+- Methods Reference: Numerical Methods
+
+**You will learn:**
+- How dispersion, shoaling, and breaking work, and how nearshore wave transformation sets up coastal forcing.
+
+**Estimated time:** 13 hours
+
+**See also:** Pathway B, Wind Profiles — wave generation and propagation
+
+**Why this matters:**
+Breaking waves are one of the main physical drivers of coastal erosion, transport, and flooding.
+
+**If this gets hard, focus on:**
+The sequence: deep-water wave, shoaling wave, then breaking wave.
+
 
 ## 1. The Question
 

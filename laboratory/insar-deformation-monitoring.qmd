@@ -50,26 +50,31 @@ math-prerequisites-note: SAR fundamentals including the complex pixel representa
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/T2-insar
 ---
 
-## Before You Start
-
-**You should know**  
-That SAR images carry phase as well as intensity, and that comparing two observations can reveal change.
-
-**You will learn**  
-How interferometric phase encodes displacement, why phase wrapping happens, and how InSAR reaches millimetre-scale sensitivity.
-
-**Why this matters**  
-InSAR turns repeated radar imaging into one of the most precise deformation-measurement tools in Earth science.
-
-**If this gets hard, focus on...**  
-The central claim that a phase difference means a path-length difference.
-
-
 On 17 January 1994, the Northridge earthquake struck the San Fernando Valley north of Los Angeles. Within weeks, Didier Massonnet and colleagues had produced a map of the coseismic ground deformation from ERS-1 SAR data — a coloured interference pattern covering 100 km × 100 km, showing displacement fringes that corresponded precisely to the earthquake fault geometry. Each colour cycle represented 2.8 cm of range change along the satellite line of sight. The map was published in Nature and marked the moment the Earth science community recognised InSAR as a transformative tool.
 
 The physics is elegant: two radar images of the same area, acquired from nearly the same orbital position but at different times, contain phase information that records the path length from satellite to ground. If the ground has moved between the two acquisitions, the path lengths differ, and the phase difference encodes that displacement. With wavelengths of a few centimetres and phase measurements accurate to a fraction of a radian, InSAR can detect surface motion smaller than a millimetre.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: SAR Fundamentals (Problem Set A, Investigation 1)
+- Pathway A: Spectral & Temporal Resolution
+
+**You will learn:**
+- How interferometric phase encodes displacement, why phase wrapping happens, and how InSAR reaches millimetre-scale sensitivity.
+
+**Estimated time:** 12 hours
+
+**See also:** Pathway A, Raster Classification — extends SAR to surface deformation
+
+**Why this matters:**
+InSAR turns repeated radar imaging into one of the most precise deformation-measurement tools in Earth science.
+
+**If this gets hard, focus on:**
+The central claim that a phase difference means a path-length difference.
+
 
 ## 1. The Question
 

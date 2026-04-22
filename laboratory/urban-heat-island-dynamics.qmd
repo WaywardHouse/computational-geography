@@ -51,26 +51,32 @@ math-prerequisites-note: The concept of energy flux (W m⁻²) and the surface e
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AJ1-uhi
 ---
 
-## Before You Start
-
-**You should know**  
-That surfaces exchange energy through radiation, heat storage, and evaporation, and that cities change all of those terms.
-
-**You will learn**  
-How the urban heat island emerges from the surface energy balance and which mitigation strategies have the strongest physical basis.
-
-**Why this matters**  
-Urban heat is a direct public-health issue and one of the clearest examples of geography shaping everyday climate exposure.
-
-**If this gets hard, focus on...**  
-The energy-balance idea: if less energy goes into evaporation, more goes into warming surfaces and air.
-
-
 On a calm summer night in Phoenix, Arizona, the city centre is routinely 8–10°C warmer than the desert 30 km away. The same phenomenon plays out at smaller magnitude in every city on Earth — a 1°C difference in a small prairie town, 6°C in Tokyo, 3–5°C in Calgary or Edmonton on the coldest January nights when furnaces run full tilt. The urban heat island (UHI) is not a curiosity. It is a public health hazard: during the August 2003 European heat wave, excess mortality was concentrated in Paris's densest arrondissements, where the UHI amplified synoptic heat stress by several critical degrees.
 
 Understanding the UHI quantitatively means understanding the surface energy balance. A city is not simply a hot version of the surrounding countryside — it is a fundamentally different thermodynamic system that absorbs, stores, and releases energy on a different schedule.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Net Radiation & Albedo
+- Pathway B: Sensible & Latent Heat Fluxes
+- Pathway A: Thermal Infrared Remote Sensing
+
+**You will learn:**
+- How the urban heat island emerges from the surface energy balance and which mitigation strategies have the strongest physical basis.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway B, Sensible/Latent Heat — apply energy balance to cities
+
+**Why this matters:**
+Urban heat is a direct public-health issue and one of the clearest examples of geography shaping everyday climate exposure.
+
+**If this gets hard, focus on:**
+The energy-balance idea: if less energy goes into evaporation, more goes into warming surfaces and air.
+
 
 ## 1. The Question
 

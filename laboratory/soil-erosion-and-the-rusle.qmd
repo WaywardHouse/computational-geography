@@ -50,26 +50,32 @@ math-prerequisites-note: Basic algebra and multiplication. Familiarity with rast
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/AA2-rusle
 ---
 
-## Before You Start
-
-**You should know**  
-That erosion depends on rainfall, slope, soil, vegetation cover, and land management together rather than on any one factor alone.
-
-**You will learn**  
-How the RUSLE factors work, how to interpret them physically, and how conservation practices change predicted soil loss.
-
-**Why this matters**  
-RUSLE is one of the most widely used operational models for mapping and reducing erosion risk.
-
-**If this gets hard, focus on...**  
-The multiplicative structure: several moderate changes can combine into a very large reduction.
-
-
 Soil erosion is a slow catastrophe. Unlike a flood or a landslide, it rarely makes headlines — it removes a fraction of a millimetre per year, invisible in any single rainstorm, catastrophic over decades. In Alberta, a province where topsoil depths average 15–30 cm and can take thousands of years to form, losing even 2–3 mm per year represents a permanent capital loss from the agricultural system.
 
 The Revised Universal Soil Loss Equation (RUSLE) is arguably the most widely used quantitative model in applied geomorphology. It is empirical — built from regression on thousands of erosion plot measurements rather than derived from physical first principles — but it is structured in a way that allows each factor to be understood, measured, and manipulated independently. That structure is worth understanding carefully.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway B: Soil Moisture Dynamics
+- Pathway B: Watershed Delineation
+- Pathway C: Rainfall Intensity-Duration-Frequency
+
+**You will learn:**
+- How the RUSLE factors work, how to interpret them physically, and how conservation practices change predicted soil loss.
+
+**Estimated time:** 11 hours
+
+**See also:** Pathway B, Watershed Delineation — predict erosion in your watershed
+
+**Why this matters:**
+RUSLE is one of the most widely used operational models for mapping and reducing erosion risk.
+
+**If this gets hard, focus on:**
+The multiplicative structure: several moderate changes can combine into a very large reduction.
+
 
 ## 1. The Question
 

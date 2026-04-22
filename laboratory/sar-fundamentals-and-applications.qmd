@@ -51,26 +51,32 @@ math-prerequisites-note: Wave concepts (wavelength, frequency, phase) from Essay
 notebook-url: https://github.com/waywardhouse/computational-geography-lab/tree/main/essays/T1-sar-fundamentals
 ---
 
-## Before You Start
-
-**You should know**  
-That electromagnetic waves have wavelength, frequency, and phase, and that radar measures returned signal rather than reflected sunlight.
-
-**You will learn**  
-How synthetic aperture radar creates fine resolution, how backscatter depends on surface properties, and why SAR works through cloud and darkness.
-
-**Why this matters**  
-SAR is one of the most operationally powerful remote-sensing systems in computational geography.
-
-**If this gets hard, focus on...**  
-The two key ideas: phase matters, and a moving antenna can behave like a much larger one.
-
-
 On the night of 26 December 2004, no optical satellite could see through the clouds covering the Indian Ocean as the Sumatra-Andaman earthquake triggered the deadliest tsunami in recorded history. But ENVISAT's Advanced SAR imaged the ocean surface through those same clouds within hours, mapping the tsunami's propagation and the inundation extent along coastlines from Thailand to Sri Lanka.
 
 Synthetic aperture radar does not depend on sunlight. It does not depend on clear skies. It records the Earth's surface in darkness, through cloud cover, through rain (at long wavelengths), at any time of day or night. This all-weather, day-night capability makes SAR one of the most operationally useful tools in Earth observation — and the physics that enables it is, at its core, a clever exploitation of the wave nature of electromagnetic radiation.
 
 ---
+
+## Before You Start This Investigation
+
+**You should have completed:**
+- Pathway A: Remote Sensing fundamentals
+- Pathway A: Atmospheric Effects & Surface Reflectance
+- Pathway A: Raster Classification
+
+**You will learn:**
+- How synthetic aperture radar creates fine resolution, how backscatter depends on surface properties, and why SAR works through cloud and darkness.
+
+**Estimated time:** 10 hours
+
+**See also:** Pathway A, Raster Classification — SAR is an all-weather alternative
+
+**Why this matters:**
+SAR is one of the most operationally powerful remote-sensing systems in computational geography.
+
+**If this gets hard, focus on:**
+The two key ideas: phase matters, and a moving antenna can behave like a much larger one.
+
 
 ## 1. The Question
 
