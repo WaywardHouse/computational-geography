@@ -1,0 +1,216 @@
+---
+title: "Laboratory: Choose Your Problem Set"
+subtitle: "The Laboratory is not a textbook to read cover-to-cover. It's a collection of investigations you pick based on your interests and pathway."
+---
+
+## How the Laboratory Works
+
+After completing one or more **pathways** in the core book, you're ready to dive deeper into specific investigations. The Laboratory contains 39 project-based investigations organized into **6 thematic problem sets**. Each investigation teaches you how to apply core concepts to real-world problems.
+
+### This is Not Linear
+
+Unlike the core book (where you move from one pathway to another), the Laboratory is **non-sequential**. You can:
+
+- Jump to any problem set that matches your pathway
+- Do investigations in any order within a problem set, as long as prerequisites are met
+- Mix investigations across problem sets (e.g., if you've completed Pathway B, pick some investigations from Problem Sets B and C)
+
+### The 6 Problem Sets
+
+**A) Observation & Remote Sensing Advanced Applications** (4 investigations)
+*Prerequisite: Pathway A (Remote Sensing & Observation)*
+Go deeper into satellite-based observation: SAR, InSAR, gravity sensing, microwave radiometry. Best if you want to specialize in advanced remote sensing or apply satellite data to your domain.
+
+**B) Water Systems & Hydrology** (7 investigations)
+*Prerequisite: Pathway B (Environmental Systems & Processes)*
+Master hydrology: reservoirs, streamflow forecasting, water quality, groundwater, contaminant transport, remediation. Core for anyone studying water or hydrology-dependent systems.
+
+**C) Geomorphology & Hazards** (8 investigations)
+*Prerequisite: Pathway B (Environmental Systems & Processes)*
+Understand Earth's surfaces: soil formation, erosion, landslides, river and coastal dynamics. Essential if you study landscape change, hazards, or coastal systems.
+
+**D) Urban Systems & Infrastructure** (7 investigations)
+*Prerequisite: Pathway C (Applications & Implications), or Pathways A + B*
+Apply spatial models to cities: heat islands, air quality, transportation, land-use change, urban scaling. Pick this if you're interested in urban systems or spatial planning.
+
+**E) Inference & Methods (Cross-Cutting)** (6 investigations)
+*Prerequisite: Any pathway + Methods Reference*
+Master statistical and computational methods for prediction: Bayesian inference, regression, ensemble forecasting, data assimilation. Deepen your methodological toolkit.
+
+**F) Biogeochemical Cycles** (7 investigations)
+*Prerequisite: Pathway B (Environmental Systems & Processes)*
+Trace energy and matter through systems: fossil fuels, biomass burning, carbon cycles, photosynthesis, soil carbon, methane. For those studying global material flows and climate.
+
+---
+
+## How to Choose
+
+### By Pathway
+
+**If you completed Pathway A (Remote Sensing):**
+- **Start with:** Problem Set A (Remote Sensing)
+- **Then explore:** Problem Sets D (Urban RS applications) or E (methods)
+
+**If you completed Pathway B (Environmental Systems):**
+- **Start with:** Problem Sets B, C, or F (all build directly on Pathway B)
+- **Then explore:** Problem Set E (Inference methods)
+
+**If you completed Pathway C (Applications):**
+- **Start with:** Problem Set D (Urban Systems)
+- **Then explore:** Problem Sets A, B, C, F (depending on which pathway you combined with C)
+
+**If you completed multiple pathways:**
+- Pick problem sets that combine your interests
+- Example: "Pathway B + Pathway C interested in water + policy" → Problem Set B (Water) then Problem Set D (Urban Systems)
+
+### By Interest
+
+**Interested in:**
+- **Satellite measurement** → Problem Set A
+- **Water and floods** → Problem Set B
+- **Landslides, erosion, coastal change** → Problem Set C
+- **Cities and planning** → Problem Set D
+- **Statistical forecasting and data assimilation** → Problem Set E
+- **Climate and carbon** → Problem Set F
+
+### By Time & Difficulty
+
+Each investigation lists:
+- **Est. Hours:** Time to complete the investigation (8–15 hours typical)
+- **Level:** Beginner, Intermediate, or Advanced
+
+Start with Intermediate investigations if you're new to a domain. Combine 2–3 investigations per problem set (40–50 hours) for a deep dive.
+
+---
+
+## Using the Investigation Pages
+
+Each investigation includes:
+
+**Before You Start This Investigation**
+- Required prerequisite chapters (from core book)
+- What methods or tools you'll learn
+- Links to background material
+
+**The Investigation**
+- Real-world problem statement
+- Data and methods
+- Hands-on code and analysis
+- Interpretation of results
+
+**Where This Leads**
+- Related investigations (in this or other problem sets)
+- How this connects to Vol II (Validation & Forecasting)
+- Further reading and field applications
+
+---
+
+## Reading the Laboratory with the Core Book
+
+**Scenario 1: Deep dive after finishing a pathway**
+
+You've finished Pathway B (Environmental Systems). Now you want to master hydrology.
+
+1. Start with **Problem Set B, Investigation 1**: Reservoir Operations
+2. Work through **Investigations 2–4** in Problem Set B (Streamflow, Water Quality, Groundwater)
+3. Jump to **Problem Set C** and do Investigations on soil erosion and sediment transport
+4. **Total time:** ~60–70 hours; you're now ready for Vol II.B (Forecasting with hydrology spine)
+
+**Scenario 2: Methodological specialization**
+
+You've completed Pathway B and want to learn advanced statistical methods.
+
+1. Start with **Problem Set E, Investigation 1**: Bayesian Inference
+2. Work through **Investigations 2–4** in Problem Set E (Regression, Dimensionality Reduction, Ensemble Forecasting)
+3. Do **Investigation 5–6** (Kalman Filtering, Satellite Data Assimilation)
+4. **Total time:** ~65 hours; you're ready for Vol II.B (Data assimilation, forecasting)
+
+**Scenario 3: Mixed pathways + applications**
+
+You completed Pathway A (Remote Sensing) + Pathway B (Environmental Systems) and want to apply both to real-world problems.
+
+1. Do **Problem Set A** (Remote Sensing applications): ~40 hours
+2. Do **Problem Set D** (Urban Systems): pick Urban Heat Island (uses remote sensing + environmental physics)
+3. Do selected **Problem Set C** chapters (e.g., Erosion, Landslides) to apply RS to hazard mapping
+4. **Total time:** ~100+ hours; comprehensive skill set spanning observation, processes, and applications
+
+---
+
+## Prerequisites and Backward Links
+
+Each investigation declares:
+- **Prerequisites:** What you must know before starting (e.g., "Pathway B Ch6: Soil Heat")
+- **Backward links:** Which core pathway chapter enables this investigation
+
+If an investigation lists a prerequisite you haven't done, go back to the core book, review that chapter, then return.
+
+**Example:**
+Investigation: **Groundwater Contaminant Transport**
+- Prerequisites: Pathway B Ch6 (Soil Heat Diffusion), Pathway B Ch8 (Soil Moisture)
+- Backward link: "This investigation extends the diffusion physics from Pathway B Ch6"
+
+---
+
+## Problem Set Progression (Optional)
+
+Investigations within a problem set can be done in any order, but here's a suggested flow for maximum learning:
+
+### Problem Set B (Water Systems): Recommended Order
+1. Reservoir Operations (foundational: mass balance, water accounting)
+2. Streamflow Forecasting (builds on water balance; adds uncertainty)
+3. Water Quality & Nutrient Dynamics (extends to dissolved substances)
+4. Groundwater & Contaminant Transport (subsurface systems)
+
+### Problem Set C (Geomorphology): Recommended Order
+1. Soil Formation & Weathering (foundation: how soils are created)
+2. Soil Erosion (applies weathering to erosion)
+3. Slope Stability & Landslides (topographic risk)
+4. River Sediment Transport (how eroded material moves)
+5. Coastal Dynamics (sediment transport in wave-driven systems)
+
+### Problem Set D (Urban Systems): Recommended Order
+1. Urban Heat Island Dynamics (urban energy balance)
+2. Urban Ventilation & Air Quality (wind in cities)
+3. Transportation Networks (spatial movement)
+4. Urban Land-Use Change (future city structure)
+5. Demographic Spatial Dynamics (population change in space)
+
+---
+
+## Estimated Scope
+
+| Problem Set | Investigations | Est. Hours Each | Total Hours | Typical Difficulty |
+|---|---|---|---|---|
+| A: Remote Sensing | 4 | 10–12 | 40–50 | Advanced |
+| B: Water Systems | 7 | 12–14 | 80–100 | Advanced |
+| C: Geomorphology | 8 | 10–13 | 80–100 | Intermediate–Advanced |
+| D: Urban Systems | 7 | 10–12 | 70–85 | Intermediate |
+| E: Inference | 6 | 11–13 | 65–80 | Advanced |
+| F: Biogeochemical | 7 | 8–11 | 60–75 | Intermediate |
+| **Pick 1–2 sets** | | | **150–200 hrs** | |
+
+A typical reader picks 1–2 problem sets, spending 2–6 months working through them. The Laboratory is designed for depth, not completion—you're building mastery in your domain of interest.
+
+---
+
+## Next Steps After the Laboratory
+
+**After completing 1–2 problem sets:**
+- **Vol II.A (Validation Pathways):** Learn how to validate and integrate your models
+- **Vol II.B (Forecasting with Hydrology Spine):** If you want to forecast, this is your next step
+- **Companion Books (Topic Libraries):** Specialize further in Remote Sensing, Cryosphere, Economics, or Machine Learning
+- **Essays:** Read analytical pieces connecting computational geography to current events
+
+---
+
+## Questions for Lab Chapters
+
+As you work through investigations, ask yourself:
+
+1. **Does this model work?** How did the authors validate it? (See Methods Reference if needed)
+2. **Which model should we use?** What are the tradeoffs between approaches?
+3. **Where does uncertainty come from?** What are the sources of error in this investigation?
+4. **What could go wrong?** How might this fail in a new context or dataset?
+5. **What's next?** How does this prepare me for forecasting or working with real data?
+
+These questions prepare you for Vol II and professional practice.

@@ -1,0 +1,38 @@
+Investigation,Problem Set,Prerequisites,Backward Link,Est. Hours,Level
+SAR Fundamentals & Applications,A,"Pathway A: Remote Sensing, Atmospheric Effects",Pathway A Ch6 (Raster Classification),10,Advanced
+InSAR Deformation Monitoring,A,"Pathway A: Atmospheric Effects, Ch2 (Spectral/Temporal Resolution)",Pathway A Ch6 (Raster Classification),12,Advanced
+Gravity Remote Sensing (GRACE),A,"Pathway A: Orbital Mechanics (Companion 1)",Pathway A Ch2 (Spectral/Temporal Resolution),11,Advanced
+Passive Microwave Radiometry,A,"Pathway A: Thermal/Microwave RS (Companion 1)",Pathway A Ch5 (Vegetation Indices),10,Advanced
+Reservoir Operations & Mass Balance,B,"Pathway B: Watershed Delineation, Python/Scientific Computing",Pathway B Ch11 (Watershed Delineation),12,Advanced
+Streamflow Forecasting (Stochastic & Ensemble),B,"Pathway B: Environmental Systems, Vol II.B (Ensemble Methods)",Vol II.B Ch B.1 (Time-Series Mechanics),15,Advanced
+Water Quality & Nutrient Dynamics,B,"Pathway B: Soil Moisture, Wind, Temperature; Methods Reference (Diff Eq)",Pathway B Ch8 (Soil Moisture),12,Intermediate
+Groundwater & Contaminant Transport,B,"Pathway B: Soil Heat, Soil Moisture; Methods Reference (PDEs, Numerical)",Pathway B Ch6 (Soil Heat Diffusion),14,Advanced
+Sediment & Contaminant Transport in Rivers,B,"Pathway B: Watershed, Wind Profiles; Methods Reference (Dynamics)",Pathway B Ch11 (Watershed),13,Advanced
+Pump-and-Treat & In Situ Remediation,B,"Pathway B: Soil Properties, Groundwater basics",Laboratory: Groundwater Contaminant Transport,10,Intermediate
+Soil Formation & Weathering,C,"Pathway B: Basics; Companion 2 (if mountain context)",Pathway B Ch4 (Radiation & Heat),9,Intermediate
+Soil Erosion (RUSLE),C,"Pathway B: Soil Moisture, Watershed; Pathway C: Rainfall",Pathway B Ch11 (Watershed),11,Intermediate
+Slope Stability & Landslides,C,"Pathway B: DEM, Soil Moisture; Pathway C: Rainfall",Pathway B Ch2 (Gradient/Aspect),12,Intermediate
+River Sediment Transport,C,"Pathway B: Watershed, Wind Profiles; Methods Reference (Dynamics)",Pathway B Ch11 (Watershed),11,Intermediate
+Channel Morphology & Hydraulic Geometry,C,"Pathway B: Watershed; Methods Reference (Numerical Methods)",Pathway B Ch11 (Watershed),10,Intermediate
+Wave Dynamics & Nearshore Transformation,C,"Pathway B: Wind, Temperature Gradients; Methods Reference (Numerical)",Pathway B Ch9 (Wind Profiles),13,Advanced
+Longshore Sediment Transport & Coastal Budgets,C,"Pathway B: Wind Profiles, Coastal Processes",Pathway B Ch9 (Wind Profiles),12,Intermediate
+Sea Level, Storm Surge & Coastal Morphodynamics,C,"Pathway B: Wind, Temperature Gradients; Methods Reference (Numerical)",Pathway B Ch9 (Wind Profiles),14,Advanced
+Urban Heat Island Dynamics,D,"Pathway B: Radiation, Sensible Heat; Pathway A: Thermal RS",Pathway B Ch5 (Sensible/Latent Heat),10,Intermediate
+Urban Ventilation & Air Quality,D,"Pathway B: Wind Profiles; Pathway C: Urban Applications",Pathway B Ch9 (Wind Profiles),11,Intermediate
+Transportation Networks & Accessibility,D,"Pathway C: Gravity Models, Spatial Diffusion",Pathway C Ch1 (Gravity Models),12,Intermediate
+Land-Use Change Modeling,D,"Pathway A: Classification, Change Detection; Pathway C: Economic/Urban",Pathway A Ch8 (Change Detection),11,Intermediate
+Urban Scaling Laws & City Structure,D,"Pathway C: Urban Economics, Agglomeration",Pathway C Ch3 (Urban Agglomeration),10,Intermediate
+Urban Demographic Spatial Dynamics,D,"Pathway C: Migration/Social Systems; Methods Reference (Spatial Stats)",Pathway C Ch2 (Urban Bid-Rent),11,Intermediate
+Bayesian Inference for Environmental Models,E,"Methods Reference (Bayesian), Any applied chapter",Vol II.B Ch B.3 (Data Assimilation),12,Advanced
+Regression for Spatial Variables,E,"Pathway A: Classification; Methods Reference (Regression Basics)",Pathway A Ch7 (Classification),10,Intermediate
+Dimensionality Reduction,E,"Pathway A: Multispectral Imagery; Methods Reference (PCA)",Pathway A Ch5 (Vegetation Indices),11,Intermediate
+Ensemble Forecasting & Uncertainty Quantification,E,"Vol II.B: Ensembles; Methods Reference (Uncertainty)",Vol II.B Ch B.1 (Time-Series Mechanics),12,Advanced
+Kalman Filtering & Sequential Data Assimilation,E,"Vol II.B: Data Assimilation; Methods Reference (Bayesian)",Vol II.B Ch B.3 (Data Assimilation),13,Advanced
+Satellite Data Assimilation,E,"Pathway A: RS Fundamentals; Vol II.B: Assimilation",Vol II.B Ch B.3 (Data Assimilation),12,Advanced
+Combustion Chemistry & Energy Systems,F,"Pathway C: Energy/Markets; Methods Reference (Chemistry Basics)",Companion 3: Energy Systems,10,Intermediate
+Biomass Burning & Pyrogenic Carbon,F,"Pathway C: Fire; Pathway B: Photosynthesis/Carbon",Pathway C Ch2 (Fire Spread),11,Intermediate
+Land-Use Change & Deforestation,F,"Pathway A: Classification, Change Detection; Pathway B: Carbon Cycle",Pathway A Ch8 (Change Detection),12,Intermediate
+Photosynthesis & Primary Productivity,F,"Pathway B: Photosynthesis, Light Response; Pathway A: Vegetation Indices",Pathway B Ch7 (Photosynthesis),10,Intermediate
+Ocean Carbon Cycles,F,"Pathway B: Temperature-Moisture Gradients; Pathway A: Water Optics (Companion 1)",Pathway B Ch10 (Temperature-Moisture),11,Intermediate
+Soil Carbon Dynamics,F,"Pathway B: Soil Heat, Soil Moisture, Photosynthesis",Pathway B Ch6 (Soil Heat),9,Intermediate
+Methanogenesis & Anaerobic Processes,F,"Pathway B: Soil Moisture; Companion 2 (if wetland context)",Pathway B Ch8 (Soil Moisture),8,Intermediate

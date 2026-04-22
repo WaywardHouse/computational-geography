@@ -8,52 +8,64 @@ project:
 
 book:
   title: "Computational Geography"
-  subtitle: "Laboratory"
+  subtitle: "Laboratory: Thematic Problem Sets"
   author: "Paul Hobson"
   search: true
   chapters:
     - index.qmd
-    - advanced-investigations/index.qmd
     - laboratory/index.qmd
-    - laboratory/sar-fundamentals-and-applications.qmd
-    - laboratory/insar-deformation-monitoring.qmd
-    - laboratory/gravity-remote-sensing-grace.qmd
-    - laboratory/passive-microwave-radiometry.qmd
-    - laboratory/rock-weathering-and-soil-formation.qmd
-    - laboratory/soil-erosion-and-the-rusle.qmd
-    - laboratory/shallow-landslides-and-slope-stability.qmd
-    - laboratory/sediment-transport-in-rivers.qmd
-    - laboratory/channel-morphology-and-hydraulic-geometry.qmd
-    - laboratory/wave-dynamics-and-nearshore-transformation.qmd
-    - laboratory/longshore-sediment-transport-and-coastal-budgets.qmd
-    - laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd
-    - laboratory/urban-heat-island-dynamics.qmd
-    - laboratory/urban-ventilation-and-pollutant-dispersion.qmd
-    - laboratory/transportation-network-analysis.qmd
-    - laboratory/accessibility-and-travel-demand-modeling.qmd
-    - laboratory/land-use-change-modeling.qmd
-    - laboratory/urban-scaling-laws-and-city-structure.qmd
-    - laboratory/demographic-spatial-dynamics.qmd
-    - laboratory/reservoir-operations-and-mass-balance.qmd
-    - laboratory/stochastic-streamflow-and-drought-risk.qmd
-    - laboratory/dissolved-oxygen-dynamics-and-the-streeter-phelps-model.qmd
-    - laboratory/nutrient-dynamics-and-lake-eutrophication.qmd
-    - laboratory/sediment-and-contaminant-transport-in-rivers.qmd
-    - laboratory/groundwater-contaminant-plumes.qmd
-    - laboratory/pump-and-treat-and-in-situ-remediation.qmd
-    - laboratory/bayesian-inference-for-environmental-models.qmd
-    - laboratory/regression-for-continuous-spatial-variables.qmd
-    - laboratory/dimensionality-reduction-for-high-dimensional-geographic-data.qmd
-    - laboratory/ensemble-forecasting-and-uncertainty-quantification.qmd
-    - laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd
-    - laboratory/satellite-data-assimilation-in-environmental-models.qmd
-    - laboratory/Fossil-Fuel-Combustion-Chemistry.qmd
-    - laboratory/Biomass-Burning-and-Pyrogenic-Carbon.qmd
-    - laboratory/Land-Use-Change-and-Deforestation.qmd
-    - laboratory/Photosynthesis-and-Gross-Primary-Production.qmd
-    - laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd
-    - laboratory/Soil-Carbon-Storage-and-Decomposition.qmd
-    - laboratory/Methanogenesis-in-Anaerobic-Environments.qmd
+    - laboratory/laboratory-navigation.qmd
+    - part: "Problem Set A: Observation & Remote Sensing Advanced Applications"
+      chapters:
+        - laboratory/sar-fundamentals-and-applications.qmd
+        - laboratory/insar-deformation-monitoring.qmd
+        - laboratory/gravity-remote-sensing-grace.qmd
+        - laboratory/passive-microwave-radiometry.qmd
+    - part: "Problem Set B: Water Systems & Hydrology"
+      chapters:
+        - laboratory/reservoir-operations-and-mass-balance.qmd
+        - laboratory/stochastic-streamflow-and-drought-risk.qmd
+        - laboratory/dissolved-oxygen-dynamics-and-the-streeter-phelps-model.qmd
+        - laboratory/nutrient-dynamics-and-lake-eutrophication.qmd
+        - laboratory/sediment-and-contaminant-transport-in-rivers.qmd
+        - laboratory/groundwater-contaminant-plumes.qmd
+        - laboratory/pump-and-treat-and-in-situ-remediation.qmd
+    - part: "Problem Set C: Geomorphology & Hazards"
+      chapters:
+        - laboratory/rock-weathering-and-soil-formation.qmd
+        - laboratory/soil-erosion-and-the-rusle.qmd
+        - laboratory/shallow-landslides-and-slope-stability.qmd
+        - laboratory/sediment-transport-in-rivers.qmd
+        - laboratory/channel-morphology-and-hydraulic-geometry.qmd
+        - laboratory/wave-dynamics-and-nearshore-transformation.qmd
+        - laboratory/longshore-sediment-transport-and-coastal-budgets.qmd
+        - laboratory/sea-level-storm-surge-and-coastal-morphodynamics.qmd
+    - part: "Problem Set D: Urban Systems & Infrastructure"
+      chapters:
+        - laboratory/urban-heat-island-dynamics.qmd
+        - laboratory/urban-ventilation-and-pollutant-dispersion.qmd
+        - laboratory/transportation-network-analysis.qmd
+        - laboratory/accessibility-and-travel-demand-modeling.qmd
+        - laboratory/land-use-change-modeling.qmd
+        - laboratory/urban-scaling-laws-and-city-structure.qmd
+        - laboratory/demographic-spatial-dynamics.qmd
+    - part: "Problem Set E: Inference & Methods (Cross-Cutting)"
+      chapters:
+        - laboratory/bayesian-inference-for-environmental-models.qmd
+        - laboratory/regression-for-continuous-spatial-variables.qmd
+        - laboratory/dimensionality-reduction-for-high-dimensional-geographic-data.qmd
+        - laboratory/ensemble-forecasting-and-uncertainty-quantification.qmd
+        - laboratory/the-kalman-filter-and-sequential-data-assimilation.qmd
+        - laboratory/satellite-data-assimilation-in-environmental-models.qmd
+    - part: "Problem Set F: Biogeochemical Cycles"
+      chapters:
+        - laboratory/Fossil-Fuel-Combustion-Chemistry.qmd
+        - laboratory/Biomass-Burning-and-Pyrogenic-Carbon.qmd
+        - laboratory/Land-Use-Change-and-Deforestation.qmd
+        - laboratory/Photosynthesis-and-Gross-Primary-Production.qmd
+        - laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd
+        - laboratory/Soil-Carbon-Storage-and-Decomposition.qmd
+        - laboratory/Methanogenesis-in-Anaerobic-Environments.qmd
 
 format:
   html:
