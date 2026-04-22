@@ -13,8 +13,8 @@ pathway-prerequisites:
   - "Methods Reference: Bayesian Updating"
 backward-link: "Vol II.B, Data Assimilation — operational forecasting implementation"
 book-part-title: Computational Geography Laboratory
-section-code: E
-section-title: Problem Set E: Inference & Methods
+section-code: "E"
+section-title: "Problem Set E: Inference & Methods"
 tags:
 - math
 - viz

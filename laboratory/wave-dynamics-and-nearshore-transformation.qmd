@@ -16,8 +16,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Wind Profiles — wave generation and propagation"
 book-part-title: Computational Geography Laboratory
 chapter-number: 76
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

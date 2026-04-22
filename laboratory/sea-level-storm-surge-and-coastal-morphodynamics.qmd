@@ -16,8 +16,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Wind Profiles — surge modeling from atmospheric forcing"
 book-part-title: Computational Geography Laboratory
 chapter-number: 78
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

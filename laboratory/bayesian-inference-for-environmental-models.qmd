@@ -13,8 +13,8 @@ pathway-prerequisites:
   - "Any applied chapter (fire, flood, etc.)"
 backward-link: "Vol II.B, Data Assimilation — deep dive into Bayesian methods"
 book-part-title: Computational Geography Laboratory
-section-code: E
-section-title: Problem Set E: Inference & Methods
+section-code: "E"
+section-title: "Problem Set E: Inference & Methods"
 tags:
 - math
 - viz

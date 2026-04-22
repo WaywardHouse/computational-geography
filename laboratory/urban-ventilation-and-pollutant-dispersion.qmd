@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Wind Profiles — apply turbulence physics to urban canyons"
 book-part-title: Computational Geography Laboratory
 chapter-number: 96
-section-code: D
-section-title: Problem Set D: Urban Systems & Infrastructure
+section-code: "D"
+section-title: "Problem Set D: Urban Systems & Infrastructure"
 tags:
 - math
 - viz

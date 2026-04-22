@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway A, Change Detection — predict future land use from past change"
 book-part-title: Computational Geography Laboratory
 chapter-number: 99
-section-code: D
-section-title: Problem Set D: Urban Systems & Infrastructure
+section-code: "D"
+section-title: "Problem Set D: Urban Systems & Infrastructure"
 tags:
 - math
 - viz

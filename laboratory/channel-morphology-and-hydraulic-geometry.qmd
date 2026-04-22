@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Watershed Delineation — channel form as a product of process"
 book-part-title: Computational Geography Laboratory
 chapter-number: 75
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

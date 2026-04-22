@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway C, Gravity Models — model travel demand in your city"
 book-part-title: Computational Geography Laboratory
 chapter-number: 97
-section-code: D
-section-title: Problem Set D: Urban Systems & Infrastructure
+section-code: "D"
+section-title: "Problem Set D: Urban Systems & Infrastructure"
 tags:
 - math
 - viz

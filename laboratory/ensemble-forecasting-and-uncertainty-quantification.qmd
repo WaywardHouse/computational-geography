@@ -14,8 +14,8 @@ pathway-prerequisites:
   - "Methods Reference: Uncertainty Propagation"
 backward-link: "Vol II.B, Time-Series Mechanics — practice ensemble thinking with real data"
 book-part-title: Computational Geography Laboratory
-section-code: E
-section-title: Problem Set E: Inference & Methods
+section-code: "E"
+section-title: "Problem Set E: Inference & Methods"
 tags:
 - math
 - viz

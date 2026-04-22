@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Wind Profiles — coastal sediment budgets driven by wave energy"
 book-part-title: Computational Geography Laboratory
 chapter-number: 77
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

@@ -13,8 +13,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Soil Moisture — model methane from wetlands"
 book-part-title: Computational Geography Laboratory
 chapter-number: 121
-section-code: F
-section-title: Problem Set F: Biogeochemical Cycles
+section-code: "F"
+section-title: "Problem Set F: Biogeochemical Cycles"
 tags:
 - math
 - viz

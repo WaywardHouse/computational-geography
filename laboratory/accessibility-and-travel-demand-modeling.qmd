@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway C, Gravity Models — spatial accessibility and transport equity"
 book-part-title: Computational Geography Laboratory
 chapter-number: 98
-section-code: D
-section-title: Problem Set D: Urban Systems & Infrastructure
+section-code: "D"
+section-title: "Problem Set D: Urban Systems & Infrastructure"
 tags:
 - math
 - viz

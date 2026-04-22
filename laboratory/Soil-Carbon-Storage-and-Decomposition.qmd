@@ -16,8 +16,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Soil Heat — model soil carbon under climate change"
 book-part-title: Computational Geography Laboratory
 chapter-number: 120
-section-code: F
-section-title: Problem Set F: Biogeochemical Cycles
+section-code: "F"
+section-title: "Problem Set F: Biogeochemical Cycles"
 tags:
 - math
 - viz

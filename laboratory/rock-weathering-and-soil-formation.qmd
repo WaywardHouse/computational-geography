@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Net Radiation & Albedo — heat drives weathering"
 book-part-title: Computational Geography Laboratory
 chapter-number: 71
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Photosynthesis — validate GPP with field measurements"
 book-part-title: Computational Geography Laboratory
 chapter-number: 118
-section-code: F
-section-title: Problem Set F: Biogeochemical Cycles
+section-code: "F"
+section-title: "Problem Set F: Biogeochemical Cycles"
 tags:
 - math
 - viz

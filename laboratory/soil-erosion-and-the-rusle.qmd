@@ -16,8 +16,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Watershed Delineation — predict erosion in your watershed"
 book-part-title: Computational Geography Laboratory
 chapter-number: 72
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

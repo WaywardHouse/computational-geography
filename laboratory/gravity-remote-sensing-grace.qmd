@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway A, Spectral & Temporal Resolution — GRACE extends temporal monitoring"
 book-part-title: Computational Geography Laboratory
 chapter-number: 58
-section-code: A
-section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
+section-code: "A"
+section-title: "Problem Set A: Observation & Remote Sensing Advanced Applications"
 tags:
 - math
 - viz

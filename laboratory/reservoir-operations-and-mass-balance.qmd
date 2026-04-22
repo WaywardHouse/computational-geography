@@ -14,8 +14,8 @@ pathway-prerequisites:
   - "Scientific Computing Foundations: Python scripting"
 backward-link: "Pathway B, Watershed Delineation — apply mass balance to a real reservoir system"
 book-part-title: Computational Geography Laboratory
-section-code: B
-section-title: Problem Set B: Water Systems & Hydrology
+section-code: "B"
+section-title: "Problem Set B: Water Systems & Hydrology"
 tags:
 - math
 - viz

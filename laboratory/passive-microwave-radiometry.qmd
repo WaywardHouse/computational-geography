@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway A, Vegetation Indices — microwave offers all-weather alternative"
 book-part-title: Computational Geography Laboratory
 chapter-number: 59
-section-code: A
-section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
+section-code: "A"
+section-title: "Problem Set A: Observation & Remote Sensing Advanced Applications"
 tags:
 - math
 - viz

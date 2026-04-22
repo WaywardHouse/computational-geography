@@ -16,8 +16,8 @@ pathway-prerequisites:
 backward-link: "Pathway A, Raster Classification — SAR is an all-weather alternative"
 book-part-title: Computational Geography Laboratory
 chapter-number: 56
-section-code: A
-section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
+section-code: "A"
+section-title: "Problem Set A: Observation & Remote Sensing Advanced Applications"
 tags:
 - math
 - viz

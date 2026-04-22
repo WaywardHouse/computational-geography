@@ -13,8 +13,8 @@ pathway-prerequisites:
 backward-link: "Companion 3: Energy Systems — understand emissions from sources"
 book-part-title: Computational Geography Laboratory
 chapter-number: 115
-section-code: F
-section-title: Problem Set F: Biogeochemical Cycles
+section-code: "F"
+section-title: "Problem Set F: Biogeochemical Cycles"
 tags:
 - math
 - viz

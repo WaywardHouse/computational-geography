@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Gradient/Aspect — use terrain derivatives for hazard mapping"
 book-part-title: Computational Geography Laboratory
 chapter-number: 73
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

@@ -14,8 +14,8 @@ pathway-prerequisites:
   - "Methods Reference: How to Choose a Model"
 backward-link: "Pathway A, Classification — advanced statistical validation"
 book-part-title: Computational Geography Laboratory
-section-code: E
-section-title: Problem Set E: Inference & Methods
+section-code: "E"
+section-title: "Problem Set E: Inference & Methods"
 tags:
 - math
 - viz

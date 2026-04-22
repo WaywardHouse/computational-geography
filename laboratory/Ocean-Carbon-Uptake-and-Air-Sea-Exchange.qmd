@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Temperature-Moisture Gradients — ocean carbon in global cycles"
 book-part-title: Computational Geography Laboratory
 chapter-number: 119
-section-code: F
-section-title: Problem Set F: Biogeochemical Cycles
+section-code: "F"
+section-title: "Problem Set F: Biogeochemical Cycles"
 tags:
 - math
 - viz

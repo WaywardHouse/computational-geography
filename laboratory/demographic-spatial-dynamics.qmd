@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway C, Urban Bid-Rent — model population change in space"
 book-part-title: Computational Geography Laboratory
 chapter-number: 101
-section-code: D
-section-title: Problem Set D: Urban Systems & Infrastructure
+section-code: "D"
+section-title: "Problem Set D: Urban Systems & Infrastructure"
 tags:
 - math
 - viz

@@ -14,8 +14,8 @@ pathway-prerequisites:
 backward-link: "Pathway C, Fire Spread — calculate carbon emissions from fire"
 book-part-title: Computational Geography Laboratory
 chapter-number: 116
-section-code: F
-section-title: Problem Set F: Biogeochemical Cycles
+section-code: "F"
+section-title: "Problem Set F: Biogeochemical Cycles"
 tags:
 - math
 - viz

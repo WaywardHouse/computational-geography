@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway A, Raster Classification — extends SAR to surface deformation"
 book-part-title: Computational Geography Laboratory
 chapter-number: 57
-section-code: A
-section-title: Problem Set A: Observation & Remote Sensing Advanced Applications
+section-code: "A"
+section-title: "Problem Set A: Observation & Remote Sensing Advanced Applications"
 tags:
 - math
 - viz

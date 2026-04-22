@@ -15,8 +15,8 @@ pathway-prerequisites:
 backward-link: "Pathway B, Watershed Delineation — model sediment in your basin"
 book-part-title: Computational Geography Laboratory
 chapter-number: 74
-section-code: C
-section-title: Problem Set C: Geomorphology & Hazards
+section-code: "C"
+section-title: "Problem Set C: Geomorphology & Hazards"
 tags:
 - math
 - viz

@@ -13,8 +13,8 @@ pathway-prerequisites:
   - "Vol II.B: Data Assimilation"
 backward-link: "Vol II.B, Data Assimilation — assimilate real satellite observations"
 book-part-title: Computational Geography Laboratory
-section-code: E
-section-title: Problem Set E: Inference & Methods
+section-code: "E"
+section-title: "Problem Set E: Inference & Methods"
 tags:
 - math
 - viz

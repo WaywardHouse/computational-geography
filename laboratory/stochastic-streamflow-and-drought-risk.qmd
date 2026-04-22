@@ -15,8 +15,8 @@ pathway-prerequisites:
   - "Methods Reference: Uncertainty Propagation"
 backward-link: "Vol II.B, Time-Series Mechanics — practice with real USGS data"
 book-part-title: Computational Geography Laboratory
-section-code: B
-section-title: Problem Set B: Water Systems & Hydrology
+section-code: "B"
+section-title: "Problem Set B: Water Systems & Hydrology"
 tags:
 - math
 - viz
