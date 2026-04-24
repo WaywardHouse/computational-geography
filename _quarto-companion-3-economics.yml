@@ -61,8 +61,6 @@ format:
     number-sections: false
     include-in-header:
       - assets/includes/quarto-head.html
-    include-before-body:
-      - assets/includes/quarto-before-body.html
     include-after-body:
       - assets/includes/quarto-body.html
 
