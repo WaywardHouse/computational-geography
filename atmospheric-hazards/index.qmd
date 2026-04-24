@@ -1,7 +1,7 @@
 ---
 title: "Part 4: Hazards, Change, and Prediction"
 subtitle: "A reader-friendly route into fire, rainfall, floods, and the logic of risk."
-page-layout: custom
+page-layout: article
 body-classes: hero-page split-home split-home-core page-home
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Topic Libraries"
 subtitle: "Browse specialist branches by subject: remote sensing, cryosphere, economic systems, and advanced methods."
-page-layout: custom
+page-layout: article
 body-classes: hero-page
 ---
 

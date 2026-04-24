@@ -1,7 +1,7 @@
 ---
 title: "Cryosphere and Mountain Systems"
 subtitle: "Snow physics, glaciers, permafrost, and high-elevation hazards."
-page-layout: custom
+page-layout: article
 body-classes: hero-page
 ---
 
