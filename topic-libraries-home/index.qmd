@@ -2,8 +2,8 @@
 title: "Computational Geography Topic Libraries"
 subtitle: "Specialist branches gathered by subject: browse deeply, enter sideways, and follow your curiosity."
 page-layout: custom
-body-classes: hero-page
-body-classes: split-home split-home-topics
+body-classes: hero-page split-home split-home-topics
+
 ---
 
 ::: {.section-kicker}

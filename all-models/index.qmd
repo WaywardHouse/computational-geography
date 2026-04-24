@@ -2,8 +2,8 @@
 title: "All Models"
 subtitle: "The blunt version: one page with the full computational geography model list."
 page-layout: custom
-body-classes: hero-page
-body-classes: split-home
+body-classes: hero-page split-home
+
 ---
 
 ::: {.section-kicker}

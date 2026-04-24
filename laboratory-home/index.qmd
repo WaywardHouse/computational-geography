@@ -2,8 +2,8 @@
 title: "Computational Geography Laboratory"
 subtitle: "Project-style investigations, applied studies, and the harder working edge of the series."
 page-layout: custom
-body-classes: hero-page
-body-classes: split-home split-home-lab
+body-classes: hero-page split-home split-home-lab
+
 ---
 
 ::: {.section-kicker}

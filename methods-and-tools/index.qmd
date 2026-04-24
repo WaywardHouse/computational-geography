@@ -2,8 +2,8 @@
 title: "Methods and Tools"
 subtitle: "Cross-cutting resources for GIS, modelling workflow, quantitative methods, and practical setup."
 page-layout: custom
-body-classes: hero-page
-body-classes: split-home split-home-core page-home
+body-classes: hero-page split-home split-home-core page-home
+
 ---
 
 ::: {.section-kicker}

@@ -2,8 +2,8 @@
 title: "Part 2: Earth Systems and Observation"
 subtitle: "Environmental processes first, with deeper sensing and orbital material available when you want it."
 page-layout: custom
-body-classes: hero-page
-body-classes: split-home split-home-core page-home
+body-classes: hero-page split-home split-home-core page-home
+
 ---
 
 ::: {.section-kicker}
