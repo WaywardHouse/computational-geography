@@ -15,7 +15,8 @@ Textbook Part
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This part brings the same modelling habits into human geography. It asks how cities organize space, how trade and transport work across distance, and how prices reveal constraint, connectivity, and power.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./canada-trade-gravity-model.html">Start Part 5</a>
@@ -41,6 +42,7 @@ Textbook Part
           <div class="wh-hero-card__dek">Start with the trade, bid-rent, agglomeration, and spatial arbitrage chapters first. Use the rest as depth and case-study material.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

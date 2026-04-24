@@ -14,7 +14,8 @@ Laboratory
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This section is the front door to the laboratory side of the project. Use it when you want open-ended investigations, integrated applications, and more demanding modelling problems.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="../laboratory/">Open The Laboratory</a>
@@ -35,6 +36,7 @@ Laboratory
           <div class="wh-hero-card__dek">Readers who already have traction in the core path and want harder, richer, or more specialized work.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

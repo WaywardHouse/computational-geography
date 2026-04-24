@@ -15,7 +15,8 @@ Textbook Part
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This part builds the mathematical language of the book in a way that stays close to geographic questions. The goal is not abstract school maths for its own sake. The goal is to understand change, distance, and how systems behave across space.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./what-is-a-spatial-model.html">Start Foundations</a>
@@ -41,6 +42,7 @@ Textbook Part
           <div class="wh-hero-card__dek">After Foundations, choose Pathway A (Remote Sensing), Pathway B (Environmental Systems), or Pathway C (Applications). You can combine pathways as you read.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

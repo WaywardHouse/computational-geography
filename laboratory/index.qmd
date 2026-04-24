@@ -14,7 +14,8 @@ Textbook Part
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>The Laboratory is not a textbook. It's a collection of 39 project-based investigations organized into 6 thematic problem sets. Pick based on your interests and pathway completion.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./laboratory-navigation.html">How to Choose Your Path</a>
@@ -40,6 +41,7 @@ Textbook Part
           <div class="wh-hero-card__dek">Enter by problem set (A–F), not linearly. Each investigation lists prerequisites and backward links to core chapters.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

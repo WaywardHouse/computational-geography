@@ -15,7 +15,8 @@ Textbook Part
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This part uses modelling to think about danger, uncertainty, and real-world consequences. It leads with the clearest and most teachable hazard chapters, while keeping the more meteorology-heavy chapters available for deeper study.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./fire-weather-ignition.html">Start Part 4</a>
@@ -41,6 +42,7 @@ Textbook Part
           <div class="wh-hero-card__dek">Start with the fire and flood chapters, then use the compound-risk chapter to connect them as evolving event systems. Return later for severe-storm and wind-depth chapters.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

@@ -14,7 +14,8 @@ Topic Library
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This branch introduces statistical learning methods for geographic data. It is best treated as later-stage material after the modelling and GIS foundations already feel comfortable.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./regression-continuous-variables.html">Open the Library</a>
@@ -41,6 +42,7 @@ Topic Library
           <div class="wh-hero-card__dek">Best opened after the core path and after some time in GIS or environmental modelling.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

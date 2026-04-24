@@ -14,7 +14,8 @@ Topic Library
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>Move beyond visible imagery into hyperspectral, thermal, LiDAR, radar, gravity, and microwave sensing systems.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./prospect-leaf-optical-properties.html">Open the Library</a>
@@ -40,6 +41,7 @@ Topic Library
           <div class="wh-hero-card__dek">Work through the chapter order or jump into a section that matches your current question.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

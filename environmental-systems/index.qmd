@@ -15,7 +15,8 @@ Textbook Part
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This part uses the mathematical habits from Part 1 to understand environmental systems: energy, soils, plants, water, and atmosphere. It leads with the most concrete process models and keeps the orbital and GPS geometry as extension material for a second pass.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./net-radiation-and-albedo.html">Start Part 2</a>
@@ -41,6 +42,7 @@ Textbook Part
           <div class="wh-hero-card__dek">Start with the process chapters, then use the coupling chapter to connect water, energy, vegetation, and atmosphere into one system. Return to the orbital and deeper biogeochemical material on a second pass.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

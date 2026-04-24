@@ -14,7 +14,8 @@ Browse By Topic
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This section collects the subject branches that are best browsed as coherent libraries rather than forced into the main staircase of the core book. They are not minor side material. They are substantial branches of the wider project.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="../cryosphere-and-mountain-systems/">Open Cryosphere</a>
@@ -36,6 +37,7 @@ Browse By Topic
           <div class="wh-hero-card__dek">After you have momentum in the core book, or whenever a specific topic becomes the thing you most want to study.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

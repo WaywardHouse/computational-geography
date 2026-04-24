@@ -15,35 +15,37 @@ Start Here
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
-    <p>This part is for readers who are curious but not yet fully confident. If equations make you tense, if you have never thought of a map as a data structure, or if you are wondering where to begin, start here.</p>
-    <p>The goal is not to teach everything at once. It is to make the rest of the book feel possible.</p>
-    <div class="wh-hero__actions">
-      <a class="wh-hero__btn wh-hero__btn--primary" href="../foundations/what-is-a-spatial-model.html">Begin Chapter 1</a>
-      <a class="wh-hero__btn wh-hero__btn--ghost" href="../foundations/">See Part 1</a>
+  <div class="wh-hero__body">
+    <div class="wh-hero__left">
+      <p>This part is for readers who are curious but not yet fully confident. If equations make you tense, if you have never thought of a map as a data structure, or if you are wondering where to begin, start here.</p>
+      <p>The goal is not to teach everything at once. It is to make the rest of the book feel possible.</p>
+      <div class="wh-hero__actions">
+        <a class="wh-hero__btn wh-hero__btn--primary" href="../foundations/what-is-a-spatial-model.html">Begin Chapter 1</a>
+        <a class="wh-hero__btn wh-hero__btn--ghost" href="../foundations/">See Part 1</a>
+      </div>
+      <div class="book-pill-row">
+        <span class="book-pill">No panic required</span>
+        <span class="book-pill">Built for first-time readers</span>
+        <span class="book-pill">Bridge into the core path</span>
+        <span class="book-pill">6 bridge chapters</span>
+      </div>
     </div>
-    <div class="book-pill-row">
-      <span class="book-pill">No panic required</span>
-      <span class="book-pill">Built for first-time readers</span>
-      <span class="book-pill">Bridge into the core path</span>
-      <span class="book-pill">6 bridge chapters</span>
-    </div>
-  </div>
-  <aside class="wh-hero__right">
-
-    <div class="wh-hero__panel-label">Details</div>
-    <div class="wh-hero__cards">
-    <div class="wh-hero-card">
+    <aside class="wh-hero__right">
+      <div class="wh-hero__panel-label">Details</div>
+      <div class="wh-hero__cards">
+        <div class="wh-hero-card">
           <div class="wh-hero-card__type">Info</div>
           <div class="wh-hero-card__title">Audience</div>
           <div class="wh-hero-card__dek">High school readers and up, plus anyone returning to maths or science after time away.</div>
-    </div>
-    <div class="wh-hero-card">
+        </div>
+        <div class="wh-hero-card">
           <div class="wh-hero-card__type">Info</div>
           <div class="wh-hero-card__title">Goal</div>
           <div class="wh-hero-card__dek">Make the first core chapters feel approachable, not intimidating.</div>
-    </div>
-  </aside>
+        </div>
+      </div>
+    </aside>
+  </div>
 </section>
 ```
 

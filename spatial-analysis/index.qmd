@@ -15,7 +15,8 @@ Textbook Part
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This part is where the book becomes recognisably GIS and spatial computation. It asks how locations become data, how vector and raster operations work, and how those operations become real analytical workflows.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./point-in-polygon-testing.html">Start Part 3</a>
@@ -41,6 +42,7 @@ Textbook Part
           <div class="wh-hero-card__dek">The first nine chapters here form a strong main route. Save the classification and time-series extensions for later if needed.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

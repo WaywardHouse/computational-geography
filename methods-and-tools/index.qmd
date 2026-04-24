@@ -15,7 +15,8 @@ Cross-Cutting Support
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This section gathers the practical resources that support the whole project. It is not a separate linear book. It is the shared tool bench for readers moving between the core book, topic libraries, and the laboratory.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="../getting-started/">Open Getting Started</a>
@@ -43,6 +44,7 @@ Cross-Cutting Support
           <div class="wh-hero-card__dek">Dip in when you need a workflow, concept, or tool that supports the main book, a topic branch, or a lab investigation.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

@@ -14,7 +14,8 @@ Topic Library
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>Follow snow, ice, frozen ground, and mountain hazards from energy balance through glacier response and thaw-driven instability.</p>
     <div class="wh-hero__actions">
       <a class="wh-hero__btn wh-hero__btn--primary" href="./snowpack-energy-balance.html">Open the Library</a>
@@ -40,6 +41,7 @@ Topic Library
           <div class="wh-hero-card__dek">Work through the chapter order or jump into a section that matches your current question.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

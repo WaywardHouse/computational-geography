@@ -15,7 +15,8 @@ Applied Investigations
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This is the advanced project bench of the wider series: investigations, applied modelling studies, and practicum-style chapters.</p>
     <p>It is the place for readers who want to test ideas against richer problems, combine techniques, and spend more time inside real applications instead of only reading concept chapters.</p>
     <div class="wh-hero__actions">
@@ -48,6 +49,7 @@ Applied Investigations
           <div class="wh-hero-card__dek">Project-based, selective, and better entered by question, dataset, or application area than by strict front-to-back sequence.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 

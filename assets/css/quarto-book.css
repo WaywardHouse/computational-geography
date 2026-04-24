@@ -96,3 +96,10 @@ body:not(.reading-body) > #TOC {
 .wh-hero {
   min-height: 60vh;
 }
+
+/* ── 6. Suppress Quarto anchor link icons on landing pages ───────────────── */
+
+body.page-home .anchored::after,
+body.hero-page .anchored::after {
+  display: none !important;
+}

@@ -15,7 +15,8 @@ Browse By Subject
 
 ```{=html}
 <section class="wh-hero geo-mountains">
-  <div class="wh-hero__left">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
     <p>This collection gathers the specialist branches of the project: remote sensing, cryosphere, machine learning, and deeper environmental and economic systems.</p>
     <p>Instead of making every advanced topic behave like a chapter in one giant staircase, this space lets readers wander in through the branch they actually care about.</p>
     <div class="wh-hero__actions">
@@ -48,6 +49,7 @@ Browse By Subject
           <div class="wh-hero-card__dek">Topical, non-linear, and built for subject-driven browsing instead of one required sequence.</div>
     </div>
   </aside>
+  </div>
 </section>
 ```
 
