@@ -4,6 +4,7 @@ subtitle: "A reader-friendly route into fire, rainfall, floods, and the logic of
 page-layout: article
 body-classes: hero-page split-home split-home-core page-home
 
+toc: false
 ---
 
 ::: {.section-kicker}

@@ -4,6 +4,7 @@ subtitle: "Human systems, trade, cities, and price formation through a geographi
 page-layout: article
 body-classes: hero-page split-home split-home-core page-home
 
+toc: false
 ---
 
 ::: {.section-kicker}

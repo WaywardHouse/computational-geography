@@ -3,6 +3,7 @@ title: "Learn"
 subtitle: "Environmental modelling, GIS, hazards, and earth systems taught as one connected field."
 page-layout: article
 body-classes: learn-landing hero-page
+toc: false
 ---
 
 ```{=html}

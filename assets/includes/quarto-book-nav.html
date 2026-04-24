@@ -146,6 +146,47 @@ nav.quarto-page-breadcrumbs,
 @media (max-width: 480px) {
   .wh-book-header__brand { display: none; }
 }
+
+/* ── wh-hero in book context ───────────────────────────────────────────────
+   The wh-hero component was designed for full-bleed site landings. In a
+   Quarto book the hero lives inside a content column and needs:
+   1. Reasonable height (not 100svh)
+   2. White text on its dark gradient background
+   3. Left/right layout via direct child grid (no __body wrapper)
+   ─────────────────────────────────────────────────────────────────────── */
+.wh-hero {
+  min-height: 60vh;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.wh-hero p,
+.wh-hero h2,
+.wh-hero h3,
+.wh-hero h4,
+.wh-hero li {
+  color: var(--white);
+}
+
+.wh-hero__left,
+.wh-hero__right {
+  position: relative;
+  z-index: 2;
+}
+
+/* If a __body wrapper is present (main-site structure) keep it intact */
+.wh-hero .wh-hero__body {
+  display: contents;
+}
+
+@media (max-width: 640px) {
+  .wh-hero {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 
 <header class="wh-book-header">

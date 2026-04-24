@@ -3,6 +3,7 @@ title: "Advanced Remote Sensing"
 subtitle: "Across the electromagnetic spectrum and beyond."
 page-layout: article
 body-classes: hero-page
+toc: false
 ---
 
 ::: {.section-kicker}

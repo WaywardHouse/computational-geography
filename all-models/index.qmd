@@ -4,6 +4,7 @@ subtitle: "The blunt version: one page with the full computational geography mod
 page-layout: article
 body-classes: hero-page split-home
 
+toc: false
 ---
 
 ::: {.section-kicker}

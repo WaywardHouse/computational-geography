@@ -3,4 +3,5 @@ title: "Computational Geography Core Book"
 subtitle: "The flagship modelling text: a calm on-ramp, a clear staircase, and one coherent main journey."
 page-layout: article
 body-classes: learn-landing hero-page
+toc: false
 ---

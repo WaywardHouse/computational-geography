@@ -3,6 +3,7 @@ title: "Advanced Investigations"
 subtitle: "The laboratory for project-style chapters, specialist applications, and the harder edge of the learning project."
 page-layout: article
 body-classes: hero-page
+toc: false
 ---
 
 ::: {.section-kicker}

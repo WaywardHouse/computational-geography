@@ -3,6 +3,7 @@ title: "Computational Geography Laboratory"
 subtitle: "Advanced applied models, investigations, and project-style chapters."
 page-layout: article
 body-classes: hero-page
+toc: false
 ---
 
 ::: {.section-kicker}

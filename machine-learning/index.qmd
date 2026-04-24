@@ -3,6 +3,7 @@ title: "Machine Learning for Geographic Data"
 subtitle: "Optional statistical learning chapters for readers ready to go further."
 page-layout: article
 body-classes: hero-page
+toc: false
 ---
 
 ::: {.section-kicker}

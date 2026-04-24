@@ -4,6 +4,7 @@ subtitle: "A calm on-ramp into models, maps, equations, and the way this book wo
 page-layout: article
 body-classes: hero-page split-home split-home-core page-home
 
+toc: false
 ---
 
 ::: {.section-kicker}

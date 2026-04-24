@@ -2,6 +2,7 @@
 title: "Scientific Computing Foundations"
 type: chapter
 book-part: "scientific-computing"
+toc: false
 ---
 
 # Introduction to Scientific Computing

@@ -4,6 +4,7 @@ subtitle: "Project-style investigations, applied studies, and the harder working
 page-layout: article
 body-classes: hero-page split-home split-home-lab
 
+toc: false
 ---
 
 ::: {.section-kicker}
