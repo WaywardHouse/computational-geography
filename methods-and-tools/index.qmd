@@ -1,7 +1,8 @@
 ---
 title: "Methods and Tools"
 subtitle: "Cross-cutting resources for GIS, modelling workflow, quantitative methods, and practical setup."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home split-home-core page-home
 ---
 
@@ -12,12 +13,12 @@ Cross-Cutting Support
 ## Methods and Tools {#methods-and-tools .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This section gathers the practical resources that support the whole project. It is not a separate linear book. It is the shared tool bench for readers moving between the core book, topic libraries, and the laboratory.</p>
-    <div class="cta-row">
-      <a class="cta" href="../getting-started/">Open Getting Started</a>
-      <a class="cta cta-ghost" href="../spatial-analysis/">Open GIS and Spatial Analysis</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../getting-started/">Open Getting Started</a>
+      <a class="wh-hero__btn wh-hero__btn--ghost" href="../spatial-analysis/">Open GIS and Spatial Analysis</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">GIS resources</span>
@@ -26,14 +27,19 @@ Cross-Cutting Support
       <span class="book-pill">Shared tool bench</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Support the whole learning library with reusable methods, setup help, and practical quantitative resources.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Support the whole learning library with reusable methods, setup help, and practical quantitative resources.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>How To Use It</strong>
-      <span>Dip in when you need a workflow, concept, or tool that supports the main book, a topic branch, or a lab investigation.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">How To Use It</div>
+          <div class="wh-hero-card__dek">Dip in when you need a workflow, concept, or tool that supports the main book, a topic branch, or a lab investigation.</div>
     </div>
   </aside>
 </section>
@@ -83,66 +89,66 @@ Cross-Cutting Support
 </figure>
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Evaluation</span>
-    <h3><a href="./how-to-validate-a-model.html">How to Validate a Model</a></h3>
-    <p>Residuals, holdout design, sensitivity analysis, and uncertainty reporting for any geographic model.</p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Evaluation</span>
+    <div class="wh-book-card__title"><a href="./how-to-validate-a-model.html">How to Validate a Model</a></div>
+    <div class="wh-book-card__desc">Residuals, holdout design, sensitivity analysis, and uncertainty reporting for any geographic model.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Model Choice</span>
-    <h3><a href="./how-to-choose-a-model.html">How to Choose a Model</a></h3>
-    <p>When to use analytical equations, GIS workflows, statistical learning, or simulation.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Model Choice</span>
+    <div class="wh-book-card__title"><a href="./how-to-choose-a-model.html">How to Choose a Model</a></div>
+    <div class="wh-book-card__desc">When to use analytical equations, GIS workflows, statistical learning, or simulation.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Uncertainty</span>
-    <h3><a href="./uncertainty-propagation-and-ensembles.html">Uncertainty Propagation and Ensembles</a></h3>
-    <p>Scenario bands, Monte Carlo thinking, and how uncertain inputs create output ranges.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Uncertainty</span>
+    <div class="wh-book-card__title"><a href="./uncertainty-propagation-and-ensembles.html">Uncertainty Propagation and Ensembles</a></div>
+    <div class="wh-book-card__desc">Scenario bands, Monte Carlo thinking, and how uncertain inputs create output ranges.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Simulation</span>
-    <h3><a href="./simulation-paradigms.html">Simulation Paradigms</a></h3>
-    <p>When to use cellular automata, agent-based models, or aggregate feedback models.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Simulation</span>
+    <div class="wh-book-card__title"><a href="./simulation-paradigms.html">Simulation Paradigms</a></div>
+    <div class="wh-book-card__desc">When to use cellular automata, agent-based models, or aggregate feedback models.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Decision</span>
-    <h3><a href="./decision-models-and-optimization.html">Decision Models and Optimization</a></h3>
-    <p>Objectives, constraints, tradeoffs, and how to support choices under geographic limits.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Decision</span>
+    <div class="wh-book-card__title"><a href="./decision-models-and-optimization.html">Decision Models and Optimization</a></div>
+    <div class="wh-book-card__desc">Objectives, constraints, tradeoffs, and how to support choices under geographic limits.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Inference</span>
-    <h3><a href="./bayesian-updating-and-geographic-inference.html">Bayesian Updating and Geographic Inference</a></h3>
-    <p>Priors, likelihoods, posteriors, and why updated uncertainty is often more honest than one fixed estimate.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Inference</span>
+    <div class="wh-book-card__title"><a href="./bayesian-updating-and-geographic-inference.html">Bayesian Updating and Geographic Inference</a></div>
+    <div class="wh-book-card__desc">Priors, likelihoods, posteriors, and why updated uncertainty is often more honest than one fixed estimate.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Causality</span>
-    <h3><a href="./causal-inference-for-geographic-questions.html">Causal Inference for Geographic Questions</a></h3>
-    <p>Confounding, counterfactuals, and research design for place-based claims that aim to explain rather than merely predict.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Causality</span>
+    <div class="wh-book-card__title"><a href="./causal-inference-for-geographic-questions.html">Causal Inference for Geographic Questions</a></div>
+    <div class="wh-book-card__desc">Confounding, counterfactuals, and research design for place-based claims that aim to explain rather than merely predict.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Setup</span>
-    <h3><a href="../getting-started/">Getting Started</a></h3>
-    <p>Environment setup, reading equations, units, maps, and uncertainty create the calmest entry into the whole project.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Setup</span>
+    <div class="wh-book-card__title"><a href="../getting-started/">Getting Started</a></div>
+    <div class="wh-book-card__desc">Environment setup, reading equations, units, maps, and uncertainty create the calmest entry into the whole project.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">GIS</span>
-    <h3><a href="../spatial-analysis/">Spatial Analysis Toolkit</a></h3>
-    <p>Spatial predicates, overlays, raster methods, visibility, and watersheds provide the practical GIS backbone used across the series.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">GIS</span>
+    <div class="wh-book-card__title"><a href="../spatial-analysis/">Spatial Analysis Toolkit</a></div>
+    <div class="wh-book-card__desc">Spatial predicates, overlays, raster methods, visibility, and watersheds provide the practical GIS backbone used across the series.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Observation</span>
-    <h3><a href="../advanced-remote-sensing/">Remote Sensing Methods</a></h3>
-    <p>Observation geometry, sensor logic, and specialist sensing methods support both the core environmental chapters and the remote sensing library.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Observation</span>
+    <div class="wh-book-card__title"><a href="../advanced-remote-sensing/">Remote Sensing Methods</a></div>
+    <div class="wh-book-card__desc">Observation geometry, sensor logic, and specialist sensing methods support both the core environmental chapters and the remote sensing library.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Inference</span>
-    <h3><a href="../machine-learning/">Machine Learning and Statistical Methods</a></h3>
-    <p>Regression, dimensionality reduction, Bayesian thinking, and inference-heavy chapters belong here when you need later-stage quantitative support.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Inference</span>
+    <div class="wh-book-card__title"><a href="../machine-learning/">Machine Learning and Statistical Methods</a></div>
+    <div class="wh-book-card__desc">Regression, dimensionality reduction, Bayesian thinking, and inference-heavy chapters belong here when you need later-stage quantitative support.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Practice</span>
-    <h3><a href="../advanced-investigations/">Laboratory Workflow</a></h3>
-    <p>The laboratory turns methods into investigations, giving the project a place for advanced practice instead of only linear reading.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Practice</span>
+    <div class="wh-book-card__title"><a href="../advanced-investigations/">Laboratory Workflow</a></div>
+    <div class="wh-book-card__desc">The laboratory turns methods into investigations, giving the project a place for advanced practice instead of only linear reading.</div>
   </article>
 </div>
 ```

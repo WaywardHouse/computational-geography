@@ -1,7 +1,8 @@
 ---
 title: "Advanced Remote Sensing"
 subtitle: "Across the electromagnetic spectrum and beyond."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 ---
 
 ::: {.section-kicker}
@@ -11,11 +12,11 @@ Topic Library
 ## Advanced Remote Sensing {#advanced-remote-sensing .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>Move beyond visible imagery into hyperspectral, thermal, LiDAR, radar, gravity, and microwave sensing systems.</p>
-    <div class="cta-row">
-      <a class="cta" href="./prospect-leaf-optical-properties.html">Open the Library</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./prospect-leaf-optical-properties.html">Open the Library</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">8 chapters</span>
@@ -23,14 +24,19 @@ Topic Library
       <span class="book-pill">Topic library</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Move beyond visible imagery into hyperspectral, thermal, LiDAR, radar, gravity, and microwave sensing systems.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Move beyond visible imagery into hyperspectral, thermal, LiDAR, radar, gravity, and microwave sensing systems.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Sequence</strong>
-      <span>Work through the chapter order or jump into a section that matches your current question.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Work through the chapter order or jump into a section that matches your current question.</div>
     </div>
   </aside>
 </section>
@@ -80,35 +86,35 @@ Topic Library
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">R</span>
-    <h3>Vegetation Optics and Radiative Transfer</h3>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">R</span>
+    <div class="wh-book-card__title">Vegetation Optics and Radiative Transfer</div>
     <ul>
       <li><a href="./prospect-leaf-optical-properties.html">Leaf Optical Properties — the PROSPECT Model</a></li>
       <li><a href="./sail-canopy-reflectance.html">Canopy Reflectance — the SAIL Model</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">S</span>
-    <h3>Advanced Optical & Thermal</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">S</span>
+    <div class="wh-book-card__title">Advanced Optical & Thermal</div>
     <ul>
       <li><a href="./hyperspectral-imaging.html">Hyperspectral Imaging</a></li>
       <li><a href="./thermal-infrared-remote-sensing.html">Thermal Infrared Remote Sensing</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">T</span>
-    <h3>Active Ranging Systems</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">T</span>
+    <div class="wh-book-card__title">Active Ranging Systems</div>
     <ul>
       <li><a href="./lidar-point-clouds.html">Terrestrial LiDAR Point Clouds</a></li>
       <li><a href="./bathymetric-lidar-sonar.html">Bathymetric LiDAR and Sonar Mapping</a></li>
       <li><a href="./sar-fundamentals.html">SAR Fundamentals and Applications</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">U</span>
-    <h3>Geophysical Remote Sensing</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">U</span>
+    <div class="wh-book-card__title">Geophysical Remote Sensing</div>
     <ul>
       <li><a href="./gravity-remote-sensing.html">Gravity Remote Sensing (GRACE)</a></li>
     </ul>

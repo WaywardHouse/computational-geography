@@ -1,7 +1,8 @@
 ---
 title: "Machine Learning for Geographic Data"
 subtitle: "Optional statistical learning chapters for readers ready to go further."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 ---
 
 ::: {.section-kicker}
@@ -11,12 +12,12 @@ Topic Library
 ## Machine Learning for Geographic Data {#machine-learning .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This branch introduces statistical learning methods for geographic data. It is best treated as later-stage material after the modelling and GIS foundations already feel comfortable.</p>
-    <div class="cta-row">
-      <a class="cta" href="./regression-continuous-variables.html">Open the Library</a>
-      <a class="cta cta-ghost" href="../methods-and-tools/">Methods and Tools</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./regression-continuous-variables.html">Open the Library</a>
+      <a class="wh-hero__btn wh-hero__btn--ghost" href="../methods-and-tools/">Methods and Tools</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">2 chapters</span>
@@ -24,14 +25,19 @@ Topic Library
       <span class="book-pill">Machine learning</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Offer a gentle late-stage entry into regression and dimensionality reduction for geographic data.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Offer a gentle late-stage entry into regression and dimensionality reduction for geographic data.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Sequence</strong>
-      <span>Best opened after the core path and after some time in GIS or environmental modelling.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Best opened after the core path and after some time in GIS or environmental modelling.</div>
     </div>
   </aside>
 </section>
@@ -61,10 +67,10 @@ Topic Library
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Z</span>
-    <h3>Foundations of Geographic ML</h3>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Z</span>
+    <div class="wh-book-card__title">Foundations of Geographic ML</div>
     <ul>
       <li><a href="./regression-continuous-variables.html">Regression for Continuous Variables</a></li>
       <li><a href="./dimensionality-reduction-pca-tsne-umap.html">Dimensionality Reduction: PCA, t-SNE, and UMAP</a></li>

@@ -1,7 +1,8 @@
 ---
 title: "Part 2: Earth Systems and Observation"
 subtitle: "Environmental processes first, with deeper sensing and orbital material available when you want it."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home split-home-core page-home
 ---
 
@@ -12,11 +13,11 @@ Textbook Part
 ## Earth Systems and Observation {#environmental-systems .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This part uses the mathematical habits from Part 1 to understand environmental systems: energy, soils, plants, water, and atmosphere. It leads with the most concrete process models and keeps the orbital and GPS geometry as extension material for a second pass.</p>
-    <div class="cta-row">
-      <a class="cta" href="./net-radiation-and-albedo.html">Start Part 2</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./net-radiation-and-albedo.html">Start Part 2</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">10 core chapters</span>
@@ -24,14 +25,19 @@ Textbook Part
       <span class="book-pill">Part 2</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Show how energy and matter move through real environmental systems, and how those systems can be observed and modelled.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Show how energy and matter move through real environmental systems, and how those systems can be observed and modelled.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Sequence</strong>
-      <span>Start with the process chapters, then use the coupling chapter to connect water, energy, vegetation, and atmosphere into one system. Return to the orbital and deeper biogeochemical material on a second pass.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Start with the process chapters, then use the coupling chapter to connect water, energy, vegetation, and atmosphere into one system. Return to the orbital and deeper biogeochemical material on a second pass.</div>
     </div>
   </aside>
 </section>
@@ -74,39 +80,39 @@ Textbook Part
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">F</span>
-    <h3>Observation Depth</h3>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">F</span>
+    <div class="wh-book-card__title">Observation Depth</div>
     <ul>
       <li>Circular Orbits and Kepler's Third Law</li>
       <li>Ground Tracks and Orbital Geometry</li>
       <li>Satellite Overpasses and Visibility</li>
       <li>How GPS Works</li>
     </ul>
-    <p>These are second-pass depth chapters once you want more orbital and positioning detail than the main environmental route requires.</p>
+    <div class="wh-book-card__desc">These are second-pass depth chapters once you want more orbital and positioning detail than the main environmental route requires.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">G</span>
-    <h3>Surface Energy Balance</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">G</span>
+    <div class="wh-book-card__title">Surface Energy Balance</div>
     <ul>
       <li><a href="./net-radiation-and-albedo.html">Net Radiation and Albedo</a></li>
       <li><a href="./sensible-and-latent-heat-fluxes.html">Sensible and Latent Heat Fluxes</a></li>
       <li><a href="./soil-heat-diffusion.html">Soil Heat Diffusion</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">H</span>
-    <h3>Ecosystem Processes</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">H</span>
+    <div class="wh-book-card__title">Ecosystem Processes</div>
     <ul>
       <li><a href="./photosynthesis-light-response.html">Photosynthesis and Light Response</a></li>
       <li><a href="./soil-moisture-dynamics.html">Soil Moisture Dynamics</a></li>
       <li>Carbon allocation and longer-term ecosystem budgeting fit naturally as the next layer once the core process chapters feel comfortable.</li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">I</span>
-    <h3>Atmospheric Interactions</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">I</span>
+    <div class="wh-book-card__title">Atmospheric Interactions</div>
     <ul>
       <li><a href="./wind-profiles-and-turbulence.html">Wind Profiles and Atmospheric Turbulence</a></li>
       <li><a href="./temperature-moisture-gradients.html">Temperature and Moisture Gradients</a></li>
@@ -114,24 +120,24 @@ Textbook Part
       <li><a href="./vegetation-indices-and-remote-sensing.html">Vegetation Indices and Remote Sensing</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">J</span>
-    <h3>More System Depth</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">J</span>
+    <div class="wh-book-card__title">More System Depth</div>
     <ul>
       <li>Carbon Allocation and Net Primary Productivity</li>
       <li>Decomposition and Soil Carbon Turnover</li>
       <li>Nitrogen Cycling and Limitation</li>
       <li>Phenology and Growing Season Dynamics</li>
     </ul>
-    <p>Use these after the core path when you want a fuller biogeochemical and seasonal-systems pass through Part 2.</p>
+    <div class="wh-book-card__desc">Use these after the core path when you want a fuller biogeochemical and seasonal-systems pass through Part 2.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">K</span>
-    <h3>Coupled System Feedbacks</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">K</span>
+    <div class="wh-book-card__title">Coupled System Feedbacks</div>
     <ul>
       <li><a href="./land-atmosphere-coupling-and-feedbacks.html">Land-Atmosphere Coupling and Feedbacks</a></li>
     </ul>
-    <p>This chapter ties the part together by showing how water balance, evaporative cooling, vegetation stress, and atmospheric demand reinforce or damp one another.</p>
+    <div class="wh-book-card__desc">This chapter ties the part together by showing how water balance, evaporative cooling, vegetation stress, and atmospheric demand reinforce or damp one another.</div>
   </article>
 </div>
 ```

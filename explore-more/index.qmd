@@ -1,7 +1,8 @@
 ---
 title: "Topic Libraries"
 subtitle: "Browse specialist branches by subject: remote sensing, cryosphere, economic systems, and advanced methods."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 ---
 
 ::: {.section-kicker}
@@ -11,12 +12,12 @@ Browse By Topic
 ## Topic Libraries {#explore-more-page .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This section collects the subject branches that are best browsed as coherent libraries rather than forced into the main staircase of the core book. They are not minor side material. They are substantial branches of the wider project.</p>
-    <div class="cta-row">
-      <a class="cta" href="../cryosphere-and-mountain-systems/">Open Cryosphere</a>
-      <a class="cta cta-ghost" href="../advanced-remote-sensing/">Open Remote Sensing</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../cryosphere-and-mountain-systems/">Open Cryosphere</a>
+      <a class="wh-hero__btn wh-hero__btn--ghost" href="../advanced-remote-sensing/">Open Remote Sensing</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">Subject branches</span>
@@ -24,10 +25,14 @@ Browse By Topic
       <span class="book-pill">Companion-ready</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>When To Use It</strong>
-      <span>After you have momentum in the core book, or whenever a specific topic becomes the thing you most want to study.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">When To Use It</div>
+          <div class="wh-hero-card__dek">After you have momentum in the core book, or whenever a specific topic becomes the thing you most want to study.</div>
     </div>
   </aside>
 </section>
@@ -36,31 +41,31 @@ Browse By Topic
 ## Library Clusters {#extension-areas .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Observation</span>
-    <h3><a href="../advanced-remote-sensing/">Remote Sensing Library</a></h3>
-    <p>Orbits, GPS, sensing geometry, radar, LiDAR, thermal methods, gravity, and retrieval logic form a coherent observation branch.</p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Observation</span>
+    <div class="wh-book-card__title"><a href="../advanced-remote-sensing/">Remote Sensing Library</a></div>
+    <div class="wh-book-card__desc">Orbits, GPS, sensing geometry, radar, LiDAR, thermal methods, gravity, and retrieval logic form a coherent observation branch.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Cold Systems</span>
-    <h3><a href="../cryosphere-and-mountain-systems/">Cryosphere and Mountain Systems</a></h3>
-    <p>Snow, glaciers, permafrost, alpine hydrology, and mountain hazards form a distinct field-focused branch of the project.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Cold Systems</span>
+    <div class="wh-book-card__title"><a href="../cryosphere-and-mountain-systems/">Cryosphere and Mountain Systems</a></div>
+    <div class="wh-book-card__desc">Snow, glaciers, permafrost, alpine hydrology, and mountain hazards form a distinct field-focused branch of the project.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Human Systems</span>
-    <h3><a href="../economic-systems/">Economic Geography and Infrastructure</a></h3>
-    <p>Trade, transport, pipelines, pricing, and energy systems belong together as a strong human-systems branch beyond the gateway chapters in the core book.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Human Systems</span>
+    <div class="wh-book-card__title"><a href="../economic-systems/">Economic Geography and Infrastructure</a></div>
+    <div class="wh-book-card__desc">Trade, transport, pipelines, pricing, and energy systems belong together as a strong human-systems branch beyond the gateway chapters in the core book.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Methods</span>
-    <h3><a href="../machine-learning/">Machine Learning and Inference</a></h3>
-    <p>Open these later, once the logic of modelling, uncertainty, and spatial analysis already feels familiar.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Methods</span>
+    <div class="wh-book-card__title"><a href="../machine-learning/">Machine Learning and Inference</a></div>
+    <div class="wh-book-card__desc">Open these later, once the logic of modelling, uncertainty, and spatial analysis already feels familiar.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Observation Support</span>
-    <h3><a href="../environmental-systems/">Orbits, GPS, and Sensing Geometry</a></h3>
-    <p>Some Earth observation foundations still live inside Environmental Systems for now, but they function as part of the wider remote sensing library.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Observation Support</span>
+    <div class="wh-book-card__title"><a href="../environmental-systems/">Orbits, GPS, and Sensing Geometry</a></div>
+    <div class="wh-book-card__desc">Some Earth observation foundations still live inside Environmental Systems for now, but they function as part of the wider remote sensing library.</div>
   </article>
 </div>
 ```

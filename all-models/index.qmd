@@ -1,7 +1,8 @@
 ---
 title: "All Models"
 subtitle: "The blunt version: one page with the full computational geography model list."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home
 ---
 
@@ -18,21 +19,21 @@ You just want the full list.
 Use the grouped links below to jump straight to any model page in the book.
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Core Book</span>
-    <h3>113 core-path models and methods</h3>
-    <p>Getting Started, Methods and Tools, Foundations, Earth Systems, Spatial Analysis, Hazards, and Economic Geography.</p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Core Book</span>
+    <div class="wh-book-card__title">113 core-path models and methods</div>
+    <div class="wh-book-card__desc">Getting Started, Methods and Tools, Foundations, Earth Systems, Spatial Analysis, Hazards, and Economic Geography.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Topic Libraries</span>
-    <h3>18 specialist chapters</h3>
-    <p>Cryosphere and Mountain Systems, Advanced Remote Sensing, and Machine Learning.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Topic Libraries</span>
+    <div class="wh-book-card__title">18 specialist chapters</div>
+    <div class="wh-book-card__desc">Cryosphere and Mountain Systems, Advanced Remote Sensing, and Machine Learning.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Laboratory</span>
-    <h3>39 practicum-style investigations</h3>
-    <p>Advanced applications, integrated investigations, and more demanding computational work.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Laboratory</span>
+    <div class="wh-book-card__title">39 practicum-style investigations</div>
+    <div class="wh-book-card__desc">Advanced applications, integrated investigations, and more demanding computational work.</div>
   </article>
 </div>
 ```

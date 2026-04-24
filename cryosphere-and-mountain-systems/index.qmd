@@ -1,7 +1,8 @@
 ---
 title: "Cryosphere and Mountain Systems"
 subtitle: "Snow physics, glaciers, permafrost, and high-elevation hazards."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 ---
 
 ::: {.section-kicker}
@@ -11,11 +12,11 @@ Topic Library
 ## Cryosphere and Mountain Systems {#cryosphere-and-mountain-systems .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>Follow snow, ice, frozen ground, and mountain hazards from energy balance through glacier response and thaw-driven instability.</p>
-    <div class="cta-row">
-      <a class="cta" href="./snowpack-energy-balance.html">Open the Library</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./snowpack-energy-balance.html">Open the Library</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">10 chapters</span>
@@ -23,14 +24,19 @@ Topic Library
       <span class="book-pill">Topic library</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Follow snow, ice, frozen ground, and mountain hazards from energy balance through glacier response and thaw-driven instability.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Follow snow, ice, frozen ground, and mountain hazards from energy balance through glacier response and thaw-driven instability.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Sequence</strong>
-      <span>Work through the chapter order or jump into a section that matches your current question.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Work through the chapter order or jump into a section that matches your current question.</div>
     </div>
   </aside>
 </section>
@@ -82,10 +88,10 @@ Topic Library
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">P</span>
-    <h3>Snow Physics & modelling</h3>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">P</span>
+    <div class="wh-book-card__title">Snow Physics & modelling</div>
     <ul>
       <li><a href="./snowpack-energy-balance.html">Snowpack Energy Balance</a></li>
       <li><a href="./snow-accumulation-melt-modeling.html">Snow Accumulation and Melt modelling</a></li>
@@ -93,18 +99,18 @@ Topic Library
       <li><a href="./avalanche-terrain-analysis.html">Avalanche Terrain Analysis</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Q</span>
-    <h3>Glacial Systems</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Q</span>
+    <div class="wh-book-card__title">Glacial Systems</div>
     <ul>
       <li><a href="./glacier-mass-balance.html">Glacier Mass Balance</a></li>
       <li><a href="./glacial-meltwater-chemistry.html">Glacial Meltwater Chemistry</a></li>
       <li><a href="./glacial-lake-outburst-floods.html">Glacial Lake Outburst Floods (GLOFs)</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">R</span>
-    <h3>Mountain Hazards</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">R</span>
+    <div class="wh-book-card__title">Mountain Hazards</div>
     <ul>
       <li><a href="./slope-stability-analysis.html">Slope Stability Analysis</a></li>
       <li><a href="./debris-flow-modeling.html">Debris Flow modelling</a></li>

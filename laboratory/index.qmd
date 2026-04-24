@@ -1,7 +1,8 @@
 ---
 title: "Computational Geography Laboratory"
 subtitle: "Advanced applied models, investigations, and project-style chapters."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 ---
 
 ::: {.section-kicker}
@@ -11,11 +12,11 @@ Textbook Part
 ## Computational Geography Laboratory {#laboratory .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>The Laboratory is not a textbook. It's a collection of 39 project-based investigations organized into 6 thematic problem sets. Pick based on your interests and pathway completion.</p>
-    <div class="cta-row">
-      <a class="cta" href="./laboratory-navigation.html">How to Choose Your Path</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./laboratory-navigation.html">How to Choose Your Path</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">39 investigations</span>
@@ -23,14 +24,19 @@ Textbook Part
       <span class="book-pill">Non-sequential</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Deep dives into applied investigations. Pick problem sets matching your pathway and interests.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Deep dives into applied investigations. Pick problem sets matching your pathway and interests.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Structure</strong>
-      <span>Enter by problem set (A–F), not linearly. Each investigation lists prerequisites and backward links to core chapters.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Structure</div>
+          <div class="wh-hero-card__dek">Enter by problem set (A–F), not linearly. Each investigation lists prerequisites and backward links to core chapters.</div>
     </div>
   </aside>
 </section>
@@ -41,11 +47,11 @@ Textbook Part
 **New to the Laboratory?** [Read "How to Choose Your Path"](./laboratory-navigation.html) first. It explains the 6 problem sets and helps you pick based on your pathway and interests.
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">A</span>
-    <h3>Observation & Remote Sensing</h3>
-    <p><em>Prerequisite: Pathway A</em></p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">A</span>
+    <div class="wh-book-card__title">Observation & Remote Sensing</div>
+    <div class="wh-book-card__desc"><em>Prerequisite: Pathway A</em></div>
     <ul>
       <li><a href="./sar-fundamentals-and-applications.html">SAR Fundamentals and Applications</a></li>
       <li><a href="./insar-deformation-monitoring.html">InSAR Deformation Monitoring</a></li>
@@ -53,10 +59,10 @@ Textbook Part
       <li><a href="./passive-microwave-radiometry.html">Passive Microwave Radiometry</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">B</span>
-    <h3>Water Systems & Hydrology</h3>
-    <p><em>Prerequisite: Pathway B</em></p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">B</span>
+    <div class="wh-book-card__title">Water Systems & Hydrology</div>
+    <div class="wh-book-card__desc"><em>Prerequisite: Pathway B</em></div>
     <ul>
       <li><a href="./reservoir-operations-and-mass-balance.html">Reservoir Operations and Mass Balance</a></li>
       <li><a href="./stochastic-streamflow-and-drought-risk.html">Stochastic Streamflow and Drought Risk</a></li>
@@ -67,10 +73,10 @@ Textbook Part
       <li><a href="./pump-and-treat-and-in-situ-remediation.html">Pump-and-Treat and In-Situ Remediation</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">C</span>
-    <h3>Geomorphology & Hazards</h3>
-    <p><em>Prerequisite: Pathway B</em></p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">C</span>
+    <div class="wh-book-card__title">Geomorphology & Hazards</div>
+    <div class="wh-book-card__desc"><em>Prerequisite: Pathway B</em></div>
     <ul>
       <li><a href="./rock-weathering-and-soil-formation.html">Soil Formation & Weathering</a></li>
       <li><a href="./soil-erosion-and-the-rusle.html">Soil Erosion (RUSLE)</a></li>
@@ -82,10 +88,10 @@ Textbook Part
       <li><a href="./sea-level-storm-surge-and-coastal-morphodynamics.html">Sea Level, Storm Surge & Coastal Morphodynamics</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">D</span>
-    <h3>Urban Systems & Infrastructure</h3>
-    <p><em>Prerequisite: Pathway C or A+B</em></p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">D</span>
+    <div class="wh-book-card__title">Urban Systems & Infrastructure</div>
+    <div class="wh-book-card__desc"><em>Prerequisite: Pathway C or A+B</em></div>
     <ul>
       <li><a href="./urban-heat-island-dynamics.html">Urban Heat Island Dynamics</a></li>
       <li><a href="./urban-ventilation-and-pollutant-dispersion.html">Urban Ventilation & Air Quality</a></li>
@@ -96,10 +102,10 @@ Textbook Part
       <li><a href="./demographic-spatial-dynamics.html">Demographic Spatial Dynamics</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">E</span>
-    <h3>Inference & Methods</h3>
-    <p><em>Cross-cutting; builds on any pathway</em></p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">E</span>
+    <div class="wh-book-card__title">Inference & Methods</div>
+    <div class="wh-book-card__desc"><em>Cross-cutting; builds on any pathway</em></div>
     <ul>
       <li><a href="./bayesian-inference-for-environmental-models.html">Bayesian Inference for Environmental Models</a></li>
       <li><a href="./regression-for-continuous-spatial-variables.html">Regression for Spatial Variables</a></li>
@@ -109,10 +115,10 @@ Textbook Part
       <li><a href="./satellite-data-assimilation-in-environmental-models.html">Satellite Data Assimilation</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">F</span>
-    <h3>Biogeochemical Cycles</h3>
-    <p><em>Prerequisite: Pathway B</em></p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">F</span>
+    <div class="wh-book-card__title">Biogeochemical Cycles</div>
+    <div class="wh-book-card__desc"><em>Prerequisite: Pathway B</em></div>
     <ul>
       <li><a href="./Fossil-Fuel-Combustion-Chemistry.html">Combustion Chemistry & Energy Systems</a></li>
       <li><a href="./Biomass-Burning-and-Pyrogenic-Carbon.html">Biomass Burning & Pyrogenic Carbon</a></li>

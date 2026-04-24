@@ -1,7 +1,8 @@
 ---
 title: "Computational Geography Topic Libraries"
 subtitle: "Specialist branches gathered by subject: browse deeply, enter sideways, and follow your curiosity."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home split-home-topics
 ---
 
@@ -12,13 +13,13 @@ Browse By Subject
 ## Topic Libraries {#topic-libraries-home .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This collection gathers the specialist branches of the project: remote sensing, cryosphere, machine learning, and deeper environmental and economic systems.</p>
     <p>Instead of making every advanced topic behave like a chapter in one giant staircase, this space lets readers wander in through the branch they actually care about.</p>
-    <div class="cta-row">
-      <a class="cta" href="../explore-more/">Browse Libraries</a>
-      <a class="cta cta-ghost" href="../advanced-remote-sensing/">Open Remote Sensing</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../explore-more/">Browse Libraries</a>
+      <a class="wh-hero__btn wh-hero__btn--ghost" href="../advanced-remote-sensing/">Open Remote Sensing</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">Browse by subject</span>
@@ -26,18 +27,24 @@ Browse By Subject
       <span class="book-pill">Specialist depth</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Best For</strong>
-      <span>Readers who already have some traction and now want a branch, not a staircase.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Best For</div>
+          <div class="wh-hero-card__dek">Readers who already have some traction and now want a branch, not a staircase.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Includes</strong>
-      <span>Cryosphere, advanced remote sensing, machine learning, environmental extensions, and deeper economic systems.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Includes</div>
+          <div class="wh-hero-card__dek">Cryosphere, advanced remote sensing, machine learning, environmental extensions, and deeper economic systems.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Reading Style</strong>
-      <span>Topical, non-linear, and built for subject-driven browsing instead of one required sequence.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Reading Style</div>
+          <div class="wh-hero-card__dek">Topical, non-linear, and built for subject-driven browsing instead of one required sequence.</div>
     </div>
   </aside>
 </section>
@@ -46,26 +53,26 @@ Browse By Subject
 ## Library Clusters {#topic-library-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Open Here</span>
-    <h3>Remote Sensing</h3>
-    <p>Sensor physics, retrieval logic, orbit geometry, and specialist observation systems live here as one coherent branch.</p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Open Here</span>
+    <div class="wh-book-card__title">Remote Sensing</div>
+    <div class="wh-book-card__desc">Sensor physics, retrieval logic, orbit geometry, and specialist observation systems live here as one coherent branch.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Or Here</span>
-    <h3>Cryosphere and Mountains</h3>
-    <p>Snow, glaciers, permafrost, and alpine hazards form a field-focused branch with strong internal identity.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Or Here</span>
+    <div class="wh-book-card__title">Cryosphere and Mountains</div>
+    <div class="wh-book-card__desc">Snow, glaciers, permafrost, and alpine hazards form a field-focused branch with strong internal identity.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Methods Branch</span>
-    <h3>Machine Learning</h3>
-    <p>Regression, dimensionality reduction, and quantitative depth appear here when readers are ready for later-stage methods.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Methods Branch</span>
+    <div class="wh-book-card__title">Machine Learning</div>
+    <div class="wh-book-card__desc">Regression, dimensionality reduction, and quantitative depth appear here when readers are ready for later-stage methods.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Deep Cuts</span>
-    <h3>Environmental and Economic Extensions</h3>
-    <p>Biogeochemical depth, severe-weather chapters, and larger infrastructure systems round out the branch library.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Deep Cuts</span>
+    <div class="wh-book-card__title">Environmental and Economic Extensions</div>
+    <div class="wh-book-card__desc">Biogeochemical depth, severe-weather chapters, and larger infrastructure systems round out the branch library.</div>
   </article>
 </div>
 ```
@@ -73,18 +80,18 @@ Browse By Subject
 ## Also In This Series {#topic-library-siblings .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Need The Spine?</span>
-    <h3>Core Book</h3>
-    <p>Return to the main beginner-safe staircase through modelling, Earth systems, GIS, hazards, and gateway human geography.</p>
-    <p><a href="../core-book/">Open Core Book</a></p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Need The Spine?</span>
+    <div class="wh-book-card__title">Core Book</div>
+    <div class="wh-book-card__desc">Return to the main beginner-safe staircase through modelling, Earth systems, GIS, hazards, and gateway human geography.</div>
+    <div class="wh-book-card__desc"><a href="../core-book/">Open Core Book</a></div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Want Harder Work?</span>
-    <h3>Laboratory</h3>
-    <p>Use the lab when you want advanced projects, applied studies, and harder integrated problems.</p>
-    <p><a href="../laboratory-home/">Open Laboratory</a></p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Want Harder Work?</span>
+    <div class="wh-book-card__title">Laboratory</div>
+    <div class="wh-book-card__desc">Use the lab when you want advanced projects, applied studies, and harder integrated problems.</div>
+    <div class="wh-book-card__desc"><a href="../laboratory-home/">Open Laboratory</a></div>
   </article>
 </div>
 ```

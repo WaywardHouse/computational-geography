@@ -1,7 +1,8 @@
 ---
 title: "Part 5: Cities, Networks, and Economic Geography"
 subtitle: "Human systems, trade, cities, and price formation through a geographic lens."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home split-home-core page-home
 ---
 
@@ -12,11 +13,11 @@ Textbook Part
 ## Cities, Networks, and Economic Geography {#economic-systems .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This part brings the same modelling habits into human geography. It asks how cities organize space, how trade and transport work across distance, and how prices reveal constraint, connectivity, and power.</p>
-    <div class="cta-row">
-      <a class="cta" href="./canada-trade-gravity-model.html">Start Part 5</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./canada-trade-gravity-model.html">Start Part 5</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">4 core chapters</span>
@@ -24,14 +25,19 @@ Textbook Part
       <span class="book-pill">Part 5</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Show that trade, cities, infrastructure, and markets can all be understood as spatial systems.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Show that trade, cities, infrastructure, and markets can all be understood as spatial systems.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Sequence</strong>
-      <span>Start with the trade, bid-rent, agglomeration, and spatial arbitrage chapters first. Use the rest as depth and case-study material.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Start with the trade, bid-rent, agglomeration, and spatial arbitrage chapters first. Use the rest as depth and case-study material.</div>
     </div>
   </aside>
 </section>
@@ -84,10 +90,10 @@ Textbook Part
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">EP</span>
-    <h3>Infrastructure Depth</h3>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">EP</span>
+    <div class="wh-book-card__title">Infrastructure Depth</div>
     <ul>
       <li>Alberta's Crude Oil Pipeline Network</li>
       <li>NGL and Condensate Pipeline Systems</li>
@@ -100,27 +106,27 @@ Textbook Part
       <li>Refined Products Distribution</li>
       <li>The Integrated Network</li>
     </ul>
-    <p>These infrastructure chapters belong to the topic-libraries volume and sit outside the four-chapter core route.</p>
+    <div class="wh-book-card__desc">These infrastructure chapters belong to the topic-libraries volume and sit outside the four-chapter core route.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">TR</span>
-    <h3>Core Path</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">TR</span>
+    <div class="wh-book-card__title">Core Path</div>
     <ul>
       <li><a href="./canada-trade-gravity-model.html">The Gravity Model of Trade</a></li>
       <li><a href="./markets-spatial-arbitrage.html">Spatial Arbitrage and the Law of One Price</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">UE</span>
-    <h3>Core Path</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">UE</span>
+    <div class="wh-book-card__title">Core Path</div>
     <ul>
       <li><a href="./urban-bid-rent-model.html">The Bid-Rent Model</a></li>
       <li><a href="./urban-agglomeration-economies.html">Agglomeration Economies</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Topic Library Depth</span>
-    <h3>Trade and Urban Depth</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Topic Library Depth</span>
+    <div class="wh-book-card__title">Trade and Urban Depth</div>
     <ul>
       <li>Canadian Trade Corridors</li>
       <li>Port Economics</li>
@@ -130,11 +136,11 @@ Textbook Part
       <li>The Urban Economic Base</li>
       <li>The Integrated Urban System</li>
     </ul>
-    <p>These chapters appear in topic-libraries once readers want fuller case-study and network depth.</p>
+    <div class="wh-book-card__desc">These chapters appear in topic-libraries once readers want fuller case-study and network depth.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Topic Library Depth</span>
-    <h3>Resources and Markets</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Topic Library Depth</span>
+    <div class="wh-book-card__title">Resources and Markets</div>
     <ul>
       <li>Commodity Price Formation</li>
       <li>Futures Markets as Geographic Instruments</li>
@@ -146,17 +152,17 @@ Textbook Part
       <li>The Resource Curse</li>
       <li>The Integrated Resource System</li>
     </ul>
-    <p>These resource and market chapters are part of the topic-libraries volume rather than the core-book build.</p>
+    <div class="wh-book-card__desc">These resource and market chapters are part of the topic-libraries volume rather than the core-book build.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Topic Library Depth</span>
-    <h3>Energy Transition</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Topic Library Depth</span>
+    <div class="wh-book-card__title">Energy Transition</div>
     <ul>
       <li>Renewable Resource Geography</li>
       <li>The Economics of Clean Generation</li>
       <li>Policy, Capital, and the Grid</li>
     </ul>
-    <p>Energy-transition case studies continue in the topic-libraries volume.</p>
+    <div class="wh-book-card__desc">Energy-transition case studies continue in the topic-libraries volume.</div>
   </article>
 </div>
 ```

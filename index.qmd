@@ -1,73 +1,112 @@
 ---
 title: "Learn"
 subtitle: "Environmental modelling, GIS, hazards, and earth systems taught as one connected field."
-page-layout: article
-body-classes: articles-landing
+page-layout: custom
+body-classes: learn-landing hero-page
 ---
 
 ```{=html}
-<section class="mock-book-hero">
-  <div class="mock-book-hero__copy">
-    <div class="mock-kicker">Environmental Modelling Hub</div>
-    <h2>Learn how environmental systems behave, and how to model them.</h2>
-    <p>This is the Wayward House home for environmental modelling: a connected path through maths for modelling, earth systems, GIS, hazards, and human geography, with deeper specialist libraries when you want to branch out.</p>
-    <div class="mock-action-row">
-      <a class="cta cta-primary" href="./getting-started/">Start the Learning Path</a>
-      <a class="cta cta-ghost cta-ghost--light" href="./foundations/">Open the Core Book</a>
-    </div>
-    <div class="mock-pill-row">
-      <span class="book-pill">Start Here</span>
-      <span class="book-pill">Core Book</span>
-      <span class="book-pill">Go deeper later</span>
-    </div>
-    <p><a href="./all-models/">Need the blunt version? Open the full model index.</a></p>
+<!-- ── Hero ───────────────────────────────────────────────────────────────── -->
+<section class="wh-hero geo-mountains">
+<div class="wh-hero__nav-spacer"></div>
+
+<div class="wh-hero__body">
+<div class="wh-hero__left">
+  <div class="wh-hero__coords">Environmental Modelling Hub</div>
+  <h1 class="wh-hero__title">Learn how<br>environmental<br>systems behave.</h1>
+  <div class="wh-hero__rule"></div>
+  <p class="wh-hero__desc">This is the Wayward House home for environmental modelling: a connected path through maths for modelling, earth systems, GIS, hazards, and human geography, with deeper specialist libraries when you want to branch out.</p>
+  <div class="wh-hero__actions">
+    <a href="./getting-started/" class="wh-hero__btn wh-hero__btn--primary">Start the Learning Path</a>
+    <a href="./foundations/" class="wh-hero__btn wh-hero__btn--ghost">Open the Core Book</a>
   </div>
-  <aside class="mock-book-hero__meta">
-    <div class="book-meta-card">
-      <strong>Best Place To Begin</strong>
-      <span>Start with Getting Started if you want the shortest route into the core modelling sequence.</span>
+  <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);"><a href="./all-models/" style="color: inherit; text-decoration: underline;">Need the blunt version? Open the full model index.</a></p>
+</div>
+
+<div class="wh-hero__right">
+  <div class="wh-hero__panel-label">Navigating the Hub</div>
+  <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+      <div class="wh-hero-card__type">Best Place To Begin</div>
+      <div class="wh-hero-card__title">Start Here</div>
+      <div class="wh-hero-card__dek">Start with Getting Started if you want the shortest route into the core modelling sequence.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>What You’ll Cover</strong>
-      <span>Spatial models, earth systems, GIS logic, environmental hazards, trade and infrastructure, and the maths that ties them together.</span>
+    <div class="wh-hero-card">
+      <div class="wh-hero-card__type">What You’ll Cover</div>
+      <div class="wh-hero-card__title">Complete Sequence</div>
+      <div class="wh-hero-card__dek">Spatial models, earth systems, GIS logic, environmental hazards, trade and infrastructure, and the maths that ties them together.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>How To Use It</strong>
-      <span>Start with Getting Started, stay on the core route until it feels natural, and only branch into specialist libraries when you have a reason to.</span>
+    <div class="wh-hero-card">
+      <div class="wh-hero-card__type">How To Use It</div>
+      <div class="wh-hero-card__title">One Main Route</div>
+      <div class="wh-hero-card__dek">Start with Getting Started, stay on the core route until it feels natural, and only branch into specialist libraries when you have a reason to.</div>
     </div>
-  </aside>
+  </div>
+</div>
+</div>
+
+<a href="#" class="wh-hero__credit">Image: Mountain terrain · replace with actual credit</a>
 </section>
 
-<section class="mock-pathway">
-  <div class="mock-section-head">
-    <div>
-      <div class="section-kicker">How The Hub Works</div>
-      <h3>One main route, a few later branches</h3>
-    </div>
+<!-- ── How The Hub Works ────────────────────────────────────────────────── -->
+<section class="wh-learn-strip">
+<div class="wh-section-wrap">
+<div class="wh-section-head wh-reveal">
+  <div class="wh-section-head__left">
+    <span class="wh-section-kicker">How The Hub Works</span>
+    <h2 class="wh-section-title">One main route, a few later branches</h2>
+  </div>
+  <div class="wh-section-head__right">
     <p>The goal is to reduce choice at the start, not multiply it. Begin with the on-ramp, continue into the core book, and treat the other doors as later branches rather than parallel starting points.</p>
   </div>
+</div>
 
-  <div class="mock-path-grid">
-    <article class="mock-path-card">
-      <span class="part-eyebrow">Start Here</span>
-      <h4><a href="./getting-started/">Getting Started</a></h4>
-      <p>Get oriented fast: how to read equations, think about scale, and approach the subject without getting lost in the machinery.</p>
-    </article>
-    <article class="mock-path-card">
-      <span class="part-eyebrow">Core Book</span>
-      <h4><a href="./foundations/">Build The Full Environmental Modelling Spine</a></h4>
-      <p>Work through the main sequence from mathematical foundations into earth systems, GIS, hazards, and economic geography.</p>
-    </article>
-    <article class="mock-path-card">
-      <span class="part-eyebrow">Later Branch</span>
-      <h4><a href="./explore-more/">Go Deeper By Subject</a></h4>
-      <p>Remote sensing, cryosphere, machine learning, and economic systems are organised as specialist branches rather than scattered side notes.</p>
-    </article>
-    <article class="mock-path-card">
-      <span class="part-eyebrow">Later Branch</span>
-      <h4><a href="./advanced-investigations/">Open The Laboratory When You Want Harder Work</a></h4>
-      <p>Use the laboratory for integrated investigations and more demanding modelling problems after the core path has traction.</p>
-    </article>
-  </div>
+<div class="wh-book-grid wh-reveal">
+  <a href="./getting-started/" class="wh-book-card wh-book-card--featured">
+    <div class="wh-book-card__status">Start Here</div>
+    <div class="wh-book-card__num">01</div>
+    <div class="wh-book-card__title">Getting Started</div>
+    <div class="wh-book-card__desc">Get oriented fast: how to read equations, think about scale, and approach the subject without getting lost in the machinery.</div>
+    <div class="wh-book-card__action">Open section</div>
+  </a>
+  <a href="./foundations/" class="wh-book-card">
+    <div class="wh-book-card__status">Core Book</div>
+    <div class="wh-book-card__num">02</div>
+    <div class="wh-book-card__title">Build The Full Environmental Modelling Spine</div>
+    <div class="wh-book-card__desc">Work through the main sequence from mathematical foundations into earth systems, GIS, hazards, and economic geography.</div>
+    <div class="wh-book-card__action">Open Core Book</div>
+  </a>
+  <a href="./explore-more/" class="wh-book-card">
+    <div class="wh-book-card__status">Later Branch</div>
+    <div class="wh-book-card__num">↗</div>
+    <div class="wh-book-card__title">Go Deeper By Subject</div>
+    <div class="wh-book-card__desc">Remote sensing, cryosphere, machine learning, and economic systems are organised as specialist branches rather than scattered side notes.</div>
+    <div class="wh-book-card__action">Open Topic Libraries</div>
+  </a>
+  <a href="./advanced-investigations/" class="wh-book-card">
+    <div class="wh-book-card__status">Later Branch</div>
+    <div class="wh-book-card__num">↗</div>
+    <div class="wh-book-card__title">Open The Laboratory</div>
+    <div class="wh-book-card__desc">Use the laboratory for integrated investigations and more demanding modelling problems after the core path has traction.</div>
+    <div class="wh-book-card__action">Open Laboratory</div>
+  </a>
+</div>
+</div>
 </section>
+
+<script>
+(function () {
+var els = document.querySelectorAll('.wh-reveal');
+if (!els.length) return;
+var io = new IntersectionObserver(function (entries) {
+entries.forEach(function (entry, i) {
+  if (entry.isIntersecting) {
+    setTimeout(function () { entry.target.classList.add('is-visible'); }, i * 60);
+    io.unobserve(entry.target);
+  }
+});
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 ```

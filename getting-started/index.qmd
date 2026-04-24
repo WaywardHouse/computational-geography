@@ -1,7 +1,8 @@
 ---
 title: "Part 0: Getting Started"
 subtitle: "A calm on-ramp into models, maps, equations, and the way this book works."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home split-home-core page-home
 ---
 
@@ -12,13 +13,13 @@ Start Here
 ## Getting Started {#getting-started .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This part is for readers who are curious but not yet fully confident. If equations make you tense, if you have never thought of a map as a data structure, or if you are wondering where to begin, start here.</p>
     <p>The goal is not to teach everything at once. It is to make the rest of the book feel possible.</p>
-    <div class="cta-row">
-      <a class="cta" href="../foundations/what-is-a-spatial-model.html">Begin Chapter 1</a>
-      <a class="cta cta-ghost" href="../foundations/">See Part 1</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../foundations/what-is-a-spatial-model.html">Begin Chapter 1</a>
+      <a class="wh-hero__btn wh-hero__btn--ghost" href="../foundations/">See Part 1</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">No panic required</span>
@@ -27,14 +28,19 @@ Start Here
       <span class="book-pill">6 bridge chapters</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Audience</strong>
-      <span>High school readers and up, plus anyone returning to maths or science after time away.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Audience</div>
+          <div class="wh-hero-card__dek">High school readers and up, plus anyone returning to maths or science after time away.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Goal</strong>
-      <span>Make the first core chapters feel approachable, not intimidating.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Goal</div>
+          <div class="wh-hero-card__dek">Make the first core chapters feel approachable, not intimidating.</div>
     </div>
   </aside>
 </section>
@@ -85,21 +91,21 @@ Start Here
 ## How To Use This Book {#how-to-use-this-book .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">1</span>
-    <h3>Use The Core Path First</h3>
-    <p>The book has a main staircase. Start with the core path and treat extension material as optional until you feel ready.</p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">1</span>
+    <div class="wh-book-card__title">Use The Core Path First</div>
+    <div class="wh-book-card__desc">The book has a main staircase. Start with the core path and treat extension material as optional until you feel ready.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">2</span>
-    <h3>Read For Meaning First</h3>
-    <p>You do not need to understand every symbol immediately. First ask what the chapter is trying to explain about the world.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">2</span>
+    <div class="wh-book-card__title">Read For Meaning First</div>
+    <div class="wh-book-card__desc">You do not need to understand every symbol immediately. First ask what the chapter is trying to explain about the world.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">3</span>
-    <h3>Return To Hard Parts</h3>
-    <p>If a section feels too dense, keep the big idea and move on. This book is built for revisiting.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">3</span>
+    <div class="wh-book-card__title">Return To Hard Parts</div>
+    <div class="wh-book-card__desc">If a section feels too dense, keep the big idea and move on. This book is built for revisiting.</div>
   </article>
 </div>
 ```
@@ -107,36 +113,36 @@ Start Here
 ## Bridge Chapters {#bridge-chapters .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Chapter 1</span>
-    <h3><a href="./how-to-read-equations.html">How to Read Equations</a></h3>
-    <p>Learn to treat equations as claims about quantities and relationships rather than instant tests.</p>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Chapter 1</span>
+    <div class="wh-book-card__title"><a href="./how-to-read-equations.html">How to Read Equations</a></div>
+    <div class="wh-book-card__desc">Learn to treat equations as claims about quantities and relationships rather than instant tests.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Chapter 2</span>
-    <h3><a href="./units-scale-and-estimation.html">Units, Scale, and Estimation</a></h3>
-    <p>Build the habit of checking plausibility before trusting exact-looking answers.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Chapter 2</span>
+    <div class="wh-book-card__title"><a href="./units-scale-and-estimation.html">Units, Scale, and Estimation</a></div>
+    <div class="wh-book-card__desc">Build the habit of checking plausibility before trusting exact-looking answers.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Chapter 3</span>
-    <h3><a href="./maps-coordinates-and-layers.html">Maps, Coordinates, and Layers</a></h3>
-    <p>See how maps become structured data and why that matters for spatial analysis.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Chapter 3</span>
+    <div class="wh-book-card__title"><a href="./maps-coordinates-and-layers.html">Maps, Coordinates, and Layers</a></div>
+    <div class="wh-book-card__desc">See how maps become structured data and why that matters for spatial analysis.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Chapter 4</span>
-    <h3><a href="./uncertainty-error-and-approximation.html">Uncertainty, Error, and Approximation</a></h3>
-    <p>Understand why models can be useful even when they are simplified and imperfect.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Chapter 4</span>
+    <div class="wh-book-card__title"><a href="./uncertainty-error-and-approximation.html">Uncertainty, Error, and Approximation</a></div>
+    <div class="wh-book-card__desc">Understand why models can be useful even when they are simplified and imperfect.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Chapter 5</span>
-    <h3><a href="./what-makes-a-model-computational.html">What Makes a Model Computational</a></h3>
-    <p>Connect modelling ideas to repetition, simulation, data, and scale.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Chapter 5</span>
+    <div class="wh-book-card__title"><a href="./what-makes-a-model-computational.html">What Makes a Model Computational</a></div>
+    <div class="wh-book-card__desc">Connect modelling ideas to repetition, simulation, data, and scale.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Chapter 6</span>
-    <h3><a href="./setting-up-your-environment.html">Setting Up Your Environment</a></h3>
-    <p>Get a practical setup for Windows, macOS, Linux, and Raspberry Pi so external labs are easier to run.</p>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Chapter 6</span>
+    <div class="wh-book-card__title"><a href="./setting-up-your-environment.html">Setting Up Your Environment</a></div>
+    <div class="wh-book-card__desc">Get a practical setup for Windows, macOS, Linux, and Raspberry Pi so external labs are easier to run.</div>
   </article>
 </div>
 ```
@@ -172,27 +178,27 @@ You do not need to solve every equation immediately. First learn to read what it
 ```{=html}
 <div class="book-part-grid">
   <article class="book-part-card">
-    <span class="part-eyebrow">Part 1</span>
+    <span class="wh-book-card__status">Part 1</span>
     <h3>Maths for Modelling Space</h3>
-    <p>Start with variables, rates, growth, terrain, and simple spatial systems.</p>
-    <div class="cta-row">
-      <a class="cta" href="../foundations/">Open Part 1</a>
+    <div class="wh-book-card__desc">Start with variables, rates, growth, terrain, and simple spatial systems.</div>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../foundations/">Open Part 1</a>
     </div>
   </article>
   <article class="book-part-card">
-    <span class="part-eyebrow">Part 2</span>
+    <span class="wh-book-card__status">Part 2</span>
     <h3>Earth Systems and Observation</h3>
     <p>Use models to understand environmental processes and what data can tell us about them.</p>
-    <div class="cta-row">
-      <a class="cta" href="../environmental-systems/">Open Part 2</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../environmental-systems/">Open Part 2</a>
     </div>
   </article>
   <article class="book-part-card">
-    <span class="part-eyebrow">Part 3</span>
+    <span class="wh-book-card__status">Part 3</span>
     <h3>GIS and Spatial Analysis</h3>
     <p>Learn the practical toolkit of spatial reasoning, overlays, rasters, and watershed logic.</p>
-    <div class="cta-row">
-      <a class="cta" href="../spatial-analysis/">Open Part 3</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="../spatial-analysis/">Open Part 3</a>
     </div>
   </article>
 </div>

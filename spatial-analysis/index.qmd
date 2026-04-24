@@ -1,7 +1,8 @@
 ---
 title: "Part 3: GIS and Spatial Analysis"
 subtitle: "The practical toolkit of overlays, rasters, terrain logic, and computational geography."
-page-layout: article
+page-layout: custom
+body-classes: hero-page
 body-classes: split-home split-home-core page-home
 ---
 
@@ -12,11 +13,11 @@ Textbook Part
 ## GIS and Spatial Analysis {#spatial-analysis .section-title}
 
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__left">
     <p>This part is where the book becomes recognisably GIS and spatial computation. It asks how locations become data, how vector and raster operations work, and how those operations become real analytical workflows.</p>
-    <div class="cta-row">
-      <a class="cta" href="./point-in-polygon-testing.html">Start Part 3</a>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./point-in-polygon-testing.html">Start Part 3</a>
     </div>
     <div class="book-pill-row">
       <span class="book-pill">9 core chapters</span>
@@ -24,14 +25,19 @@ Textbook Part
       <span class="book-pill">Part 3</span>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Role</strong>
-      <span>Give readers the practical working toolkit of computational spatial analysis.</span>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Give readers the practical working toolkit of computational spatial analysis.</div>
     </div>
-    <div class="book-meta-card">
-      <strong>Sequence</strong>
-      <span>The first nine chapters here form a strong main route. Save the classification and time-series extensions for later if needed.</span>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">The first nine chapters here form a strong main route. Save the classification and time-series extensions for later if needed.</div>
     </div>
   </aside>
 </section>
@@ -89,10 +95,10 @@ Textbook Part
 ## Chapter Map {#chapter-map .section-title}
 
 ```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">K</span>
-    <h3>Spatial Predicates and Raster Foundations</h3>
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">K</span>
+    <div class="wh-book-card__title">Spatial Predicates and Raster Foundations</div>
     <ul>
       <li><a href="./point-in-polygon-testing.html">Point-in-Polygon Testing</a></li>
       <li><a href="./raster-resampling-interpolation.html">Raster Resampling and Interpolation</a></li>
@@ -100,34 +106,34 @@ Textbook Part
       <li><a href="./raster-classification.html">Raster Classification and Reclassification</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">L</span>
-    <h3>Vector Operations</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">L</span>
+    <div class="wh-book-card__title">Vector Operations</div>
     <ul>
       <li><a href="./buffer-operations.html">Buffer Operations and Distance Fields</a></li>
       <li><a href="./polygon-overlay-operations.html">Polygon Overlay and Clipping</a></li>
       <li><a href="./spatial-joins.html">Spatial Joins and Proximity Queries</a></li>
     </ul>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">M</span>
-    <h3>Terrain Analysis</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">M</span>
+    <div class="wh-book-card__title">Terrain Analysis</div>
     <ul>
       <li><a href="./viewshed-line-of-sight.html">Viewshed and Line-of-Sight Analysis</a></li>
       <li><a href="./watershed-delineation.html">Watershed Delineation and Flow Networks</a></li>
     </ul>
-    <p>Least-cost path analysis continues this terrain toolkit in the topic-libraries volume.</p>
+    <div class="wh-book-card__desc">Least-cost path analysis continues this terrain toolkit in the topic-libraries volume.</div>
   </article>
-  <article class="section-card">
-    <span class="section-eyebrow">N</span>
-    <h3>Explore More Later</h3>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">N</span>
+    <div class="wh-book-card__title">Explore More Later</div>
     <ul>
       <li>Cost-Distance and Least-Cost Paths</li>
       <li>Supervised Image Classification</li>
       <li>Change Detection in Satellite Imagery</li>
       <li>Time Series Analysis of Satellite Data</li>
     </ul>
-    <p>These chapters are part of the topic-libraries volume, so they are intentionally not linked from the core-book build.</p>
+    <div class="wh-book-card__desc">These chapters are part of the topic-libraries volume, so they are intentionally not linked from the core-book build.</div>
   </article>
 </div>
 ```
