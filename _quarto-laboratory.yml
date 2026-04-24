@@ -72,6 +72,7 @@ format:
     theme: none
     css:
       - assets/css/quarto-wayward.css
+      - assets/css/quarto-book.css
     html-math-method: katex
     toc: true
     number-sections: false

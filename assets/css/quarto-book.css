@@ -1,0 +1,98 @@
+/* ────────────────────────────────────────────────────────────────────────────
+   quarto-book.css — Book-context overrides for quarto-wayward.css
+   This file is book-specific and NOT synced from waywardhouse-site.
+   It corrects mismatches between the main site's CSS assumptions and the
+   Quarto book rendering context (theme: none, sticky nav, no Bootstrap grid).
+   ──────────────────────────────────────────────────────────────────────────── */
+
+/* ── 1. Book header: fixed and full-viewport-width ───────────────────────────
+   body.reading-body uses display:grid which constrains a sticky element to
+   whichever grid cell it lands in (auto-placement → column 1 only, ~250px).
+   Switch to fixed so the containing block is always the viewport.           */
+
+.wh-book-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9001;
+}
+
+/* ── 2. Correct body.reading-body top padding for book context ───────────────
+   Main site: padding-top: calc(var(--nav-height) + 1.5rem) = ~88px for its
+   fixed 64px header. Book: sticky nav is only 2.75rem tall.                 */
+
+body.reading-body {
+  padding-top: calc(2.75rem + 1rem) !important; /* header + gap */
+}
+
+/* Adjust sticky TOC top offset to clear the book header */
+body.reading-body > #TOC {
+  top: calc(2.75rem + 1.25rem) !important;
+  max-height: calc(100vh - 2.75rem - 2rem) !important;
+}
+
+/* ── 3. Suppress article chrome injected by core.js ─────────────────────────
+   core.js:enhanceRootArticleHeader() runs whenever body.reading-body is set.
+   It replaces #title-block-header's content with date, read-time, and social
+   share buttons — appropriate for the main blog but wrong in a book chapter. */
+
+.wayward-reading-head .wayward-reading-head__meta-row,
+.wayward-reading-head .post-meta,
+.wayward-reading-head .post-share {
+  display: none !important;
+}
+
+/* ── 4. Content padding for pages without reading-body layout ────────────────
+   reading-body provides a 2-column grid with proper spacing. Pages that don't
+   use it (chapters without that class, landing pages) get no padding from
+   Quarto (theme:none disables Bootstrap's row/col gutters), causing content
+   to start flush at the viewport left edge.                                  */
+
+body:not(.reading-body) #title-block-header:not(.page-home),
+body:not(.reading-body) .section-kicker {
+  padding-left: max(1.5rem, 3vw);
+}
+
+/* Chapter pages: wrap content in a readable measure with side padding */
+body:not(.reading-body):not(.page-home) > h2,
+body:not(.reading-body):not(.page-home) > h3,
+body:not(.reading-body):not(.page-home) > p,
+body:not(.reading-body):not(.page-home) > ul,
+body:not(.reading-body):not(.page-home) > ol,
+body:not(.reading-body):not(.page-home) > blockquote,
+body:not(.reading-body):not(.page-home) > pre,
+body:not(.reading-body):not(.page-home) > table,
+body:not(.reading-body):not(.page-home) > figure,
+body:not(.reading-body):not(.page-home) > section,
+body:not(.reading-body):not(.page-home) > div:not(.wh-hero):not(.wh-book-header):not(.site-footer) {
+  max-width: 58rem;
+  padding-left: max(1.5rem, 3vw);
+  padding-right: max(1.5rem, 3vw);
+  box-sizing: border-box;
+}
+
+/* Inline TOC on pages without reading-body: give it spacing and a left border */
+body:not(.reading-body) > #TOC {
+  padding: 1.25rem max(1.5rem, 3vw) 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── 5. wh-hero in book content column ──────────────────────────────────────
+   The main-site wh-hero uses specific child classes (wh-hero__title,
+   wh-hero__desc) with explicit white colour. Gemini's book HTML uses plain
+   <p> and <h4> tags that inherit the dark body text — unreadable on the dark
+   gradient background. Also reduce the 100svh min-height.                   */
+
+.wh-hero p,
+.wh-hero h2,
+.wh-hero h3,
+.wh-hero h4,
+.wh-hero li {
+  color: var(--white);
+}
+
+.wh-hero {
+  min-height: 60vh;
+}
