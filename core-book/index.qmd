@@ -1,90 +1,136 @@
 ---
 title: "Computational Geography Core Book"
 subtitle: "The flagship modelling text: a calm on-ramp, a clear staircase, and one coherent main journey."
-page-layout: article
-body-classes: split-home split-home-core
+page-layout: custom
+body-classes: learn-landing hero-page
 ---
 
-::: {.section-kicker}
-Main Reading Path
-:::
-
-## Computational Geography Core Book {#core-book-home .section-title}
-
 ```{=html}
-<section class="book-hero">
-  <div class="book-hero-copy">
-    <p>This is the flagship book of the project: the clearest guided climb through modelling, Earth systems, GIS, hazards, and gateway human geography.</p>
-    <p>If the wider library ever feels sprawling, begin here. This is the quiet, steady route designed to behave like one serious, readable book.</p>
-    <div class="cta-row">
-      <a class="cta" href="../getting-started/">Start Here</a>
-      <a class="cta cta-ghost" href="../foundations/">Open Part 1</a>
+<!-- ── Hero ───────────────────────────────────────────────────────────────── -->
+<section class="wh-hero wh-hero--compact geo-mountains">
+  <div class="wh-hero__nav-spacer"></div>
+
+  <div class="wh-hero__body">
+    <div class="wh-hero__left">
+      <div class="wh-hero__coords">Computational Geography · Core</div>
+      <h1 class="wh-hero__title">The flagship<br>modelling<br>text.</h1>
+      <div class="wh-hero__rule"></div>
+      <p class="wh-hero__desc">This is the flagship book of the project: the clearest guided climb through modelling, Earth systems, GIS, hazards, and gateway human geography. If the wider library ever feels sprawling, begin here. This is the quiet, steady route designed to behave like one serious, readable book.</p>
+      <div class="wh-hero__actions">
+        <a href="../getting-started/" class="wh-hero__btn wh-hero__btn--primary">Start Here</a>
+        <a href="../foundations/" class="wh-hero__btn wh-hero__btn--ghost">Open Part 1</a>
+      </div>
     </div>
-    <div class="book-pill-row">
-      <span class="book-pill">Flagship book</span>
-      <span class="book-pill">Beginner-safe path</span>
-      <span class="book-pill">Read in order</span>
+
+    <div class="wh-hero__right">
+      <div class="wh-hero__panel-label">Core Book Path</div>
+      <div class="wh-hero__cards">
+        <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Best For</div>
+          <div class="wh-hero-card__title">A Steady Path</div>
+          <div class="wh-hero-card__dek">Readers who want one coherent beginner-to-intermediate path rather than a shelf of side doors.</div>
+        </div>
+        <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Includes</div>
+          <div class="wh-hero-card__title">Complete Sequence</div>
+          <div class="wh-hero-card__dek">Getting Started, Methods, Foundations, Environmental Systems, Spatial Analysis, Hazards, and Economic Geography.</div>
+        </div>
+        <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Reading Style</div>
+          <div class="wh-hero-card__title">Guided Climb</div>
+          <div class="wh-hero-card__dek">Sequential, cumulative, and deliberately paced to keep the first serious pass through the subject feeling possible.</div>
+        </div>
+      </div>
     </div>
   </div>
-  <aside class="book-meta-panel">
-    <div class="book-meta-card">
-      <strong>Best For</strong>
-      <span>Readers who want one coherent beginner-to-intermediate path rather than a shelf of side doors.</span>
-    </div>
-    <div class="book-meta-card">
-      <strong>Includes</strong>
-      <span>Getting Started, Methods and Tools, Foundations, Environmental Systems, Spatial Analysis, Hazards, and gateway Economic Geography.</span>
-    </div>
-    <div class="book-meta-card">
-      <strong>Reading Style</strong>
-      <span>Sequential, cumulative, and deliberately paced to keep the first serious pass through the subject feeling possible.</span>
-    </div>
-  </aside>
+
+  <a href="#" class="wh-hero__credit">Image: Mountain terrain · replace with actual credit</a>
 </section>
-```
 
-## What This Book Covers {#core-book-map .section-title}
+<!-- ── What This Book Covers ──────────────────────────────────────────────── -->
+<section class="wh-learn-strip">
+  <div class="wh-section-wrap">
+    <div class="wh-section-head wh-reveal">
+      <div class="wh-section-head__left">
+        <span class="wh-section-kicker">Core Path</span>
+        <h2 class="wh-section-title">What This Book Covers</h2>
+      </div>
+    </div>
 
-```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Begin Gently</span>
-    <h3>Start Here and Methods</h3>
-    <p>Learn how to read equations, reason with units, think about maps as data, and use the project’s shared tool bench.</p>
-  </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Build Confidence</span>
-    <h3>Maths for Modelling Space</h3>
-    <p>Variables, rates, growth, terrain, and spatial interaction establish the modelling language of the book.</p>
-  </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Move Outward</span>
-    <h3>Earth Systems, GIS, and Hazards</h3>
-    <p>Environmental process models, spatial analysis tools, and motivating risk problems build the strongest central spine.</p>
-  </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Finish Broadly</span>
-    <h3>Gateway Human Geography</h3>
-    <p>Trade, cities, and pricing appear here as spatial systems without overwhelming the environmental-modelling core.</p>
-  </article>
-</div>
-```
+    <div class="wh-book-grid wh-reveal">
+      <a href="../getting-started/" class="wh-book-card wh-book-card--featured">
+        <div class="wh-book-card__status">Begin Gently</div>
+        <div class="wh-book-card__num">01</div>
+        <div class="wh-book-card__title">Start Here and Methods</div>
+        <div class="wh-book-card__desc">Learn how to read equations, reason with units, think about maps as data, and use the project’s shared tool bench.</div>
+        <div class="wh-book-card__action">Open section</div>
+      </a>
+      <a href="../foundations/" class="wh-book-card">
+        <div class="wh-book-card__status">Build Confidence</div>
+        <div class="wh-book-card__num">02</div>
+        <div class="wh-book-card__title">Maths for Modelling Space</div>
+        <div class="wh-book-card__desc">Variables, rates, growth, terrain, and spatial interaction establish the modelling language of the book.</div>
+        <div class="wh-book-card__action">Open section</div>
+      </a>
+      <a href="../environmental-systems/" class="wh-book-card">
+        <div class="wh-book-card__status">Move Outward</div>
+        <div class="wh-book-card__num">03</div>
+        <div class="wh-book-card__title">Earth Systems, GIS, Hazards</div>
+        <div class="wh-book-card__desc">Environmental process models, spatial analysis tools, and motivating risk problems build the strongest central spine.</div>
+        <div class="wh-book-card__action">Open section</div>
+      </a>
+      <a href="../economic-systems/" class="wh-book-card">
+        <div class="wh-book-card__status">Finish Broadly</div>
+        <div class="wh-book-card__num">04</div>
+        <div class="wh-book-card__title">Gateway Human Geography</div>
+        <div class="wh-book-card__desc">Trade, cities, and pricing appear here as spatial systems without overwhelming the environmental-modelling core.</div>
+        <div class="wh-book-card__action">Open section</div>
+      </a>
+    </div>
+  </div>
+</section>
 
-## Also In This Series {#core-book-siblings .section-title}
+<!-- ── Also In This Series ────────────────────────────────────────────────── -->
+<section class="wh-learn-strip">
+  <div class="wh-section-wrap">
+    <div class="wh-section-head wh-reveal">
+      <div class="wh-section-head__left">
+        <span class="wh-section-kicker">Companion Paths</span>
+        <h2 class="wh-section-title">Also In This Series</h2>
+      </div>
+    </div>
 
-```{=html}
-<div class="section-card-grid">
-  <article class="section-card">
-    <span class="section-eyebrow">Branch Later</span>
-    <h3>Topic Libraries</h3>
-    <p>Browse remote sensing, cryosphere, machine learning, and deeper system branches by subject.</p>
-    <p><a href="../topic-libraries-home/">Open Topic Libraries</a></p>
-  </article>
-  <article class="section-card">
-    <span class="section-eyebrow">Practice Later</span>
-    <h3>Laboratory</h3>
-    <p>Move into investigations, advanced applications, and practicum-style modelling work.</p>
-    <p><a href="../laboratory-home/">Open Laboratory</a></p>
-  </article>
-</div>
-```
+    <div class="wh-book-grid wh-reveal">
+      <a href="../topic-libraries-home/" class="wh-book-card">
+        <div class="wh-book-card__status">Branch Later</div>
+        <div class="wh-book-card__num">↗</div>
+        <div class="wh-book-card__title">Topic Libraries</div>
+        <div class="wh-book-card__desc">Browse remote sensing, cryosphere, machine learning, and deeper system branches by subject.</div>
+        <div class="wh-book-card__action">Open Topic Libraries</div>
+      </a>
+      <a href="../laboratory-home/" class="wh-book-card">
+        <div class="wh-book-card__status">Practice Later</div>
+        <div class="wh-book-card__num">↗</div>
+        <div class="wh-book-card__title">Laboratory</div>
+        <div class="wh-book-card__desc">Move into investigations, advanced applications, and practicum-style modelling work.</div>
+        <div class="wh-book-card__action">Open Laboratory</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var els = document.querySelectorAll('.wh-reveal');
+  if (!els.length) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry, i) {
+      if (entry.isIntersecting) {
+        setTimeout(function () { entry.target.classList.add('is-visible'); }, i * 60);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
