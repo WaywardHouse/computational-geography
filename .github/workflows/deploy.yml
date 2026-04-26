@@ -1,0 +1,31 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render
+        # pre-render: scripts/prepare-book-output.sh (Perl — available by default on ubuntu-latest)
+        # post-render: scripts/sync-book-assets.sh (copies assets/ into _book/)
+        # execute: freeze: auto with _freeze/ committed — no Python/R needed
+        run: quarto render
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _book --project-name=wh-computational-geography
