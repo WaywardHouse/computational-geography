@@ -202,6 +202,8 @@ book:
 format:
   WaywardHouse/waywardhouse-book-html:
     number-sections: false
+    include-after-body:
+      - assets/includes/book-viz-loader.html
 
 execute:
   freeze: auto
