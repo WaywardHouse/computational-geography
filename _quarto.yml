@@ -200,10 +200,7 @@ book:
     - machine-learning/dimensionality-reduction-pca-tsne-umap.qmd
 
 format:
-  html:
-    theme: cosmo
-    html-math-method: katex
-    toc: true
+  WaywardHouse/waywardhouse-book-html:
     number-sections: false
 
 execute:
