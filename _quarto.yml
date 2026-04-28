@@ -12,15 +12,15 @@ book:
   search: true
   chapters:
     - index.qmd
-    - all-models/index.qmd
-    - getting-started/index.qmd
+#    - all-models/index.qmd
+#    - getting-started/index.qmd
     - getting-started/how-to-read-equations.qmd
     - getting-started/units-scale-and-estimation.qmd
     - getting-started/maps-coordinates-and-layers.qmd
     - getting-started/uncertainty-error-and-approximation.qmd
     - getting-started/what-makes-a-model-computational.qmd
     - getting-started/setting-up-your-environment.qmd
-    - methods-and-tools/index.qmd
+#    - methods-and-tools/index.qmd
     - methods-and-tools/how-to-validate-a-model.qmd
     - methods-and-tools/how-to-choose-a-model.qmd
     - methods-and-tools/uncertainty-propagation-and-ensembles.qmd
@@ -28,7 +28,7 @@ book:
     - methods-and-tools/decision-models-and-optimization.qmd
     - methods-and-tools/bayesian-updating-and-geographic-inference.qmd
     - methods-and-tools/causal-inference-for-geographic-questions.qmd
-    - foundations/index.qmd
+#    - foundations/index.qmd
     - foundations/what-is-a-spatial-model.qmd
     - foundations/linear-change-and-rate.qmd
     - foundations/exponential-growth-and-logarithms.qmd
@@ -53,7 +53,7 @@ book:
     - foundations/solar-geometry-and-projection.qmd
     - foundations/hydrological-flow-as-optimization.qmd
     - foundations/earth-as-rotating-sphere.qmd
-    - environmental-systems/index.qmd
+#    - environmental-systems/index.qmd
     - environmental-systems/net-radiation-and-albedo.qmd
     - environmental-systems/sensible-and-latent-heat-fluxes.qmd
     - environmental-systems/soil-heat-diffusion.qmd
@@ -72,7 +72,7 @@ book:
     - environmental-systems/nitrogen-cycling.qmd
     - environmental-systems/phenology-and-growing-season.qmd
     - environmental-systems/land-atmosphere-coupling-and-feedbacks.qmd
-    - spatial-analysis/index.qmd
+#    - spatial-analysis/index.qmd
     - spatial-analysis/point-in-polygon-testing.qmd
     - spatial-analysis/buffer-operations.qmd
     - spatial-analysis/polygon-overlay-operations.qmd
@@ -99,7 +99,7 @@ book:
     - atmospheric-hazards/boundary-layer-turbulence.qmd
     - atmospheric-hazards/extreme-wind-events.qmd
     - atmospheric-hazards/compound-hazards-and-cascading-risk.qmd
-    - economic-systems/index.qmd
+#    - economic-systems/index.qmd
     - economic-systems/canada-trade-gravity-model.qmd
     - economic-systems/urban-bid-rent-model.qmd
     - economic-systems/urban-agglomeration-economies.qmd
@@ -133,7 +133,7 @@ book:
     - economic-systems/alberta-renewable-resource-geography.qmd
     - economic-systems/alberta-renewable-economics.qmd
     - economic-systems/alberta-renewable-policy-demand.qmd
-    - explore-more/index.qmd
+#    - explore-more/index.qmd
     - cryosphere-and-mountain-systems/index.qmd
     - cryosphere-and-mountain-systems/snowpack-energy-balance.qmd
     - cryosphere-and-mountain-systems/snow-accumulation-melt-modeling.qmd
@@ -155,7 +155,7 @@ book:
     - advanced-remote-sensing/sar-fundamentals.qmd
     - advanced-remote-sensing/gravity-remote-sensing.qmd
     - advanced-investigations/index.qmd
-    - laboratory/index.qmd
+#    - laboratory/index.qmd
     - laboratory/sar-fundamentals-and-applications.qmd
     - laboratory/insar-deformation-monitoring.qmd
     - laboratory/gravity-remote-sensing-grace.qmd
@@ -195,7 +195,7 @@ book:
     - laboratory/Ocean-Carbon-Uptake-and-Air-Sea-Exchange.qmd
     - laboratory/Soil-Carbon-Storage-and-Decomposition.qmd
     - laboratory/Methanogenesis-in-Anaerobic-Environments.qmd
-    - machine-learning/index.qmd
+#    - machine-learning/index.qmd
     - machine-learning/regression-continuous-variables.qmd
     - machine-learning/dimensionality-reduction-pca-tsne-umap.qmd
 
