@@ -33,20 +33,10 @@ book:
 
 format:
   html:
-    theme: none
-    css:
-      - assets/css/quarto-wayward.css
-      - assets/css/quarto-book.css
+    theme: cosmo
     html-math-method: katex
     toc: true
     number-sections: false
-    include-in-header:
-      - assets/includes/quarto-head.html
-    include-before-body:
-      - assets/includes/quarto-book-nav.html
-
-    include-after-body:
-      - assets/includes/quarto-body.html
 
 execute:
   freeze: auto
