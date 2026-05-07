@@ -2,94 +2,172 @@
 title: "Your First Python Script (No Installation Required)"
 type: chapter
 book-part: "scientific-computing"
+pathway-prerequisites:
+  - "Scientific Computing Foundations: Why Scientific Computing Matters"
+next-steps:
+  - "Scientific Computing Foundations: How Your Computer Thinks"
 ---
 
 ## Before You Start
 
 **You should know:**
-- How to open a web browser. (You're doing great so far!)
+- How to open a web browser.
 
 **You will learn:**
-- What Python looks like.
-- How to write a simple script that performs math and prints text.
+- What Python code looks like and how to read it.
+- How to work with variables, numbers, text, and lists.
+- How to use `if` statements and loops — the building blocks of geographic models.
 - That code is just a sequence of readable instructions.
 
 ---
 
-## 1. Zero Installation
+## 1. Zero Installation Required
 
-Usually, the hardest part of learning to code isn't the code itself—it is getting the environment installed on your computer. We will definitely do that, but not today. Today, we just want to feel what it is like to command a computer.
+The hardest part of learning to code is often not the code itself — it is getting an environment installed and configured. We will do that properly in later chapters, but for now we want to feel what it is like to actually command a computer.
 
-We are going to use an online Python interpreter. You can use any free service like Repl.it, Google Colab, or an interactive code cell if this page supports it.
+**Use an online Python interpreter.** Open your browser and go to one of these:
+
+- [python.org/shell](https://www.python.org/shell/) — official interactive shell, runs in your browser
+- [repl.it](https://repl.it/) — more featured, requires a free account
+- [Google Colab](https://colab.research.google.com/) — notebook-style, also free
+
+All three options execute real Python without you installing anything. The code you type runs on a computer somewhere in the cloud and sends the result back to your screen.
 
 ## 2. Your First Instruction
 
-Code is a sequence of actions. Let's tell the computer to do something immediately visible: print text to the screen.
-
-In Python, the instruction is literally the word `print()`.
+Python reads your code from top to bottom, one line at a time, and executes each instruction as it goes. Let's start with the most immediately visible action: printing text to the screen.
 
 ```python
 print("Hello, computational geography!")
 ```
 
-If you type this into your interpreter and hit "Run", the computer will output:
-`Hello, computational geography!`
+Type this into your interpreter and press Enter (or click Run). The computer will output:
 
-You just wrote code. It really is that simple.
-
-## 3. Using the Computer as a Calculator
-
-Geography is full of numbers—coordinates, temperatures, population counts. Let's ask Python to do some math for us.
-
-```python
-# The computer ignores lines that start with a hash (#). These are comments for us.
-
-# Let's define some variables
-elevation_base = 1500  # meters
-elevation_peak = 3200  # meters
-
-# Calculate the difference
-elevation_change = elevation_peak - elevation_base
-
-# Print the result
-print("The elevation change is:", elevation_change, "meters.")
+```text
+Hello, computational geography!
 ```
 
-When you run this, Python remembers the numbers you gave it, does the subtraction, and stitches the text together with the numerical answer.
+You just wrote code. `print()` is a **function** — a named action that Python knows how to perform. The text inside the parentheses is the **argument** you are passing to it.
 
-## 4. Why Does This Matter?
+## 3. Variables: Giving Names to Values
 
-You might be thinking, "I have a calculator app for that." 
-
-But consider this: what if instead of two elevations, you had a grid of two million elevations? The syntax would look almost identical. The computer doesn't get tired, and it doesn't make transcription mistakes.
+Geography is full of numbers — elevations, temperatures, coordinates, population counts. Instead of typing the same number over and over, we store values in **variables**.
 
 ```python
-# A tiny taste of logic
-temperature = -5
+# Lines beginning with # are comments. Python ignores them.
+# Use comments to explain what your code is doing.
+
+elevation_base = 1500   # metres
+elevation_peak = 3200   # metres
+
+elevation_change = elevation_peak - elevation_base
+
+print("Elevation gain:", elevation_change, "metres")
+```
+
+Run this. Python remembers both numbers, performs the subtraction, and assembles the output from parts. The result should be `Elevation gain: 1700 metres`.
+
+Variable names can be almost anything, but use short, descriptive names. `elevation_base` is better than `x`. Python variable names cannot contain spaces — use underscores instead.
+
+## 4. Types of Data
+
+Python handles several kinds of data:
+
+```python
+# Integers (whole numbers)
+num_samples = 250
+
+# Floats (decimal numbers)
+latitude = 51.5074
+
+# Strings (text, always wrapped in quotes)
+city_name = "London"
+
+# Booleans (True or False — exactly those words, capital first letter)
+is_coastal = True
+
+# You can print any of them
+print(city_name, "is at latitude", latitude)
+print("Coastal city:", is_coastal)
+```
+
+The type of a variable matters. You can do arithmetic on numbers. You can't do arithmetic on text (unless you're combining strings, which uses `+`). Python will tell you if you mix them incorrectly.
+
+## 5. Lists: Storing Multiple Values
+
+A single variable holds one value. A **list** holds many values in order.
+
+```python
+# A list of elevation measurements along a transect
+elevations = [120, 340, 580, 720, 690, 440, 210]
+
+print("First measurement:", elevations[0])   # Python counts from 0
+print("Last measurement:", elevations[-1])   # -1 means "the last one"
+print("Number of measurements:", len(elevations))
+```
+
+Lists are one of the most important structures in geographic computing. A raster layer is essentially a list of lists (a grid of values). A route is a list of coordinates. A shapefile attribute table is a list of records.
+
+## 6. Logic: Making Decisions
+
+The power of code comes from its ability to apply rules consistently across data. The `if` statement lets you define conditional logic:
+
+```python
+temperature = -5  # degrees Celsius
 
 if temperature < 0:
     print("Precipitation will fall as snow.")
+elif temperature < 10:
+    print("Cold rain likely.")
 else:
-    print("Precipitation will fall as rain.")
+    print("Liquid precipitation.")
 ```
 
-This is the essence of computational models. We define rules (like `if temperature < 0`), provide data, and the computer applies the rules flawlessly across the entire dataset.
+Notice the **indentation**: the lines underneath `if`, `elif`, and `else` are indented by four spaces (or one Tab). Python uses indentation to understand which lines belong to which block. If you forget to indent, Python will complain.
 
-## 5. From Scripts to Programs
+Change the value of `temperature` and re-run to test each branch.
 
-What you just wrote is called a **script**. It is a text file containing instructions that run from top to bottom. This is the foundation of everything you will build in this book.
+## 7. Loops: Doing the Same Thing Many Times
 
-Right now, Python is running in the cloud. But eventually, you want it running directly on your own hard drive, reading your own files, and saving huge maps to your own folders. 
+This is where the difference between GIS and scientific computing becomes concrete.
 
-To do that, we need to leave the browser.
+```python
+# Five elevation readings along a valley transect
+elevations = [120, 340, 580, 720, 690]
+
+for elevation in elevations:
+    if elevation > 500:
+        print(elevation, "m — above treeline")
+    else:
+        print(elevation, "m — below treeline")
+```
+
+A `for` loop steps through every item in a list, one at a time, and runs the indented block for each one. In this example it processes 5 values; the code would look identical for 5 million values — the computer just keeps going.
+
+This is the pattern behind nearly every geographic computation: take a dataset, loop through it, apply a rule to each record, output a result.
+
+## 8. From Scripts to Programs
+
+What you just wrote is called a **script** — a text file of instructions that run top to bottom. Everything in this chapter ran in the cloud, in someone else's computer. That is fine for practice.
+
+Eventually, you want Python running on your own machine, reading your own files — a satellite image you downloaded, a CSV of field measurements, a shapefile of census boundaries — and writing results back to your own folders.
+
+To do that, you need Python installed locally, and you need to understand how your computer organizes files. The next chapter covers exactly that.
 
 ## Verify Your Work
 
-- [x] Run a `print()` statement in an online Python interpreter.
-- [x] Assign a number to a variable and perform a basic math operation.
+Before moving on, confirm you can do each of these in your online interpreter:
+
+- [x] Run a `print()` statement with text.
+- [x] Assign a number to a variable and calculate something with it.
+- [x] Create a list of at least four values and print the first and last elements.
+- [x] Write an `if`/`else` block that produces different output for different inputs.
+- [x] Write a `for` loop that processes every item in a list.
+
+If any of these stumped you, re-read the relevant section. The rest of this book assumes these ideas are familiar.
 
 ## Next Steps
 
-Before we can install Python, we need to understand how the computer actually organizes files when we don't have graphical windows to point and click on.
+Before installing Python on your machine, you need to understand how your computer organizes files without a graphical window. That is the command line.
 
 - Proceed to [How Your Computer Thinks: Command Line Essentials](./command-line-essentials.qmd)

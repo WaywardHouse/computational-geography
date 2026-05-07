@@ -11,110 +11,168 @@ next-steps:
 ## Before You Start
 
 **You should know:**
-- How to open the Terminal on Mac/Linux, or PowerShell on Windows.
-- That computers use a hierarchical system to store information (folders inside folders).
+- That computers use a hierarchical system to store files (folders inside folders).
 
 **You will learn:**
-- How to navigate your computer's file system without using a mouse.
-- Why the command line is an essential environment for scientific computing.
-- The four core commands: `pwd`, `ls`, `cd`, and `mkdir`.
+- How to open a terminal on Mac, Windows, and Linux.
+- How to navigate your computer's file system without a mouse.
+- Practical shortcuts: tab completion, the home directory, and handling spaces in names.
+- Why the command line is the foundation of local scientific computing.
 
 ## Introduction
 
-In the previous chapter, you wrote Python code in a browser. That was a great sandbox, but real scientific computing happens locally—on your own machine, using your own files, processing your own satellite imagery or datasets.
+In the previous chapter, you wrote Python code in a browser. That was a great sandbox, but real scientific computing happens locally — on your own machine, reading your own files, processing your own satellite imagery or datasets.
 
-However, when you run Python locally, Python is essentially blind. It doesn't magically know where your files are stored. If you tell Python to "open `temperature_data.csv`," it will only look in the exact folder it is currently standing in. If it can't find it, it throws an error.
+However, Python running locally is essentially blind. It doesn't know where your files are stored. If you tell Python to open `temperature_data.csv`, it looks only in the exact folder it is currently standing in. If it can't find it there, it throws an error.
 
-To control Python, you must first learn how to control your computer the way a programmer does: through the **command line**. The command line (also called the terminal, console, or shell) is a text-based interface used to talk directly to your operating system.
+To control Python, you must first learn to control your computer the way a programmer does: through the **command line**. The command line is a text-based interface for talking directly to your operating system. It has many names — terminal, console, shell, PowerShell, command prompt — but they all do the same fundamental job.
+
+## Opening a Terminal
+
+The first step is knowing how to get there.
+
+**On macOS:**
+Press `Cmd + Space` to open Spotlight Search. Type `Terminal` and press Enter. The Terminal app opens — a window with a blinking cursor waiting for input.
+
+**On Windows:**
+Press the Windows key, type `PowerShell`, and press Enter. Windows PowerShell is the modern command-line environment and understands most of the same commands as macOS and Linux terminals.
+
+*(Older tutorials may tell you to use Command Prompt, `cmd.exe`. PowerShell is better; use it instead.)*
+
+**On Linux (Ubuntu/Debian):**
+Press `Ctrl + Alt + T`. A terminal window opens immediately.
 
 ## The Mental Model: You Are Always "Somewhere"
 
-When you use a mouse, you open a window (like Finder on Mac or File Explorer on Windows) and look inside a folder. 
+When you use a mouse, you open a Finder or File Explorer window and browse inside folders visually. In the terminal, you don't browse — you **step inside** a specific folder and all your commands run from there.
 
-In the terminal, you don't "open" a folder—you **step inside it**. 
-
-Imagine your computer's hard drive is a massive building with millions of rooms. The terminal is you, standing in one specific room at a time. This room is called your **working directory**.
+Imagine your hard drive as a building with thousands of rooms. The terminal is you, standing in one specific room at a time. This room is called your **working directory**.
 
 ### 1. Where am I? (`pwd`)
 
-The first thing you need to know is which room you are standing in. 
+The first command to learn is `pwd` — **Print Working Directory**. It tells you exactly which room you are currently standing in.
 
-Open your terminal (Mac/Linux) or PowerShell (Windows). You will see a blinking cursor waiting for an instruction. Type the following and press Enter:
+In your terminal, type and press Enter:
 
 ```bash
 pwd
 ```
-*(On Windows PowerShell, `pwd` still works perfectly!)*
 
-`pwd` stands for **Print Working Directory**. Your computer will reply with something like:
+Your computer replies with something like:
+
 ```text
-/Users/yourname
-```
-or 
-```text
-C:\Users\yourname
+/Users/sarah          ← macOS / Linux
+C:\Users\sarah        ← Windows
 ```
 
-This is your absolute path—the exact address of the room you are currently standing in. 
+This is your **home directory** — the room you start in every time you open a new terminal. The home directory is so common that it has its own shorthand symbol: `~` (tilde). Anywhere you could type the full path, you can type `~` instead. This is useful for writing paths that work on any computer.
 
 ### 2. What is in this room? (`ls`)
 
-Now that you know where you are, you need to see what's in the room with you. Type:
+Now see what is in the folder you are standing in:
 
 ```bash
 ls
 ```
-*(On Windows PowerShell, use `ls` or `dir`.)*
 
-`ls` stands for **List**. Your terminal will print out all the files and folders located in your current working directory. You should see familiar folders like `Desktop`, `Documents`, and `Downloads`.
+*(On Windows PowerShell, `ls` works. On older Command Prompt, use `dir`.)*
 
-### 3. Making a new room (`mkdir`)
+Your terminal lists every file and folder in the current directory. You should see familiar names like `Desktop`, `Documents`, and `Downloads`.
 
-We are going to create a dedicated folder for all your computing work. Instead of right-clicking and selecting "New Folder," we'll do it using text. Type:
+Add the `-l` flag for a detailed view (file sizes, dates, permissions):
+
+```bash
+ls -l
+```
+
+### 3. Create a new folder (`mkdir`)
+
+Let's create a dedicated folder for your computing work:
 
 ```bash
 mkdir coding_projects
 ```
 
-`mkdir` stands for **Make Directory**. If it succeeds, the terminal won't say anything at all—it will just give you a new blinking cursor. In the command line, no news is good news!
+`mkdir` stands for **Make Directory**. If it succeeds, your terminal returns a blank cursor — silence means success. Run `ls` again and you will see `coding_projects` in the list.
 
-To verify it worked, run `ls` again. You should see `coding_projects` listed among your folders.
+**Spaces in folder names cause problems.** If you type `mkdir my projects`, the shell interprets this as two separate names and creates two folders: `my` and `projects`. Use underscores (`coding_projects`) or hyphens (`coding-projects`) instead. If you must use a space, wrap the entire name in quotes: `mkdir "my projects"`.
 
-### 4. Walking into a room (`cd`)
+### 4. Step into a folder (`cd`)
 
-You've built the room, but `pwd` will show you are still standing outside of it. To step inside the new folder, use the **Change Directory** command:
+You have created the folder, but `pwd` still shows you standing outside it. Use `cd` — **Change Directory** — to step inside:
 
 ```bash
 cd coding_projects
 ```
 
-Run `pwd` again. Your location should now explicitly end in `/coding_projects`.
-Run `ls`. It should return absolutely nothing, because this new room is currently empty.
+Run `pwd` again. Your location now ends in `coding_projects`. Run `ls` — nothing there yet, because this folder is empty.
 
-### 5. Walking backward (`cd ..`)
+### 5. Step back out (`cd ..`)
 
-To step backward—out of your current folder and into the parent folder—you use a special shortcut: two periods.
+To step backward into the parent folder, use two dots:
 
 ```bash
 cd ..
 ```
 
-The `..` symbolizes "the folder immediately above this one." Run `pwd` and you'll see you are safely back where you started.
+The `..` always means "the folder immediately above this one." Run `pwd` to confirm you are back where you started.
 
-## Why This Matters for Geography
+To jump straight to your home directory from anywhere:
 
-Imagine you download a massive 5GB array of LiDAR data to your `Downloads` folder. You write a Python script and save it to your `Desktop`. 
+```bash
+cd ~
+```
 
-If you open your terminal, navigate to the `Desktop`, and tell Python to run your script, Python will wake up standing on the `Desktop`. When your script says "open the LiDAR file," Python looks around the `Desktop`, doesn't see the LiDAR file, and crashes.
+To jump to a specific path in one command:
 
-Understanding the command line ensures you always know exactly where you are standing, allowing you to feed the right data to your code. 
+```bash
+cd ~/coding_projects/flood_analysis
+```
+
+## Tab Completion: Your Fastest Typing Shortcut
+
+Typing long folder names is slow and error-prone. Every terminal supports **tab completion** — press Tab after typing a few characters of a name and the terminal fills in the rest.
+
+```bash
+cd cod[Tab]
+```
+
+If there is only one folder that starts with `cod`, it completes to `coding_projects` instantly. If there are multiple matches, press Tab twice and the terminal lists the options.
+
+Use tab completion constantly. It avoids typos, confirms the name you think exists actually exists, and is far faster than typing.
+
+## The Home Directory Shortcut
+
+`~` is not just a shortcut for the prompt — it works in any path:
+
+```bash
+ls ~/Documents
+cd ~/coding_projects/flood_analysis
+```
+
+This means you can write paths that work correctly regardless of which directory you are currently in, and regardless of whose computer the script runs on (since every user's home directory is `~`).
+
+## Why This Matters for Geographic Data
+
+Imagine you download a 5 GB LiDAR dataset to your `Downloads` folder. Your Python analysis script is saved on your `Desktop`. You open a terminal, `cd Desktop`, and run the script. Python wakes up standing on the Desktop. Your script says "open the LiDAR file" — Python looks on the Desktop, finds nothing, and crashes with `FileNotFoundError`.
+
+Understanding the working directory means you always know exactly where Python is looking for files. You will use `cd` to navigate to your data, and you will organize your projects so that your code and data live in the same folder (or you use explicit paths to tell Python exactly where to look).
 
 ## Verify Your Work
 
-1. Open your terminal or PowerShell.
-2. Run `pwd` to confirm your starting location.
-3. Use `mkdir` to create a folder called `geography_workspace`.
-4. Use `cd geography_workspace` to step inside it.
-5. Provide `pwd` one last time to verify your path changed successfully.
+Work through each of these steps before moving on:
 
-If you can confidently move around your file system using only these commands, you are officially ready to install Python on your machine.
+1. Open your terminal using the method for your operating system.
+2. Run `pwd` to confirm your starting location.
+3. Run `ls` to see the contents of your home directory.
+4. Run `mkdir geography_workspace` to create a new folder.
+5. Run `cd geography_workspace` to step inside it.
+6. Run `pwd` to confirm your path changed.
+7. Run `cd ..` to step back out.
+8. Practice using Tab to complete a folder name in your home directory.
+
+If you can confidently do all of these, you are ready to install Python on your machine.
+
+## Next Steps
+
+- Proceed to [Installing Python](./installing-python.qmd)

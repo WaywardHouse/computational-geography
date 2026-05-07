@@ -11,94 +11,170 @@ next-steps:
 ## Before You Start
 
 **You should know:**
-- How to create a virtual environment, activate it, and install libraries using `pip` or `conda`.
+- How to create and activate a virtual environment and install libraries.
 
 **You will learn:**
-- The concept of "literate programming" and why notebooks revolutionized spatial data science.
-- How to install, launch, and navigate the Jupyter interactively.
-- The fundamental difference between a Code cell and a Markdown cell.
+- Why notebooks transformed geographic data science.
+- How to install, launch, and navigate Jupyter.
+- The difference between Code cells and Markdown cells.
+- Essential keyboard shortcuts that make notebooks fast to use.
+- The "restart and run all" discipline that keeps notebooks trustworthy.
+- What `.ipynb` files actually are.
 
 ## Introduction
 
-So far, you’ve learned how to establish a virtual environment sandbox and populate it with geographic and mathematical libraries. The question remains: where do you actually *write* the Python code?
+So far you have set up an environment and installed libraries. The question remains: where do you actually *write* the code?
 
-The traditional way is to open a plain text file, write hundreds of lines of code, save it as `script.py`, and run the entire file from the command line. If an error occurs on line 499, the program crashes, and you must run the entire file again from the top. 
+The traditional approach is a plain `.py` script — a text file that runs from top to bottom. If an error occurs on line 400, everything stops and you re-run the entire file. For data exploration, this is painful.
 
-If you are just exploring data or making a quick map, rerunning the entire file is agonizing. This is where **Jupyter Notebooks** enter the picture.
+**Jupyter Notebooks** solve this by letting you chop your code into small blocks called **cells** and run them one at a time. The output — a table, a map, a graph, or an error message — appears immediately beneath the cell. You write a cell, run it, see the result, refine it, and continue. The notebook becomes an executable document that records both your code and its output.
 
-Jupyter allows you to chop your Python code into tiny blocks called "cells," and execute them one by one. The output (a map, a graph, or an error) appears immediately beneath the cell. Because it allows you to dynamically write code, see the result, and iterate instantly, Jupyter has become the undisputed standard environment for scientific computing.
+Jupyter is now the dominant tool for geographic data science, machine learning, and scientific research.
 
-## Literate Programming
+## A Note on What "Browser" Means Here
 
-A Jupyter notebook is not just a code environment; it is a document.
+When Jupyter launches, it opens in your web browser. This can be confusing: Jupyter looks like a website, but it is not connected to the internet. It is a local server running on your own computer, and your browser is simply the interface to it. If you disconnect from Wi-Fi, Jupyter continues to work perfectly.
 
-Jupyter is built on the philosophy of **literate programming**. In a notebook, you can create a block of code, followed by a block of beautifully formatted text, followed by an interactive chart. You are writing an executable narrative. 
+## Installing Jupyter
 
-In fact, almost the entirety of this Computational Geography platform—including pathways, assays, and problem sets—was written, executed, and rendered out of Jupyter Notebooks!
+Jupyter is a Python package, installed into your active virtual environment like any other library.
 
-## Setting Up Jupyter
+Activate your environment first, then:
 
-Jupyter isn't a program you download from a website; it is actually a Python package you install into your virtual environment!
-
-Open your terminal, ensure your virtual environment is active, and install it:
-
-Using pip:
+**Using pip:**
 ```bash
-pip install jupyter
+pip install jupyterlab
 ```
 
-Using conda:
+**Using conda:**
 ```bash
 conda install -c conda-forge jupyterlab
 ```
 
-## Launching Your First Notebook
+JupyterLab is the modern, full-featured version. The older `jupyter notebook` interface is simpler but less capable. This book assumes JupyterLab.
 
-To start writing, you must tell your computer to spin up the Jupyter server.
+## Launching Jupyter
 
-In your terminal, navigate (`cd`) to your project directory. Then, type:
+In your terminal, with your environment activated, navigate to your project folder and start the server:
+
 ```bash
-jupyter notebook
+jupyter lab
 ```
-*(If you installed JupyterLab, type `jupyter lab` instead).*
 
-Your terminal will lock up and start printing server logs. Then, magically, your default web browser will open a new tab containing the Jupyter interface. 
+Your terminal will lock up and start printing server logs — this is normal. After a few seconds, your browser will open automatically to the JupyterLab interface. You will see a file browser on the left and a launcher tab on the right.
 
-> [!NOTE]
-> Even though you are in a web browser, Jupyter is **not** connecting to the internet. It is rendering a local interface that talks directly to your computer’s hardware. If you disconnect from Wi-Fi, Jupyter works perfectly!
+To create a new notebook, click **Python 3 (ipykernel)** in the Notebook section of the launcher.
 
 ## Working With Cells
 
-Once inside Jupyter, click **New > Notebook**. You are now looking at an empty document with a single gray box. That box is a **Cell**. 
+A notebook is a sequence of **cells**. Each cell is an independent block of code or text. There are two types.
 
-Cells come in two flavors:
+### Code Cells
 
-### 1. Code Cells
-By default, the cell expects Python. Type a basic math equation into the cell, like `2 + 2`. 
-To execute the cell, press **Shift + Enter**. It will compute the output, print `4` beneath it, and spawn a new empty cell.
+Code cells contain Python. Type code and run it with **Shift + Enter**. The output appears directly below the cell, and a new empty cell appears after it.
 
-### 2. Markdown Cells
-You can change a cell from "Code" to "Markdown" using the dropdown menu at the top of the screen. Markdown cells are designed for text. You can use hashtags (`#`) for headers, asterisks (`*`) for bullet points, and dollar signs (`$`) to write LaTeX math equations.
-Change a cell to Markdown, type `# My First Notebook`, and hit **Shift + Enter**. It will instantly render into a beautiful header.
+```python
+import numpy as np
 
-## Stopping Jupyter
+elevations = np.array([120, 340, 580, 720, 690, 440, 210])
+print("Mean elevation:", elevations.mean(), "m")
+print("Maximum elevation:", elevations.max(), "m")
+```
 
-Jupyter is a running background server. If you simply close your web browser tab, the server continues to run invisibly on your computer, consuming memory.
+The `In [1]:` label on the left shows the execution order. If you re-run a cell, the number updates. This matters — you can run cells out of order, which sometimes causes surprising bugs (more on this below).
 
-To properly shut down Jupyter:
-1. Save your notebook in the browser.
-2. Go back to your terminal window (which should still be printing out server connection logs).
-3. Press **Ctrl + C** twice in rapid succession.
+### Markdown Cells
 
-This sends a "kill" signal to the server. Your terminal will return to a blinking cursor.
+Markdown cells contain formatted text. Change a cell type using the dropdown in the toolbar, or press **Escape** then **M**.
+
+In a Markdown cell:
+- `# Heading 1`, `## Heading 2` create section headings
+- `**bold**` and `*italic*` format text
+- `- item` creates bullet lists
+- `` `code` `` formats inline code
+- `$E = mc^2$` renders LaTeX mathematics inline
+
+Press **Shift + Enter** on a Markdown cell to render it. Double-click it to edit again.
+
+Use Markdown cells to document your analysis: explain your methodology, record decisions, note what the data source is, flag known issues. A notebook without explanation is as hard to read as a script without comments.
+
+## Keyboard Shortcuts
+
+Learning these shortcuts makes notebooks far faster to use. Jupyter has two modes:
+
+- **Edit mode** (green border): you are typing inside a cell
+- **Command mode** (blue border): commands apply to the cell as a whole. Press **Escape** to enter command mode from edit mode.
+
+| Shortcut | Mode | Action |
+|----------|------|--------|
+| **Shift + Enter** | Either | Run cell and move to the next |
+| **Ctrl + Enter** | Either | Run cell and stay in place |
+| **Escape** | Edit | Switch to command mode |
+| **Enter** | Command | Switch to edit mode |
+| **A** | Command | Insert cell **above** |
+| **B** | Command | Insert cell **below** |
+| **D D** (press D twice) | Command | Delete the selected cell |
+| **M** | Command | Change cell type to Markdown |
+| **Y** | Command | Change cell type to Code |
+| **Z** | Command | Undo last cell deletion |
+
+You will use A, B, and Shift+Enter constantly. Learn them in the first session and they become muscle memory.
+
+## The Kernel: What Actually Runs Your Code
+
+When you run a cell, Jupyter sends the code to a **kernel** — a separate Python process running in the background. The kernel remembers every variable you have created so far in the session. If you define `x = 5` in cell 1, the kernel still knows `x` when you run cell 10.
+
+This memory is both useful and dangerous.
+
+### Restart and Run All
+
+Here is a failure mode that trips up almost every new Jupyter user:
+
+1. You run cells in order 1, 2, 3, 4.
+2. You go back and delete a line in cell 2 that set a variable.
+3. You run cell 2 again, then cell 3. Cell 3 still works, because the kernel still has the deleted variable in memory from step 1.
+4. You close and reopen the notebook. Cell 3 now fails — the variable never gets set.
+
+**Your notebook only represents a complete, reproducible analysis if it can run top to bottom in a fresh kernel.**
+
+After making significant edits, always test this:
+
+In JupyterLab: **Kernel → Restart Kernel and Run All Cells**
+
+This clears all memory, re-runs every cell in order from the top, and shows you exactly what a fresh reader will see. If anything fails, fix it before saving.
+
+Make this a discipline: if a notebook is going to be shared, re-run it completely before you commit it.
+
+## Shutting Down Jupyter
+
+Closing the browser tab does not stop the server. The kernel keeps running, consuming memory. To properly shut down:
+
+1. Save your notebook: **Ctrl + S** (or **Cmd + S** on Mac).
+2. Switch to the terminal window that is running the Jupyter server.
+3. Press **Ctrl + C** twice.
+
+The terminal returns to a normal prompt. The server has stopped.
+
+## What is an `.ipynb` File?
+
+When you save a notebook, Jupyter writes a `.ipynb` file. Despite the notebook-like appearance, `.ipynb` files are plain text in JSON format. Open one in a text editor and you will see your code, markdown, and cell outputs stored as JSON objects.
+
+This means:
+- `.ipynb` files can be committed to Git — they are plain text.
+- The stored outputs (tables, images, plots) are embedded as base64 strings and can make the file very large. It is often cleaner to clear outputs before committing: **Edit → Clear All Outputs**.
+- Tools like [nbconvert](https://nbconvert.readthedocs.io/) can render `.ipynb` files to HTML, PDF, or `.py` scripts.
 
 ## Verify Your Work
 
-1. Activate your virtual environment and install Jupyter.
-2. Launch `jupyter notebook`.
-3. Create a new notebook document.
-4. Execute `print("Hello Geography!")` in a Code cell.
-5. Create a Markdown cell below it and write a brief sentence.
-6. Safely shut down the Jupyter server using **Ctrl + C** in the terminal.
+1. Activate your virtual environment and install JupyterLab.
+2. Run `jupyter lab` and confirm the interface opens in your browser.
+3. Create a new notebook.
+4. In a Code cell, run `import numpy as np; print(np.__version__)`. Confirm it prints a version number.
+5. Add a Markdown cell below it with a `## Heading` and a sentence.
+6. Practice inserting a new cell above and below using keyboard shortcuts.
+7. Use **Kernel → Restart Kernel and Run All Cells** and confirm everything still runs.
+8. Shut down the server with **Ctrl + C** in the terminal.
 
-You now possess a fully functional, interactive computing landscape.
+## Next Steps
+
+- Proceed to [Running and Debugging Code](./running-and-debugging-code.qmd)

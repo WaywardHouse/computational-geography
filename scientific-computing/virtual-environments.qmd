@@ -11,115 +11,151 @@ next-steps:
 ## Before You Start
 
 **You should know:**
-- How to navigate the command line to create and enter folders (`mkdir`, `cd`).
+- How to navigate the command line (`mkdir`, `cd`, `pwd`).
 - How to verify that Python is installed and accessible via your terminal (`python --version`).
 
 **You will learn:**
 - The concept of "dependency hell" and why global installations are dangerous.
 - What a virtual environment mechanically achieves.
-- How to create, activate, and deactivate a virtual environment using both `venv` and `conda`.
+- How to create, activate, and deactivate environments using `venv` and `conda`.
+- Where your environments live on disk and why you should keep them out of Git.
 
 ## Introduction
 
-At this point, you have Python installed on your computer. When you type `python` in your terminal, the operating system knows exactly which translator to wake up.
+You have Python installed. It is tempting to start installing geographic libraries — numpy, pandas, geopandas — directly into that single Python installation. This is called a **global installation**, and it is the single biggest source of frustration for early Python programmers.
 
-It is extremely tempting to just start installing geographic libraries (like `numpy`, `pandas`, and `geopandas`) directly into that single Python installation. This is called a **global installation**. 
-
-Do not do this. Global installations are the single biggest source of frustration for early Python programmers. Eventually, installing packages globally leads to a catastrophic state known as "dependency hell."
-
-To understand why, you need to understand how Python libraries interact.
+Eventually, global installations lead to a state called "dependency hell" where your projects silently break each other. Understanding why this happens, and how environments prevent it, will save you hours of confusion.
 
 ## The Problem: Dependency Conflicts
 
-Imagine you start a project in January called **Urban Flooding**. You install an advanced fluid dynamics library called `WaterSim version 1.0`. `WaterSim 1.0` is built on top of `numpy version 1.18`. Python happily installs both geometry libraries for you.
+Imagine you start a project in January called **Urban Flooding**. You install a library called `WaterSim` version 1.0, which depends on `numpy` version 1.18. Python installs both.
 
-Months later in August, you start a new project called **Traffic Network**. You install an AI routing library called `RoadNet version 3.0`. However, `RoadNet 3.0` explicitly requires the newest features found in `numpy version 1.25`. Python dutifully installs `numpy 1.25`, overwriting your older version.
+Six months later you start a new project, **Traffic Network**. You install `RoadNet` version 3.0, which requires `numpy` version 1.25 for a feature that didn't exist before. Python upgrades `numpy` to 1.25.
 
-You finish your Traffic Network project. Months later, a colleague asks about your old Urban Flooding script. You try to run it. It immediately crashes.
+Three months after that, your colleague asks you to re-run the Urban Flooding analysis. You run the script. It crashes immediately with cryptic errors. Why? Because `WaterSim 1.0` was never tested against `numpy 1.25`. The upgrade you made for one project broke the other.
 
-Why? Because `WaterSim 1.0` was never programmed to interact with `numpy 1.25`. By upgrading the global dictionary of libraries for your August project, you systematically shattered the architecture of your January project.
+With a global installation, every project competes for the same set of libraries. The latest one to install wins, and everything older breaks quietly.
 
 ## The Solution: Virtual Environments
 
-A **Virtual Environment** is a sandbox. It is an isolated, protective bubble that contains a specific version of Python and a specific dictionary of libraries. 
+A virtual environment is an isolated sandbox. It contains its own copy of Python and its own private library folder. Libraries in one environment have no idea that libraries in another environment exist.
 
-Instead of having one global brain that handles every project, you construct a totally isolated environment for *each individual project*.
+The rule is simple: **one environment per project**. When you start a new analysis, create a new environment, install only what that project needs, and activate it whenever you work on that project.
 
-If you have ten different projects on your computer, you should have ten different virtual environments. Project A's libraries cannot see, touch, or interfere with Project B's libraries. You can freely upgrade or delete packages in one environment without risk of breaking your older work.
+This costs you almost nothing — environments are cheap to create and fast to rebuild. The protection they give you is enormous.
 
-## Core Operations
+## Creating and Using Environments
 
-Working with environments involves three key steps:
-1. **Create** the environment (done once per project).
-2. **Activate** the environment (done every time you open a new terminal to work on the project).
-3. **Deactivate** the environment (done when you want to leave the sandbox).
-
-The specific commands depend entirely on which installation pathway you chose in Chapter 4 (Anaconda vs Standard Python).
+The specific commands depend on which installation you chose in the previous chapter.
 
 ### If you use Standard Python (`venv`)
 
-First, use your terminal to `cd` into your project's folder. 
+First, `cd` into your project folder.
 
-**Creation:** 
-Instruct Python to generate the environment using the built-in `venv` module. We typically name the environment folder `.venv`.
+**Create the environment:**
 ```bash
 python -m venv .venv
 ```
-*(Mac/Linux users may need to use `python3 -m venv .venv`).*
-If you run `ls` now, you'll see a new folder named `.venv` sitting in your directory.
+*(Mac/Linux may need `python3 -m venv .venv`)*
 
-**Activation:**
-You must actively tell your terminal to step into the sandbox. 
+This creates a hidden folder called `.venv` inside your project directory. The dot prefix makes it hidden by default in file explorers. Run `ls -a` to see it (the `-a` flag shows hidden files).
 
-On Mac/Linux:
+**Activate on macOS/Linux:**
 ```bash
 source .venv/bin/activate
 ```
-On Windows PowerShell:
-```bash
+
+**Activate on Windows PowerShell:**
+```powershell
 .venv\Scripts\Activate.ps1
 ```
-You will know it worked because your terminal prompt will change, usually placing `(.venv)` at the far left of the text line.
 
-**Deactivation:**
-To leave the sandbox and return to your computer's global system, simply type:
+When activation works, your terminal prompt changes. You will see `(.venv)` appear at the left:
+
+```text
+(.venv) sarah@macbook project %
+```
+
+That prefix is your signal that you are inside the sandbox. Every `pip install` you run now goes into `.venv`, not into your global Python.
+
+**Deactivate:**
 ```bash
 deactivate
 ```
 
-### If you use Anaconda / Miniforge (`conda`)
+The `(.venv)` prefix disappears. You are back in the global environment.
 
-Conda manages environments centrally rather than scattering them in hidden project folders.
+**You must activate the environment every time you open a new terminal to work on a project.** It does not activate automatically. Forgetting this is the most common reason why `import numpy` fails even though you definitely installed it.
 
-**Creation:**
-Instruct conda to create a new environment and explicitly specify the Python version. Let's call this environment `geo-project`.
+### If you use Miniforge/Conda (`conda`)
+
+Conda manages environments centrally rather than inside each project folder. All conda environments live in a central directory (usually `~/miniforge3/envs/` on macOS, or `C:\Users\you\miniforge3\envs\` on Windows).
+
+**Create an environment:**
 ```bash
-conda create --name geo-project python=3.11
+conda create --name geo-flood python=3.11
 ```
-Type `y` when it asks if you wish to proceed.
 
-**Activation:**
-Step into the conda sandbox by running:
+Name your environments clearly — you will accumulate several. `geo-flood` is better than `env1`. Include the project name and perhaps the purpose.
+
+Conda will ask you to confirm (`y/N`). Type `y` and press Enter. It downloads a fresh Python 3.11 into the new environment.
+
+**Activate:**
 ```bash
-conda activate geo-project
+conda activate geo-flood
 ```
-Your terminal prompt will change, showing `(geo-project)` on the left.
 
-**Deactivation:**
-To leave the sandbox, type:
+Your prompt changes to show `(geo-flood)` on the left.
+
+**Deactivate:**
 ```bash
 conda deactivate
 ```
 
+**See all your environments:**
+```bash
+conda env list
+```
+
+This lists every named environment and where it lives on disk. The asterisk marks the currently active one.
+
+## Naming Conventions
+
+Good environment names save confusion:
+
+- Use the project name: `flood-model`, `traffic-network`, `census-analysis`
+- Add context if needed: `flood-model-py311` (if you need to track Python version)
+- Avoid generic names like `env`, `test`, or `new` — you will forget what they are for
+
+For `venv` environments, the folder is almost always named `.venv`. The project directory name gives you the context.
+
+## Keep Environments Out of Git
+
+The `.venv` folder can contain thousands of files and hundreds of megabytes of compiled libraries. You should never commit this to version control — it is machine-specific, regenerable from a requirements file, and will bloat your repository.
+
+Add this to your project's `.gitignore` file:
+
+```text
+.venv/
+__pycache__/
+*.pyc
+```
+
+If you use conda, you do not need to gitignore your environment because conda stores it outside your project folder anyway. But you should still add `__pycache__/` and `*.pyc` to your `.gitignore`.
+
+*(We cover Git in a later chapter. For now, just know this rule exists.)*
+
 ## Verify Your Work
 
-Let's prove the sandbox works. 
+1. Navigate to your `coding_projects` folder.
+2. Create a subfolder: `mkdir flood_analysis && cd flood_analysis`
+3. Create and activate a virtual environment using your chosen method.
+4. Confirm the `(.venv)` or `(env-name)` prefix appears in your terminal prompt.
+5. Run `python --version` from inside the active environment.
+6. Deactivate and confirm the prefix disappears.
 
-1. Step into your project folder (`cd`).
-2. Create and activate a virtual environment using either `venv` or `conda` based on your setup.
-3. Verify your terminal prompt visually indicates you are inside the environment (e.g., `(.venv)` or `(custom-name)` appears).
-4. Run the command: `python --version`.
-5. Run the command `deactivate` (or `conda deactivate`).
-6. Observe that the tag disappears from your terminal prompt.
+## Next Steps
 
-Now that you know how to safely isolate your work spaces, you are ready to start securely pulling down computational libraries out of the internet and into your sandboxes.
+With a clean, isolated sandbox in place, you are ready to start pulling libraries from the internet into it.
+
+- Proceed to [Installing Packages: pip, conda, and dependencies](./package-management.qmd)

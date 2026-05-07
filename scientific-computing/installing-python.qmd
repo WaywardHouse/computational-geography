@@ -1,5 +1,5 @@
 ---
-title: "Installing Python: Anaconda vs. Venv"
+title: "Installing Python: Miniforge vs. Standard Python"
 type: chapter
 book-part: "scientific-computing"
 pathway-prerequisites:
@@ -11,91 +11,123 @@ next-steps:
 ## Before You Start
 
 **You should know:**
-- How to open your computer's terminal (or PowerShell) and navigate using `ls`, `pwd`, and `cd`.
-- The essential difference between a computer's operating system and the software installed on it.
+- How to navigate the command line using `ls`, `pwd`, and `cd`.
+- The basic difference between an operating system and software installed on it.
 
 **You will learn:**
-- The difference between Anaconda and pure Python (`venv`).
-- How to elect an installation pathway that fits your research style.
-- How to verify that Python actually exists and is accessible from your command line.
+- Why there are two main ways to install Python and which one to choose.
+- How to install Python on your specific operating system.
+- How to verify that your terminal can actually find the installation.
+- How to handle the Python 2 remnant that still ships on many Macs.
 
 ## Introduction
 
-Python is not a program you open by double-clicking an icon on your desktop. It is a language, and to use it, you must install a "translator" (the Python interpreter) on your computer. This interpreter reads the text files you write and executes them as instructions.
+Python is not a program you open by double-clicking a desktop icon. It is a *language interpreter* — a translator that reads your `.py` text files and executes them as machine instructions. To use it, you must install this interpreter on your computer and make sure your terminal knows where to find it.
 
-However, in scientific computing, installing "just Python" is rarely enough. You also need heavy numerical libraries like NumPy, SciPy, and GDAL. Because these libraries are complex, the community has developed two distinct philosophies for installing and managing Python. 
+In scientific computing, installing "just Python" is rarely sufficient. You also need specialized libraries — NumPy, SciPy, GDAL — that depend on compiled C and Fortran code. Because these are notoriously hard to build from source, the community has developed two distinct philosophies for managing Python installations. Choosing the right one now saves many hours of troubleshooting later.
 
-Choosing the right ecosystem now will save you countless hours of troubleshooting later.
+## Path 1: Miniforge (Recommended for Geographic Work)
 
-## Path 1: The Anaconda Ecosystem (The Heavyweight)
+[Miniforge](https://github.com/conda-forge/miniforge) is a minimal installer for the `conda` package manager, pre-configured to pull from `conda-forge` — a community channel that maintains pre-compiled binaries for complex geographic libraries.
 
-[Anaconda](https://www.anaconda.com/) (and its smaller cousin Miniforge) is an all-in-one distribution built specifically for data science. 
+When you install Miniforge, you get Python, the `conda` package manager, and nothing else. You install everything else as needed, into isolated environments (covered in the next chapter).
 
-When you install Anaconda, you aren't just installing Python. You are installing Python, a massive suite of pre-compiled scientific libraries, a package manager called `conda`, and several graphical interfaces (like Jupyter and Spyder).
+**Why Miniforge beats full Anaconda:**
+Full Anaconda installs 4–5 GB of packages you probably don't need. Miniforge installs in minutes and gives you the same `conda` tool without the bloat.
 
-**Pros:**
-- **"It just works":** Complex geospatial libraries (like GDAL or GeoPandas) are notoriously difficult to install because they rely on C++ and Fortran code. Anaconda handles this seamlessly.
-- **Self-contained:** It doesn't interfere with your computer's system-level setup.
-- **Batteries included:** You immediately have access to 90% of the libraries you need.
+**Why `conda` matters for geography:**
+Libraries like `GDAL`, `rasterio`, `fiona`, and `pyproj` require compiled C code. On Windows especially, `pip install rasterio` frequently fails with confusing compiler errors. `conda install rasterio` works because conda distributes pre-compiled binaries.
 
-**Cons:**
-- **Massive footprint:** A full Anaconda installation can easily consume 4-5 GB of hard drive space.
-- **Sluggish updates:** The centralized `conda` resolver can be notoriously slow when searching for new packages.
+**Choose Miniforge if:** You are on Windows, or you plan to do heavy geospatial work (raster processing, shapefiles, coordinate system transformations). This is the recommended path for this book.
 
-### How to Install (Anaconda)
+### How to Install Miniforge
 
-We highly recommend installing **Miniforge** instead of the full Anaconda. Miniforge provides the powerful `conda` package manager without downloading gigabytes of libraries you may never use.
+1. Go to the [Miniforge releases page](https://github.com/conda-forge/miniforge/releases/latest).
+2. Download the installer for your OS:
+   - Windows: `Miniforge3-Windows-x86_64.exe`
+   - macOS (Apple Silicon): `Miniforge3-MacOSX-arm64.sh`
+   - macOS (Intel): `Miniforge3-MacOSX-x86_64.sh`
+   - Linux: `Miniforge3-Linux-x86_64.sh`
+3. Run the installer:
+   - **Windows:** Double-click the `.exe`. Accept defaults. On the "Advanced Options" screen, leave "Add to PATH" unchecked (Miniforge manages this its own way).
+   - **macOS/Linux:** Open a terminal, navigate to your Downloads folder, and run:
+     ```bash
+     bash Miniforge3-MacOSX-arm64.sh
+     ```
+     (Replace the filename with whichever you downloaded.) Follow the prompts. When asked if you want conda to initialize your shell, say **yes**.
 
-1. Go to the [Miniforge GitHub releases page](https://github.com/conda-forge/miniforge).
-2. Download the installer for your operating system (Windows `.exe`, macOS `.sh` or `.pkg`, Linux `.sh`).
-3. Run the installer. **Important for Windows users:** When prompted, do *not* check the box to "Add Anaconda to my PATH environment variable," but *do* check the box to "Register Anaconda as my default Python 3."
+4. Close your terminal completely and open a new one. This is essential — terminals load their configuration at startup, and the installer has just modified that configuration.
 
-## Path 2: Standard Python + venv (The Lightweight)
+## Path 2: Standard Python + pip (The Lightweight Option)
 
-The alternative is to install "pure" Python directly from the Python Software Foundation. This gives you a clean, lightweight installation. To manage your libraries, you use Python's built-in `venv` (Virtual Environments) system alongside `pip` (the standard package installer).
+If you prefer a minimal, fast installation and your work leans toward data analysis rather than heavy geospatial processing, standard Python from [python.org](https://python.org/downloads) is a perfectly good choice. It comes with `pip`, the standard package installer.
 
-**Pros:**
-- **Featherweight:** The installation is only a few megabytes.
-- **Industry Standard:** This is how software engineers and web developers construct Python architectures.
-- **Fast:** Standard `pip` installation is incredibly quick.
+**Choose standard Python if:** You are on macOS or Linux and your work focuses on data analysis, visualization, and scripting rather than raster processing or projection transformations.
 
-**Cons:**
-- **Compilation headaches:** If a geography package requires complex C++ bindings (like `rasterio`), standard `pip` may fail to install it unless your computer already has the right compilers installed. (Windows users suffer the most here).
+### How to Install (Windows)
 
-### How to Install (Standard Python)
+Download the installer from [python.org/downloads](https://python.org/downloads). On the very first screen, check the box labelled **"Add Python to PATH"** before clicking Install. This is the single most common mistake — if you forget it, your terminal will never find Python.
 
-**Windows:**
-Go to [python.org/downloads](https://www.python.org/downloads/) and download the latest installer. **Crucial Step:** On the very first screen of the installer, check the box that says **"Add Python to PATH"** before clicking Install. If you forget this, your terminal will never find Python.
+### How to Install (macOS)
 
-**Mac:**
-Macs come with a system version of Python, but you should not mess with it. The easiest way to install a modern, user-controlled Python on Mac is via [Homebrew](https://brew.sh/). Open your terminal and run:
-`brew install python`
+Macs ship with a system Python that you should never touch. Install a user-controlled Python instead using [Homebrew](https://brew.sh/):
 
-**Linux (Ubuntu/Debian):**
-Open your terminal and run:
-`sudo apt update`
-`sudo apt install python3 python3-pip python3-venv`
+```bash
+# Install Homebrew first (paste this in your terminal)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-## Which path should you choose?
+# Then install Python
+brew install python
+```
 
-- **Choose Miniforge/Anaconda if:** You are on Windows, or you anticipate doing heavy geospatial work (analyzing satellite imagery, routing networks, working with Shapefiles). The `conda` package manager is specifically designed to solve the installation nightmares of spatial libraries.
-- **Choose Standard Python + venv if:** You are on a Mac/Linux, you prefer a minimalist, fast system, or your work leans closer to standard software engineering and API development than heavy geoprocessing.
+### How to Install (Linux)
 
-## Verify Your Work
+```bash
+sudo apt update
+sudo apt install python3 python3-pip python3-venv
+```
 
-You must confirm that your computer's terminal recognizes the Python installation. 
+## Verifying Your Installation
 
-1. Close your terminal entirely. (This is a hard requirement—terminals load paths at startup. Reopen it to refresh its memory).
-2. Type the following command:
+Close your terminal completely and open a new one. This is not optional — terminals load path settings at startup. If you skip this step, your terminal will still be looking in the old places.
+
+Now type:
 
 ```bash
 python --version
 ```
-*(Note for Mac/Linux users on standard installs: you might need to type `python3 --version` instead).*
 
-If everything worked, the terminal will print a version number (e.g., `Python 3.11.4`). 
+If Python was found, you will see something like:
 
-**If it says `command not found` or triggers the Windows Store:**
-Your computer does not know where you installed Python. If you are on Windows, reinstall Python and ensure you checked the "Add to PATH" box. 
+```text
+Python 3.11.4
+```
 
-Do not proceed to the next chapter until your terminal can successfully print your Python version!
+**If you are on macOS and see `Python 2.7.x`:** This is the old system Python that ships with macOS. It is not the one you just installed. Try `python3 --version` instead. If that returns 3.x, you are fine — just use `python3` wherever these instructions say `python`. (Python 2 was officially retired in 2020 and should not be used for new work.)
+
+**If you get `command not found`:** Your terminal cannot locate the Python executable. On Windows, this means you forgot to check "Add to PATH" during installation — uninstall and reinstall with that box checked. On macOS with Miniforge, make sure you said yes when the installer asked about initializing your shell, then fully close and reopen the terminal.
+
+**If you are on Windows and get the Microsoft Store:** Windows intercepts the `python` command and offers to install Python through the Store. Cancel this, uninstall any Store version, and reinstall using the official installer with the PATH checkbox ticked.
+
+### Verifying Miniforge Specifically
+
+If you installed Miniforge, also verify that `conda` is accessible:
+
+```bash
+conda --version
+```
+
+You should see something like `conda 23.5.0`. If this works, `conda` can find its environment store and you are ready to create environments in the next chapter.
+
+## Verify Your Work
+
+1. Close all terminals and open a fresh one.
+2. Run `python --version` (or `python3 --version` on macOS/Linux).
+3. Confirm the version number starts with `3.` — not `2.`.
+4. If you installed Miniforge, run `conda --version` as well.
+
+Do not proceed to the next chapter until your terminal can print a Python 3 version number. Every chapter from here on depends on it.
+
+## Next Steps
+
+- Proceed to [Virtual Environments: Why One Environment per Project](./virtual-environments.qmd)

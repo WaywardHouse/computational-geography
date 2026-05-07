@@ -11,127 +11,173 @@ next-steps:
 ## Before You Start
 
 **You should know:**
-- How to create a new virtual environment using `venv` or `conda`.
-- How to activate your environment so your terminal runs within the isolated sandbox.
+- How to create a virtual environment using `venv` or `conda` and activate it.
 
 **You will learn:**
 - What a package manager is and why Python relies on them.
-- How to search for, install, and uninstall packages using `pip` and `conda`.
-- How to freeze your environment into a `requirements.txt` file so your work is reproducible.
+- How to install, list, and remove packages using `pip` and `conda`.
+- What to do when `pip` fails on a binary package.
+- How to verify an installation actually worked.
+- How to freeze your environment into a reproducibility file.
+- Why mixing `pip` and `conda` in the same environment is risky.
 
 ## Introduction
 
-Out of the box, Python is small. It knows how to do basic arithmetic, manipulate strings, and handle text files. But if you ask pure Python to invert a 1000x1000 matrix or extract temperature values from a GeoTIFF, it won't know how.
+Out of the box, Python is small. It can do arithmetic, read text files, and manipulate strings. Ask it to load a satellite image or calculate a geodesic distance and it won't know how.
 
-For scientific computing, you must expand Python's vocabulary by downloading **packages** (also called libraries or modules). Packages are bundles of code written by other programmers that solve specific mathematical or geographic problems. 
+For scientific computing you extend Python's vocabulary by installing **packages** — bundles of code written by others that solve specific problems. Instead of downloading `.zip` files manually, you use a **package manager** that finds, downloads, and links the right version of a library into your active virtual environment.
 
-Instead of searching the web, downloading `.zip` files, and dragging them into folders manually, you use a **package manager**. A package manager is a command-line tool that automatically finds, downloads, installs, and links the correct version of a library into your active virtual environment.
+There are two package managers you will encounter: `pip` (used with standard Python) and `conda` (used with Miniforge/Anaconda). Make sure your environment is activated before running any install command.
 
-There are two primary package managers in the Python ecosystem: `pip` and `conda`.
+## pip: The Standard Package Manager
 
-## The Standard Pathway: pip
+`pip` pulls packages from [PyPI](https://pypi.org) — the Python Package Index — which hosts over 500,000 packages. It is installed automatically with standard Python.
 
-`pip` stands for "Pip Installs Packages", and it is the default program installed with standard Python. It pulls packages from an enormous central repository called the Python Package Index (PyPI).
-
-Before using `pip`, you must **always ensure your virtual environment is activated**. If you run a `pip` command without an active sandbox, it will permanently inject the package into your global system!
+**Always activate your virtual environment first.** Running `pip install` without an active environment injects the package into your global Python — the problem virtual environments exist to prevent.
 
 ### Installing a package
 
-Let's install `numpy`, the foundational library for doing advanced math in Python.
-
-In your terminal, run:
 ```bash
 pip install numpy
 ```
 
-Your terminal will print out a rapid sequence of logs. It is reaching out to PyPI, finding the most recent stable version of `numpy`, downloading the files, and placing them neatly into your `.venv` folder.
+pip reaches out to PyPI, finds the latest stable version, downloads it, and places it into your `.venv` folder. You will see progress output as it runs.
 
-You can install multiple packages at once:
+Install multiple packages at once:
+
 ```bash
 pip install pandas matplotlib scipy
 ```
 
 ### Checking what is installed
 
-To see a list of every package currently inside your sandbox, run:
 ```bash
 pip list
 ```
-You will notice things in this list that you did not explicitly ask for. This is because package managers resolve **dependencies**. When you installed `pandas`, `pip` realized that `pandas` requires `pytz` (a timezone library) in order to function, so it fetched it for you automatically.
+
+You will see packages you did not explicitly ask for. These are **dependencies** — libraries that your requested package itself depends on. When you install `pandas`, pip automatically installs `pytz`, `python-dateutil`, and `numpy` because pandas cannot function without them.
+
+### Verifying the installation worked
+
+After installing, confirm Python can actually load the library:
+
+```python
+python -c "import numpy; print(numpy.__version__)"
+```
+
+The `-c` flag runs a short Python snippet directly from the terminal. If it prints a version number, the install worked. If it raises `ModuleNotFoundError`, something went wrong — the most common cause is that your environment was not activated when you ran `pip install`.
 
 ### Uninstalling a package
 
-If you made a mistake or no longer need a library, you can safely remove it:
 ```bash
 pip uninstall numpy
 ```
 
-## The Data Science Pathway: conda
+pip will ask for confirmation before removing it.
 
-If you installed Miniforge or Anaconda in Chapter 4, your primary package manager is `conda`. It acts very similarly to `pip`, but instead of pulling from PyPI, it pulls from curated channels specifically optimized for heavy data science workflows.
+### When pip fails on a binary package
+
+Some geographic libraries — `rasterio`, `fiona`, `shapely`, `GDAL` — wrap compiled C or C++ code. pip downloads these as **wheels** (pre-compiled binary packages) when they are available. If no wheel exists for your platform and Python version, pip tries to compile the code from source, which requires a C compiler and system headers you may not have.
+
+On Windows especially, this fails with unhelpful error messages about missing `.h` files or `cl.exe`.
+
+**Solutions, in order of preference:**
+
+1. **Use conda instead of pip for these packages** (see below). conda always distributes pre-compiled binaries.
+2. **On Windows with pip:** Install from an unofficial pre-compiled wheel. [Christoph Gohlke's site](https://www.lfd.uci.edu/~gohlke/pythonlibs/) maintains wheels for many geographic libraries.
+3. **Install build tools:** On macOS, `xcode-select --install` installs the compilers pip needs. On Windows, install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+
+## conda: The Data Science Package Manager
+
+If you installed Miniforge, use `conda` as your primary package manager. conda maintains its own registry of pre-compiled packages, sourced from `conda-forge` — a community channel with excellent geographic library coverage.
+
+conda's key advantage is that it resolves the compiled dependencies for you. `conda install rasterio` works reliably on Windows, macOS, and Linux because conda ships the C libraries alongside the Python bindings.
 
 ### Installing with conda
 
-Before installing, ensure your environment is active (e.g., `conda activate my-geo-project`).
+Ensure your environment is active (`conda activate your-env-name`), then:
 
-To install `numpy`, you use syntax identical to `pip`:
 ```bash
 conda install numpy
 ```
 
-When you run this, `conda` will think for a moment. It calculates a "solve"—mapping out exactly how this new package will interact with the C++ binaries and existing packages on your system. It will prompt you with a list of actions and ask you to confirm `[y/N]`. Type `y` and hit Enter.
+conda pauses to "solve" the environment — it calculates whether the new package is compatible with everything already installed. It prints a summary of what it will add, change, or remove, then asks for confirmation. Type `y`.
 
-### The conda-forge channel
+Install from the conda-forge channel explicitly (Miniforge does this by default; full Anaconda users may need it):
 
-In geography, you will often need highly specialized spatial libraries (like `geopandas` or `rasterio`). The best place to find these is the community-maintained `conda-forge` channel. 
-
-Miniforge checks this channel by default, but if you are running standard Anaconda, you must explicitly tell it where to look:
 ```bash
 conda install -c conda-forge geopandas
 ```
 
-## The Golden Rule of Reproducibility
+Check what is installed:
 
-Imagine completing an intense data analysis over six months. You publish your paper and send your Python script to a reviewer. The reviewer runs your script, but it immediately crashes. They have `numpy` version 1.25, but your code implicitly relied on a mathematical function that only existed in `numpy` version 1.18.
+```bash
+conda list
+```
 
-To prevent this, you explicitly record the state of your sandbox using a **requirements** file.
+### Verifying a conda install
 
-### Exporting your environment
+Same technique as pip:
 
-If you used `pip`, run:
+```bash
+python -c "import geopandas; print(geopandas.__version__)"
+```
+
+## The Golden Rule: Don't Mix pip and conda in the Same Environment
+
+It is tempting to use both in the same environment — perhaps `conda install geopandas` for the binary packages and `pip install some-other-tool` for everything else. This usually works initially and then breaks mysteriously later, because the two package managers do not know about each other's installs and can overwrite shared files during upgrades.
+
+**The rule:**
+- If you are using a `venv` environment: use `pip` for everything.
+- If you are using a `conda` environment: use `conda` for everything. Use `pip` only as a last resort, and only for packages that genuinely do not exist in conda-forge.
+
+When you do have to use pip inside a conda environment, install all your conda packages first, then pip packages last. Running `conda install` after `pip install` can silently overwrite pip-installed packages.
+
+## Reproducibility: Recording Your Environment
+
+You completed six months of analysis. You send your script to a reviewer. It crashes on their machine because they have a different library version. This is avoidable.
+
+**With pip, export your environment to a requirements file:**
+
 ```bash
 pip freeze > requirements.txt
 ```
-This takes the exact list of every installed package, along with their highly specific version numbers, and writes it to a plain text file named `requirements.txt`. 
 
-If you used `conda`, the equivalent command exports a YAML file:
+This writes every installed package and its exact version number to `requirements.txt`. Commit this file to Git along with your code.
+
+A colleague rebuilds your environment:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate   # or Windows equivalent
+pip install -r requirements.txt
+```
+
+**With conda, export to a YAML file:**
+
 ```bash
 conda env export > environment.yml
 ```
 
-### Rebuilding an environment
+Rebuild:
 
-When your reviewer receives your folder, they don't have to guess what you used. They simply create an empty virtual environment and instruct the package manager to read the text file.
-
-Rebuilding with pip:
-```bash
-pip install -r requirements.txt
-```
-
-Rebuilding with conda:
 ```bash
 conda env create -f environment.yml
 ```
 
-The package manager will instantly reconstruct the exact mathematical ecosystem you used six months ago. 
+Make it a habit to regenerate `requirements.txt` or `environment.yml` every time you install a new package. The file should always reflect the current state of your environment.
 
 ## Verify Your Work
 
-Let's test the workflow end-to-end.
-1. Open your terminal and navigate to your `coding_projects` folder.
-2. Activate your virtual environment.
-3. Install `numpy`, `pandas`, and `matplotlib`.
-4. Run `pip list` (or `conda list`) to visually verify they were installed.
-5. Export your active environment configuration into a `requirements.txt` (or `environment.yml`) file. Use the `ls` command to confirm the file was successfully created in your directory.
+1. Activate your virtual environment.
+2. Install `numpy`, `pandas`, and `matplotlib`.
+3. Run `pip list` or `conda list` to confirm they are installed.
+4. Verify numpy loaded correctly: `python -c "import numpy; print(numpy.__version__)"`.
+5. Export your environment: `pip freeze > requirements.txt` (or `conda env export > environment.yml`).
+6. Run `ls` to confirm the file was created.
 
-With an active sandbox and the ability to download powerful geographical libraries, you are now ready to write real scientific code.
+## Next Steps
+
+With libraries installed and environments working, you are ready to start writing real interactive code in Jupyter Notebooks.
+
+- Proceed to [Jupyter Notebooks: Interactive Computing in Your Browser](./your-first-jupyter-notebook.qmd)

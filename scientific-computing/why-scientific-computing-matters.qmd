@@ -10,66 +10,136 @@ book-part: "scientific-computing"
 - Nothing. This is where we begin. If you can use a web browser, you are ready.
 
 **You will learn:**
-- Why computational geography is different from traditional geography.
+- Why computational geography is different from traditional GIS.
 - Why we use code instead of pointing and clicking.
+- What Python's geographic ecosystem looks like.
 - What you will be able to do by the time you finish this section.
 
 ---
 
 ## 1. The Point-and-Click Ceiling
 
-If you have studied geography, you have almost certainly used Geographic Information Systems (GIS) software like ArcGIS or QGIS. These tools are incredibly powerful. You load data, you click menus, you run tools, and a map appears. 
+If you have studied geography, you have almost certainly used Geographic Information Systems (GIS) software like ArcGIS or QGIS. These tools are genuinely powerful. You load data, click menus, run tools, and a map appears.
 
-But eventually, you hit a ceiling. 
+But eventually, you hit a ceiling.
 
-What happens when you need to run that same analysis on 5,000 satellite images instead of one? What happens when you want to change a parameter in a model and see how the map changes in real time? What happens when a paper publishes a new method for detecting deforestation, but it hasn't been added as a button in your GIS software yet?
+What happens when you need to run that same analysis on 5,000 satellite images instead of one? What happens when you want to tweak a parameter in a model and see how the result changes? What happens when a new paper publishes a better method for detecting deforestation, but it hasn't been added as a button in your GIS software yet?
 
-You wait. Or you click 5,000 times. Or, instead, you learn to write instructions for the computer yourself.
+You wait. Or you click 5,000 times. Or you learn to write instructions for the computer yourself.
 
 This is the transition from *using software* to *doing scientific computing*.
 
+The shift is not about replacing GIS. QGIS is an excellent tool for interactive visualization and exploratory mapping. The shift is about what happens when your problem outgrows the GUI.
+
 ## 2. Code as Reproducible Instructions
 
-At its core, code is just a list of instructions. 
+At its core, code is a list of instructions.
 
-When you write a computational model, you are telling the computer exactly what to do with the data, step by step. This has three immediate benefits:
+When you write a computational model, you are telling the computer exactly what to do with the data, step by step. Compare these two approaches to reclassifying a land-cover raster:
 
-1. **Scale:** A computer follows instructions on 1,000 datasets just as easily as on 1.
-2. **Transparency:** Your methodology is not a vague memory of which buttons you clicked in a wizard menu; it is written down line by line.
-3. **Collaboration:** You can send your script to another geographer across the world, and if they have the same data, they will get the exact same results.
+**GUI approach:** Open the raster. Navigate to *Raster → Reclassify by Table*. Enter values in a dialog box. Click OK. Save with a new name. If you need to change one threshold, repeat the entire process.
 
-We are not learning to code just to be software engineers. We are learning to code because it is the only way to answer complex geographic questions honestly and reproducibly at scale.
+**Code approach:**
+```python
+import numpy as np
 
-## 3. What Becomes Possible?
+# Load the raster as a grid of numbers
+raster = np.load("land_cover.npy")
 
-By the time you finish the deeper pathways of this book:
-- You will automate the analysis of decades of satellite imagery.
-- You will simulate physical systems like flood propagation and fire spread.
-- You will pull live data from APIs to watch markets fluctuate across space.
-- You will apply statistical and machine learning models to classify raw geographic data.
+# Reclassify: forest=1, grassland=2, water=3, everything else=0
+reclassified = np.where(raster == 4, 1,    # forest
+               np.where(raster == 7, 2,    # grassland
+               np.where(raster == 11, 3,   # water
+               0)))                        # other
 
-None of that happens without a computer that knows how to compute. And your computer doesn't know how to do that yet.
+np.save("land_cover_reclassified.npy", reclassified)
+print("Done. Cells processed:", raster.size)
+```
 
-## 4. The Goal of This Section
+This has three immediate advantages:
 
-This foundations section is not a complete textbook on computer science. We are going to build the minimum viable infrastructure for you to start doing computational geography.
+1. **Scale:** The computer applies the same rules to 10 pixels or 10 billion pixels with identical effort.
+2. **Transparency:** Your methodology is written down line by line. No vague memory of which menu you clicked.
+3. **Reproducibility:** Send the script to any geographer with the same data. They get the exact same result.
+
+## 3. The Python Geographic Ecosystem
+
+Python has become the dominant language for geographic data science because of a handful of specialized libraries that handle the hard work of dealing with spatial data formats, projections, and visualization.
+
+Here is what you will be installing and using throughout this book:
+
+| Library | What it does |
+|---------|-------------|
+| **NumPy** | Stores and manipulates large grids of numbers (the backbone of everything else) |
+| **Pandas** | Works with tabular data — think Excel, but programmable |
+| **GeoPandas** | Extends Pandas to handle vector geometry (points, lines, polygons, shapefiles) |
+| **Rasterio** | Reads and writes raster files (GeoTIFFs, satellite imagery, DEMs) |
+| **Shapely** | Performs geometric operations: intersections, buffers, area calculations |
+| **Matplotlib** | Creates static plots and maps |
+| **Folium / Leaflet** | Creates interactive web maps |
+| **Scikit-learn** | Machine learning for classification and clustering of spatial data |
+| **SciPy** | Scientific algorithms: interpolation, statistics, signal processing |
+| **Xarray** | Handles multidimensional arrays — essential for climate and weather data |
+
+You don't need to learn all of these today. The foundations section focuses on getting your environment set up. The pathways that follow will introduce these tools one at a time in the context of real geographic problems.
+
+## 4. What Becomes Possible?
+
+Here is a taste of what you will be able to do by the end of the deeper pathways:
+
+```python
+import geopandas as gpd
+import matplotlib.pyplot as plt
+
+# Load all countries of the world as vector polygons
+world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
+
+# Filter to Africa only
+africa = world[world.continent == 'Africa']
+
+# Color each country by its population
+africa.plot(column='pop_est', legend=True, cmap='YlOrRd',
+            figsize=(8, 10), edgecolor='0.8')
+plt.title("Population by African Country")
+plt.savefig("africa_population.png", dpi=150)
+```
+
+That is eleven lines. It reads a vector dataset, filters it by attribute, projects colors onto polygons by data value, and saves a publication-quality map. The equivalent in a GUI would take twenty clicks.
+
+Beyond maps, you will:
+- Automate the analysis of decades of satellite imagery.
+- Simulate physical systems like flood propagation and fire spread.
+- Pull live data from web APIs to map phenomena as they change.
+- Apply machine learning models to classify raw geographic data at scale.
+
+None of that happens without an environment where you can write instructions. That is what this section builds.
+
+## 5. The Goal of This Section
+
+This foundations section is not a complete textbook on computer science. We are building the minimum viable infrastructure for you to start doing computational geography.
 
 Over the next nine chapters, we will:
-1. Write and run your very first Python script (right in your browser).
-2. Learn how your computer thinks and how to use the command line.
-3. Install Python properly onto your system.
-4. Set up isolated "virtual environments" so your projects don't break one another.
-5. Install specialized geographic packages (like NumPy, SciPy, and Matplotlib).
+
+1. Write and run your very first Python script — right in your browser, no installation.
+2. Learn how to navigate your file system using the command line.
+3. Install Python properly onto your machine.
+4. Set up isolated virtual environments so projects don't break each other.
+5. Install geographic packages using `pip` and `conda`.
 6. Launch Jupyter Notebooks for interactive exploration.
-7. Understand how to track your work and collaborate using Git.
+7. Learn how to track your work and collaborate using Git.
+8. Understand how to find and fix errors in your code.
+9. Choose a code editor (IDE) that suits your workflow.
+
+Each chapter is short and focused. By the end, your environment will be fully functional and you will be ready to start writing real geographic code.
 
 ## Verify Your Work
 
 - [x] Read this introduction and understand the roadmap.
-- [x] Take a breath. This stuff can be intimidating, but we are going step by step.
+- [x] Scan the library table and bookmark this page — you will return to it later.
+- [x] Note your operating system (Mac, Windows, or Linux), because some installation steps differ.
 
 ## Next Steps
 
-In the next chapter, we will write our first Python code without installing anything at all.
+In the next chapter, we write our first Python code without installing anything at all.
 
 - Proceed to [Your First Python Script](./your-first-python-script.qmd)

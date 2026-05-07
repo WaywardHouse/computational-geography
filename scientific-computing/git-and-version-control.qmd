@@ -9,91 +9,246 @@ pathway-prerequisites:
 ## Before You Start
 
 **You should know:**
-- How to create plain text `.py` files and edit them in an IDE.
-- How to navigate folders in the command line (`cd`, `ls`).
+- How to create and edit `.py` files and navigate folders in the command line.
 
 **You will learn:**
-- The catastrophic risk of managing code files using "Save As".
-- What Git is, and how it differs from GitHub.
-- The fundamental lifecycle of version control: Clone, Status, Add, Commit, and Push.
+- Why "Save As" version management fails and what Git replaces it with.
+- The difference between Git and GitHub.
+- How to configure Git before your first commit.
+- The fundamental lifecycle: init, status, add, commit, push, pull.
+- How `.gitignore` keeps your repository clean.
+- How to view history and undo mistakes.
 
 ## Introduction
 
-At some point in your geographic career, you will write a 300-line Python script that perfectly classifies an image. The next day, you will try to optimize just one function. You'll delete a few lines, tweak a loop, and suddenly the script will crash. Panicking, you’ll try to press Ctrl-Z to undo your work, but your editor will run out of history. 
+At some point you will write a 300-line Python script that perfectly classifies land cover. The next day you will try to optimize one function. You delete a few lines, tweak a loop, and the script crashes. You press Ctrl+Z, but your editor's undo history runs out. Your working model is gone.
 
-Your perfect model is gone forever.
+Before version control, the only defense was "Save As":
 
-Before **Version Control**, the only way to avoid this was to constantly use "Save As" and clutter your folders with files named:
 ```text
-model_final.py
-model_final_v2.py
-model_final_v3_really_final.py
-model_final_USE_THIS_ONE.py
+classify_landcover.py
+classify_landcover_v2.py
+classify_landcover_FINAL.py
+classify_landcover_FINAL_v2.py
+classify_landcover_USE_THIS_ONE.py
 ```
 
-This method is brittle, chaotic, and makes collaboration entirely impossible. Software engineers solved this crisis natively by inventing **Git**.
+This is brittle, takes up space, and makes collaboration impossible — you cannot merge two people's changes to `FINAL_v2.py` without manually reading both files line by line.
+
+**Git** solves all of this. It tracks every change you make to every file in a folder, lets you label snapshots, and makes it trivial to go back to any previous state.
 
 ## Git vs. GitHub
 
-People use these terms interchangeably, but they are entirely different things.
+These are commonly confused. They are entirely different things:
 
-- **Git** is a free program installed locally on your computer. It acts like a time machine. It silently monitors your folder, tracking exactly which lines of text were added or deleted in a file between saves. 
-- **GitHub** is simply a website. It is a cloud locker where you can safely upload the history that Git recorded on your computer, allowing your colleagues to download and combine it with their own work.
+- **Git** is a free program installed on your local computer. It tracks file changes and stores a complete history inside a hidden `.git` folder in your project directory. It works with no internet connection.
+- **GitHub** is a website. It is a cloud host for Git repositories — a place to upload your history so that it is backed up and shareable with collaborators.
+
+You use Git locally. You push to GitHub for backup and collaboration.
+
+## Installing Git
+
+**macOS:** Git ships with the Xcode command-line tools. Run `git --version` in your terminal. If it is not installed, macOS will offer to install it automatically.
+
+**Windows:** Download the installer from [git-scm.com/downloads](https://git-scm.com/downloads). Accept the defaults. This also installs "Git Bash," which gives you a Unix-style terminal on Windows.
+
+**Linux:**
+```bash
+sudo apt install git
+```
+
+## First-Time Configuration
+
+Before you can make a commit, Git needs to know who you are. This is stored in every commit you create:
+
+```bash
+git config --global user.name "Sarah Chen"
+git config --global user.email "sarah@example.com"
+```
+
+Use the email address you will register with GitHub. This only needs to be done once per computer — `--global` writes it to your user configuration file.
+
+Confirm the settings were saved:
+
+```bash
+git config --global --list
+```
 
 ## The Git Lifecycle
 
-Working with version control requires abandoning the idea of simply pressing "Save" and walking away. Instead, you capture a **snapshot** of your project in distinct stages.
+Working with Git means thinking in snapshots rather than pressing Save and walking away. A snapshot is called a **commit**.
 
-### 1. Initialization (`git clone` or `git init`)
-To tell Git to start monitoring a normal folder, you navigate to it in your terminal and type `git init`. This turns the folder into a Git **Repository** (a tracked folder). 
-Alternatively, if a repository already exists on the internet (like the templates for your upcoming Pathways modules), you can use `git clone <URL>` to pull a mirrored copy precisely down to your machine.
+### 1. Start tracking a folder (`git init`)
 
-### 2. Checking the pulse (`git status`)
-Once inside a repository, the most common command you will run is `git status`. It is the radar. Git will instantly reply by listing all the files in the room that have been modified, created, or deleted since the last snapshot.
+Navigate to your project folder in the terminal and initialize a repository:
 
-### 3. The Staging Area (`git add`)
-When you edit a Python file, Git notices, but it doesn't automatically record the change into history. You have to explicitly tell Git *which* modified files you want to include in the next snapshot. This is called the "Staging Area."
-To stage a specific file:
 ```bash
-git add my_script.py
+cd ~/coding_projects/flood_analysis
+git init
 ```
-To stage every modified file in the folder at once:
+
+Git creates a hidden `.git` folder. This folder *is* the repository — it contains your complete history. Do not delete or modify it manually.
+
+If you are starting from an existing project on GitHub, clone it instead:
+
+```bash
+git clone https://github.com/username/repository-name.git
+```
+
+This downloads the repository and its full history to your local machine.
+
+### 2. Check the current state (`git status`)
+
+`git status` is the command you will run most often. It shows you which files have been modified, which are new (untracked), and which are staged for the next commit:
+
+```bash
+git status
+```
+
+```text
+On branch main
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        analysis.py
+        data/rainfall.csv
+```
+
+Red files are not yet tracked by Git. Nothing happens to them automatically.
+
+### 3. Stage your changes (`git add`)
+
+Git does not snapshot automatically. You explicitly choose which modified files to include in the next commit. This is the **staging area**.
+
+Stage a specific file:
+```bash
+git add analysis.py
+```
+
+Stage everything in the current directory:
 ```bash
 git add .
 ```
 
-### 4. Taking the Snapshot (`git commit`)
-Once your files are staged, you trigger the camera. A commit rigidly locks the current state of the code into the permanent timeline. Crucially, a commit forces you to attach a human-readable message explaining exactly *why* you made the changes.
+After staging, `git status` shows the staged files in green under "Changes to be committed."
+
+### 4. Take a snapshot (`git commit`)
+
+With files staged, create the commit. The message should explain *why* you made the change, not just *what*:
 
 ```bash
-git commit -m "Fixed the boundary coordinate glitch in the matrix"
+git commit -m "Add rainfall normalization step to remove outliers above 200mm"
 ```
 
-If your code breaks tomorrow, you can easily tell Git to mathematically reverse this specific commit and restore the files to exactly the way they looked yesterday.
+Good messages: `"Fix coordinate reference system mismatch in flood extent layer"`, `"Switch from Euclidean to Haversine distance for accuracy across large areas"`
 
-### 5. Backing up to the Cloud (`git push`)
-A commit only saves the snapshot to your local hard drive. If you drop your laptop in a river, the history is gone. To synchronize your local timeline with the centralized timeline hosted on GitHub, you use the final command:
+Bad messages: `"fixed stuff"`, `"update"`, `"aaa"`
+
+The commit is saved to your local `.git` history. You can now recover this exact state of the project at any time.
+
+### 5. View your history (`git log`)
+
+```bash
+git log
+```
+
+This shows every commit: its unique hash, author, date, and message. Use `git log --oneline` for a compact summary:
+
+```text
+a3f91c2 Fix coordinate reference system mismatch
+b72e8d4 Add rainfall normalization step
+c10d991 Initial analysis script
+```
+
+The hash (e.g. `a3f91c2`) uniquely identifies each commit. You use it to reference specific points in history.
+
+### 6. Get changes from the cloud (`git pull`)
+
+If you are collaborating, or working across multiple computers, always pull before you push:
+
+```bash
+git pull
+```
+
+This downloads any commits that exist on GitHub but not on your local machine and merges them in. If you push without pulling first and a collaborator has made changes, Git will refuse with a "rejected" error. Pull first, resolve any conflicts, then push.
+
+### 7. Back up to the cloud (`git push`)
+
+A commit only saves to your local hard drive. To synchronize with GitHub:
 
 ```bash
 git push
 ```
-Your terminal will upload the differences to the cloud. If your colleague logs into GitHub, they will immediately see your code, your commit message, and exactly which lines of code you altered.
+
+If this is your first push to a new repository, Git may ask you to set an upstream:
+
+```bash
+git push -u origin main
+```
+
+You only need the `-u origin main` part once. After that, plain `git push` works.
+
+## The `.gitignore` File
+
+Some files should never be committed: virtual environment folders, compiled Python files, large data files, credentials. A `.gitignore` file in your project root tells Git to ignore them:
+
+```text
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Data files (too large for Git)
+*.tif
+*.geotiff
+data/raw/
+
+# Credentials (never commit these)
+.env
+secrets.py
+```
+
+Create this file in your project root before your first commit. Once a file is already tracked by Git, adding it to `.gitignore` does not remove it — you would need `git rm --cached filename` to stop tracking it.
+
+## Fixing Mistakes
+
+**Undo the last commit but keep your changes:**
+```bash
+git reset HEAD~1
+```
+
+This moves the commit pointer back one step and unstages the files, leaving your actual file contents unchanged. Useful when you committed too early.
+
+**Discard all uncommitted changes to a file (permanent — cannot be undone):**
+```bash
+git checkout -- analysis.py
+```
+
+**See exactly what changed in a file before staging:**
+```bash
+git diff analysis.py
+```
+
+Lines beginning with `+` were added. Lines beginning with `-` were removed.
 
 ## Verify Your Work
 
-You are at the culmination of the Scientific Computing Foundations module. 
+1. Install Git and confirm with `git --version`.
+2. Set your name and email: `git config --global user.name` and `git config --global user.email`.
+3. Create a new folder, `cd` into it, and run `git init`.
+4. Create a simple Python file in that folder.
+5. Run `git status` — confirm the file appears as untracked.
+6. Run `git add .` and then `git status` again — confirm it is staged.
+7. Run `git commit -m "Initial script"`.
+8. Run `git log --oneline` — confirm your commit appears.
+9. Create a `.gitignore` with `.venv/` and `__pycache__/`.
+10. Create a free account at [github.com](https://github.com), create a repository, and push your commits.
 
-1. Create a free account at [GitHub.com](https://github.com/).
-2. Depending on your operating system, [Download and Install Git](https://git-scm.com/downloads) onto your computer.
-3. Open your terminal, create a fresh folder using `mkdir git_experiment`, and `cd` inside.
-4. Run `git init`. The terminal should silently accept the command.
-5. Create a simple text file or python script in that folder, then run `git status`. You should see Git reporting that a new file is "untracked" waiting for your instructions!
+## Conclusion
 
-## Conclusion & Next Steps
+You have traversed the complete mechanical stack required for scientific computing. You can navigate directories with the **command line**, install the **Python interpreter**, create **virtual environments**, manage libraries with **pip and conda**, explore data in **Jupyter Notebooks**, write structured scripts in an **IDE**, find and fix errors with a **debugger**, and track your work with **Git**.
 
-You have traversed the entire mechanical stack required to perform computational science. 
-You understand how to navigate directories using the **Command Line**. You know how to cleanly install the **Python Interpreter**. You recognize the vital necessity of using **Virtual Environments**, and you can confidently securely install geographic packages using **pip and conda**. You know how to fluidly explore data using **Jupyter Notebooks**, how to construct hardened pipelines in an **IDE**, and how to safely track your workflow dynamically using **Git**.
+The installation phase is complete. You are ready to choose a pathway and start writing real geographic code.
 
-The installation phase is over. You are theoretically and mechanically armed. 
-
-**It is time to choose your Pathway!**
+**It is time to choose your Pathway →**
