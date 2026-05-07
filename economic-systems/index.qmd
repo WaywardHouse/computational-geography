@@ -41,6 +41,7 @@ Textbook Part
           <div class="wh-hero-card__title">Sequence</div>
           <div class="wh-hero-card__dek">Start with the trade, bid-rent, agglomeration, and spatial arbitrage chapters first. Use the rest as depth and case-study material.</div>
     </div>
+    </div>
   </aside>
   </div>
 </section>

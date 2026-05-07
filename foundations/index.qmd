@@ -41,6 +41,7 @@ Textbook Part
           <div class="wh-hero-card__title">Then</div>
           <div class="wh-hero-card__dek">After Foundations, choose Pathway A (Remote Sensing), Pathway B (Environmental Systems), or Pathway C (Applications). You can combine pathways as you read.</div>
     </div>
+    </div>
   </aside>
   </div>
 </section>

@@ -41,6 +41,7 @@ Textbook Part
           <div class="wh-hero-card__title">Sequence</div>
           <div class="wh-hero-card__dek">Start with the fire and flood chapters, then use the compound-risk chapter to connect them as evolving event systems. Return later for severe-storm and wind-depth chapters.</div>
     </div>
+    </div>
   </aside>
   </div>
 </section>
