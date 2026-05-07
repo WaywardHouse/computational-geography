@@ -849,24 +849,45 @@ body.hero-page {
     display: none !important;
   }
 
-  /* Let document content go edge-to-edge so hero is full-bleed */
+  /* Let document content go edge-to-edge so hero is full-bleed.
+     display:block overrides the page-columns grid Quarto injects on main */
   #quarto-document-content {
+    display:       block !important;
     max-width:     none;
     padding:       0;
     margin-inline: 0;
   }
 
-  /* Contain headings and prose that appear outside the component blocks */
-  #quarto-document-content > h2,
-  #quarto-document-content > h3,
-  #quarto-document-content > h4,
-  #quarto-document-content > p,
-  #quarto-document-content > ul,
-  #quarto-document-content > ol,
+  /* Contain headings and prose that sit outside the component blocks.
+     Quarto wraps markdown H2 sections in <section class="level2">, so the
+     direct-child combinator must reach one level deeper. The wh-hero,
+     wh-book-grid, cg-ill elements self-contain; we only target text nodes. */
   #quarto-document-content > .section-kicker {
     width:         min(100% - calc(var(--wh-gutter) * 2), var(--wh-max));
     margin-inline: auto;
     box-sizing:    border-box;
+  }
+
+  /* H2/H3/H4 section headings inside Quarto's level2 wrappers */
+  #quarto-document-content section.level2 > h2,
+  #quarto-document-content section.level2 > h3,
+  #quarto-document-content section.level2 > h4 {
+    width:         min(100% - calc(var(--wh-gutter) * 2), var(--wh-max));
+    margin-inline: auto;
+    box-sizing:    border-box;
+  }
+
+  /* Prose paragraphs and lists (e.g. "What You Need" section) */
+  #quarto-document-content section.level2 > p,
+  #quarto-document-content section.level2 > ul,
+  #quarto-document-content section.level2 > ol {
+    width:         min(100% - calc(var(--wh-gutter) * 2), var(--wh-max));
+    margin-inline: auto;
+    box-sizing:    border-box;
+    /* Restore Literata read font for prose sections */
+    font-family:   var(--wh-ff-read);
+    font-size:     1.05rem;
+    line-height:   1.75;
   }
 }
 
@@ -901,12 +922,14 @@ body.hero-page {
 }
 
 .wh-hero__body {
-  width:         min(100% - calc(var(--wh-gutter) * 2), var(--wh-max));
-  margin-inline: auto;
-  display:       grid;
-  grid-template-columns: 1fr minmax(280px, 360px);
-  gap:           3rem;
-  align-items:   start;
+  width:                 min(100% - calc(var(--wh-gutter) * 2), var(--wh-max));
+  margin-inline:         auto;
+  /* !important to win over Quarto's .page-columns grid-template injection */
+  display:               grid !important;
+  grid-template-columns: 1fr minmax(280px, 360px) !important;
+  grid-template-rows:    unset !important;
+  gap:                   3rem;
+  align-items:           start;
 }
 
 .wh-hero__left > p {
