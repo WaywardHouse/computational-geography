@@ -2,8 +2,7 @@
 
 > Gemini CLI: read `AGENTS.md` first — it is the authoritative project spec.
 > This file adds Gemini-specific notes only.
-
----
+eg
 
 ## Quick orientation
 
