@@ -838,14 +838,6 @@ function initBackToTop() {
   updateVisibility();
 }
 
-function headerIcon(kind) {
-  const icons = {
-    search: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m15.2 15.2 4.1 4.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
-  };
-
-  return icons[kind] || '';
-}
-
 const siteSearchState = {
   dialog:   null,
   pagefind: null,   // Pagefind module once loaded
