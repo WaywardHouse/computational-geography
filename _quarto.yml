@@ -16,7 +16,6 @@ book:
 
     - part: "Getting Started"
       chapters:
-        - getting-started/index.qmd
         - getting-started/how-to-read-equations.qmd
         - getting-started/units-scale-and-estimation.qmd
         - getting-started/maps-coordinates-and-layers.qmd
@@ -27,7 +26,6 @@ book:
     # ── Foundations ────────────────────────────────────────────────
     - part: "Foundations: Mathematical Machinery"
       chapters:
-        - foundations/index.qmd
         - foundations/what-is-a-spatial-model.qmd
         - foundations/linear-change-and-rate.qmd
         - foundations/exponential-growth-and-logarithms.qmd
@@ -53,7 +51,6 @@ book:
       chapters:
         - foundations/digital-elevation-models-as-functions.qmd
         - foundations/gradient-aspect-steepest-descent.qmd
-        - environmental-systems/index.qmd
         - environmental-systems/net-radiation-and-albedo.qmd
         - environmental-systems/sensible-and-latent-heat-fluxes.qmd
         - environmental-systems/soil-heat-diffusion.qmd
@@ -68,13 +65,11 @@ book:
     # ── Pathway C ───────────────────────────────────────────────────
     - part: "Pathway C: Applications & Implications"
       chapters:
-        - atmospheric-hazards/index.qmd
         - atmospheric-hazards/fire-weather-ignition.qmd
         - atmospheric-hazards/fire-spread-modeling.qmd
         - atmospheric-hazards/rainfall-intensity-duration.qmd
         - atmospheric-hazards/flood-frequency-analysis.qmd
         - atmospheric-hazards/urban-flood-modeling.qmd
-        - economic-systems/index.qmd
         - economic-systems/canada-trade-gravity-model.qmd
         - economic-systems/urban-bid-rent-model.qmd
         - economic-systems/urban-agglomeration-economies.qmd

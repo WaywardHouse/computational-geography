@@ -1029,51 +1029,6 @@ function initSiteSearch() {
   });
 }
 
-function escapeHtml(text = '') {
-  return text
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;');
-}
-
-function formatDisplayDate(value) {
-  if (!value) return '';
-
-  const parsed = new Date(`${value}T12:00:00`);
-  if (Number.isNaN(parsed.getTime())) return value;
-
-  return new Intl.DateTimeFormat('en-CA', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  }).format(parsed);
-}
-
-function computeReadingTime(text = '') {
-  const words = (text.match(/\b[\p{L}\p{N}'-]+\b/gu) || []).length;
-  const minutes = Math.max(1, Math.round(words / 225));
-  return `${minutes} min read`;
-}
-
-function getArticleUrl() {
-  const canonical = document.querySelector('link[rel="canonical"]')?.href;
-  return canonical || window.location.href;
-}
-
-function shareIcon(kind) {
-  const icons = {
-    email: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7.5a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 20 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 16.5v-9Zm1.6.1 6.4 5.1 6.4-5.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    copy: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 7.75h7.25A1.75 1.75 0 0 1 19 9.5v8.75A1.75 1.75 0 0 1 17.25 20H8.5a1.75 1.75 0 0 1-1.75-1.75V11" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.75 15H6A1.75 1.75 0 0 1 4.25 13.25V4.5A1.75 1.75 0 0 1 6 2.75h8.75A1.75 1.75 0 0 1 16.5 4.5v.75" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    x: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 5l14 14M19 5 5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
-    reddit: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.2 13.5c0-.8-.7-1.5-1.5-1.5-.4 0-.8.2-1.1.5-1.1-.7-2.5-1.1-4.1-1.2l.9-3 2.6.6a1.3 1.3 0 1 0 .2-1 1.3 1.3 0 0 0-.1.2l-2.9-.7a.6.6 0 0 0-.7.4l-1 3.4c-1.6.1-3 .5-4.1 1.2a1.5 1.5 0 1 0-1 2.5v.1c0 2.2 2.6 4 5.9 4s5.9-1.8 5.9-4v-.1c.6-.2 1-.8 1-1.4Zm-8.3 1.8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm4.2 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-5.1 2.5c.6.4 1.4.6 2.4.6s1.8-.2 2.4-.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    linkedin: '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.3 8.6a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6ZM4.9 10.2h2.8V19H4.9zM10.1 10.2h2.7v1.2h.1c.4-.7 1.3-1.5 2.8-1.5 3 0 3.5 1.9 3.5 4.5V19h-2.8v-4c0-.9 0-2.2-1.4-2.2s-1.6 1-1.6 2.1V19h-2.8z" fill="currentColor"/></svg>',
-  };
-
-  return icons[kind] || '';
-}
-
 function enhanceRootArticleHeader() {
   if (!document.body.classList.contains('reading-body')) return;
 
