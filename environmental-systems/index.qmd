@@ -41,6 +41,7 @@ Textbook Part
           <div class="wh-hero-card__title">Sequence</div>
           <div class="wh-hero-card__dek">Start with the process chapters, then use the coupling chapter to connect water, energy, vegetation, and atmosphere into one system. Return to the orbital and deeper biogeochemical material on a second pass.</div>
     </div>
+    </div>
   </aside>
   </div>
 </section>

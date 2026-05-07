@@ -36,6 +36,7 @@ Browse By Topic
           <div class="wh-hero-card__title">When To Use It</div>
           <div class="wh-hero-card__dek">After you have momentum in the core book, or whenever a specific topic becomes the thing you most want to study.</div>
     </div>
+    </div>
   </aside>
   </div>
 </section>
