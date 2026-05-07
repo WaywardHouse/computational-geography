@@ -62,17 +62,47 @@ You figured out exactly how the data needs to be cleaned. Now, you need to write
 
 The most common frustration when using an IDE for the first time is "environment blinding."
 
-You might open VSCode, type `import numpy`, and watch the editor flag it in angry red error lines screaming `ModuleNotFoundError`. You panic, because you know you installed NumPy!
+You might open VSCode, type `import numpy`, and watch the editor flag it in angry red error lines screaming `ModuleNotFoundError`. You panic, because you know you installed NumPy.
 
-**The solution:** By default, your IDE is looking at your computer's "Global" Python. You must navigate (usually via a button in the bottom-right corner of VSCode or PyCharm) to select the specific **Virtual Environment** (`.venv` or `conda` env) you created. Once the IDE points its lens into your isolated sandbox, it will instantly "see" NumPy and calm down.
+**The solution:** By default, your IDE is looking at your computer's global Python installation. You must tell it which virtual environment to use.
+
+In **VSCode**: Look at the bottom-left status bar. Click the Python version shown there. A dropdown appears listing every Python environment on your machine. Select your project's `.venv` or conda environment. The red underline on `import numpy` will disappear immediately.
+
+In **PyCharm**: Go to `File > Settings > Project > Python Interpreter`. Click the gear icon, select `Add Interpreter`, and point it at your `.venv` folder or your conda environment name.
+
+Once the IDE points its lens into your isolated sandbox, it can see all the packages you installed there. Autocomplete, inline documentation, and error highlighting all start working correctly.
+
+## Key Features Worth Learning First
+
+You don't need to master every IDE feature. Focus on these four immediately:
+
+**1. The integrated terminal.** Every modern IDE has a terminal panel built in (`View > Terminal` in VSCode, the Terminal tab at the bottom of PyCharm). Use this terminal instead of opening a separate window. It starts in your project folder and picks up your virtual environment when you activate it there.
+
+**2. Go to definition.** Hold `Ctrl` (or `Cmd` on Mac) and click any function name. Your IDE jumps to where that function is defined — even inside installed libraries. When you use `geopandas.read_file()` and wonder what arguments it accepts, this is faster than searching documentation.
+
+**3. Inline error highlighting.** As you type, the IDE flags obvious mistakes before you even run the code. A red underline means a definite problem (undefined variable, missing import). A yellow underline means a warning (unused variable, deprecated function). Fix these as you go; don't let them accumulate.
+
+**4. Find and replace across files.** When you realize you named a variable `temprature` instead of `temperature` in seventeen different scripts, `Ctrl+Shift+H` (VSCode) or `Ctrl+Shift+R` (PyCharm) lets you fix all of them in one operation.
+
+## A Realistic Workflow
+
+The cleanest pattern for scientific computing looks like this:
+
+1. **Explore in Jupyter.** Load your data, draw quick maps, test your analysis logic interactively. Move fast, don't worry about messy cells.
+2. **Refine in Jupyter.** Once you understand the problem, clean up the working code into a logical sequence of cells.
+3. **Move to the IDE.** Copy the clean logic into a `.py` script. The IDE will catch any issues you missed and let you structure the code into functions and modules.
+4. **Run from the IDE terminal.** Run the script from the integrated terminal. Check for errors, refine, repeat.
+5. **Commit with Git.** When the script works correctly, commit the change (next chapter).
+
+The Jupyter-to-IDE handoff is the moment your analysis transforms from an exploration into a repeatable tool.
 
 ## Verify Your Work
 
-1. Depending on your aesthetic preference, download and install either **VSCode** or **PyCharm Community Edition**.
-2. Open the program and create a new file named `test_env.py`.
-3. In the file, write a simple script like `print("My IDE is working!")`.
-4. Locate the Terminal panel built inside the IDE (usually `View > Terminal`). 
-5. Activate your project's virtual environment inside that specific terminal window.
-6. Run the script by typing `python test_env.py`
+1. Download and install either **VSCode** or **PyCharm Community Edition**.
+2. Open the program. Create a new file named `test_env.py` and write `print("IDE is working!")`.
+3. Locate the Python interpreter selector (bottom status bar in VSCode; Project Settings in PyCharm). Switch it to your project's virtual environment.
+4. Open the integrated terminal. Activate your virtual environment if needed. Run `python test_env.py`.
+5. Confirm the output appears in the terminal panel inside the IDE — not in a separate window.
+6. In your script, type `import numpy` and confirm the IDE does **not** flag it as an error (since numpy is installed in your environment).
 
-When your code successfully runs directly inside your new programming dashboard, you've graduated into professional software engineering topography.
+When autocomplete works, errors are highlighted as you type, and your script runs from the built-in terminal without leaving the IDE, your professional setup is complete. One chapter left.

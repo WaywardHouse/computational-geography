@@ -24,6 +24,21 @@ book:
         - getting-started/what-makes-a-model-computational.qmd
         - getting-started/setting-up-your-environment.qmd
 
+    # ── Scientific Computing ────────────────────────────────────────
+    - part: "Scientific Computing Foundations"
+      chapters:
+        - scientific-computing/index.qmd
+        - scientific-computing/why-scientific-computing-matters.qmd
+        - scientific-computing/your-first-python-script.qmd
+        - scientific-computing/command-line-essentials.qmd
+        - scientific-computing/installing-python.qmd
+        - scientific-computing/virtual-environments.qmd
+        - scientific-computing/package-management.qmd
+        - scientific-computing/your-first-jupyter-notebook.qmd
+        - scientific-computing/running-and-debugging-code.qmd
+        - scientific-computing/ides-and-editors.qmd
+        - scientific-computing/git-and-version-control.qmd
+
     # ── Foundations ────────────────────────────────────────────────
     - part: "Foundations: Mathematical Machinery"
       chapters:

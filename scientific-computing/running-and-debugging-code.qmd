@@ -82,11 +82,64 @@ This tells you exactly *where* to start fixing the problem.
 - **FileNotFoundError:** Python looked in your current working directory (remember `pwd`?) and could not find the file you told it to open.
 - **ModuleNotFoundError:** You forgot to `pip install` or `conda install` the package before attempting to use it.
 
+## The Debugging Mindset
+
+Once you learn to read tracebacks, you need one more habit: **isolate the problem**.
+
+When code breaks, beginners try to fix it by changing multiple things at once. This makes things worse. Instead:
+
+1. **Read the traceback.** Identify the exact line and error type.
+2. **Form a hypothesis.** "I think the problem is that `mass` is a string, not a number."
+3. **Change one thing.** Fix only the suspected cause.
+4. **Run again.** If it fails, you rule out that hypothesis and try the next one.
+
+This sounds obvious written down. In practice, it is the hardest habit to build because panicked brains want to change everything at once.
+
+A useful trick: add a `print()` statement just before the line that crashes to confirm your variables hold the values you expect.
+
+```python
+gravity = 9.81
+mass = "ten kilograms"
+print("gravity:", gravity, "| mass:", mass, "| type:", type(mass))  # diagnostic
+force = gravity * mass  # crashes here
+```
+
+When you run this, you'll see exactly what Python was holding in memory at the moment it gave up. Most of the time, the bug is immediately obvious.
+
+## Running Scripts from the Command Line
+
+When your analysis is finished and debugged in a notebook, the final step is turning it into a reusable script.
+
+Save your logic as a `.py` file and run it from your terminal:
+
+```bash
+python my_analysis.py
+```
+
+A few things to know:
+
+**Your working directory matters.** If your script opens a data file with `open("temperatures.csv")`, Python looks for that file in the folder where your terminal is currently standing (`pwd`). If the file is somewhere else, you will get a `FileNotFoundError`. Always `cd` into your project folder before running scripts, or use absolute paths.
+
+**Standard output is your friend.** In a notebook, each cell displays its result automatically. In a script, nothing is displayed unless you explicitly call `print()`. Add progress messages so you know the script is running:
+
+```python
+print("Loading data...")
+data = load_big_dataset()
+
+print("Processing 1,000 rows...")
+results = process(data)
+
+print("Done. Results saved to output.csv")
+```
+
+**Exit codes.** When a script finishes cleanly, your terminal gets control back. If it crashes, the traceback is printed to the terminal exactly as you'd see it in a notebook. There is no difference in how Python reports errors — the same traceback, the same bottom-up reading rule.
+
 ## Verify Your Work
 
-1. Open your terminal and type `python`. Try running some basic math in the interactive shell, then type `exit()` to leave.
-2. Launch a Jupyter Notebook, write the broken gravity code from this chapter, and run the cell.
-3. Read the traceback carefully. 
-4. Fix the code by changing `"ten kilograms"` to `10`, and run it again to make the error disappear.
+1. Open your terminal and type `python`. Try running some basic math in the interactive shell (`2 ** 8`, `len("hello")`), then type `exit()` to leave.
+2. Launch a Jupyter Notebook. Write the broken gravity code from this chapter and run the cell. Read the traceback from the bottom up before touching anything.
+3. Add a `print()` diagnostic line before the crash. Confirm it shows the type mismatch.
+4. Fix the code by changing `"ten kilograms"` to `10`. Run the cell. Confirm the error is gone and the output is correct.
+5. Copy the working code to a `.py` file. Open a terminal, `cd` to the folder containing it, and run `python your_file.py`. Confirm the output appears in the terminal.
 
-Congratulations. You are now equipped with the mindset of a scientific programmer. When things break—and they will break constantly—you now know exactly where to look for clues!
+When you can move fluidly between the shell, a notebook, and a script — and when a red traceback no longer triggers panic — you are ready for the professional workflow tools in the next chapter.

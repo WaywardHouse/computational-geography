@@ -1,10 +1,166 @@
 ---
 title: "Scientific Computing Foundations"
-type: chapter
-book-part: "scientific-computing"
+subtitle: "Set up Python, manage your environment, and learn the tools every computational geographer needs."
+page-layout: article
+body-classes: hero-page split-home split-home-core page-home
+
 toc: false
 ---
 
-# Introduction to Scientific Computing
+::: {.section-kicker}
+Setup Guide
+:::
 
-Welcome to the foundation of your computational environment!
+## Scientific Computing Foundations {#scientific-computing .section-title}
+
+```{=html}
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__body">
+    <div class="wh-hero__left">
+      <p>Before you can run a flood model or classify a satellite image, you need a machine that knows how to compute. This section builds that foundation — Python installed, environments isolated, packages managed, notebooks running, and your work tracked with Git.</p>
+      <p>You don't need any prior coding experience. By the end you'll have a professional-grade scientific computing setup ready for any pathway.</p>
+      <div class="wh-hero__actions">
+        <a class="wh-hero__btn wh-hero__btn--primary" href="./why-scientific-computing-matters.html">Start Setup</a>
+        <a class="wh-hero__btn wh-hero__btn--ghost" href="../getting-started/">Back to Getting Started</a>
+      </div>
+      <div class="book-pill-row">
+        <span class="book-pill">10 chapters</span>
+        <span class="book-pill">~5 hours total</span>
+        <span class="book-pill">Windows · Mac · Linux</span>
+        <span class="book-pill">No experience needed</span>
+      </div>
+    </div>
+    <aside class="wh-hero__right">
+      <div class="wh-hero__panel-label">Details</div>
+      <div class="wh-hero__cards">
+        <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Build the computing infrastructure every chapter in Pathways A, B, and C depends on. Do this before choosing your learning path.</div>
+        </div>
+        <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Follow chapters 1–10 in order. Each chapter verifies that your setup is correct before introducing the next layer.</div>
+        </div>
+        <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Already set up?</div>
+          <div class="wh-hero-card__dek">If you have Python, Jupyter, and Git running, skip ahead — but check the Verify sections to confirm your environment matches expectations.</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+```
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Setup Route</div>
+<h3 class="cg-ill__title">From Zero To A Working Scientific Python Environment In Ten Steps</h3>
+<p class="cg-ill__lede">The setup path works best when each layer is confirmed before building the next one. Start with motivation and a first taste of code, move through installation and isolation, then add the workflow tools — notebooks, debugging, IDEs, and version control.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">First</span>
+<h4>Motivation and First Code</h4>
+<p>Understand why computation matters, then write and run Python immediately — no installation needed.</p>
+<ul>
+<li><a href="./why-scientific-computing-matters.html">Why Scientific Computing Matters</a></li>
+<li><a href="./your-first-python-script.html">Your First Python Script</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Shell, Python, and Environments</h4>
+<p>Learn the command line, install Python on your machine, and isolate each project in its own sandbox.</p>
+<ul>
+<li><a href="./command-line-essentials.html">Command Line Essentials</a></li>
+<li><a href="./installing-python.html">Installing Python</a></li>
+<li><a href="./virtual-environments.html">Virtual Environments</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Packages and Notebooks</h4>
+<p>Populate your environment with scientific libraries and learn the interactive workflow that powers exploration.</p>
+<ul>
+<li><a href="./package-management.html">Installing Packages</a></li>
+<li><a href="./your-first-jupyter-notebook.html">Jupyter Notebooks</a></li>
+</ul>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Finally</span>
+<h4>Professional Tools</h4>
+<p>Learn to read errors, move from notebooks to scripts in a proper IDE, and track your work with Git.</p>
+<ul>
+<li><a href="./running-and-debugging-code.html">Running and Debugging</a></li>
+<li><a href="./ides-and-editors.html">IDEs and Editors</a></li>
+<li><a href="./git-and-version-control.html">Git and Version Control</a></li>
+</ul>
+</div>
+</div>
+<div class="cg-ill__route-footer">
+<p class="cg-ill__route-note">Each chapter ends with a Verify section — concrete steps to confirm the layer is working before moving on. Don't skip these.</p>
+</div>
+</div>
+</figure>
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 1</span>
+    <div class="wh-book-card__title"><a href="./why-scientific-computing-matters.html">Why Scientific Computing Matters</a></div>
+    <div class="wh-book-card__desc">What becomes possible once you have the machinery set up, and why geographers need code rather than just GUI tools. No setup required.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 2</span>
+    <div class="wh-book-card__title"><a href="./your-first-python-script.html">Your First Python Script</a></div>
+    <div class="wh-book-card__desc">Write and run Python in your browser right now — no installation. Print text, do math, write a conditional. Code is just instructions you write.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 3</span>
+    <div class="wh-book-card__title"><a href="./command-line-essentials.html">Command Line Essentials</a></div>
+    <div class="wh-book-card__desc">Navigate your computer without a mouse. Learn <code>pwd</code>, <code>ls</code>, <code>cd</code>, and <code>mkdir</code> — the four commands Python needs you to know first.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 4</span>
+    <div class="wh-book-card__title"><a href="./installing-python.html">Installing Python</a></div>
+    <div class="wh-book-card__desc">Anaconda vs standard Python — which path fits your work. Step-by-step instructions for Windows, Mac, and Linux. Verify it works before moving on.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 5</span>
+    <div class="wh-book-card__title"><a href="./virtual-environments.html">Virtual Environments</a></div>
+    <div class="wh-book-card__desc">Why global installations cause dependency conflicts. Create, activate, and deactivate isolated sandboxes using <code>venv</code> or <code>conda</code>.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 6</span>
+    <div class="wh-book-card__title"><a href="./package-management.html">Installing Packages</a></div>
+    <div class="wh-book-card__desc">Expand Python with <code>pip</code> and <code>conda</code>. Install NumPy, SciPy, and geographic libraries. Freeze your setup into <code>requirements.txt</code> for reproducibility.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 7</span>
+    <div class="wh-book-card__title"><a href="./your-first-jupyter-notebook.html">Jupyter Notebooks</a></div>
+    <div class="wh-book-card__desc">Install and launch Jupyter, write code and markdown cells, run them in sequence. The interactive environment you'll use throughout all three pathways.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 8</span>
+    <div class="wh-book-card__title"><a href="./running-and-debugging-code.html">Running and Debugging</a></div>
+    <div class="wh-book-card__desc">The three ways Python runs: shell, notebook, and script. How to read a traceback from the bottom up and fix the five most common error types.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 9</span>
+    <div class="wh-book-card__title"><a href="./ides-and-editors.html">IDEs and Code Editors</a></div>
+    <div class="wh-book-card__desc">When to graduate from notebooks to scripts. VSCode vs PyCharm — what each is for and how to point it at your virtual environment.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Ch 10</span>
+    <div class="wh-book-card__title"><a href="./git-and-version-control.html">Git and Version Control</a></div>
+    <div class="wh-book-card__desc">Track every change to your code. Clone, status, add, commit, push — the five-step lifecycle that replaces <code>model_final_v3_USE_THIS_ONE.py</code>.</div>
+  </article>
+</div>
+```
