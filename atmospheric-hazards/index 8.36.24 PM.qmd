@@ -1,0 +1,127 @@
+---
+title: "Part 4: Hazards, Change, and Prediction"
+subtitle: "A reader-friendly route into fire, rainfall, floods, and the logic of risk."
+page-layout: article
+body-classes: hero-page split-home split-home-core page-home
+
+toc: false
+---
+
+::: {.section-kicker}
+Textbook Part
+:::
+
+## Hazards, Change, and Prediction {#atmospheric-hazards .section-title}
+
+```{=html}
+<section class="wh-hero geo-mountains">
+  <div class="wh-hero__body">
+<div class="wh-hero__left">
+    <p>This part uses modelling to think about danger, uncertainty, and real-world consequences. It leads with the clearest and most teachable hazard chapters, while keeping the more meteorology-heavy chapters available for deeper study.</p>
+    <div class="wh-hero__actions">
+      <a class="wh-hero__btn wh-hero__btn--primary" href="./fire-weather-ignition.html">Start Part 4</a>
+    </div>
+    <div class="book-pill-row">
+      <span class="book-pill">6 core chapters</span>
+      <span class="book-pill">Risk and forecasting</span>
+      <span class="book-pill">Part 4</span>
+    </div>
+  </div>
+  <aside class="wh-hero__right">
+
+    <div class="wh-hero__panel-label">Details</div>
+    <div class="wh-hero__cards">
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Role</div>
+          <div class="wh-hero-card__dek">Show how models help us think about wildfire, rainfall, flooding, and the limits of prediction.</div>
+    </div>
+    <div class="wh-hero-card">
+          <div class="wh-hero-card__type">Info</div>
+          <div class="wh-hero-card__title">Sequence</div>
+          <div class="wh-hero-card__dek">Start with the fire and flood chapters, then use the compound-risk chapter to connect them as evolving event systems. Return later for severe-storm and wind-depth chapters.</div>
+    </div>
+    </div>
+  </aside>
+  </div>
+</section>
+```
+
+<figure class="cg-ill" markdown="1">
+<div class="cg-ill__frame" markdown="1">
+<div class="cg-ill__eyebrow">Part Route</div>
+<h3 class="cg-ill__title">This Part Starts With Fire And Flood, Then Widens Into Compound Risk</h3>
+<p class="cg-ill__lede">Part 4 becomes much clearer when it is read as one risk sequence. Begin with the hazards that are easiest to picture and compute, then use the deeper meteorology and compound-risk chapters to understand why real disasters rarely stay isolated.</p>
+<div class="cg-ill__route-map">
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">First</span>
+<h4>Fire conditions and spread</h4>
+<p>Learn the weather and landscape ingredients that turn ignition into fast-moving fire behavior.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Then</span>
+<h4>Rainfall, floods, and runoff</h4>
+<p>Move from extreme precipitation to frequency logic and urban flood response.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Second pass</span>
+<h4>Storms, smoke, and wind depth</h4>
+<p>Use the meteorology-heavy chapters to understand transport, severe weather, and boundary-layer structure.</p>
+</div>
+<div class="cg-ill__route-arrow">→</div>
+<div class="cg-ill__route-stage">
+<span class="cg-ill__route-kicker">Capstone</span>
+<h4>Compound hazard chains</h4>
+<p>End with evolving event systems where smoke, runoff, infrastructure strain, and health burden reinforce one another.</p>
+</div>
+</div>
+<figcaption>Part 4 is not only about isolated hazard formulas; it is about how environmental danger evolves through time.</figcaption>
+</div>
+</figure>
+
+## Chapter Map {#chapter-map .section-title}
+
+```{=html}
+<div class="wh-book-grid wh-reveal">
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">V</span>
+    <div class="wh-book-card__title">Core Path</div>
+    <ul>
+      <li><a href="./fire-weather-ignition.html">Fire Weather and Ignition Potential</a></li>
+      <li><a href="./fire-spread-modeling.html">Fire Spread modelling</a></li>
+    </ul>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Y</span>
+    <div class="wh-book-card__title">Core Path</div>
+    <ul>
+      <li><a href="./rainfall-intensity-duration.html">Rainfall Intensity-Duration-Frequency</a></li>
+      <li><a href="./flood-frequency-analysis.html">Flood Frequency Analysis</a></li>
+      <li><a href="./urban-flood-modeling.html">Urban Flood modelling and Green Infrastructure</a></li>
+    </ul>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Second Pass</span>
+    <div class="wh-book-card__title">Atmospheric Depth</div>
+    <ul>
+      <li>Fire Emissions and Smoke Dispersion</li>
+      <li>Thunderstorm Dynamics and Severe Weather</li>
+      <li>Tornado Formation and Intensity</li>
+      <li>Hail Formation and Forecasting</li>
+      <li>Boundary Layer Turbulence and Wind Profiles</li>
+      <li>Extreme Wind Events and Downbursts</li>
+    </ul>
+    <div class="wh-book-card__desc">These meteorology-heavy chapters are best treated as second-pass depth after the core hazards path is in place.</div>
+  </article>
+  <article class="wh-book-card">
+    <span class="wh-book-card__status">Z</span>
+    <div class="wh-book-card__title">Compound Risk</div>
+    <ul>
+      <li><a href="./compound-hazards-and-cascading-risk.html">Compound Hazards and Cascading Risk</a></li>
+    </ul>
+    <div class="wh-book-card__desc">This capstone chapter links fire, smoke, rainfall, flooding, health burden, and infrastructure disruption into one evolving hazard sequence.</div>
+  </article>
+</div>
+```
