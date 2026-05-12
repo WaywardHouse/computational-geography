@@ -1,5 +1,5 @@
 ---
-title: "Part 1: Maths for Modelling Space"
+title: "Maths for Modelling Space"
 subtitle: "A beginner-friendly path through variables, change, terrain, and spatial systems."
 page-layout: article
 body-classes: hero-page split-home split-home-core page-home

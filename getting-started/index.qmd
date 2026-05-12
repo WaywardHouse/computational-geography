@@ -1,5 +1,5 @@
 ---
-title: "Part 0: Getting Started"
+title: "Getting Started"
 subtitle: "A calm on-ramp into models, maps, equations, and the way this book works."
 page-layout: article
 body-classes: hero-page split-home split-home-core page-home

@@ -56,12 +56,12 @@ This contains advanced investigations, project-style chapters, and companion mat
 
 Recommended public-facing structure:
 
-1. `Part 0: Getting Started`
-2. `Part 1: Maths for Modelling Space`
-3. `Part 2: Earth Systems and Observation`
+1. `Getting Started`
+2. `Maths for Modelling Space`
+3. `Earth Systems and Observation`
 4. `Part 3: GIS and Spatial Analysis`
-5. `Part 4: Hazards, Change, and Prediction`
-6. `Part 5: Cities, Networks, and Economic Geography`
+5. `Hazards, Change, and Prediction`
+6. `Cities, Networks, and Economic Geography`
 7. `Advanced Investigations`
 
 This is a publishing structure, not a deletion structure.
@@ -88,7 +88,7 @@ At the series level, the project should also be able to say:
 
 ## Proposed Part Details
 
-## Part 0: Getting Started
+## Getting Started
 
 ### Role
 
@@ -114,7 +114,7 @@ This part is essential if the target audience is truly Grade 10 and up.
 
 Without it, the book still reads like it expects a more confident and older reader.
 
-## Part 1: Maths for Modelling Space
+## Maths for Modelling Space
 
 ### Role
 
@@ -145,7 +145,7 @@ It introduces mathematical thinking through spatial and geographic questions ins
 
 This keeps the strongest conceptual spine of the current Foundations section while removing some of the early difficulty spikes from the mandatory path.
 
-## Part 2: Earth Systems and Observation
+## Earth Systems and Observation
 
 ### Role
 
@@ -210,7 +210,7 @@ This is the practical toolkit part and should be one of the clearest and most sa
 
 This section is already one of the strongest parts of the project and should remain central to the public-facing book.
 
-## Part 4: Hazards, Change, and Prediction
+## Hazards, Change, and Prediction
 
 ### Role
 
@@ -240,7 +240,7 @@ Hazards make excellent teaching material because they are concrete, consequentia
 
 It keeps the most teachable, motivating hazard chapters in the core path while moving the more demanding meteorology and cryosphere chapters to optional depth.
 
-## Part 5: Cities, Networks, and Economic Geography
+## Cities, Networks, and Economic Geography
 
 ### Role
 
@@ -426,7 +426,7 @@ That gives a print-equivalent shape closer to:
 ## Recommended Next Steps
 
 1. Update the Learn landing page to foreground `Start Here`, `Core Book`, `Topic Libraries`, `Laboratory`, and `Methods and Tools`
-2. Draft `Part 0: Getting Started`
+2. Draft `Getting Started`
 3. Rework existing part pages into the new public-facing grouping
 4. Mark topic-library and companion-bound chapters visually in navigation and on chapter pages
 5. Reframe Laboratory as an advanced investigations space

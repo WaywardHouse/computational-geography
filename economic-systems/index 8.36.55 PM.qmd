@@ -1,5 +1,5 @@
 ---
-title: "Part 5: Cities, Networks, and Economic Geography"
+title: "Cities, Networks, and Economic Geography"
 subtitle: "Human systems, trade, cities, and price formation through a geographic lens."
 page-layout: article
 body-classes: hero-page split-home split-home-core page-home

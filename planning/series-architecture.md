@@ -91,12 +91,12 @@ If you want the rebuilt ENVMOD209-style experience, start here.
 
 ### Internal Structure
 
-1. `Part 0: Getting Started`
-2. `Part 1: Maths for Modelling Space`
-3. `Part 2: Earth Systems and Observation`
+1. `Getting Started`
+2. `Maths for Modelling Space`
+3. `Earth Systems and Observation`
 4. `Part 3: GIS and Spatial Analysis`
-5. `Part 4: Hazards, Change, and Prediction`
-6. `Part 5: Cities, Networks, and Economic Geography`
+5. `Hazards, Change, and Prediction`
+6. `Cities, Networks, and Economic Geography`
 
 ### Scope Rule
 
