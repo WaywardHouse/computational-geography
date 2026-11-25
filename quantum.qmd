@@ -1,0 +1,284 @@
+---
+title: "Where Quantum Computing Would (and Wouldn't) Help a Geographer"
+subtitle: "A model-selection test, applied to choosing bands from a hyperspectral image"
+date: "2026-11-25"
+categories: [computational-geography, remote-sensing, quantum-computing, model-selection]
+format: html
+jupyter: python3
+draft: true
+---
+
+<!--
+DRAFT NOTES (delete before publishing)
+- Sequencing: written to follow the model-ladder piece ("which kind of model for which kind of problem").
+  Section 2 recaps the ladder in a table so it stands alone, but link the ladder article in "Before You Start"
+  and in the series navigation once its URL exists.
+- Site chrome (breadcrumb, Pepper prompt, series nav) is not reproduced here; add it from the template.
+- The ladder rungs are reconstructed from earlier discussion of the deterministic-to-frontier spectrum.
+  Check that the wording matches the ladder article before publishing.
+- Further reading links are at the end; confirm them before publishing.
+-->
+
+::: {.callout-note title="Before You Start"}
+**You should know:** what NDVI is (see the vegetation indices article), the idea of a model ladder from the previous piece, how to count ways of choosing things, and what a square root does.
+
+**You will learn:** why a quantum computer cannot speed up reading a satellite image, how a quadratic speedup works, and a three-part test you can apply to any "quantum for Earth observation" pitch.
+
+**Why this matters:** quantum claims now turn up in geospatial sales decks. The arithmetic needed to check them fits on a page.
+
+**If this gets hard, focus on:** the break-even formula in Section 3 and the table in Section 4.
+:::
+
+A vendor deck says quantum computing will transform Earth observation. A single Sentinel-2 tile at 10 m resolution is 10,980 × 10,980 pixels, which is 120,560,400 values per band, across 13 spectral bands. The deck does not say how those numbers get into the machine.
+
+This piece asks a narrow question: *if a quantum computer existed today with no practical limits, which parts of a geographer's workflow would it speed up, and which would it leave alone?* The answer is more useful than a yes or no, because it also tells you where to look for real progress.
+
+---
+
+## 1. The Question
+
+Suppose you have a hyperspectral image with $n$ bands and you want the best subset of $k$ bands for telling crops apart. Fewer bands means cheaper storage, faster processing and less noise. You score each candidate subset by training a classifier and measuring accuracy. How many subsets do you have to score?
+
+This is a real problem. Band selection is one of the tasks quantum approaches to Earth observation have been aimed at. It is also a clean test case, because it has the shape most quantum speedups need: a huge number of candidates and a score you can compute for each.
+
+---
+
+## 2. The Conceptual Model
+
+### 2.1 The model ladder
+
+Before reaching for any new tool, ask which rung of the ladder the problem sits on. Each step up buys flexibility and costs reproducibility.
+
+| Rung | Kind of model | Use it when | Geography example | Auditable? |
+|---|---|---|---|---|
+| 0 | Closed-form or physical | The governing equation is known and measurable | NDVI, Darcy-Weisbach pipe flow | Fully |
+| 1 | Simulation and statistical | The physics is known but the inputs are uncertain | Hydrological models, kriging, Monte Carlo loss estimates | Yes, with seeds and stated uncertainty |
+| 2 | Optimisation | You want the best choice under constraints | Routing, facility siting, scheduling | Yes, if the solver reports its gap |
+| 3 | Classical machine learning | The physics is partial and labelled data is plentiful | Land-cover classification from imagery | Partly |
+| 4 | Small language and vision models | Extraction, classification and summarising of messy inputs | Tagging field reports, reading scanned permits | Limited |
+| 5 | Frontier language models | Synthesis and judgement over unstructured material | Drafting an assessment from mixed sources | Weakest |
+
+The rule is to start at the lowest rung that meets the requirement and climb only when the problem structure forces you to.
+
+One distinction matters here. A *stochastic model* on rung 1 uses randomness you control: fix the seed and you get the same answer, and you can state the uncertainty. A *stochastic tool* on rung 5 samples from a distribution you do not control. Both are probabilistic, and they are not equally auditable.
+
+### 2.2 Quantum is an engine, not a rung
+
+A quantum computer is not a seventh rung above the frontier models. It is a different kind of engine that might one day run underneath some of the lower rungs. Three places are usually proposed:
+
+- **Chemistry and materials** (feeding rung 0): simulating molecules for catalysts and sorbents.
+- **Linear algebra and differential equations** (rung 1): solving the large systems that arise in fluid and climate models.
+- **Search and optimisation** (rung 2): finding the best of an enormous number of options.
+
+Band selection falls in the third group, so that is the one we will test.
+
+---
+
+## 3. Building the Mathematical Model
+
+### 3.1 The reading cost
+
+Some jobs cannot be sped up whatever the hardware, because the answer depends on every input and every input must be read. Take NDVI for one pixel:
+
+$$
+\text{NDVI} = \frac{\rho_{\text{NIR}} - \rho_{\text{red}}}{\rho_{\text{NIR}} + \rho_{\text{red}}}
+$$
+
+where $\rho$ is reflectance in each band. For a pixel with $\rho_{\text{NIR}} = 0.50$ and $\rho_{\text{red}} = 0.08$:
+
+$$
+\text{NDVI} = \frac{0.50 - 0.08}{0.50 + 0.08} = \frac{0.42}{0.58} \approx 0.724
+$$
+
+Doing this for 120,560,400 pixels takes at least 120,560,400 reads, on any machine. Computing the index is not the bottleneck. Getting the data in is.
+
+The same logic gives a three-term cost for any quantum workflow:
+
+$$
+T_{\text{total}} = T_{\text{load}} + T_{\text{compute}} + T_{\text{read-out}}
+$$
+
+A speedup in $T_{\text{compute}}$ is worthless if $T_{\text{load}}$ already costs as much as the classical answer.
+
+### 3.2 Search with Grover's algorithm
+
+Grover's algorithm searches $N$ unsorted candidates containing $M$ good ones. Classically you test candidates one at a time, which takes about $N/2$ tests on average when $M = 1$. Grover needs about
+
+$$
+\text{iterations} \approx \frac{\pi}{4}\sqrt{\frac{N}{M}}
+$$
+
+Each iteration is one call to an *oracle*, a quantum circuit that scores a candidate. This is a quadratic speedup, and it is provably the best any quantum algorithm can do for unstructured search.
+
+### 3.3 The break-even test
+
+Let $t_c$ be the time for one classical evaluation and $t_q$ the time for one quantum oracle call. Brute force takes $(N/2)\,t_c$ and Grover takes $\frac{\pi}{4}\sqrt{N}\,t_q$. Grover wins when
+
+$$
+\frac{t_q}{t_c} < \frac{2\sqrt{N}}{\pi}
+$$
+
+So the quantum oracle can be slower per call by up to that factor and still win. But brute force is the wrong opponent. A classical heuristic that needs $h$ evaluations is the real baseline, and then the condition becomes
+
+$$
+\frac{\pi}{4}\sqrt{N}\;t_q < h\;t_c
+$$
+
+---
+
+## 4. Worked Example by Hand
+
+**Problem.** Choose $k = 5$ bands from $n = 20$. How many evaluations does each method need?
+
+**Step 1: count the candidates.** The number of subsets is "20 choose 5":
+
+$$
+N = \binom{20}{5} = \frac{20 \times 19 \times 18 \times 17 \times 16}{5 \times 4 \times 3 \times 2 \times 1} = \frac{1{,}860{,}480}{120} = 15{,}504
+$$
+
+**Step 2: brute force.** On average you find the best subset after $N/2 = 7{,}752$ evaluations.
+
+**Step 3: Grover.** $\sqrt{15{,}504} \approx 124.5$, so
+
+$$
+\frac{\pi}{4} \times 124.5 \approx 97.8 \approx 98 \text{ oracle calls}
+$$
+
+**Step 4: forward selection.** This classical heuristic picks the best single band, then the best band to add to it, and so on. It evaluates $20 + 19 + 18 + 17 + 16 = 90$ subsets.
+
+**Step 5: the break-even.** Against brute force, $2 \times 124.5 / \pi \approx 79$, so a quantum call could be up to 79 times slower and still win. Against forward selection, $98 > 90$, so Grover loses even with an oracle that is as fast as a classical evaluation.
+
+**Scaling up.** Repeating the steps for realistic hyperspectral sizes:
+
+| Bands $n$ | Chosen $k$ | Subsets $N$ | Brute force (average) | Grover | Forward selection |
+|---|---|---|---|---|---|
+| 20 | 5 | 15,504 | 7,752 | 98 | 90 |
+| 50 | 10 | $1.03 \times 10^{10}$ | $5.1 \times 10^{9}$ | 79,600 | 455 |
+| 100 | 10 | $1.73 \times 10^{13}$ | $8.7 \times 10^{12}$ | $3.3 \times 10^{6}$ | 955 |
+| 200 | 10 | $2.25 \times 10^{16}$ | $1.1 \times 10^{16}$ | $1.2 \times 10^{8}$ | 1,955 |
+
+At 200 bands, Grover turns $10^{16}$ evaluations into $10^8$, which is a spectacular improvement over brute force. Forward selection needs about 2,000.
+
+---
+
+## 5. Computational Implementation
+
+The code below reproduces the table and plots how each method scales as the number of bands grows.
+
+```{python}
+#| label: fig-evaluations
+#| fig-cap: "Evaluations needed to choose 10 bands from n, on a log scale."
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+def brute_force(n, k):
+    return math.comb(n, k) / 2
+
+def grover(n, k):
+    return math.pi / 4 * math.sqrt(math.comb(n, k))
+
+def forward_selection(n, k):
+    return sum(n - j for j in range(k))
+
+# The worked-example table
+for n, k in [(20, 5), (50, 10), (100, 10), (200, 10)]:
+    N = math.comb(n, k)
+    print(f"n={n:>3} k={k:>2}  N={N:.2e}  brute={brute_force(n, k):.2e}  "
+          f"grover={grover(n, k):.2e}  forward={forward_selection(n, k):,}")
+
+# The scaling plot
+k = 10
+ns = np.arange(20, 201, 10)
+fig, ax = plt.subplots(figsize=(7, 4))
+ax.plot(ns, [brute_force(int(n), k) for n in ns], label="Brute force (average)")
+ax.plot(ns, [grover(int(n), k) for n in ns], label="Grover (oracle calls)")
+ax.plot(ns, [forward_selection(int(n), k) for n in ns], label="Forward selection")
+ax.set_yscale("log")
+ax.set_xlabel("Number of bands, n")
+ax.set_ylabel("Evaluations (log scale)")
+ax.set_title("Choosing 10 bands: quantum beats brute force, not the heuristic")
+ax.legend()
+plt.tight_layout()
+plt.show()
+```
+
+**Try this:**
+
+- Change `k` to 3 and then to 30. Watch how the gap between Grover and forward selection changes.
+- Add a fourth line for a classical method that needs $n^2$ evaluations. Where does it cross Grover?
+- Work out how fast $t_q$ would need to be, relative to $t_c$, for Grover to beat forward selection at $n = 200$. (Hint: you need $1.2 \times 10^8\, t_q < 1{,}955\, t_c$, so the ratio comes out far below 1, meaning each quantum call must be tens of thousands of times *faster* than a classical evaluation.)
+
+**Key insight:** the plot has three lines, and the interesting comparison is the bottom two. Quoting the gap between the top two is how weak claims are made.
+
+---
+
+## 6. Interpretation
+
+Grover's speedup is real, and it is irrelevant here. Forward selection sits below the quantum curve at every size in the table, narrowly at 20 bands and by a factor of about 60,000 at 200, so for this problem the baseline decides the matter, not the engine.
+
+Two honest qualifications keep this from being a flat dismissal:
+
+- **Forward selection can miss the best subset.** Some bands are only informative in combination. Grover would find the true optimum of the scored space, while the heuristic finds a good answer. If an exact optimum were worth $10^8$ expensive oracle calls, that would change the arithmetic. For most mapping tasks it is not.
+- **Other problems have worse classical baselines.** Where no good heuristic exists and the candidate space is enormous, such as some network design and siting problems with hard constraints, a quadratic speedup over the best classical method could matter.
+
+On the ladder, this is a rung 2 problem. The quantum engine would replace the solver underneath it, and the rung 2 requirements would stay in force: constraints stated, solution reproducible, optimality gap reported.
+
+---
+
+## 7. What Could Go Wrong?
+
+### 7.1 Comparing against brute force
+
+Brute force is a strawman for almost any real problem. **Check:** ask what the best classical baseline is, and whether it was tuned with the same effort.
+
+### 7.2 Ignoring the load
+
+The three-term cost in Section 3.1 applies. Putting $N$ classical numbers into a quantum superposition needs either $N$ steps or a hypothetical quantum memory that does not exist at scale. **Check:** ask how the data gets in, and what that costs.
+
+### 7.3 The oracle is not free
+
+Scoring a band subset means training and testing a classifier, and the oracle must do this *coherently*, as a reversible quantum circuit, on every iteration. **Check:** ask how many logical qubits and how many gates one oracle call needs.
+
+### 7.4 Today's hardware
+
+Current machines are noisy, and useful speedups need error correction, which multiplies the cost of every operation many times over. The ratio $t_q / t_c$ in the break-even test is therefore much larger than 1 for the foreseeable future. **Check:** ask whether the claim is for a simulation, a noisy device or a fault-tolerant machine.
+
+---
+
+## 8. Extension: Where the Case Is Stronger
+
+- **Monte Carlo risk.** Estimating an average, such as expected wildfire loss, to accuracy $\epsilon$ takes about $1/\epsilon^2$ classical samples. Quantum amplitude estimation needs about $1/\epsilon$. For $\epsilon = 0.001$ that is $10^6$ against $10^3$. The same overheads apply, so it pays off only at very high accuracy.
+- **Differential equations.** Quantum algorithms for fluid and climate equations are being developed. A one-dimensional steady pipeline problem is solved classically in microseconds, so the interest is in very large, three-dimensional, time-dependent systems, and the nonlinearity of real flows remains a bottleneck.
+- **Molecules.** Simulating chemistry is the most natural fit, because the physics being simulated is itself quantum. Catalysts and carbon-capture sorbents are the usual examples.
+
+---
+
+## 9. Math Refresher
+
+**Choosing $k$ from $n$.** The binomial coefficient $\binom{n}{k} = \dfrac{n!}{k!\,(n-k)!}$ counts subsets, and it grows very fast. $\binom{200}{10}$ is about $2.2 \times 10^{16}$.
+
+**Square-root scaling.** If $N$ grows by a factor of 100, $\sqrt{N}$ grows by a factor of 10. A quadratic speedup helps more on bigger problems but never turns an impossible problem into an easy one.
+
+**Big-O notation.** Writing $O(N)$ means "time grows in proportion to $N$." Reading $N$ pixels is $O(N)$. Grover search is $O(\sqrt{N})$.
+
+**Log scales.** On a log axis, equal distances mean equal *ratios*. A gap of two grid lines is a factor of 100.
+
+---
+
+## Summary
+
+- Any job that depends on every pixel needs at least one read per pixel, so NDVI over a tile gains nothing from quantum hardware.
+- Grover search gives a quadratic speedup, about $\frac{\pi}{4}\sqrt{N}$ oracle calls instead of $N/2$ tests.
+- The right comparison is the best classical method. For choosing 10 of 200 bands, forward selection needs about 2,000 evaluations and Grover needs about $1.2 \times 10^8$.
+- Ask three questions of any pitch: what is the best classical baseline, how does the data get in, and what does one oracle call cost?
+- Quantum is an engine that might run under rungs 0 to 2 of the model ladder, not a rung above the frontier models.
+- The stronger cases are chemistry, very large differential equations and high-accuracy Monte Carlo, all of which depend on fault-tolerant hardware that does not exist yet.
+
+---
+
+**Further reading**
+
+- [Opportunities and challenges of quantum computing for climate modelling](https://arxiv.org/abs/2502.10488) (arXiv 2502.10488)
+- [Quantum computing in Earth observation and satellite imagery: current status](https://arxiv.org/abs/2308.09453) (arXiv 2308.09453)
+- [ESA Φ-lab, Quantum Computing for Earth Observation (QC4EO)](https://philab.esa.int/?p=3207)

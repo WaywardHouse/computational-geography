@@ -168,33 +168,33 @@ Where $f_i$ = fraction from each source, $\sum f_i = 1$
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
   <path d="M64 246 C136 194, 200 146, 278 118 C336 98, 396 108, 494 146" fill="none" stroke="#8fa9bb" stroke-width="6"/>
   <path d="M64 246 C138 214, 214 196, 286 178 C352 162, 418 160, 504 176" fill="none" stroke="#d9eef9" stroke-width="28" stroke-linecap="round"/>
-  <text x="312" y="88" font-size="18" fill="#35515f" font-weight="700">glacier</text>
+  <text x="440" y="78" font-size="18" fill="#35515f" font-weight="700">glacier</text>
 
   <path d="M226 104 C236 126, 246 150, 254 176" fill="none" stroke="#0ea5a6" stroke-width="4" marker-end="url(#chem-teal)"/>
   <text x="126" y="100" font-size="15" fill="#0f766e">supraglacial: quick, dilute</text>
   <path d="M292 122 C286 144, 284 158, 280 176" fill="none" stroke="#3b82f6" stroke-width="4" marker-end="url(#chem-blue)"/>
-  <text x="306" y="118" font-size="15" fill="#1d4ed8">englacial: moderate residence</text>
+  <text x="330" y="104" font-size="15" fill="#1d4ed8" paint-order="stroke" stroke="#eef7fb" stroke-width="5" stroke-linejoin="round">englacial: moderate residence</text>
   <path d="M354 184 C336 196, 314 210, 286 228" fill="none" stroke="#8b5cf6" stroke-width="5" marker-end="url(#chem-purple)"/>
-  <text x="324" y="246" font-size="15" fill="#6d28d9">subglacial: long contact, high solutes</text>
+  <text x="366" y="205" font-size="14" fill="#6d28d9" paint-order="stroke" stroke="#eef7fb" stroke-width="5" stroke-linejoin="round"><tspan x="366">subglacial: long contact,</tspan><tspan x="366" dy="1.2em">high solutes</tspan></text>
 
   <path d="M286 228 C330 238, 380 246, 506 252" fill="none" stroke="#64748b" stroke-width="6" marker-end="url(#chem-gray)"/>
-  <text x="410" y="274" font-size="16" fill="#475569">outlet stream</text>
+  <text x="530" y="242" text-anchor="end" font-size="16" fill="#475569">outlet stream</text>
 
-  <rect x="72" y="262" width="270" height="32" rx="12" fill="#fff8ef" stroke="#f1ddbc"/>
+  <rect x="72" y="262" width="420" height="32" rx="12" fill="#fff8ef" stroke="#f1ddbc"/>
   <text x="90" y="283" font-size="15" fill="#92400e">carbonate dissolution, silicate weathering, sulfide oxidation</text>
   <text x="74" y="304" font-size="14" fill="#475569">more time at the bed usually means more dissolved ions and sediment</text>
 
   <defs>
-    <marker id="chem-teal" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="chem-teal" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#0ea5a6"/>
     </marker>
-    <marker id="chem-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="chem-blue" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#3b82f6"/>
     </marker>
-    <marker id="chem-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="chem-purple" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#8b5cf6"/>
     </marker>
-    <marker id="chem-gray" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="chem-gray" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
     </marker>
   </defs>

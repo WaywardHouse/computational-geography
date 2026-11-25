@@ -161,7 +161,7 @@ $$FS = \frac{\text{Resisting Forces}}{\text{Driving Forces}} = \frac{\tau_f}{\ta
   <line x1="282" y1="182" x2="282" y2="112" stroke="#3f4c56" stroke-width="5"/>
   <polygon points="282,112 276,126 288,126" fill="#3f4c56"/>
   <text x="292" y="118" font-size="16" fill="#3f4c56">weight</text>
-  <text x="78" y="286" font-size="16" fill="#35515f">Rainfall raises pore pressure, which lowers effective stress and weakens resistance.</text>
+  <text x="78" y="286" font-size="16" fill="#35515f"><tspan x="78">Rainfall raises pore pressure, which lowers effective stress and</tspan><tspan x="78" dy="1.2em">weakens resistance.</tspan></text>
 </svg>
 ```
 </div>

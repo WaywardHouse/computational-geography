@@ -186,7 +186,7 @@ Where $k_l$ = load Love number (elastic deformation).
   <rect x="0" y="0" width="560" height="300" rx="22" fill="#eef6ff"/>
   <path d="M44 222 C138 194, 224 212, 306 190 C380 170, 430 142, 516 154" fill="none" stroke="#5b7c99" stroke-width="5"/>
   <ellipse cx="332" cy="198" rx="70" ry="30" fill="#93c5fd" fill-opacity="0.65" stroke="#2563eb" stroke-width="3"/>
-  <text x="298" y="203" font-size="16" fill="#1d4ed8" font-weight="700">extra mass</text>
+  <text x="298" y="203" font-size="16" fill="#1d4ed8" font-weight="700" paint-order="stroke" stroke="#eef6ff" stroke-width="5" stroke-linejoin="round">extra mass</text>
   <rect x="162" y="88" width="46" height="16" rx="8" fill="#334155"/>
   <rect x="286" y="74" width="46" height="16" rx="8" fill="#334155"/>
   <line x1="208" y1="96" x2="286" y2="82" stroke="#7c3aed" stroke-width="4" stroke-dasharray="6 5"/>
@@ -196,13 +196,13 @@ Where $k_l$ = load Love number (elastic deformation).
   <path d="M292 176 C298 156, 306 136, 318 116" fill="none" stroke="#ef4444" stroke-width="4" marker-end="url(#grace-red)"/>
   <path d="M172 188 C196 190, 222 188, 250 182" fill="none" stroke="#0f766e" stroke-width="4" marker-end="url(#grace-green)"/>
   <text x="336" y="116" font-size="14" fill="#991b1b">lead satellite pulled first</text>
-  <text x="120" y="206" font-size="14" fill="#0f766e">trailing satellite follows later</text>
-  <text x="118" y="252" font-size="16" fill="#475569">separation first increases, then decreases as the second satellite reaches the anomaly</text>
+  <text x="120" y="206" font-size="14" fill="#0f766e" paint-order="stroke" stroke="#eef6ff" stroke-width="5" stroke-linejoin="round">trailing satellite follows later</text>
+  <text x="118" y="252" font-size="16" fill="#475569"><tspan x="118">separation first increases, then decreases as the second</tspan><tspan x="118" dy="1.2em">satellite reaches the anomaly</tspan></text>
   <defs>
-    <marker id="grace-red" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="grace-red" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#ef4444"/>
     </marker>
-    <marker id="grace-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="grace-green" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#0f766e"/>
     </marker>
   </defs>

@@ -127,7 +127,7 @@ That means later hazards must be modelled on the updated system, not the origina
   <text x="594" y="260" font-size="17" fill="#5b4a3a">high runoff response</text>
 
   <rect x="560" y="56" width="150" height="84" rx="18" fill="#efe4fb" stroke="#b59bd7" stroke-width="3"/>
-  <text x="586" y="90" font-size="22" fill="#5d4781" font-weight="700">health + services</text>
+  <text x="559" y="90" font-size="22" fill="#5d4781" font-weight="700">health + services</text>
   <text x="582" y="116" font-size="17" fill="#5b4a3a">care strain, disruption</text>
 
   <path d="M180 162 C194 162, 205 162, 218 162" fill="none" stroke="#c35b2d" stroke-width="6" marker-end="url(#haz-arrow)"/>
@@ -137,16 +137,16 @@ That means later hazards must be modelled on the updated system, not the origina
   <path d="M522 244 C540 244, 550 244, 568 244" fill="none" stroke="#3f6a2c" stroke-width="6" marker-end="url(#haz-arrow)"/>
 
   <line x1="636" y1="140" x2="636" y2="198" stroke="#7a5ea8" stroke-width="5" stroke-dasharray="8 6" marker-end="url(#haz-arrow-purple)"/>
-  <text x="644" y="174" font-size="15" fill="#5d4781">stress compounds</text>
+  <text x="616" y="174" font-size="15" fill="#5d4781">stress compounds</text>
 
   <rect x="54" y="286" width="312" height="42" rx="12" fill="#ffffff" stroke="#d9d1c5"/>
   <text x="72" y="312" font-size="17" fill="#35515f">One event changes the baseline for the next event.</text>
 
   <defs>
-    <marker id="haz-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="haz-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#5b4a3a"/>
     </marker>
-    <marker id="haz-arrow-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="haz-arrow-purple" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#7a5ea8"/>
     </marker>
   </defs>

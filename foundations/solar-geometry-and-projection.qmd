@@ -82,15 +82,15 @@ The mathematical tool that makes this precise is the dot product — a single op
 <path d="M432 60 L302 146" stroke="#f0a800" stroke-width="5" marker-end="url(#cg-sun-arrow2)"/>
 <path d="M296 118 A38 38 0 0 0 320 146" fill="none" stroke="#3f7fb3" stroke-width="3"/>
 <defs>
-<marker id="cg-sun-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e02020"/></marker>
-<marker id="cg-sun-arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f0a800"/></marker>
+<marker id="cg-sun-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" markerWidth="14" markerHeight="14" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e02020"/></marker>
+<marker id="cg-sun-arrow2" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" markerWidth="14" markerHeight="14" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#f0a800"/></marker>
 </defs>
 <text x="212" y="92" font-size="15" fill="#e02020">surface normal n̂</text>
 <text x="408" y="58" font-size="15" fill="#f0a800">sun vector ŝ</text>
-<text x="326" y="136" font-size="15" fill="#3f7fb3">θ</text>
+<text x="326" y="136" font-size="15" fill="#3f7fb3" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">θ</text>
 <g transform="translate(324 176)">
 <rect x="0" y="0" width="160" height="84" rx="10" fill="#ffffff" stroke="#d0d0c8"/>
-<text x="16" y="24" font-size="15" fill="#5a5a56">θ = 0°  → cos θ = 1.00</text>
+<text x="16" y="24" font-size="15" fill="#5a5a56" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">θ = 0°  → cos θ = 1.00</text>
 <text x="16" y="46" font-size="15" fill="#5a5a56">θ = 45° → cos θ = 0.71</text>
 <text x="16" y="68" font-size="15" fill="#5a5a56">θ = 90° → cos θ = 0.00</text>
 </g>

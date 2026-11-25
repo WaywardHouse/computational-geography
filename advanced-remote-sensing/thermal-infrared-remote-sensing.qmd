@@ -185,8 +185,8 @@ $$T_s = \frac{300}{0.90^{0.25}} = \frac{300}{0.974} = 308 \text{ K}$$
   <ellipse cx="292" cy="128" rx="68" ry="28" fill="#dbeafe" stroke="#93c5fd"/>
   <ellipse cx="274" cy="146" rx="48" ry="18" fill="#e0f2fe" stroke="#93c5fd"/>
   <ellipse cx="316" cy="148" rx="44" ry="16" fill="#e0f2fe" stroke="#93c5fd"/>
-  <text x="254" y="126" font-size="18" fill="#1d4ed8" font-weight="700">atmosphere</text>
-  <text x="226" y="176" font-size="15" fill="#475569">absorbs, emits, and transmits</text>
+  <text x="254" y="126" font-size="18" fill="#1d4ed8" font-weight="700" paint-order="stroke" stroke="#f8fbff" stroke-width="5" stroke-linejoin="round">atmosphere</text>
+  <text x="226" y="176" font-size="15" fill="#475569" paint-order="stroke" stroke="#f8fbff" stroke-width="5" stroke-linejoin="round">absorbs, emits, and transmits</text>
 
   <rect x="412" y="72" width="46" height="18" rx="8" fill="#334155"/>
   <polygon points="458,81 490,68 490,94" fill="#64748b"/>
@@ -199,13 +199,13 @@ $$T_s = \frac{300}{0.90^{0.25}} = \frac{300}{0.974} = 308 \text{ K}$$
   <text x="366" y="286" font-size="16" fill="#166534">surface temperature</text>
   <line x1="430" y1="94" x2="420" y2="218" stroke="#64748b" stroke-width="4" marker-end="url(#tir-gray)"/>
   <line x1="420" y1="252" x2="420" y2="264" stroke="#64748b" stroke-width="4" marker-end="url(#tir-gray)"/>
-  <text x="440" y="258" font-size="14" fill="#475569">emissivity + atmosphere correction</text>
+  <text x="323" y="258" font-size="14" fill="#475569">emissivity + atmosphere correction</text>
 
   <defs>
-    <marker id="tir-red" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="tir-red" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#ef4444"/>
     </marker>
-    <marker id="tir-gray" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="tir-gray" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
     </marker>
   </defs>

@@ -85,7 +85,7 @@ over decades.
 <path d="M160 156 C210 146, 244 140, 258 136" fill="none" stroke="#e02020" stroke-width="10" stroke-linecap="round" opacity="0.8"/>
 <path d="M160 176 C236 194, 300 202, 394 204" fill="none" stroke="#e02020" stroke-width="5" stroke-linecap="round" opacity="0.55"/>
 <text x="126" y="220" text-anchor="middle" font-size="16" fill="#5a5a56">Canada province</text>
-<text x="314" y="210" text-anchor="middle" font-size="16" fill="#5a5a56">large nearby US market</text>
+<text x="314" y="210" text-anchor="middle" font-size="16" fill="#5a5a56" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">large nearby US market</text>
 <text x="432" y="260" text-anchor="middle" font-size="16" fill="#5a5a56">large farther market</text>
 <text x="214" y="118" font-size="15" fill="#5a5a56">shorter distance + big mass</text>
 <text x="258" y="228" font-size="15" fill="#5a5a56">longer distance weakens pull</text>

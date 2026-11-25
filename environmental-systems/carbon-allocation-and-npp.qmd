@@ -159,7 +159,7 @@ $$R_a = \frac{R_m + r_g \cdot \text{GPP}}{1 + r_g}$$
 
   <rect x="382" y="226" width="120" height="52" rx="16" fill="#ddd6fe" stroke="#8b5cf6" stroke-width="3"/>
   <text x="428" y="248" font-size="18" fill="#6d28d9" font-weight="700">roots</text>
-  <text x="410" y="266" font-size="14" fill="#6d28d9">water and nutrient access</text>
+  <text x="379" y="266" font-size="14" fill="#6d28d9">water and nutrient access</text>
 
   <line x1="188" y1="60" x2="192" y2="146" stroke="#64748b" stroke-width="4" marker-end="url(#carbon-arrow)"/>
   <line x1="280" y1="86" x2="280" y2="122" stroke="#64748b" stroke-width="4" marker-end="url(#carbon-arrow)"/>
@@ -168,10 +168,10 @@ $$R_a = \frac{R_m + r_g \cdot \text{GPP}}{1 + r_g}$$
   <line x1="282" y1="170" x2="442" y2="226" stroke="#64748b" stroke-width="4" marker-end="url(#carbon-arrow)"/>
 
   <text x="205" y="108" font-size="14" fill="#475569">burned to run the plant</text>
-  <text x="292" y="198" font-size="14" fill="#475569">allocation fractions</text>
+  <text x="292" y="198" font-size="14" fill="#475569" paint-order="stroke" stroke="#eff7ef" stroke-width="5" stroke-linejoin="round">allocation fractions</text>
 
   <defs>
-    <marker id="carbon-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="carbon-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
     </marker>
   </defs>

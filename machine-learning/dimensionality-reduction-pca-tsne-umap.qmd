@@ -271,7 +271,7 @@ Clustering, visualization, preprocessing for classification.
 <svg viewBox="0 0 180 110" role="img" aria-label="Curved manifold with grouped points">
   <path d="M26 82 C46 34, 88 28, 154 54" fill="none" stroke="#5f8f7a" stroke-width="6"/>
   <circle cx="42" cy="66" r="8" fill="#d6eadf"/><circle cx="68" cy="44" r="8" fill="#d6eadf"/><circle cx="94" cy="38" r="8" fill="#d6eadf"/><circle cx="122" cy="42" r="8" fill="#d6eadf"/><circle cx="146" cy="54" r="8" fill="#d6eadf"/>
-  <text x="26" y="100" font-size="12" fill="#446b5a">local groups on a broader shape</text>
+  <text x="20" y="88" font-size="12" fill="#446b5a"><tspan x="20">local groups on</tspan><tspan x="20" dy="1.2em">a broader shape</tspan></text>
 </svg>
 ```
 </div>

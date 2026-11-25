@@ -66,13 +66,13 @@ This insight turns watershed delineation from a problem requiring complex physic
 </g>
 <g font-size="24" fill="#5a5a56" text-anchor="middle">
 <text x="65" y="70">118</text><text x="139" y="70">113</text><text x="213" y="70">107</text>
-<text x="65" y="144">121</text><text x="139" y="144">116</text><text x="213" y="144">104</text>
-<text x="65" y="218">125</text><text x="139" y="218">119</text><text x="213" y="218">101</text>
+<text x="65" y="144">121</text><text x="139" y="144" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">116</text><text x="213" y="144">104</text>
+<text x="65" y="218">125</text><text x="139" y="218">119</text><text x="213" y="218" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">101</text>
 </g>
 <rect x="104" y="99" width="70" height="70" fill="rgba(224,32,32,0.08)" stroke="#e02020" stroke-width="3"/>
 <path d="M139 134 L213 208" stroke="#e02020" stroke-width="5" marker-end="url(#cg-flow-arrow)"/>
 <defs>
-<marker id="cg-flow-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e02020"/></marker>
+<marker id="cg-flow-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" markerWidth="14" markerHeight="14" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e02020"/></marker>
 </defs>
 <text x="54" y="286" font-size="16" fill="#5a5a56">centre cell = 116</text>
 <text x="214" y="286" font-size="16" fill="#5a5a56">steepest drop goes to 101</text>
@@ -100,7 +100,7 @@ This insight turns watershed delineation from a problem requiring complex physic
 <path d="M96 82 L126 106"/><path d="M134 126 L162 144"/><path d="M224 122 L252 146"/><path d="M308 184 L338 202"/><path d="M390 214 L420 234"/>
 </g>
 <defs>
-<marker id="cg-flow-arrow2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3f7fb3"/></marker>
+<marker id="cg-flow-arrow2" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" markerWidth="14" markerHeight="14" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3f7fb3"/></marker>
 </defs>
 <path d="M58 58 C138 30, 254 24, 340 56 S470 112, 498 170" fill="none" stroke="#c97d55" stroke-width="4" stroke-dasharray="8 8"/>
 <text x="354" y="48" font-size="15" fill="#5a5a56">watershed divide</text>

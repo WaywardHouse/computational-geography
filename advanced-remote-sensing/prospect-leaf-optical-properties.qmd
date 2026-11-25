@@ -120,8 +120,8 @@ This is the same geometric series logic as the non-linear mixing correction in M
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
 ```{=html}
-<svg viewBox="0 0 560 320" role="img" aria-label="Leaf optics diagram showing layered anatomy, pigment absorption, internal scattering, and reflected and transmitted light.">
-  <rect x="0" y="0" width="560" height="320" rx="22" fill="#f4f8ef"/>
+<svg viewBox="0 0 640 320" role="img" aria-label="Leaf optics diagram showing layered anatomy, pigment absorption, internal scattering, and reflected and transmitted light.">
+  <rect x="0" y="0" width="640" height="320" rx="22" fill="#f4f8ef"/>
   <rect x="96" y="68" width="308" height="180" rx="20" fill="#d9f99d" stroke="#65a30d" stroke-width="3"/>
   <rect x="96" y="68" width="308" height="20" rx="10" fill="#fef3c7"/>
   <rect x="96" y="228" width="308" height="20" rx="10" fill="#fef3c7"/>
@@ -136,10 +136,10 @@ This is the same geometric series logic as the non-linear mixing correction in M
   <circle cx="222" cy="186" r="12" fill="#ecfccb" stroke="#84cc16"/>
   <circle cx="286" cy="172" r="11" fill="#ecfccb" stroke="#84cc16"/>
   <circle cx="346" cy="188" r="10" fill="#ecfccb" stroke="#84cc16"/>
-  <text x="420" y="84" font-size="15" fill="#92400e">upper epidermis</text>
-  <text x="420" y="122" font-size="15" fill="#166534">palisade mesophyll</text>
-  <text x="420" y="178" font-size="15" fill="#166534">spongy mesophyll</text>
-  <text x="420" y="244" font-size="15" fill="#92400e">lower epidermis</text>
+  <text x="180" y="82" font-size="14" fill="#92400e">upper epidermis</text>
+  <text x="456" y="144" font-size="15" fill="#166534" paint-order="stroke" stroke="#f4f8ef" stroke-width="5" stroke-linejoin="round">palisade mesophyll</text>
+  <text x="456" y="182" font-size="15" fill="#166534">spongy mesophyll</text>
+  <text x="180" y="243" font-size="14" fill="#92400e" paint-order="stroke" stroke="#f4f8ef" stroke-width="5" stroke-linejoin="round">lower epidermis</text>
 
   <line x1="36" y1="106" x2="94" y2="106" stroke="#ef4444" stroke-width="5" marker-end="url(#prospect-red)"/>
   <line x1="36" y1="132" x2="94" y2="132" stroke="#3b82f6" stroke-width="5" marker-end="url(#prospect-blue)"/>
@@ -152,16 +152,16 @@ This is the same geometric series logic as the non-linear mixing correction in M
 
   <path d="M150 160 C178 150, 204 148, 228 166 C248 182, 270 182, 294 168 C316 154, 338 152, 364 168" fill="none" stroke="#7c3aed" stroke-width="4" stroke-dasharray="6 5"/>
   <path d="M146 190 C174 178, 198 176, 224 190 C248 204, 274 206, 300 192 C326 178, 348 180, 368 194" fill="none" stroke="#7c3aed" stroke-width="4" stroke-dasharray="6 5"/>
-  <line x1="404" y1="142" x2="486" y2="102" stroke="#7c3aed" stroke-width="5" marker-end="url(#prospect-purple)"/>
-  <line x1="404" y1="208" x2="486" y2="242" stroke="#22c55e" stroke-width="5" marker-end="url(#prospect-green)"/>
-  <text x="444" y="92" font-size="14" fill="#6d28d9">high NIR reflectance</text>
-  <text x="436" y="262" font-size="14" fill="#15803d">some transmission</text>
+  <line x1="404" y1="142" x2="440" y2="114" stroke="#7c3aed" stroke-width="5" marker-end="url(#prospect-purple)"/>
+  <line x1="404" y1="208" x2="440" y2="228" stroke="#22c55e" stroke-width="5" marker-end="url(#prospect-green)"/>
+  <text x="448" y="112" font-size="14" fill="#6d28d9">high NIR reflectance</text>
+  <text x="448" y="238" font-size="14" fill="#15803d">some transmission</text>
 
   <defs>
-    <marker id="prospect-red" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ef4444"/></marker>
-    <marker id="prospect-blue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#3b82f6"/></marker>
-    <marker id="prospect-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#22c55e"/></marker>
-    <marker id="prospect-purple" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c3aed"/></marker>
+    <marker id="prospect-red" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ef4444"/></marker>
+    <marker id="prospect-blue" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#3b82f6"/></marker>
+    <marker id="prospect-green" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#22c55e"/></marker>
+    <marker id="prospect-purple" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7c3aed"/></marker>
   </defs>
 </svg>
 ```

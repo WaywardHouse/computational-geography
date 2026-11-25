@@ -159,16 +159,16 @@ $$\theta_{\text{start}} = 30-45°$$
   <text x="220" y="92" font-size="18" fill="#6b5200" font-weight="700">start zone</text>
   <path d="M263 126 C300 137, 344 155, 396 194" fill="none" stroke="#a63d40" stroke-width="5" stroke-dasharray="8 7"/>
   <polygon points="396,194 382,183 379,201" fill="#a63d40"/>
-  <text x="326" y="174" font-size="17" fill="#8c2f31" font-weight="700">track</text>
+  <text x="326" y="174" font-size="17" fill="#8c2f31" font-weight="700" paint-order="stroke" stroke="#eef3f8" stroke-width="5" stroke-linejoin="round">track</text>
   <ellipse cx="454" cy="229" rx="64" ry="26" fill="#a8d5ba" stroke="#3d7b59" stroke-width="3"/>
-  <text x="418" y="234" font-size="18" fill="#234c37" font-weight="700">runout</text>
+  <text x="322" y="236" font-size="18" fill="#234c37" font-weight="700" paint-order="stroke" stroke="#eef3f8" stroke-width="5" stroke-linejoin="round">runout</text>
   <path d="M430 226 L456 205 L493 214 L482 250 L438 250 Z" fill="#d98f70" fill-opacity="0.75" stroke="#9a5439" stroke-width="3"/>
-  <text x="412" y="193" font-size="17" fill="#7b3e29" font-weight="700">terrain trap</text>
+  <text x="412" y="193" font-size="17" fill="#7b3e29" font-weight="700" paint-order="stroke" stroke="#eef3f8" stroke-width="5" stroke-linejoin="round">terrain trap</text>
   <path d="M110 196 C152 181, 182 160, 206 133" fill="none" stroke="#1d5f7a" stroke-width="6" stroke-dasharray="10 8"/>
   <polygon points="206,133 191,134 199,148" fill="#1d5f7a"/>
-  <text x="72" y="182" font-size="17" fill="#1d5f7a" font-weight="700">safer route</text>
+  <text x="72" y="182" font-size="17" fill="#1d5f7a" font-weight="700" paint-order="stroke" stroke="#eef3f8" stroke-width="5" stroke-linejoin="round">safer route</text>
   <text x="74" y="270" font-size="16" fill="#35515f">Yellow = likely release terrain</text>
-  <text x="270" y="270" font-size="16" fill="#35515f">Green = where debris spreads and slows</text>
+  <text x="74" y="290" font-size="16" fill="#35515f">Green = where debris spreads and slows</text>
 </svg>
 ```
 </div>

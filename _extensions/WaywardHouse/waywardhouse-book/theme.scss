@@ -1439,3 +1439,27 @@ figure.cg-ill figcaption {
   height:     18px;
   flex-shrink: 0;
 }
+
+/* ── Click-to-zoom lightbox for inline SVG figures ───────────────────────── */
+svg.wh-zoomable { cursor: zoom-in; }
+svg.wh-zoomable:focus-visible { outline: 2px solid var(--wh-red); outline-offset: 3px; }
+body.wh-zoom-open { overflow: hidden; }
+.wh-zoom {
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10, 10, 10, 0.82); padding: 2rem; cursor: zoom-out;
+}
+.wh-zoom[hidden] { display: none; }
+.wh-zoom__body {
+  background: #fff; padding: 1rem; border-radius: 6px;
+  width: min(96vw, 1400px); max-height: 94vh; overflow: auto; cursor: default;
+}
+.wh-zoom__body svg { display: block; width: 100%; height: auto; max-height: 82vh; }
+.wh-zoom__body p {
+  font-family: var(--wh-ff-body); font-size: 0.9rem; color: var(--wh-mid);
+  margin: 0.75rem 0 0;
+}
+.wh-zoom__close {
+  position: absolute; top: 1rem; right: 1.25rem; background: none; border: 0;
+  color: #fff; font-size: 2.2rem; line-height: 1; cursor: pointer;
+}

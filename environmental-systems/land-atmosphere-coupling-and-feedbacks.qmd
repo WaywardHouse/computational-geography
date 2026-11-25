@@ -121,12 +121,12 @@ That is a **damping pathway** rather than a runaway one.
 <svg viewBox="0 0 760 360" role="img" aria-label="Feedback diagram connecting soil moisture, evapotranspiration, sensible heat, vapor pressure deficit, and vegetation stress in a reinforcing land-atmosphere loop.">
   <rect x="0" y="0" width="760" height="360" rx="24" fill="#f7f5ef"/>
   <rect x="58" y="122" width="178" height="96" rx="18" fill="#dceef7" stroke="#7fb2cf" stroke-width="3"/>
-  <text x="98" y="154" font-size="23" fill="#114a66" font-weight="700">soil moisture</text>
-  <text x="106" y="182" font-size="18" fill="#35515f">plant-available water</text>
+  <text x="98" y="154" font-size="23" fill="#114a66" font-weight="700" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">soil moisture</text>
+  <text x="106" y="182" font-size="18" fill="#35515f" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">plant-available water</text>
 
   <rect x="292" y="58" width="182" height="98" rx="18" fill="#def3e6" stroke="#8fb996" stroke-width="3"/>
   <text x="318" y="92" font-size="22" fill="#24543a" font-weight="700">latent heat / ET</text>
-  <text x="318" y="120" font-size="18" fill="#35515f">evaporative cooling</text>
+  <text x="318" y="120" font-size="18" fill="#35515f" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">evaporative cooling</text>
 
   <rect x="528" y="120" width="170" height="98" rx="18" fill="#fde5d8" stroke="#d9a084" stroke-width="3"/>
   <text x="548" y="154" font-size="22" fill="#8c2f31" font-weight="700">hotter, drier air</text>
@@ -137,16 +137,16 @@ That is a **damping pathway** rather than a runaway one.
   <text x="322" y="282" font-size="18" fill="#35515f">reduced conductance</text>
 
   <path d="M236 150 C258 132, 270 120, 292 108" fill="none" stroke="#2a9d8f" stroke-width="6" marker-end="url(#cg-arrow-green)"/>
-  <text x="230" y="108" font-size="16" fill="#1f6f66">more water</text>
+  <text x="230" y="108" font-size="16" fill="#1f6f66" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">more water</text>
 
   <path d="M474 110 C500 118, 512 126, 528 144" fill="none" stroke="#2a9d8f" stroke-width="6" marker-end="url(#cg-arrow-green)"/>
   <text x="468" y="88" font-size="16" fill="#1f6f66">cools and moistens air</text>
 
   <path d="M612 218 C594 248, 566 264, 476 268" fill="none" stroke="#a63d40" stroke-width="6" marker-end="url(#cg-arrow-red)"/>
-  <text x="548" y="246" font-size="16" fill="#8c2f31">higher demand and stress</text>
+  <text x="548" y="246" font-size="16" fill="#8c2f31" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">higher demand and stress</text>
 
   <path d="M330 220 C302 198, 280 184, 220 180" fill="none" stroke="#a63d40" stroke-width="6" marker-end="url(#cg-arrow-red)"/>
-  <text x="208" y="212" font-size="16" fill="#8c2f31">less transpiration</text>
+  <text x="208" y="212" font-size="16" fill="#8c2f31" paint-order="stroke" stroke="#f7f5ef" stroke-width="5" stroke-linejoin="round">less transpiration</text>
 
   <path d="M528 170 C488 178, 472 184, 430 194" fill="none" stroke="#d89b00" stroke-width="6" marker-end="url(#cg-arrow-gold)"/>
   <text x="474" y="208" font-size="16" fill="#9b6d00">more sensible heat</text>
@@ -160,13 +160,13 @@ That is a **damping pathway** rather than a runaway one.
   <text x="82" y="304" font-size="17" fill="#35515f">drying can trigger reinforcement</text>
 
   <defs>
-    <marker id="cg-arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="cg-arrow-green" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#2a9d8f"/>
     </marker>
-    <marker id="cg-arrow-red" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="cg-arrow-red" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#a63d40"/>
     </marker>
-    <marker id="cg-arrow-gold" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="cg-arrow-gold" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#d89b00"/>
     </marker>
   </defs>

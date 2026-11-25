@@ -164,9 +164,9 @@ distances are greater than for Pacific Gateway routing to the same Prairie origi
   <text x="54" y="118" font-size="17" fill="#1d5f7a" font-weight="700">Pacific</text>
   <text x="308" y="198" font-size="17" fill="#8c2f31" font-weight="700">Windsor-Detroit</text>
   <text x="430" y="108" font-size="17" fill="#5d4781" font-weight="700">Atlantic</text>
-  <text x="68" y="246" font-size="16" fill="#35515f">Pacific: Asia-facing maritime gateway with mountain-pass constraints.</text>
-  <text x="68" y="268" font-size="16" fill="#35515f">Windsor-Detroit: dense manufacturing corridor tied to just-in-time trade.</text>
-  <text x="68" y="290" font-size="16" fill="#35515f">Atlantic: Europe-facing alternative with different inland distance tradeoffs.</text>
+  <text x="45" y="246" font-size="16" fill="#35515f">Pacific: Asia-facing maritime gateway with mountain-pass constraints.</text>
+  <text x="35" y="268" font-size="16" fill="#35515f">Windsor-Detroit: dense manufacturing corridor tied to just-in-time trade.</text>
+  <text x="23" y="290" font-size="16" fill="#35515f">Atlantic: Europe-facing alternative with different inland distance tradeoffs.</text>
 </svg>
 ```
 </div>

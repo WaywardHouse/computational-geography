@@ -161,8 +161,8 @@ Jun: Snowpack depleted (lower elevations)
   <text x="330" y="274" font-size="16" fill="#35515f">spring</text>
   <text x="446" y="274" font-size="16" fill="#35515f">summer</text>
   <text x="24" y="72" font-size="16" fill="#35515f" transform="rotate(-90 24 72)">SWE</text>
-  <text x="118" y="136" font-size="16" fill="#557b58">accumulation</text>
-  <text x="370" y="164" font-size="16" fill="#8f5632">melt and runoff</text>
+  <text x="118" y="136" font-size="16" fill="#557b58" paint-order="stroke" stroke="#f4f8fb" stroke-width="5" stroke-linejoin="round">accumulation</text>
+  <text x="370" y="164" font-size="16" fill="#8f5632" paint-order="stroke" stroke="#f4f8fb" stroke-width="5" stroke-linejoin="round">melt and runoff</text>
 </svg>
 ```
 </div>

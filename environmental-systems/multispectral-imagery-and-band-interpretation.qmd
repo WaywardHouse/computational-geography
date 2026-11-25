@@ -150,10 +150,10 @@ The image is called "false colour" not because it is fake, but because the displ
   <path d="M218 164 C306 164, 412 106, 542 108" fill="none" stroke="#7c3aed" stroke-width="4" marker-end="url(#fc-arrow)"/>
   <path d="M218 108 C306 108, 412 134, 542 136" fill="none" stroke="#dc2626" stroke-width="4" marker-end="url(#fc-arrow)"/>
   <path d="M218 136 C306 136, 412 162, 542 164" fill="none" stroke="#16a34a" stroke-width="4" marker-end="url(#fc-arrow)"/>
-  <text x="304" y="88" font-size="15" fill="#475569">healthy vegetation looks red because NIR is sent to the red screen channel</text>
+  <text x="120" y="212" font-size="15" fill="#475569">healthy vegetation looks red because NIR is sent to the red screen channel</text>
 
   <defs>
-    <marker id="fc-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="fc-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
     </marker>
   </defs>

@@ -156,7 +156,7 @@ SAIL parameterises the hotspot with a single parameter $s = s_l / h$ — the rat
   <text x="302" y="156" font-size="14" fill="#6d28d9">multiple scattering</text>
   <text x="262" y="206" font-size="14" fill="#0f766e">soil contribution</text>
   <path d="M438 92 C404 96, 378 106, 358 120" fill="none" stroke="#ef4444" stroke-width="4"/>
-  <text x="404" y="118" font-size="14" fill="#991b1b">hotspot when view aligns with sun</text>
+  <text x="328" y="118" font-size="14" fill="#991b1b" paint-order="stroke" stroke="#eef7fb" stroke-width="5" stroke-linejoin="round">hotspot when view aligns with sun</text>
 </svg>
 ```
 </div>

@@ -133,6 +133,41 @@
     finally{answer.classList.remove('is-loading');submit.disabled=false;submit.textContent='→';}
   }
   form.addEventListener('submit',function(e){e.preventDefault();ask(input.value);});
+  /* ── 6. Click-to-zoom lightbox for inline SVG figures ───────────────── */
+  var zoomSvgs = document.querySelectorAll('.cg-ill__frame svg[role="img"], figure.cg-ill svg[role="img"]');
+  if (zoomSvgs.length) {
+    var ov = document.createElement('div');
+    ov.className = 'wh-zoom'; ov.hidden = true;
+    ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+    ov.innerHTML = '<button type="button" class="wh-zoom__close" aria-label="Close enlarged figure">&times;</button><div class="wh-zoom__body"></div>';
+    document.body.appendChild(ov);
+    var zBody = ov.querySelector('.wh-zoom__body'), zClose = ov.querySelector('.wh-zoom__close'), zFrom = null;
+    var closeZoom = function () {
+      ov.hidden = true; zBody.innerHTML = ''; document.body.classList.remove('wh-zoom-open');
+      if (zFrom) { zFrom.focus(); zFrom = null; }
+    };
+    var openZoom = function (svg) {
+      zFrom = svg; zBody.innerHTML = '';
+      var c = svg.cloneNode(true);
+      c.removeAttribute('tabindex'); c.removeAttribute('width'); c.removeAttribute('height');
+      zBody.appendChild(c);
+      var cap = svg.getAttribute('aria-label');
+      if (cap) { var p = document.createElement('p'); p.textContent = cap; zBody.appendChild(p); }
+      ov.hidden = false; document.body.classList.add('wh-zoom-open'); zClose.focus();
+    };
+    zoomSvgs.forEach(function (svg) {
+      svg.classList.add('wh-zoomable');
+      svg.setAttribute('tabindex', '0');
+      svg.setAttribute('title', 'Click to enlarge');
+      svg.addEventListener('click', function () { openZoom(svg); });
+      svg.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openZoom(svg); }
+      });
+    });
+    ov.addEventListener('click', function (e) { if (e.target !== zBody.querySelector('svg')) closeZoom(); });
+    document.addEventListener('keydown', function (e) { if (!ov.hidden && e.key === 'Escape') closeZoom(); });
+  }
+
 })();
 </script>
 
@@ -248,6 +283,41 @@
   /* ── 5. Suppress Quarto's native page-footer ────────────────────────── */
   var qtFtr = document.querySelector('footer.page-footer');
   if (qtFtr) qtFtr.style.display = 'none';
+
+  /* ── 6. Click-to-zoom lightbox for inline SVG figures ───────────────── */
+  var zoomSvgs = document.querySelectorAll('.cg-ill__frame svg[role="img"], figure.cg-ill svg[role="img"]');
+  if (zoomSvgs.length) {
+    var ov = document.createElement('div');
+    ov.className = 'wh-zoom'; ov.hidden = true;
+    ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-modal', 'true');
+    ov.innerHTML = '<button type="button" class="wh-zoom__close" aria-label="Close enlarged figure">&times;</button><div class="wh-zoom__body"></div>';
+    document.body.appendChild(ov);
+    var zBody = ov.querySelector('.wh-zoom__body'), zClose = ov.querySelector('.wh-zoom__close'), zFrom = null;
+    var closeZoom = function () {
+      ov.hidden = true; zBody.innerHTML = ''; document.body.classList.remove('wh-zoom-open');
+      if (zFrom) { zFrom.focus(); zFrom = null; }
+    };
+    var openZoom = function (svg) {
+      zFrom = svg; zBody.innerHTML = '';
+      var c = svg.cloneNode(true);
+      c.removeAttribute('tabindex'); c.removeAttribute('width'); c.removeAttribute('height');
+      zBody.appendChild(c);
+      var cap = svg.getAttribute('aria-label');
+      if (cap) { var p = document.createElement('p'); p.textContent = cap; zBody.appendChild(p); }
+      ov.hidden = false; document.body.classList.add('wh-zoom-open'); zClose.focus();
+    };
+    zoomSvgs.forEach(function (svg) {
+      svg.classList.add('wh-zoomable');
+      svg.setAttribute('tabindex', '0');
+      svg.setAttribute('title', 'Click to enlarge');
+      svg.addEventListener('click', function () { openZoom(svg); });
+      svg.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openZoom(svg); }
+      });
+    });
+    ov.addEventListener('click', function (e) { if (e.target !== zBody.querySelector('svg')) closeZoom(); });
+    document.addEventListener('keydown', function (e) { if (!ov.hidden && e.key === 'Escape') closeZoom(); });
+  }
 
 })();
 </script>

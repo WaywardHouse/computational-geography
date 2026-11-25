@@ -193,8 +193,8 @@ Where:
 
   <path d="M120 260 C135 245, 155 225, 180 205 S235 165, 300 145 S405 115, 505 102 S620 92, 690 88"
         fill="none" stroke="#d9485f" stroke-width="6" stroke-linecap="round"/>
-  <text x="500" y="72" font-size="18" fill="#b4233b">mean wind speed increases with height</text>
-  <text x="486" y="95" font-size="16" fill="#b4233b">logarithmic profile in the surface layer</text>
+  <text x="140" y="70" font-size="18" fill="#b4233b">mean wind speed increases with height</text>
+  <text x="140" y="94" font-size="16" fill="#b4233b" paint-order="stroke" stroke="#f6fbff" stroke-width="5" stroke-linejoin="round">logarithmic profile in the surface layer</text>
 
   <path d="M320 250 C340 228, 345 212, 362 190 C378 168, 382 150, 400 128" fill="none" stroke="#0ea5a6" stroke-width="3"/>
   <path d="M390 240 C408 219, 418 201, 432 178 C446 156, 456 138, 470 120" fill="none" stroke="#0ea5a6" stroke-width="3"/>
@@ -202,16 +202,16 @@ Where:
   <path d="M360 118 q18 -12 36 0 q-18 12 -36 0z" fill="#7dd3cf"/>
   <path d="M430 172 q20 -14 40 0 q-20 14 -40 0z" fill="#7dd3cf"/>
   <path d="M507 126 q20 -14 40 0 q-20 14 -40 0z" fill="#7dd3cf"/>
-  <text x="338" y="110" font-size="18" fill="#0f766e">turbulent eddies move momentum downward</text>
+  <text x="330" y="44" font-size="18" fill="#0f766e" paint-order="stroke" stroke="#f6fbff" stroke-width="5" stroke-linejoin="round">turbulent eddies move momentum downward</text>
 
   <line x1="610" y1="130" x2="690" y2="130" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
   <line x1="610" y1="205" x2="690" y2="205" stroke="#64748b" stroke-width="2" stroke-dasharray="6 5"/>
-  <text x="698" y="135" font-size="16" fill="#334155">unstable day</text>
-  <text x="698" y="210" font-size="16" fill="#334155">stable night</text>
+  <text x="612" y="123" font-size="16" fill="#334155">unstable day</text>
+  <text x="612" y="230" font-size="16" fill="#334155">stable night</text>
   <path d="M612 136 C640 156, 645 176, 680 198" fill="none" stroke="#0ea5a6" stroke-width="3"/>
   <path d="M612 212 C636 210, 650 208, 680 206" fill="none" stroke="#f59e0b" stroke-width="3"/>
-  <text x="545" y="156" font-size="15" fill="#0f766e">deep mixing</text>
-  <text x="545" y="228" font-size="15" fill="#b45309">suppressed mixing</text>
+  <text x="545" y="156" font-size="15" fill="#0f766e" paint-order="stroke" stroke="#f6fbff" stroke-width="5" stroke-linejoin="round">deep mixing</text>
+  <text x="500" y="250" font-size="15" fill="#b45309">suppressed mixing</text>
 </svg>
 ```
 

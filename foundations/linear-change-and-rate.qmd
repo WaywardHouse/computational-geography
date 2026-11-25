@@ -107,10 +107,10 @@ Where:
   <circle cx="292" cy="180" r="6" fill="#1d4ed8"/>
   <line x1="172" y1="212" x2="292" y2="212" stroke="#f59e0b" stroke-width="3"/>
   <line x1="292" y1="212" x2="292" y2="180" stroke="#ef4444" stroke-width="3"/>
-  <text x="204" y="205" font-size="16" fill="#b45309">run = Δx</text>
+  <text x="204" y="205" font-size="16" fill="#b45309" paint-order="stroke" stroke="#fbfcff" stroke-width="5" stroke-linejoin="round">run = Δx</text>
   <text x="302" y="198" font-size="16" fill="#b91c1c">rise = Δy</text>
   <text x="184" y="146" font-size="18" fill="#1d4ed8">slope = rise / run</text>
-  <text x="146" y="168" font-size="16" fill="#475569">how much y changes for each unit of x</text>
+  <text x="146" y="168" font-size="16" fill="#475569" paint-order="stroke" stroke="#fbfcff" stroke-width="5" stroke-linejoin="round">how much y changes for each unit of x</text>
 
   <rect x="494" y="72" width="210" height="168" rx="18" fill="#fff8ef" stroke="#f1ddbc"/>
   <text x="538" y="102" font-size="20" fill="#92400e">units matter</text>

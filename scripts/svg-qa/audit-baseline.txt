@@ -1,0 +1,237 @@
+advanced-remote-sensing__bathymetric-lidar-sonar__1  CLIP=1 T/T=0 T/L=2
+    CLIP "bottom position depends on speed" right=277px past edge
+    TEXT/LINE "water surface" crossed by 1 stroke(s)
+    TEXT/LINE "multibeam swath" crossed by 1 stroke(s)
+advanced-remote-sensing__gravity-remote-sensing__1  CLIP=1 T/T=0 T/L=2
+    CLIP "separation first increases, then" right=171px past edge
+    TEXT/LINE "extra mass" crossed by 1 stroke(s)
+    TEXT/LINE "trailing satellite follows later" crossed by 1 stroke(s)
+advanced-remote-sensing__hyperspectral-imaging__1  CLIP=2 T/T=0 T/L=0
+    CLIP "one pixel spectrum" right=21px past edge
+    CLIP "selected pixel -> reflectance cu" right=110px past edge
+advanced-remote-sensing__lidar-point-clouds__1  CLIP=0 T/T=0 T/L=0
+advanced-remote-sensing__prospect-leaf-optical-properties__1  CLIP=1 T/T=1 T/L=2
+    CLIP "high NIR reflectance" right=13px past edge
+    TEXT/TEXT "upper epidermis" x "high NIR reflectance"
+    TEXT/LINE "palisade mesophyll" crossed by 1 stroke(s)
+    TEXT/LINE "lower epidermis" crossed by 1 stroke(s)
+advanced-remote-sensing__sail-canopy-reflectance__1  CLIP=1 T/T=0 T/L=0
+    CLIP "hotspot when view aligns with su" right=57px past edge
+advanced-remote-sensing__sar-fundamentals__1  CLIP=0 T/T=1 T/L=5
+    TEXT/TEXT "platform motion" x "physical antenna"
+    TEXT/LINE "platform motion" crossed by 1 stroke(s)
+    TEXT/LINE "pulse 2" crossed by 1 stroke(s)
+    TEXT/LINE "pulse 3" crossed by 1 stroke(s)
+    TEXT/LINE "pulse 4" crossed by 1 stroke(s)
+    TEXT/LINE "synthetic aperture length" crossed by 2 stroke(s)
+advanced-remote-sensing__thermal-infrared-remote-sensing__1  CLIP=1 T/T=0 T/L=2
+    CLIP "emissivity + atmosphere correcti" right=98px past edge
+    TEXT/LINE "atmosphere" crossed by 1 stroke(s)
+    TEXT/LINE "absorbs, emits, and transmits" crossed by 1 stroke(s)
+atmospheric-hazards__boundary-layer-turbulence__1  CLIP=3 T/T=1 T/L=3
+    CLIP "mean wind speed increases with h" right=56px past edge
+    CLIP "unstable day" right=31px past edge
+    CLIP "stable night" right=22px past edge
+    TEXT/TEXT "logarithmic profile in the surfa" x "turbulent eddies move momentum d"
+    TEXT/LINE "logarithmic profile in the surfa" crossed by 1 stroke(s)
+    TEXT/LINE "turbulent eddies move momentum d" crossed by 1 stroke(s)
+    TEXT/LINE "deep mixing" crossed by 1 stroke(s)
+atmospheric-hazards__compound-hazards-and-cascading-risk__1  CLIP=2 T/T=0 T/L=0
+    CLIP "health + services" right=6px past edge
+    CLIP "stress compounds" right=8px past edge
+atmospheric-hazards__fire-emissions-smoke__1  CLIP=1 T/T=0 T/L=2
+    CLIP "ground-level smoke" right=40px past edge
+    TEXT/LINE "plume rise" crossed by 2 stroke(s)
+    TEXT/LINE "wind transport" crossed by 2 stroke(s)
+atmospheric-hazards__fire-weather-ignition__1  CLIP=2 T/T=0 T/L=3
+    CLIP "ignition + spread" right=15px past edge
+    CLIP "fire danger and control difficul" right=60px past edge
+    TEXT/LINE "temperature" crossed by 1 stroke(s)
+    TEXT/LINE "how flammable the fuels are" crossed by 1 stroke(s)
+    TEXT/LINE "low humidity lowers equilibrium " crossed by 1 stroke(s)
+atmospheric-hazards__hail-formation-forecasting__1  CLIP=1 T/T=0 T/L=4
+    CLIP "If the updraft stays stronger th" right=166px past edge
+    TEXT/LINE "strong updraft" crossed by 1 stroke(s)
+    TEXT/LINE "supercooled liquid water zone" crossed by 1 stroke(s)
+    TEXT/LINE "more accretion" crossed by 1 stroke(s)
+    TEXT/LINE "layered hailstone" crossed by 1 stroke(s)
+atmospheric-hazards__thunderstorm-dynamics__1  CLIP=1 T/T=2 T/L=2
+    CLIP "No shear: updraft falls back int" right=91px past edge
+    TEXT/TEXT "tilted updraft" x "winds strengthen and turn with h"
+    TEXT/TEXT "rotation" x "winds strengthen and turn with h"
+    TEXT/LINE "tilted updraft" crossed by 3 stroke(s)
+    TEXT/LINE "CAPE feeds vertical acceleration" crossed by 3 stroke(s)
+atmospheric-hazards__tornado-formation-intensity__1  CLIP=2 T/T=0 T/L=1
+    CLIP "stretched, tighter core" right=62px past edge
+    CLIP "Stronger stretching means faster" right=15px past edge
+    TEXT/LINE "updraft tilts rotation upright" crossed by 3 stroke(s)
+cryosphere-and-mountain-systems__avalanche-terrain-analysis__1  CLIP=1 T/T=0 T/L=4
+    CLIP "Green = where debris spreads and" right=3px past edge
+    TEXT/LINE "track" crossed by 1 stroke(s)
+    TEXT/LINE "runout" crossed by 2 stroke(s)
+    TEXT/LINE "terrain trap" crossed by 2 stroke(s)
+    TEXT/LINE "safer route" crossed by 1 stroke(s)
+cryosphere-and-mountain-systems__debris-flow-modeling__1  CLIP=0 T/T=0 T/L=5
+    TEXT/LINE "1" crossed by 2 stroke(s)
+    TEXT/LINE "2" crossed by 1 stroke(s)
+    TEXT/LINE "4" crossed by 3 stroke(s)
+    TEXT/LINE "5" crossed by 1 stroke(s)
+    TEXT/LINE "6" crossed by 2 stroke(s)
+cryosphere-and-mountain-systems__glacial-lake-outburst-floods__1  CLIP=1 T/T=0 T/L=4
+    CLIP "trigger → overtopping or piping " right=162px past edge
+    TEXT/LINE "moraine dam" crossed by 1 stroke(s)
+    TEXT/LINE "breach enlargement" crossed by 1 stroke(s)
+    TEXT/LINE "flood wave downstream" crossed by 1 stroke(s)
+    TEXT/LINE "years to decades of lake growth" crossed by 2 stroke(s)
+cryosphere-and-mountain-systems__glacial-meltwater-chemistry__1  CLIP=1 T/T=1 T/L=2
+    CLIP "subglacial: long contact, high s" right=10px past edge
+    TEXT/TEXT "outlet stream" x "carbonate dissolution, silicate "
+    TEXT/LINE "englacial: moderate residence" crossed by 1 stroke(s)
+    TEXT/LINE "subglacial: long contact, high s" crossed by 1 stroke(s)
+cryosphere-and-mountain-systems__glacier-mass-balance__1  CLIP=0 T/T=0 T/L=0
+cryosphere-and-mountain-systems__permafrost-thaw-geohazards__1  CLIP=1 T/T=1 T/L=0
+    CLIP "deeper thaw in warmer climate" right=24px past edge
+    TEXT/TEXT "old thaw depth" x "after thaw settlement"
+cryosphere-and-mountain-systems__slope-stability-analysis__1  CLIP=1 T/T=0 T/L=0
+    CLIP "Rainfall raises pore pressure, w" right=115px past edge
+cryosphere-and-mountain-systems__snow-accumulation-melt-modeling__1  CLIP=0 T/T=0 T/L=2
+    TEXT/LINE "accumulation" crossed by 1 stroke(s)
+    TEXT/LINE "melt and runoff" crossed by 1 stroke(s)
+economic-systems__canada-trade-corridors__1  CLIP=3 T/T=0 T/L=0
+    CLIP "Pacific: Asia-facing maritime ga" right=3px past edge
+    CLIP "Windsor-Detroit: dense manufactu" right=14px past edge
+    CLIP "Atlantic: Europe-facing alternat" right=26px past edge
+economic-systems__canada-trade-gravity-model__1  CLIP=0 T/T=0 T/L=1
+    TEXT/LINE "large nearby US market" crossed by 1 stroke(s)
+economic-systems__markets-spatial-arbitrage__1  CLIP=0 T/T=0 T/L=1
+    TEXT/LINE "expensive market" crossed by 1 stroke(s)
+environmental-systems__carbon-allocation-and-npp__1  CLIP=1 T/T=0 T/L=1
+    CLIP "water and nutrient access" right=11px past edge
+    TEXT/LINE "allocation fractions" crossed by 1 stroke(s)
+environmental-systems__decomposition-and-soil-carbon__1  CLIP=1 T/T=2 T/L=0
+    CLIP "temperature and moisture speed u" right=62px past edge
+    TEXT/TEXT "active SOM" x "fraction transferred"
+    TEXT/TEXT "slow SOM" x "smaller fraction transferred"
+environmental-systems__land-atmosphere-coupling-and-feedbacks__1  CLIP=0 T/T=0 T/L=6
+    TEXT/LINE "soil moisture" crossed by 1 stroke(s)
+    TEXT/LINE "plant-available water" crossed by 1 stroke(s)
+    TEXT/LINE "evaporative cooling" crossed by 1 stroke(s)
+    TEXT/LINE "more water" crossed by 1 stroke(s)
+    TEXT/LINE "higher demand and stress" crossed by 1 stroke(s)
+    TEXT/LINE "less transpiration" crossed by 1 stroke(s)
+environmental-systems__multispectral-imagery-and-band-interpretation__1  CLIP=1 T/T=1 T/L=0
+    CLIP "healthy vegetation looks red bec" right=45px past edge
+    TEXT/TEXT "display RGB" x "healthy vegetation looks red bec"
+environmental-systems__net-radiation-and-albedo__1  CLIP=1 T/T=1 T/L=3
+    CLIP "Albedo mainly changes reflection" right=23px past edge
+    TEXT/TEXT "incoming shortwave" x "reflected shortwave"
+    TEXT/LINE "incoming shortwave" crossed by 2 stroke(s)
+    TEXT/LINE "reflected shortwave" crossed by 1 stroke(s)
+    TEXT/LINE "incoming longwave" crossed by 1 stroke(s)
+environmental-systems__nitrogen-cycling__1  CLIP=0 T/T=1 T/L=1
+    TEXT/TEXT "NO₃⁻" x "nitrification"
+    TEXT/LINE "plant uptake" crossed by 1 stroke(s)
+environmental-systems__photosynthesis-light-response__1  CLIP=1 T/T=0 T/L=3
+    CLIP "photosynthesis rate" right=-528px past edge
+    TEXT/LINE "compensation point" crossed by 2 stroke(s)
+    TEXT/LINE "initial slope = quantum efficien" crossed by 1 stroke(s)
+    TEXT/LINE "transition" crossed by 1 stroke(s)
+environmental-systems__sensible-and-latent-heat-fluxes__1  CLIP=0 T/T=0 T/L=2
+    TEXT/LINE "same incoming energy" crossed by 1 stroke(s)
+    TEXT/LINE "smaller latent heat" crossed by 1 stroke(s)
+environmental-systems__soil-heat-diffusion__1  CLIP=2 T/T=0 T/L=3
+    CLIP "much smaller" right=4px past edge
+    CLIP "depth increases downward as the " right=37px past edge
+    TEXT/LINE "surface" crossed by 1 stroke(s)
+    TEXT/LINE "0.5 m" crossed by 2 stroke(s)
+    TEXT/LINE "1.5 m" crossed by 3 stroke(s)
+environmental-systems__soil-moisture-dynamics__1  CLIP=0 T/T=2 T/L=1
+    TEXT/TEXT "drainage" x "Storage rises with rain and fall"
+    TEXT/TEXT "drainage" x "Stress begins before the bucket "
+    TEXT/LINE "ET + plant uptake" crossed by 2 stroke(s)
+environmental-systems__temperature-moisture-gradients__1  CLIP=1 T/T=0 T/L=3
+    CLIP "cooler air reaches saturation" right=33px past edge
+    TEXT/LINE "height" crossed by 1 stroke(s)
+    TEXT/LINE "warm lid blocks vertical mixing" crossed by 3 stroke(s)
+    TEXT/LINE "cloud base / LCL" crossed by 1 stroke(s)
+environmental-systems__vegetation-indices-and-remote-sensing__1  CLIP=0 T/T=0 T/L=1
+    TEXT/LINE "bare soil" crossed by 2 stroke(s)
+environmental-systems__wind-profiles-and-turbulence__1  CLIP=0 T/T=1 T/L=3
+    TEXT/TEXT "wind speed" x "forest / shrubland / urban rough"
+    TEXT/LINE "height" crossed by 1 stroke(s)
+    TEXT/LINE "rough surface" crossed by 1 stroke(s)
+    TEXT/LINE "momentum mixes downward" crossed by 1 stroke(s)
+foundations__atmospheric-effects-and-surface-reflectance__1  CLIP=0 T/T=0 T/L=3
+    TEXT/LINE "downward path" crossed by 1 stroke(s)
+    TEXT/LINE "upward path" crossed by 1 stroke(s)
+    TEXT/LINE "path radiance added" crossed by 1 stroke(s)
+foundations__digital-elevation-models-as-functions__1  CLIP=1 T/T=0 T/L=0
+    CLIP "each cell stores one representat" right=71px past edge
+foundations__earth-as-rotating-sphere__1  CLIP=4 T/T=0 T/L=1
+    CLIP "Every location is one radius, on" right=301px past edge
+    CLIP "The radius fixes distance from t" right=167px past edge
+    CLIP "Latitude picks a parallel circle" right=87px past edge
+    CLIP "Longitude chooses where on that " right=206px past edge
+    TEXT/LINE "lat" crossed by 1 stroke(s)
+foundations__earth-as-rotating-sphere__2  CLIP=0 T/T=0 T/L=0
+foundations__exponential-growth-and-logarithms__1  CLIP=0 T/T=0 T/L=3
+    TEXT/LINE "size" crossed by 1 stroke(s)
+    TEXT/LINE "linear: add the same amount" crossed by 1 stroke(s)
+    TEXT/LINE "inverse operations" crossed by 1 stroke(s)
+foundations__gradient-aspect-steepest-descent__1  CLIP=0 T/T=0 T/L=2
+    TEXT/LINE "steepest descent" crossed by 1 stroke(s)
+    TEXT/LINE "cell" crossed by 1 stroke(s)
+foundations__gravity-models-trade-migration__1  CLIP=0 T/T=1 T/L=1
+    TEXT/TEXT "B" x "stronger distance term"
+    TEXT/LINE "stronger distance term" crossed by 1 stroke(s)
+foundations__hydrological-flow-as-optimization__1  CLIP=0 T/T=0 T/L=2
+    TEXT/LINE "116" crossed by 1 stroke(s)
+    TEXT/LINE "101" crossed by 1 stroke(s)
+foundations__hydrological-flow-as-optimization__2  CLIP=0 T/T=0 T/L=0
+foundations__light-attenuation-in-canopy__1  CLIP=0 T/T=0 T/L=0
+foundations__light-attenuation-in-canopy__2  CLIP=1 T/T=0 T/L=0
+    CLIP "cumulative LAI" right=10px past edge
+foundations__linear-change-and-rate__1  CLIP=0 T/T=0 T/L=2
+    TEXT/LINE "run = Δx" crossed by 1 stroke(s)
+    TEXT/LINE "how much y changes for each unit" crossed by 1 stroke(s)
+foundations__logistic-growth-and-equilibrium__1  CLIP=1 T/T=0 T/L=1
+    CLIP "growth slows as brake strengthen" right=25px past edge
+    TEXT/LINE "almost exponential" crossed by 1 stroke(s)
+foundations__map-projections-and-coordinate-reference-systems__1  CLIP=0 T/T=0 T/L=0
+foundations__map-projections-and-coordinate-reference-systems__2  CLIP=0 T/T=0 T/L=0
+foundations__map-projections-and-coordinate-reference-systems__3  CLIP=0 T/T=0 T/L=0
+foundations__map-projections-and-coordinate-reference-systems__4  CLIP=0 T/T=0 T/L=0
+foundations__map-projections-and-coordinate-reference-systems__5  CLIP=0 T/T=0 T/L=0
+foundations__map-projections-and-coordinate-reference-systems__6  CLIP=0 T/T=0 T/L=0
+foundations__map-projections-and-coordinate-reference-systems__7  CLIP=0 T/T=0 T/L=0
+foundations__solar-geometry-and-projection__1  CLIP=0 T/T=0 T/L=0
+foundations__solar-geometry-and-projection__2  CLIP=0 T/T=0 T/L=2
+    TEXT/LINE "θ" crossed by 1 stroke(s)
+    TEXT/LINE "θ = 0°  → cos θ = 1.00" crossed by 1 stroke(s)
+foundations__spatial-diffusion-of-innovation__1  CLIP=0 T/T=0 T/L=4
+    TEXT/LINE "seed" crossed by 4 stroke(s)
+    TEXT/LINE "later" crossed by 2 stroke(s)
+    TEXT/LINE "later" crossed by 1 stroke(s)
+    TEXT/LINE "later" crossed by 1 stroke(s)
+foundations__spatial-spectral-temporal-and-radiometric-resolution__1  CLIP=0 T/T=0 T/L=0
+foundations__spatial-spectral-temporal-and-radiometric-resolution__2  CLIP=1 T/T=1 T/L=0
+    CLIP "narrow bands keep features" right=17px past edge
+    TEXT/TEXT "wide bands blur detail" x "narrow bands keep features"
+foundations__spatial-spectral-temporal-and-radiometric-resolution__3  CLIP=0 T/T=0 T/L=0
+foundations__spatial-spectral-temporal-and-radiometric-resolution__4  CLIP=0 T/T=0 T/L=0
+foundations__spectral-mixing-and-sensor-response__1  CLIP=0 T/T=2 T/L=0
+    TEXT/TEXT "60% vegetation" x "40% soil"
+    TEXT/TEXT "recorded" x "0.36"
+foundations__spectral-mixing-and-sensor-response__2  CLIP=0 T/T=0 T/L=0
+foundations__what-is-remote-sensing__1  CLIP=0 T/T=0 T/L=1
+    TEXT/LINE "reflect / emit / scatter" crossed by 1 stroke(s)
+machine-learning__dimensionality-reduction-pca-tsne-umap__1  CLIP=0 T/T=0 T/L=0
+machine-learning__dimensionality-reduction-pca-tsne-umap__2  CLIP=0 T/T=0 T/L=0
+machine-learning__dimensionality-reduction-pca-tsne-umap__3  CLIP=1 T/T=0 T/L=0
+    CLIP "local groups on a broader shape" right=19px past edge
+methods-and-tools__causal-inference-for-geographic-questions__1  CLIP=0 T/T=0 T/L=0
+spatial-analysis__cost-distance-least-cost-paths__1  CLIP=0 T/T=0 T/L=0
+spatial-analysis__raster-resampling-interpolation__1  CLIP=0 T/T=0 T/L=0
+spatial-analysis__time-series-analysis__1  CLIP=0 T/T=0 T/L=1
+    TEXT/LINE "SOS" crossed by 2 stroke(s)
+spatial-analysis__watershed-delineation__1  CLIP=0 T/T=0 T/L=0

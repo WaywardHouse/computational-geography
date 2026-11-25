@@ -129,8 +129,8 @@ As distance increases, interaction **decreases** rapidly:
   <text x="440" y="168" font-size="18" fill="#5c3d07" font-weight="700">C</text>
   <line x1="122" y1="140" x2="258" y2="129" stroke="#224f9c" stroke-width="7" stroke-linecap="round"/>
   <polygon points="258,129 245,121 246,136" fill="#224f9c"/>
-  <text x="146" y="116" font-size="16" fill="#224f9c" font-weight="700">shorter distance</text>
-  <text x="166" y="136" font-size="14" fill="#224f9c">stronger distance term</text>
+  <text x="118" y="94" font-size="16" fill="#224f9c" font-weight="700">shorter distance</text>
+  <text x="118" y="112" font-size="13" fill="#224f9c" paint-order="stroke" stroke="#f3efe7" stroke-width="5" stroke-linejoin="round">stronger distance term</text>
   <line x1="122" y1="149" x2="410" y2="160" stroke="#a64b2a" stroke-width="5" stroke-linecap="round" stroke-dasharray="10 8"/>
   <polygon points="410,160 398,151 398,167" fill="#a64b2a"/>
   <text x="246" y="188" font-size="16" fill="#a64b2a" font-weight="700">farther distance</text>

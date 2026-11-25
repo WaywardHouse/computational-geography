@@ -124,10 +124,10 @@ If we ignore income, we may incorrectly attribute the whole observed heat differ
   <path d="M284 106 C312 124, 340 138, 366 156" fill="none" stroke="#6d5ea8" stroke-width="6" marker-end="url(#ca-arrow)"/>
   <path d="M210 192 C246 192, 278 192, 314 192" fill="none" stroke="#2a9d8f" stroke-width="6" marker-end="url(#ca-arrow-green)"/>
   <defs>
-    <marker id="ca-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="ca-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#6d5ea8"/>
     </marker>
-    <marker id="ca-arrow-green" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="ca-arrow-green" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#2a9d8f"/>
     </marker>
   </defs>

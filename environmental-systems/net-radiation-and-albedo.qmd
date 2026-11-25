@@ -127,27 +127,27 @@ $$R_n = \text{Net shortwave} + \text{Net longwave}$$
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
 ```{=html}
-<svg viewBox="0 0 560 300" role="img" aria-label="Surface energy budget showing incoming and outgoing shortwave and longwave arrows">
-  <rect x="0" y="0" width="560" height="300" rx="22" fill="#f7f1e3"/>
+<svg viewBox="0 0 560 320" role="img" aria-label="Surface energy budget showing incoming and outgoing shortwave and longwave arrows">
+  <rect x="0" y="0" width="560" height="320" rx="22" fill="#f7f1e3"/>
   <rect x="50" y="204" width="460" height="46" rx="14" fill="#8a6d4b"/>
   <rect x="50" y="184" width="460" height="24" rx="12" fill="#b89a63"/>
   <circle cx="112" cy="72" r="28" fill="#f4d35e" stroke="#d49b00" stroke-width="4"/>
   <text x="83" y="118" font-size="16" fill="#6e5600" font-weight="700">sun</text>
   <line x1="142" y1="94" x2="236" y2="186" stroke="#d89b00" stroke-width="10" stroke-linecap="round"/>
   <polygon points="236,186 214,182 223,160" fill="#d89b00"/>
-  <text x="158" y="132" font-size="18" fill="#9b6d00" font-weight="700">incoming shortwave</text>
+  <text x="30" y="150" font-size="16" fill="#9b6d00" font-weight="700" paint-order="stroke" stroke="#f7f1e3" stroke-width="5" stroke-linejoin="round"><tspan x="30">incoming</tspan><tspan x="30" dy="1.15em">shortwave</tspan></text>
   <line x1="268" y1="184" x2="192" y2="124" stroke="#2a9d8f" stroke-width="9" stroke-linecap="round"/>
   <polygon points="192,124 208,139 216,121" fill="#2a9d8f"/>
-  <text x="264" y="138" font-size="18" fill="#1f6f66" font-weight="700">reflected shortwave</text>
+  <text x="218" y="108" font-size="16" fill="#1f6f66" font-weight="700" paint-order="stroke" stroke="#f7f1e3" stroke-width="5" stroke-linejoin="round"><tspan x="218">reflected</tspan><tspan x="218" dy="1.15em">shortwave</tspan></text>
   <path d="M405 124 C420 94, 438 84, 462 82 C484 80, 503 93, 516 118" fill="none" stroke="#7a5ea8" stroke-width="7"/>
   <polygon points="516,118 500,107 499,126" fill="#7a5ea8"/>
-  <text x="349" y="102" font-size="18" fill="#5d4781" font-weight="700">incoming longwave</text>
+  <text x="372" y="60" font-size="16" fill="#5d4781" font-weight="700" paint-order="stroke" stroke="#f7f1e3" stroke-width="5" stroke-linejoin="round">incoming longwave</text>
   <path d="M322 184 C336 145, 352 124, 378 117 C401 111, 424 122, 438 146" fill="none" stroke="#b14e8a" stroke-width="7"/>
   <polygon points="438,146 420,138 424,156" fill="#b14e8a"/>
-  <text x="292" y="218" font-size="18" fill="#8b386a" font-weight="700">outgoing longwave</text>
+  <text x="452" y="162" font-size="16" fill="#8b386a" font-weight="700"><tspan x="452">outgoing</tspan><tspan x="452" dy="1.15em">longwave</tspan></text>
   <text x="120" y="238" font-size="18" fill="#fff7e6" font-weight="700">surface</text>
   <text x="64" y="274" font-size="16" fill="#4b4235">Net radiation = shortwave gain + longwave gain/loss</text>
-  <text x="64" y="294" font-size="16" fill="#4b4235">Albedo mainly changes reflection; temperature mainly changes emission.</text>
+  <text x="21" y="294" font-size="16" fill="#4b4235">Albedo mainly changes reflection; temperature mainly changes emission.</text>
 </svg>
 ```
 </div>

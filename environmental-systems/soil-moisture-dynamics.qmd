@@ -155,8 +155,8 @@ When stressed ($K_s < 1$), plants close stomata → transpiration decreases → 
 <div class="cg-ill__grid cg-ill__grid--2">
 <div class="cg-ill__card">
 ```{=html}
-<svg viewBox="0 0 560 320" role="img" aria-label="Root-zone soil moisture diagram showing precipitation, infiltration, storage, evapotranspiration, runoff, and drainage">
-  <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef4ef"/>
+<svg viewBox="0 0 560 350" role="img" aria-label="Root-zone soil moisture diagram showing precipitation, infiltration, storage, evapotranspiration, runoff, and drainage">
+  <rect x="0" y="0" width="560" height="350" rx="22" fill="#eef4ef"/>
   <rect x="80" y="110" width="320" height="130" rx="18" fill="#b78f62" stroke="#6f5539" stroke-width="4"/>
   <rect x="80" y="110" width="320" height="26" rx="14" fill="#d7c39d"/>
   <rect x="102" y="146" width="276" height="70" rx="14" fill="#6ca8d6" fill-opacity="0.72" stroke="#2b6f97" stroke-width="3"/>
@@ -171,10 +171,10 @@ When stressed ($K_s < 1$), plants close stomata → transpiration decreases → 
   <text x="116" y="48" font-size="15" fill="#1f6f66">infiltration into root zone</text>
   <line x1="286" y1="144" x2="286" y2="58" stroke="#a63d40" stroke-width="8" stroke-linecap="round"/>
   <polygon points="286,58 276,74 296,74" fill="#a63d40"/>
-  <text x="306" y="76" font-size="18" fill="#8c2f31" font-weight="700">ET + plant uptake</text>
+  <text x="306" y="76" font-size="18" fill="#8c2f31" font-weight="700" paint-order="stroke" stroke="#eef4ef" stroke-width="5" stroke-linejoin="round">ET + plant uptake</text>
   <line x1="236" y1="240" x2="236" y2="294" stroke="#7a5ea8" stroke-width="8" stroke-linecap="round"/>
   <polygon points="236,294 226,278 246,278" fill="#7a5ea8"/>
-  <text x="256" y="292" font-size="18" fill="#5d4781" font-weight="700">drainage</text>
+  <text x="246" y="292" font-size="18" fill="#5d4781" font-weight="700">drainage</text>
   <line x1="402" y1="132" x2="500" y2="132" stroke="#d89b00" stroke-width="8" stroke-linecap="round"/>
   <polygon points="500,132 484,122 484,142" fill="#d89b00"/>
   <text x="410" y="116" font-size="18" fill="#9b6d00" font-weight="700">runoff if full</text>
@@ -183,8 +183,8 @@ When stressed ($K_s < 1$), plants close stomata → transpiration decreases → 
   <path d="M170 100 C190 80, 206 82, 224 100" fill="none" stroke="#2a9d8f" stroke-width="4"/>
   <path d="M286 114 C300 96, 316 82, 330 72" fill="none" stroke="#5b8a3c" stroke-width="4"/>
   <path d="M306 114 C320 96, 336 82, 350 72" fill="none" stroke="#5b8a3c" stroke-width="4"/>
-  <text x="76" y="276" font-size="16" fill="#35515f">Storage rises with rain and falls through ET, drainage, and runoff.</text>
-  <text x="76" y="296" font-size="16" fill="#35515f">Stress begins before the bucket is empty.</text>
+  <text x="76" y="322" font-size="16" fill="#35515f">Storage rises with rain and falls through ET, drainage, and runoff.</text>
+  <text x="76" y="342" font-size="16" fill="#35515f">Stress begins before the bucket is empty.</text>
 </svg>
 ```
 </div>

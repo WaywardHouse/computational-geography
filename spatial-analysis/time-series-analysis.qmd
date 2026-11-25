@@ -145,7 +145,7 @@ $$S(t) = \sum_{k=1}^{n} \left[a_k \cos(2\pi k t / P) + b_k \sin(2\pi k t / P)\ri
   <circle cx="135" cy="142" r="7" fill="#2f855a"/>
   <circle cx="205" cy="70" r="7" fill="#dd6b20"/>
   <circle cx="345" cy="174" r="7" fill="#2563eb"/>
-  <text x="118" y="126" font-size="13" fill="#2f855a">SOS</text>
+  <text x="118" y="126" font-size="13" fill="#2f855a" paint-order="stroke" stroke="#ffffff" stroke-width="5" stroke-linejoin="round">SOS</text>
   <text x="190" y="52" font-size="13" fill="#dd6b20">POS</text>
   <text x="332" y="192" font-size="13" fill="#2563eb">EOS</text>
   <text x="34" y="228" font-size="14" fill="#5a5a56">Year 1</text>

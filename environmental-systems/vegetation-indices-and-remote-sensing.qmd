@@ -148,7 +148,7 @@ Leaf internal structure:
   <text x="244" y="34" font-size="14" fill="#8c2f31" font-weight="700">red absorption</text>
   <text x="342" y="34" font-size="14" fill="#224f9c" font-weight="700">NIR scattering</text>
   <text x="406" y="84" font-size="15" fill="#2d6b45" font-weight="700">healthy vegetation</text>
-  <text x="360" y="132" font-size="15" fill="#7a6044" font-weight="700">bare soil</text>
+  <text x="360" y="132" font-size="15" fill="#7a6044" font-weight="700" paint-order="stroke" stroke="#eef4ef" stroke-width="5" stroke-linejoin="round">bare soil</text>
   <text x="86" y="266" font-size="16" fill="#35515f">NDVI gets large when NIR is high and red is low.</text>
 </svg>
 ```

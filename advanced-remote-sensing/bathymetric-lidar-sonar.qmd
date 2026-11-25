@@ -190,7 +190,7 @@ $$\sin\theta_{\text{water}} = \frac{\sin\theta_{\text{air}}}{1.33}$$
 <svg viewBox="0 0 560 320" role="img" aria-label="Comparison diagram showing bathymetric lidar in shallow clear water and multibeam sonar in deeper water.">
   <rect x="0" y="0" width="560" height="320" rx="22" fill="#eef7fb"/>
   <line x1="54" y1="114" x2="506" y2="114" stroke="#4aa3d6" stroke-width="4"/>
-  <text x="64" y="104" font-size="16" fill="#12608d">water surface</text>
+  <text x="64" y="104" font-size="16" fill="#12608d" paint-order="stroke" stroke="#eef7fb" stroke-width="5" stroke-linejoin="round">water surface</text>
 
   <rect x="92" y="36" width="42" height="18" rx="8" fill="#334155"/>
   <polygon points="134,45 160,32 160,58" fill="#64748b"/>
@@ -209,10 +209,10 @@ $$\sin\theta_{\text{water}} = \frac{\sin\theta_{\text{air}}}{1.33}$$
   <path d="M404 110 L462 236" stroke="#0f766e" stroke-width="4"/>
   <path d="M404 110 L404 246" stroke="#0f766e" stroke-width="4"/>
   <path d="M404 246 L404 110" stroke="#0f766e" stroke-width="4" stroke-dasharray="6 5"/>
-  <text x="426" y="182" font-size="15" fill="#0f766e">multibeam swath</text>
+  <text x="426" y="182" font-size="15" fill="#0f766e" paint-order="stroke" stroke="#eef7fb" stroke-width="5" stroke-linejoin="round">multibeam swath</text>
 
   <path d="M66 246 C124 228, 182 236, 252 224 C314 214, 382 252, 492 232" fill="none" stroke="#7c8fa3" stroke-width="5"/>
-  <text x="264" y="274" font-size="16" fill="#475569">bottom position depends on speed, angle, and refraction/sound-speed correction</text>
+  <text x="264" y="274" font-size="16" fill="#475569"><tspan x="264">bottom position depends on speed,</tspan><tspan x="264" dy="1.2em">angle, and refraction/sound-speed</tspan><tspan x="264" dy="1.2em">correction</tspan></text>
 </svg>
 ```
 </div>

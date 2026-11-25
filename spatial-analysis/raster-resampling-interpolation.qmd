@@ -238,7 +238,7 @@ Weighted average of 16 nearest pixels using cubic polynomials.
   <text x="614" y="156" font-size="15" fill="#475569">bicubic: wider patch</text>
 
   <defs>
-    <marker id="resample-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+    <marker id="resample-arrow" markerUnits="userSpaceOnUse" viewBox="0 0 8 8" markerWidth="12" markerHeight="12" refX="6" refY="4" orient="auto">
       <path d="M0,0 L8,4 L0,8 z" fill="#64748b"/>
     </marker>
   </defs>

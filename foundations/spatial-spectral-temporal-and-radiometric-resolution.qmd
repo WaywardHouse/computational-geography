@@ -106,8 +106,8 @@ This chapter gives a compact language for that tradeoff space. Once you understa
 <path d="M93 28 V102"/><path d="M106 28 V102"/><path d="M119 28 V102"/><path d="M132 28 V102"/>
 <path d="M154 28 V102"/><path d="M166 28 V102"/><path d="M178 28 V102"/><path d="M190 28 V102"/>
 </g>
-<text x="70" y="124" text-anchor="middle" font-size="12" fill="#5a5a56">wide bands blur detail</text>
-<text x="162" y="124" text-anchor="middle" font-size="12" fill="#5a5a56">narrow bands keep features</text>
+<text x="62" y="120" text-anchor="middle" font-size="12" fill="#5a5a56"><tspan x="62">wide bands</tspan><tspan x="62" dy="1.2em">blur detail</tspan></text>
+<text x="160" y="120" text-anchor="middle" font-size="12" fill="#5a5a56"><tspan x="160">narrow bands</tspan><tspan x="160" dy="1.2em">keep features</tspan></text>
 </svg>
 <p>Broad bands average over absorption features; narrow bands preserve the chemistry or material contrast inside the curve.</p>
 </div>

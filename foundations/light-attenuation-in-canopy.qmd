@@ -83,7 +83,7 @@ The mathematics describing this gradient is Beer's Law — an exponential attenu
 <path d="M84 116 H152"/><path d="M84 178 H250"/><path d="M84 214 H356"/>
 </g>
 <text x="76" y="54" font-size="15" fill="#5a5a56">light</text>
-<text x="470" y="270" font-size="15" fill="#5a5a56">cumulative LAI</text>
+<text x="440" y="270" font-size="15" fill="#5a5a56">cumulative LAI</text>
 <text x="160" y="110" font-size="14" fill="#5a5a56">strong early losses</text>
 <text x="322" y="207" font-size="14" fill="#5a5a56">long low-light tail</text>
 </svg>
